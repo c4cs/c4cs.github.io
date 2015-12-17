@@ -1,0 +1,11 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}

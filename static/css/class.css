@@ -1,0 +1,17 @@
+.h2 {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 1000px;
+	}
+}
+
+@screen and (max-width: 767px) {
+	.table-responsive > .table > tbody > tr > td {
+		white-space: inherit;
+	}
+}
+

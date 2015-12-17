@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EECS 398::003</title>
+
+	<link href="static/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="static/css/navbar-fixed-top.css" rel="stylesheet" />
+	<link href="static/css/sticky-footer-navbar.css" rel="stylesheet" />
+	<link href="static/css/class.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Computing for Computer Scientists</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#prereqs">Pre-Requisites</a></li>
+				<li><a href="#syllabus">Syllabus</a></li>
+				<li class="hidden-sm"><a href="#grading">Attendance, Grading, and Homework</a></li>
+				<li class="hidden-xs hidden-md hidden-lg"><a href="#grading">Policies</a></li>
+				<li><a href="#links">Links / Resources</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+
+<div class="alert alert-info">
+	<h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
+	<h4>11/20: This class will count as Flex Tech for CS, DS, and EE students and an EECS Elective for CE students <small>(note, extra EECS Elective credits can be used to fill Flex Tech credits for CE students)</small>.</h4>
+	<h4><a class="anchor" name="update-full"></a>12/2: Wow! Registration is full!</h4>
+	<h5>First, please add yourself to the waitlist if you are still interested in this class.</h5>
+	<p>A large waitlist could help justify a larger classroom (if we can
+	get one) or possibly additional sections (though I will say upfront
+	this will take a little more doing and is less likely). With apologies
+	to those who will not be able to enroll this term, as this is first
+	time this course will be offered I&rsquo;m not sure I can handle
+	something too enormous.</p>
+	<p>While I appreciate the enthusiasm for this course,
+	<strong>
+		please don't e-mail me if you&rsquo;re on the waitlist to ask
+		if you will be able to register</strong>.
+	I will post any and all information about additional
+	enrollment availability here as soon as I know.</p>
+	<p>Thank you all for the support and enthusiasm.</p>
+</div>
+<div class="alert alert-success" style="text-align: center">
+	<h2>Registration Information</h2>
+	<h3>The course number in Wolverine Access is <strong>31938</strong>.</h3>
+	<h3>Be sure to register only for <strong>section 003</strong>, the other
+	398 sections are different courses!</h3>
+	<hr />
+	<h4 style="text-align: right">For any other questions, email me at <a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a></h4>
+</div>
+<hr />
+
+<!-- <h2>Description</h2> -->
+	<div class="jumbotron">
+		<p>This 1-credit seminar is designed to teach the essentials of using a
+		computer effectively for EECS students. While the target audience is CS/CE/DS
+		students, any student wishing to learn how to use their computer much more
+		effectively is encouraged to join. Topics covered include shells, environment,
+		scripting, Makefiles, compilers, debugging tools, and version control. The
+		last month of the course will be open to student input for remaining useful
+		topics to cover.</p>
+	</div>
+
+
+<h2><a class="anchor" name="prereqs"></a>Course Pre-Requisites</h2>
+The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
+EECS&nbsp;182/183, however it is advised that students have either taken or are
+concurrently enrolled in EECS&nbsp;280.  A basic understanding of programming
+(if/else, for, while) and a passing familiarity with a compiler and command
+prompt is the only expected background.
+
+<h2><a class="anchor" name="syllabus"></a>Syllabus</h2>
+<div class="alert alert-warning">
+	<span class="glyphicon glyphicon-warning-sign"></span>
+	This is a work-in-progress and likely to change before the start of the term.
+</div>
+<div class="table-responsive">
+<table class="table">
+	<tr><th></th><th></th><th>Topic</th><th>Homework</th></tr>
+	<tr>
+		<th class="week">Week&nbsp;1</th>
+		<td>1/8</td>
+		<td>Welcome to Computing for Computer Scientists
+			<ul>
+			<li>Intro to Linux, distributions, etc</li>
+			<li>What is a computer?</li>
+			<li>Unix history, especially in the context of tools</li>
+			<li>Command line navigation 101 (and why it&rsquo;s important)</li>
+			</ul>
+		</td>
+		<!-- Add a reading colum? http://www.pgbovine.net/command-line-bullshittery.htm -->
+		<td><ul>
+				<!--
+				<li>Install <a href="https://www.virtualbox.org/">VirtualBox</a> on your machine.</li>
+				<li>Create a <a href="http://www.ubuntu.com/download/server">Ubuntu Server</a> virtual machine</li>
+				<li>Try out some of command line 101 on your new &ldquo;machine&rdquo;</li>
+				-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;2</th>
+		<td>1/15</td>
+		<td>
+			<p>Shells and environment, basic scripting</p>
+			<ul>
+				<li>bash</li>
+				<li>$HOME, $PATH, etc</li>
+				<li>history, Ctrl-R, etc</li>
+				<li>.bashrc, alias, export</li>
+				<li>shell variables and functions</li>
+				<li>basic flow control</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Add class homework directory to your PATH</li>
+			<li>Source our environment (in hw2/env.rc)</li>
+			<li>Build a run_tests.sh (using hw2/tests/)</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;3</th>
+		<td>1/22</td>
+		<td>
+			<p>Effective use of text editors</p>
+			<ul>
+				<li>.vimrc</li>
+				<li>s/foo/bar/</li>
+				<li>navigation</li>
+				<li>buffers</li>
+				<li>:make</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Figure out what filesystem(s) are in use on your
+			machine</li>
+			<li>Install AFS on your machine</li>
+			<li>Set up SSH keys with class server</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;4</th>
+		<td>1/29</td>
+		<td>
+			<p>Revision Control Basics</p>
+			<ul>
+				<li>What's version control?</li>
+				<ul><li>Why is it important?</li></ul>
+				<li>git ideals - branch often, merges, cherry-picks</li>
+				<li>branches in git, remotes, tracking</li>
+				<li>pull vs fetch, push</li>
+				<li>How is decentralized different?</li>
+				<ul><li>(Is it better? What's "better"?)</li></ul>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Advanced "run_tests.sh"</li>
+			<li>Process the hw/data into human-readable format</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;5</th>
+		<td>2/5</td>
+		<td>
+			<p>Unix tools, advanced shell scripting, basic RegEx's</p>
+			<ul>
+				<li>cat, head, tail, less, more, |</li>
+				<li>shell jobs</li>
+				<li>grep, sort, uniq, regex's, (awk, sed)</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Customize your editor's configuration file</li>
+			<li>List the commands to open/edit/save/quit in...
+			<ul>
+				<li>vi</li>
+				<li>emacs</li>
+				<li>nano</li>
+				<li>pico</li>
+				<li class="ec"><b>EC: </b>sed and ed</li>
+			</ul></li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;6</th>
+		<td>2/12</td>
+		<td>
+			<p>Makefiles</p>
+			<ul>
+				<li>targets, dependencies, and rules</li>
+				<li>implicit rules</li>
+				<li>variables (default and otherwise)</li>
+				<li>specials (PHONY, NOTPARALLEL, etc)</li>
+				<li>recursive make</li>
+				<li>Adding testbenches to Makefiles</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Write a Makefile for any current EECS course</li>
+			<li>Write a Makefile hw/make_recursive/</li>
+			<li><b>EC:</b> Write the smallest Makefile possible for hw/make_challenge</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;7</th>
+		<td>2/19</td>
+		<td>
+			<p>Debugging tools (gdb, valgrind)</p>
+			<ul>
+				<li>Compilation flags (with a quck touch on object files)</li>
+				<li>breakpoints, watchpoints</li>
+				<li>instruction/function stepping</li>
+				<li>backtraces and debugging with them</li>
+				<li><i>OPT:</i> Multithreaded debugging</li>
+				<li>gdb vs valgrind?</li>
+				<li>how to use valgrind effectively (suppression, useful flags, instrumentation macros)</li>
+				<li>and... the judicious printf (#define DBG and other tricks)</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Use gdb to fix the errors in hw/debugging/gdb</li>
+			<li>Use valgrind to fix the errors in hw/debugging/valgrind</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;8</th>
+		<td>2/26</td>
+		<td><b>Optional Lecture: </b>Topic TBD</td>
+		<td><ul>
+			<li>None: Enjoy break!</li>
+		</ul></td>
+	</tr>
+	<tr><td colspan="4"><center><i>Spring Break</i></center></td></tr>
+	<tr>
+		<th class="week">Week&nbsp;9</th>
+		<td>3/11</td>
+		<td>
+			<p>Revision Control: Advanced and Others</p>
+			<ul>
+				<li>Histroy, branching, merging</li>
+				<li>Logs, blame</li>
+				<li>Commit hooks</li>
+				<li>Others: cvs, svn, hg, bzr</li>
+				<li>Meta: repo+git</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Checkout and commit to our repositories (ssh,afs)</li>
+			<li>Create a repository in your afs space, make sure the
+			group <pre>ppannuto:298staff</pre> has access</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;10</th>
+		<td>3/18</td>
+		<td>
+			<p>Advanced tools</p>
+			<ul>
+				<li>More gdb, valgrind</li>
+				<li>gprof, gcov</li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Checkout and commit to our repositories (ssh,afs)</li>
+			<li>Create a repository in your afs space, make sure the group ppannuto:298staff has access</li>
+			<li><b>EC: </b>Submit a patch to the linux kernel (<a href="http://kernelnewbies.org/">kernelnewbies.org</a>)</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;11</th>
+		<td>3/25</td>
+		<td>
+			<p>Compilers beyond gcc (clang, cross-compilers, static analyzers)</p>
+			<ul>
+				<li>Why?
+				<ul><li>(embedded systems, smartphones,
+					bug-checking...)</li></ul></li>
+				<li>Why is this so hard?
+				<ul><li>Limited user base, testing, etc</li></ul></li>
+				<li>Tips to make life less painful (combining previous materials)
+				<ul>
+					<li>Remember all that environment talk from Week&nbsp;2...?</li>
+					<li>Then mix in some Makefile magic</li>
+					<li>Plus automated testing</li>
+					<li>Now add some commit hooks (post-commit background static analysis? Automated e-mail notifications, build-checking - Oh MY!)</li>
+				</ul></li>
+			</ul>
+		</td>
+		<td><ul>
+		<!--
+			<li>Install any compiler other than gcc for x86/x64</li>
+			<li>Set up your Makefiles from last week to use this compiler</li>
+			<li><b>EC: </b>Have your Makefile check an environment variable to pick compilers</li>
+			<li><b>EC: </b>Show which bugs from hw/debugging/ could also have been found via static analysis</li>
+		-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;12</th>
+		<td>4/1</td>
+		<td>Open: Guided by course interest</td>
+		<td><ul>
+			<li>TBA</li>
+			<!--
+			<p>File systems, permissions, AFS, SSH, Kerberos</p>
+			<ul>
+				<li>ntfs vs extN vs hfs+ vs fat32</li>
+				<li>vs afs</li>
+				<li>permissions + tools</li>
+				<li>ssh - keygen, authorized_keys, etc</li>
+			</ul>
+			-->
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;13</th>
+		<td>4/8</td>
+		<td>Open: Guided by course interest</td>
+		<td><ul>
+			<li>TBA</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;14</th>
+		<td>4/15</td>
+		<td>Open: Guided by course interest</td>
+		<td><ul>
+			<li>None: Good luck on exams!</li>
+		</ul></td>
+	</tr>
+</table>
+</div><!-- table-responsive -->
+
+<p>Some suggestions for special topics lectures:</p>
+<ul>
+	<li>cron jobs</li>
+	<li>Python, Perl, &lt;insert pet scripting language here&gt;, ...</li>
+	<li>Personal Security / Integrity -- disk encryption, pgp, etc</li>
+	<li>Packaging (how to get your program into apt-get repositories)</li>
+	<li>Internet basics (routing, AS's, DNS, UDP, TCP, etc etc)</li>
+	<li>Internet tools, (nc, dig, nslookup, whois, etc)</li>
+	<li>LaTeX</li>
+	<li>Postscript</li>
+</ul>
+
+<h2><a class="anchor" name="grading"></a>Attendance, Grading, and Homework</h2>
+<div class="alert alert-warning">
+	<span class="glyphicon glyphicon-warning-sign"></span>
+	This is a work-in-progress and likely to change before the start of the term.
+</div>
+
+<h3>Attendance</h3>
+
+<p>Attendance is required for this course. Each lecture will begin with a
+question from last week&rsquo;s material. A correct answer is worth 2&nbsp;points,
+an incorrect answer is worth 1&nbsp;point, and no answer is worth 0&nbsp;points.
+An A&nbsp;student will end the term with at least 18&nbsp;points (of a possible 24).
+</p>
+
+<h3>Grading</h3>
+
+<p>There are 12 homeworks in the course. Homework is due by the
+<i>beginning</i> of lecture the week after it is assigned. Homeworks will be
+graded on a {0,1,2} scale:</p>
+<ul>
+	<li>0 -- No / very little effort</li>
+	<li>1 -- A solid effort, but not complete</li>
+	<li>2 -- Completed successfully</li>
+</ul>
+<p>This is a 1&nbsp;credit course and the homeworks are designed to be
+commensurate with that. The goal of the homeworks is to reinforce concepts
+introduced in lecture and to give hands-on experience working with tools.</p>
+<p>An A&nbsp;student will have at least 18 total homework points (e.g. 6&nbsp;1's and 6&nbsp;2's).</p>
+
+<h3>Final Exam</h3>
+<p>
+Students may choose to take this course as pass/fail or for a letter grade.
+The final exam is optional for pass/fail students, but required for graded students.
+</p>
+<strong>Note: Pass/fail courses cannot be counted for technical credit.</strong>
+
+<h2><a class="anchor" name="links"></a>Useful Links / Resources</h2>
+<ul>
+	<li><a href="http://c-faq.com/index.html">comp.lang.c FAQ</a>: Next time
+	you're bored, don't facebook, reddit, or google+; instead skim a
+	section. It's really interesting material, presented in short, easy
+	snippets</li>
+	<li><a href="http://stackoverflow.com">Stack Overflow</a>: Got a
+	problem? Try searching here instead of Google. Odds favor this site will
+	be the first result anyway, and it's answers are much more complete,
+	readable, and useful</li>
+</ul>
+
+</div> <!-- /container -->
+
+<footer class="footer">
+	<div class="container">
+		<div class="pull-right">
+			<p class="text-muted">
+			&copy; 2015 <a href="http://patpannuto.com">Pat Pannuto</a>
+			</p>
+		</div>
+	</div>
+</footer>
+
+<script src="static/js/jquery-2.1.4.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70360310-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
