@@ -3,6 +3,10 @@
 	margin-bottom: 20px;
 }
 
+.update {
+	margin-top: 20px;
+}
+
 @media (min-width: 768px) {
 	.container {
 		max-width: 1000px;
