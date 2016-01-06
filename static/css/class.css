@@ -7,6 +7,18 @@
 	margin-top: 20px;
 }
 
+.staff-table img {
+	width: 100px;
+}
+
+.staff-table td {
+	text-align: center;
+}
+
+.grade-table {
+	text-align: center;
+}
+
 @media (min-width: 768px) {
 	.container {
 		max-width: 1000px;
