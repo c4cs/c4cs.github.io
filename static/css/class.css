@@ -19,6 +19,26 @@
 	text-align: center;
 }
 
+/* https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/ */
+.calendar-container {
+	position: relative;
+	padding-bottom: 51.5%; /* 500/970 = 0.515 */
+	height: 0;
+	overflow: hidden;
+}
+
+.calendar-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.fc-location {
+	color: #EEE;
+}
+
 @media (min-width: 768px) {
 	.container {
 		max-width: 1000px;
