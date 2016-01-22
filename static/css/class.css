@@ -51,3 +51,19 @@
 	}
 }
 
+/* Override bootstrap's default table behavoir */
+@media screen and (max-width: 767px) {
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: normal;
+  }
+}
+
+.syllabus-homework {
+	height: 100%;
+}
+

@@ -185,18 +185,22 @@ registered for.</p>
 </div>
 <div class="table-responsive">
 <table class="table">
-	<tr><th></th><th></th><th>Topic</th><th>Lecture Materials</th><th>Homework</th></tr>
+	<tr>
+		<th></th>
+		<th></th>
+		<th style="min-width: 300px;">Topic</th>
+		<th style="min-width: 400px;">Lecture Materials</th></tr>
 	<tr>
 		<th class="week">Week&nbsp;1</th>
 		<td>1/8</td>
-		<td>Welcome to Computing for Computer Scientists
+		<td rowspan="2">Welcome to Computing for Computer Scientists
 			<ul>
 			<li>Course goals, philosophy, and background</li>
 			<li>Administrivia</li>
 			<li>What is a computer?</li>
 			</ul>
 		</td>
-		<td>
+		<td rowspan="2">
 			Slides
 			<ul>
 				<li><a href="/lec/c4cs-wk1-slides.pptx">pptx</a></li>
@@ -206,18 +210,20 @@ registered for.</p>
 			<ul>
 				<li><a href="https://leccap.engin.umich.edu/leccap/viewer/r/iKI1z7">Slides + Video</a></li>
 			</ul>
-        </td>
-		<td>
-		    <p><a href="/hw/c4cs-wk1-homework.pdf">Homework 1 [pdf]</a></p>
-            <p><a href="/hw/c4cs-wk1-homework.tex">Homework 1 [tex]</a></p>
-			<p><a href="/hw/c4cs-wk1-advanced.pdf">Advanced Exercise 1 [pdf]</a></p>
-            <p><a href="/hw/c4cs-wk1-advanced.tex">Advanced Exercise 1 [tex]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="/hw/c4cs-wk1-homework.pdf">Homework&nbsp;1&nbsp;[pdf]</a></p>
+			<p><a href="/hw/c4cs-wk1-homework.tex">Homework&nbsp;1&nbsp;[tex]</a></p>
+			<p><a href="/hw/c4cs-wk1-advanced.pdf">Advanced&nbsp;Exercise&nbsp;1&nbsp;[pdf]</a></p>
+			<p><a href="/hw/c4cs-wk1-advanced.tex">Advanced&nbsp;Exercise&nbsp;1&nbsp;[tex]</a></p>
 		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;2</th>
 		<td>1/15</td>
-		<td>
+		<td rowspan="2">
 			<p>Shells and environment, basic scripting</p>
 			<ul>
 				<li>Unix history, especially in the context of tools</li>
@@ -229,7 +235,7 @@ registered for.</p>
 				<li>basic flow control</li>
 			</ul>
 		</td>
-		<td>
+		<td rowspan="2">
 			<p>This week's lecture focused on &ldquo;the job of a shell&rdquo;,
 			specifically how programs are launched.
 			The lecture format is a bit of a &ldquo;choose your own adventure&rdquo;
@@ -256,7 +262,9 @@ registered for.</p>
 			</ul>
 			<p><small><i>Note: The tool I used to capture my terminal input and output from the afternoon lectures was not the best, it is a little hard to read. I apologize for that, I will try to find something better for future weeks.</i></small></p>
 		</td>
-		<td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
 			<p><a href="/hw/c4cs-wk2-homework.pdf">Homework 2 [pdf]</a></p>
 			<p><a href="/hw/c4cs-wk2-homework.tex">Homework 2 [tex]</a></p>
 			<p><a href="/hw/c4cs-wk2-advanced.pdf">Advanced Exercise 2 [pdf]</a></p>
@@ -266,7 +274,7 @@ registered for.</p>
 	<tr>
 		<th class="week">Week&nbsp;3</th>
 		<td>1/22</td>
-		<td>
+		<td rowspan="2">
 			<p><strong>Editors</strong></p>
 			<p>Lecture</p>
 			<ul>
@@ -288,8 +296,10 @@ registered for.</p>
 				<li>Extending text-based editors: Third-party additions</li>
 			</ul>
 		</td>
-		<td></td>
-		<td>
+		<td rowspan="2"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
 			<!--
 			<p><a href="/hw/c4cs-wk3-homework.pdf">Homework 3 [pdf]</a></p>
 			<p><a href="/hw/c4cs-wk3-homework.tex">Homework 3 [tex]</a></p>
@@ -301,7 +311,7 @@ registered for.</p>
 	<tr>
 		<th class="week">Week&nbsp;4</th>
 		<td>1/29</td>
-		<td>
+		<td rowspan="2">
 			<p>Revision Control Basics</p>
 			<ul>
 				<li>What's version control?</li>
@@ -313,18 +323,20 @@ registered for.</p>
 				<ul><li>(Is it better? What's "better"?)</li></ul>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 		<!--
 			<li>Advanced "run_tests.sh"</li>
 			<li>Process the hw/data into human-readable format</li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;5</th>
 		<td>2/5</td>
-		<td>
+		<td rowspan="2">
 			<p>Unix tools, advanced shell scripting, basic RegEx's</p>
 			<ul>
 				<li>cat, head, tail, less, more, |</li>
@@ -332,8 +344,7 @@ registered for.</p>
 				<li>grep, sort, uniq, regex's, (awk, sed)</li>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 			<!-- http://leancrew.com/all-this/2011/12/more-shell-less-egg/ -->
 		<!--
 			<li>Customize your editor's configuration file</li>
@@ -346,12 +357,15 @@ registered for.</p>
 				<li class="ec"><b>EC: </b>sed and ed</li>
 			</ul></li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;6</th>
 		<td>2/12</td>
-		<td>
+		<td rowspan="2">
 			<p>Makefiles</p>
 			<ul>
 				<li>targets, dependencies, and rules</li>
@@ -362,19 +376,21 @@ registered for.</p>
 				<li>Adding testbenches to Makefiles</li>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 		<!--
 			<li>Write a Makefile for any current EECS course</li>
 			<li>Write a Makefile hw/make_recursive/</li>
 			<li><b>EC:</b> Write the smallest Makefile possible for hw/make_challenge</li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;7</th>
 		<td>2/19</td>
-		<td>
+		<td rowspan="2">
 			<p>Debugging tools (gdb, valgrind)</p>
 			<ul>
 				<li>Compilation flags (with a quick touch on object files)</li>
@@ -387,28 +403,32 @@ registered for.</p>
 				<li>and... the judicious printf (#define DBG and other tricks)</li>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 		<!--
 			<li>Use gdb to fix the errors in hw/debugging/gdb</li>
 			<li>Use valgrind to fix the errors in hw/debugging/valgrind</li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;8</th>
 		<td>2/26</td>
-		<td><b>Optional Lecture: </b>Topic TBD</td>
-		<td></td>
-		<td><ul>
-			<li>None: Enjoy break!</li>
-		</ul></td>
+		<td rowspan="2"><b>Optional Lecture: </b>Topic TBD</td>
+		<td rowspan="2"></td>
 	</tr>
-	<tr><td colspan="5"><center><i>Spring Break</i></center></td></tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			No homework, enjoy break!
+		</td>
+	</tr>
+	<tr><td colspan="4"><center><i>Spring Break</i></center></td></tr>
 	<tr>
 		<th class="week">Week&nbsp;9</th>
 		<td>3/11</td>
-		<td>
+		<td rowspan="2">
 			<p>Revision Control: Advanced and Others</p>
 			<ul>
 				<li>History, branching, merging</li>
@@ -423,54 +443,57 @@ registered for.</p>
 				<li>Coverage vs &ldquo;code coverage&rdquo;</li>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 		<!--
 		    Set up CI for a project
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;10</th>
 		<td>3/18</td>
-		<td>
+		<td rowspan="2">
 			<p>Advanced tools</p>
 			<ul>
 				<li>More gdb, valgrind</li>
 				<li>gprof, gcov</li>
 			</ul>
 		</td>
-		<td></td>
-		<td><ul>
+		<td rowspan="2"></td>
 		<!--
 			<li>Checkout and commit to our repositories (ssh,afs)</li>
 			<li>Create a repository in your afs space, make sure the group ppannuto:298staff has access</li>
 			<li><b>EC: </b>Submit a patch to the linux kernel (<a href="http://kernelnewbies.org/">kernelnewbies.org</a>)</li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;11</th>
 		<td>3/25</td>
-		<td>Open: Guided by course interest</td>
-		<td></td>
-		<td><ul>
-			<li>TBA</li>
+		<td rowspan="2">Open: Guided by course interest</td>
+		<td rowspan="2"></td>
 		<!--
 			<li>Install any compiler other than gcc for x86/x64</li>
 			<li>Set up your Makefiles from last week to use this compiler</li>
 			<li><b>EC: </b>Have your Makefile check an environment variable to pick compilers</li>
 			<li><b>EC: </b>Show which bugs from hw/debugging/ could also have been found via static analysis</li>
 		-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;12</th>
 		<td>4/1</td>
-		<td>Open: Guided by course interest</td>
-		<td></td>
-		<td><ul>
-			<li>TBA</li>
+		<td rowspan="2">Open: Guided by course interest</td>
+		<td rowspan="2"></td>
 			<!--
 			<p>File systems, permissions, AFS, SSH, Kerberos</p>
 			<ul>
@@ -480,20 +503,21 @@ registered for.</p>
 				<li>ssh - keygen, authorized_keys, etc</li>
 			</ul>
 			-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr style="background-color: #ffa">
 		<th class="week">Final&nbsp;Exam</th>
 		<td><strong>Monday</strong> April&nbsp;4<br />7:00-8:30</td>
-		<td colspan="3">If you need any special accommodations, please let us know <a href="https://docs.google.com/a/umich.edu/forms/d/1Q6AtevV1kuffjf8HT3ZZhI9SGTqjYY_Cfh4GL6cPkZw/viewform" target="_blank">here</a> by March&nbsp;20th.</td>
+		<td colspan="2">If you need any special accommodations, please let us know <a href="https://docs.google.com/a/umich.edu/forms/d/1Q6AtevV1kuffjf8HT3ZZhI9SGTqjYY_Cfh4GL6cPkZw/viewform" target="_blank">here</a> by March&nbsp;20th.</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;13</th>
 		<td>4/8</td>
-		<td>Open: Guided by course interest</td>
-		<td></td>
-		<td><ul>
-			<li>TBA</li>
+		<td rowspan="2">Open: Guided by course interest</td>
+		<td rowspan="2"></td>
 			<!--
 			<p>Compilers beyond gcc (clang, cross-compilers, static analyzers)</p>
 			<ul>
@@ -511,16 +535,21 @@ registered for.</p>
 				</ul></li>
 			</ul>
 			-->
-		</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+		</td>
 	</tr>
 	<tr>
 		<th class="week">Week&nbsp;14</th>
 		<td>4/15</td>
-		<td>Open: Guided by course interest</td>
-		<td></td>
-		<td><ul>
-			<li>None: Good luck on exams!</li>
-		</ul></td>
+		<td rowspan="2">Open: Guided by course interest</td>
+		<td rowspan="2"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			No homework, good luck on finals!
+		</td>
 	</tr>
 </table>
 </div><!-- table-responsive -->
