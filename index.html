@@ -15,97 +15,31 @@ layout: default
 </div>
 
 <div class="alert alert-info">
-	<h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
+  <h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
 
-	<h4><a class="anchor update" name="update-advanced-duration"></a>2/4: Two Weeks for Advanced Homeworks</h4>
-	<p>Advanced homeworks will now have a two week window for submission.
-	This change first affects advanced homework 4, whose deadline is now
-	extended until before lecture on the 12th. This means at any given
-	time, two advanced homeworks will be &ldquo;in flight&rdquo;, one on
-	its first week and one on its second week.  The pdf for advanced
-	homework 4 has been updated to reflect this change.</p>
+  {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
+  {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
+  {% for update in site.categories.updates %}
+    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+    {% assign update_date = update.date | date: '%s' | times: 1 %}
+    {% if update_date > onemonthago %}
+      {{ update.output }}
+    {% endif %}
+  {% endfor %}
 
-	<h4><a class="anchor update" name="update-submit-special-topics"></a>1/30: Nominations for Special Topics Topics</h4>
-	<p>The last four weeks of the semester are open to topics guided by
-	course interest. We&rsquo;d like to start getting some suggestions from
-	you all on what kind of things you would like to learn more about. If
-	you have suggestions for things you think would be interesting,
-	please submit them here:</p>
-	<p><a href="https://docs.google.com/a/umich.edu/forms/d/1bEdFiOZ1w_6aT1XgmvX2CLVPU1vlvbllrJVKq5Ago7g/viewform" target="_blank">https://docs.google.com/a/umich.edu/forms/d/1bEdFiOZ1w_6aT1XgmvX2CLVPU1vlvbllrJVKq5Ago7g/viewform</a></p>
+  <p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates</a></p>
 
-	<h4><a class="anchor update" name="update-grade-ranges"></a>1/30: Fixing Ambiguous Grade Ranges</h4>
-	<p>The grade ranges as originally published had ambiguous endpoints
-	(e.g. 18-20&nbsp;&rarr;&nbsp;A- and 20-24&nbsp;&rarr;&nbsp;A, so what is a 20 worth?).
-	I have fixed these such that all ambiguities favor the higher grade
-	(e.g. 18-19&nbsp;&rarr;&nbsp;A- and 20-24&nbsp;&rarr;&nbsp;A), as was
-	my original intent.</p>
-	<p>Apologies for any confusion.</p>
-	<!-- n.b. As a computer scientist, this was a particularly embarrassing mistake :/ -->
+  <div id="old-updates" style="display: none">
 
-	<h4><a class="anchor update" name="update-bonus1"></a>1/29: Bonus Advanced Homework</h4>
-	<p>We have added a <a href="#bonus1">bonus advanced homework assignment</a>.
-	In short, it awards you an advanced homework point if successfully submit a
-	patch to an open source project. You may redeem this assignment any week and
-	it may be in addition to that week's advanced homework. You must have
-	public evidence of having started this assignment by March&nbsp;18th. For more
-	details <a href="#bonus1">see the assignment</a>.
+  {% for update in site.categories.updates %}
+    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+    {% assign update_date = update.date | date: '%s' | times: 1 %}
+    {% if update_date <= onemonthago %}
+      {{ update.output }}
+    {% endif %}
+  {% endfor %}
 
-	<h4><a class="anchor update" name="update-progress"></a>1/29: Viewing course grades / progress</h4>
-	<p>A few people have asked for better feedback on grades and progress
-	through the class. There is not a great way to do this on Gradescope,
-	so I will be keeping cTools up to date with grades.</p>
-	<p>The cTools grades for attendance and homework grades should be
-	straightforward. For the advanced homework assignments, cTools doesn't
-	have a great way of representing a &ldquo;choose 3 of 12&rdquo; system.
-	I have added two categories, <em>Advanced Homework</em> and <em>Advanced
-	Homework Raw</em>. Notice that the <em>raw</em> category has a 0% weight
-	(it will not count in your final score). It is simply a placeholder for
-	you to verify that your advanced homework has been counted. I will add
-	final scores for advanced homeworks at the end of the semester.</p>
-
-	<p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates (12/16-11/20)</a></p>
-
-	<div id="old-updates" style="display: none">
-
-	<h4><a class="anchor update" name="update-sections"></a>12/16: Two Additional Sections</h4>
-	<p>We opened two additional sections today. Unfortunately, due the way
-	that special topics classes are handled by the registration backend,
-	there was no way to transfer the wait list to the new sections (this
-	is a unique problem for special topics classes, and they aren't usually
-	this popular...). To give the waitlisted students the best chance, we
-	e-mailed only waitlisted students to alert them of the new sections and
-	asked people to keep it quiet. It was the best we could do with an
-	unfortunate situation.</p>
-	<p>As of 8&nbsp;PM, both new sections are full. It looks like about 80%
-	of the original waitlist was able to register. My sincerest apologies to
-	those on the original waitlist who missed the window.
-	At this point, we do not expect to open any more additional sections.</p>
-	<p>Finally, I would like to extend an extra-special thank you to
-	<a href="https://www.eecs.umich.edu/eecs/etc/fac/EECSfaculty.html?uniqname=mmdarden">Marcus Darden</a>,
-	who agreed to teach an overload semester so we could add another
-	section and allow more students to take the course.</p>
-	<p>Looking forward to seeing you all next term. Best of luck on exams!</p>
-	<p>&nbsp;-&nbsp;Pat</p>
-
-	<h4><a class="anchor update" name="update-full"></a>12/2: Wow! Registration is full!</h4>
-	<h5>First, please add yourself to the waitlist if you are still interested in this class.</h5>
-	<p>A large waitlist could help justify a larger classroom (if we can
-	get one) or possibly additional sections (though I will say upfront
-	this will take a little more doing and is less likely). With apologies
-	to those who will not be able to enroll this term, as this is first
-	time this course will be offered I&rsquo;m not sure I can handle
-	something too enormous.</p>
-	<p>While I appreciate the enthusiasm for this course,
-	<strong>
-		please don't e-mail me if you&rsquo;re on the waitlist to ask
-		if you will be able to register</strong>.
-	I will post any and all information about additional
-	enrollment availability here as soon as I know.</p>
-	<p>Thank you all for the support and enthusiasm.</p>
-
-	<h4><a class="anchor update" name="update-credits"></a>11/20: This class will count as Flex Tech for CS, DS, and EE students and an EECS Elective for CE students <small>(note, extra EECS Elective credits can be used to fill Flex Tech credits for CE students)</small>.</h4>
-
-	</div><!-- old-updates -->
+  </div><!-- old-updates -->
 </div>
 <!--
 <div class="alert alert-success" style="text-align: center">

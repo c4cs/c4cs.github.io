@@ -1,0 +1,8 @@
+<h4>
+  <a class="anchor update" name="update-{{ page.slug }}"></a>
+  <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d" }}</time>:
+  {{ page.title }}
+</h4>
+
+{{ content }}
+
