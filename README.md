@@ -3,6 +3,10 @@
 This repository holds the sources for the course homepage for Computing for Computer Scientists,
 a course for early-career EECS students at the University of Michigan.
 
+The site itself uses [Jekyll](https://jekyllrb.com/). To get started rundle
+`bundle install` and then `bundle exec jekyll serve`. For more information on
+getting things set up, see [GitHub's guide](https://help.github.com/articles/using-jekyll-with-pages/).
+
 For more information, visit the course homepage: http://c4cs.github.io
 
 ---------------------
