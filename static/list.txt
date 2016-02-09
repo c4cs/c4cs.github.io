@@ -1,0 +1,78 @@
+# In lectures, we collected a list of commands and concepts people have seen.
+# This is the aggregate list across all three lectures. It includes things
+# we've explicitly covered in class (git, sed, echo, wc, ...) and things
+# people have encountered (whoami, fortune, cowsay, ...). In a few weeks,
+# we'll use this as the basis for a project, but I wanted to share the list in
+# case it's useful for anyone now.
+
+# Commands
+apt-get
+aspell
+bg
+brew
+bzip
+cat
+cd
+chmod
+chown
+cowsay
+cp
+curl
+diff
+echo
+ed
+emacs
+export
+fg
+file
+find
+fortune
+fsck
+gedit
+git
+grep
+gzip
+history
+jobs
+less
+ls
+make
+man
+mkdir
+mv
+nano
+ps
+pwd
+rm
+rmdir
+rsync
+say
+scp
+sed
+sudo
+tar
+top
+touch
+tr
+vi
+w
+wc
+wget
+whereis
+which
+who
+whoami
+yes
+
+# Shell Things
+$_
+$?
+$variable
+$(command)
+|
+<
+>
+>>
+!!
+&
+Ctrl-R
