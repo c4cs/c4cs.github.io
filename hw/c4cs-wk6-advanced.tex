@@ -1,0 +1,192 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Homework 6\\}}
+\author{Assigned: Friday, February 12, 11:00AM}
+\date{\textbf{\color{red}{Due: Before the first lecture on Friday, February 26}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions.
+
+\begin{mdframed}[innerleftmargin=38pt,innerrightmargin=38pt]\justify
+  This assignment asks to you work with any EECS project. You may use a
+  current project, a previous project, or the EECS\,280~W15 project we've been
+  using throughout the homeworks so far.
+
+  If you do use a current EECS project, remember to commit everything before
+  experimenting (you are using version control for all your projects, right?).
+  Some of the examples reference the EECS\,280~W15 project, however they should
+  be easy enough to translate to any other project.
+\end{mdframed}
+
+\section{Compiler-Assisted Makefiles}
+
+As we saw in the regular homework, it can be somewhat hard to correctly list
+all of the dependencies of a file. However, there is one program that knows
+all of the files that the compiler needs to read in order to compile your
+code, and that program is the compiler!
+
+Try running \texttt{gcc~-MM~simple\_test.cpp} (also try running
+\texttt{gcc~-M~simple\_test.cpp}, do you understand the difference?).
+%One thing to note is that the target for the emitted rule is an object file
+%(\texttt{simple\_test.o}), not the final executable (\texttt{simple\_test}).
+What does \texttt{-MMD} do?
+
+\textbf{Modify the makefile to auto-generate the dependencies for
+  \texttt{simple\_test} and use them when building \texttt{simple\_test}.}
+
+Notes / tips:
+\begin{itemize}
+  \item You \textbf{do not} need to set up the whole project to use
+    auto-generated dependencies. This is tricky to do correctly.
+    The goal is for you to play with this a little just to see how the
+    mechanisms work. People have since developed tools that are easier to use
+    and understand than gcc+make for auto-generating dependencies.\footnote{
+      This is not to say that gcc's dependency generation is not useful.
+      Indeed, \href{https://ninja-build.org/manual.html\#ref_headers}{ninja
+        uses it}. Ninja, however explicitly understands that generating
+      dependencies is a step in the build process, making it conceptually
+      easier and cleaner than make.
+    }
+    \begin{itemize}
+      \item If your solution is full of \texttt{\%}'s, you should be prepared
+        to explain in depth how everything is working and what everything is
+        doing.
+    \end{itemize}
+  \item Auto-generated dependencies generally add additional rules. Their
+    purpose is to make sure that \emph{updates} work correctly. They are not
+    needed for the first build. This means that to start, you only need to
+    modify an existing rule that already builds code correctly to also build
+    dependency information.
+\end{itemize}
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Explain the changes you made to your Makefile
+    \begin{itemize}
+      \item[$\square$] Show that auto-generated dependencies are working
+        correctly (i.e. \texttt{make~\&\&~touch~recursive.h~\&\&~make}).
+    \end{itemize}
+\end{itemize}
+
+
+\newpage
+\section{Alternative Build Systems}
+
+Make is a (relatively) simple program and comes installed on nearly every
+system. However, as we've seen, make can be hard to use, and it can be hard to
+get things completely correct. There are many other build systems out there.
+This question asks you to try out my personal favorite and another one of your
+own choosing.
+
+\subsection{\href{http://gittup.org/tup/}{tup}}
+The reason I like tup is that it aspires to be \emph{provably correct}. It
+uses \href{https://en.wikipedia.org/wiki/Filesystem_in_Userspace}{FUSE} to
+monitor every file system call, which means that if your compile command reads
+or writes a file, tup knows about it. This also means that tup can
+\emph{implicitly} do the same thing as gcc's \texttt{-M} options---the first
+time the build runs it builds up a database of all the static files (mostly
+header files) gcc reads and watches them for changes. Because the build system
+is doing this, it works automatically and transparently for every command, not
+just gcc.  For generated files this lets tup verify that your dependencies are
+correct, e.g.\ if a rule attempts to run \texttt{./simple\_test}, a file built
+by a different rule, but does not list \texttt{./simple\_test} as an input
+dependency, tup will alert you with an error if you forgot to express a
+dependency.
+
+Tup also supports \href{http://gittup.org/tup/manual.html#lbAK}{variants},
+which will automatically build multiple variations of your code.
+%
+As an example of why this is useful (likely near and dear to the heart of all
+281 students), often it is useful to start and get things working with
+optimizations turned off (\texttt{-Og})\footnote{
+  Note, that's \texttt{-Og} \emph{not} \texttt{-O0}. Level~0 turns off
+  \emph{all} optimizations and emits very slow and na\"ive code.
+  \\
+  From the gcc man page, ``Optimize debugging experience. -Og enables
+  optimizations that do not interfere with debugging. It should be the
+  optimization level of choice for the standard edit-compile-debug cycle,
+  offering a reasonable level of optimization while maintaining fast
+  compilation and a good debugging experience.''
+} and then turn optimizations to max (\texttt{-O3~-flto~-DNDEBUG}) to get the
+speediest programs. Unfortunately, you can sometimes introduce bugs\footnote{
+  Or really useful warnings. Some warnings the compiler can only discover when
+  optimizations are turned on.
+} when doing debug builds and then not notice until the next time you do a
+release build. Wouldn't it be great to just always build both?
+
+\textbf{Create a copy of an EECS project and convert it to use tup.}
+
+\textbf{Set up (at least) two variants (e.g. ``debug'' and ``release'' variants).}
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Show off basic tup functionality and your Tupfiles
+  \item[$\square$] Show off your variants and explain the differences between
+    them, why did you choose those build options?
+\end{itemize}
+
+\subsection{Another build system of your choosing}
+There are many to choose from, some of the more appropriate ones to consider
+may be cmake, scons, gradle, or ninja.
+
+\textbf{Choose another build system, read about it, and try to understand what
+it does that is different, ``better'', or ``worse'' compared to \texttt{make} or
+\texttt{tup}.}
+
+You don't need to set up a whole project using this build system, though
+playing with it a little may help deepen you understanding of what it provides
+and how it's different.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Which build system did you learn about? Why that one?
+  \item[$\square$] What type of projects is this build system ``best'' at
+    (what was it designed for)?
+    \begin{itemize}
+      \item[$\square$] What does it do differently that makes it better for
+        this application?
+    \end{itemize}
+\end{itemize}
+
+\end{document}
