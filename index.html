@@ -494,22 +494,62 @@ registered for.</p>
 		<th class="week">Week&nbsp;7</th>
 		<td>2/19</td>
 		<td rowspan="2">
-			<p>Debugging tools (gdb, valgrind)</p>
+			<p><strong>Debuggers I</strong></p>
+			<p>Lecture <em>(<a href="/static/lecture/wk7-gdb.pdf">lecture notes</a>)</em></p>
 			<ul>
-				<li>Compilation flags (with a quick touch on object files)</li>
-				<li>breakpoints, watchpoints</li>
-				<li>instruction/function stepping</li>
-				<li>backtraces and debugging with them</li>
-				<li><i>OPT:</i> Multithreaded debugging</li>
-				<li>gdb vs valgrind?</li>
-				<li>how to use valgrind effectively (suppression, useful flags, instrumentation macros)</li>
-				<li>and... the judicious printf (#define DBG and other tricks)</li>
+				<li>(Midterm course evaluation feedback)</li>
+				<li>What a debugger (the tool) does</li>
+				<li>What a debugger (the tool) doesn&rsquo;t do</li>
+				<li>What a debugger (a person) must do</li>
+				<li>How to reason about debugging a problem?</li>
+				<li>Open: Things that &ldquo;can&rsquo;t&rdquo; be debugged?
 			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Building a mental model for debugging</li>
+				<li>Introducing valgrind</li>
+			</ul>
+			<!--
+			<p>Advanced</p>
+			<ul>
+				<li>Extending gdb to understand your data structures</li>
+				<li>A tool we won't have time to cover (gprof? gcov?)</li>
+			</ul>
+			-->
 		</td>
 		<td rowspan="2">
-			<p><a href="/static/lecture/wk7-gdb.pdf">Preliminary lecture notes</a></p>
+			<p>This week we talked about debuggers, specifically the gdb debugging
+			utility. This lecture is a little different as early labs in other EECS
+			classes have already introduced gdb, so everyone should already have at
+			least a passing familiarity with gdb. What we try to go through in
+			lecture then is to understand the primitives that gdb provides &ndash;
+			the way that gdb lets us examine and modify machine state &ndash; and how
+			to stitch those primitives together to debug.</p>
+			<p>Said differently, recall that debugging is essentially a search
+			problem: At the beginning you have a program starting to run with some
+			inputs and at the end you have the final state with the incorrect outputs.
+			Tracking down a bug requires finding when between a program's beginning
+			and end things went from being correct to incorrect. A debugger, such as
+			gdb, is a tool that lets you stop and examine any point in time between
+			the beginning and end. It is up to you, however, to point the tool to the
+			right points in time in order to identify where things went wrong.</p>
+			<p><small><em>If you were unable to attend lecture this week and are
+					watching online, I think the afternoon lecture was slightly smoother
+					this week and recommend that one.</em></small></p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/l5PJDH" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/PcD1De" target="_blank">Lecture Video</a></li>
+			</ul>
+			<hr />
 			<p>
+			<a href="/static/lecture/wk7-gdb.pdf">Preliminary lecture notes</a>
+			&ndash;
 			<a href="/lec/wk7/math.c">math.c</a>
+			&ndash;
 			<a href="/lec/wk7/inf.c">inf.c</a>
 			</p>
 		</td>
@@ -573,6 +613,8 @@ registered for.</p>
 			<p>Advanced tools</p>
 			<ul>
 				<li>More gdb, valgrind</li>
+				<li>how to use valgrind effectively (suppression, useful flags, instrumentation macros)</li>
+				<li>and... the judicious printf (#define DBG and other tricks)</li>
 				<li>gprof, gcov</li>
 			</ul>
 		</td>
