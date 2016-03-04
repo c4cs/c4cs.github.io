@@ -7,6 +7,14 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <script>
+// Redirect to HTTPS by default
+// https://konklone.com/post/github-pages-now-sorta-supports-https-so-use-it
+var host = "c4cs.github.io";
+if ((host == window.location.host) && (window.location.protocol != "https:")) {
+  window.location.protocol = "https";
+}
+  </script>
 
   <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/static/css/navbar-fixed-top.css" />

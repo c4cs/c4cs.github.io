@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "baseurl:"
   environment, scripting, Makefiles, compilers, debugging tools, and version
   control. The last month of the course will be open to student input for
   remaining useful topics to cover.
-url: "http://c4cs.github.io" # the base hostname & protocol for your site
+url: "https://c4cs.github.io" # the base hostname & protocol for your site
 
 google_analytics_id: UA-70360310-1
 
