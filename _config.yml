@@ -1,6 +1,6 @@
 title: Computing for Computer Scientists
 email: ppannuto@umich.edu
-description: > # this means to ignore newlines until "baseurl:"
+description: > # this means to ignore newlines until "url:"
   This 1-credit seminar is designed to teach the essentials of using a computer
   effectively for EECS students. While the target audience is CS/CE/DS
   students, any student wishing to learn how to use their computer much more
@@ -14,5 +14,29 @@ google_analytics_id: UA-70360310-1
 
 timezone: America/Detroit
 
+permalink: none
+
+collections:
+  commands:
+    output: true
+
+defaults:
+  - scope:
+      type: commands
+    values:
+      layout: reference
+  - scope:
+      path: "_commands/basics"
+    values:
+      category: basics
+  - scope:
+      path: "_commands/scripting"
+    values:
+      category: scripting
+
+command_categories: ["basics", "scripting"]
+
 # Build settings
 markdown: kramdown
+
+

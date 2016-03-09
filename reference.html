@@ -1,0 +1,32 @@
+---
+layout: reference
+---
+
+<h1>Quick Reference</h1>
+
+<p>This page collects commands we have (or will) discuss throughout the course.
+Click on a command for more details on its operation and some examples of
+common or useful operations.</p>
+
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-warning-sign"></span>
+  This page is under construction. If you would like to help out, check out
+  <a href="/hw/c4cs-wk9-advanced.pdf">Week 9&rsquo;s Advanced Homework</a>.
+</div>
+
+{% for category in site.command_categories %}
+  <h2><a class="anchor" name="{{category}}"></a>{{ category | capitalize }}</h2>
+  <div class="container-fluid">
+    <div class="row">
+      {% for command in site.commands %}
+        {% if command.categories contains category %}
+          <a href="{{ command.url }}">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              {{ command.content | split: '<!--more-->' | first }}
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
