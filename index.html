@@ -603,32 +603,72 @@ registered for.</p>
 		<th class="week">Week&nbsp;9</th>
 		<td>3/11</td>
 		<td rowspan="2">
-			<p>Revision Control: Advanced and Others</p>
+			<p><strong>Using Git Effectively</strong></p>
+			<p>Lecture</p>
 			<ul>
-				<li>History, branching, merging</li>
+				<li>Understanding branches</li>
+				<li>Basic merging</li>
+				<li>&ldquo;Expanding the triangle&rdquo;</li>
+				<ul>
+					<li>Push, <em>fetch</em>, pull</li>
+					<li>Remote branches and remotes as branches</li>
+				</ul>
+				<li>Synchronizing work (+stashing)</li>
+				<li>Commit everything, branch often</li>
+				<li>Cleaning history: Rebasing, squashing</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Thinking in git</li>
+				<li>Practice with merging, conflicts</li>
+				<li>Practice rewriting history</li>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<li>Using git to collaborate for real</li>
+			</ul>
+			<!--
 				<li>Logs, blame</li>
-				<li>Commit hooks</li>
 				<li>Others: cvs, svn, hg, bzr</li>
 				<li>Meta: repo+git</li>
-				<li>git ideals - branch often, merges, cherry-picks</li>
-				<li>branches in git, remotes, tracking</li>
-				<li>How is decentralized different?</li>
-				<ul><li>(Is it better? What's "better"?)</li></ul>
-				<li>pull vs fetch, push</li>
-			</ul>
-			<p>Continuous Integration</p>
-			<ul>
-				<li>Automated Testing</li>
-				<li>Coverage vs &ldquo;code coverage&rdquo;</li>
-			</ul>
+				<li>Coverage ; &ldquo;code coverage&rdquo;</li>
+			-->
 		</td>
-		<td rowspan="2"></td>
+		<td rowspan="2">
+			<a href="/lec/c4cs-wk9-notes.md">Lecture Notes</a>
+			<hr />
+			<div style="width:400px;overflow:scroll;">
+				<pre>
+$ grep -A1 alias ~/.gitconfig
+[alias]
+	graph = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+				</pre>
+			</div>
 		<!--
-		    Set up CI for a project
+		    Lecture summary
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/otqrkS" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/e7L78G" target="_blank">Lecture Video</a></li>
+			</ul>
 		-->
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2" class="syllabus-homework">
+			<!--
+			<p><a href="/hw/c4cs-wk9-homework.pdf">Homework 9 [pdf]</a></p>
+			<p><a href="/hw/c4cs-wk9-homework.tex">Homework 9 [tex]</a>
+			<p><a href="/hw/c4cs-wk9-advanced.pdf">Advanced Exercise 9 [pdf]</a></p>
+			<p><a href="/hw/c4cs-wk9-advanced.tex">Advanced Exercise 9 [tex]</a></p>
+			-->
+			<!--
+			<hr />
+			<p><a href="/hw/c4cs-wk9-homework-solutions.pdf">Solutions 9 [pdf]</a></p>
+			-->
 		</td>
 	</tr>
 	<tr>
