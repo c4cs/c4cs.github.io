@@ -38,7 +38,7 @@ mkdir/rmdir
 mv
 no
 ps
-pwd
+# pwd # Completed
 rm
 rsync
 say
