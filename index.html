@@ -635,6 +635,34 @@ registered for.</p>
 			-->
 		</td>
 		<td rowspan="2">
+			<p>This lecture digs into git, trying to understand what's going on
+			underneath the hood. We introduce the concept of branching and show how
+			it affects history. Next we introduce merging, which bring branches back
+			together. Then we introduce the concept of remotes and show how remote
+			repositories are really just the same thing as branches.</p>
+
+			<p>What we sadly did not quite have time to get to in class was the key
+			git philosophy: <em>commit everything and commit often</em>. Some folks
+			stuck around after the last lecture to go a little longer and talk
+			through some of these ideas. The key thing is commit little pieces of
+			progress. It is easy to get in a trap where you feel like you do not want
+			to commit something until it is working. But if you only commit
+			1,000-line changes after you have everything, then you may as well not be
+			using version control!</p>
+
+			<p>In the supplemental lecture, we introduced the concept of
+			<em>feature branches</em>. The idea is that when you start working on
+			something new, you can create a new branch for that feature. Since this
+			branch is not yet part of the offical history, you should not feel bad
+			about making lots of little commits as you get little pieces working.
+			Once you get all of the way there, you can re-write history!
+			</p>
+
+			<p>We also built up a small collection of
+			<a href="/lec/git-niceties">tips and tricks</a>
+			to make working with git more enjoyable.
+			</p>
+
 			<p>Lecture (11a-12p)</p>
 			<ul>
 				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/a1fGMZ" target="_blank">Lecture Video</a></li>
@@ -648,17 +676,9 @@ registered for.</p>
 				<li><a href="http://leccap.engin.umich.edu/leccap/viewer/r/jgdfLI" target="_blank">Supplemental Lecture Video</a></li>
 			</ul>
 			<hr />
-			<a href="/lec/c4cs-wk9-notes.md">Advance Lecture Notes</a>
-			<div style="width:400px;overflow:scroll;">
-				<pre>
-$ grep -A1 alias ~/.gitconfig
-[alias]
-	graph = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
-$ grep -A1 alias ~/.gitconfig
-[alias]
-	graph = log --graph --full-history --all --color --pretty=tformat:"%C(red)%h%C(reset)%x09%C(green)%d%C(reset)%C(bold)%s%C(reset)%C(yellow)(%an)%C(reset)"
-				</pre>
-			</div>
+			<a href="/lec/c4cs-wk9-notes.md">Preliminary Lecture Notes</a>
+			&ndash;
+			<a href="/lec/git-niceties">Git Niceties</a>
 		</td>
 	</tr>
 	<tr>
