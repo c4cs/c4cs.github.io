@@ -4,7 +4,7 @@
 echo
 --
 
-`echo` is used to output whatever it is given into stdio. Often useful for see what the value of environmental variables
+`echo` is used to output whatever it is given into stdio. Often useful see the value of enviromental variables.
 
 ~~~ bash
 $ echo "Hello World!"
@@ -36,7 +36,7 @@ $ echo "\033[31mHello \033[36mWorld\033[m"
    escaped characters. \n will be printed as a newline instead of as the literal
    characters.
  * This flag is also needed to use color in the output. Otherwise the
-   values will be printed making the output hard to read
+   values will be printed instead of interpreted.
  * The final value resets the color, "\033[m", to the default so that the
    color does not run into your prompt.
 
@@ -50,7 +50,8 @@ Test Should be on the same line
 
 ##### Break it down
 
- * The `-n` flag will have echo not print the new line character at the end of the string. 
+ * echo default prints a newline at the end of the input string.
+ * The `-n` flag will have echo not print the new line character at the end. 
 
 
 #### `echo $(expression)` 
