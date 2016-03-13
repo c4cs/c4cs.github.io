@@ -66,7 +66,9 @@ Once we run this and verify the files that we wish to delete, we would then run 
 
 ~~~bash
 $ find -E . -regex ".*\.(aux|log|out)" -type f -delete
-$
+$ 
+$ find -E . -regex ".*\.(aux|log|out)" -type f
+$ 
 ~~~
 
 #### Break it down
@@ -81,4 +83,4 @@ The `-regex` command matches against _full_ filepaths. So, if we want to match a
 
 where the first `.*` is because we want this to match any `*.aux` file in any directory in the file tree.
 
-We also want to only match files, so we can specify the type of the items we match with `-type`, which takes in an argument (`f` for files, `-d` for directory, etc.)
+We also want to only match files, so we can specify the type of the items we match with `-type`, which takes in an argument (`f` for files, `d` for directory, etc.)
