@@ -59,7 +59,6 @@ wget/curl
 whereis
 which
 who
-whoami
 whomai
 
 ### Shell commands
