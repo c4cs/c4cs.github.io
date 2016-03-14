@@ -39,4 +39,6 @@ command_categories: ["basics", "scripting"]
 # Build settings
 markdown: kramdown
 
+# Needed for Travis
+exclude: [vendor]
 
