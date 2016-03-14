@@ -1,10 +1,10 @@
 ---
 ---
 
-COMMAND
--------
+id
+--
 
-Short description of the command
+ToDo: Needs completion
 
 ~~~ bash
 *short* example of command usage and output

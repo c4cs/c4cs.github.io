@@ -6,6 +6,7 @@ Command Webpages
 cd
 chown/chgrp
 cp
+id
 yes
 
 
