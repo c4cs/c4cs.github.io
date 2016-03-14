@@ -36,6 +36,5 @@ uziemblo
 ~~~
 
 ##### Break it down
- * `whoami` and `id -un` give the same userid. `whoami` will only display
-    the name of the current user. `id` can display the userid as well as
-    other information. See id for more details on `id`.
+ * `whoami` and `id -un` give the same userid.
+
