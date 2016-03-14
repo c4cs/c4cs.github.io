@@ -37,4 +37,3 @@ uziemblo
 
 ##### Break it down
  * `whoami` and `id -un` give the same userid.
-
