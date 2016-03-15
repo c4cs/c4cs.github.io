@@ -4,7 +4,7 @@
 pwd
 --
 
-`pwd` stands for print working directory. `pwd` outputs the full pathname of the current work director. 
+`pwd` stands for print working directory. `pwd` outputs the full pathname of the current work directory. 
 
 ~~~ bash
 $ pwd
@@ -17,7 +17,15 @@ $ pwd
 x=$(pwd)
 ~~~
 
-### Useful Options / Examples 
+
+<!--more-->
+
+### Useful Options / Information 
+
+#### `pwd` vs `/bin/pwd`
+* `/bin/pwd` ignores symlinks and prints actual directory by default. 
+* `pwd` is a shell builtin
+* `pwd` is a variable that is `/bin/pwd`
 
 #### `pwd -L`
 
@@ -32,16 +40,18 @@ $ /bin/pwd -L
 ~~~
 
 ##### Break it down
-* `--logical` If the contents of the environment variable 'PWD' provide an absolute name of the current directory with no '.' or '..' components, but possibly with symbolic links, then output those contents. Otherwise, fall back to default -P handling. 
-* The `-L` option displays the logical current working directory. Built in 'pwd' includes symlinks by default except when `-P` is used. `/bin/pwd` ignore symlinks and prints out the actual directory. For `/bin/pwd` to get the same result as the built in `pwd`, you must use the `-L` option. 
+* `--logical` or `-L` option displays the logical current working directory. 
+* Built in 'pwd' includes symlinks by default except when `-P` is used. 
+  * `/bin/pwd` ignore symlinks and prints out the actual directory. 
+  * For `/bin/pwd` to get the same result as the built in `pwd`, you must use the `-L` option. 
 
 #### `pwd -P`
 
 ~~~ bash
-$cd ~/bin
-$pwd
+$ cd ~/bin
+$ pwd
 /home/bo/bin
-$pwd -P
+$ pwd -P
 /home/bo/realdata/scripts/utils
 ~~~
 
