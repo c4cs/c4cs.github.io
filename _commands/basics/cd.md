@@ -16,7 +16,7 @@ $ cd /home
 
 ### Useful Options / Examples
 
-#### `cp -`
+#### `cd -`
 
 Jump back directory
 
