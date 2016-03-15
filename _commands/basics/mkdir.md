@@ -87,13 +87,12 @@ $ mkdir -p a/{b1/c1/{d1,d2},b2,b3}
 
 will create a tree like this
 
-```
+~~~ bash
 a
 │   b2
-│   b3    
-│
+│   b3
 └───b1
     └─── c1
-        │   d1
-        │   d2
-```
+         │   d1
+         │   d2
+~~~
