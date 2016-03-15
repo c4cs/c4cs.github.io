@@ -12,6 +12,8 @@ The general format is
 $ mkdir [options] directories
 ~~~
 
+<!--more-->
+
 A simple example is:
 
 ~~~ bash
