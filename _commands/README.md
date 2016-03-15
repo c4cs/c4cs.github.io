@@ -11,35 +11,52 @@ Command Webpages
 
 
 ### No documentation
- - apt-get
- - aspell
- - brew
- - bzip
+
+#### Basics
  - cat
  - chmod
  - chown
- - cowsay
- - diff
  - echo
- - ed
+ - mkdir/rmdir
+ - mv
+ - pwd
+ - rm
+ - touch
+ - true/false
+ - w
+ - wc
+ - whereis
+ - which
+ - who
+
+#### Shells
  - export
+ - history
+ - jobs/fg/bg
+
+#### Scripting
+ - `$_`
+ - `$?`
+ - `$variable`
+ - `|`
+ - `!!`
+ - `>>,>,<,2&>`
+ - `&`
+
+#### Tools
+ - aspell
+ - bzip
+ - diff
+ - ed
  - file
- - fortune
  - fsck
  - git
  - grep
  - gzip
- - history
- - jobs/fg/bg
  - less
  - make
  - man
- - mkdir/rmdir
- - mv
- - no
  - ps
- - pwd
- - rm
  - rsync
  - say
  - scp
@@ -48,26 +65,30 @@ Command Webpages
  - tar
  - tmux
  - top
- - touch
  - tr
- - vi
- - vi/emacs/nano/pico/ed/gedit
- - w
- - wc
  - wget
  - wget/curl
- - whereis
- - which
- - who
- - whomai
 
-### Shell commands
-```
-$_
-$?
-$variable
-|
-!!
->>,>,<,2&>
-&
-```
+#### Editors
+ - vi
+ - emacs
+ - nano
+ - pico
+ - ed
+ - gedit
+
+#### Toys
+ - cowsay
+ - fortune
+
+#### Ubuntu
+ - apt-get
+ - xclip
+ - xdg-open
+
+#### OS X
+ - brew
+ - open
+ - pbcopy
+
+
