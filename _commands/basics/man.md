@@ -24,7 +24,7 @@ PNG(5)                                            File Formats Manual           
                                                                                                                           
 NAME                                                                                                                      
        png - Portable Network Graphics (PNG) format      
-`...`
+...
 ~~~
 
 ##### Break it down
@@ -46,7 +46,7 @@ modules (5)          - kernel modules to load at boot time
 interfaces (5)       - network interface configuration for ifup and ifdown
 updatedb.conf (5)    - a configuration file for updatedb(8)
 slabinfo (5)         - kernel slab allocator statistics
-`...`
+...
 ~~~
 
 ##### Break it down
