@@ -63,9 +63,10 @@ $
 ~~~
 
 ##### Break it down
-~~~
- * In some cases, it is helpful to print out a man page so you have a hard copy handy. This command will format the man page and output it
+ * In some cases, it is helpful to print out a man page so you have a 
+ hard copy handy. This command will format the man page and output it
  as a `.ps` file, which is print-ready
+~~~
 `man [command] | col -x -b | groff -man -Tps > command.ps`
 |----------    |---------  |--------------   |-------------------------
 |              |           |                 |
