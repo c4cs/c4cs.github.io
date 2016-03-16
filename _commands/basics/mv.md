@@ -19,49 +19,50 @@ $ mv source desination
 $ ls 
 file1 file2 file3 directory1
 $ mv file1 directory1 
+$ tree
+.
+├── directory1
+│   └── file1
+├── file2
+└── file3
+
+1 directory, 3 files
+~~~
+
+##### Break it down
+
+ * mv source destination simply moves the source file to the destination directory. In this case, we moved file1 into directory1. 
+ * note: tree will list the file heirarchy of the current directory. If you don't have it installed, you can use homebrew ( brew install tree).
+
+#### `mv oldfilename newfilename`
+
+~~~ bash
 $ ls 
-file2 file3 directory1 
-$ ls ../directory1
 file1
+$ mv file1 file1newname
+$ ls 
+file1newname
 ~~~
 
 ##### Break it down
 
- * mv source destination simply moves the source file to the destination directory.   In this case, we moved file1 into directory1. 
+ * mv is commonly used to change the name of files. Simply replace 'source' and 'destination' with the old and the new names of the file respectively. 
 
-#### `mv -r source destination`
+#### `mv -i -v source destination` 
 
 ~~~ bash
 $ ls 
-file1 file2 file3 directory1 directory2 
-$ mv -r directory2 directory1
-$ ls 
-file1 file2 file3 directory1 
-$ ls ../directory1
-directory2
+file1 directory1 
+$ touch directory1/file2
+$ mv directory1/file2 .
+overwrite ./file2? (y/n [n]) y
+directory1/file2 -> ./file2
 ~~~
 
 ##### Break it down
 
- * mv -r source destination recursively moves source into destination. This is necssary when moving directories. 
-
-#### `mv -t destination source1 source2 source3..`
-
-~~~ bash
-$ ls 
-file1 file2 file3 directory1 
-$ mv -t directory1 file1 file2 
-$ ls 
-file3 directory1 
-$ ls ../directory1
-file1 file2 
-~~~
-
-##### Break it down
-
- * mv -t destination source1 source2.. moves multiple sources into the desination directory specified after -t 
- * Note: this commmand doesn't work on OSX
-
-
+ * -i will run the mv command in 'interactive mode', meaning that it will prompt the user for confirmation whenever they are about to override a file
+ * -v runs mv in 'verbose mode' where what is being moved and where it is being moved to is depicted in the terminal 
+ * Many people alias mv to mv -iv. alias mv='mv -iv' 
 
 
