@@ -7,7 +7,7 @@ grep
 `grep` is used to search files for the occurrence os string of characters matching a string (egrep can support called regular expressions often abbreviated as regex).
 
 ~~~ bash
-$ grep regex file
+$ grep string file
 line in file matching regex
 ~~~
 
@@ -74,4 +74,24 @@ $ ls -l | grep cpp
 * Here is a simply example of grep being used as a filter for another command.
 * The part before the pipe is ls -l. This is a command to list the files in long listing format. This includes (1) permissions (2) reference count (3) owner (4) last modified (5) file name. For more info on ls click [here](https://c4cs.github.io/commands/basics/ls.html).
 * follwing the pipe, we have grep and our string. In this command we pipe the output of our previous command into grep and filter it with a specific string. This can be useful when searching for a specific file or maybe a process running on a server.
+
+#### Example command
+
+#### grep -E string file
+
+~~~ bash
+$ ps aux | grep -E ^a
+ahyerman  1510  0.0  0.0 259076  3280 ?        SN   09:32   0:00 sshd: ahyerman@pts/4
+ahyerman  1511  0.0  0.0 129028  3448 pts/4    SNs  09:32   0:00 -bash
+ahyerman  1740  0.0  0.0 149792  1716 pts/4    RN+  09:35   0:00 ps aux
+ahyerman  1741  0.0  0.0 112644   976 pts/4    SN+  09:35   0:00 grep --color=auto ^a
+~~~
+
+##### Break it down
+
+* The above command if again used as a filter.
+* This time we are using a command to see the current processes currently running on our machine. This output is then piped to grep.
+* The grep command has a -E flag. The -E stands for extended grep and works like egrep. This allows us to use a regular expression rather than just a string for searching. The regex used in the above command has the ^ symbol. This means find any line that starts with what follows. In this example, all processes run by ahyerman were shown.
+* The -E flag can be useful when what your are searching for isnt always well formed or exactly the same every time it appears.
+
 
