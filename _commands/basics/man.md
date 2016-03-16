@@ -32,7 +32,7 @@ NAME
  * Typically, you can enter the name of a user command after `man,` but it is also possible to use man to learn about file extensions, such as `png`.
  * Not only are user commands and file extentions built in to the manual, but also system calls, library functions, special files, games, math library functions, a tcl function, and other miscellaneous categories.
 
-   #### `man -k .`
+#### `man -k .`
 ~~~ bash
 $ man -k .
 ldap.conf (5)        - LDAP configuration file/environment variables
@@ -56,37 +56,27 @@ slabinfo (5)         - kernel slab allocator statistics
  * The `.` is a regex that means "any character"
  * Additonally, since man pages are divided into sections, typing `man -k . -s 2` will list all man pages within section 2. 
 
- #### `man [command] | col -x -b | groff -man -Tps > command.ps`
+#### `man [command] | col -x -b | groff -man -Tps > command.ps`
 ~~~ bash
-$ `man [command] | col -x -b | groff -man -Tps > command.ps`
+$ man [command] | col -x -b | groff -man -Tps > command.ps
 $
 ~~~
 
 ##### Break it down
- * In some cases, it is helpful to print out a man page so you have a 
+
+ * In some cases, it is helpful to print out a man page so you have a
  hard copy handy. This command will format the man page and output it
  as a `.ps` file, which is print-ready
-~~~
-`man [command] | col -x -b | groff -man -Tps > command.ps`
-|----------    |---------  |--------------   |-------------------------
-|              |           |                 |
-|              |           |                 \- File Name: make sure it 
-|              |           |                 is in the same format as
-|              |           |                 specified in `groff`
-|              |           |
-|              |           \- `groff`: this command will perform front-
-|              |           end formatting for documents. `-man` ensures
-|              |           the traditional man page format. `-T` sets
-|              |           output device to a specified format; in this
-|              |           case, we have specified the output to `ps`. 
-|              |           However, other supported files include ascii, 
-|              |           cp1047, dvi, html, latin1, lbp, lj4, utf8, 
-|              |           X75, and X100.
-|              |
-|              \- `col`: filters reverse line feeds from the piped
-|              `man` input. `-b` prints only the last characer written
-|              to each column position (no backspaces). `-x` outputs
-|              multiples spaces instead of tabs.
-|           
-\- `man`: this is your typical `man` command, which will get piped into 
-other useful user commands that perform text formatting
+ * `man [command]` is your typical `man` command, which will get piped
+ into other useful user commands that perform text formatting
+  * `col -x -b` filters reverse line feeds from the piped `man` input.
+  `-b` prints only the last character written to each column position
+  (no backspaces). `-x` outputs multiple spaces instead of tabs.
+  * `groff -man -Tps` will perform front-end formatting for documents.
+  `man` ensures the traditional man page format. `-T` sets the output
+  device to a specified format; in this case, we have specified the
+  output to `ps`. However, other supported files include ascii, cp1047,
+  dvi, html, latin1, lbp, lj4, utf8, X75, and X100.
+  * `command.ps` is the file name that the formatted text will be
+  outputed to. Make sure the format is the same as what is specified 
+  in `groff`.
