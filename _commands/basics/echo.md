@@ -4,7 +4,7 @@
 echo
 --
 
-`echo` is used to output whatever it is given into stdout. Often useful see the value of environmental variables. 
+`echo` is used to output whatever it is given into stdout. Often useful see the value of environment variables. 
 
 ~~~ bash
 $ echo "Hello World!"
@@ -83,7 +83,7 @@ $ $((1 + 1))
  * echo can also be used to print the output of expressions that would not put their result
    into stdout.
  * This will keep bash from trying to interpret the output as command.
- * The idea behind this is very similar to the first example of printing out a environmental
+ * The idea behind this is very similar to the first example of printing out a environment
    variable
  * If you're building a complicated bash command precede it with echo to make sure all the
    variables and expressions expand in the expected way.
