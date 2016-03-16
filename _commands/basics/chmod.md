@@ -5,7 +5,7 @@ chmod
 -------
 
 Changes the permissions of a file or directory.
-Stands for **ch**ange file **m**od **b**its
+Stands for **ch**ange file **mod**e bits
 
 ~~~ bash
 $ ls -go --time-style=+
@@ -22,10 +22,12 @@ total 40
 ### Details
 The first argument to `chmod` determines the bitset of permissions you want to change the file given in the second argument.
 
-The bitset should correspond to rwx (read write exectue) permissions. e.g. 6 becomes 110 which is read-able write-able and not executable
+The binary representation of the first argument should correspond to the modes (ie. read write exectue - rwx - permissions) you want to set the given file to. For example, if you want to set the mode to read-able, write-able and not executable, this is represented in binary as 110, which corresponds to 6 in base 10. In this example, 6 should be given as one of the digits in the first argument.
+
 
 The first argument should be a 3 digit number. The first digit will change the file's owners permissions, second digit will change the files group permissions, the thrid digit will change other (anybody else) permissions.
 
+Note: `chmod` only changes the mode bits. To change the owner of this file or group that owns this file, use [chown/chgrp](/commands/basics/chown_chgrp.html)
 
 
 ### Examples
@@ -45,21 +47,16 @@ total 40
 ~~~ bash
 $ ls -go --time-style=+
 total 40
--rw-r--r-- 1 37465  index.html
-$ chmod -r index.html               # -r will reovke all read permissoins from everybody (or equivalently +r, -r, +x, -x)
+-rw-rw-rw- 1 37465  index.html
+$ chmod -r index.html               # -r will set all read mode bits to 0
 $ ls -go --time-style=+
 total 40
---w------- 1 37465  index.html      # note all read permissions have been revoked
+--w------- 1 37465  index.html      # note all read mode bits are now 0
+$ chmod +x index.html               # +x will make this file execute-able for all classes
+$ ls -go --time-style=+
+total 40
+--wx--x--x 1 37465  index.html
+
 ~~~
 
-
-~~~ bash
-$ ls -go --time-style=+
-total 40
--r--r--r-- 1 37465  index.html
-$ chmod +w index.html               # you can only add write permission for yourself (owner)
-$ ls -go --time-style=+
-total 40
--rw-r--r-- 1 37465  index.html
-~~~
 
