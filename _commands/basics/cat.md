@@ -47,10 +47,9 @@ concatenate keyboard input and file, output to another file
 ~~~ bash
 $ echo "demo" > file1
 $ cat - file1 > file2
-(input the following message, press C-d to finish)
-This is a
+This is a (input the message, press C-d to finish)
 $ cat file2
-This is a
+This is a (input the message, press C-d to finish)
 demo
 ~~~
 
