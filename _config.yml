@@ -30,11 +30,35 @@ defaults:
     values:
       category: basics
   - scope:
+      path: "_commands/shells"
+    values:
+      category: shells
+  - scope:
       path: "_commands/scripting"
     values:
       category: scripting
+  - scope:
+      path: "_commands/tools"
+    values:
+      category: tools
+  - scope:
+      path: "_commands/editors"
+    values:
+      category: editors
+  - scope:
+      path: "_commands/toys"
+    values:
+      category: toys
+  - scope:
+      path: "_commands/ubuntu"
+    values:
+      category: ubuntu
+  - scope:
+      path: "_commands/os_x"
+    values:
+      category: os_x
 
-command_categories: ["basics", "scripting"]
+command_categories: ["basics", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
 
 # Build settings
 markdown: kramdown

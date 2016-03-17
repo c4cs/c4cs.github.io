@@ -15,10 +15,7 @@ Command Webpages
 #### Basics
  - cat
  - chmod
- - chown
- - echo
- - mkdir/rmdir
- - mv
+ - rmdir (consider adding to mkdir page instead of new page)
  - pwd
  - rm
  - touch
@@ -51,7 +48,6 @@ Command Webpages
  - file
  - fsck
  - git
- - grep
  - gzip
  - less
  - make
