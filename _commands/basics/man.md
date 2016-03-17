@@ -9,8 +9,7 @@ man
 ~~~ bash
 $ man [command]
 $ man ls
-$ man cd
-$ man man
+$ man strcmp
 ~~~
 
 <!--more-->
@@ -20,10 +19,10 @@ $ man man
 #### `man png`
 ~~~ bash
 $ man png
-PNG(5)                                            File Formats Manual                                           PNG(5)    
-                                                                                                                          
-NAME                                                                                                                      
-       png - Portable Network Graphics (PNG) format      
+PNG(5)                   File Formats Manual                  PNG(5)
+
+NAME
+       png - Portable Network Graphics (PNG) format
 ...
 ~~~
 
@@ -31,6 +30,33 @@ NAME
 
  * Typically, you can enter the name of a user command after `man,` but it is also possible to use man to learn about file extensions, such as `png`.
  * Not only are user commands and file extentions built in to the manual, but also system calls, library functions, special files, games, math library functions, a tcl function, and other miscellaneous categories.
+
+#### `man 3 printf`
+~~~ bash
+$ man 3 printf
+printf(3)                   BSD Library Functions Manual                  printf(3)
+
+NAME
+    printf, fprintf, sprintf, snprintf, asprintf, dprintf, vprintf,
+    vfprintf, vsprintf, vsnprintf, vasprintf, vdprintf -- formatted
+    output conversion
+...
+~~~
+
+##### Break it down
+
+ * Most commands/functions are unique, but there are cases where a command/function has multiple versions.
+ * `3` refers to the third section's `printf` function. There is another version in section 1. If the `3` was not specified (`man printf`), `man` would automatically open up the lowest numbered section, causing some confusion.
+
+#### `man -a printf`
+~~~ bash
+$ man -a printf
+~~~
+
+##### Break it down
+
+ * Similar to the last example, `printf` is a function with many versions. Sometimes, a user may not know that there are multiple versions to a command/function.
+ * `-a` forces `man` to display all manual pages for `printf`, not just the first one in the lowest numbered section.
 
 #### `man -k .`
 ~~~ bash
