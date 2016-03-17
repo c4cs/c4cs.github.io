@@ -33,8 +33,12 @@ defaults:
       path: "_commands/scripting"
     values:
       category: scripting
+  - scope:
+      path: "_commands/tools"
+    values:
+      category: tools
 
-command_categories: ["basics", "scripting"]
+command_categories: ["basics", "scripting", "tools"]
 
 # Build settings
 markdown: kramdown
