@@ -61,8 +61,8 @@ directory1/file2 -> ./file2
 
 ##### Break it down
 
- * -i will run the mv command in 'interactive mode', meaning that it will prompt the user for confirmation whenever they are about to override a file
- * -v runs mv in 'verbose mode' where what is being moved and where it is being moved to is depicted in the terminal 
- * Many people alias mv to mv -iv. alias mv='mv -iv' 
+ * `-i` will run the mv command in 'interactive mode', meaning that it will prompt the user for confirmation whenever they are about to override a file
+ * `-v` runs mv in 'verbose mode' where what is being moved and where it is being moved to is depicted in the terminal 
+ * Many people alias mv to mv -iv by adding `alias mv='mv -iv'` to their `.bashrc`.
 
 
