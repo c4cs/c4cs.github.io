@@ -8,7 +8,7 @@ grep
 
 ~~~ bash
 $ grep string file
-line in file matching regex
+matches because it has string in it
 ~~~
 
 <!--more-->
