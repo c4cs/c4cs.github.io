@@ -26,7 +26,7 @@ $ sudo apt-get install wbritish
 
 By having sudo in the command we ran the command with elevated privileges and were able to install the british-english word list. This was used in homework 5 to give sufficient privileges to instal British-English word list.
 
-### Useful Options / Examples
+### Useful Options 
 There's some good commands you can run with sudo!
 
 sudo -b will run the command in the background.Useful to avoid long list of output as it runs
