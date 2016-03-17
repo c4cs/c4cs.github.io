@@ -94,4 +94,26 @@ ahyerman  1741  0.0  0.0 112644   976 pts/4    SN+  09:35   0:00 grep --color=au
 * The grep command has a -E flag. The -E stands for extended grep and works like egrep. This allows us to use a regular expression rather than just a string for searching. The regex used in the above command has the ^ symbol. This means find any line that starts with what follows. In this example, all processes run by ahyerman were shown.
 * The -E flag can be useful when what your are searching for isnt always well formed or exactly the same every time it appears.
 
+#### Example command
+
+#### grep -r string
+
+~~~ bash
+$ grep -r "~~~ bash"
+scripting/yes.md:~~~ bash
+template.md:~~~ bash
+basics/grep.md:~~~ bash
+basics/grep.md:~~~ bash
+...
+basics/whoami.md:~~~ bash
+basics/ls.md:~~~ bash
+...
+~~~
+
+##### Break it down
+
+* The above command preforms a recursive search on all files in a the current directory and its sub-directories. The -r specifies to recursively search directories.
+* Above, we searched for any lines that have the bash format for an md file. We used grep to recursively search all files in our current directory and any sub directory.
+* This is useful because as projects grow, as do their files. One might want to find all lines using a certain variable across many files and directories. The -r flag is a great way to perform the search.
+
 
