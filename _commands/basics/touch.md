@@ -24,5 +24,5 @@ Change only the modification time
 
 #### `touch -c`
 
-Do not cerate any files
+Do not create any files
 
