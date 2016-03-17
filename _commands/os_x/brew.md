@@ -4,7 +4,7 @@
 brew
 --
 
-`brew`, or known by its longer name as Homebrew, bills itself as the "missing package manager for OS X". 
+`brew`, or known by its longer name as Homebrew, bills itself as the "missing package manager for OS X". Here's an example of installing a package: 
 
 ~~~
 $ brew install wget
@@ -16,6 +16,8 @@ Already downloaded: /Library/Caches/Homebrew/wget-1.17.1.el_capitan.bottle.1.tar
 
 <!--more--> 
 
+That's right - `brew` uses emojis as part of its standard output 🙌 
+
 Various Linux distributions include package managers for installing software out of the box (e.g. `apt-get` for Ubuntu), and `brew` is a third-party effort to replicate the same for OS X. 
 
 To install `brew`, the [official Homebrew website](http://brew.sh) directs you to run this command, which incidentally explains itself as it runs:
@@ -25,25 +27,6 @@ To install `brew`, the [official Homebrew website](http://brew.sh) directs you t
 ~~~
 
 As an example of `brew` usage, here's installing [Node.js](https://nodejs.org/):
-
-~~~ bash
-$ brew install node
-==> Downloading https://homebrew.bintray.com/bottles/node-5.4.1_1.el_capitan.bottle.tar.gz
-Already downloaded: /Library/Caches/Homebrew/node-5.4.1_1.el_capitan.bottle.tar.gz
-==> Pouring node-5.4.1_1.el_capitan.bottle.tar.gz
-==> Caveats
-Please note by default only English locale support is provided. If you need
-full locale support you should:
-  `brew reinstall node --with-full-icu`
-
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/node/5.4.1_1: 3,135 files, 35.5M
-
-~~~
-
-That's right - `brew` uses emojis as part of its standard output 🙌 
 
 ### Useful Options / Examples
 
