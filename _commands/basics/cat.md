@@ -20,3 +20,10 @@ $ cat file1 file2
 
 number all output lines
 
+~~~ bash
+$ echo haha > file1
+$ echo lol > file2
+$ cat file1 file2
+$ 1  haha
+$ 2  lol
+~~~
