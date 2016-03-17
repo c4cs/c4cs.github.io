@@ -55,4 +55,3 @@ $ pkill -9 sample
  * `pgrep` displays the process ID and process name of the matching processes. `pkill` can send signal 
  to any process by specifying the full name or partial name. So there is no need for you to find out 
  the PID of the process to send the signal.
- See [id](./id.html) for more details on `id`.
