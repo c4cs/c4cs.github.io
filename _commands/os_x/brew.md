@@ -4,14 +4,15 @@
 brew
 --
 
-`brew`, or known by its longer name as Homebrew, bills itself as the "missing package manager for OS X". Here's an example of installing a package: 
+`brew`, or known by its longer name as Homebrew, bills itself as the "missing package manager for OS X".
 
 ~~~
-$ brew install wget
-==> Downloading https://homebrew.bintray.com/bottles/wget-1.17.1.el_capitan.bottle.1.tar.gz
-Already downloaded: /Library/Caches/Homebrew/wget-1.17.1.el_capitan.bottle.1.tar.gz
-==> Pouring wget-1.17.1.el_capitan.bottle.1.tar.gz
-🍺  /usr/local/Cellar/wget/1.17.1: 9 files, 1.5M
+$ brew install rsync
+==> Installing rsync from homebrew/dupes
+==> Downloading https://homebrew.bintray.com/bottles-dupes/rsync-3.1.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring rsync-3.1.2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/rsync/3.1.2: 8 files, 748.2K
 ~~~
 
 <!--more--> 
@@ -32,11 +33,12 @@ As an example of `brew` usage, here's installing [Node.js](https://nodejs.org/):
 
 #### `brew install [package-name]`
 ~~~
-$ brew install wget
-==> Downloading https://homebrew.bintray.com/bottles/wget-1.17.1.el_capitan.bottle.1.tar.gz
-Already downloaded: /Library/Caches/Homebrew/wget-1.17.1.el_capitan.bottle.1.tar.gz
-==> Pouring wget-1.17.1.el_capitan.bottle.1.tar.gz
-🍺  /usr/local/Cellar/wget/1.17.1: 9 files, 1.5M
+$ brew install rsync
+==> Installing rsync from homebrew/dupes
+==> Downloading https://homebrew.bintray.com/bottles-dupes/rsync-3.1.2.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring rsync-3.1.2.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/rsync/3.1.2: 8 files, 748.2K
 ~~~
 
 ##### Break it down
@@ -65,6 +67,7 @@ Updated 1 tap (homebrew/dupes).
 ==> Deleted Formulae
 ...
 ~~~
+
 ##### Break it down
 
 `brew update` updates `brew` to the latest version, directly from `brew`'s [GitHub repository](https://github.com/Homebrew/homebrew). This includes refreshing `brew`'s "taps", which are essentially lists of formulae that your installation of `brew` can see. Above, you can see that I have one tap - `homebrew/dupes`, which has duplicates of useful Linux-y tools like `rsync`, `screen`, and `less`.
@@ -73,6 +76,19 @@ Updated 1 tap (homebrew/dupes).
 
 ~~~
 $ brew upgrade
+==> Upgrading 2 outdated packages, with result:
+boost 1.60.0_1, coreutils 8.25
+==> Upgrading boost
+==> Downloading https://homebrew.bintray.com/bottles/boost-1.60.0_1.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring boost-1.60.0_1.el_capitan.bottle.tar.gz
+🍺  /usr/local/Cellar/boost/1.60.0_1: 11,139 files, 436.0M
+==> Upgrading coreutils
+==> Downloading https://homebrew.bintray.com/bottles/coreutils-8.25.el_capitan.bottle.tar.gz
+######################################################################## 100.0%
+==> Pouring coreutils-8.25.el_capitan.bottle.tar.gz
+==> Summary
+🍺  /usr/local/Cellar/coreutils/8.25: 216 files, 8.3M
 ~~~
 
 ##### Break it down
