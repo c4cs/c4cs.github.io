@@ -24,8 +24,8 @@ x=$(pwd)
 
 #### `pwd` vs `/bin/pwd`
 * `/bin/pwd` ignores symlinks and prints actual directory by default. 
-* `pwd` is a shell builtin
-* `pwd` is a variable that is `/bin/pwd`
+* `pwd` is a shell builtin provided by bash that links to `/bin/pwd`
+* `/bin/pwd` is the binary version of pwd
 
 #### `pwd -L`
 
@@ -56,4 +56,4 @@ $ pwd -P
 ~~~
 
 ##### Break it down
-* `--physical` Print a fully resolved name for the current directory. That is, all components of the printed name will be actual directory names--none will be symbolic links. 
+* `--physical` or `-P` Print a fully resolved name for the current directory. That is, all components of the printed name will be actual directory names--none will be symbolic links. 
