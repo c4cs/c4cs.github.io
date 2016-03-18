@@ -4,12 +4,13 @@
 kill
 --
 
-`kill` is used to send signal to a process or to kill a process. 
-We typically use kill -SIGNAL PID, where you know the PID of the process.
- 
+`kill` is used to send signal to a process or to kill a process.
+We typically use kill PID, where you know the PID of the process.
+By default `kill` generates SIGTERM, to safely end a process.
+
 
 ~~~ bash
-$ kill -9 7243
+$ kill 7243
 ~~~
 
 <!--more-->
@@ -25,10 +26,10 @@ $ kill -9 7243
 ~~~
 
 ##### Break it down
- * `ps -ef` will print out all the processes running on the user's machine. 
- Piping with `| grep vim` will only output processes with the name 
- given, in this case only vim processes are printed. `kill -9 7243` is using 
- SIGTERM -9 to send the end process (kill) signal to process 7243, which 
+ * `ps -ef` will print out all the processes running on the user's machine.
+ Piping with `| grep vim` will only output processes with the name
+ given, in this case only vim processes are printed. `kill -9 7243` is using
+ SIGTERM -9 to send the end process (kill) signal to process 7243, which
  will kill that vim process.
 
 
@@ -52,6 +53,6 @@ $ pkill -9 sample
 ~~~
 
 ##### Break it down
- * `pgrep` displays the process ID and process name of the matching processes. `pkill` can send signal 
- to any process by specifying the full name or partial name. So there is no need for you to find out 
+ * `pgrep` displays the process ID and process name of the matching processes. `pkill` can send signal
+ to any process by specifying the full name or partial name. So there is no need for you to find out
  the PID of the process to send the signal.
