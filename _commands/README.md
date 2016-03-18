@@ -28,6 +28,7 @@ Command Webpages
  - who
 
 #### Shells
+ - clear
  - export
  - history
  - jobs/fg/bg
