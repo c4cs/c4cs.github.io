@@ -43,17 +43,19 @@ $ brew install rsync
 
 ##### Break it down
 
-The `brew install [package-name]` command is the command for installing various `brew` packages. There is a [public list](https://github.com/Homebrew/homebrew/tree/master/Library/Formula) of available packages that `brew` pulls from. Each package has a "formula", or package definition, that `brew` can parse. Upon picking a formula, like `node`, `wget`, or `cowsay`, `brew` retrieves the formula and follows the instructions (e.g. downloading the appropriate files) to install that package.
+* The `brew install [package-name]` command is the command for installing various `brew` packages. 
+* There is a [public list](https://github.com/Homebrew/homebrew/tree/master/Library/Formula) of available packages that `brew` pulls from. Each package has a "formula", or package definition, that `brew` can parse. 
+* Upon picking a formula, like `node`, `wget`, or `cowsay`, `brew` retrieves the formula and follows the instructions (e.g. downloading the appropriate files) to install that package.
 
 #### `brew remove [package-name]`
 ~~~
-$ brew remove wget
-Uninstalling /usr/local/Cellar/wget/1.17.1... (9 files, 1.5M)
+$ brew remove rsync
+Uninstalling /usr/local/Cellar/rsync/3.1.2... (8 files, 748.2K)
 ~~~
 
 ##### Break it down
 
-The `brew remove` command is the command for uninstalling various `brew` packages, given the name of a package, using the package's formula.
+* The `brew remove` command is the command for uninstalling various `brew` packages, given the name of a package, using the package's formula.
 
 #### `brew update`
 ~~~
@@ -70,7 +72,8 @@ Updated 1 tap (homebrew/dupes).
 
 ##### Break it down
 
-`brew update` updates `brew` to the latest version, directly from `brew`'s [GitHub repository](https://github.com/Homebrew/homebrew). This includes refreshing `brew`'s "taps", which are essentially lists of formulae that your installation of `brew` can see. Above, you can see that I have one tap - `homebrew/dupes`, which has duplicates of useful Linux-y tools like `rsync`, `screen`, and `less`.
+* `brew update` updates `brew` to the latest version, directly from `brew`'s [GitHub repository](https://github.com/Homebrew/homebrew). 
+* This includes refreshing `brew`'s "taps", which are essentially lists of formulae that your installation of `brew` can see. Above, you can see that I have one tap - `homebrew/dupes`, which has duplicates of useful Linux-y tools like `rsync`, `screen`, and `less`.
 
 #### `brew upgrade`
 
@@ -92,7 +95,7 @@ boost 1.60.0_1, coreutils 8.25
 ~~~
 
 ##### Break it down
-`brew upgrade` upgrades all of ones' packages to the latest releases.
+* `brew upgrade` upgrades all of ones' packages to the latest releases.
 
 #### `brew list`
 ~~~
@@ -106,7 +109,7 @@ coreutils	gdb			libevent	node		python		scons		xz
 
 ##### Break it down
 
-`brew list` lists all of the `brew` packages that one has installed. For instance, you can see that I've installed `mongodb`, `node`, and `python`, among others.
+* `brew list` lists all of the `brew` packages that one has installed. For instance, you can see that I've installed `mongodb`, `node`, and `python`, among others.
 
 #### `brew search [text]`
 ~~~
@@ -122,4 +125,5 @@ Caskroom/cask/igetter                   Caskroom/cask/join-together             
 
 ##### Break it down
 
-`brew search [text]` or `brew search [/text/]` takes the input `text`, and tries to match it against all the packages it can find, including looking other popular taps. It also accepts regular expressions wrapped in `/`, like the second example `/*get*/` above.
+* `brew search [text]` or `brew search [/text/]` takes the input `text`, and tries to match it against all the packages it can find, including looking other popular taps.
+*  It also accepts regular expressions wrapped in `/`, like the second example `/*get*/` above.
