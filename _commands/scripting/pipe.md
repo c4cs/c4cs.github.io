@@ -6,7 +6,7 @@
 
 `command1 | command2 [| command3 ...]`
 
-The pipe operator is used in bash scripting to chain two commands together. The two commands are run sequentially and the ouput of command1 becomes the input of command2.
+The pipe operator is used in bash to chain multiple commands together. The two commands are run sequentially and the ouput of command1 becomes the input of command2.
 
 ~~~ bash
 ls | wc -l
