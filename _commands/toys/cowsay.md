@@ -4,7 +4,7 @@
 cowsay
 -------
 
-Short description of the command
+ToDo: Needs Completion
 
 ~~~ bash
 *short* example of command usage and output
