@@ -8,6 +8,7 @@ Command Webpages
  - cp
  - id
  - yes
+ - cowsay
 
 
 ### No documentation
