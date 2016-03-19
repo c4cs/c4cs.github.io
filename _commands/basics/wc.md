@@ -7,7 +7,7 @@ wc
 Print the number of bytes, words, and lines in files
 
 ~~~ bash
-a.txt: 
+$ cat a.txt 
 I love EECS 398.
 What a great class. 
 Good.
@@ -22,13 +22,13 @@ $ wc a.txt
 ### Useful Options / Examples
 
 ~~~ bash
-a.txt:
+$ cat a.txt
 What
 a great
 world we live
 in where Google has all the answers we need
 
-b.txt:
+$ cat b.txt
 wc is a great command.
 I love it.
 ~~~
@@ -41,7 +41,7 @@ $ wc -c a.txt
 ~~~
 
 ##### Break it down
- * When the -c(equivalent to --bytes) flag is set, wc will output the number of bytes in the given file.
+ * When the `-c`(equivalent to `--bytes`) flag is set, wc will output the number of bytes in the given file.
 
 
 ####` wc -m a.txt`
@@ -51,7 +51,7 @@ $ wc -m a.txt
 ~~~
 
 ##### Break it down
- * When the -m(equivalent to --chars) flag is set, wc will output the number oc characters in the given file. 
+ * When the `-m`(equivalent to `--chars`) flag is set, wc will output the number of characters in the given file. 
 
 #### `wc -l a.txt`
 ~~~ bash
@@ -60,7 +60,7 @@ $ wc -l a.txt
 ~~~
 
 ##### Break it down
- * When the -l(equivalent to --lines) flag is set, wc will output the number of lines in the given file.
+ * When the `-l`(equivalent to `--lines`) flag is set, wc will output the number of lines in the given file.
 
 #### `wc -L a.txt`
 ~~~ bash
@@ -69,7 +69,7 @@ $ wc -L a.txt
 ~~~
 
 ##### Break it down
- * When the -L(equivalent to --max-line-length) flag is set, wc will output the length of the longest line in the given file.
+ * When the `-L`(equivalent to `--max-line-length`) flag is set, wc will output the length of the longest line in the given file.
 
 #### `wc -w a.txt b.txt`
 ~~~ bash
@@ -80,5 +80,5 @@ $ wc -w a.txt b.txt
 ~~~
 
 ##### Break it down
- * When the -w(equivalent to --words) flag is set, wc will output the number of words in the given file.
+ * When the `-w`(equivalent to `--words`) flag is set, wc will output the number of words in the given file.
  * Note that it is possible to give more than one file as input and wc will give you the results for each file individually as well as a cumulative output.
