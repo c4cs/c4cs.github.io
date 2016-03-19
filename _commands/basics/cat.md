@@ -53,7 +53,7 @@ $ cat -n example.c
      6	}
 ~~~
 
-### Example command
+#### Example command
 
 The `cat` command can take no arguments. If it is run with no arguments, it simply copies standard input into standard output. This is useful for making quick files.
 
