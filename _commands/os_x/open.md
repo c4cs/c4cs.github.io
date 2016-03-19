@@ -9,7 +9,15 @@ OPEN (OSX)
 ~~~ bash
 #Opens google.com in your default browser
 open http://www.google.com
+~~~
 
+For more advanced commands please check out the `man` page of open: `man open`.
+<!--more-->
+
+### Useful Options / Examples
+Besides the one example up top, there's many other ways to use `open`.
+
+~~~ bash
 #opens all Word documents in the directory
 open *.doc
 
@@ -22,11 +30,6 @@ open -a Safari http://www.google.com
 #Opens specifed file location in Finder
 open -R diary.txt
 ~~~
-
-For more advanced commands please check out the `man` page of open: `man open`.
-<!--more-->
-
-### Useful Options / Examples
 
 |     Flag     |               Description                |
 | :----------: | :--------------------------------------: |
