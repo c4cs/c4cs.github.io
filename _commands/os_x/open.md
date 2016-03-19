@@ -1,24 +1,12 @@
-#Open (OSX)
+---
+---
+
+OPEN (OSX)
+-------
 
 `open` is used to open files, directories or URLs from the terminal. 
 
-###Options
-
-Here are some useful (but not all) options for `open` (Adapted from the `man` page):
-
-|     Flag     |               Description                |
-| :----------: | :--------------------------------------: |
-|      -a      |  Opens item with a specific application  |
-|      -e      |         Opens item with TextEdit         |
-|      -t      |   Opens item with default text editor    |
-|      -f      | Reads input from standard input and opens it with TextEdit |
-| -R, --reveal | Selects in the Finder instead of opening |
-|  -n, --new   | Opens a new instance of the application (even if it's already running) |
-|  -j, --hide  |         Launches the app hidden          |
-
-####Usage
-
-~~~bash
+~~~ bash
 #Opens google.com in your default browser
 open http://www.google.com
 
@@ -35,11 +23,40 @@ open -a Safari http://www.google.com
 open -R diary.txt
 ~~~
 
-####Additional Notes
+For more advanced commands please check out the `man` page of open: `man open`.
+<!--more-->
 
-As we can see, open is fairly easy to use. For more flags, such as launching an application as hidden, please check out the man page.
+### Useful Options / Examples
 
+|     Flag     |               Description                |
+| :----------: | :--------------------------------------: |
+|      -a      |  Opens item with a specific application  |
+|      -e      |         Opens item with TextEdit         |
+|      -t      |   Opens item with default text editor    |
+|      -f      | Reads input from standard input and opens it with TextEdit |
+| -R, --reveal | Selects in the Finder instead of opening |
+|  -n, --new   | Opens a new instance of the application (even if it's already running) |
+|  -j, --hide  |         Launches the app hidden          |
+
+
+#### `open -a Safari --hide http://www.google.com`
+Opens google.com in Safari minimized by default
+##### Break it down
+The `-a` flag lets you choose an application to open your item with. Without it, the item would open up with the default handler. For example, if you remov `-a Safari` and your default browser is Chrome then google.com will open in Chrome.
+
+`--hide` won't display the application immediately. In this case it will open up google.com but you would need to click on the Safari icon in the dock to actually see the window.
+
+#### `ls | open -f`
+Outputs the contents of the `ls` command and displays it in TextEdit, after saving the file in `/tmp/`
+##### Break it down
+As we know ls dispalys all the files and directories in the current directory. Rather than redirecting the output to our own temporary file and then opening that, we can do everyting in one go by just piping it to `open -f`. For example: 
 ~~~bash
-man open
+python main.py > /tmp/python_example.txt 
+open /tmp/python_example.txt
+~~~
+
+becomes 
+~~~bash
+python main.py | open -f
 ~~~
 
