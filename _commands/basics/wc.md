@@ -44,7 +44,7 @@ $ wc -c a.txt
  * When the `-c`(equivalent to `--bytes`) flag is set, wc will output the number of bytes in the given file.
 
 
-####` wc -m a.txt`
+#### `wc -m a.txt`
 ~~~ bash
 $ wc -m a.txt
 71 a.txt
