@@ -8,6 +8,7 @@ Command Webpages
  - cp
  - id
  - yes
+ - cowsay
 
 
 ### No documentation
@@ -27,6 +28,7 @@ Command Webpages
  - who
 
 #### Shells
+ - clear
  - export
  - history
  - jobs/fg/bg
