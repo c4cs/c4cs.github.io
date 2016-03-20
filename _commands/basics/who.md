@@ -16,7 +16,7 @@ mallory  pts/4        2016-03-19 22:48 (0587396660.track.nsa.gov)
 <!--more-->
 
 ### Useful Options / Examples
-
+-------
 #### `who -q`
 ~~~ bash
 $ who -q
@@ -26,6 +26,8 @@ alice bob mallory
 ##### Break it down
 `who` with the `-q` flag prints out all the logged on usernames on a single line, and then the total number of logged on users on second line.
 
+-------
+
 #### `who -b`
 ~~~ bash
 $ who -b
@@ -33,6 +35,8 @@ $ who -b
 ~~~
 ##### Break it down
 `who` with the `-b` flag displays the time of the last system boot.
+
+-------
 
 #### `who -Ha`
 ~~~ bash
@@ -47,6 +51,8 @@ mallory  - pts/3        2016-03-19 22:40   .         10892 (0587396660.track.nsa
 ~~~
 ##### Break it down
 `who` with the `-h` flag prints out a line of headings for each column of information. The `-a` or the `-all` option prints all the data the `who` command allows. This includes the boot time, login processes, current runlevel, dead processes, and other user & processes data. 
+
+-------
 
 #### `who mom likes`
 ~~~ bash
