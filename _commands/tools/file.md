@@ -39,4 +39,4 @@ file.md: text/plain; charset=us-ascii
 #### Break it down
 
 * `-i' changes the way that the command interprets file types, giving more information about the file
-* This o
+* This option is very useful when you're unsure about what the type that is output actually is
