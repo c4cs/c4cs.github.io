@@ -66,7 +66,7 @@ $ sort -n numbers.txt
 ##### Break it down
 
  * The `-n` option tells `sort` to sort the input as numbers rather 
-   than characters
+   than as characters
 
 #### `sort -u`
 
