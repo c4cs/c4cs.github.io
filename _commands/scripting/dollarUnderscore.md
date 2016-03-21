@@ -16,7 +16,7 @@ example.txt
 
 ### Useful Options / Examples
 
-$\_ is a variable, not a command so its main use is to save you some typing.
+`$_` is a variable, not a command so its main use is to save you some typing.
 
 For example, say you want to create a new directory and go into it. You could use:
 
