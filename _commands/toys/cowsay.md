@@ -2,7 +2,7 @@
 ---
 
 cowsay
--------
+--
 `cowsay` generates an ASCII picture of a cow saying something provided by  the  user.
 
 
@@ -31,7 +31,8 @@ The complete list is: cowsay  [-e  eye_string] [-f cowfile] [-h] [-l] [-n] [-T t
 -W allows the user to customize the number of character printed in the message before the message wraps around
 -[-bdgpstwy] are all options to define different pre-made cows emotional states. For example, adding the -g flag will result in a greedy cow to print and -s will result in a stoned cow to print.
 
-####cowsay [-bdgpstwy] [`user_input`]
+#### cowsay [-bdgpstwy] [`user_input`]
+
 ~~~ bash
 $ cowsay -s hi there
  __________ 
@@ -43,10 +44,12 @@ $ cowsay -s hi there
              U  ||----w |
                 ||     ||
 ~~~
+
 ##### Break it down
 There are several provided modes which change the appearance of the cow depending on its particular emotional/physical state
 The user can set this state using these flags
 ####cowsay [-f cowfile] [`user_string`]
+
 ~~~ bash
 $ cowsay -f tux hi there
  __________ 
@@ -67,8 +70,10 @@ $ cowsay -f tux hi there
 ##### Break it down
 The -f flag allows for other ascii images to be printed
 These images are pulled from .cow files, some of which come preinstalled and the full list can be found by typing:
+
 ~~~ bash
 $ cowsay -l
+
 Cow files in /usr/local/Cellar/cowsay/3.03/share/cows:
 beavis.zen bong bud-frogs bunny cheese cower daemon default dragon
 dragon-and-cow elephant elephant-in-snake eyes flaming-sheep ghostbusters
@@ -79,6 +84,7 @@ vader-koala www
 ~~~
 
 #### cowsay  [-e `eye_string`] [-T `tongue_string`] [-W `column`]
+
 ~~~ bash
 $ cowsay -e ^^ -T U -W 10 Hi there computing for computer scientists, this stuff is really interesting!
  ___________ 
@@ -98,6 +104,8 @@ $ cowsay -e ^^ -T U -W 10 Hi there computing for computer scientists, this stuff
             (__)\       )\/\
              U ||----w |
                 ||     ||
+~~~
+
 ##### Break it down
 -e flag allows the user to customize the cow's eyes
 -T allows the user to enter a string to be used as the Cow's tonguq (the string must be two characters or less)
