@@ -11,6 +11,8 @@ $  which ls
 /bin/ls
 ~~~
 
+<!--more-->
+
 ### Useful Options / Examples
 
 ### `which cd ls vim emacs which`
