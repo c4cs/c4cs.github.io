@@ -13,30 +13,52 @@ $ t stream timeline -l
 
 <!--more-->
 
-The cookie files are normally stored in `/usr/share/games/fortune/`. (Check `man fortune` on your system to be sure.)
+t is a command line utility (CLI) for interacting with Twitter.
+t is not typically bundled with an OS and requires installation. In order to install t you must already have Ruby installed. t requires a Twitter API token for each authorized user account.
 
-The Ubuntu package repositories contain a variety of additional cookie files, including fortunes in other languages! Try `aptitude search fortunes`.
+Full documentation on t is available on the project's GitHub page: <a href="https://github.com/sferik/t">https://github.com/sferik/t</a>
 
-### Useful Options / Examples
+t is compatabile with Linux, OS X, and Windows
 
-#### Print a fortune from a particular file or directory
+### Installation
 
-~~~ bash
-$ sudo apt-get install fortunes-ubuntu-server
-$ fortune ubuntu-server-tips
-Did you know that releases of Ubuntu labeled LTS are maintained for 5 years
-on servers? 'cat /etc/lsb-release' will tell you which release you are on.
-~~~
-
-You can specify the name of a cookie file to cause `fortune` to read from that file only. This also works for subdirectories of the cookie folder, like the ones used for different languages.
-
-#### Show or hide offensive fortunes
+#### Verify that Ruby is installed
+t depends on Ruby. Check that its installed on your system.
 
 ~~~ bash
-$ fortune -a
-Handel's Proverb:
-    You can't produce a baby in one month by impregnating 9 women!
+$ ruby -v
 ~~~
+
+#### Install t
+Run the following to install t.
+
+~~~ bash
+$ sudo gem install t
+~~~
+
+Note: this may take several minutes to finish and may provide no feedback.
+
+#### Configure Twitter API Settings
+In your terminal type the following, followed by 'enter'.
+
+~~~ bash
+$ t authorize
+~~~
+
+This will direct you to <a href="https://apps.twitter.com">apps.twitter.com</a>. Click "Create New App" and fill out the required fields. On the confirmation page click "modify app permissions". Change permissions to "Read, Write, and Access direct messages"
+
+(Congratulations -- you're a Twitter Developer!)
+
+#### Authorize t
+Switch back to your terminal where t is waiting. Copy and paste your new API key and API secret from your web browser when prompted by t. Finish authorization with a tap of 'ye old 'enter'.
+
+t will redirect you to the Twitter app authentication page. Input your credentials and click "Authorize App". Copy the resulting PIN number back into your terminal where t is prompted for it. You'll be greeted with an "Authorization successful" message.
+
+### Using t
+
+
+
+
 
 Your system might have an `off/` directory in the cookie folder containing fortunes which could be offensive. By default, `fortune` will not read from this folder, but the `-a` option lets it choose from all fortunes (normal and offensive). Similarly, the `-o` option would make `fortune` *only* choose offensive fortunes.
 
