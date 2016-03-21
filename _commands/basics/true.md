@@ -4,7 +4,7 @@
 true
 --
 
-`true` is a command that does nothing and return a true value(0). 
+`true` a command that returns the logical value of truth, which is `0`.
 
 ~~~ bash
 #!/usr/bin/env bash
