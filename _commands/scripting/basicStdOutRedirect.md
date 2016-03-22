@@ -38,3 +38,8 @@ Hello World!
 $ ./a.out > std
 Hello from cerr!
 ~~~
+
+
+##### Break it down
+
+* In the above example, a.out will print `Hello World!` to standard output, then `Hello from cerr!` to standard error. Since `>` only redirects standard output, the `Hello from cerr!` prints to the terminal normally. This is useful for projects where stdout and sterr messages are interleaved and you want to be able to see each one separately. 
