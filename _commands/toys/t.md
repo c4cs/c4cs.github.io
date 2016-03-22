@@ -18,7 +18,7 @@ t is not typically bundled with an OS and thus requires installation. In order t
 
 t capitalises on the ability to string UNIX commands, vastly increasing its usefulness. (xargs may be required)
 
-Full documentation on t is available on the project's GitHub page: <a href="https://github.com/sferik/t">https://github.com/sferik/t</a>
+Full documentation on t is available on [the project's GitHub page.](https://github.com/sferik/t)
 
 t is compatabile with Linux, OS X, and Windows
 
@@ -47,7 +47,7 @@ In your terminal type the following, followed by 'enter'.
 $ t authorize
 ~~~
 
-This will direct you to <a href="https://apps.twitter.com">apps.twitter.com</a>. Click "Create New App" and fill out the required fields. On the confirmation page click "modify app permissions". Change permissions to "Read, Write, and Access direct messages"
+This will direct you to [apps.twitter.com](https://apps.twitter.com). Click "Create New App" and fill out the required fields. On the confirmation page click "modify app permissions". Change permissions to "Read, Write, and Access direct messages"
 
 (Congratulations -- you're a Twitter Developer!)
 
@@ -140,7 +140,7 @@ Variation: Default streaming looks pretty but isn't very illuminating. Streaming
 $ t stream timeline -l
 ~~~
 
-See what's trending in the Ann Arbor area. (<a href="http://woeid.rosselliot.co.nz/lookup/ann%20arbor">Uses the Ann Arbor WOEID.</a>)
+See what's trending in the Ann Arbor area. [(Uses the Ann Arbor WOEID)](http://woeid.rosselliot.co.nz/lookup/ann%20arbor)
 
 ~~~ bash
 $ t trends 2354842
