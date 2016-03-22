@@ -73,7 +73,7 @@ $ echo $?
 1
 ~~~
 
-### Break it Down
+##### Break it Down
  * Using `which` returns 0 if there were matches for the command found, and 1 if the command was not
    found.
  * If you have multiple arguments and at least one of the commands are not found, the return code
@@ -87,7 +87,7 @@ $ echo $?
 1
 ~~~
 
-### Break it Down
+##### Break it Down
  * Shell builtin commands are commands or functions that are executed directly in the
    shell. It does not use an executable program that the shell loads and executes like it does for `ls` or `which`. As a result, `which` will not give you a path to the executable for commands such as `history` or `help` or `logout` because there is no executable in the first place.     
 
