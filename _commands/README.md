@@ -29,6 +29,7 @@ Command Webpages
 
 #### Shells
  - clear
+ - reset
  - export
  - history
  - jobs/fg/bg
