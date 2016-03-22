@@ -15,7 +15,8 @@ $  which ls
 
 ### Useful Options / Examples
 
-### `which cd ls vim emacs which`
+
+### `which ls vim emacs which`
 ~~~ bash
 $  which ls vim emacs which
 /bin/ls
@@ -25,11 +26,11 @@ $  which ls vim emacs which
 ~~~
 
 ##### Break it Down
-
  * The which command can be followed by any number of executables and will find the full paths that 
    are used to execute those commands had you typed them into your terminal. So, if you typed `ls`, you are actually executing /bin/ls. If you had typed `vim hello.cpp`, you are executing `/usr/bin/vim hello.cpp`. 
  * The command searches your `$PATH` to find the executables for the command. In the examples above, 
    `/usr/bin` and `/bin` were both in my PATH environment variable, which allowed `which` to find the commands above.
+
 
 ### `which -a test.sh`
 ~~~ bash
@@ -47,6 +48,7 @@ $  which -a test.sh
    `/Users/username` and the other in `/Users/username/Documents`. 
  * The first example shows the command without the `-a` option. The `which` command only shows one path
    to test.sh. However, once you use `-a`, two show up. `which -a` will use your PATH environment variable and search for all instances of the argument you give to `which` and print them out. So, in my example, `which` has found two instances of test.sh, one in `/Users/username` and the other in `/Users/username/Documents`.
+
 
 ### `which` Return Codes
 ~~~ bash
@@ -76,3 +78,16 @@ $ echo $?
    found.
  * If you have multiple arguments and at least one of the commands are not found, the return code
    is 1, signaling failure. Thus, only when all commands are found does `which` return 0 for success.
+
+
+### Using `which` with builtin commands
+~~~ bash
+$ which history help
+$ echo $?
+1
+~~~
+
+### Break it Down
+ * Shell builtin commands are commands or functions that are executed directly in the
+   shell. It does not use an executable program that the shell loads and executes like it does for `ls` or `which`. As a result, `which` will not give you a path to the executable for commands such as `history` or `help` or `logout` because there is no executable in the first place.     
+
