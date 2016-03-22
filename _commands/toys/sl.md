@@ -33,3 +33,17 @@ It is like the example above, but better.
 ~~~bash
 $ sudo apt-get install sl
 ~~~
+
+### Special flags
+-a <br>
+ the train flies
+
+-l <br>
+ a small train
+
+-F <br>
+ a flying train
+
+-e <br>
+ allows ctrl+c
+
