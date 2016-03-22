@@ -18,7 +18,7 @@ The standard output redirection operator is used in bash to redirect the output 
 
 #### Combining with `diff`
 ~~~ bash
-$ ./p3 > outfile.txt | diff outfile.txt correct.txt
+$ ./p3 > outfile.txt && diff outfile.txt correct.txt
 1c1
 < Hello World!
 ---
