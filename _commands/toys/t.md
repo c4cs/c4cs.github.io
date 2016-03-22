@@ -157,13 +157,13 @@ $ t timeline @whatifnumbers -n 1 -l | awk '{print $1}' | xargs t favorite
 Block a user.
 
 ~~~ bash
-$ t block @realDonaldTrump
+$ t block @JimmyFallon
 ~~~
 
-Note: The above command does not prevent the user from running for president. Should such an election occur, report them to Twitter for abuse of power. 
+Report a user for posting spam. (Yo Twitter, what is this 'Moments' thing and how do I get rid of it?)
 
 ~~~ bash
-$ t report_spam @POTUS
+$ t report_spam @Twitter
 ~~~
 
 ### Appendix: Top-level t commands
