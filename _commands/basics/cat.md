@@ -72,7 +72,6 @@ int main() {
 	printf("See how easy this is?");
 	return 0;
 }
-//Ctrl+D stops standard input
 ~~~
 
 #### Example command
