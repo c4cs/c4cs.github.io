@@ -24,12 +24,12 @@ $ cowsay Hi There
 
 ### Useful Options / Examples
 There are many useful options for this intersting cowsay command.
-The complete list is: cowsay  [-e  eye_string] [-f cowfile] [-h] [-l] [-n] [-T tongue_string] [-W column] [-bdgpstwy]
+The complete list is: cowsay  `[-e  eye_string]` `[-f cowfile]` `[-h]` `[-l]` `[-n]` `[-T tongue_string]` `[-W column]` `[-bdgpstwy]`
 
--e allows the user to customize the cow's eyes which are defaulted to "oo" as seen above.
--T allows the user to add a tongue string to the cow image. By default there is no tongue string.
--W allows the user to customize the number of character printed in the message before the message wraps around
--[-bdgpstwy] are all options to define different pre-made cows emotional states. For example, adding the -g flag will result in a greedy cow to print and -s will result in a stoned cow to print.
+`-e` allows the user to customize the cow's eyes which are defaulted to "oo" as seen above.
+`-T` allows the user to add a tongue string to the cow image. By default there is no tongue string.
+`-W` allows the user to customize the number of character printed in the message before the message wraps around
+`-[-bdgpstwy]` are all options to define different pre-made cows emotional states. For example, adding the -g flag will result in a greedy cow to print and -s will result in a stoned cow to print.
 
 #### cowsay [-bdgpstwy] [`user_input`]
 
@@ -68,8 +68,8 @@ $ cowsay -f tux hi there
 ~~~
 
 ##### Break it down
-The -f flag allows for other ascii images to be printed
-These images are pulled from .cow files, some of which come preinstalled and the full list can be found by typing:
+The `-f` flag allows for other ascii images to be printed
+These images are pulled from `.cow` files, some of which come preinstalled and the full list can be found by typing:
 
 ~~~ bash
 $ cowsay -l
@@ -107,6 +107,6 @@ $ cowsay -e ^^ -T U -W 10 Hi there computing for computer scientists, this stuff
 ~~~
 
 ##### Break it down
--e flag allows the user to customize the cow's eyes
--T allows the user to enter a string to be used as the Cow's tonguq (the string must be two characters or less)
--W specifies the number of charcters to be printed in the cow's message before the characters wrap around. The defult is 40 if none is specified
+`-e` flag allows the user to customize the cow's eyes
+`-T` allows the user to enter a string to be used as the Cow's tongue (the string must be two characters or less)
+`-W` specifies the number of charcters to be printed in the cow's message before the characters wrap around. The defult is 40 if none is specified
