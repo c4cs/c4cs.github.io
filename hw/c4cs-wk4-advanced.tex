@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{soul}
+\usepackage{xcolor}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Homework 4\\}}
+\author{Assigned: Friday, January 29, 11:00AM}
+\date{\textbf{\color{red}{Due: Before the first lecture on Friday}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions.
+
+
+\section{Git Golf}
+
+Sometimes, when using git, people make mistakes. Git can be remarkably
+forgiving, if you've ever told git to remember something, then you can usually
+find a way to undo your mistake and get it back.
+
+\begin{quote}
+\begin{lstlisting}
+# Grab a copy of the files for this question
+> wget http://c4cs.github.io/hw/c4cs-wk4-advanced/golf.tar.gz
+\end{lstlisting}
+\end{quote}
+
+\subsection*{\#1: Undeleting Files}
+
+In this repository, someone got a little trigger happy and ran
+\texttt{git~rm~*.png}, which deleted every image, and committed the result.
+Now the website is broken because an image that should have stayed was
+deleted. While you could use \texttt{git~revert} to undo the commit, it also
+changed the website source, so you really don't want to undo everything.
+
+\noindent
+\textbf{Demonstrate how to recover the missing picture \ul{without} reverting
+the commit that deleted it.}
+
+
+\subsection*{\#2: Undeleting Commits}
+
+Sometimes it is possible to lose a commit. This can happen because you deleted
+a branch, a rebase went poorly, or a reset went awry. Regardless of how it
+happened, there are ways of finding commits that nothing is currently pointing
+to. This repository has such a commit.
+
+\noindent
+\textbf{Demonstrate how to recover a commit that nothing is currently pointing to.}
+% n.b. for the pedantic, the r****g is actually pointing to this commit, so
+% it'll never be gc'd, but that's outside the scope of this question
+
+
+\subsection*{\#3: Undeleting Changes}
+
+When working with git, \texttt{git~add~my\_file} stages a file, but it isn't
+actually committed until you run \texttt{git~commit}. Sometimes you change
+your mind after a \texttt{git~add} and run \texttt{git~reset~my\_file} to
+unstage a file. The changes to that file are still there, however. To really
+undo changes, you use \texttt{git~reset~-{}-hard}.
+
+\medskip
+\noindent
+Once you've been using these commands for a little while, it can be a little
+too easy to accidentally type the wrong thing. In this repository, someone
+accidentally typed \texttt{git~reset~-{}-hard} when they meant to just type
+\texttt{git~reset}. Fortunately, because they had already run \texttt{git~add}
+to stage their changes, the deleted changes can be recovered.
+
+\noindent
+\textbf{Demonstrate how to recover changes that had been staged for commit,
+but were then deleted.}
+
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Explain how you solved each problem
+\end{itemize}
+
+
+\newpage
+\section{Automating Professionalism}
+
+One feature of most version control systems is \emph{hooks}. A hook is an
+automated script or tool that runs at various points in time. For example,
+later in this course we will show how you can automatically run test cases
+every time anyone commits code.
+
+\medskip
+\noindent
+A slightly easier one to wire up, however, is a hook that will automatically
+check the spelling of your commit messages for you, letting you know if you
+made any mistakes. While spelling rarely counts for a class projects, it
+adds a nice bit of professionalism to any future work you'll share with
+others.
+
+\medskip
+\noindent
+Like the regular homework, I recommend creating a temporary git repository to
+play with while you test things and try to get things working.
+
+\medskip
+\noindent
+Git stores all of its information and configuration in a folder named
+\texttt{.git} in the root of each project. Navigate to \texttt{.git/hooks} and
+rename \texttt{commit-msg.sample} to \texttt{commit-msg}. This activates the
+commit message hook, which runs after you write and save your commit message.
+Now go back to your repository, make a change, and commit it. Hmm, doesn't
+look like anything changed. Make another change, but this time make this your
+commit message (\textbf{exactly this, capitalization matters}):
+\begin{quote}
+  \begin{verbatim}
+  This is a test.
+
+  Signed-off-by: Me!
+  Signed-off-by: Me!\end{verbatim}
+\end{quote}
+After trying to commit, type \texttt{git status}. What happened? Go back and
+look at the commit hook. Do you understand what it does? Try running
+\texttt{git commit --no-verify} with the same commit message. Go edit the
+commit hook and delete the line \texttt{exit 1}. Try making a new commit with
+the same commit message, what happens now? What is \texttt{\$1} in this
+script?  (not sure? try adding lines like \texttt{echo~\$1} or
+\texttt{echo~\$(file~\$1)} or \texttt{echo~\$(cat~\$1)} to the hook and making
+commits, what happens?)
+
+\medskip
+\noindent
+\texttt{aspell} is a simple command-line utility that checks spelling. Install
+it and play with it a little.
+
+\medskip
+\noindent
+\textbf{Write a commit hook that checks the spelling of a commit message.}
+Your hook should not prevent the commit from going through (that'd be
+annoying..), but it should print out any spelling errors. Your hook should
+also print a message that suggests running the command
+\texttt{git~commit~-{}-amend}\footnote{
+  Amending a commit lets you change your most recent commit. This is fine when
+  you are working locally, but can be a dangerous command if you are sharing
+  your repository with anyone else. Use with caution.
+} if any errors are present.
+
+\medskip
+\noindent
+Many commit messages will include snippets of code or a quote of a log or
+something else to help explain the commit. By convention, quoted blocks are
+indented with spaces.
+%
+\begin{quote}
+\begin{Verbatim}[fontsize=\scriptsize]
+Author: Brad Campbell <bradjc5@gmail.com>
+Date:   Sun Apr 19 22:02:53 2015 -0700
+
+Fix error on edit items page
+
+Need to handle the string "None", which isn't a number, fixes:
+
+  Traceback (most recent call last):
+    ...<snip>...
+    File "chezbetty-1.4.1.egg/chezbetty/templates/admin/item_edit.jinja2", line 56, in <module>
+      <dt>Days Until Out</dt> <dd>{{ stats.until_out|round(0)|int }}</dd>
+    File "Jinja2-2.7.3-py3.4.egg/jinja2/filters.py", line 657, in do_round
+      return round(value, precision)
+  TypeError: type str doesn't define __round__ method
+
+Fixes #172.
+\end{Verbatim}
+\end{quote}
+%
+It does not make sense to spell check the quoted material, however.
+
+\medskip
+\noindent
+\textbf{Modify your commit hook so that it does not spellcheck any line that
+begins with at least two spaces.}
+
+\medskip
+\noindent
+{\small \emph{Hint: Having trouble? Don't be afraid to use \texttt{/tmp} to
+    store some files. You don't need to make any temporary files to do this
+    task, but it can make things easier, especially when you're first learning.
+}}
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Show off your spellchecking hook in action
+  \begin{itemize}
+    \item[$\square$] Demonstrate that it ignores errors in indented lines
+  \end{itemize}
+\end{itemize}
+
+
+\paragraph{Further exploration and some gotchas:}
+\begin{itemize}
+  \item Take a look at some of the other hooks, are any of them useful?
+  \item For a list of all available hooks, type \texttt{man githooks}.
+  \item Hooks have to be marked as executable to run (\texttt{chmod +x}). The
+    sample hooks already had the executable bit set, which is why renaming the
+    existing sample worked above.
+  \item Hooks can call other scripts. Because invocation of hooks is
+    controlled by the name of the script, if you want multiple scripts to run
+    for a single hook, you'll need to have one script named correctly that
+    calls your other hooks.
+\end{itemize}
+
+\end{document}

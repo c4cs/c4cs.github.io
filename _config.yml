@@ -1,0 +1,68 @@
+title: Computing for Computer Scientists
+email: ppannuto@umich.edu
+description: > # this means to ignore newlines until "url:"
+  This 1-credit seminar is designed to teach the essentials of using a computer
+  effectively for EECS students. While the target audience is CS/CE/DS
+  students, any student wishing to learn how to use their computer much more
+  effectively is encouraged to join. Topics covered include shells,
+  environment, scripting, Makefiles, compilers, debugging tools, and version
+  control. The last month of the course will be open to student input for
+  remaining useful topics to cover.
+url: "https://c4cs.github.io" # the base hostname & protocol for your site
+
+google_analytics_id: UA-70360310-1
+
+timezone: America/Detroit
+
+permalink: none
+
+collections:
+  commands:
+    output: true
+
+defaults:
+  - scope:
+      type: commands
+    values:
+      layout: reference
+  - scope:
+      path: "_commands/basics"
+    values:
+      category: basics
+  - scope:
+      path: "_commands/shells"
+    values:
+      category: shells
+  - scope:
+      path: "_commands/scripting"
+    values:
+      category: scripting
+  - scope:
+      path: "_commands/tools"
+    values:
+      category: tools
+  - scope:
+      path: "_commands/editors"
+    values:
+      category: editors
+  - scope:
+      path: "_commands/toys"
+    values:
+      category: toys
+  - scope:
+      path: "_commands/ubuntu"
+    values:
+      category: ubuntu
+  - scope:
+      path: "_commands/os_x"
+    values:
+      category: os_x
+
+command_categories: ["basics", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
+
+# Build settings
+markdown: kramdown
+
+# Needed for Travis
+exclude: [vendor]
+

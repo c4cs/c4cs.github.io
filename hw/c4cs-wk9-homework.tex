@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+
+\title{\textbf{Homework 9\\Advanced Git}}
+\author{Assigned: Friday, March 11}
+\date{\textbf{\color{red}{Due: Friday, March 18, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+For this assignment, all of your submissions will be to GitLab.
+
+\section*{Optional Reading}
+
+\emph{Git is a purely functional data structure}, by Philip Nilsson, from Jayway.
+
+\url{http://www.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/}
+
+I highly encourage reading this when you have some time to read the article
+carefully and think deeply about the material.
+This article presents an excellent way of thinking about git and how it
+operates.
+
+
+
+\section{Sharing code with others}
+
+Earlier this semester, we asked you to use git with at least one project. Now
+you will set up that project to be shared with the course staff. Visit
+\url{https://gitlab.eecs.umich.edu} and create a new project named
+\textbf{exactly} \texttt{c4cs-w16-wk9}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Interal or Public).
+
+Add this new repository as a remote (\texttt{git remote add \dots}) to your
+existing project.
+
+Push the project to this new remote.
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{ppannuto} and
+\texttt{mmdarden}. (Click on the ``Members'' link in the left column to manage
+this permission).
+
+We will run a test script, checking our access to everyone's repository on
+Thursday night.
+
+
+\newpage
+\section{Handling merge conflicts}
+
+\subsection{Content Conflict}
+
+Clone \url{https://gitlab.eecs.umich.edu/ppannuto/c4cs-w16-conflict1.git}.
+
+This repository has a \texttt{master} branch and a \texttt{merge\_me} branch
+that have diverged. Merge the \texttt{merge\_me} branch into \texttt{master},
+resolving the conflict.
+
+Create a new repository in your GitLab named \textbf{exactly}
+\texttt{c4cs-w16-conflict1}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Interal or Public).
+
+Push your changes to your new repository.
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{ppannuto} and
+\texttt{mmdarden}. (Click on the ``Members'' link in the left column to manage
+this permission).
+
+We will run a test script, checking our access to everyone's repository on
+Thursday night.
+
+\subsection{File Path Conflict}
+
+Repeat the same steps for
+\url{https://gitlab.eecs.umich.edu/ppannuto/c4cs-w16-conflict2.git}.
+
+Be sure to read over the commit history so that you are sure that the result
+of your merge has the right data!
+
+\end{document}
