@@ -1,25 +1,29 @@
---------
+---
+---
 
 time
---------
+---
+
+time prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
+If you are using a bash shell you must specify /usr/bin/time not just time.
+If the time is very small it may just print zeros or a ?.
+
+---
+---
 	
-GENERAL FORM
-		
-	time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
-        [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
+General Form:
+---
 
-DESCRIPTION
+~~~ bash	
+	$ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
+          [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
+~~~
 
-	The time command prints out three separate times: the total time elapsed, the time used by system overhead and the time used to execute the utility.
+---
+---
+Options
 
-	If the program exits non-zero it will print a warning message and then the exit status.	
-	The time command returns 128 plus the number of the signal that caused the program to stop.
-
-	If you are using a bash shell you must explicity specify "/usr/bin/time" rather than just "time"
-
-	If the time is extremely small, this command may return zero or a question mark
-
-AVAILABLE OPTIONS
+---
 
 	-o FILE --output=FILE
 		The time statistics are written to the file FILE and any contents of FILE are overwritten
@@ -29,23 +33,26 @@ AVAILABLE OPTIONS
 	
 	-v, --verbose
 		Prints all available information with description of its meaning
+---
+---
 
-EXAMPLES
+Examples
+---
 
 	To run the file project.cpp with command line args -m and input file input.txt, with the default output run the following command
-
+~~~ bash
 		/usr/bin/time ./project -m < input.txt
-
+~~~
 	To run the above scenario, but output the time to a text file run the follwing command
-
+~~~ bash
 		/usr/bin/time -o out.txt ./project -m <input.txt
-
+~~~
 	To append and not overwrite the text file run the follwing command
-
+~~~ bash
 		/usr/bin/time -o out.txt -a ./project -m <input.txt
-
+~~~
 	To show only the user, system and total time run the following command
-
+~~~ bash
 		/usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
-	
+~~~
 	
