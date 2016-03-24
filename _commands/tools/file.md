@@ -46,6 +46,7 @@ file.md ::  ASCII text
 
 #### Break it down
 
+* `-F` flag is the short version of `--separator`
 * `-F` flag allows you to provide a custom delimter between the file name and type in output. This is especially useful when trying to format output specifically when piping into an output file. 
 * `separator` is the command argument - it will be used as the delimiter. The default is ":"
 * You can use quotes around the string if you want spaces included in the output - this is seen in the second example above
@@ -61,5 +62,6 @@ file.md: text/plain; charset=us-ascii
 
 #### Break it down
 
+* `-i` flag is the short version of `--mime`
 * `-i` flag changes the way that the command interprets file types, giving more information about the file
 * This option is very useful when you're unsure about what the type that is output actually is
