@@ -13,10 +13,9 @@ time prints out the total time elapsed, the time used by system overhead and the
           [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
 ~~~
 
-<!--more-->
-
 ### Examples
 
+<!--more-->
 	Situation: you simply want to output the time it takes to run a command
 	
 	~~~ bash
