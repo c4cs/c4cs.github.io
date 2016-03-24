@@ -1,7 +1,7 @@
 ---
 ---
 
-cowsay
+Cowsay
 --
 `cowsay` generates an ASCII picture of a cow saying something provided by  the  user.
 
@@ -71,6 +71,8 @@ $ cowsay -f tux hi there
 The `-f` flag allows for other ascii images to be printed
 These images are pulled from .cow files, some of which come preinstalled and the full list can be found by typing:
 
+#### `cowsay` `[-l]`
+
 ~~~ bash
 $ cowsay -l
 
@@ -82,6 +84,9 @@ mutilated ren satanic sheep skeleton small sodomized stegosaurus stimpy
 supermilker surgery telebears three-eyes turkey turtle tux udder vader
 vader-koala www
 ~~~
+
+##### Break it Down
+the `-l` flag lists all pre-made .cow files that are immediatly at the users disposal.
 
 #### `cowsay`  `[-e eye_string]` `[-T tongue_string]` `[-W column]`
 
