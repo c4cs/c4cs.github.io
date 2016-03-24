@@ -9,9 +9,14 @@ time prints out the total time elapsed, the time used by system overhead and the
 General Form:
 
 ~~~ bash	
+
 $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
 [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
+
 ~~~
+
+
+<!--more-->
 
 Situation:
 	
