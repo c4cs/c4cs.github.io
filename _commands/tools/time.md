@@ -9,24 +9,21 @@ time prints out the total time elapsed, the time used by system overhead and the
 ### General Form:
 
 ~~~ bash	
-	$ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
-          [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
+$ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
+[ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
 ~~~
 
 <!--more-->
 
 ### Situation:
-	<!--more-->
 
 	If you simply want to output the time it takes to run a command
 	
 	~~~ bash
-		$ /usr/bin/time ./project -m < input.txt
+	$ /usr/bin/time ./project -m < input.txt
 	~~~
 	
 ### Meaning:
-
-	<!--more-->
 
 	 "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
 	 "-m" is a flag for that program and "< input.txt" is the input file for the program.
@@ -39,92 +36,93 @@ time prints out the total time elapsed, the time used by system overhead and the
 	Where the user, system and elapsed times are in seconds.
 
 ### Situation:
-	<!--more-->
 	
-	 you want to output the time information to a file
+	If you want to output the time information to a file
 
 	~~~ bash
-		$ /usr/bin/time -o out.txt ./project
+	$ /usr/bin/time -o out.txt ./project
 	~~~
 
 ### Meaning:
-	<!--more-->
-
+	
 	the "-o" flag (which is the same as --output) tells the computer to redirect the output for the
 	time command to the file "out.txt". This flag will overwrite the file out.txt, however, if you
 	do not want to overwrite the file see the example below.
 
 ### Situation:
-		 you want to output the time information to a file but you do not want to overwrite said file
+	If you want to output the time information to a file but you do not want to overwrite said file
 
 	~~~ bash
-		$ /usr/bin/time -a out.txt ./project
+	$ /usr/bin/time -a out.txt ./project
 	~~~
 	
 ### Meaning:
-		 the "-a" flag followed by a file "out.txt" tells the program to redirect the output from the time
-		 command to the file out.txt but instead of overwritting the file, append the information to it.
+	 the "-a" flag followed by a file "out.txt" tells the program to redirect the output from the time
+	 command to the file out.txt but instead of overwritting the file, append the information to it.
 
 ### Situation:
-		 you only want to print out the user, system and total time
+	If you only want to print out the user, system and total time
 
 	~~~ bash
-		/usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
+	$ /usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
 	~~~
 
-### Meaning: the "-f" flag followed by the string "\t%E real,\t%U user,\t%S sys" tells the computer to format
-		 the out put in the form:
+### Meaning: 
+	
+	the "-f" flag followed by the string "\t%E real,\t%U user,\t%S sys" tells the computer to format
+	the out put in the form:
  
-			real	0m10.081s
-			user	0m3.858s
-			sys	0m0.408s
+		real	0m10.081s
+		user	0m3.858s
+		sys	0m0.408s
 
-		the "\t%E real" means print the string "real" followed by a tab (due to the "\t") and then the elapsed time (wall-clock time)
-		used by the program. The "\t%U user" means print the string "user" followed by a tab and the total number of CPU-seconds that
-		the process used. Finally the "\t%S sys" prints the string "sys" followed by a tab and then the the total number of CPU-seconds
-		used by the system due to the program in seconds.
+	the "\t%E real" means print the string "real" followed by a tab (due to the "\t") and then the elapsed time (wall-clock time)
+	used by the program. The "\t%U user" means print the string "user" followed by a tab and the total number of CPU-seconds that
+	the process used. Finally the "\t%S sys" prints the string "sys" followed by a tab and then the the total number of CPU-seconds
+	used by the system due to the program in seconds.
 
 ### Situation:
-		 you want to output as much information as possible about how long your code took to run
+	If you want to output as much information as possible about how long your code took to run
 
 	~~~bash
-		/usr/bin/time -v ./project
+	$ /usr/bin/time -v ./project
 	~~~
 	
 ### Meaning:
-		 the "-v" (or "--verbose") flag tells the computer to print out all of the time information it has. The output would look
-		 something like the following:
+	 the "-v" (or "--verbose") flag tells the computer to print out all of the time information it has. The output would look
+	 something like the following:
 
-			Command being timed: "./project"
-			User time (seconds): 0.00
-			System time (seconds): 0.00
-			Percent of CPU this job got: 0%
-			Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
-			Average shared text size (kbytes): 0
-			Average unshared data size (kbytes): 0
-			Average stack size (kbytes): 0
-			Average total size (kbytes): 0
-			Maximum resident set size (kbytes): 3236
-			Average resident set size (kbytes): 0
-			Major (requiring I/O) page faults: 0
-			Minor (reclaiming a frame) page faults: 135
-			Voluntary context switches: 2
-			Involuntary context switches: 7
-			Swaps: 0
-			File system inputs: 24
-			File system outputs: 0
-			Socket messages sent: 0
-			Socket messages received: 0
-			Signals delivered: 0
-			Page size (bytes): 4096
-			Exit status: 0
+		Command being timed: "./project"
+		User time (seconds): 0.00
+		System time (seconds): 0.00
+		Percent of CPU this job got: 0%
+		Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
+		Average shared text size (kbytes): 0
+		Average unshared data size (kbytes): 0
+		Average stack size (kbytes): 0
+		Average total size (kbytes): 0
+		Maximum resident set size (kbytes): 3236
+		Average resident set size (kbytes): 0
+		Major (requiring I/O) page faults: 0
+		Minor (reclaiming a frame) page faults: 135
+		Voluntary context switches: 2
+		Involuntary context switches: 7
+		Swaps: 0
+		File system inputs: 24
+		File system outputs: 0
+		Socket messages sent: 0
+		Socket messages received: 0
+		Signals delivered: 0
+		Page size (bytes): 4096
+		Exit status: 0
  		
 ### Situation:
-		 you want to do something that is not described above
+	If you want to do something that is not described above
 
 	~~~ bash
-		man time
+	$ man time
 	~~~
 	
 ### Meaning:
-		 this will birng you to the manual page for time
+
+	 this will birng you to the manual page for time
