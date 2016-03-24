@@ -32,8 +32,6 @@ Because of the way that the `file` command works, it can make mistakes. For exam
 
 ### `file -F separator`
 
-### `file --separator separator`
-
 ~~~ bash
 $ file -F :: file.md
 file.md:: ASCII text
@@ -52,8 +50,6 @@ file.md ::  ASCII text
 * You can use quotes around the string if you want spaces included in the output - this is seen in the second example above
 
 ### `file -i`
-
-### `file --mime`
 
 ~~~ bash
 $ file -i file.md
