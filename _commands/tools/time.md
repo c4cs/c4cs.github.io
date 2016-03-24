@@ -3,29 +3,25 @@
 
 time
 ---
-
 time prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
 	
 General Form:
 
-~~~ bash	
-
-$ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
-[ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
-
+~~~ bash
+$ /usr/bin/time [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
+[ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ] 
 ~~~
-
 
 <!--more-->
 
-Situation:
-	
+### Situation
+
 	If you simply want to output the time it takes to run a command
 	
-	~~~ bash
-	$ /usr/bin/time ./project -m < input.txt
-	~~~
-	
+~~~ bash
+$ /usr/bin/time ./project -m < input.txt
+~~~
+
 Meaning:
 
 	 "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
