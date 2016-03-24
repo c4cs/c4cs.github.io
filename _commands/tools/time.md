@@ -13,9 +13,8 @@ $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --qui
 [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
 ~~~
 
-<!--more-->
-
 ### Situation:
+	<!--more-->
 
 	If you simply want to output the time it takes to run a command
 	
