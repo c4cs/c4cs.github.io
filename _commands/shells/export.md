@@ -10,7 +10,7 @@ export
 $ NAME=alice
 $ echo $NAME
 alice
-cat test.sh
+$ cat test.sh
 #!/usr/bin/env/bash
 echo $NAME
 $ ./test.sh
