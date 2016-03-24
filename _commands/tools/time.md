@@ -6,7 +6,7 @@ time
 
 time prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
 	
-### General Form:
+General Form:
 
 ~~~ bash	
 $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
