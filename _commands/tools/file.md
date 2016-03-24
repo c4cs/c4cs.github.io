@@ -51,6 +51,7 @@ file.md ::  ASCII text
 * You can use quotes around the string if you want spaces included in the output - this is seen in the second example above
 
 ### `file -i`
+
 ### `file --mime`
 
 ~~~ bash
