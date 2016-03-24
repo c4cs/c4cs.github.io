@@ -13,7 +13,7 @@ $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --qui
 [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
 ~~~
 
-### Situation:
+Situation:
 	
 	If you simply want to output the time it takes to run a command
 	
@@ -21,7 +21,7 @@ $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --qui
 	$ /usr/bin/time ./project -m < input.txt
 	~~~
 	
-### Meaning:
+Meaning:
 
 	 "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
 	 "-m" is a flag for that program and "< input.txt" is the input file for the program.
