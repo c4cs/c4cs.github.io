@@ -19,6 +19,8 @@ ps
 26195 pts/17   00:00:00 ps
 ~~~
 
+<!--more-->
+
 ### Useful Options / Examples
 For any example, you can pipe to `less` by using `| less` after any command to allow you to scroll
 
