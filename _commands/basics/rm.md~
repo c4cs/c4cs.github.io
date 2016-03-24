@@ -4,7 +4,7 @@
 rm
 --
 
-`echo` is used to output whatever it is given into stdout. Often useful see the value of environment variables. 
+`rm` is used to delete one or multiple files from your current directory. 
 
 ~~~ bash
 $ echo "Hello World!"

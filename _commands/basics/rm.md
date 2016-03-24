@@ -7,84 +7,49 @@ rm
 `rm` is used to delete one or multiple files from your current directory. 
 
 ~~~ bash
-$ echo "Hello World!"
-Hello World!
-$ echo $USER
-<your username>
+$ rm file1.txt file2.txt
+
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### `echo -e [string...]`
+#### `rm -d`
 
 ~~~ bash
-$ echo "Hello \tWorld\n"
-Hello \tWorld\n 
-$ echo -e "Hello \tWorld\n"
-Hello   World 
+$ rm -d directory1
 
-$ 
 ~~~
 
 
 ##### Break it down
- * The `-e` flag will have echo evaluate the escaped characters inside the string.
-   `\n` will be printed as a newline instead of as the literal characters.
- * This flag is also needed to use color in the output. Otherwise the
-   values will be printed instead of interpreted.
+ * The `-d` flag will remove directorys even if they are not empty. 
+ * This flag is needed in order to delete any directory, without the `-d` flag, rm will only be able to delete files.
 
-#### `echo [string...with color]`
+#### `rm -v`
 
-<pre>
-$ echo "\033[31mHello \033[36mWorld\033[m"  
-\033[31mHello \033[36mWorld\033[m
-$ echo -e "\033[31mHello \033[36mWorld\033[m"  
-<span style="color:red;">Hello</span><span style="color:blue;"> World</span>
-$ echo "$(tput setaf 1)Hello $(tput setaf 4)World$(tput sgr0)"
-<span style="color:red;">Hello</span><span style="color:blue;"> World</span>
-</pre>
+~~~ bash
+$ rm -v file.txt
+file.txt
+
+~~~
+
 
 ##### Break it down
  
- * There are two examples of adding color to echo output. The first requires the `-e` flag
-   since it works with raw escape codes. Otherwise the values will be printed instead of 
-   interpreted.  The second, using `tput` is considered to be better since it is more
-   portable and much more readable. Note that it does not require the `-e` flag.
- * The final value resets the color, `\033[m` and `$(tput sgr0)`, to the default so that the
-   color does not run into your prompt.
- * `tput setaf` sets the foreground color, the text color. tput colors go from [1,7] by default
-   but can be bumped up to [1,256]
+ * the '-v' command puts the rm command into verbose mode. This will print the name of the files that will be deleted.
 
-#### `echo -n [string...]`
+#### `echo -f`
 
 ~~~ bash
-$ echo -n "Test "; echo "Should be on the same line"
-Test Should be on the same line
+$ rm -f file.txt
+
 ~~~
 
 ##### Break it down
 
- * echo default prints a newline at the end of the input string.
- * The `-n` flag will have echo not print the new line character at the end. 
+ * the '-f' flag allows the user who is using the rm command to remove the write-protected file without prompting the user.
 
 
-#### `echo $(expression)` 
-
-~~~ bash
-$ echo $((1 + 1))
-2
-$ $((1 + 1))
--bash: 2: command not found
-~~~
-
-##### Break it down
- * echo can also be used to print the output of expressions that would not put their result
-   into stdout.
- * This will keep bash from trying to interpret the output as command.
- * The idea behind this is very similar to the first example of printing out a environment
-   variable
- * If you're building a complicated bash command precede it with echo to make sure all the
-   variables and expressions expand in the expected way.
 
