@@ -3,9 +3,9 @@
 
 time
 ---
-time prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
+"time" prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
 	
-General Form:
+### General Form:
 
 ~~~ bash
 $ /usr/bin/time [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
