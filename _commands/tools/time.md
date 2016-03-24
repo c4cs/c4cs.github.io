@@ -13,17 +13,14 @@ time prints out the total time elapsed, the time used by system overhead and the
           [ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ]
 ~~~
 
-### Examples
-
-<!--more-->
-	### Situation:
+### Situation:
 		 you simply want to output the time it takes to run a command
 	
 	~~~ bash
 		$ /usr/bin/time ./project -m < input.txt
 	~~~
 	
-	### Meaning:
+### Meaning:
 		 "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
 		 "-m" is a flag for that program and "< input.txt" is the input file for the program.
 		Anything that appears after "./project" is taken like it would be without using the time command.
@@ -34,37 +31,37 @@ time prints out the total time elapsed, the time used by system overhead and the
 
 		Where the user, system and elapsed times are in seconds.
 
-	### Situation:
+### Situation:
 		 you want to output the time information to a file
 
 	~~~ bash
 		$ /usr/bin/time -o out.txt ./project
 	~~~
 
-	### Meaning:
+### Meaning:
 		 the "-o" flag (which is the same as --output) tells the computer to redirect the output for the
 		 time command to the file "out.txt". This flag will overwrite the file out.txt, however, if you
 		 do not want to overwrite the file see the example below.
 
-	### Situation:
+### Situation:
 		 you want to output the time information to a file but you do not want to overwrite said file
 
 	~~~ bash
 		$ /usr/bin/time -a out.txt ./project
 	~~~
 	
-	### Meaning:
+### Meaning:
 		 the "-a" flag followed by a file "out.txt" tells the program to redirect the output from the time
 		 command to the file out.txt but instead of overwritting the file, append the information to it.
 
-	### Situation:
+### Situation:
 		 you only want to print out the user, system and total time
 
 	~~~ bash
 		/usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
 	~~~
 
-	### Meaning: the "-f" flag followed by the string "\t%E real,\t%U user,\t%S sys" tells the computer to format
+### Meaning: the "-f" flag followed by the string "\t%E real,\t%U user,\t%S sys" tells the computer to format
 		 the out put in the form:
  
 			real	0m10.081s
@@ -76,14 +73,14 @@ time prints out the total time elapsed, the time used by system overhead and the
 		the process used. Finally the "\t%S sys" prints the string "sys" followed by a tab and then the the total number of CPU-seconds
 		used by the system due to the program in seconds.
 
-	### Situation:
+### Situation:
 		 you want to output as much information as possible about how long your code took to run
 
 	~~~bash
 		/usr/bin/time -v ./project
 	~~~
 	
-	### Meaning:
+### Meaning:
 		 the "-v" (or "--verbose") flag tells the computer to print out all of the time information it has. The output would look
 		 something like the following:
 
@@ -111,12 +108,12 @@ time prints out the total time elapsed, the time used by system overhead and the
 			Page size (bytes): 4096
 			Exit status: 0
  		
-	### Situation:
+### Situation:
 		 you want to do something that is not described above
 
 	~~~ bash
 		man time
 	~~~
 	
-	### Meaning:
+### Meaning:
 		 this will birng you to the manual page for time
