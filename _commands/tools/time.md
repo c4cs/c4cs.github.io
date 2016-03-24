@@ -14,8 +14,7 @@ $ time   [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --qui
 ~~~
 
 ### Situation:
-	<!--more-->
-
+	
 	If you simply want to output the time it takes to run a command
 	
 	~~~ bash
