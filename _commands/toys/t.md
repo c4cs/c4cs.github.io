@@ -166,7 +166,7 @@ Report a user for posting spam. (Yo Twitter, what is this 'Moments' thing and ho
 $ t report_spam @Twitter
 ~~~
 
-Needs moar [`cowsay`](/commands/toys/cowsay/)
+Needs moar [`cowsay`](/commands/toys/cowsay)
 
 ~~~ bash
 $ t timeline @swiftonsecurity -n 1 | cowsay
