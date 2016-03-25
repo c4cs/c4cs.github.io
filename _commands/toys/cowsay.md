@@ -79,7 +79,7 @@ $ cowsay -f tux hi there
 
 #### Example Command
 
-#### `cowsay` `[-l]`
+#### `cowsay [-l]`
 
 ~~~ bash
 $ cowsay -l
