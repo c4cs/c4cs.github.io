@@ -166,6 +166,24 @@ Report a user for posting spam. (Yo Twitter, what is this 'Moments' thing and ho
 $ t report_spam @Twitter
 ~~~
 
+Needs moar [`cowsay`](/commands/toys/cowsay)
+
+~~~ bash
+$ t timeline @swiftonsecurity -n 1 | cowsay
+ _______________________________________
+/  @SwiftOnSecurity                     \
+|                                       |
+| Using Twitter has taught me to        |
+| livetweet my problems over team email |
+\ and my coworkers are getting mad      /
+ ---------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+~~~
+
 ### Appendix: Top-level t commands
 
 ~~~ bash
