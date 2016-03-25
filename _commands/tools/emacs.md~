@@ -70,7 +70,7 @@ $ emacs -geometry 70 filename
 #### `emacs -fg`
 
 ~~~ bash
-$ emacs -fg red filename
+$ emacs -fg red
 ~~~
 
 ##### Break it down
