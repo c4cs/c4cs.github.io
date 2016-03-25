@@ -8,7 +8,7 @@ rmdir
 $ ls
 myfolder/
 $ rmdir myfolder
-$ls
+$ ls
 
 ~~~
 
@@ -40,6 +40,7 @@ somefile
 
 ##### Break it down
 * The `--ignore-fail-on-non-empty` option tells `rmdir` to ignore failures that occur due to non-empty directories being attempted to be removed. That is, no error output will be produced for non-empty directories.
+* The `--ignore-fail-on-non-empty` option is only present in the GNU version of `rmdir`
 
 #### `rmdir --verbose`
 ~~~ bash
@@ -47,5 +48,8 @@ $ rmdir --verbose tmp/
 rmdir: removing directory, ‘tmp/’
 ~~~
 
+
 ##### Break it down
+* `-v` can be used in place of `--verbose`
 * The `--verbose` option asks `rmdir` to output a diagnostic for every directory removed.
+* The `--verbose` option is only present in the GNU version of `rmdir`.
