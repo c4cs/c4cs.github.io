@@ -13,6 +13,7 @@ On Debian, `adduser` should be used instead.
 $ useradd [options] username
 ~~~
 
+
 <!--more-->
 
 ### Details
@@ -21,6 +22,7 @@ $ useradd [options] username
 `useradd` creates and populates a home director for new user
 
 `useradd` sets permissions and ownerships to home directory
+
 
 ### Useful Options
 ~~~bash
@@ -54,6 +56,15 @@ $ useradd -f 20 username
 ~~~
 
 
+### Final details
+After adding a new user with `useradd`, the new account will be locked.
+To unlock the user account, you'll need to set a password with the 'passwd' command.
 
-
-
+~~~bash
+$ useradd newperson
+$ passwd newperson
+Changing password for user newperson
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully
+~~~
