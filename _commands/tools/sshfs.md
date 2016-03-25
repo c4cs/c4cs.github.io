@@ -28,7 +28,7 @@ $ sshfs -o sshfs_sync mnt_pnt user@host:dest_folder
 ~~~
 
 #### Break it down
-* The `-o sshfs_sync` tells `sshfs` to immediately write the changes out to the ssh server instead of caching them locally.  
+* The `-o sshfs_sync` tells `sshfs` to immediately write the changes out to the ssh server instead of caching them locally. This is useful if remotely building code since any changes that are locally cached would not be built on the server.  
 
 #### `sshfs -o no_readahead`
 ~~~ bash
@@ -36,7 +36,7 @@ $ sshfs -o no_readahead mnt_pnt user@host:dest_folder
 ~~~
 
 #### Break it down
-* The `-o no_readahead` tells `sshfs` to read all files directly from the server instead of a local cache of the files.
+* The `-o no_readahead` tells `sshfs` to read all files directly from the server instead of a local cache of the files. This is useful for reading files that may update such as a build report or a program output.
 
 
 
