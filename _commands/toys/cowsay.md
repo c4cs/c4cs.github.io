@@ -94,7 +94,7 @@ vader-koala www
 ~~~
 
 ##### Break it Down
-*The `-l` flag lists all pre-made .cow files that are immediatly at the users disposal.
+ * The `-l` flag lists all pre-made .cow files that are immediatly at the users disposal.
 
 #### Example Command
 
