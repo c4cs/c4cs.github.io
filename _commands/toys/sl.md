@@ -35,15 +35,15 @@ $ sudo apt-get install sl
 ~~~
 
 ### Special flags
--a <br>
+* '-a'
  the train flies
 
--l <br>
+* '-l'
  a small train
 
--F <br>
+* '-F'
  a flying train
 
--e <br>
+* '-e'
  allows ctrl+c
 
