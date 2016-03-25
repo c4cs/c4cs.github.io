@@ -26,10 +26,10 @@ $ cowsay Hi There
 There are many useful options for this intersting cowsay command.
 The complete list is: cowsay  `[-e  eye_string]` `[-f cowfile]` `[-h]` `[-l]` `[-n]` `[-T tongue_string]` `[-W column]` `[-bdgpstwy]`
 
-*`-e` allows the user to customize the cow's eyes which are defaulted to "oo" as seen above.
-*`-T` allows the user to add a tongue string to the cow image. By default there is no tongue string.
-*`-W` allows the user to customize the number of character printed in the message before the message wraps around
-*`-[-bdgpstwy]` are all options to define different pre-made cows emotional states. For example, adding the `-g` flag will result in a greedy cow to print and `-s` will result in a stoned cow to print.
+ * `-e` allows the user to customize the cow's eyes which are defaulted to "oo" as seen above.
+ * `-T` allows the user to add a tongue string to the cow image. By default there is no tongue string.
+ * `-W` allows the user to customize the number of character printed in the message before the message wraps around
+ * `-[-bdgpstwy]` are all options to define different pre-made cows emotional states. For example, adding the `-g` flag will result in a greedy cow to print and `-s` will result in a stoned cow to print.
 
 #### Example Command
 
