@@ -22,8 +22,7 @@ If you simply want to output the time it takes to run a command
 $ /usr/bin/time ./project -m < input.txt
 ~~~
 
-MEANING
-
+### Meaning:
 '/usr/bin/time' calls the bash time command, './project' is the program you are trying to run,
 '-m' is a flag for that program and '< input.txt' is the input file for the program.
 Anything that appears after './project' is taken like it would be without using the time command.
@@ -42,8 +41,7 @@ If you want to output the time information to a file
 $ /usr/bin/time -o out.txt ./project
 ~~~
 
-MEANING
-	
+### Meaning:
 The '-o' flag (which is the same as --output) tells the computer to redirect the output for the
 time command to the file 'out.txt'. This flag will overwrite the file 'out.txt', however, if you
 do not want to overwrite the file see the example below.
@@ -55,7 +53,7 @@ If you want to output the time information to a file but you do not want to over
 $ /usr/bin/time -a out.txt ./project
 ~~~
 	
-MEANING
+### Meaning:
 The '-a' flag followed by a file 'out.txt' tells the program to redirect the output from the time
 command to the file 'out.txt' but instead of overwritting the file, append the information to it.
 
@@ -66,7 +64,7 @@ If you only want to print out the user, system and total time
 $ /usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
 ~~~
 
-MEANING	
+### Meaning:
 The '-f' flag followed by the string '\t%E real,\t%U user,\t%S sys' tells the computer to format
 the out put in the form:
  
@@ -86,7 +84,7 @@ If you want to output as much information as possible about how long your code t
 $ /usr/bin/time -v ./project
 ~~~
 	
-MEANING
+### Meaning:
 The '-v' (or '--verbose') flag tells the computer to print out all of the time information it has. The output would look
 something like the following:
 
@@ -121,5 +119,5 @@ If you want to do something that is not described above
 $ man time
 ~~~
 	
-MEANING
+### Meaning:
 This will birng you to the manual page for time
