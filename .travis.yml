@@ -8,7 +8,7 @@ cache: bundler
 
 script:
   - bundle exec jekyll build
-  - bundle exec htmlproofer --assume-extension --check-html --url-ignore '/.*docs.google.com/a/umich.edu.*/' ./_site
+  - bundle exec htmlproofer --assume-extension --check-html --url-ignore '/.*docs.google.com/a/umich.edu.*/' ./_site --file-ignore curl.md
 
 env:
   global:
