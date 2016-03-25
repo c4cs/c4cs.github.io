@@ -16,9 +16,9 @@ $ time ./project -m < input.txt
 ~~~
 
 ### Meaning:
-'time' calls the bash time command, './project' is the program you are trying to run,
-'-m' is a flag for that program and '< input.txt' is the input file for the program.
-Anything that appears after './project' is taken like it would be without using the time command.
+`time` calls the bash time command, `./project`is the program you are trying to run,
+`-m` is a flag for that program and `< input.txt `is the input file for the program.
+Anything that appears after `./project` is taken like it would be without using the time command.
 This will output the following:
 
 ~~~ bash
@@ -38,8 +38,8 @@ $ time -o out.txt ./project
 ~~~
 
 ### Meaning:
-The '-o' flag (which is the same as --output) tells the computer to redirect the output for the
-time command to the file 'out.txt'. This flag will overwrite the file 'out.txt', however, if you
+The `-o` flag (which is the same as `--output`) tells the computer to redirect the output for the
+time command to the file `out.txt`. This flag will overwrite the file `out.txt`, however, if you
 do not want to overwrite the file see the example below.
 
 ### Situation:
@@ -50,8 +50,8 @@ $ time -a out.txt ./project
 ~~~
 	
 ### Meaning:
-The '-a' flag followed by a file 'out.txt' tells the program to redirect the output from the time
-command to the file 'out.txt' but instead of overwritting the file, append the information to it.
+The `-a` flag followed by a file `out.txt` tells the program to redirect the output from the time
+command to the file `out.txt` but instead of overwritting the file, append the information to it.
 
 ### Situation:
 If you only want to print out the user, system and total time
@@ -61,16 +61,16 @@ $ time -f "\t%E real,\t%U user,\t%S sys" ./project
 ~~~
 
 ### Meaning:
-The '-f' flag followed by the string '\t%E real,\t%U user,\t%S sys' tells the computer to format
+The `-f` flag followed by the string `\t%E real,\t%U user,\t%S sys` tells the computer to format
 the out put in the form:
  
 	real	0m10.081s
 	user	0m3.858s
 	sys	0m0.408s
 
-the '\t%E real' means print the string 'real' followed by a tab (due to the '\t') and then the elapsed time (wall-clock time)
-used by the program. The '\t%U user' means print the string 'user' followed by a tab and the total number of CPU-seconds that
-the process used. Finally the '\t%S sys' prints the string 'sys' followed by a tab and then the the total number of CPU-seconds
+the `\t%E` real means print the string real followed by a tab (due to the `\t`) and then the elapsed time (wall-clock time)
+used by the program. The `\t%U` user means print the string user followed by a tab and the total number of CPU-seconds that
+the process used. Finally the `\t%S` sys prints the string `sys` followed by a tab and then the the total number of CPU-seconds
 used by the system due to the program in seconds.
 
 ### Situation:
@@ -81,7 +81,7 @@ $ time -v ./project
 ~~~
 	
 ### Meaning:
-The '-v' (or '--verbose') flag tells the computer to print out all of the time information it has. The output would look
+The `-v` (or `--verbose`) flag tells the computer to print out all of the time information it has. The output would look
 something like the following:
 
 	Command being timed: "./project"
