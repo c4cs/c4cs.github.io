@@ -2,7 +2,7 @@ vi
 
 
 
-'vi', also known as "vim" (Vi IMproved), is a text editor for programmers, designed to facilitate optimal efficiency when writing code.
+'vi' is a text editor for programmers, designed to facilitate optimal efficiency when writing code. Since its creation, the developers have also released "vim" (vi improved), an updated version with more features, such as support for more programming languages, compatibility with more OS's, and features like multilevel undo/redo. Despite this, some programmers still prefer vi over vim for its simplicity and ease of access.
 
 To open vi, simply type the following:
 
