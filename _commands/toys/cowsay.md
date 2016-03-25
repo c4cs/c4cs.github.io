@@ -49,8 +49,8 @@ $ cowsay -s hi there
 
 ##### Break it down
 
-There are several provided modes which change the appearance of the cow depending on its particular emotional/physical state
-The user can set this state using these flags
+ * There are several provided modes which change the appearance of the cow depending on its particular emotional/physical state
+ * The user can set this state using these flags
 
 #### Example Command
 
@@ -74,8 +74,8 @@ $ cowsay -f tux hi there
 ~~~
 
 ##### Break it down
-*The `-f` flag allows for other ascii images to be printed
-*These images are pulled from .cow files, some of which come preinstalled and the full list can be found by typing:
+ * The `-f` flag allows for other ascii images to be printed
+ * These images are pulled from .cow files, some of which come preinstalled and the full list can be found by typing:
 
 #### Example Command
 
@@ -122,6 +122,6 @@ $ cowsay -e ^^ -T U -W 10 Hi there computing for computer scientists, this stuff
 ~~~
 
 ##### Break it down
-*`-e` flag allows the user to customize the cow's eyes
-*`-T` allows the user to enter a string to be used as the Cow's tongue (the string must be two characters or less)
-*`-W` specifies the number of charcters to be printed in the cow's message before the characters wrap around. The defualt is 40 if none is specified
+ * `-e` flag allows the user to customize the cow's eyes
+ * `-T` allows the user to enter a string to be used as the Cow's tongue (the string must be two characters or less)
+ * `-W` specifies the number of charcters to be printed in the cow's message before the characters wrap around. The defualt is 40 if none is specified
