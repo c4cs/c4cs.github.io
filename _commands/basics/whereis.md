@@ -12,68 +12,44 @@ $ whereis [options] filename
 
 <!--more-->
 
-### Useful Options
+### Useful Options / Examples
 
-#### The search restrictions (-b, -m, -s) are cumulative and apply to the subsequent filename patterns on the command line. Any new search restrictions would reset the search mask.
-
-~~~ bash
-$ whereis [options] filename
-~~~
-
-#### `-b`
-
-Search only for binaries.
-
-#### `-m`
-
-Search only for manual sections.
-
-#### `-s`
-
-Search only for sources.
-
-#### `-u`
-
-Search for unusual entries. A file is said to be unusual if it does not have one entry of each requested type.
+#### `whereis`
 
 ~~~ bash
-$ whereis -m -u *
+$ whereis gcc
+gcc: /usr/bin/gcc /usr/lib/gcc /usr/share/man/man1/gcc.1.gz /usr/share/info/gcc.info.gz
 ~~~
 
-This example will return all files in the current directory that have no documentation.
+##### Break it down
 
-#### `-f`
+* This returns a list of source, binary and documentation files for gcc.
 
-Terminate the last directory list and signals the start of filenames. This must be used when any of the directory options (-B, -M, -S) options are used.
-
-#### The options -B, -M and -S reset the search paths for the subsequent filename patterns.
+#### `whereis -b`
 
 ~~~ bash
-$ whereis [directory options] directories -f filename
+$ whereis -b gcc
+gcc: /usr/bin/gcc /usr/lib/gcc
+$ whereis -m gcc
+gcc: /usr/share/man/man1/gcc.1.gz /usr/share/info/gcc.info.gz
+$ whereis -s gcc
+gcc:
 ~~~
 
-#### `-B`
+##### Break it down
 
-Change or otherwise limit the places where whereis searches for binaries, by a whitespace-separated list of directories.
+* The `-b` option tells `whereis` to return a list of only binary files for gcc.
+* Similarly `-m` can be used for documentation files and `-s` can be used for source files.
 
-#### `-M`
-
-Change or otherwise limit the places where whereis searches for manual sections, by a whitespace-separated list of directories.
-
-#### `-S`
-
-Change or otherwise limit the places where whereis searches for sources, by a whitespace-separated list of dierctories.
-
-### Examples
+#### `whereis -B`
 
 ~~~ bash
-$ whereis perl
+$ whereis -B /usr/bin -f -b gcc
+gcc: /usr/bin/gcc
 ~~~
 
-List the directories where `perl` source files, documentations and binaries are stored.
+##### Break it down
 
-~~~ bash
-$ whereis -u -ms -M /usr/man/man1 -S /usr/src -f *
-~~~
-
-Find all files in the current directory which are not documented in `/usr/man/man1` or have no source in `/usr/src`.
+* The `-B` option limits the places where `whereis` searches for binaries
+* The `-f` is used to terminate the last directory list and signals the start of filenames.
+* Similarly `-M` can be used to limit the places for documentation files and `-S` can be used to limit the places for source files.
