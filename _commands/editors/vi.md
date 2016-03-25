@@ -2,7 +2,11 @@ vi
 
 
 
-'vi' is a text editor for programmers, designed to facilitate optimal efficiency when writing code. Since its creation, the developers have also released "vim" (vi improved), an updated version with more features, such as support for more programming languages, compatibility with more OS's, and features like multilevel undo/redo. Despite this, some programmers still prefer vi over vim for its simplicity and ease of access.
+'vi' is a text editor for programmers, designed to facilitate optimal efficiency when writing code. 
+
+Since its creation, the developers have also released "vim" (vi improved), an updated version with more features, such as support for more programming languages, compatibility with more OS's, and features like multilevel undo/redo. On some Linux distributions, the vi executable provided is actually Vim. 
+
+Despite this, some programmers still prefer vi over vim for its simplicity and ease of access.
 
 To open vi, simply type the following:
 
