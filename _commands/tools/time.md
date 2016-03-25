@@ -3,7 +3,7 @@
 
 time
 ---
-"time" prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
+`time` prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
 	
 ### General Form:
 
@@ -16,7 +16,7 @@ $ /usr/bin/time [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] 
 
 ### Situation
 
-	If you simply want to output the time it takes to run a command
+If you simply want to output the time it takes to run a command
 	
 ~~~ bash
 $ /usr/bin/time ./project -m < input.txt
@@ -24,15 +24,15 @@ $ /usr/bin/time ./project -m < input.txt
 
 Meaning:
 
-	 "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
-	 "-m" is a flag for that program and "< input.txt" is the input file for the program.
-	Anything that appears after "./project" is taken like it would be without using the time command.
-	This will output the following:
+ "/usr/bin/time" calls the bash time command, "./project" is the program you are trying to run,
+ "-m" is a flag for that program and "< input.txt" is the input file for the program.
+Anything that appears after "./project" is taken like it would be without using the time command.
+This will output the following:
 
-	0.00user 0.00system 0:00.00elapsed 0%CPU (0avgtext+0avgdata 3312maxresident)k
-	0inputs+0outputs (0major+135minor)pagefaults 0swaps
+0.00user 0.00system 0:00.00elapsed 0%CPU (0avgtext+0avgdata 3312maxresident)k
+0inputs+0outputs (0major+135minor)pagefaults 0swaps
 
-	Where the user, system and elapsed times are in seconds.
+Where the user, system and elapsed times are in seconds.
 
 ### Situation:
 	
