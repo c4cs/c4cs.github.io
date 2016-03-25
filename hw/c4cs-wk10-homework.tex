@@ -48,7 +48,7 @@ literate={*}{{\char42}}1
 \fancyhead[R]{}
 
 \fancyfoot[L]{\color{gray} C4CS -- W'16}
-\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[R]{\color{gray} Revision 1.1}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
@@ -157,12 +157,14 @@ Now run \texttt{make~overhead}.
 
 \newpage
 \section{Understanding \texttt{gprof}}
+\label{understanding}
 
 Finally, run \texttt{make~profile.txt}. Take a look at the
 \texttt{profile.txt} file.
 
-\textbf{Did Question 1 ask for ``cumulative seconds'' or ``self seconds''?
-  What is the difference?}
+\textbf{The gprof output has many different times it reports, such as
+  ``cumulative seconds'' and ``self seconds''. Which timing report matches
+  what Question~1 asked for?}
 \vspace{3cm}
 
 \textbf{How well did your estimates from Question 1 line up with the time
@@ -175,5 +177,14 @@ Finally, run \texttt{make~profile.txt}. Take a look at the
 \vspace{3cm}
 
 
+\newpage
+\section*{Document Revision History}
+March 21, 5PM: Revise the first question in section \ref{understanding}.
+
+\textbf{\st{Did Question 1 ask for ``cumulative seconds'' or ``self seconds''?  What is the difference?}} 
+$\rightarrow$
+\textbf{The gprof output has many different times it reports, such as
+  ``cumulative seconds'' and ``self seconds''. Which timing report matches
+  what Question~1 asked for?}
 
 \end{document}
