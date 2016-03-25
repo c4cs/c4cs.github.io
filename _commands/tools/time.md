@@ -5,13 +5,6 @@ time
 ---
 `time` prints out the total time elapsed, the time used by system overhead and the time used to execute the utility.
 	
-### General Form:
-
-~~~ bash
-$ /usr/bin/time [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] [ --quiet ] [ --portability ]
-[ --format=FORMAT ] [ --output=FILE ] [ --version ] [ --help ] COMMAND [ ARGS ] 
-~~~
-
 <!--more-->
 
 ### Situation
@@ -19,16 +12,17 @@ $ /usr/bin/time [ -apqvV ] [ -f FORMAT ] [ -o FILE ] [ --append ] [ --verbose ] 
 If you simply want to output the time it takes to run a command
 	
 ~~~ bash
-$ /usr/bin/time ./project -m < input.txt
+$ time ./project -m < input.txt
 ~~~
 
 ### Meaning:
-'/usr/bin/time' calls the bash time command, './project' is the program you are trying to run,
+'time' calls the bash time command, './project' is the program you are trying to run,
 '-m' is a flag for that program and '< input.txt' is the input file for the program.
 Anything that appears after './project' is taken like it would be without using the time command.
 This will output the following:
 
-0.00user 0.00system 0:00.00elapsed 0%CPU (0avgtext+0avgdata 3312maxresident)k
+0.00user 0.00system 0:00.00elapsed 
+0%CPU (0avgtext+0avgdata 3312maxresident)k
 0inputs+0outputs (0major+135minor)pagefaults 0swaps
 
 Where the user, system and elapsed times are in seconds.
@@ -38,7 +32,7 @@ Where the user, system and elapsed times are in seconds.
 If you want to output the time information to a file
 
 ~~~ bash
-$ /usr/bin/time -o out.txt ./project
+$ time -o out.txt ./project
 ~~~
 
 ### Meaning:
@@ -50,7 +44,7 @@ do not want to overwrite the file see the example below.
 If you want to output the time information to a file but you do not want to overwrite said file
 
 ~~~ bash
-$ /usr/bin/time -a out.txt ./project
+$ time -a out.txt ./project
 ~~~
 	
 ### Meaning:
@@ -61,7 +55,7 @@ command to the file 'out.txt' but instead of overwritting the file, append the i
 If you only want to print out the user, system and total time
 
 ~~~ bash
-$ /usr/bin/time -f "\t%E real,\t%U user,\t%S sys" ./project
+$ time -f "\t%E real,\t%U user,\t%S sys" ./project
 ~~~
 
 ### Meaning:
@@ -81,7 +75,7 @@ used by the system due to the program in seconds.
 If you want to output as much information as possible about how long your code took to run
 
 ~~~bash
-$ /usr/bin/time -v ./project
+$ time -v ./project
 ~~~
 	
 ### Meaning:
