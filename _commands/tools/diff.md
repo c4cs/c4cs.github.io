@@ -61,15 +61,17 @@ Files test3.txt and test4.txt differ
 #### `diff -r dir1/ dir2/`
 ~~~ bash
 $ diff -r dir1/ dir2/
-diff -r dir1/nested/test.txt dir2/nested/test.txt
+$ diff -r dir1/nested/test.txt dir2/nested/test.txt
 2a3
 > this is a line added only to the test.txt in dir2/nested
+Only in dir1/: file1
 ~~~
 ~~~ bash
-$ diff -r dir1/ dir2/
+$ diff  dir1/ dir2/
 Common subdirectories: dir1/nested and dir2/nested
+Only in dir1: file1
 ~~~
 
 ##### Break it down
 
-* The `-r` or `--recursive` flag explores any common subdirectories found in the directoies given as arguments to `diff`.
+* The `-r` or `--recursive` flag explores any common subdirectories found in the directories given as arguments to `diff`. By default diff will compare files of the same name in the given directories, output common subdirectories, and output any other files that exist in only one directory.
