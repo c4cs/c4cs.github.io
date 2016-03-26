@@ -21,9 +21,17 @@ common or useful operations.</p>
       {% for command in site.commands %}
         {% if command.categories contains category %}
           <a href="{{ command.url }}">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               {{ command.content | split: '<!--more-->' | first }}
             </div>
+            {% assign mod2 = forloop.index | modulo: 2 %}
+            {% assign mod3 = forloop.index | modulo: 3 %}
+            {% if mod2 == 0 %}
+              <div class="clearfix visible-sm-block"></div>
+            {% endif %}
+            {% if mod3 == 0 %}
+              <div class="clearfix visible-lg-block visible-md-block"></div>
+            {% endif %}
           </a>
         {% endif %}
       {% endfor %}
