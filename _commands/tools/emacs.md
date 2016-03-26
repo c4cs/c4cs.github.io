@@ -5,14 +5,27 @@ emacs
 --
 
 `emacs` is used to open a file in emacs
+
 ~~~ bash
 $ emacs filename
 ~~~
-Then file specified by `filename` will be opened in emacs, and you can use emacs to edit it.
+
+Then file specified by **filename** will be opened in emacs, and you can use emacs to edit it.
 
 <!--more-->
 
 ### Useful Options / Examples
+
+#### `emacs -nw`
+
+~~~ bash
+$ emacs -nw
+~~~
+
+##### Break it down
+
+ * `-nw` means new window.
+ * You may occasionally want to run Emacs directly in the terminal window.  Use the -nw option for this.
 
 #### `emacs -q`
 
@@ -47,12 +60,7 @@ $ emacs -fn 12 filename
 
 ##### Break it down
 
- * Set the Emacs window’s font to that specified by font. You will find the various X fonts
-   in the /usr/lib/X11/fonts directory. Note that Emacs will only accept fixed width fonts. 
-   Under the X11 Release 4 font-naming conventions, any font with the value "m" or "c" in the 
-   eleventh field of the font name is a fixed width font. Furthermore, fonts whose name are of
-   the form widthxheight are generally fixed width, as is the font fixed. See **xlsfonts**(1) for 
-   more information.
+ * Set the Emacs window’s font to that specified by font.
  * When you specify a font, be sure to put a space between the switch and the font name.
 
 #### `emacs -geometry`
@@ -63,8 +71,7 @@ $ emacs -geometry 70 filename
 
 ##### Break it down
 
- * Set the Emacs window’s width, height, and position as specified. The geometry specification
-   is in the standard X format; see X(1) for more information. The width and height are specified 
+ * Set the Emacs window’s width, height, and position as specified. The width and height are specified 
    in characters; the default is 80 by 24.
 
 #### `emacs -fg`
