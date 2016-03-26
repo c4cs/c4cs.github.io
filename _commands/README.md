@@ -49,6 +49,7 @@ Command Webpages
  - fsck
  - git
  - gzip
+ - jot
  - less
  - make
  - man
