@@ -38,12 +38,13 @@ else {
 
 
 ~~~ bash
-$ tail -f -n 5 input.txt
-		*x = y1- (floor(b/a) *x1);
-		*y = x1;
-		return gcd;
-	}
-	return 1000;
+# Or /var/log/system.log on OS X
+$ tail -f -n 5 /var/log/syslog
+Mar 26 13:46:01 nuclear avahi-daemon[623]: Invalid legacy unicast query packet.
+Mar 26 13:46:01 nuclear avahi-daemon[623]: Received response from host 141.212.11.247 with invalid source port 56203 on interface 'eth0.0'
+Mar 26 13:46:01 nuclear avahi-daemon[623]: Invalid legacy unicast query packet.
+Mar 26 13:46:01 nuclear avahi-daemon[623]: Received response from host 141.212.11.247 with invalid source port 56203 on interface 'eth0.0'
+Mar 24 23:13:56 nuclear console-kit-daemon[4027]: GLib-CRITICAL: Source ID 14892 was not found when attempting to remove it
 [waiting for more]
 ~~~
 
