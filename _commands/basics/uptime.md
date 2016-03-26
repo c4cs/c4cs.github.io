@@ -25,7 +25,6 @@ $ uptime
 $ uptime -p
 Up 3 hours, 26 minutes
 ~~~
-
 * Shows output in pretty format.
 
 #### -V, --version
