@@ -8,6 +8,10 @@ cp
 
 ~~~ bash
 $ cp source destination
+$ cp file1.txt file2.txt
+$ cp -b file1.txt file2.txt
+$ cp -v file1.txt file2.txt
+$ cp * ~/Desktop
 ~~~
 
 <!--more-->
@@ -24,7 +28,6 @@ $ cp file1.txt file2.txt
  * This is the simplest use of `cp`. It copies the contents of `file1.txt` and puts
    it into `file2.txt`. If `file2.txt` does not exist, it creates it and puts the
    contents of `file1.txt` into it. If `file2.txt` does exist, it overwrites it.
-
 
 #### `cp -b`
 ~~~ bash
@@ -75,3 +78,25 @@ $ cp -v file1.txt file2.txt
  * This option explains what is being done during the copy process. It can be combined with
    other flags (like `-u`) so that it can be determined whether the copy occurred or
    not. If the copy did not occur, there will be no output.
+
+#### `cp file1.txt ~/Desktop/HW4`
+~~~ bash
+$ cp file1.txt ~/Desktop/HW4
+~~~
+
+##### Break it down
+
+ * This usage of cp is very useful. Instead of copying directly to another file, a directory
+   can be specified. `file1.txt` will be copied over to a newly created file in the specified
+   directory.
+
+#### `cp * ~/Desktop/HW4`
+~~~ bash
+$ cp * ~/Desktop/HW4
+~~~
+
+##### Break it down
+
+ * This usage of cp is similar to the example above. This time, all the files of the current
+   folder will be copied to the specified directory. It is particularly useful if you wish
+   to copy all files in one directory into another.
