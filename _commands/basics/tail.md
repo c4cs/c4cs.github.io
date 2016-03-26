@@ -48,7 +48,7 @@ $ tail -f -n 5 input.txt
 ~~~
 
 ##### Break it down
-* Shows the last 5 lines of input.txt. The -f command causes tail to not stop but rather waits for additional data to be added to file
+* Shows the last 5 lines of input.txt. The `-f` command causes tail to not stop but rather waits for additional data to be added to file
 
 #### `tail -r -n 5 input.txt`
 
@@ -62,9 +62,4 @@ return 1000;
 ~~~
 
 ##### Break it down
-* Shows the lines of input.txt in reverse order. The default -r option is to display all of the input but this may be changed with the -b, -c, and -n  flags. In this example, we showed the last 5 lines.
-
-#### `man tail`
-
-##### Break it down
-* Shows the documentation for tail.
+* Shows the lines of input.txt in reverse order. The default `-r` option is to display all of the input but this may be changed with the `-b`, `-c`, and `-n`  flags. In this example, we showed the last 5 lines.
