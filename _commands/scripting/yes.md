@@ -4,7 +4,7 @@
 yes
 ---
 
-`yes` will continuosly output lines with `y`until user uses ctrl+c to stop. `yes` Can be useful for automating
+`yes` will continuously output lines with `y` until user uses ctrl+c to stop. `yes` Can be useful for automating
 scripts.
 
 ~~~ bash
@@ -18,6 +18,8 @@ n
 n
 ^C
 ~~~
+
+<!--more-->
 
 ### Useful Options / Examples
 
@@ -34,7 +36,7 @@ remove 1.txt? remove 2.txt? remove 3.txt? %
 
 ##### Break it down
 
-* Pipe `yes` to the following command to automaticly make the following command prove any raised question with form `[y/n]`.
+* Pipe `yes` to the following command to automatically make the following command prove any raised question with form `[y/n]`.
 
 * When using `rm -i` to delete normal files, the system will ask user for confirmation of removing the file. At this time, the `yes` command will be able to simplify the process of repeatedly typing in yes. Here `yes | rm -i *.txt` will continuously pipe yes to the command `rm -i` to confirm the deleting operation.
 
