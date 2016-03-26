@@ -22,7 +22,7 @@ Then file specified by `filename` will be opened in emacs, and you can use emacs
 $ emacs -nw
 ~~~
 
-Open emacs directly in terminal.
+Open Emacs directly in terminal.
 
 ##### Break it down
 
@@ -35,7 +35,7 @@ Open emacs directly in terminal.
 $ emacs -q
 ~~~
 
-Open emacs and do not load a init file.
+Open Emacs and do not load a init file.
 
 ##### Break it down
 
@@ -48,7 +48,7 @@ Open emacs and do not load a init file.
 $ emacs +7 filename
 ~~~
 
-Open emacs and goto line 7.
+Open Emacs and goto line 7.
 
 ##### Break it down
  * Go to the line specified by `number`.
@@ -64,7 +64,7 @@ $ emacs -font 12 filename
 $ emacs -fn 12 filename
 ~~~
 
-Open emacs with font size 12.
+Open Emacs with font size 12.
 
 ##### Break it down
 
@@ -77,7 +77,7 @@ Open emacs with font size 12.
 $ emacs -geometry 70x24 filename
 ~~~
 
-Open a frame wirh 70 chars wide and 24 chars high.
+Open a frame with 70 chars wide and 24 chars high.
 
 ##### Break it down
 
@@ -90,7 +90,7 @@ Open a frame wirh 70 chars wide and 24 chars high.
 $ emacs -fg red filename
 ~~~
 
-Open emacs and set the color of the text red.
+Open Emacs and set the color of the text red.
 
 ##### Break it down
 
