@@ -10,7 +10,7 @@ emacs
 $ emacs filename
 ~~~
 
-Then file specified by **filename** will be opened in emacs, and you can use emacs to edit it.
+Then file specified by `filename` will be opened in emacs, and you can use emacs to edit it.
 
 <!--more-->
 
