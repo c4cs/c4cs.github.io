@@ -28,4 +28,30 @@ $ cat example.txt
 line 1
 ~~~
 
+The appending operator allows for the appending of standard output and standard error to a file.
+
+Appending stdout to the file is appending the output of a file to the end of the other file.
+
+~~~ bash
+$ python random.py >> output.txt
+Traceback (most recent call last):
+  File "random.py", line 2, in <module>
+    print 3 / 0
+ZeroDivisionError: integer division or modulo by zero
+$ cat output.txt
+Random text
+~~~
+
+Appending stderr to the file appends both the stdout and the error message to the end of the other file.
+
+~~~ bash
+$ python random.py >> output.txt 2>&1
+$ cat output.txt
+Random text
+Random text
+Traceback (most recent call last):
+  File "random.py", line 2, in <module>
+    print 3 / 0
+ZeroDivisionError: integer division or modulo by zero
+~~~
 
