@@ -21,6 +21,29 @@ A *hard* link allows multiple files to have the same _inode_ number. As a result
 
 A *symbolic* link one or more files to a _target_ file. All changes made in the linked files are reflected in the target file. However, if you delete the target file, the linked files are rendered useless. You can think of symbolic links as _shortcuts_ to a file.
 
+### So... which do I use?
+
+When in doubt, use symbolic (`ln -s`). One critical reason is that only symbolic links work across disks. So, if you want to link to a second hard drive, flash drive, etc, a hard link simply won't work.
+
+
+### Caveats
+
+There are some issues trying to link source/target without typing the full path. So, while in the /Users/username/foo directory, if you are trying to type this:
+
+~~~ bash
+ln -s /Users/username/foo/bar ~/bin/bar_link
+~~~
+
+the shorter solution is this:
+
+~~~ bash
+ln -s "$(pwd)/bar" ~/bin/bar_link
+~~~
+
+The target argument for the ln -s command works relative to the symbolic link's location, not your current directory. It helps to imagine that the created symlink simply holds the text you provide for the target argument.
+
+For more, visit this stackexchange post: http://unix.stackexchange.com/questions/125132/ln-s-with-a-path-relative-to-pwd
+
 ### Useful Options / Examples
 
 #### `ln [SOURCE] [TARGET]`
