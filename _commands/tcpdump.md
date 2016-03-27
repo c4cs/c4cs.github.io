@@ -16,7 +16,7 @@ $ tcpdump
 ### Useful Options / Examples
 
 Prerequisites
-- AS ROOT (to obtain root access, follow step 4 here: http://www.wikihow.com/Become-Root-in-Ubuntu) do the following steps:
+- AS ROOT (to obtain root access, follow step 4 here: http://www.wikihow.com/Become-Root-in-Ubuntu, or see SUDO NOTE at bottom) do the following steps:
 
 ~~~ bash
  groupadd pcap
@@ -70,6 +70,6 @@ listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 bytes
 ##### Break it down
 - This command will let you watch the 3-way handshake between different clients and servers that are functioning on your network. Specifies that tcpflags are active and that at least one of the syn, ack, or fin flags are selected.
 - You can save this output or the above output with the redirection >.
-- NOTE: you can obviously combine the above two and specify a specific host to watch the 3-way handshake on for more specified traffic monitoring.
-- NOTE: 
-
+- You can obviously combine the above two and specify a specific host to watch the 3-way handshake on for more specified traffic monitoring.
+- SUDO NOTE: if you don't want to follow the above steps to become root user, you CAN use `sudo -s` or `sudo su` to drop into a root prompt. 
+  See https://c4cs.github.io/commands/basics/sudo.html for more info on sudo, its uses and its dangers.
