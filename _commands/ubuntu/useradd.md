@@ -25,36 +25,52 @@ $ useradd [options] username
 
 
 ### Useful Options
+
+#### useradd -d
+
 ~~~bash
-# by default the 'useradd' command creates the home directory under /home directory with username
-# the '-d' option allos you to choose the location of the new home directory.
 $ useradd -d /projects/users username
 ~~~
 
+##### Break it down
+ * The `-d` flag option allows you to choose the location of the new home directory
+ * By default the 'useradd' command creates the home directory under /home directory with username
 
+ 
+#### useradd -u
 
 ~~~bash
-# every user has its own unique identification number (UID)
-# by default, new user accounts are assigned uid 500, 501, 502, and so on
-# with the '-u' option we can choose a specific uid
 $ useradd -u 750 newUser
 ~~~
 
+##### Break it down
+ * Every user has its own unique identification numer (UID). By default, new user accounts are assigned UID 500, 501, 502, and so on
+ * The `-u` flag option allows you to choose a specific UID
+
+
+#### useradd -e
 
 ~~~bash
-# by default, 'useradd' creates accounts that never expire
-# using 'e' with the date in YYYY-MM-DD format, we can create temporary accounts
 $ useradd -e 2016-10-10 username
 ~~~
 
+##### Break it down
+ * By default, 'useradd' creates accounts that never expire
+ * The `-e` flag option allows you to create temporary accounts 
+ * Use the date in YYYY-MM-DD format for desired date
+
+
+#### useradd -f
 
 ~~~bash
-# by default, a user's password will never expire
-# using the 'f' option will set a password expiry date in days
 $ useradd -f 20 username		
 #password of "username" account expires in 20 days
 ~~~
 
+##### Break it down
+ * By default, a user's password will never expire
+ * The `-f` option will set a password expiry date (in days)
+ 
 
 ### Final details
 After adding a new user with `useradd`, the new account will be locked.
