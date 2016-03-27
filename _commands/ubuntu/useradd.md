@@ -73,7 +73,7 @@ Number of days of warning before password expires	: 7
 
 ~~~
 
- * By default, 'useradd' creates accounts that never expire
+ * By default, `useradd` creates accounts that never expire
  * The `-e` flag option allows you to create temporary accounts 
  * Use the date in YYYY-MM-DD format for desired date
 
