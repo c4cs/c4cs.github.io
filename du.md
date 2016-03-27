@@ -16,7 +16,7 @@ $ du
 
 ### Useful Options / Examples
 
-#### 'du -h'
+#### `du -h`
 ~~~ bash
 $ du -h
 92K	.
@@ -27,7 +27,7 @@ $ du -h
 -The -h option asks for 'human readable' output. This can be very usefull for people who are not as experienced programmers. The effect
 is that it more clearly states what these numbers such as '92' mean in the output (KB).
 
-#### 'du -a'
+#### `du -a`
 ~~~ bash
 $ du -a
 4	./sudo.md
