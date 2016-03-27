@@ -6,28 +6,34 @@ tmux
 
 `tmux` is a terminal multiplexer. It allows the user to access seperate terminal sessions inside a single terminal window. `tmux` is especially useful in remote access.
 
-#### To get started
-For Linux
+```bash
+$ tmux
+```
 
+ <!--more--> 
+
+### Getting Started
+For Linux
 ```bash
 $ sudo apt-get install tmux
 ```
 
-For OSX
-
+For OSx
 ```
 $ brew install tmux
 ```
-Now you have installed tmux. 
 
 To start tmux, simply type `$ tmux`. To quit, type `$ exit`.
 
-#### Key binding
-`tmux` can be controlled using a key combination as a prefix key, (which is ctrl+b by default), followd by a command. The following are the most frequently used commands.
+
+
+
+### Key Binding
+`tmux` can be controlled using a key combination as a prefix key, (which is <kbd>Ctrl<kbd>+<kbd>b<kbd> by default), followd by a command. The following are the most frequently used commands.
 
 ```
-%			split virtically into two panes
-"			split horizontally into two panes
+%			split horizontally into two panes
+"			split vertically into two panes
 !			break the current pane out of the window
 x			kill the current pane
 c			create a new window
@@ -36,8 +42,61 @@ n			switch to the next window
 p			switch to the previous window
 f			promt a search in the current window
 ,			rename the current window
-Up/Down		switch to the up/down pane
-Left/Right	switch to the eft/right pane
+Left/Right/Up/Down		switch to the pane in the specified direction
 ```
 
-####
+### Session
+* `tmux new -s session_name` create a new tmux session
+* `tmux attach -t session_name` or `tmux at -t session_name` attache to the session named session_name
+* `tmux switch -t session_name` switche to the session named session_name
+* `tmux list-sessions` or `tmux ls` list all existing tmux sessions
+* `tmux detach` detach the currently attached session
+
+### Window
+* `tmux new-window` create a new window
+* `tmux select-window -t :0-9` move to the window based on index
+* `tmux rename-window` rename the current window
+
+### Pane
+* `tmux split-window` split vertically into two panes
+* `tmux split-window -h` split horizontally into two panes
+* `tmux select-pane -[UDLR]` switch to the pane in the specified direction
+* `tmux select-pane -t :.+` switch to the next pane in numerical order
+
+
+
+### Configuration
+The configuration of tmux is stored in `~/tmux.conf`.
+
+Here are some examples how people change their tmux configurations.
+
+* Change prefix from <kbd>Ctrl<kbd> + <kbd>b<kbd> (which is used by vim!) to <kbd>Ctrl<kbd> + <kbd>a<kbd>.
+
+```
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+```
+
+* Change pane splitting key-binding into a more intuitive way (<kbd>-<kdb> for splitting vertically and <kbd>|<kbd> for splitting horizontally)
+```
+bind - split-window
+bind | split-window -h
+unbind '"'
+unbind %'"'
+```
+
+* You can map vim movement key as tmux movement key
+```
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+```
+
+* Use prefix + <kbd>r<kbd> to reload configuration.
+```
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+```
+
+
