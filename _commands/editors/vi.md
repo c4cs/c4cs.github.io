@@ -1,5 +1,8 @@
-vi
+---
+---
 
+vi
+----
 
 
 'vi' is a text editor for programmers, designed to facilitate optimal efficiency when writing code. 
@@ -14,10 +17,10 @@ To open vi, simply type the following:
 $ vi [filename]
 ~~~
 
-This will open a file with the name specified. If there is an existing file with that name, it will open that file, however if no file is found with that name, a new, empty one will be created.
-
 
 <!--more-->
+This will open a file with the name specified. If there is an existing file with that name, it will open that file, however if no file is found with that name, a new, empty one will be created.
+
 
 ### Here are some useful things you can do in the editor:
 
