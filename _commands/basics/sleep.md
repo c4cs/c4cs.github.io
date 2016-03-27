@@ -44,6 +44,17 @@ $ sleep 1h
 ~~~
 Now the above command tells the terminal to wair for 1 hour. The same pattern is used for days, but a 'd' is specified instead of an 'h' or an 'm'. 
 
+##### WARNING!!!
+The sleep command doesn't support units (minutes, hours, etc) on OS X. Instead you have to do the math and convert to seconds. To hold up the terminal for 1 hour on OS X, you could execute:
+
+~~~ bash
+$ sleep 3600
+~~~
+OR
+~~~ bash
+$ sleep $((60 * 60))
+~~~
+
 
 ##### NOTE
 It is invalid to write 'sleep 2h30m' or 'sleep 2h 30m': 'sleep' only accepts one input. Alternatively, valid options include:
