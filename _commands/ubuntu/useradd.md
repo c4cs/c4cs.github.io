@@ -29,47 +29,64 @@ $ useradd [options] username
 #### useradd -d
 
 ~~~bash
-$ useradd -d /projects/users username
+$ useradd -d /projects/users helloworld
+
+# To verify location of the new home directory
+$ cat /etc/passwd | grep helloworld
+helloworld:x:500:500::/projects/users:/bin/bash
 ~~~
 
-##### Break it down
  * The `-d` flag option allows you to choose the location of the new home directory
  * By default the 'useradd' command creates the home directory under /home directory with username
 
+ 
  
 #### useradd -u
 
 ~~~bash
 $ useradd -u 750 newUser
+
+# To verify UID
+$ cat /etc/passwd | grep newUser
+newUser:x:750:750::/home/newUser:/bin/bash
 ~~~
 
-##### Break it down
  * Every user has its own unique identification numer (UID). By default, new user accounts are assigned UID 500, 501, 502, and so on
  * The `-u` flag option allows you to choose a specific UID
 
+ 
 
 #### useradd -e
 
 ~~~bash
-$ useradd -e 2016-10-10 username
+$ useradd -e 2016-10-10 expireUser
+
+# To verify when account expires
+$ chage -l expireUser
+
+Last password change								: Mar 27, 2016
+Password expires									: never
+Password inactive									: never
+Account expires										: Oct 10, 2016
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+
 ~~~
 
-##### Break it down
  * By default, 'useradd' creates accounts that never expire
  * The `-e` flag option allows you to create temporary accounts 
  * Use the date in YYYY-MM-DD format for desired date
 
+ 
 
 #### useradd -f
 
 ~~~bash
-$ useradd -f 20 username		
-#password of "username" account expires in 20 days
+$ useradd -f 20 inactive	
 ~~~
 
-##### Break it down
- * By default, a user's password will never expire
- * The `-f` option will set a password expiry date (in days)
+ * The `-f` option will permanently disable an account after the desired amount of days after a password has expired. 
  
 
 ### Final details
