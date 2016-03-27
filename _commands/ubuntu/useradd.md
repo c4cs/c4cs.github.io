@@ -26,7 +26,7 @@ $ useradd [options] username
 
 ### Useful Options
 
-#### useradd -d
+#### `useradd -d`
 
 ~~~bash
 $ useradd -d /projects/users helloworld
@@ -37,11 +37,11 @@ helloworld:x:500:500::/projects/users:/bin/bash
 ~~~
 
  * The `-d` flag option allows you to choose the location of the new home directory
- * By default the 'useradd' command creates the home directory under /home directory with username
+ * By default the `useradd` command creates the home directory under /home directory with username
 
  
  
-#### useradd -u
+#### `useradd -u`
 
 ~~~bash
 $ useradd -u 750 newUser
@@ -56,7 +56,7 @@ newUser:x:750:750::/home/newUser:/bin/bash
 
  
 
-#### useradd -e
+#### `useradd -e`
 
 ~~~bash
 $ useradd -e 2016-10-10 expireUser
@@ -79,7 +79,7 @@ Number of days of warning before password expires	: 7
 
  
 
-#### useradd -f
+#### `useradd -f`
 
 ~~~bash
 $ useradd -f 20 inactive	
