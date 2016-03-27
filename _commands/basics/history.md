@@ -13,6 +13,9 @@ $ history
   500  most_recent_command
   501  history
 ~~~
+
+<!--more-->
+
 ### Useful Options
 
 #### `history | grep <search_string>`
@@ -31,6 +34,13 @@ $ !.
 ./lastExecutable with lots of command line options
 ~~~
 Executing `!m` (to run the makefile) followed by `!.` saves me lots of typing time.
+
+#### `!11`
+This shortcut allows you to go up a directory
+~~~ bash
+$ !11
+cd ..
+~~~
 
 #### `history -c`
 This options clears your history - this is for when you don't want anyone to know that you accessed your `secrets/topSecrets` directory
