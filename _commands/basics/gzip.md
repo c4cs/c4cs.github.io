@@ -13,6 +13,8 @@ $ gzip archivefile.txt
 <!--more-->
 
 ### Useful Options / Examples
+
+### Example Command
 $ apt-get install gzip gunzip
 ####
 $ ls
@@ -24,6 +26,7 @@ $ gzip file1 file2 file3
 folder file1.gz file2.gz file3.gz file4
 ####
 
+#### Example Command
 To keep the original files after individual file compressions, use -k
 ####
 $ gzip -k file1 file2
@@ -31,6 +34,7 @@ $ gzip -k file1 file2
 folder file1 file1.gz file2 file2.gz file3 file4
 ####
 
+#### Example Command
 To know the compressions ratio, use -l
 ####
 $ gzip -l all.gz
@@ -39,6 +43,8 @@ $ gzip -l all.gz
 ####
            294                   628          46.8%    all
 ####
+
+#### Example Command
 To unzip the gzip file, use gunzip
 ####
 $ ls
