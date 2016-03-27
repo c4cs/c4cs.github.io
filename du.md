@@ -2,14 +2,17 @@
 ---
 
 du
--------
+--
 
 The du (disk usage) command shows you the sizes of directory trees including all of their contents and sizes of individual files.
 This makes it usefull for taking down particular directories that are hogging disk space. 
 
 ~~~ bash
-$ du
-92	.
+$ mkdir test
+$ yes > test/bigfile.txt
+$ du -h
+51M    ./test
+51M    .
 ~~~
 
 <!--more-->
@@ -24,10 +27,10 @@ $ du -h
 
 ##### Break it down
 
--The -h option asks for 'human readable' output. This can be very usefull for people who are not as experienced programmers. The effect
-is that it more clearly states what these numbers such as '92' mean in the output (KB).
+* The -h option asks for 'human readable' output. This can be very usefull for people who are not as experienced programmers. The       effect is that it more clearly states what these numbers such as '92' mean in the output (KB).
 
 #### `du -a`
+
 ~~~ bash
 $ du -a
 4	./sudo.md
@@ -54,8 +57,7 @@ $ du -a
 92	.
 ~~~
 
-
 ##### Break it down
 
--The -a option asks for not just all of the disk usage for each directory at every level in the directory tree, but also to show
-the space consumption for each individual file anywhere within the tree.
+* The -a option asks for not just all of the disk usage for each directory at every level in the directory tree, but also to show
+  the space consumption for each individual file anywhere within the tree.
