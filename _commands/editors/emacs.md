@@ -4,7 +4,7 @@
 emacs
 --
 
-`emacs` is used to open a file in emacs
+`emacs` is edit files in emacs
 
 ~~~ bash
 $ emacs filename
@@ -40,7 +40,10 @@ Open Emacs and do not load a init file.
 ##### Break it down
 
  * `-q` means do not load an init file.
- * `-q` will be ignored if it is followed by a `filename`.
+ * When Emacs is started, it normally tries to load a Lisp program from an init file.
+   This file, if it exists, specifies how to initialize Emacs for you. Emacs looks for
+   your init file using the filenames ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el. Here,
+   ~/ stands for your home directory.
 
 #### `emacs +number file`
 
@@ -48,7 +51,7 @@ Open Emacs and do not load a init file.
 $ emacs +7 filename
 ~~~
 
-Open Emacs and goto line 7.
+Open Emacs and move the cursor to line 7.
 
 ##### Break it down
  * Go to the line specified by `number`.
@@ -57,11 +60,11 @@ Open Emacs and goto line 7.
 #### `emacs -font, -fn`
 
 ~~~ bash
-$ emacs -font 12 filename
+$ emacs -font 12
 ~~~
 
 ~~~ bash
-$ emacs -fn 12 filename
+$ emacs -fn 12
 ~~~
 
 Open Emacs with font size 12.
