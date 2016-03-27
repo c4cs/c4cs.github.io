@@ -14,19 +14,36 @@ $ diff [option]... [file1] [file2]
 
 ### Useful Options / Examples
 
-#### Example command
+#### `diff test1.txt test2.txt`
 
-#### `diff -y -W 80 -q test1.txt test2.txt`
-~~~ bash
-$ diff -y test1.txt test2.txt
-this is line one of a file           this is line one of a file
-this line differs                  | this line is different
-the line is the same                 the line is the same
-~~~
+Running `diff` with two files prints lines that are in one file but not the other file. This output can be a little hard to read, as you can see by the first example.
+
+* The output `2c2` and `2,3c2` are commands for `patch` which is a tool often used with `diff` and can be ignored.
+
+* The `<` symbol means the line is missing from the first file, and `>` means the line is missing from the second file.
+
 ~~~ bash
 $ diff test1.txt test2.txt
 2c2
 < this line differs
+--
+> this line is different
+~~~
+~~~ bash
+$ diff -y test1.txt test2.txt
+this is line one of a file                this is line one of a file
+this line differs                       | this line is different
+the line is the same                      the line is the same
+~~~
+##### Break it down
+
+* The `-y` or `--side-by-side` flag prints the output in two columns. 
+
+~~~ bash 
+$ diff test3.txt test4.txt
+2,3c2
+< this line differs
+< this is an additional line
 --
 > this line is different
 ~~~
@@ -37,14 +54,6 @@ this line differs                  | this line is different
 this is an additional line         <
 the line is the same                 the line is the same
 ~~~
-~~~ bash 
-$ diff test3.txt test4.txt
-2,3c2
-< this line differs
-< this is an additional line
---
-> this line is different
-~~~
 ~~~ bash
 $ diff -q test3.txt test4.txt
 Files test3.txt and test4.txt differ
@@ -52,11 +61,8 @@ Files test3.txt and test4.txt differ
 
 ##### Break it down
 
-* The `-y` or `--side-by-side` flag prints the output in two columns. Regular output from diff can be a little hard to read, as you can see by the output when we do not provide the flag. The output `2c2` and `2,3c2` are commands for `patch` which is a tool often used with `diff` and can be ignored. The `<` symbol means the line is missing from file2, and `>` means the line is missing from file1.
 * The `-W <N>` or `--width=NUM` flag gives a maximum output width, which is useful if your two column output is wrapping around the end of your console.
 * The `-q` or `--brief` flag used in the last example just reports when two files are different giving no feedback on specific lines.
-
-#### Example command
 
 #### `diff -r dir1/ dir2/`
 ~~~ bash
