@@ -12,7 +12,7 @@ $ tac filename
 
 If a filename is provided, 'tac' prints the contents of the file line-by-line, starting with the last line first.
 
-If no filename is provided, or the filename is inputted as "-", 'tac' reads input from the command line and prints it in reverse.
+If no filename is provided, or the filename is inputted as '-', 'tac' reads input from the command line and prints it in reverse.
 
 ### Additional Options/Examples
 
@@ -22,13 +22,13 @@ $ tac [OPTION] [FILE]
 
 By default, line separators are newlines and are placed after each line of output.  Use '-b' to place line separators before each line of output instead.
 
--before, -b
+'--before, -b'
 
 ## '$ tac -b filename'
 
-To change the line separator to a provided string, use the command -s followed by the string. This feature is more commonly used when parsing command line input.
+To change the line separator to a provided string, use the command '-s' followed by the string. This feature is more commonly used when parsing command line input.
 
---seperator=STRING, -s [string]
+'--seperator=STRING, -s [string]'
 
 For example: 
 
@@ -44,9 +44,9 @@ The output for this would be:  1am1Isam
 
 This is because in the above example, the line separator is placed after the string, whereas using the -b option puts the line separator before the string. 
 
---regex, -r
+'--regex, -r'
 
-This flag tells 'tac' to interpret the line separator as a regular expression.  This is commonly used with the --seperator flag.
+This flag tells 'tac' to interpret the line separator as a regular expression.  This is commonly used with the '--seperator' flag.
 
 ### Applications
 
