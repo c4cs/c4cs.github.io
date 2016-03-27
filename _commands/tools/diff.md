@@ -29,7 +29,6 @@ $ diff test1.txt test2.txt
 ##### Break it down
 
 * The output `2c2` and `2,3c2` are commands for `patch` which is a tool often used with `diff` and can be ignored.
-
 * The `<` symbol means the line is missing from the first file, and `>` means the line is missing from the second file.
 
 #### `diff -y test1.txt test2.txt`
@@ -43,6 +42,24 @@ the line is the same                      the line is the same
 ##### Break it down
 
 * The `-y` or `--side-by-side` flag prints the output in two columns. 
+
+#### `diff -r dir1/ dir2/`
+~~~ bash
+$ diff -r dir1/ dir2/
+$ diff -r dir1/nested/test.txt dir2/nested/test.txt
+2a3
+> this is a line added only to the test.txt in dir2/nested
+Only in dir1/: file1
+~~~
+~~~ bash
+$ diff  dir1/ dir2/
+Common subdirectories: dir1/nested and dir2/nested
+Only in dir1: file1
+~~~
+
+##### Break it down
+* Diff can also be used to compare directory contents and the contents of matching files within those directories
+* The `-r` or `--recursive` flag explores any common subdirectories found in the directories given as arguments to diff. By default diff will compare files of the same name in the given directories, output common subdirectories, and output any other files that exist in only one directory.
 
 #### Additional useful options
 
@@ -71,21 +88,3 @@ Files test3.txt and test4.txt differ
 * In the above example `test3.txt` contains one line more than `test4.txt`. Note that diff is able to match up line 4 of `test3.txt` with line 3 of `testt4.txt`, rather than just noting that the third line of each of the files differed and continuing.
 * The `-W <N>` or `--width=NUM` flag gives a maximum output width, which is useful if your two column output is wrapping around the end of your console.
 * The `-q` or `--brief` flag used in the last example just reports when two files are different giving no feedback on specific lines.
-
-#### `diff -r dir1/ dir2/`
-~~~ bash
-$ diff -r dir1/ dir2/
-$ diff -r dir1/nested/test.txt dir2/nested/test.txt
-2a3
-> this is a line added only to the test.txt in dir2/nested
-Only in dir1/: file1
-~~~
-~~~ bash
-$ diff  dir1/ dir2/
-Common subdirectories: dir1/nested and dir2/nested
-Only in dir1: file1
-~~~
-
-##### Break it down
-* Diff can also be used to compare directory contents and the contents of matching files within those directories
-* The `-r` or `--recursive` flag explores any common subdirectories found in the directories given as arguments to diff. By default diff will compare files of the same name in the given directories, output common subdirectories, and output any other files that exist in only one directory.
