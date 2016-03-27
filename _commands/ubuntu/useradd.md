@@ -63,7 +63,6 @@ $ useradd -e 2016-10-10 expireUser
 
 # To verify when account expires
 $ chage -l expireUser
-
 Last password change								: Mar 27, 2016
 Password expires									: never
 Password inactive									: never
@@ -91,7 +90,7 @@ $ useradd -f 20 inactive
 
 ### Final details
 After adding a new user with `useradd`, the new account will be locked.
-To unlock the user account, you'll need to set a password with the 'passwd' command.
+To unlock the user account, you'll need to set a password with the `passwd` command.
 
 ~~~bash
 $ useradd newperson
