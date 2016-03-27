@@ -24,7 +24,7 @@ rm: directory2: Directory not empty
 
 
 ##### Break it down
- * The `-d` flag will remove directorys that are empty. In the example abpve, directory1 was empty and thus deleted while directory2 was not. 
+ * The `-d` flag will remove directorys that are empty. In the example above, directory1 was empty and thus deleted while directory2 was not. 
 
 #### `rm -R`
 
@@ -47,7 +47,7 @@ file.txt
 
 ##### Break it down
  
- * the '-v' command puts the rm command into verbose mode. This will print the name of the files that will be deleted.
+ * the `-v` command puts the rm command into verbose mode. This will print the name of the files that will be deleted.
 
 #### `rm -f`
 
@@ -57,5 +57,5 @@ $ rm -f file.txt
 
 ##### Break it down
 
- * the '-f' flag allows the user who is using the rm command to remove the write-protected file without prompting the user.
+ * the `-f` flag allows the user who is using the rm command to remove the write-protected file without prompting the user.
 
