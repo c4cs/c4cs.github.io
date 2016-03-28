@@ -1,13 +1,21 @@
 ---
 ---
 
-powerofff
+poweroff and reboot
 -------
 
 poweroff instructs your system to power down.
-
+reboot instructs your sysem to reboot.
 ~~~ bash
-poweroff
+poweroff [flag]
+reboot [flag]
+~~~
+
+### Flags
+~~~
+--verbose
+~~~
+Enables verbose messages when reboot, allowing for more informative debugging.
 ~~~
 
 ### Examples
@@ -27,8 +35,20 @@ halt -p
 halt --poweroff
 ~~~
 
+#### Example command
+~~~ bash
+reboot
+~~~
+
 ### Important note
 if you aren't logged in as the root user you wil need to use the sudo command:
 ~~~ bash
 sudo poweroff
 ~~~
+
+~~~ bash
+sudo reboot
+~~~
+
+
+
