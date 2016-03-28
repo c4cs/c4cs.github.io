@@ -12,6 +12,7 @@ $ gzip archivefile.txt
 <!--more-->
 
 ### Useful Options / Examples
+<<<<<<< HEAD
 	$ apt-get install gzip gunzip
 	$ ls
 	folder file1 file2 file3 file4
@@ -24,15 +25,59 @@ $ gzip archivefile.txt
 
 #### To know the compressions ratio, use -l
 	$ gzip -l all.gz
-    compressed           uncompressed         ratio    uncompressed_name
-           294                   628          46.8%    all
+=======
 
+### Example Command
+$ apt-get install gzip gunzip
+####
+$ ls
+####
+folder file1 file2 file3 file4
+####
+$ gzip file1 file2 file3
+####
+folder file1.gz file2.gz file3.gz file4
+####
+
+#### Example Command
+To keep the original files after individual file compressions, use -k
+####
+$ gzip -k file1 file2
+####
+folder file1 file1.gz file2 file2.gz file3 file4
+####
+
+#### Example Command
+To know the compressions ratio, use -l
+####
+$ gzip -l all.gz
+####
+>>>>>>> 249f15b90d21458417a3e7539ae7a134ec9fcdb2
+    compressed           uncompressed         ratio    uncompressed_name
+####
+           294                   628          46.8%    all
+####
+
+<<<<<<< HEAD
 #### To unzip the gzip file, use gunzip
 	$ ls
 	cool all.gz fun.doc not.sh
 	$ gunzip all.gz
 	cool all gun.doc not.sh
 
+=======
+#### Example Command
+To unzip the gzip file, use gunzip
+####
+$ ls
+####
+cool all.gz fun.doc not.sh
+####
+$ gunzip all.gz
+####
+cool all gun.doc not.sh
+####
+>>>>>>> 249f15b90d21458417a3e7539ae7a134ec9fcdb2
 #### Example command
 	$ gzip -r documets_folder
 
