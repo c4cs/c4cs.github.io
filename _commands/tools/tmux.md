@@ -6,22 +6,24 @@ tmux
 
 `tmux` is a terminal multiplexer. It allows the user to access seperate terminal sessions inside a single terminal window. `tmux` is especially useful in remote access.
 
-```bash
+~~~bash
 $ tmux
-```
+~~~
 
  <!--more--> 
 
 ### Getting Started
 For Linux
-```bash
+
+~~~bash
 $ sudo apt-get install tmux
-```
+~~~
 
 For OSx
-```
+
+~~~
 $ brew install tmux
-```
+~~~
 
 To start tmux, simply type `$ tmux`. To quit, type `$ exit`.
 
@@ -29,9 +31,10 @@ To start tmux, simply type `$ tmux`. To quit, type `$ exit`.
 
 
 ### Key Binding
-`tmux` can be controlled using a key combination as a prefix key, (which is <kbd>Ctrl<kbd>+<kbd>b<kbd> by default), followd by a command. The following are the most frequently used commands.
+`tmux` can be controlled using a key combination as a prefix key, (which is <kbd>Ctrl</kbd>+<kbd>b</kbd> by default), followd by a command. The following are the most frequently used commands.
 
-```
+
+~~~
 %			split horizontally into two panes
 "			split vertically into two panes
 !			break the current pane out of the window
@@ -42,8 +45,8 @@ n			switch to the next window
 p			switch to the previous window
 f			promt a search in the current window
 ,			rename the current window
-Left/Right/Up/Down		switch to the pane in the specified direction
-```
+Left/Right/Up/Down	switch to the pane in the specified direction
+~~~
 
 ### Session
 * `tmux new -s session_name` create a new tmux session
@@ -70,33 +73,40 @@ The configuration of tmux is stored in `~/tmux.conf`.
 
 Here are some examples how people change their tmux configurations.
 
-* Change prefix from <kbd>Ctrl<kbd> + <kbd>b<kbd> (which is used by vim!) to <kbd>Ctrl<kbd> + <kbd>a<kbd>.
+<br>
+Change prefix from <kbd>Ctrl</kbd> + <kbd>b</kbd> (which is used by vim!) to <kbd>Ctrl</kbd> + <kbd>a</kbd>.
 
-```
+~~~
 unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
-```
+~~~
 
-* Change pane splitting key-binding into a more intuitive way (<kbd>-<kdb> for splitting vertically and <kbd>|<kbd> for splitting horizontally)
-```
-bind - split-window
+<br>
+Change pane splitting key-binding into a more intuitive way (<kbd>~</kbd> for splitting vertically and <kbd>|</kbd> for splitting horizontally)
+
+~~~
+bind ~ split-window
 bind | split-window -h
 unbind '"'
 unbind %'"'
-```
+~~~
 
-* You can map vim movement key as tmux movement key
-```
+<br>
+You can map vim movement key as tmux movement key
+
+~~~
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
-```
+~~~
 
-* Use prefix + <kbd>r<kbd> to reload configuration.
-```
+<br>
+Use prefix + <kbd>r</kbd> to reload configuration.
+
+~~~
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
-```
+~~~
 
 
