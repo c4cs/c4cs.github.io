@@ -26,11 +26,11 @@ $ history | grep cd
    11  cd topSecrets
    14  history | grep cd
 ~~~
-#### `!11`
-This shortcut has the same behavior as the unix command `cd ..`, which allows you to go up a directory.
+#### `!<#>`
+This shortcut runs the #th command from your history.
 ~~~ bash
 $ !11
-cd ..
+cd topSecrets
 ~~~
 
 #### `!<string>`
