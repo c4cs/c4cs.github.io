@@ -15,23 +15,23 @@ $ uptime
 
 ### Useful Options / Examples
 
-#### Load Times
-
-* The load averages output show usage for the last 1, 5, 15 minute intervals. This helps to diagnose which process is CPU hungry.
-
-#### -p, --pretty
+#### `-p, --pretty`
 
 ~~~ bash
 $ uptime -p
 Up 3 hours, 26 minutes
 ~~~
-* Shows output in pretty format.
+* Shows uptime in a cleaner format, outputting only the time the computer was running.
 
-#### -V, --version
+#### `-V, --version`
 
 ~~~ bash
 $ uptime -V
 Uptime from procps-ng 3.3.9
 ~~~
-* This is probably the most useful option because it gives the version information.
+* This option gives the version information of uptime, which comes from the procps filesystem. This filesystem contains many commands that describe the processess running the system.
+
+#### Load Averages
+
+* The default ouptut shows load averages for the last 1, 5, 15 minute intervals. This helps to diagnose which process is CPU hungry.
 
