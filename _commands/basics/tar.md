@@ -1,73 +1,57 @@
-COMMAND
--------
+---
+---
 
-Package files into a compressed archive file
+tar
+-------
+`tar` is a command that is used to store and extract files from a tape or disk archive.
+The _tar_ command which stands for _tape_ _archive_ simply archives a collection of files into one single file usually refered to as the `tarball`.
 
 ~~~ bash
-tar -czf archive.tar.gz main.cpp lib.h lib2.h
-# archive.tar.gz is created in the current dir with the target files
+$ tar -cf tarball.tar file1 file2
 ~~~
 
 <!--more-->
 
-### Useful Options / Examples
-Useful Flags:
-- x = extract specified file
-- c = create a new archive (tar thing) containing the specified items
-- t = list contents of archive to stdout
-- f = first argument after this flag is the name of the tar file
-- v = verbose output
-- z = (use only with c-mode) compress the archive with gzip
+### Useful Information / Options / Examples
 
-Useful Examples:
-##### Package up your test cases:
-	tar -vczf test-cases.tar.gz test-1.txt test-2.txt test-3.txt <...>
-##### Unpackaging someone else's test cases:
-	tar -xvf test-cases.tar
-##### Extact a single file (main.cpp) from a tarball
-	tar --extract --file=tarball.tar.gz main.cpp
-##### or multiple files (main.cpp, main.h):
-	tar --extract --file=tarball.bz2 "main.cpp" "main.h"
-##### or with wildcards:
-	tar -xvf archive.tar --wildcards "*.cpp"
-	tar -zxvf archive.tar.gz --wildcards "*.cpp"
-	tar -jxvf archive.tar.bz2 -- wildcards "*.cpp"
+#### Information
+_tar_ can be used in tandem with the _gzip_ program to create a compressed tarball or _.tar.gz_ or _.tgz_ file as we will see later in the examples. Note that although the Gzip program is the most popular mode of compression of tarballs, there are many other compression programs. For instance, Bzip2 is a program that can compress harder than Gzip, but it is slower.
 
 #### Example command
-	tar -vcjf test-cases.tar.bz2 test*.txt
+The following bash session shows how to create a tarball containing the files file1, file2, file3 and target.
 
-output (al of the files added to the archive):
-    a test-1.txt
-    a test-2.txt
-    a test-3.txt
-    <output will continue with same pattern>
+~~~ bash
+$ tar -cvf Archive.tar file1 file2 file3
+file1
+file2
+file3
+target
+~~~
 
-##### Break it down
-1. "tar"
-    invoke the tar command
-2.  "-vcjf"
-    these are the flags that are passed to the tar command
-    v means verbose output: tar will print a list of all the files it adds to the archive as it compresses them
-    c (create) specifies that we want to create a tarball
-    j speifies that we want the encoding of the tar ball to be ".tar.gz" (bzip)
-    f tells tar that the next argument immediately after this will be the name of where to write the archive
-3. "test-cases.tar.bz2 test\*.txt"
-    "test-cases.tar.bz2" is the name of where the archive will be written
-    test\*.txt is a regular expression intrepreted by bash/zsh/fsh/etc. that selects all of the files in the directory that start with "test" and end with ".txt"
+let's break down the above command:
+
+* `tar` is obviously the name of the program.
+* The `c` flag creates a new tarball. Use the `x` flag to <span style="color:red;">untar</span> or extract a tar achive.
+* The `v` is the usual verbose option.
+* The `f` option specifies the archive file or device. In this case _Archive.tar_.
 
 #### Example command
-    tar -xzvf archive.tar.gz
+the following bash session shows how to add a file or a directory to a tar achive using the `r` flag.
 
-output (all of the files extracted from the archive):
-    x file1.cpp
-    x file2.h
-    x file3.txt
-    x ...
-##### Break it down
-1.  tar:
-    invoke the "tar" command
-2. "-xzvf"
-    x tells tar that we want to extract files from an archive
-    z tells tar that the type of the archive is tar.gz
-    v (verbose) tells tar that we want it to print a list of files that it extracts after it extracts each one
-    f specifies that the following argument will be the name of the archive to extract from
+~~~ bash
+$ tar -rvf Archive.tar added.txt
+added.txt
+~~~
+
+#### Example command
+You can also look inside a tarball to see its content without extracting anything before hand by using the `t` flag. This comes very handy especially when the tarball has a large number of files, but you are only interested in one or a couple of them. In that case you can pipe the output of the tar listing to `grep` for a more targeted search. 
+
+~~~ bash
+$ tar -tvf Archive.tar | grep target
+-rw-rw-r-- user/group	0 2016-03-22 21:41 target
+~~~
+
+Notice how tar printed out the file attributes namely the user/group name and permission, the access/modification date etc. This is an important feature of the Tar program. It was designed to handle archiving while preserving the file system attributes even when the tarballs are bounced around from one device/platform to another.
+
+#### Options
+ Use the options <span style="color:red;">z</span> and <span style="color:red;">j</span> to handle _compressed_ tarballs <span style="color:blue;">.tar.gz</span> and <span style="color:blue;">.tar.bz2</span> respectively.

@@ -3,11 +3,7 @@ Command Webpages
 
 
 ### Incomplete documentation
- - cd
- - chown/chgrp
- - cp
  - id
- - yes
  - cowsay
 
 
@@ -16,6 +12,7 @@ Command Webpages
 #### Basics
  - cat
  - chmod
+ - fg
  - rmdir (consider adding to mkdir page instead of new page)
  - pwd
  - rm
@@ -52,6 +49,7 @@ Command Webpages
  - fsck
  - git
  - gzip
+ - jot
  - less
  - make
  - man

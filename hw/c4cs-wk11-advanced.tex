@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Homework 11\\}}
+\author{Assigned: Friday, March 25, 11:00AM}
+\date{\textbf{\color{red}{Due: Before the first lecture on Friday, April 8}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions.
+
+\section{Topic Discovery}
+Write a script that takes a search term, an integer, and any number of files on
+the command line, and prints out which files have the search term at least that
+many times.
+
+For example:
+
+\begin{lstlisting}
+$ cat file1.txt
+I love algorithms! Analyzing algorithmic complexity is my favorite field of CS.
+
+$ cat file2.txt
+This is a file with only one use of the word algorithm.
+
+$ cat file3.txt
+I hate algorithms!
+I dislike algorithms so much that I have written this treatise against algorithms.
+
+$ python topic.py algorithm 2 file1.txt file2.txt file3.txt
+file1.txt
+file3.txt
+\end{lstlisting}
+
+
+\newpage
+\section{Iterator Protocol}
+As a very dynamic language, Python has a concept called ``protocols''. The
+idea here is that language constructs, such as a for loop, are really just
+calling some well-defined functions under the hood.
+
+\medskip
+\noindent
+Iterable objects in Python are things that make sense to loop over in a for
+loop, for example strings are iterable:
+\begin{lstlisting}
+  >>> for letter in "abc":
+  ...     print(letter)
+  ...
+  a
+  b
+  c
+\end{lstlisting}
+As are tuples:
+\begin{lstlisting}
+>>> for number in (1, 2, 3):
+...     print (number)
+...
+1
+2
+3
+\end{lstlisting}
+Many functions, such as \texttt{sum} also accept iterable objects:
+\begin{lstlisting}
+>>> sum((1,2,3))
+6
+\end{lstlisting}
+
+\medskip
+\noindent
+Any object can be iterated if it implements a \texttt{\_\_iter\_\_} function
+(similar to \texttt{begin()} on a C++ STL container) and a \texttt{\_\_next\_\_}
+function (similar to the \texttt{++} operator on a C++ STL iterator).
+
+\medskip
+\noindent
+\url{http://stackoverflow.com/questions/9884132/what-exactly-are-pythons-iterator-iterable-and-iteration-protocols}
+gives another summary of Python iterators and pointers to some more resources
+you may find helpful.
+
+
+\vspace{3cm}
+\noindent
+Modify your script from Question~1 such that the following works:
+\begin{lstlisting}
+>>> import glob   # This is a built-in python package
+>>> import topic
+>>> searcher = topic.Searcher()
+>>> for filename in searcher.search('algorithm', 2, glob.glob('*.txt')):
+...     print(filename)
+...
+file1.txt
+file3.txt
+\end{lstlisting}
+
+\newpage
+\section{Git Pre-Push Hook}
+Suppose we're writing a program \lstinline{prog}, and have constructed a suite of regression tests that are named \lstinline{test*.cpp}, where \lstinline{*} is the wildstar (any string may be in its place). Write a script that:
+\begin{enumerate}
+    \item Compiles the main program, you may compile it how you like. Stop if there are compilation errors.
+    \item Compiles all the test cases, again compile as you like and stop if there are compilation errors. 
+    \item Run the test case and provide feedback on how many succeeded and failed. 
+    \item If any test case fails, stop the push. 
+\end{enumerate}
+\vspace{5cm}
+
+
+\end{document}
