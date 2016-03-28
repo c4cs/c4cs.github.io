@@ -35,6 +35,9 @@ Appending stdout to the file is appending the output of a file to the end of the
 ~~~ bash
 $ cat output.txt
 Before
+$ cat random.py
+print "Random text"
+print 3 / 0
 $ python random.py >> output.txt
 Traceback (most recent call last):
   File "random.py", line 2, in <module>
