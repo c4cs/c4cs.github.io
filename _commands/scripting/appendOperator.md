@@ -20,7 +20,7 @@ line 2
 
 ### Useful Options / Examples
 
-*If the file does not exist, ">>" creates the file.
+* If the file does not exist, ">>" creates the file.
 
 ~~~ bash
 $ echo line 1 >> example.txt
@@ -28,9 +28,9 @@ $ cat example.txt
 line 1
 ~~~
 
-*The appending operator allows for the appending of standard output and standard error to a file.
+* The appending operator allows for the appending of standard output and standard error to a file.
 
-  *Appending stdout to the file is appending the output of a file to the end of the other file.
+  * Appending stdout to the file is appending the output of a file to the end of the other file.
 
 ~~~ bash
 $ cat output.txt
@@ -48,7 +48,7 @@ Before
 Random text
 ~~~
 
-  *In this example, we're redirecting stderr to stdout using the appending operator.
+  * In this example, we're redirecting stderr to stdout using the appending operator.
  
 
 ~~~ bash
