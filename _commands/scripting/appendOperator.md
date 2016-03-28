@@ -33,20 +33,28 @@ The appending operator allows for the appending of standard output and standard 
 Appending stdout to the file is appending the output of a file to the end of the other file.
 
 ~~~ bash
+$ cat output.txt
+Before
 $ python random.py >> output.txt
 Traceback (most recent call last):
   File "random.py", line 2, in <module>
     print 3 / 0
 ZeroDivisionError: integer division or modulo by zero
 $ cat output.txt
+Before
 Random text
 ~~~
 
-Appending stderr to the file appends both the stdout and the error message to the end of the other file.
+Appending stderr to the file appends both the stdout and the error message to the end of the other file because it redirects stderr to stdout.
+ 
 
 ~~~ bash
+$ cat output.txt
+Before
+Random text
 $ python random.py >> output.txt 2>&1
 $ cat output.txt
+Before
 Random text
 Random text
 Traceback (most recent call last):
