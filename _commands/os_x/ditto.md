@@ -7,7 +7,7 @@ Ditto
 `Ditto` is an OSX command that copies the entire contents of a directory to another, new location.
 
 ~~~ bash
-ditto /old/directory/ /new/directory/
+$ ditto /old/directory/ /new/directory/
 ~~~
 
 <!--more-->
@@ -20,16 +20,16 @@ ditto /old/directory/ /new/directory/
 
 #### `-V` 
 ~~~ bash
-ls old
+$ ls old
 bla.txt
-ls new 
-ditto -V old new
+$ ls new 
+$ ditto -V old new
 >>>copying old
 copying file ./bla.txt ...
 10 bytes for ./bla.txt
-ls old
+$ ls old
 bla.txt
-ls new
+$ ls new
 bla.txt
 ~~~
 
@@ -38,7 +38,7 @@ bla.txt
 
 #### `--norsrc`
 ~~~ bash
-ditto --nosrc /old /new
+$ ditto --nosrc /old /new
 ~~~
 
 #### Break it down
@@ -46,7 +46,7 @@ The `--norsrc` flag allows you to copy files and directories without copying the
 
 #### `--password`
 ~~~ bash
-ditto --password /old /new
+$ ditto --password /old /new
 ~~~
 
 #### Break it down
@@ -54,7 +54,7 @@ The `--password` flag allows the user to copy password protected zip archives. `
 
 #### `--nopreserveHFSCompression`
 ~~~ bash
-ditto --nopreserveHFSCompression /old /new
+$ ditto --nopreserveHFSCompression /old /new
 ~~~
 
 #### Break it down
@@ -62,7 +62,7 @@ The `--nopreserveHFSCompression` flag deviates from `ditto's` default operations
 
 #### `--zlibCompressionLevel`
 ~~~ bash
-ditto --zLibCompressionLevel 5 /old /new
+$ ditto --zLibCompressionLevel 5 /old /new
 ~~~
 
 #### Break it down
@@ -71,7 +71,7 @@ The `--zLibCompressionLevel` flag allows the user to specify a compression level
 
 #### `-X`
 ~~~ bash
-ditto -X /old /new
+$ ditto -X /old /new
 ~~~
 
 #### Break it down
