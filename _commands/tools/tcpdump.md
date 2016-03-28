@@ -46,9 +46,12 @@ $ sudo tcpdump -S host www.google.com
 ...
 ... (continues)
 ~~~
+
 ##### Break it down
+
 -The `-S` flag prints absolute TCP sequence numbers versus relative
 -host <hostname> lets you specify a specific hostname to track requests and responses from a specific host (i.e. Google, Yahoo, eecs.umich.edu, etc.)
+
 #### Example command
 
 `tcpdump -S "tcp[tcpflags] & (tcp-syn|tcp-ack|tcp-fin) != 0"`
@@ -67,7 +70,9 @@ listening on enp0s3, link-type EN10MB (Ethernet), capture size 262144 bytes
 ...
 ... (continues)
 ~~~
+
 ##### Break it down
+
 - This command will let you watch the 3-way handshake between different clients and servers that are functioning on your network. Specifies that tcpflags are active and that at least one of the syn, ack, or fin flags are selected.
 - You can save this output or the above output with the redirection >.
 - You can obviously combine the above two and specify a specific host to watch the 3-way handshake on for more specified traffic monitoring.
