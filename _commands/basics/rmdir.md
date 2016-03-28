@@ -51,4 +51,3 @@ $ rmdir --ignore-fail-on-non-empty dir6
 
 ##### Break it down
 If dir6 it not empty, adding the `--ignore-fail-on-non-empty` command will prevent an error message from being printed.
-
