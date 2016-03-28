@@ -10,6 +10,8 @@ tac
 $ tac filename
 ~~~
 
+<!--more-->
+
 If a filename is provided, `tac` prints the contents of the file line-by-line, starting with the last line first.
 
 If no filename is provided, or the filename is inputted as `-`, `tac` reads input from the command line and prints it in reverse.
