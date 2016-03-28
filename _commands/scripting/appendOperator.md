@@ -20,7 +20,7 @@ line 2
 
 ### Useful Options / Examples
 
-If the file does not exist, '>>' creates the file.
+If the file does not exist, ">>" creates the file.
 
 ~~~ bash
 $ echo line 1 >> example.txt
@@ -48,7 +48,7 @@ Before
 Random text
 ~~~
 
-Appending stderr to the file appends both the stdout and the error message to the end of the other file because it redirects stderr to stdout.
+In this example, we're redirecting stderr to stdout using the appending operator.
  
 
 ~~~ bash
