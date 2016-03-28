@@ -4,13 +4,13 @@
 tmux
 --
 
-`tmux` is a terminal multiplexer. It allows the user to access seperate terminal sessions inside a single terminal window. `tmux` is especially useful in remote access.
+`tmux` is a terminal multiplexer. It allows the user to access separate terminal sessions inside a single terminal window. `tmux` is especially useful in remote access.
 
 ~~~bash
 $ tmux
 ~~~
 
- <!--more--> 
+<!--more--> 
 
 ### Getting Started
 For Linux
@@ -19,19 +19,19 @@ For Linux
 $ sudo apt-get install tmux
 ~~~
 
-For OSx
+For OS X
 
 ~~~
 $ brew install tmux
 ~~~
 
-To start tmux, simply type `$ tmux`. To quit, type `$ exit`.
+To start tmux, simply type `tmux`. To quit, type `exit`.
 
 
 
 
 ### Key Binding
-`tmux` can be controlled using a key combination as a prefix key, (which is <kbd>Ctrl</kbd>+<kbd>b</kbd> by default), followd by a command. The following are the most frequently used commands.
+`tmux` can be controlled using a key combination as a prefix key, (which is <kbd>Ctrl</kbd>+<kbd>b</kbd> by default), followed by a command. The following are the most frequently used commands.
 
 
 ~~~
