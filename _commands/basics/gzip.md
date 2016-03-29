@@ -3,7 +3,7 @@
 gzip
 -------
 
-'gzip' reduces the size of the name files by compressing a file. It will only attempt to compress regular files. Compressed files can be restored to their original form using gzip -d or gunzip or zcat.
+'gzip' reduces the size of the name files by compressing a file. It will only attempt to compress regular files. Compressed files can be restored to their original form using gzip `-d` or gunzip or zcat.
 
 ~~~ bash
 $ gzip archivefile.txt
@@ -23,7 +23,7 @@ folder file1.gz file2.gz file3.gz file4
 
 #### Example command
 
-To keep the original files after individual file compressions, use -k
+To keep the original files after individual file compressions, use `-k`.
 
 ~~~ bash
 $ gzip -k file1 file2
@@ -32,15 +32,7 @@ folder file1 file1.gz file2 file2.gz file3 file4
 
 #### Example command
 
-To know the compressions ratio, use -l
-
-~~~ bash
-$ gzip -l all.gz
-~~~
-
-#### Example command
-
-To keep the original files after individual file compressions, use -k
+To keep the original files after individual file compressions, use `-k`.
 
 ~~~ bash
 $ gzip -k file1 file2
@@ -49,7 +41,7 @@ folder file1 file1.gz file2 file2.gz file3 file4
 
 #### Example command
 
-To know the compressions ratio, use -l
+To know the compressions ratio, use `-l`.
 
 ~~~ bash 
 $ gzip -l all.gz
@@ -70,7 +62,7 @@ cool all gun.doc not.sh
 
 #### Example command
 
-Use the "-r" option to recursively compress all the files uder the specified directory.
+Use the `-r` option to recursively compress all the files under the specified directory.
 
 ~~~ bash
 $ gzip -r documets_folder
@@ -78,8 +70,9 @@ $ gzip -r documets_folder
 
 #### Example command
 
-If you want to keep an uncompressed version, you can use the -c option, which writes it to standard out, and then re-directs (">") the standard out to a file. 
+If you want to keep an uncompressed version, you can use the `-c` option, which writes to standard out, and then re-direct (">") standard out to a file. 
 
 ~~~ bash
 $ gzip -c archivefile.txt > archivefile.txt.gz
 ~~~
+
