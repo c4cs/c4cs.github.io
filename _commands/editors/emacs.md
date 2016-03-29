@@ -4,7 +4,7 @@
 emacs
 --
 
-`emacs` is edit files in emacs
+`emacs` is used to edit files in emacs
 
 ~~~ bash
 $ emacs filename
