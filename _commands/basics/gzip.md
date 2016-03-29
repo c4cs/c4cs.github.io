@@ -3,7 +3,7 @@
 gzip
 -------
 
-'gzip' reduces the size of the name files by compressing a file. It will only attempt to compress regular files. Compressed files can be restored to their original form using gzip `-d` or gunzip or zcat.
+`gzip` reduces the size of the name files by compressing a file. It will only attempt to compress regular files. Compressed files can be restored to their original form using gzip `-d` or gunzip or zcat.
 
 ~~~ bash
 $ gzip archivefile.txt
