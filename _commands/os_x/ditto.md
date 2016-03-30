@@ -4,7 +4,7 @@
 Ditto
 -------
 
-`Ditto` is an OSX command that copies the entire contents of a directory to another, new location.
+`ditto` is an OSX command that copies the entire contents of a directory to another, new location.
 
 ~~~ bash
 $ ditto /old/directory/ /new/directory/
