@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+%\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+%\fancyhead[L]{}
+%\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+
+\title{\textbf{Homework 12\\Towards a Development Environment}}
+\author{Assigned: Friday, April 1}
+\date{\textbf{\color{red}{Due: Friday, April 8, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit a pointer to your dotfiles repository
+\href{https://docs.google.com/a/umich.edu/forms/d/1ruvqtb7yh5SLkPJf6DHSEvIe7XDxuxgRqiH15aS5guQ/viewform}{here}.
+
+\section{A dotfiles repository}
+
+As we've seen in class, many tools store their configuration in ``dotfiles''
+in your home directory. While this is convenient for configuring things on one
+machine, often you may have multiple machines that you use (desktop at
+work, laptop for travel, etc). It would be really nice if all of these things
+stayed in sync.
+
+Fortunately, we've also learned a great tool for keeping things synchronized
+in this class -- git! Keeping your configuration files in git has the added
+benefit that you can try changes that your aren't sure if you will like
+(e.g\ trying out \href{http://blog.sanctum.geek.nz/vi-mode-in-bash/}{vi mode
+in bash}) knowing that you can easily revert them later.
+
+The trick is that it's not a good idea to make your home directory a git
+repository (because then every file in your home directory would be in that
+repository!). Instead, create a folder named \texttt{dotfiles}, make that a
+repository, and then use symlinks to point from where tools expect your
+dotfiles (in your home directory) to where they actually are (the dotfiles
+folder):
+
+\begin{lstlisting}
+  $ ls -l ~/.bashrc
+  lrwxr-xr-x  1 ppannuto  staff  40 Mar 31 23:43 /Users/ppannuto/.bashrc ->
+  /Users/ppannuto/Dropbox/dotfiles/.bashrc
+\end{lstlisting}
+
+
+\subsection*{The Assignment}
+Create a dotfiles repository. Move your existing \texttt{.bashrc} file into
+this repository, commit it, and set up a symlink from your home directory for
+bashrc. Pick at least one other dotfile to move under version control and add
+it to this repository. For ideas, here are the files in my dotfiles folder:
+
+\begin{lstlisting}[escapechar=!]
+  .bash_aliases .bash_profile .bashfuncs .bashrc .gitconfig .gitignore .gsdesktop-helper!\footnote{Pour one out... (dead config file from \href{https://github.com/intarstudents/GSDesktop-Helper}{this} for \href{https://en.wikipedia.org/wiki/Grooveshark}{Grooveshark})}!
+  .hgrc .inputrc .pypirc .screenrc .vim!\footnote{This is actually a directory for \href{https://github.com/tpope/vim-pathogen}{Pathogen}}!  .vimrc
+  setup_dotfiles.sh!\footnote{This is a script that deletes any existing dotfiles (e.g.\ things usually ship with a template \texttt{.bashrc}) and replaces them with symlinks to the dotfile repo. It also handles ssh-config, which lives at \textasciitilde/.ssh/config}!
+  ssh-config
+\end{lstlisting}
+
+You can also find \emph{lots} of other dotfiles repositories on the web with
+tons of cool ideas for configurations. Some of the staff even have pretty good
+dotfiles repositories\dots
+
+Use any repository hosting service (Umich Gitlab, GitHub, personal server, etc)
+to make your dotfiles repo publically accessible. Then submit a link to your
+repository \href{https://docs.google.com/a/umich.edu/forms/d/1ruvqtb7yh5SLkPJf6DHSEvIe7XDxuxgRqiH15aS5guQ/viewform}{here}.
+
+\section{The Practice Exam}
+
+Did you do the practice exam? You should probably do the practice exam.
+Homework this week is super short so that you have more time to do the
+practice exam.
+
+(No. You do not have to turn anything in for this ``question''.)
+
+
+\end{document}
