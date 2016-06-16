@@ -42,7 +42,7 @@ $ brew install rsync
 ##### Break it down
 
 * The `brew install [package-name]` command is the command for installing various `brew` packages. 
-* There is a [public list](https://github.com/Homebrew/homebrew/tree/master/Library/Formula) of available packages that `brew` pulls from. Each package has a "formula", or package definition, that `brew` can parse. 
+* There is a [public list](https://github.com/Homebrew/homebrew-core/tree/master/Formula) of available packages that `brew` pulls from. Each package has a "formula", or package definition, that `brew` can parse. 
 * Upon picking a formula, like `node`, `wget`, or `cowsay`, `brew` retrieves the formula and follows the instructions (e.g. downloading the appropriate files) to install that package.
 
 #### `brew remove [package-name]`
