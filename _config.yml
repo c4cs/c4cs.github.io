@@ -20,8 +20,17 @@ collections:
   commands:
     output: true
   syllabus:
+  updates:
 
 defaults:
+  - scope:
+      path: "_updates/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/w16"
+    values:
+      category: w16
   - scope:
       type: syllabus
     values:

@@ -24,11 +24,13 @@ layout: default
 
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
-  {% for update in site.categories.updates %}
-    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
-    {% assign update_date = update.date | date: '%s' | times: 1 %}
-    {% if update_date > onemonthago %}
-      {{ update.output }}
+  {% for update in site.updates %}
+    {% if update.categories contains 'w16' %}
+      {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+      {% assign update_date = update.date | date: '%s' | times: 1 %}
+      {% if update_date > onemonthago %}
+        {{ update.output }}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
@@ -36,13 +38,15 @@ layout: default
 
   <div id="old-updates" style="display: none">
 
-  {% for update in site.categories.updates %}
-    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
-    {% assign update_date = update.date | date: '%s' | times: 1 %}
-    {% if update_date <= onemonthago %}
-      {{ update.output }}
-    {% endif %}
-  {% endfor %}
+    {% for update in site.updates %}
+      {% if update.categories contains 'w16' %}
+        {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+        {% assign update_date = update.date | date: '%s' | times: 1 %}
+        {% if update_date <= onemonthago %}
+          {{ update.output }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 
   </div><!-- old-updates -->
 </div>

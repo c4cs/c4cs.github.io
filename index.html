@@ -17,16 +17,13 @@ layout: default
 
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
-  {% assign semesterbreak = 1466972171 %}
-  {% for update in site.categories.updates %}
-    {% if update_date < semesterbreak %}
-      {% continue %}
-    {% endif %}
-
-    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
-    {% assign update_date = update.date | date: '%s' | times: 1 %}
-    {% if update_date > onemonthago %}
-      {{ update.output }}
+  {% for update in site.updates %}
+    {% if update.categories contains 'f16' %}
+      {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+      {% assign update_date = update.date | date: '%s' | times: 1 %}
+      {% if update_date > onemonthago %}
+        {{ update.output }}
+      {% endif %}
     {% endif %}
   {% endfor %}
 
@@ -34,31 +31,28 @@ layout: default
 
   <div id="old-updates" style="display: none">
 
-  {% for update in site.categories.updates %}
-    {% if update_date < semesterbreak %}
-      {% continue %}
-    {% endif %}
-
-    {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
-    {% assign update_date = update.date | date: '%s' | times: 1 %}
-    {% if update_date <= onemonthago %}
-      {{ update.output }}
-    {% endif %}
-  {% endfor %}
+    {% for update in site.updates %}
+      {% if update.categories contains 'f16' %}
+        {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+        {% assign update_date = update.date | date: '%s' | times: 1 %}
+        {% if update_date <= onemonthago %}
+          {{ update.output }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
 
   </div><!-- old-updates -->
 </div>
-<!--
+
 <div class="alert alert-success" style="text-align: center">
 	<h2>Registration Information</h2>
-	<h4>The course numbers in Wolverine Access are <strong>31938</strong> for 003,
-	<strong>34428</strong> for 004, and <strong>34525</strong> for 005.</h4>
-	<h4>Be sure to register only for <strong>sections 003, 004, or 005</strong>, the other
+	<h4>The course numbers in Wolverine Access are <strong>31180</strong> for 002,
+	and <strong>31181</strong> for 003.</h4>
+	<h4>Be sure to register only for <strong>sections 002 or 003</strong>, the other
 	398 sections are different courses!</h4>
 	<hr />
-	<h4 style="text-align: right">For any other questions, email me at <a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a></h4>
+	<h4 style="text-align: right">For any other questions, email <a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a></h4>
 </div>
--->
 <hr />
 
 
@@ -117,9 +111,9 @@ For sensitive issues, please e-mail me directly at <a href="mailto:ppannuto@umic
 
 <h3><a class="anchor" name="times"></a>Course Meeting Times and Locations</h3>
 <dl class="dl-horizontal">
-  <dt>Section 002 (class no 31180)</dt>
+  <dt>Section 002 (31180)</dt>
   <dd>1670 BBB, Wednesday 1:30-3:00</dd>
-  <dt>Section 003 (class no 31181)</dt>
+  <dt>Section 003 (31181)</dt>
   <dd>1670 BBB, Friday 1:30-3:00</dd>
 </dl>
 <p>In general, you may attend any section, however if the classrooms become
