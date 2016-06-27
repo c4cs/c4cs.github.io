@@ -19,8 +19,17 @@ permalink: none
 collections:
   commands:
     output: true
+  syllabus:
 
 defaults:
+  - scope:
+      type: syllabus
+    values:
+      layout: syllabus
+  - scope:
+      path: "_syllabus/f16"
+    values:
+      category: f16
   - scope:
       type: commands
     values:
