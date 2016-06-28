@@ -1,7 +1,7 @@
 ---
 ---
 
-$\_
+$\_   {#dollarUnderscore}
 -----
 
 `$_` is a special shell variable which always holds the last argument of the most recent command.

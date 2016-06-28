@@ -1,7 +1,7 @@
 ---
 ---
 
-\>\>
+\>\>    {#appendOperator}
 -----
 
 '>>' is a shell operator that you can use to append the output in an existing file.
