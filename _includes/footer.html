@@ -13,36 +13,8 @@
   </div>
 </footer>
 
-<script src="/static/js/jquery-2.1.4.min.js"></script>
-<script src="/static/js/moment.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/fullcalendar.io/fullcalendar.js"></script>
-<script src="/static/js/fullcalendar.io/gcal.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: '',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    defaultView: 'agendaWeek',
-    allDaySlot: false,
-    minTime: '10:00:00',
-    maxTime: '22:00:00',
-    weekends: false,
-    contentHeight: 'auto',
-    editable: false,
-    googleCalendarApiKey: 'AIzaSyBDG9pxcme_PaOIwJmKeEvldUzWhHn3Sog',
-    events: {
-      googleCalendarId: '4a0vvtkg11f6g0qs2er37gkkf8@group.calendar.google.com'
-    },
-    loading: function(bool) {
-      $('#calendar-loading').toggle(bool);
-    }
-  });
-});
-</script>
+{% include scripts.html %}
+{% include calendar_footer.html %}
 {% comment %}
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
