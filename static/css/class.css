@@ -7,6 +7,13 @@
 	margin-top: 20px;
 }
 
+.syllabus-section-header {
+  background-color: #ffa;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .staff-table img {
 	width: 100px;
 }

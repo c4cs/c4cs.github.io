@@ -1,4 +1,5 @@
 ---
+sectionHeader: Being Efficient
 week: 7
 dates: 10/19, 10/21
 homeworkRelease: 2016-10-19 15:00:00

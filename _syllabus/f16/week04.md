@@ -1,4 +1,5 @@
 ---
+sectionHeader: Developing
 week: 4
 dates: 9/28, 9/30
 homeworkRelease: 2016-09-28 15:00:00

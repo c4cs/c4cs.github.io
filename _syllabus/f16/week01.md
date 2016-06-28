@@ -1,4 +1,5 @@
 ---
+sectionHeader: Introduction and Basics
 week: 1
 dates: 9/7, 9/9
 homeworkRelease: 2016-09-07 15:00:00

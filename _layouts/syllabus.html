@@ -1,3 +1,8 @@
+{% if page.sectionHeader %}
+  <tr class="syllabus-section-header">
+    <td colspan="4">{{ page.sectionHeader }}</td>
+  </tr>
+{% endif %}
 <tr>
   <th class="week">Week&nbsp;{{ page.week }}</th>
   <td>{{ page.dates }}</td>
