@@ -81,8 +81,8 @@ write a basic "Hello World" program
 
 # Course Meeting Times and Locations
 
-- *Section 002* 1670 BBB, Wednesday 1:30-3:00
-- *Section 003* 1670 BBB, Friday 1:30-3:00
+- **Section 002** 1670 BBB, Wednesday 1:30-3:00
+- **Section 003** 1670 BBB, Friday 1:30-3:00
 
 In general, you may attend any section, however if the classroom becomes
 overfull, we will have to ask that you attend the section you are officially
