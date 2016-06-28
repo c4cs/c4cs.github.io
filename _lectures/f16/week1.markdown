@@ -92,32 +92,5 @@ registered for.
 <div id='calendar'></div>
 <a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
 
-<script src="/static/js/fullcalendar.io/fullcalendar.js"></script>
-<script src="/static/js/fullcalendar.io/gcal.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: '',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    defaultView: 'agendaWeek',
-    allDaySlot: false,
-    minTime: '10:00:00',
-    maxTime: '22:00:00',
-    weekends: false,
-    contentHeight: 'auto',
-    editable: false,
-    googleCalendarApiKey: 'AIzaSyBDG9pxcme_PaOIwJmKeEvldUzWhHn3Sog',
-    events: {
-      googleCalendarId: '4a0vvtkg11f6g0qs2er37gkkf8@group.calendar.google.com'
-    },
-    loading: function(bool) {
-      $('#calendar-loading').toggle(bool);
-    }
-  });
-});
-</script>
 
 
