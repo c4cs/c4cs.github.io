@@ -1,54 +1,76 @@
 <tr>
   <th class="week">Week&nbsp;{{ page.week }}</th>
-  <td>9/7</td>
+  <td>{{ page.dates }}</td>
   <td rowspan="2">
     <strong>{{ page.title | markdownify }}</strong>
     <p>Lecture</p>
     <ul>
       {% for topic in page.lectureTopics %}
-        <li>{{ topic }}</li>
+        {% if topic.sub %}
+          <ul><li>{{ topic.sub }}</li></ul>
+        {% else %}
+          <li>{{ topic }}</li>
+        {% endif %}
       {% endfor %}
     </ul>
     <p>Homework</p>
     <ul>
       {% for topic in page.homeworkTopics %}
-        <li>{{ topic }}</li>
+        {% if topic.sub %}
+          <ul><li>{{ topic.sub }}</li></ul>
+        {% else %}
+          <li>{{ topic }}</li>
+        {% endif %}
       {% endfor %}
     </ul>
     <p>Advanced</p>
     <ul>
       {% for topic in page.advancedTopics %}
-        <li>{{ topic }}</li>
+        {% if topic.sub %}
+          <ul><li>{{ topic.sub }}</li></ul>
+        {% else %}
+          <li>{{ topic }}</li>
+        {% endif %}
       {% endfor %}
     </ul>
   </td>
   <td rowspan="2">
-    {{ page.lectureSummary | markdownify }}
-    <p>Wednesday Lecture</p>
-    <ul>
-      <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapWed }}" target="_blank">Lecture Video</a></li>
-    </ul>
-    <p>Friday Lecture</p>
-    <ul>
-      <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a></li>
-    </ul>
+    {% if page.lectureSummary %}
+      {{ page.lectureSummary | markdownify }}
+    {% endif %}
+    {% if page.leccapWed %}
+      <p>Wednesday Lecture</p>
+      <ul>
+        <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapWed }}" target="_blank">Lecture Video</a></li>
+      </ul>
+    {% endif %}
+    {% if page.leccapFri %}
+      <p>Friday Lecture</p>
+      <ul>
+        <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a></li>
+      </ul>
+    {% endif %}
   </td>
 </tr>
 <tr>
   <td colspan="2" class="syllabus-homework">
-    {% assign now = 'now' | date: '%s' | times: 1 %}
-    {% assign homeworkRelease = page.homeworkRelease | date: '%s' | times: 1 %}
-    {% assign solutionRelease = page.solutionRelease | date: '%s' | times: 1 %}
-    {% if now > homeworkRelease %}
-      <p><a href="hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
-      <p><a href="hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
-      <a href="hw/notification.png">[png]</p>
-      <p><a href="hw/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
-      <p><a href="hw/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
-    {% endif %}
-    {% if now > solutionRelease %}
-      <hr />
-      <p><a href="hw/c4cs-wk{{ page.week }}-homework-solutions.pdf">Solutions&nbsp;{{ page.week }} [pdf]</a></p>
+    {% if page.homeworkRelease %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign homeworkRelease = page.homeworkRelease | date: '%s' | times: 1 %}
+      {% assign solutionRelease = page.solutionRelease | date: '%s' | times: 1 %}
+      {% if now > homeworkRelease %}
+        <p><a href="hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
+        <p><a href="hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
+        <a href="hw/notification.png">[png]</p>
+        <p><a href="hw/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
+        <p><a href="hw/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+      {% endif %}
+      {% if now > solutionRelease %}
+        <hr />
+        <p><a href="hw/c4cs-wk{{ page.week }}-homework-solutions.pdf">Solutions&nbsp;{{ page.week }} [pdf]</a></p>
+      {% endif %}
+    {% else %}
+      <p>No homework this week!</p>
     {% endif %}
   </td>
 </tr>

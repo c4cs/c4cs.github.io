@@ -1,4 +1,4 @@
----
+---REMOVEMETOMAKEPAGELIVE
 week: 1
 homeworkRelease: 2016-09-07 15:00:00
 solutionRelease: 2016-09-16 15:00:00
