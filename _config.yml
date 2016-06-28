@@ -21,8 +21,18 @@ collections:
     output: true
   syllabus:
   updates:
+  lectures:
+    output: true
 
 defaults:
+  - scope:
+      type: lectures
+    values:
+      layout: lecture
+  - scope:
+      path: "_lectures/f16"
+    values:
+      category: f16
   - scope:
       path: "_updates/f16"
     values:
@@ -80,6 +90,14 @@ command_categories: ["basics", "shells", "scripting", "tools", "editors", "toys"
 
 # Build settings
 markdown: kramdown
+
+# This is a bit of a hack, since we're using remark, which expects
+# to render markdown itself, we need to prevent jekyll from picking
+# it up and parsing it, however we would still like to use the templating
+# features of jekyll so that we can just write slides alone, in a
+# markdown file. Thus we override the extensions list so that jekyll does
+# not treat .markdown files as markdown.
+markdown_ext: "mkdown,mkdn,mkd,md"
 
 # Needed for Travis
 exclude: [vendor]
