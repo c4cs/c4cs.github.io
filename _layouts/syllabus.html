@@ -55,6 +55,16 @@
         <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a></li>
       </ul>
     {% endif %}
+    {% if page.commands %}
+      <hr />
+      {% for command in page.commands %}
+        {% if forloop.last %}
+          <a href="commands/{{ command }}">{{ command }}</a>
+        {% else %}
+          <a href="commands/{{ command }}">{{ command }}</a> &#x25cf;
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </td>
 </tr>
 <tr>

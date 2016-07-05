@@ -19,6 +19,7 @@ permalink: none
 collections:
   commands:
     output: true
+    permalink: /commands/:title
   syllabus:
   updates:
   lectures:

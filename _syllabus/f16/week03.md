@@ -14,6 +14,20 @@ homeworkTopics:
   - TBD
 advancedTopics:
   - TBD
+commands:
+  - chmod
+  - chown/chgrp
+  - echo
+  - seq
+  - true
+  - which
+  - export
+  - "yes"
+  - ">>"
+  - ">"
+  - "$_"
+  - $variable
+  - "|"
 lectureSummary:
 leccapWed:
 leccapFri:

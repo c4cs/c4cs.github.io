@@ -13,6 +13,20 @@ homeworkTopics:
   - Some light reading
 advancedTopics:
   - None this week
+commands:
+  - cat
+  - cd
+  - cp
+  - fg
+  - help
+  - jobs
+  - kill
+  - ls
+  - mkdir
+  - mv
+  - pwd
+  - rm
+  - sleep
 lectureSummary:
 leccapWed:
 leccapFri:
