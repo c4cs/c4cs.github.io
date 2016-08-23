@@ -6,7 +6,7 @@
 <tr>
   <th class="week">Week&nbsp;{{ page.week }}</th>
   <td>{{ page.dates }}</td>
-  <td rowspan="2">
+  <td rowspan="3">
     <strong>{{ page.title | markdownify }}</strong>
     <p>Lecture</p>
     <ul>
@@ -39,7 +39,7 @@
       {% endfor %}
     </ul>
   </td>
-  <td rowspan="2">
+  <td rowspan="3">
     {% if page.lectureSummary %}
       {{ page.lectureSummary | markdownify }}
     {% endif %}
@@ -65,6 +65,13 @@
         {% endif %}
       {% endfor %}
     {% endif %}
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    {% for lecturer in page.lecturer %}
+      <p><em>{{ lecturer }}</em></p>
+    {% endfor %}
   </td>
 </tr>
 <tr>

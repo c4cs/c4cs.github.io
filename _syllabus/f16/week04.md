@@ -5,6 +5,7 @@ dates: 9/28, 9/30
 homeworkRelease: 2016-09-28 15:00:00
 solutionRelease: 2016-10-07 15:00:00
 title: Build Systems
+lecturer: mmdarden
 lectureTopics:
   - Conceptual model for a build system
   - HW3 script, what _didn't_ it do?

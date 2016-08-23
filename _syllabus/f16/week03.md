@@ -4,6 +4,7 @@ dates: 9/21, 9/23
 homeworkRelease: 2016-09-21 15:00:00
 solutionRelease: 2016-09-30 15:00:00
 title: Scripting, 30 seconds of Bash, and Python
+lecturer: mmdarden
 lectureTopics:
   - Background
   - sub: imperative vs functional programming
