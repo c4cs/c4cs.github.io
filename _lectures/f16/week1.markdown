@@ -7,6 +7,10 @@ class: center, middle
 # EECS 398 :: 002, 003
 ## Computing for Computer Scientists
 
+.copyright[
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+** [Pat Pannuto](http://patpannuto.com) / Marcus Darden **
+]
 
 ---
 
@@ -49,6 +53,12 @@ write a basic "Hello World" program
 
 # Lectures give you the "what" and the "why", homeworks are a self-guided tour on the "how"
 
+- Lectures are designed to be interactive
+
+- Lots of live coding, lots of mistakes!
+
+- **Bring your laptop to every class**
+
 ---
 
 # This is a very individual class
@@ -61,7 +71,21 @@ write a basic "Hello World" program
 
 ---
 
-# TODO: Collaboration slide
+# Collaboration
+
+## Less than you're used to
+
+- The goal is to build your _individual_ skills
+
+- You will get the most benefit doing assignments on your own
+
+## "The 15 Minute Rule"
+
+- A little frustration is a good thing, a lot is a bad thing
+
+   * Try to solve a problem on your own for 15 minutes before asking for help
+   * After 15 minutes, ask for help!
+   * Good rule of thumb outside of this class too
 
 ---
 
@@ -69,13 +93,25 @@ write a basic "Hello World" program
 
 ## https://c4cs.github.io
 
-### Piazza
+- The course homepage. Everything is here or linked from here.
 
-### Gradescope
+   * Homework assignments
+   * Lecture materials
+   * Syllabus, schedule, etc
 
----
+- You can also get here from [canvas](https://umich.instructure.com/courses/106623/external_tools/3796)
 
-# Piazza private questions
+### [Piazza](https://piazza.com/class/iqo81dkv68b1jb)
+
+- Essentially high-latency digital office hours
+
+   * All questions _private_ by default
+
+### [Gradescope](https://gradescope.com/courses/3499/)
+
+- Homework submission
+
+   * Warning, their clocks are unsympathetic
 
 ---
 
@@ -92,5 +128,90 @@ registered for.
 <div id='calendar'></div>
 <a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
 
+---
 
+# Work and Expectations
+
+## This is a 1-credit course
+
+- 1 credit = 4 hours of your life / week
+
+   * 1.5 hours in lecture
+   * 1.5 hours of homework
+   * 3 times this semester: 2-3 hours of "advanced exercises"
+
+## Grading
+
+
+.column-33[
+**1/3 Attendance & Participation**
+
+- 12 weeks not counting the first and last week
+- We'll take attendance every week
+]
+
+.column-33[
+**1/3 Homework**
+
+- One homework every week except the last week
+- (Yes there is homework this week)
+- Due at 10PM every Saturday
+]
+
+.column-33[
+**1/3 Advanced Exercises**
+
+- Explore a topic in more depth
+- Two week window to turn them in
+- _Must be turned in at office hours_
+]
+
+---
+
+# You need will need your own computer for this class
+
+### CAEN machines are **NOT** sufficient for this class
+
+### If you don't have your own computer...
+
+- Dog at it
+- TSA confiscated it on your flight to Michigan
+- Drunk roommate confused it for a frisbee
+
+The CSE department has some loaner laptops available for the semester<sup>&dagger;</sup>
+
+- Contact Don Winsor: <a href="mailto:don@umich.edu">don@umich.edu</a>
+
+.footnote[
+<sup>&dagger;</sup>For people with genuine need, please don't abuse this
+]
+
+---
+
+# Course staff
+
+<iframe width="100%" height="350px" src="/#syllabus"></iframe>
+
+### ^this actually is the course website
+
+[c4cs]: https://c4cs.github.io
+
+---
+
+<div style="display: flex;">
+<div style="margin: auto;">
+.center-center[
+# `</administrivia>`
+# `<class>`
+]
+</div>
+</div>
+
+---
+
+# Straw Poll: Who has Linux on their laptop?
+
+--
+
+## Having something Unix-like on your machine will make your CS life at Michigan much more pleasant
 
