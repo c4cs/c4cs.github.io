@@ -15,7 +15,8 @@
 }
 
 .staff-table img {
-	width: 100px;
+	width: 125px;
+	border-radius: 10%;
 }
 
 .staff-table td {
