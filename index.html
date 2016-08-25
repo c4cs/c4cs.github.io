@@ -55,17 +55,24 @@ layout: default
 </div>
 <hr />
 
-
-<h2><a class="anchor" name="prereqs"></a>Course Pre-Requisites</h2>
+{% assign anchor_text="Course Pre-Requisites" %}
+{% assign anchor_name="prereqs" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
 The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
 EECS&nbsp;182/183, however it is advised that students have either taken or are
 concurrently enrolled in EECS&nbsp;280.  A basic understanding of programming
 (if/else, for, while) and a passing familiarity with a compiler and command
 prompt is the only expected background.
 
-<h2><a class="anchor" name="syllabus"></a>Syllabus &amp; Essential Info</h2>
+{% assign anchor_text="Syllabus &amp; Essential Info" %}
+{% assign anchor_name="syllabus" %}
+{% include anchor.html %}
 
-<h3>Course Staff</h3>
+{% assign anchor_text="Course Staff" %}
+{% assign anchor_name="staff" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
 <div class="table-responsive">
   <table class="table staff-table">
     <tr>
@@ -95,7 +102,9 @@ prompt is the only expected background.
   </table>
 </div>
 
-<h3>Course Resources</h3>
+{% assign anchor_text="Course Resources" %}
+{% assign anchor_name="resources" %}
+{% include anchor.html %}
 <h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/iqo81dkv68b1jb" target="_blank">Piazza</a></h4>
 <h4>Assignment Submission &amp; Grades &ndash; <a href="https://gradescope.com/courses/3499" target="_blank">Gradescope</a></h4>
 <!--
@@ -109,7 +118,9 @@ For general issues, e-mail the course staff at <a href="mailto:c4cs-staff@umich.
 For sensitive issues, please e-mail me directly at <a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a>.
 </p>
 
-<h3><a class="anchor" name="times"></a>Course Meeting Times and Locations</h3>
+{% assign anchor_text="Course Meeting Times and Locations" %}
+{% assign anchor_name="times" %}
+{% include anchor.html %}
 <dl class="dl-horizontal">
   <dt>Section 002 (31180)</dt>
   <dd>1670 BBB, Wednesday 1:30-3:00</dd>
@@ -124,7 +135,10 @@ registered for.</p>
 <div id='calendar'></div>
 <a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
 
-<h3>Syllabus</h3>
+{% assign anchor_text="Schedule" %}
+{% assign anchor_name="schedule" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
 <div class="alert alert-warning">
   <span class="glyphicon glyphicon-warning-sign"></span>
   As this is a new class, the syllabus is subject to change in response to
@@ -159,7 +173,10 @@ registered for.</p>
 </ul>
 -->
 
-<h2><a class="anchor" name="grading"></a>Attendance, Grading, and Homework</h2>
+{% assign anchor_text="Attendance, Grading, and Homework" %}
+{% assign anchor_name="grading" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
 <p>
 This course is graded on a straight scale, it will not be curved.
 Each component is graded independently and then combined into a final grade.

@@ -78,3 +78,14 @@
 	height: 100%;
 }
 
+.anchor-icon {
+  position: relative;
+  left: -25px;
+  margin-right: -16px;
+}
+@media only screen and (max-width : 480px) {
+  .anchor-icon {
+    display: none;
+  }
+}
+
