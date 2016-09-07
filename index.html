@@ -8,8 +8,8 @@ layout: default
   students, any student wishing to learn how to use their computer much more
   effectively is encouraged to join. Topics covered include shells, environment,
   scripting, Makefiles, compilers, debugging tools, and version control. The
-  last month of the course will be open to student input for remaining useful
-  topics to cover.</p>
+  end of the course will be open to student input for remaining useful topics to
+  cover.</p>
 </div>
 
 <div class="alert alert-info">
@@ -59,11 +59,14 @@ layout: default
 {% assign anchor_name="prereqs" %}
 {% assign anchor_html_entity="h2" %}
 {% include anchor.html %}
-The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
-EECS&nbsp;182/183, however it is advised that students have either taken or are
-concurrently enrolled in EECS&nbsp;280.  A basic understanding of programming
-(if/else, for, while) and a passing familiarity with a compiler and command
-prompt is the only expected background.
+<p>The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
+EECS&nbsp;182/183, however it is strongly advised that students have either
+taken or are concurrently enrolled in EECS&nbsp;280.</p>
+<p>It is expected that students are currently enrolled in at least one course
+involving non-trivial software projects (e.g. EECS&nbsp;280 or 281). If you are
+not enrolled in a programming course this term, you must have previously taken a
+programming course where you still have access to the projects you have
+completed.</p>
 
 {% assign anchor_text="Syllabus &amp; Essential Info" %}
 {% assign anchor_name="syllabus" %}
@@ -172,190 +175,169 @@ registered for.</p>
 {% assign anchor_html_entity="h2" %}
 {% include anchor.html %}
 <p>
-This course is graded on a straight scale, it will not be curved.
-Each component is graded independently and then combined into a final grade.
+This course is graded on a straight scale, it will not be curved. There are a
+total of 100 possible points in this course.  You are expected to earn 40 points
+from Homework, 30 points from Attendance and Participation, and 30 points from
+Advanced Exercises, however each section has modest opportunity for extra credit
+that can cover missing points elsewhere.
 </p>
+<p><small><em>Range notation [90,93) means 90 is included and 93 is not</em></small></p>
 
-<h3>Final Grades</h3>
+{% assign anchor_text="Final Grades" %}
+{% assign anchor_name="syllabus-grades" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
 <div class="table-responsive">
 <table class="table grade-table">
 	<tr>
 		<th></th>
-		<th>A+<br /><small>&gt;4.0</small></th>
-		<th>A<br /><small>[3.67,&nbsp;4.0]</small></th>
-		<th>A-<br /><small>[3.33,&nbsp;3.67)</small></th>
-		<th>B+<br /><small>[3.0,&nbsp;3.33)</small></th>
-		<th>B<br /><small>[2.67,&nbsp;3.0)</small></th>
-		<th>B-<br /><small>[2.33,&nbsp;2.67)</small></th>
-		<th>C+<br /><small>[2.0,&nbsp;2.33)</small></th>
-		<th>C<br /><small>[1.67,&nbsp;2.0)</small></th>
-		<th>C-<br /><small>[1.33,&nbsp;1.67)</small></th>
-		<th>D+<br /><small>[1.0,&nbsp;1.33)</small></th>
-		<th>D<br /><small>(0.0,&nbsp;1.0)</small></th>
-		<th>F<br /><small>0.0</small></th>
+		<th>A+<br /><small>&gt;100</small></th>
+		<th>A<br /><small>[93,100]</small></th>
+		<th>A-<br /><small>[90,93)</small></th>
+		<th>B+<br /><small>[86.7,90)</small></th>
+		<th>B<br /><small>[83.3,86.7)</small></th>
+		<th>B-<br /><small>[80,83.3)</small></th>
+		<th>C+<br /><small>[76.7,80)</small></th>
+		<th>C<br /><small>[73.3,76.7)</small></th>
+		<th>C-<br /><small>[70,73.3)</small></th>
+		<th>D+<br /><small>[66.7,70)</small></th>
+		<th>D<br /><small>[66.3,66.7)</small></th>
+		<th>D-<br /><small>[60,66.3)</small></th>
+		<th>F<br /><small>[0,60)</small></th>
 	</tr>
 </table>
 </div>
 
-<p>
-As example, a student with 19 attendance points, 16 homework points, 3 advanced
-exercise points, and a 95% on the final exam would receive a final grade of
-(3.67+3.33+4.0+.95*4.0) / 4.0 = 3.7, 3.7&nbsp;&gt;&nbsp;3.67&nbsp;&rarr;&nbsp;A.
-</p>
 
-<h3>Attendance (25%)</h3>
+{% assign anchor_text="Homework (40% / 40 points)" %}
+{% assign anchor_name="syllabus-homework" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
 
-<p>Attendance is required for this course. Each lecture will begin with a
-question from last week&rsquo;s material. A correct answer is worth 2&nbsp;points,
-an incorrect answer is worth 1&nbsp;point, and no answer is worth 0&nbsp;points.
-The week before spring break is optional with no attendance taken.
-The maximum possible attendance score is thus 13&nbsp;x&nbsp;2&nbsp;=&nbsp;26.
-</p>
+<p>There are 12 homework assignments in the course. Each homework assignment is
+worth 4 points. Any points over 40 points are worth half their value, that is
+if a student completes all 12 assignments with a perfect score, their total
+points earned from homework will be
+40&nbsp;+&nbsp;(0.5&times;8)&nbsp;=&nbsp;44.</p>
 
-<div class="table-responsive">
-<table class="table grade-table">
-	<tr>
-		<th></th>
-		<th>A+ (4.33)</th>
-		<th>A (4.0)</th>
-		<th>A- (3.67)</th>
-		<th>B+ (3.33)</th>
-		<th>B (3.0)</th>
-		<th>B- (2.67)</th>
-		<th>C+ (2.33)</th>
-		<th>C (2.0)</th>
-		<th>C- (1.67)</th>
-		<th>D+ (1.33)</th>
-		<th>D (1.0)</th>
-		<th>F (0.0)</th>
-	</tr>
-	<tr>
-		<th>Attendance Points</th>
-		<td>24&#x2011;26</td>
-		<td>20&#x2011;23</td>
-		<td>18&#x2011;19</td>
-		<td>16&#x2011;17</td>
-		<td>14&#x2011;15</td>
-		<td>12&#x2011;13</td>
-		<td>10&#x2011;11</td>
-		<td>8&#x2011;9</td>
-		<td>6&#x2011;7</td>
-		<td>4&#x2011;5</td>
-		<td>2&#x2011;3</td>
-		<td>0&#x2011;1</td>
-	</tr>
-</table>
-</div>
+<p>Late assignments will not be accepted. Notice that one can miss/skip up to
+two assignments and still receive the full 40 homework points.</p>
 
-<h3>Homeworks (25%)</h3>
+<h4>Homework Effort and Grading</h4>
 
-<p>There are 12 homeworks in the course. Homework is due by the
-<i>beginning</i> of the first lecture the week after it is assigned. Homeworks
-will be graded on a {0,1,2} scale:</p>
-<dl class="dl-horizontal">
-	<dt>0 points</dt><dd>No / very little effort</dd>
-	<dt>1 point<dd>A solid effort, but not complete</dd>
-	<dt>2 points<dd>Completed successfully</dd>
-</dl>
 <p>This is a 1&nbsp;credit course and the homeworks are designed to be
-commensurate with that. The goal of the homeworks is to reinforce concepts
-introduced in lecture and to give hands-on experience working with tools.</p>
-<p>An A&nbsp;student will have at least 18 total homework points (e.g. 6&nbsp;1's and 6&nbsp;2's).</p>
+commensurate with that. Each assignment should take around 60 minutes on
+average. The goal of the homeworks is to reinforce concepts introduced in
+lecture and to give hands-on experience.</p>
 
-<div class="table-responsive">
-<table class="table grade-table">
-	<tr>
-		<th></th>
-		<th>A+ (4.33)</th>
-		<th>A (4.0)</th>
-		<th>A- (3.67)</th>
-		<th>B+ (3.33)</th>
-		<th>B (3.0)</th>
-		<th>B- (2.67)</th>
-		<th>C+ (2.33)</th>
-		<th>C (2.0)</th>
-		<th>C- (1.67)</th>
-		<th>D+ (1.33)</th>
-		<th>D (1.0)</th>
-		<th>F (0.0)</th>
-	</tr>
-	<tr>
-		<th>Homework Points</th>
-		<td>22&#x2011;24</td>
-		<td>20&#x2011;21</td>
-		<td>18&#x2011;19</td>
-		<td>16&#x2011;17</td>
-		<td>14&#x2011;15</td>
-		<td>12&#x2011;13</td>
-		<td>10&#x2011;11</td>
-		<td>8&#x2011;9</td>
-		<td>6&#x2011;7</td>
-		<td>4&#x2011;5</td>
-		<td>2&#x2011;3</td>
-		<td>0&#x2011;1</td>
-	</tr>
-</table>
-</div>
+<p>We will give each homework a &ldquo;raw&rdquo; grade in Gradescope, which
+will then convert to a final score using the following conversion:</p>
 
-<h3>Advanced Exercises (25%)</h3>
+<dl class="dl-horizontal">
+	<dt>[0,0.25] &rarr; 0 points</dt><dd>No / very little effort</dd>
+	<dt>(0.25,2] &rarr; 2 points<dd>Some effort, but not quite there</dd>
+	<dt>(2,4] &rarr; 4 points<dd>Solid effort, completed successfully</dd>
+</dl>
 
-<p>Each homework will have at least one advanced exercise option. The intention
-is to give a guided exploration of topics that people find most interesting.
-These advanced exercises will also be a little more time consuming, have a little
-less guidance, and require you to research and discover a little on your own.
-Over the course of the semester, you are expected to do at least three of the
-advanced exercises.</p>
-<p>The advanced exercises are graded on a simple 0 or 1 system, either you did
-the whole thing or you did not. Some weeks may have multiple advanced exercise
-options, however you may only earn 1 advanced exercise point per week (though
-that shouldn&rsquo;t stop you from doing more if you are interested!).</p>
+<p>The idea here is that homework does not have to 100% perfect to receive full
+credit. In addition, course staff can be a little &ldquo;nit-picky&rdquo;,
+taking of tenths of points to draw your attention to corrections and suggestions
+without actually penalizing your grade.</p>
 
-<div class="table-responsive">
-<table class="table grade-table">
-	<tr>
-		<th></th>
-		<th class="grade-table">A+ (4.33)</th>
-		<th class="grade-table">A (4.0)</th>
-		<th class="grade-table">B (3.0)</th>
-		<th class="grade-table">C (2.0)</th>
-		<th class="grade-table">F (0.0)</th>
-	</tr>
-	<tr>
-		<th>Advanced Exercises Points</th>
-		<td>6+</td>
-		<td>3&#x2011;5</td>
-		<td>2</td>
-		<td>1</td>
-		<td>0</td>
-	</tr>
-</table>
-</div>
+{% assign anchor_text="Attendance and Participation (30% / 30 points)" %}
+{% assign anchor_name="syllabus-attendance" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
 
-<h3>Final Exam (25%)</h3>
-<p>
-The final exam will be cumulative over all of the whole term.
-We have a 90-minute time slot for the exam.
-This is a very broad course. The exam is not designed to be &ldquo;tricky&rdquo;
-or test the esoteric corners of things presented in lecture. A student who
-attended every lecture and completed all the homeworks will likely need minimal
-studying for this exam.
+<p>Attendance is required for this course.
+<strong>Bring your laptop to every lecture.</strong>
+Lectures will include some quick quizzes used both to verify comprehension and
+attendance.
+Generally, correct answers will be worth full credit and incorrect answers half
+credit (you were there, but didn&rsquo;t get it right).
+Generally, we will ask at least three questions during class. Not all questions
+may count for attendance credit.
+We reserve the right to experiment with this mechanism a bit throughout the
+semester and vary when and how we ask questions or validate attendance.
 </p>
 
+<p>Each week can earn up to 3 attendance and participation points. Any points
+over 30 points are worth half their value, that is if a student attends and
+participates for all 12 weeks, their total points earned from attendance and
+participation will be
+30&nbsp;+&nbsp;(0.5&times;6)&nbsp;=&nbsp;33.</p>
+
+<p>Notice that you can miss up to two weeks without any penalty. This is by
+design to accommodate unexpected illness, emergencies, travel for interviews, or
+any other situations.
+Please do not ask for excused absences for one-off issues that are already
+covered by this policy.
+If extenuating circumstances cause you to miss more than two weeks, please
+contact us and we can work something out.
+</p>
+
+<p>We will not count attendance for the first week of class.</p>
+
+{% assign anchor_text="Advanced Exercises (30% / 30 points)" %}
+{% assign anchor_name="syllabus-advanced" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+
+<p>Each week (except the first and last) will have at least one advanced
+exercise option. The intention is to give a guided exploration of topics that
+people find most interesting.  These advanced exercises will also be a little
+more time consuming (2-3 hours), have a little less guidance, and require you to
+research and discover a little on your own.  Over the course of the semester,
+you are expected to do three of the advanced exercises.</p>
+
+<p>Advanced exercises may <strong>only</strong> be submitted at office hours.
+Advanced exercises come with a deadline roughly two weeks after they are
+released, however it is <strong>your</strong> responsibility to ensure you
+select an office hours session to attend before the deadline.
+There are no office hours at 9:30PM on Saturday night.</p>
+
+<p><small>We will aim to announce any changes to the regular office hours
+  schedule at least one week in advance (via Piazza and the updated course
+  calendar), however sometimes life happens, in which case we may adjust
+  deadlines if necessary.</small></p>
+
+
+<h4>Advanced Exercises Grading</h4>
+
+<p>The advanced exercises are graded on a simple all or nothing system, either
+you did the whole thing or you did not.</p>
+
+<p>The class is divided into four sections, <em>Introduction and Basics</em>,
+<em>Developing</em>, <em>Being Efficient</em>, and <em>Standing on the
+  Shoulders of Giants</em>. To encourage you to get started early and spread the
+advanced exercises load across the semester, the first advanced exercise you
+submit from each section is worth 10 points. Another advanced exercise in the
+same section is worth 2 points. If you do one advanced exercise from each
+section, the final section's first advanced exercise is worth half: 5 points. If
+a student completes all 11 advanced exercise, they will earn
+(10&nbsp;+&nbsp;2)&nbsp;+&nbsp;(10&nbsp;+&nbsp;2&nbsp;+&nbsp;2)&nbsp;+&nbsp;(10&nbsp;+&nbsp;2&nbsp;+&nbsp;2&nbsp;)&nbsp;+&nbsp;(5&nbsp;+&nbsp;2&nbsp;+&nbsp;2)&nbsp;=&nbsp;49&nbsp;points.
+
+
+<!--
 <h2><a class="anchor" name="links"></a>Useful Links / Resources</h2>
 <ul>
-	<li><a href="http://c-faq.com/index.html">comp.lang.c FAQ</a>: Next time
-	you're bored, don't facebook, reddit, or google+; instead skim a
-	section. It's really interesting material, presented in short, easy
-	snippets</li>
 	<li><a href="http://stackoverflow.com">Stack Overflow</a>: Got a
 	problem? Try searching here instead of Google. Odds favor this site will
 	be the first result anyway, and it's answers are much more complete,
 	readable, and useful</li>
+	<li><a href="http://c-faq.com/index.html">comp.lang.c FAQ</a>: Next time
+	you're bored, don't Facebook or reddit; instead skim a
+	section. It's really interesting material, presented in short, easy
+	snippets</li>
 </ul>
+-->
 
 <hr />
 
-<h3>Course Archives</h3>
+{% assign anchor_text="Course Archives" %}
+{% assign anchor_name="archives" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
 
 <ul>
   <li><a href="/archive/w16/">Winter 2016</a></li>
