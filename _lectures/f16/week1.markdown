@@ -148,16 +148,8 @@ registered for.
 
 ## Grading
 
-
 .column-33[
-**1/3 Attendance & Participation**
-
-- 12 weeks not counting the first week (or Thanksgiving)
-- We'll take attendance every week
-]
-
-.column-33[
-**1/3 Homework**
+**40% Homework**
 
 - One homework every week except the last week
 - (Yes there is homework this week)
@@ -165,7 +157,14 @@ registered for.
 ]
 
 .column-33[
-**1/3 Advanced Exercises**
+**30% Attendance & Participation**
+
+- 12 weeks not counting the first week (or Thanksgiving)
+- We'll take attendance every week, somehow
+]
+
+.column-33[
+**30% Advanced Exercises**
 
 - Explore a topic in more depth
 - Two week window to turn them in
