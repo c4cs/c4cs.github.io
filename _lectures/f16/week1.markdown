@@ -115,6 +115,8 @@ write a basic "Hello World" program
 
    * Warning, their clocks are unsympathetic
 
+- Entry code 9D87R9 <small>(also on course homepage)</small>
+
 ---
 
 # Course Meeting Times and Locations
