@@ -215,3 +215,6 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 
 ## Having something Unix-like on your machine will make your CS life at Michigan much more pleasant
 
+- This not because Unix is "better"
+- This does not mean you cannot use Windows
+

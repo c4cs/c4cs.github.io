@@ -8,6 +8,7 @@ title: Introduction, Virtual Machines, & Command Line Primer
 lecturer:
   - mmdarden
   - ppannuto
+slidesName: f16/week1
 lectureTopics:
   - Lines of text as a universal interface
   - Examples of unix commands and command synthesis

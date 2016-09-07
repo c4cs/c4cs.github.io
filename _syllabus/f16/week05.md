@@ -5,12 +5,12 @@ homeworkRelease: 2016-10-05 15:00:00
 solutionRelease: 2016-10-14 15:00:00
 title: Unit Testing
 lecturer: ppannuto
-lectureTopics:
-  - TBD
-homeworkTopics:
-  - TBD
-advancedTopics:
-  - TBD
+#lectureTopics:
+#  - TBD
+#homeworkTopics:
+#  - TBD
+#advancedTopics:
+#  - TBD
 lectureSummary:
 leccapWed:
 leccapFri:

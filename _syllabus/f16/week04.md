@@ -8,7 +8,6 @@ title: Build Systems
 lecturer: mmdarden
 lectureTopics:
   - Conceptual model for a build system
-  - HW3 script, what _didn't_ it do?
   - Basic operation of <tt>make</tt>
   - sub: syntax, goals, targets, rules, varaiables (yours and <tt>make</tt>'s)
 homeworkTopics:

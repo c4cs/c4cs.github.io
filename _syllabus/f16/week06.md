@@ -10,7 +10,7 @@ lectureTopics:
   - What a debugger (the tool) doesn't do
   - What a debugger (the person) must do
   - How to reason about a debugging problem
-  - Open: Things that "can't" be debugged?
+  - Open -- Things that "can't" be debugged?
 homeworkTopics:
   - Building a mental model for debugging
   - Introducing valgrind
