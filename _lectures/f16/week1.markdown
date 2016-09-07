@@ -179,7 +179,7 @@ registered for.
 
 ### If you don't have your own computer...
 
-- Dog at it
+- Dog ate it
 - TSA confiscated it on your flight to Michigan
 - Drunk roommate confused it for a frisbee
 
