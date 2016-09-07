@@ -146,7 +146,7 @@ registered for.
 .column-33[
 **1/3 Attendance & Participation**
 
-- 12 weeks not counting the first and last week
+- 12 weeks not counting the first week (or Thanksgiving)
 - We'll take attendance every week
 ]
 
@@ -217,4 +217,25 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 
 - This not because Unix is "better"
 - This does not mean you cannot use Windows
+
+
+---
+
+# What is a computer, really?
+
+--
+
+## What is a "Virtual Machine"
+
+#### How might we make one?
+
+--
+
+### VMs are a safe playground for you to explore
+
+### And a common platform for teaching
+
+---
+
+# Live exercises in a Unix environment
 
