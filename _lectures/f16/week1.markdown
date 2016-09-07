@@ -219,6 +219,40 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 
 ---
 
+class: full-dark-image
+background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), url(img/take_a_break.jpg)
+
+# Take A Break
+
+### &nbsp;
+
+.left-column[
+1. Take a selfie
+2. E-mail [c4cs-photos@umich.edu](mailto:c4cs-photos@umich.edu) with...
+   - Your name
+   - Your picture
+   - One thing you want to get out of this course
+   - Anything else you want us to know about you
+      - Preferred nickname
+      - Special considerations
+      - Awesome trivia
+3. Meet a stranger
+   - Preferably not the person right or left, maybe turn around behind you?
+]
+.right-column[
+.padding-lr-40[
+![Selfie of Pat from this morning](img/selfie.jpg)
+]
+]
+
+.footnote[
+.opacity-25[
+<small><em>Photo credit https://feministspectator.princeton.edu/2016/02/24/hamilton/</em></small>
+]
+]
+
+---
+
 # Straw Poll: Who has Linux on their laptop?
 
 --

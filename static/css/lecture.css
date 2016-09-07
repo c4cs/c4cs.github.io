@@ -14,6 +14,10 @@ img {
   font-size: 30px;
 }
 
+div.full-dark-image {
+  background-size: 100% 100%;
+}
+
 .copyright {
   position: absolute;
   bottom: 10px;
@@ -21,12 +25,12 @@ img {
 }
 
 .left-column {
-  width: 50%;
+  width: 49%;
   float: left;
 }
 
 .right-column {
-  width: 50%;
+  width: 49%;
   float: right;
 }
 
@@ -34,6 +38,15 @@ img {
   width: 33%;
   float: left;
   padding-left: 5px;
+}
+
+.padding-lr-40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.opacity-25 {
+  opacity: .25;
 }
 
 .footnote {
