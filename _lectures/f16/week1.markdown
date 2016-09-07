@@ -65,7 +65,9 @@ write a basic "Hello World" program
 
 ## Nothing in this class is hard...
 
- - The second time you do it
+--
+
+## The second time you do it
 
 ![GPS Unit](img/gps.jpg)
 
@@ -238,4 +240,3 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 ---
 
 # Live exercises in a Unix environment
-

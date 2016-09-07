@@ -2,6 +2,18 @@ img {
   max-width: 100%;
 }
 
+.remark-slide-content h1 {
+  font-size: 45px;
+}
+
+.remark-slide-content h2 {
+  font-size: 35px;
+}
+
+.remark-slide-content h3 {
+  font-size: 30px;
+}
+
 .copyright {
   position: absolute;
   bottom: 10px;
@@ -30,4 +42,3 @@ img {
   left: 10px;
   font-size: 75%;
 }
-
