@@ -274,6 +274,12 @@ background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), 
 - This not because Unix is "better"
 - This does not mean you cannot use Windows
 
+--
+
+## Come October-ish this is going to be a lot easier
+
+- OS X has it built in
+- [Linux subsystem for Windows](https://msdn.microsoft.com/en-us/commandline/wsl/faq) in the "Windows 10 Anniversary Update"
 
 ---
 
@@ -287,9 +293,17 @@ background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), 
 
 --
 
+# &nbsp;
+
 ### VMs are a safe playground for you to explore
 
 ### And a common platform for teaching
+
+# &nbsp;
+
+--
+
+## For Homework 1, you'll install a VM to use this term
 
 ---
 
