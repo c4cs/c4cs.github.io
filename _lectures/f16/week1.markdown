@@ -308,3 +308,51 @@ background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), 
 ---
 
 # Live exercises in a Unix environment
+
+- What's a shell?
+
+- Why learn this stuff in 2016?
+
+- The critical basics:
+
+   - Where am I?
+
+   - What's nearby?
+
+- What commands have you seen before?
+
+--
+
+.left-column[
+- cat
+- cd
+- chmod/chown/chgrp
+- clear
+- cp
+- diff
+- echo
+- fg/bg/jobs [ctrl-z]
+- grep
+- help
+- kill
+]
+.right-column[
+- ls
+- man
+- mkdir
+- mv
+- pwd
+- rm
+- sleep
+- tail
+- touch
+- true
+- whoami
+]
+
+---
+
+class: center, middle
+
+# Welcome to C4CS
+## Looking forward to a great semester!
