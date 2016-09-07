@@ -126,9 +126,13 @@ In general, you may attend any section, however if the classroom becomes
 overfull, we will have to ask that you attend the section you are officially
 registered for.
 
+![Screenshot of Course Calendar](img/calendar.png)
+
+<!-- Cute idea, but only works if this page is visible on load :(
 <div id='calendar-loading'>Loading calendar...</div>
 <div id='calendar'></div>
 <a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
+-->
 
 ---
 
@@ -192,9 +196,13 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 
 # Course staff
 
+<!-- again, cute idea, again only works if visible on load :(
 <iframe width="100%" height="350px" src="/#syllabus"></iframe>
+-->
 
-### ^this actually is the course website
+![Screenshot of Course Staff](img/course_staff.png)
+
+### ^another screenshot of [c4cs.github.io](https://c4cs.github.io/#staff)
 
 [c4cs]: https://c4cs.github.io
 
