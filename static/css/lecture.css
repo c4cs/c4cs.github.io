@@ -49,9 +49,14 @@ div.full-dark-image {
   opacity: .25;
 }
 
+.small-75 {
+  font-size: 75%;
+}
+
 .footnote {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 75%;
+  opacity: 0.75;
 }
