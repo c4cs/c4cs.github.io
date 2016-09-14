@@ -6,6 +6,7 @@ advancedRelease: 2016-09-14 12:00:00
 solutionRelease: 2016-09-24 22:00:00
 title: Basic Git
 lecturer: ppannuto
+slidesName: f16/week2
 lectureTopics:
   - What's version control?
   - Why is it important?
