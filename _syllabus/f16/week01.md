@@ -32,6 +32,6 @@ commands:
   - rm
   - sleep
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: Y0f2OE
+leccapFri: hwFxyX
 ---
