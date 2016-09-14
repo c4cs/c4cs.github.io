@@ -3,7 +3,7 @@ week: 2
 dates: 9/14, 9/16
 homeworkRelease: 2016-09-14 12:00:00
 advancedRelease: 2016-09-14 12:00:00
-solutionRelease: 2016-09-23 12:00:00
+solutionRelease: 2016-09-24 22:00:00
 title: Basic Git
 lecturer: ppannuto
 lectureTopics:
