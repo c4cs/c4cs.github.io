@@ -37,17 +37,15 @@ class: center, middle
 
 # What's version control?
 
+--
+
 ## Why is it important?
+
+## And how might we build a version control system?
 
 --
 
 ## Why doesn't everyone use version control for everything?
-
- - What does code look like?
-
- - Other kinds of text?
-
- - Stuff that isn't text?
 
 ???
   - Code is semi-independent lines of text, very easy to version
@@ -65,11 +63,11 @@ class: center, middle
 
 # Git-ing started (I'm so sorry)
 
-## `init`
+ - first — `init`
 
-## making commits — `status`, `add`, `commit`
+ - making commits — `add`, `commit`
 
-## `log`
+ - viewing work/history — `status`, `log`
 
 --
 
@@ -93,6 +91,11 @@ class: center, middle
 
 - (Fancy way of saying `[nano/vim/emacs/...] /home/ppannuto/.gitconfig`)
 ]
+
+```
+[alias]
+  st = status
+```
 
 ???
 
@@ -142,13 +145,13 @@ ZenDesk, etc)
 
 ```bash
     # US phone number
-    ruby -e 'require "./lib/phony"' -e 'puts Phony.nomarlize("17345551212")'
+    ruby -e 'require "./lib/phony"' -e 'puts Phony.format("17345551212")'
     + 1 (734) 555-1212
     # French phone number
-    ruby -e 'require "./lib/phony"' -e 'puts Phony.nomarlize("33123456789")'
+    ruby -e 'require "./lib/phony"' -e 'puts Phony.format("33123456789")'
     +33 1 23 45 67 89
     # Emergency phone number in the UK
-    ruby -e 'require "./lib/phony"' -e 'puts Phony.nomarlize("999")'
+    ruby -e 'require "./lib/phony"' -e 'puts Phony.format("999")'
 ```
 
 .footnote[
@@ -158,7 +161,7 @@ Example borrowed from http://www.paulboxley.com/blog/2015/01/a-simple-example-of
 ---
 
 ```bash
-    ruby -e 'require "./lib/phony"' -e 'puts Phony.nomarlize("999")'
+    ruby -e 'require "./lib/phony"' -e 'puts Phony.format("999")'
 ```
 
 - Go back in time to when you know it worked
