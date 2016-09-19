@@ -21,7 +21,7 @@ advancedTopics:
   - Rescuing repositories in bad states
   - Commit hooks
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: 1l0fvV
+leccapFri: yUPsoj
 ---
 
