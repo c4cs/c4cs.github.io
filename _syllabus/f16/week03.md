@@ -1,15 +1,18 @@
 ---
 week: 3
 dates: 9/21, 9/23
-homeworkRelease: 2016-09-21 15:00:00
+homeworkRelease: 2016-09-21 12:00:00
 solutionRelease: 2016-09-30 15:00:00
-title: Scripting, 30 seconds of Bash, and Python
+title: Shells, Environment, Scripting, Bash, and Python
 lecturer: mmdarden
-#lectureTopics:
-#  - Background
-#  - sub: imperative vs functional programming
-#  - sub: compiled vs interpreted
-#  - TBD
+slidesName: f16/week2
+lectureTopics:
+  - How do programs start
+  - Why does environment matter?
+  - Scripting versus programming
+  - sub: imperative vs functional programming
+  - sub: compiled vs interpreted
+  - Examples
 #homeworkTopics:
 #  - Right tool for the right job
 #  - TBD
