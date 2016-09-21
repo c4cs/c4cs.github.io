@@ -3,7 +3,7 @@ week: 3
 dates: 9/21, 9/23
 homeworkRelease: 2016-09-21 12:00:00
 solutionRelease: 2016-09-30 15:00:00
-title: Shells, Environment, Scripting, Bash, and Python
+title: Shells, Environment, Scripting, and Bash
 lecturer: mmdarden
 slidesName: f16/week2
 lectureTopics:
