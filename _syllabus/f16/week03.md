@@ -21,6 +21,8 @@ lectureTopics:
 commands:
   - chmod
   - chown/chgrp
+  - man
+  - file
   - echo
   - seq
   - true
