@@ -121,7 +121,7 @@ $ hello                # This doesn't
 $ ./hello              # This works
 ```
 
-## Your _environment_ affects program behavoir
+## Your _environment_ affects program behavior
 
   - Even shells! (they're a program too)
 
@@ -129,7 +129,7 @@ $ ./hello              # This works
 
 ---
 
-# Changing the environment will change program behavoir
+# Changing the environment will change program behavior
 
   - In this case, how a shell performs the search for programs
 ```bash
@@ -137,7 +137,7 @@ $ PATH=$PATH:/home/username/    # Assuming "hello" is in this folder
 $ hello                         # Now this works!
 $ PATH=/home/username           # What if you'd done this instead?
 ```
-  - Also saw a brief example of this in last week's homework
+  - Also saw a brief example of environment variables in last week's homework
 
 
 ---
@@ -151,9 +151,21 @@ $ PATH=/home/username           # What if you'd done this instead?
 int main(int argc, char **argv, char **envp) {
   printf("argc: %d\n", argc);
   printf("envp[0]: %s\n", envp[0]);
+  // while (*envp++ != NULL) {          // Try me too!
+  //   printf("%s\n", *envp);           // Don't uncomment that
+  // }                                  // first printf... (why?)
 }
 ```
 
+```bash
+$ ./a.out
+$ HELLO=world ./a.out
+$ lower=fine many=okaytoo ./a.out
+$ export IamPermanent=ish
+$ ./a.out
+$ # Try uncommenting the while loop, did you find the missing ones?
+$ ./a.out | less      # This may explain some of the funny colors
+```
 
 ---
 
