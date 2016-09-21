@@ -4,7 +4,7 @@ permalink: /lectures/f16/week2.html
 
 class: center, middle
 
-# Shells, Environment, Scripting, Bash, and Python
+# Shells, Environment, Scripting, and Bash
 ## (in 80 minutes[!])
 
 .copyright[
