@@ -36,6 +36,6 @@ commands:
   - $variable
   - "|"
 lectureSummary:
-leccapWed:
+leccapWed: Dkt0j6
 leccapFri:
 ---
