@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Exercise -- Week 3\\}}
+\author{\textbf{\color{red}{Due: Before October 8, 10:00PM}}}
+\date{}
+\maketitle
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions.
+
+\section{Pretty \texttt{PS1}}
+
+% I use a complex color here to see if folks won't find simpler expressions
+% (hopefully)
+Open a new terminal and try the following commands in order:
+
+\begin{minipage}[t]{0.5\textwidth}
+\begin{lstlisting}[numbers=left]
+echo -e "\\033[44;3;70;38;5;214m"
+<hit enter again>
+PS1="Hello World -- "
+echo -e "\\033[44;3;70;38;5;214m"
+pwd
+ls
+pwd
+echo -e "\\033[44;3;70;38;5;214m"
+ls --color=none
+pwd
+reset
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{lstlisting}[numbers=left,firstnumber=12]
+pwd
+bash --norc
+echo -e "\\033[44;3;70;38;5;214m"
+ls
+pwd
+ls --color=auto
+pwd
+exit
+PS1="\\033[44;3;70;38;5;214mHello Again -- "
+ls
+\end{lstlisting}
+\end{minipage}
+
+\noindent
+What happened to your terminal as you ran these commands?
+Play around with some other forms of \texttt{PS1} and other colors, see what
+happens. Why does calling \texttt{ls} sometimes reset things?
+
+\medskip
+\noindent
+Create a custom \texttt{PS1} for yourself. Look into some of the options for
+\texttt{PS1}, you will need to explain why you added the options you did and
+decided against options you didn't choose.
+
+\medskip
+\noindent
+Extend your PS1 by writing a bash function the changes your prompt in a way
+that is not built-in to bash. Some examples: Add an asterisk if your are in a
+git repository with uncommitted changes. Change the color if you are currently
+in a shared directory (i.e. in a Dropbox folder). Change the color if the
+current directory will not be saved across a reboot (i.e. if you are you are
+somewhere in the \texttt{/tmp} directory).
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Explain what \texttt{PS1} does
+  \item[$\square$] Explain what you did to customize \texttt{PS1} and
+    \textbf{why} you chose the customizations that you did.
+    \begin{itemize}
+      \item[$\square$] Explain how your custom function works.
+    \end{itemize}
+  \item[$\square$] Explain what the \texttt{PS2} variable controls. Change
+    \texttt{PS2} from the default and show an example.
+  \item[$\square$] Type \texttt{set -x}. Then type \texttt{ls}. Explain
+    all of the output.
+\end{itemize}
+
+
+\section{Understanding tab completions}
+
+\emph{This corner of the world is a little rougher and more complex. The goal
+  of this task is to show you how you can use and even do some basic hacking
+  on a tool that you don't completely understand. You \textbf{do not} need to
+  develop a deep and complete understanding of bash completions for this task,
+  you simply need to generate something that works.
+}
+
+\medskip
+\noindent
+Open a new terminal and try typing the following (note $<$tab$>$ means press
+the tab key):
+
+\begin{lstlisting}[numbers=left]
+p<tab><tab>
+y
+<ctrl-c>
+pi<tab><tab>
+pin<tab><tab>
+ping<tab><tab>
+ping <tab><tab>
+PATH=<enter>
+p<tab><tab>
+\end{lstlisting}
+
+\medskip
+\noindent
+In addition to finding programs, tab completions can help you to use a program
+correctly by hinting at what arguments a program accepts, try this:
+
+\begin{lstlisting}[numbers=left,firstnumber=10]
+# Open a new terminal (or manually set your PATH correctly again)
+ping <tab><tab>
+ping -<tab><tab>
+ping -I<tab><tab>
+ping -Q<tab><tab>
+ping -Q 0 <tab><tab>
+\end{lstlisting}
+
+\noindent
+Today, most programs include tab completion support, but this is a remarkably
+manual process. Check out the contents of the
+\texttt{/usr/share/bash-completion/completions/} directory.
+
+\medskip
+\noindent
+Now take a look at \texttt{/usr/share/bash-completion/completions/ping}.
+There's a lot going on in this example, but try to see if you can understand
+some of how the completions are working. What do you think the result of
+\texttt{ping~-T~$<$tab$><$tab$>$} will be?
+
+\medskip
+\noindent
+(Hint: \texttt{||} in bash means ``if the previous thing failed, do the next
+thing''. What's the output of \texttt{echo \$OSTYPE}? Will that equality pass
+or fail?)
+
+
+\subsection*{Writing our own completion file}
+
+Completions are \emph{really} nice as a user. Find a project you've written
+for a previous or current EECS class. What happens if you try to tab-complete
+that project (e.g. \texttt{./project1 <tab><tab>})?
+
+\medskip
+\noindent
+Let's try to make that more useful. Find a current or previous project that
+takes at least two options (if you don't have one, write a trivial program,
+such as \texttt{mycalc [--add,--subtract] NUM1 NUM2}). Be sure your project
+executable is named something unique (e.g. there is already a built-in
+\texttt{calc} program).
+
+\medskip
+\noindent
+Write a custom completion file for your program that completes its arguments.
+Install your completion such that it works whenever you open a new terminal.
+
+\medskip
+\noindent
+\emph{%
+  For this part, I recommend not starting from scratch. Find a simple
+  completion file\footnote{
+    Preview of coming attractions, try
+    {\color{violet}\texttt{wc -l /usr/share/bash-completion/completions/* | sort -n | head}}
+    to find a short, simple file to start with
+  }
+  to start from, hack it, mess with it, whatever until it does what you want.
+}
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Why is the list of tab completions different between lines
+    1 and 9?
+  \item[$\square$] What is the default tab completion behavoir for a program
+    if no custom completion function has been written?
+  \item[$\square$] Demonstrate your custom completion working.
+    \begin{itemize}
+      \item[$\square$] Explain what you had to do to ``install'' your
+        completion file
+      \item[$\square$] Explain what you had to do to get your completion file
+        working
+    \end{itemize}
+\end{itemize}
+
+\end{document}
