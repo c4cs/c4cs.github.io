@@ -69,7 +69,7 @@ target: dependencies
 ---
 
 
-# Other build systems (make-based and more)
+# Other build systems
 
 --
 
@@ -87,6 +87,7 @@ target: dependencies
 - Buck (Facebook's tool)
 - MSBuild (Microsoft's tool)
 - xcodebuild (Apple's tool)
+- ...
 
 --
 
