@@ -50,7 +50,10 @@
       {{ page.lectureSummary | markdownify }}
     {% endif %}
     {% if page.slidesName %}
-      <p><a href="lectures/{{ page.slidesName }}">Slides</a></p>
+      <p>
+      <a href="lectures/{{ page.slidesName }}">Slides</a>
+      <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+      </p>
     {% endif %}
     {% if page.leccapWed %}
       <p>Wednesday Lecture</p>
