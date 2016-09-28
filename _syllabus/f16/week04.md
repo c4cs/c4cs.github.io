@@ -3,9 +3,11 @@ sectionHeader: Developing
 week: 4
 dates: 9/28, 9/30
 homeworkRelease: 2016-09-28 15:00:00
-solutionRelease: 2016-10-07 15:00:00
+advancedRelease: 2016-09-28 15:00:00
+solutionRelease: 2016-10-08 22:00:00
 title: Build Systems
 lecturer: mmdarden
+slidesName: f16/week4
 lectureTopics:
   - Conceptual model for a build system
   - Basic operation of <tt>make</tt>
@@ -18,6 +20,8 @@ homeworkTopics:
 advancedTopics:
   - <tt>gcc</tt> and <tt>make</tt> integration
   - Exploring alternative build systems
+commands:
+  - make
 lectureSummary:
 leccapWed:
 leccapFri:
