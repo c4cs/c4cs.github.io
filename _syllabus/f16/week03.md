@@ -37,5 +37,5 @@ commands:
   - "|"
 lectureSummary:
 leccapWed: Dkt0j6
-leccapFri:
+leccapFri: BHWA7u
 ---

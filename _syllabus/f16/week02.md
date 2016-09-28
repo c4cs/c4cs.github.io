@@ -20,6 +20,8 @@ homeworkTopics:
 advancedTopics:
   - Rescuing repositories in bad states
   - Commit hooks
+commands:
+  - git
 lectureSummary:
 leccapWed: 1l0fvV
 leccapFri: yUPsoj
