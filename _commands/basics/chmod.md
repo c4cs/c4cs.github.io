@@ -26,7 +26,7 @@ The binary representation of the first argument should correspond to the modes (
 
 The first argument should be a 3 digit octal number. The first digit will change the file's owners permissions, second digit will change the files group permissions, the thrid digit will change other (anybody else) permissions.
 
-Note: `chmod` only changes the mode bits. To change the owner of this file or group that owns this file, use [chown/chgrp](/commands/basics/chown_chgrp.html)
+Note: `chmod` only changes the mode bits. To change the owner of this file or group that owns this file, use [chown/chgrp](/commands/chown_chgrp.html)
 
 
 ### Examples

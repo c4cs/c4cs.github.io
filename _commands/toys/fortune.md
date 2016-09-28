@@ -76,6 +76,6 @@ If you tell the truth you don't have to remember anything.
 (...many more...)
 ~~~
 
-The `-m` option prints all fortunes that match the given regex, much like how [`grep`](../tools/grep.html) works. You can generally just enter a word to search for (like in this example), even if you don't know how to use regex.
+The `-m` option prints all fortunes that match the given regex, much like how [`grep`](/commands/grep.html) works. You can generally just enter a word to search for (like in this example), even if you don't know how to use regex.
 
 This option will also print to stderr the names of the cookie files that contain matching fortunes, so you may want to use `2>/dev/null` to hide them.

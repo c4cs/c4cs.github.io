@@ -72,7 +72,7 @@ $ ls -l | grep cpp
 ##### Break it down
 
 * Here is a simply example of grep being used as a filter for another command.
-* The part before the pipe is `ls -l`. This is a command to list the files in long listing format. This includes (1) permissions (2) reference count (3) owner (4) last modified (5) file name. For more info on ls click [here](https://c4cs.github.io/commands/basics/ls.html).
+* The part before the pipe is `ls -l`. This is a command to list the files in long listing format. This includes (1) permissions (2) reference count (3) owner (4) last modified (5) file name. For more info on ls click [here](/commands/ls.html).
 * follwing the pipe, we have grep and our string. In this command we pipe the output of our previous command into grep and filter it with a specific string. This can be useful when searching for a specific file or maybe a process running on a server.
 
 #### Example command
