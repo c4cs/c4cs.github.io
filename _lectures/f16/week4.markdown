@@ -69,6 +69,17 @@ target: dependencies
 ---
 
 
+# Let's Makefile!
+
+- Build a sentence
+    - Subject
+    - Verb
+    - Object
+
+
+---
+
+
 # Other build systems
 
 --
