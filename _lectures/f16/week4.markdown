@@ -73,36 +73,30 @@ target: dependencies
 
 --
 
+## make-based
+
 - GNU make
 - nmake
 - ...
 
-???
-
-make-based
-
 --
+
+## Non-make/Proprietary
 
 - Bazel (Google's tool)
 - Buck (Facebook's tool)
 - MSBuild (Microsoft's tool)
 - xcodebuild (Apple's tool)
 
-???
-
-non-make-based, proprietary
-
 --
+
+## Other languages for scripting and building
 
 - Rake (ruby)
 - Apache Ant (Java + XML)
 - A-A-P (python)
 - sbt (Scala)
 - ...
-
-???
-
-other languages for build & scripting
 
 
 ---
@@ -134,3 +128,9 @@ What else could we automate?
 - **New section!!**
 - Max points from Advanced Exercises in 3 or more sections
 - Reminder: You must submit to staff at OH
+
+???
+
+- 30 total AE points
+- (10 + 2) + (10 + 2 + 2) + (10 + 2 + 2) + (5 + 2 + 2) = 49
+- Missing AE in two sections = Max AE score of 28 points (6 AE)
