@@ -5,6 +5,7 @@ homeworkRelease: 2016-10-05 15:00:00
 solutionRelease: 2016-10-14 15:00:00
 title: Unit Testing
 lecturer: ppannuto
+slidesName: f16/week5
 #lectureTopics:
 #  - TBD
 #homeworkTopics:
