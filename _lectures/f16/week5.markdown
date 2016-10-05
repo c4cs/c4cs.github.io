@@ -270,9 +270,11 @@ OPERATORS = {
 2. Click "New Project"
 3. Name your project **exactly**: `c4cs-f16-rpn`
 4. Set your project to **publically visible**
-  - ![Gitlab visibility](img/gitlab-visibility.png)
-5. Follow the directions for the **existing folder or Git repository**
+<img src="img/gitlab-visibility.png" width="400px" />
+5. Scroll down and follow the directions for **existing folder or Git repository**
+  - You shouldn't need to create a repo (we already did that)
   - **Make sure you've committed all your changes!**
-  - `git remote add origin git@gitlab.eecs.umich.edu:ppannuto/c4cs-f16-rpn.git`
+  - `git remote add .....`
   - `git push -u origin master`
+    - Your username is your uniqname, and password is your Michigan password
 
