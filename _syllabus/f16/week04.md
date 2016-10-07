@@ -23,7 +23,7 @@ advancedTopics:
 commands:
   - make
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: pVgSke
+leccapFri: ZlR6vT
 ---
 

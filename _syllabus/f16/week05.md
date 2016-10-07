@@ -17,7 +17,7 @@ lectureTopics:
 #advancedTopics:
 #  - TBD
 lectureSummary:
-leccapWed:
+leccapWed: szbATO
 leccapFri:
 ---
 
