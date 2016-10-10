@@ -1,0 +1,21 @@
+[smtp]
+host = localhost
+username = user
+password = password
+
+[email]
+from = c4cs-staff@umich.edu
+suffix = @umich.edu
+
+[term]
+class_name = C4CS
+term_name = F16
+instructors = Pat Pannuto and Marcus Darden
+
+[grades]
+hw.path = /path/to/grades/folder
+hw.gradebook = gradebook.csv
+hw.input_format = raw-{}.csv
+hw.output_format = grades-hw{}.csv
+
+
