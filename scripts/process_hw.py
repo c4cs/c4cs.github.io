@@ -212,8 +212,8 @@ with open(gradebook) as csvfile:
 				})
 		html = markdown.markdown(md)
 
-		#msg['To'] = uniqname + config['email']['suffix']
-		msg['To'] = 'ppannuto@umich.edu'
+		msg['To'] = uniqname + config['email']['suffix']
+		#msg['To'] = 'ppannuto@umich.edu'
 
 		text_part = MIMEText(md, 'plain')
 		html_part = MIMEText(html, 'html')
@@ -224,4 +224,4 @@ with open(gradebook) as csvfile:
 		#print(msg.as_string())
 		sm.sendmail(msg['From'], msg['To'], msg.as_string())
 
-		break
+		#break
