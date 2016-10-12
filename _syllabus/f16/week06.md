@@ -18,7 +18,7 @@ homeworkTopics:
 advancedTopics:
   - <tt>printf</tt> debugging
   - Extending <tt>gdb</tt>
-lectureSummary:
+lectureSummary: Files for class [inf.c](/static/f16/wk6/inf.c) [math.c](/static/f16/wk6/math.c)
 leccapWed:
 leccapFri:
 ---
