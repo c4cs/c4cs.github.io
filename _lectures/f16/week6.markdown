@@ -107,6 +107,7 @@ gdb: unrecognized option '--imaginary-option'
   up with frames that hold parameters, locals, and register information for
   each invocation. Consider math.c:
 
+.column-66[
 ```C
 #include <stdio.h>
 int subtract (int a, int b) { return a - b; }
@@ -123,7 +124,9 @@ int main () {
     return 0;
 }
 ```
+]
 
+.column-33[
 Function call stack (growing to the right)
 
 main
@@ -135,8 +138,7 @@ main -> do_math -> subtract
 main -> do_math
 
 main -> do_math -> divide
-
-### Let's try `backtrace`, `up`, `down`, `frame`, and `print`
+]
 
 
 ---
@@ -176,7 +178,9 @@ main -> do_math -> divide
 ---
 
 
-# Attendance: http://tinyurl.com/c4cs-f16-dbug
+# Attendance:
+
+## http://tinyurl.com/c4cs-f16-dbug
 
 
 ---
