@@ -8,13 +8,24 @@ solutionRelease: 2016-10-28 15:00:00
 title: Git II
 lecturer: ppannuto
 slidesName: f16/week7
-#lectureTopics:
-#  - TBD
-#homeworkTopics:
-#  - TBD
-#advancedTopics:
-#  - TBD
-lectureSummary:
+lectureTopics:
+  - Understanding branches
+  - Basic merging
+  - "Expanding the triangle"
+  - sub: Push, fetch, pull
+  - sub: Remote branches and remotes as branches
+  - Synchronizing work (+stashing)
+  - Commit everything, branch often
+  - Cleaning history - Rebasing, squashing
+homeworkTopics:
+  - Thinking in git
+  - Practice with merging, conflicts
+  - Practice rewriting history
+advancedTopics:
+  - Using git to collaborate for real
+lectureSummary: |
+    Some [tips and tricks](/commands/git) to make working with git more
+    enjoyable.
 leccapWed:
 leccapFri:
 ---
