@@ -102,6 +102,7 @@ We will also post some supplemental material on the [course homepage](https://c4
 
 8. Repeat with pull
 
+9. Pushing, pulling, and _tracking_ branches
 
 ---
 
