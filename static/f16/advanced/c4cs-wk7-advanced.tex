@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Exercise -- Week 7\\}}
+\author{\textbf{\color{red}{Due: Before November 5, 10:00PM}}}
+\date{}
+\maketitle
+
+
+\section*{Contributing to an open source project}
+
+While version control is useful for your own projects and helps with group
+class projects, what really makes it awesome it how easy it is to collaborate
+and contribute to big projects.
+
+\section*{Submission Instructions}
+
+ - For stuff to c4cs has to finish w/in the two week window
+
+ - For external stuff, has to have a substantial bit started before window
+
+ - For ours, no need to swing by OH. For others, please do.
+
+\begin{mdframed}\centering
+A good first place to start is by reading over
+\href{https://guides.github.com/activities/contributing-to-open-source/#contributing}{GitHub's
+  guide to contributing to open source projects}.
+\end{mdframed}
+
+\newpage
+
+\section*{One Option: Contributing to the class website}
+
+\subsection*{GitHub Pages}
+
+Notice how the course homepage is \texttt{c4cs.\ul{github.io}}? GitHub has a
+really neat feature called \href{https://pages.github.com/}{GitHub Pages},
+that will turn a repository into a website -- hosted for free.\footnote{%
+  My \href{https://github.com/ppannuto/patpannuto.com}{personal website} is also
+  \href{https://github.com/ppannuto/ppannuto.github.io}{hosted this way},
+  though it does not use jekyll.
+} What's really nice about this is that it means it is very easy for many
+people to collaborate to develop a website, it's just a repository!
+
+In the simplest setup, GitHub will simply serve the files in the repository as
+static web pages. Writing lots of HTML by hand, however, can be a pain, so
+GitHub supports a \emph{site generator}, \href{https://jekyllrb.com/}{jekyll}.
+Using jekyll, adding an update to the homepage is as simple as adding
+\href{https://github.com/c4cs/c4cs.github.io/blob/master/_updates/f16/2016-10-11-chaos.md}{a text file}.
+The site will also
+\href{https://github.com/c4cs/c4cs.github.io/blob/master/index.html#L32}%
+{automatically hide updates older than one month}.
+
+\subsection*{Getting Going}
+
+First, install ruby: \texttt{sudo apt-get install ruby ruby-dev zlib1g-dev}
+
+Then, install \href{http://bundler.io}{bundler}: \texttt{sudo gem install bundler}
+
+Now grab a copy of course website repository
+(\url{https://github.com/c4cs/c4cs.github.io}), and follow the directions
+in the readme.
+
+Once things are running, it should print out
+\begin{quote}\tt
+  Server address: http://127.0.0.1:4000/
+\end{quote}
+
+Visit \url{http://127.0.0.1:4000/} in your browser and you should see your own
+local copy of the course website! Try making some changes to the site and then
+refresh the page in your browser.
+
+\subsection*{The Stuff to Work on:}
+
+If you haven't already, check out \url{https://c4cs.github.io/reference}
+
+The goal is to build up a quick reference for common commands, as well as some
+examples of how to use them and any gotcha's they may have. The hope is that
+it's easier for people who are learning (i.e.\ you) to write documentation
+that's helpful for other people who are learning as opposed to course staff
+who don't really remember well what was confusing when we were first learning.
+
+Look through the reference and find something that could use improvement. Or,
+add a new command that we've talked about in class or that you have other
+experience with that's not in the reference yet.
+
+To ensure that people aren't working on the same things, before you get
+started, check to see if there's an
+\href{https://github.com/c4cs/c4cs.github.io/issues}{open issue} for what you
+want to work on. If no one's doing it yet, make a new issue so that others
+know what you're working on.
+
+\newpage
+
+\section*{Another Option: Any project of your choosing}
+
+ - snag list from old EC project
+
+ - point to betty, translations
+
+ - point to umich research projects
+
+\end{document}
