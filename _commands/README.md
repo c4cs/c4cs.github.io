@@ -1,91 +1,10 @@
 Command Webpages
 ================
 
+If you'd like to work on a the documentation for a command, first check if
+there's an [open issue](https://github.com/c4cs/c4cs.github.io/issues) so that
+you don't conflict with someone else's efforts.
 
-### Incomplete documentation
- - id
- - cowsay
-
-
-### No documentation
-
-#### Basics
- - cat
- - chmod
- - fg
- - rmdir (consider adding to mkdir page instead of new page)
- - pwd
- - rm
- - touch
- - true/false
- - w
- - wc
- - whereis
- - which
- - who
-
-#### Shells
- - clear
- - reset
- - export
- - history
- - jobs/fg/bg
-
-#### Scripting
- - `$_`
- - `$?`
- - `$variable`
- - `|`
- - `!!`
- - `>>,>,<,2&>`
- - `&`
-
-#### Tools
- - aspell
- - bzip
- - diff
- - ed
- - file
- - fsck
- - git
- - gzip
- - jot
- - less
- - make
- - man
- - ps
- - rsync
- - say
- - scp
- - sed
- - sudo
- - tar
- - tmux
- - top
- - tr
- - wget
- - wget/curl
-
-#### Editors
- - vi
- - emacs
- - nano
- - pico
- - ed
- - gedit
-
-#### Toys
- - cowsay
- - fortune
-
-#### Ubuntu
- - apt-get
- - xclip
- - xdg-open
-
-#### OS X
- - brew
- - open
- - pbcopy
-
+If there's not an issue for what you want to work on, first open a new issue so
+that others know you're working on it, then fix it!
 
