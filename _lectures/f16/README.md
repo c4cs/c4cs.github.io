@@ -13,5 +13,11 @@ Creating PDF versions
 
 2. Grab a copy of your machine's IP address
 
-3. Run this beautiful magic: `docker run --rm --net=host -v `pwd`:/slides astefanutti/decktape http://<--YOUR IP HERE-->:4000/lectures/f16/week4 slides.pdf`
+    IP=XXX.XXX.XXX.XXX
+
+3. Pick a week
+
+    WEEK=7
+
+3. Run this beautiful magic: `docker run --rm --net=host -v `pwd`:/slides astefanutti/decktape http://$IP:4000/lectures/f16/week$WEEK slides.pdf`
 
