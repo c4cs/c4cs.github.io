@@ -9,7 +9,7 @@ The site itself uses [Jekyll](https://jekyllrb.com/). To get started run
 `bundle install` and then `bundle exec jekyll serve`. For more information on
 getting things set up, see [GitHub's guide](https://help.github.com/articles/using-jekyll-with-pages/).
 
-For more information, visit the course homepage: http://c4cs.github.io
+For more information, visit the course homepage: https://c4cs.github.io
 
 ---------------------
 
