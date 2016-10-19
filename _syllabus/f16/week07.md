@@ -20,7 +20,6 @@ lectureTopics:
 homeworkTopics:
   - Thinking in git
   - Practice with merging, conflicts
-  - Practice rewriting history
 advancedTopics:
   - Using git to collaborate for real
 lectureSummary: |
