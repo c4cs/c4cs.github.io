@@ -8,7 +8,14 @@ cache: bundler
 
 script:
   - bundle exec jekyll build
-  - bundle exec htmlproofer --assume-extension --check-html --url-ignore '/.*docs.google.com/a/umich.edu.*/' ./_site --file-ignore curl.md
+  - bundle exec htmlproofer --assume-extension --check-html --url-ignore '/.*docs.google.com/a/umich.edu.*/' ./_site --file-ignore /lectures/f16/
+
+# --file-ignore /lectures/f16/
+# Resolves
+#   ./_site/lectures/f16/week1.html
+#   *  Tag stdio.h invalid (line 78)
+# As the checker doesn't properly ignore textarea contents. Couldn't figure
+# out how to do this finer grained. Need to ignore weeks 1, 3, and 6
 
 env:
   global:
