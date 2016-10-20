@@ -21,7 +21,6 @@ lectureTopics:
 #  - TBD
 commands:
   - chmod
-  - chown/chgrp
   - man
   - file
   - echo
@@ -30,12 +29,13 @@ commands:
   - which
   - export
   - "yes"
-  - ">>"
-  - ">"
   - "$_"
   - $variable
-  - "|"
 lectureSummary:
 leccapWed: Dkt0j6
 leccapFri: BHWA7u
+#  - ">>"
+#  - ">"
+#  - chown/chgrp
+#  - "|"
 ---
