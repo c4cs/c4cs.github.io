@@ -2,7 +2,7 @@
 week: 6
 dates: 10/12, 10/14
 homeworkRelease: 2016-10-12 15:00:00
-solutionRelease: 2016-10-21 15:00:00
+solutionRelease: 2016-10-22 22:00:00
 advancedRelease: 2016-10-12 15:00:00
 title: Debuggers
 lecturer: mmdarden
