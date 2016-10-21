@@ -26,6 +26,6 @@ lectureSummary: |
     Some [tips and tricks](/commands/git) to make working with git more
     enjoyable.
 leccapWed: yspj2B
-leccapFri:
+leccapFri: olTK2U
 ---
 
