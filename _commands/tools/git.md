@@ -25,6 +25,16 @@ git
 
 ----------------------
 
+Git For Beginners
+=================
+This section of the Git page is for those of us that are actually in EECS 280/281, meaning you have little to no experience with Git and are more worried about figuring out the 
+difference between staging and committing things than the neat little things 
+you can do to make Git as personalized as possible.
+
+ 
+
+
+
 Git Niceties
 ============
 
