@@ -109,7 +109,8 @@ $ git commit -m 'file1.cpp is being committed'
 
 Where we put a descriptive sentence/message in the single quotes to remind 
 ourselves and anyone else looking at our code why and what we committed.
-If we run git status again, we see that file1.cpp is no longer "modified."
+If we run git status again, we see that file1.cpp is no longer "modified," in 
+fact it's not listed at all.
 
 Now, to see all the previous commits for a project, we type:
 
@@ -117,10 +118,30 @@ Now, to see all the previous commits for a project, we type:
 $ git log
 ~~~
 
-If we have more than say 2 commits, our git log command is probably going to 
+If we have more than 3 or 4 commits, our git log command is probably going to 
 have more than one terminal's screen of output. Which if you are unfamiliar with
 terminal navigation, like I was when I took this course, will leave you in kind of a 
-funny spot.
+funny spot. Your terminal screen is filled with a lines of commits with 
+ungodly long strings of random numbers and letters, the author of 
+the commit, the date of the commit, and the message attached to the 
+commit. At the bottom of ther terminal  there will be a colon 
+followed by your cursor. The first time I used git, I had no idea how to navigate or 
+escape this screen. 
+
+Luckily for you, I have since figured it out! You can navigate up 
+a line up or down by using your arrow keys or by pressing the j key on your keyboard
+to navigate up and the k key to navigate down (this is how you navigate using vim, 
+a terminal-based text editor that while older than time itself, still has many users 
+and isn't a bad thing to know how to use -> you can type really fast when your hands don't
+leave the main keys). Once you have seen what you have needed to see, just press the q key 
+and you will exit back to the terminal. You will probably come across a lot of terminal 
+based applications in your time programming, and you can exit a lot of them just by pressing
+q, which is something that took me an embarassingly long time to figure out. Now, back to git.
+
+My Program Crashed, Now What?
+-----------------------------
+
+
 
 Git Niceties
 ============
