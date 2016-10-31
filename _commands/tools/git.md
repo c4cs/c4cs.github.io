@@ -255,6 +255,49 @@ so you just have to delete one, save, git add the changed files and commit.
 The Power of Collaboration
 --------------------------
 
+Another reason people use git is because it allows us to easily (relatively) collaborate 
+on projects. Lots of people use GitHub (although for class you should use GitLab because 
+having a public repo on GitHub for EECS classes is an honor code violation) to store and 
+share their projects in the cloud. To access and change code in the cloud you need to 
+first have the online repo as a remote in git. We first need to setup our repo in the cloud, 
+whereupon, we will be given a url associated with out repo. Let's say we want to create 
+a new remote named new and we have a git repo with a url of https://gitlab.com:
+
+~~~ bash
+git remote add new https://gitlab.com
+~~~
+
+To add new code or updated code to this repo we must push it (to the limit!). When 
+pushing code to our git repo of choice, we only push the master branch. We can push to 
+our git remote of new by:
+
+~~~ bash
+git push new
+~~~
+
+When we want to grab code from the cloud, we use git pull.
+
+~~~ bash
+git pull new
+~~~
+
+Pushing and pulling when working on a group project often results in numerous 
+merge conflicts. Unfortunately, this is just something that you have to work through.
+
+Conculsion of Git for Beginners
+-------------------------------
+
+I did my best to include a general overview of what first time Gitters would need to 
+know. I obviously missed a lot of things, but luckily for you there are a ton of 
+great Git resources on the web. I would recommend looking more into what the 
+HEAD is and what it does. I would also recommend reading more into and practicing with 
+pull and push. Your upper level EECS classmates are going to hate you if you 
+continually mess up the shared repo or don't know how to use git properly. With that
+said, most of your peers won't see Git until they absolutely need to, which gives you 
+a huge advantage as you will have learned and mastered Git by that time, right :)? 
+Hopefully this helps. There are some other neat Git tricks farther down the page. 
+
+
 Git Niceties
 ============
 
