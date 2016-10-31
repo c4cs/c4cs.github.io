@@ -207,7 +207,13 @@ you need to tell git which pointer will point to your next commit, tail or maste
 git checkout tail
 ~~~
 
-So I am doing fine and dandy while working in my tail branch when I realize I need 
+To see all the branches I have created:
+
+~~~ bash 
+git branch
+~~~
+
+So, I am doing fine and dandy while working in my tail branch when I realize I need 
 to change something in my master branch. What to do?! Well, you just use that handy 
 checkout command again. To get back to the master branch, I would just:
 
@@ -244,9 +250,10 @@ won't let you merge the two branches until you have resolved the conflicts. Than
 git makes your life easier by telling you which files are affected. To fix these merge 
 conflicts you must open the listed file and determine what to keep and what to delete.
 Git actually writes in the afected files what one branch says and what the other says, 
-so you just have to delete one, save, git add the changed files and commit. Git will 
-tell you exactly what to do when it discovers a merge conflict, it's just your job to 
-decide what needs to be kept and deleted. 
+so you just have to delete one, save, git add the changed files and commit. 
+
+The Power of Collaboration
+--------------------------
 
 Git Niceties
 ============
