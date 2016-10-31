@@ -110,7 +110,9 @@ $ git commit -m 'file1.cpp is being committed'
 Where we put a descriptive sentence/message in the single quotes to remind 
 ourselves and anyone else looking at our code why and what we committed.
 If we run git status again, we see that file1.cpp is no longer "modified," in 
-fact it's not listed at all.
+fact it's not listed at all. Word to the wise: always run git status right before
+you commit to make sure everything is the way it is supposed to be. It 
+is very easy to shoot yourself in the foot with git, so be careful.
 
 Now, to see all the previous commits for a project, we type:
 
@@ -141,7 +143,110 @@ q, which is something that took me an embarassingly long time to figure out. Now
 My Program Crashed, Now What?
 -----------------------------
 
+So, you told me that if I ruined my program and I had been using git correctly, I could 
+get back to the old state of my project where everything still worked. How do 
+you do it?
 
+First, you need to identify which commit you need to get back to. You can do this
+using git log to look at all the past commits. When you have decided which commit
+you want to look at you just need to remember the first couple characters of the commit 
+number (the big ugly one with all the numbers and letters). If the commit I wanted to 
+look at was numbered 2adfs34231dg8d8... then I would:
+
+~~~ bash
+git checkout 2adfs3
+~~~
+
+Now, all the files in your working directory are in the state they were when when you made 
+commit 2adfs34... You just need to open one a file and see that your code looks the 
+way it did when made the commit. You can re-test, compile files, and even edit files, 
+but I wouldn't recommend doing that unless you create a new branch, which is something
+I'll discuss later. When you want to get back to the state of your project before you 
+checked out the old commits, you type:
+
+~~~ bash
+git checkout master
+~~~
+
+However, if you really screw up on your project, you have no interest in getting back 
+to your current state. You just want to make your current state the working state that was 
+2 or 3 commits ago. Do this by:
+
+~~~ bash
+git revert 2adfs3
+~~~
+
+This will get rid of the snapshot of your current state and force you to take a new snapshot 
+of the old snapshot you wanted to go back to. Yes, I know this is confusing. Basically, 
+your most recent commit will be deleted, and you will have two of the same snapshots in your 
+commit history, one of these being your most recent commit. The revert command is 
+useful because it still maintains your history, if you reverted to a commit that was more 
+than 1 commit ago you still have a record of those "bad" commits in between. Which would 
+be useful if say you had implemented some code in one of those commits that actually wasn't 
+bad and you decided you still needed it.
+
+Creating New Features in A Sandbox (Sort Of)
+--------------------------------------------
+
+One of the many advantages of git is that you can work on a new feature or implementation 
+without messing up your current working code. Say I decided I want to re-write one of 
+my functions so that it is tail-recursive instead of just recursive. I would create a new 
+branch with the name of tail at my current commit by typing:
+
+~~~ bash
+git branch -d tail
+~~~
+
+To add commits to this branch while working on my wicked awesome 
+tail recursive implementation, I would have to check this branch out. Branches in git 
+are basically just pointers (yeah, I know, those nasty 280 topics, gotta know 'em), so 
+you need to tell git which pointer will point to your next commit, tail or master 
+(which is the "main" git pointer). I would do this by typing:
+
+~~~ bash
+git checkout tail
+~~~
+
+So I am doing fine and dandy while working in my tail branch when I realize I need 
+to change something in my master branch. What to do?! Well, you just use that handy 
+checkout command again. To get back to the master branch, I would just:
+
+~~~ bash
+git checkout master
+~~~
+ 
+I could then make commits on my master branch for my new changes. 
+
+Now that my changes are done, I want to navigate back to where I was working on 
+my tail recursion, so I must checkout the tail branch.
+
+~~~ bash 
+git checkout tail
+~~~
+
+When I have finished my tail recursion function, I'm going to want to put it back 
+with the rest of my finished project in the master branch. To do this we are going 
+to use the git command merge. When you use git merge, it merges the branch you include
+in the command with the branch you are currently on. So, if we want to merge our tail 
+branch with master we must first navigate to our master branch and then merge.
+
+~~~ bash
+git checkout master
+git merge tail
+~~~
+
+If both master and tail have had commits since we created a seperate branch, we will 
+be responsible for making a merge commit that lets everyone looking at our log 
+know that we merged two branches. However, if both the commits attached to tail and 
+master chenged the same files in the same places, git gets confused and doesn't 
+know what to keep. This is called a merge conflict, or a massive pain in the butt. Git 
+won't let you merge the two branches until you have resolved the conflicts. Thankfully,
+git makes your life easier by telling you which files are affected. To fix these merge 
+conflicts you must open the listed file and determine what to keep and what to delete.
+Git actually writes in the afected files what one branch says and what the other says, 
+so you just have to delete one, save, git add the changed files and commit. Git will 
+tell you exactly what to do when it discovers a merge conflict, it's just your job to 
+decide what needs to be kept and deleted. 
 
 Git Niceties
 ============
