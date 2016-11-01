@@ -35,7 +35,7 @@ What is Git?
 ------------
 Git is technology for version control. What is version control? Version control is a 
 way to keep track of changes to a project so that while working, you don't change 
-something and crash your program and have no way of getting back it back to a state 
+something and crash your program and have no way of getting it back to a state 
 when it was working. You have probably used some type of version control before, when I 
 was in 280 I used to send emails to myself containing versions of my project 
 just in case everything went to crap.
@@ -100,7 +100,7 @@ discovered an error in file2.cpp), we can unstage that file by:
 $ git reset HEAD file2.cpp
 ~~~
 
-So, now that we have all the files we want included in out snapshot staged, we can 
+So, now that we have all the files we want included in our snapshot staged, we can 
 finally make the commit. Which we do by typing:
 
 ~~~ bash
@@ -126,7 +126,7 @@ terminal navigation, like I was when I took this course, will leave you in kind 
 funny spot. Your terminal screen is filled with a lines of commits with 
 ungodly long strings of random numbers and letters, the author of 
 the commit, the date of the commit, and the message attached to the 
-commit. At the bottom of ther terminal  there will be a colon 
+commit. At the bottom of the terminal  there will be a colon 
 followed by your cursor. The first time I used git, I had no idea how to navigate or 
 escape this screen. 
 
@@ -154,18 +154,18 @@ number (the big ugly one with all the numbers and letters). If the commit I want
 look at was numbered 2adfs34231dg8d8... then I would:
 
 ~~~ bash
-git checkout 2adfs3
+$ git checkout 2adfs3
 ~~~
 
 Now, all the files in your working directory are in the state they were when when you made 
 commit 2adfs34... You just need to open one a file and see that your code looks the 
-way it did when made the commit. You can re-test, compile files, and even edit files, 
+way it did when you made the commit. You can re-test, compile files, and even edit files, 
 but I wouldn't recommend doing that unless you create a new branch, which is something
 I'll discuss later. When you want to get back to the state of your project before you 
 checked out the old commits, you type:
 
 ~~~ bash
-git checkout master
+$ git checkout master
 ~~~
 
 However, if you really screw up on your project, you have no interest in getting back 
@@ -194,7 +194,7 @@ my functions so that it is tail-recursive instead of just recursive. I would cre
 branch with the name of tail at my current commit by typing:
 
 ~~~ bash
-git branch -d tail
+$ git branch -d tail
 ~~~
 
 To add commits to this branch while working on my wicked awesome 
@@ -204,13 +204,13 @@ you need to tell git which pointer will point to your next commit, tail or maste
 (which is the "main" git pointer). I would do this by typing:
 
 ~~~ bash
-git checkout tail
+$ git checkout tail
 ~~~
 
 To see all the branches I have created:
 
 ~~~ bash 
-git branch
+$ git branch
 ~~~
 
 So, I am doing fine and dandy while working in my tail branch when I realize I need 
@@ -218,7 +218,7 @@ to change something in my master branch. What to do?! Well, you just use that ha
 checkout command again. To get back to the master branch, I would just:
 
 ~~~ bash
-git checkout master
+$ git checkout master
 ~~~
  
 I could then make commits on my master branch for my new changes. 
@@ -227,7 +227,7 @@ Now that my changes are done, I want to navigate back to where I was working on
 my tail recursion, so I must checkout the tail branch.
 
 ~~~ bash 
-git checkout tail
+$ git checkout tail
 ~~~
 
 When I have finished my tail recursion function, I'm going to want to put it back 
@@ -237,8 +237,8 @@ in the command with the branch you are currently on. So, if we want to merge our
 branch with master we must first navigate to our master branch and then merge.
 
 ~~~ bash
-git checkout master
-git merge tail
+$ git checkout master
+$ git merge tail
 ~~~
 
 If both master and tail have had commits since we created a seperate branch, we will 
@@ -247,9 +247,9 @@ know that we merged two branches. However, if both the commits attached to tail 
 master chenged the same files in the same places, git gets confused and doesn't 
 know what to keep. This is called a merge conflict, or a massive pain in the butt. Git 
 won't let you merge the two branches until you have resolved the conflicts. Thankfully,
-git makes your life easier by telling you which files are affected. To fix these merge 
+git makes your life easier by telling you which files are effected. To fix these merge 
 conflicts you must open the listed file and determine what to keep and what to delete.
-Git actually writes in the afected files what one branch says and what the other says, 
+Git actually writes in the effected files what one branch says and what the other says, 
 so you just have to delete one, save, git add the changed files and commit. 
 
 The Power of Collaboration
@@ -259,26 +259,27 @@ Another reason people use git is because it allows us to easily (relatively) col
 on projects. Lots of people use GitHub (although for class you should use GitLab because 
 having a public repo on GitHub for EECS classes is an honor code violation) to store and 
 share their projects in the cloud. To access and change code in the cloud you need to 
-first have the online repo as a remote in git. We first need to setup our repo in the cloud, 
-whereupon, we will be given a url associated with out repo. Let's say we want to create 
-a new remote named new and we have a git repo with a url of https://gitlab.com:
+first have the online repo as a remote in git. But to do that we need to setup 
+our repo in the cloud, whereupon, we will be given a url associated with our 
+repo. Let's say we want to create a new remote named new and we have a git 
+repo with a url of https://gitlab.com:
 
 ~~~ bash
-git remote add new https://gitlab.com
+$ git remote add new https://gitlab.com
 ~~~
 
-To add new code or updated code to this repo we must push it (to the limit!). When 
+To add new code or updated code to this repo we must push it (to the limit! Sorry). When 
 pushing code to our git repo of choice, we only push the master branch. We can push to 
 our git remote of new by:
 
 ~~~ bash
-git push new
+$ git push new
 ~~~
 
 When we want to grab code from the cloud, we use git pull.
 
 ~~~ bash
-git pull new
+$ git pull new
 ~~~
 
 Pushing and pulling when working on a group project often results in numerous 
