@@ -176,11 +176,11 @@ to your current state. You just want to make your current state the working stat
 git revert 2adfs3
 ~~~
 
-This will get rid of the snapshot of your current state and force you to take a new snapshot 
-of the old snapshot you wanted to go back to. Yes, I know this is confusing. Basically, 
-your most recent commit will be deleted, and you will have two of the same snapshots in your 
-commit history, one of these being your most recent commit. The revert command is 
-useful because it still maintains your history, if you reverted to a commit that was more 
+This would get rid of all the changes I've made/committed since commit 2adfs3 and make a 
+new commit signifying those removals. So now my project would have the exact same 
+state it did when I made commit 2adfs3, but I would still have my commit history of 
+all those changes I made previously. This revert command is useful because 
+it still maintains your history, so if you reverted to a commit that was more 
 than 1 commit ago you still have a record of those "bad" commits in between. Which would 
 be useful if say you had implemented some code in one of those commits that actually wasn't 
 bad and you decided you still needed it.
@@ -189,7 +189,13 @@ Creating New Features in A Sandbox (Sort Of)
 --------------------------------------------
 
 One of the many advantages of git is that you can work on a new feature or implementation 
-without messing up your current working code. Say I decided I want to re-write one of 
+without messing up your current working code. We do this in git with branches. 
+Branches are a parallel series of snapshots to what is going on in our 
+main series of snapshots (master). You can think of a branch as a side character 
+that gets his own movie (which is in all likelihood far insuperior to the orginal movie) 
+and backstory that eventually ties back into the main series of movies. If you are 
+still confused, just do a Google Images search on git branches. I find that visuals help 
+a lot with this stuff. So, say I decide I want to re-write one of 
 my functions so that it is tail-recursive instead of just recursive. I would create a new 
 branch with the name of tail at my current commit by typing:
 
