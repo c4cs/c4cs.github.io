@@ -48,6 +48,12 @@ can be done with the command.
 $ telnet host.com:8000
 ~~~
 
+`telnet` can also be used to interactively follow a TCP stream. An example of that is shown here:
+
+~~~bash
+https://github.com/mterwill/networking-lecture/blob/master/notes.md#smtp
+~~~
+
 `telnet` is not completely obsolete however as it can be used to do incredible
 things such as streaming a 20 minute ascii video of Star Wars 4!! Which can be
 done by typing:
