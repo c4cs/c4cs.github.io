@@ -10,6 +10,8 @@
 \usepackage{lastpage}
 \usepackage{listings}
 \lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
 \usepackage{soul}
 \usepackage{tabularx}
 \usepackage{textcomp}
@@ -20,47 +22,46 @@
 \lstset{
 upquote=true,
 columns=fullflexible,
+keepspaces=true,
 literate={*}{{\char42}}1
          {-}{{\char45}}1
          {^}{{\char94}}1
 }
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
 
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
 
 \usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
 
 \begin{document}
 
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
 \fancyfoot[L]{\color{gray} C4CS -- F'16}
-\fancyfoot[R]{\color{gray} Revision 1.2}
+\fancyfoot[R]{\color{gray} Revision 1.3}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
 
-
-\title{\textbf{Homework 8\\Practical Regexes and Synthesis of Rich
-Commands}}
+\title{\textbf{Homework 8\\Practical Regexes and Synthesis of Rich Commands}}
 \author{Assigned: Friday, October 28, 11:00AM}
 \date{\textbf{\color{red}{Due: Saturday, November 5, 10:00PM (Hard Deadline)}}}
 \maketitle
 
 
 \section*{Submission Instructions}
-Submit this assignment on \href{https://gradescope.com/courses/2248}{Gradescope}.
-You must submit every page of this PDF.
-We recommend using the free online tool \href{https://www.pdfescape.com}{PDFescape}
-to edit and fill out this PDF.
+Submit this assignment on \href{https://gradescope.com/courses/3499}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
 You may also print, handwrite, and scan this assignment.
-
-\medskip
-\noindent
-\hl{Even if there are not questions to answer on the first page, please still
-submit every page of this PDF.}
-
-\medskip
-\noindent
-There may multiple answers for each question. If you are unsure,
-state your assumptions and your reasoning for why you think your answer
-makes sense.
 
 
 \section{Playing with words}
@@ -152,17 +153,19 @@ Try the following commands:
 }}
 \end{minipage}
 
+\newpage
+
 \noindent
 \textbf{What does a carat (\^{}) mean in a regular expression?}
-\vspace{2cm}
+\vspace{4em}
 
 \noindent
 \textbf{What does a dollar sign (\$) mean in a regular expression?}
-\vspace{2cm}
+\vspace{4em}
 
 \noindent
 \textbf{What does a period (.) mean in a regular expression?}
-\vspace{2cm}
+\vspace{4em}
 
 \noindent
 Sometimes it's more interesting to know how many matches there are, rather
@@ -176,7 +179,7 @@ than the exact matches themselves. \texttt{grep} provides the \texttt{-c}
 \noindent
 \textbf{There are 810 lines in cracklib-small that are exactly 3 characters
 long. Give a command you could run to learn that number:}
-\vspace{2cm}
+\vspace{4em}
 
 
 \noindent
@@ -197,7 +200,7 @@ Groups are another powerful feature. Try
 \noindent
 \textbf{There are 766 lines in cracklib-small that are exactly 3
 \emph{letters} long. Give a command you could run to learn that number:}
-\vspace{2cm}
+\vspace{4em}
 
 
 \medskip
@@ -214,9 +217,10 @@ between \texttt{do} and the \texttt{;}) with just \texttt{echo \$vowel}.
 \smallskip
 \noindent
 \textbf{In plain English, what is this command doing?}
-\vspace{2cm}
+\vspace{4em}
 
 
+\vfill
 \hrule
 \smallskip
 \noindent
