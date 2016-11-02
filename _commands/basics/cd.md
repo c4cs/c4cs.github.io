@@ -60,22 +60,7 @@ Alborz-Brals-MacBook-Pro:basics abral$ pwd
 /Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7/c4cs.github.io/_commands/basics
 ~~~
 
-Of course, this accomplishes nothing; however, there are other uses for the `.` character pertaining to the `cd` command:
-
-`.` can mean "source", as in the following example
-
-~~~ bash
-./my_script
-~~~ 
-
-However, note that when we use `.`, it runs "my_script" as an executable, and launches a new shell to do so. On the other hand, if we were to use `source` instead, like so:
-
-~~~ bash
-source my_script
-~~~
-
-this command would read and execute the commands within the current shell environment
-
+Of course, this accomplishes nothing; however, there are other uses for the `.` character pertaining to the `cd` command. Some of the more common uses can be found on the dot(.) page of the C4CS website: https://c4cs.github.io/commands/dot
 
 #### `cd`
 
