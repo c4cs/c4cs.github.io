@@ -19,17 +19,18 @@ $ cd /home
 
 #### `cd -`
 
-Jump back directory
+Jump to the last directory that you were in. This will not always necessarily be the parent to your current directory, which would instead be the case if you were to use `cd ..`
 
-(Note that this prints current path after completion)
+(Note that this command prints current path after completion)
 
 ~~~ bash
-Alborz-Brals-MacBook-Pro:basics abral$ pwd 
-/Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7/c4cs.github.io/_commands/basics
-Alborz-Brals-MacBook-Pro:basics abral$ cd -
-/Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7/c4cs.github.io/_commands
-Alborz-Brals-MacBook-Pro:_commands abral$ pwd
-/Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7/c4cs.github.io/_commands
+Alborz-Brals-MacBook-Pro:basics abral$ pwd
+/Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7_2/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral$ cd /tmp
+Alborz-Brals-MacBook-Pro:tmp abral$ pwd
+/tmp
+Alborz-Brals-MacBook-Pro:tmp abral$ cd -
+/Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7_2/c4cs.github.io/_commands/basics
 ~~~
 
 
