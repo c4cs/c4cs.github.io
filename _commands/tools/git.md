@@ -5,7 +5,7 @@ git
 ---
 
 <!-- one-line explanation -->
-
+Git is a version control system that can be used for collaboration
 <!-- minimal example -->
 
 <!--more-->
