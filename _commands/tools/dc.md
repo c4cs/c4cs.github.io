@@ -1,9 +1,9 @@
-
 ---
- dc
+---
+dc
 ----
 
-`dc` stands for 'desk calculator'. Typing this command into a terminal will open a [postfix notation](https:#en.wikipedia.org/wiki/Reverse_Polish_notation) calculator.
+`dc` stands for 'desk calculator'. Typing this command into a terminal will open a [postfix notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) calculator.
 
 ~~~ bash
 $ dc
