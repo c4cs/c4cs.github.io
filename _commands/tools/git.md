@@ -4,8 +4,6 @@
 git
 ---
 
-<em>TODO: Placeholder</em>
-
 <!-- one-line explanation -->
 
 <!-- minimal example -->
