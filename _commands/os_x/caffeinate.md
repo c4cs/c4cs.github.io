@@ -29,6 +29,43 @@ caffeinate [-disu] [-t timeout] [-w pid] [utility arguments...]
 
 ### Flags
 
+Here are some cool flags that you could use within your program.
+
+[-w pid]
+
+
+Each running process has a unique pid. A good way to see what the pid for a particular process is:
+
+
+~~~ bash
+pgrep <process_name>
+~~~
+
+
+Example:
+
+
+~~~ bash
+#caffeinate till process with pid 4565 exits
+caffeine -w 4565
+~~~
+
+
+[-t time]
+
+
+Example:
+
+
+~~~ bash
+#caffeinate for time seconds
+caffeinate -t 5000
+~~~
+
+
+Below are some other flags and their descriptions, try them out!
+
+
 |     Flag     |               Description                |
 | :----------: | :--------------------------------------: |
 |      -d      |  create an assertion to prevent the display from sleeping |
