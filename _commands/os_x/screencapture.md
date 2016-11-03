@@ -7,7 +7,7 @@ screencapture
 `screencapture` is used to capture an image of the whole, or part of the screen.
 
 ~~~ bash
-#Takes a screenshot of the entire screen and saves it to the file screencap.png in the pwd
+#Takes a screenshot of the entire screen and saves it to the file screencap.png in the cwd
 screencapture screencap.png
 ~~~
 
@@ -15,7 +15,7 @@ screencapture screencap.png
 
 ### Where to install
 
-'screencapture' comes  built with OSX's command-line tools. If you don't have them, you can install them via:
+`screencapture` comes  built with OSX's command-line tools. If you don't have them, you can install them via:
 
 ~~~ bash
 xcode-select --install
