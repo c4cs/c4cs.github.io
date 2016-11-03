@@ -21,6 +21,7 @@ $ jobs
 [1]- Running    bash download-file.sh
 [2]+ Stopped    cp /usr/LargeDir /usr/SomewhereElse
 $ bg %2
+$ echo "Run more jobs while cp /usr/LargeDir /usr/SomewhereElse runs in background"
 ~~~
 
 ##### Break it down
