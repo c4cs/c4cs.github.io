@@ -192,6 +192,18 @@ than 1 commit ago you still have a record of those "bad" commits in between. Whi
 be useful if say you had implemented some code in one of those commits that actually wasn't 
 bad and you decided you still needed it.
 
+
+If you notice bugs in your project and aren't sure which commit introduced them, git help you
+find the commit quickly!
+
+~~~ bash
+git bisect start
+~~~
+
+This will start the bisection of your project to find where the errors were introduced. git-bisect
+uses binary search to pick commits to review and asks you if the commit under review is `good` or `bad`.
+Upon finding the bad commit, revert it!
+
 Creating New Features in A Sandbox (Sort Of)
 --------------------------------------------
 
