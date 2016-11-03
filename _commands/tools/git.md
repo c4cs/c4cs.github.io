@@ -98,15 +98,24 @@ discovered an error in file2.cpp), we can unstage that file by:
 $ git reset HEAD file2.cpp
 ~~~
 
-So, now that we have all the files we want included in our snapshot staged, we can 
-finally make the commit. Which we do by typing:
+So, now that we have all the files we want included in our snapshot staged, we can
+finally make the commit. Note that commits should be
+[atomic](https://www.freshconsulting.com/atomic-commits/); they should contain exactly one
+discrete change or fix.
+We commit by typing:
 
 ~~~ bash
-$ git commit -m 'file1.cpp is being committed'
+$ git commit -m 'Add file1.cpp'
 ~~~
 
-Where we put a descriptive sentence/message in the single quotes to remind 
+We put a descriptive sentence/message in the single quotes to remind
 ourselves and anyone else looking at our code why and what we committed.
+Commit messages have a particular style: they should be written in the imperative
+mood, without ending punctuation. Certain verbs, like "Add", "Implement", and
+"Remove", are good first words in a commit message. Read [Chris Beams' "How to Write
+a Git Commit Message"](http://chris.beams.io/posts/git-commit/) to learn the best
+practices.
+
 If we run git status again, we see that file1.cpp is no longer "modified," in 
 fact it's not listed at all. Word to the wise: always run git status right before
 you commit to make sure everything is the way it is supposed to be. It 
@@ -183,6 +192,18 @@ than 1 commit ago you still have a record of those "bad" commits in between. Whi
 be useful if say you had implemented some code in one of those commits that actually wasn't 
 bad and you decided you still needed it.
 
+
+If you notice bugs in your project and aren't sure which commit introduced them, git help you
+find the commit quickly!
+
+~~~ bash
+git bisect start
+~~~
+
+This will start the bisection of your project to find where the errors were introduced. git-bisect
+uses binary search to pick commits to review and asks you if the commit under review is `good` or `bad`.
+Upon finding the bad commit, revert it!
+
 Creating New Features in A Sandbox (Sort Of)
 --------------------------------------------
 
@@ -198,7 +219,7 @@ my functions so that it is tail-recursive instead of just recursive. I would cre
 branch with the name of tail at my current commit by typing:
 
 ~~~ bash
-$ git branch -d tail
+$ git branch tail
 ~~~
 
 To add commits to this branch while working on my wicked awesome 
