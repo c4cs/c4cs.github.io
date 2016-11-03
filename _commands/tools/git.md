@@ -198,7 +198,7 @@ my functions so that it is tail-recursive instead of just recursive. I would cre
 branch with the name of tail at my current commit by typing:
 
 ~~~ bash
-$ git branch -d tail
+$ git branch tail
 ~~~
 
 To add commits to this branch while working on my wicked awesome 
