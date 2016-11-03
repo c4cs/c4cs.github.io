@@ -60,7 +60,7 @@ Alborz-Brals-MacBook-Pro:basics abral$ pwd
 /Users/abral/Desktop/Computer_Science/EECS 398 (C4CS)/adv_HW_7/c4cs.github.io/_commands/basics
 ~~~
 
-Of course, this accomplishes nothing; however, there are other uses for the `.` character pertaining to the `cd` command. Some of the more common uses can be found on the dot(.) page of the C4CS website: https://c4cs.github.io/commands/dot
+Of course, this accomplishes nothing; however, there are other uses for the `.` character pertaining to the `cd` command. Some of the more common uses can be found on the [dot(.) page of the C4CS website](https://c4cs.github.io/commands/dot)
 
 #### `cd`
 
