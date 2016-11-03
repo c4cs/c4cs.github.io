@@ -4,7 +4,7 @@
 bg
 --
 
-`bg` is used to continue a stopped job by running it in the background. By default, `bg` will simply resume the most recently suspended job. `bg` will commonly be used with the `fg`and `jobs` commands.
+`bg` is used to continue a stopped job by running it in the background. By default, `bg` will simply resume the most recently suspended job. `bg` will commonly be used with the [`fg`](/commands/fg) and [`jobs`](/commands/jobs) commands.
 
 ~~~ bash
 $ bg
