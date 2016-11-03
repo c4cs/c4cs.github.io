@@ -14,7 +14,7 @@ slidesName: f16/week9
 #advancedTopics:
 #  - TBD
 lectureSummary:
-leccapWed:
+leccapWed: tZBWTk
 leccapFri:
 ---
 
