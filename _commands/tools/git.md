@@ -98,15 +98,24 @@ discovered an error in file2.cpp), we can unstage that file by:
 $ git reset HEAD file2.cpp
 ~~~
 
-So, now that we have all the files we want included in our snapshot staged, we can 
-finally make the commit. Which we do by typing:
+So, now that we have all the files we want included in our snapshot staged, we can
+finally make the commit. Note that commits should be
+[atomic](https://www.freshconsulting.com/atomic-commits/); they should contain exactly one
+discrete change or fix.
+We commit by typing:
 
 ~~~ bash
-$ git commit -m 'file1.cpp is being committed'
+$ git commit -m 'Add file1.cpp'
 ~~~
 
-Where we put a descriptive sentence/message in the single quotes to remind 
+We put a descriptive sentence/message in the single quotes to remind
 ourselves and anyone else looking at our code why and what we committed.
+Commit messages have a particular style: they should be written in the imperative
+mood, without ending punctuation. Certain verbs, like "Add", "Implement", and
+"Remove", are good first words in a commit message. Read [Chris Beams' "How to Write
+a Git Commit Message"](http://chris.beams.io/posts/git-commit/) to learn the best
+practices.
+
 If we run git status again, we see that file1.cpp is no longer "modified," in 
 fact it's not listed at all. Word to the wise: always run git status right before
 you commit to make sure everything is the way it is supposed to be. It 
