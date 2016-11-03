@@ -4,7 +4,7 @@
 jobs
 --
 
-`jobs` is used to _list_ all active or suspended jobs.
+`jobs` is used to _list_ all active or suspended jobs. `jobs` will commonly be used with the [`fg`](/commands/fg) and [`bg`](/commands/bg) commands.
 
 ~~~ bash
 $ jobs
