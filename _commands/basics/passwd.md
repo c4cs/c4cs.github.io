@@ -28,7 +28,7 @@ $ passwd [OPTION] [USER]
 
 #### Example command
 
-Changing other user's passwords using `sudo passwd` requests the `root` password to give the current user superuser permissions.  This allows the current user to change the other user's current password without knowledge of the other user's password.  This can come in handy if one ever forgets his or her own account password but remembers the `root` password.
+`sudo passwd` allows the current user to change other user's passwords if the current user has superuser permissions.  It requests the current user's password, then allows the current user to set the other user's new password.  This allows the current user to change the other user's current password without knowledge of the other user's password, which can come in handy if one ever forgets his or her own account password but has access to a user with superuser permissions.
 
 ~~~ bash
 $ sudo passwd other_user
