@@ -4,7 +4,7 @@
 fg
 --
 
-`fg` is used to continue a stopped job by running it in the foreground. By default, `fg` will simply resume the most recently suspended backgrounded job. `fg` will commonly be used with the `bg`and `jobs` commands.
+`fg` is used to continue a stopped job by running it in the foreground. By default, `fg` will simply resume the most recently suspended backgrounded job. `fg` will commonly be used with the [`bg`](/commands/bg) and [`jobs`](/commands/jobs) commands.
 
 ~~~ bash
 $ fg

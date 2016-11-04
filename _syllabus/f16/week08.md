@@ -14,6 +14,6 @@ lecturer: mmdarden
 #  - TBD
 lectureSummary:
 leccapWed: GIYYdp
-leccapFri:
+leccapFri: kR8oUC
 ---
 
