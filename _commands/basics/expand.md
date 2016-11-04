@@ -13,9 +13,9 @@ $ expand [OPTION] [FILE]
 <!--more-->
 
 ### Description
- * Convert tabs in each FILE to spaces, writing to standard output. With no FILE, or when FILE is -, read standard input.
+ * Convert tabs in each `FILE` to spaces, writing to standard output. With no `FILE`, or when `FILE` is -, read standard input.
 
-### Tag
+### Flags
  * `-i, --initial`, do not convert tabs after non blanks.
  * `-t, --tabs=NUMBER`, have tabs NUMBER characters apart, not 8.
  * `-t, --tabs=LIST`, use comma separated list of explicit tab positions.
@@ -23,7 +23,7 @@ $ expand [OPTION] [FILE]
  * `--version`, output version information and exit
 
 
-### Useful Options / Examples(Description)
+### Examples(Description)
 
 ~~~ bash
 $ cat example.c
@@ -45,7 +45,7 @@ int main() {
 ~~~
 
 
-### Possible Issue
+#### Possible Issue
 ~~~ bash
 $ expand file.txt > file.txt
 ~~~
