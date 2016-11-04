@@ -13,7 +13,7 @@ $ expand [OPTION] [FILE]
 <!--more-->
 
 ### Description
- * Convert tabs in each `FILE` to spaces, writing to standard output. With no `FILE`, or when `FILE` is -, read standard input.
+ * Convert tabs in each `FILE` to spaces, writing to standard output. With no `FILE`, or when `FILE` is `-`, read standard input.
 
 ### Flags
  * `-i, --initial`, do not convert tabs after non blanks.
@@ -34,7 +34,7 @@ int main() {
                 printf(How useful is that??);
                 return 0;
 }
-$ expand -t 2 example.c 
+$ expand -t 2 example.c
 #include <stdio.h>
 int main() {
     // convert taps into 2 spaces
@@ -49,11 +49,11 @@ int main() {
 ~~~ bash
 $ expand file.txt > file.txt
 ~~~
- * This would fail as the file.txt truncated before 'expand' can read the file.txt
- 
+ * This would fail as the file.txt truncated before `expand` can read the file.txt
+
 #### Solution to the Issue
 ~~~ bash
 $ echo "$(expand file.txt)" > file.txt
 ~~~
- * This will guarantee 'expand' reads the file.txt before it write to file.txt
- 
+ * This will guarantee `expand` reads the file.txt before it write to file.txt
+
