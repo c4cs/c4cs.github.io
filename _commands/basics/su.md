@@ -39,13 +39,6 @@ $ sudo -s
 
 Here it asks for alex's password not root password.
 
-If you are a superuser on the box and would like to masquerade as user alex,
-you can run:
-
-~~~ bash
-$ sudo su -alex
-~~~
-
 ### Useful Options / Examples
 There's some good commands you can run with su!
 
@@ -55,11 +48,12 @@ There's some good commands you can run with su!
 $ su -c 'ls /home/alex'
 ~~~
 
-`su -` will change the current directory and environment to what would be expected if the new user
-had logged on to a new session. The following example will lead to the home directory of a user named
-alex.
+`su -` will change the current directory and environment to what would be expected if the new user had logged on to a new session. 
+
+If you are a superuser on the box and would like to masquerade as user alex,
+you can run:
 
 ~~~ bash
-$ su - alex
-~~~ 
+$ sudo su - alex
+~~~
 
