@@ -22,9 +22,10 @@ Desktop    Pictures   Templates
 Things to note: when using alias, make sure that there is no space around the equal sign.
 
 ~~~bash
-$ alias l = "ls"
-alias l='ls -CF'
+$ alias s = "status"
+bash: alias: s: not found
 bash: alias: =: not found
+bash: alias: status: not found
 ~~~
 
 Another thing to note is that aliases would overwrite existing commands. For example:
