@@ -4,7 +4,7 @@
 join
 --
 
-`join` is used to _combine two files based on matching content in each file_. 
+`join` is used to combine two files based on matching content in each file.
 
 ~~~ bash
 $ cat a.txt
@@ -78,12 +78,15 @@ Bob,00
 John,01
 Carl,02
 ~~~
+
+
 ##### Break it down
 
  * The `-o` option tells join to only return the columns specified. In this case, we only return the matching fields of column 1 from the first file (scores.txt) and column 2 from the second file (id.txt).
 
 
 
+Note: `join` can be combined with <a href="sort">`sort`</a> if the files you want to join are out of order.
 
 
 
