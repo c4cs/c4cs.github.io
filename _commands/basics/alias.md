@@ -72,7 +72,7 @@ If you just run the alias command from the shell, it would last for the duration
 
 #### Beginner
 
-For people who are relatively new to this, we can do this easily. Careful, for people with code already in the .bashrc file, you should instead use an editor to edit .bashrc. So, instead of "cat >" you should use "vim" or your editor of choice.
+For people who are relatively new to this, we can do this easily.
 
 ~~~bash
 $ cat >> ~/.bashrc
@@ -102,3 +102,5 @@ This would source your .aliases file if it exists. And in your .aliases file you
 2 alias l="ls"
 3 alias gdesk="cd ~/Desktop"
 ~~~
+
+This is a better way because your aliases is now in a separate file and you can view all of them together, without any other code.
