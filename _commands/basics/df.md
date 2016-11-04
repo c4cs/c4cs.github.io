@@ -4,34 +4,20 @@
 df
 --
 
-df displays the amount of disk space available on the file system containing each file name argument. If no file name is given, the space available on all currently mounted file systems is shown. Disk space is shown in 1K blocks by default, unless the environment variable POSIXLY_CORRECT is set, in which case 512-byte blocks are used.  
+df (abbreviation for disk free) is used to display the amount of availbale disk space for file systems on which the invoking user has appropriate read access.  
 
-~~~ bash
-$ df
-Filesystem     1K-blocks    Used Available Use% Mounted on
-udev             1004740       0   1004740   0% /dev
-tmpfs             204848   21672    183176  11% /run
-/dev/sda1       49702628 5077532  42077232  11% /
-...(Some more info)
-~~~
-
-<!--more-->
-
-### Useful Options / Examples
-
-#### `df -h`
 ~~~ bash
 $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            982M     0  982M   0% /dev
 tmpfs           201M   22M  179M  11% /run
 /dev/sda1        48G  4.9G   41G  11% /
-...(Some more information)
+...(Some more info)
 ~~~
 
-##### Break it down
+<!--more-->
 
-* Same as df, but use "human readable" formatting. 
+### Useful Options / Examples
 
 #### `df [directory_name]`
 
@@ -41,19 +27,9 @@ Filesystem     1K-blocks    Used Available Use% Mounted on
 /dev/sda1       49702628 5077556  42077208  11% /
 ~~~
 
-#### `-a, --all`
-~~~ bash
-include dummy file systems.
-~~~
-
 #### `--total`
 ~~~ bash
 display a grand total.
-~~~
-
-#### `-i, --inodes`
-~~~ bash
-list inode information instead of block usage.
 ~~~
 
 #### `--help`
