@@ -53,7 +53,7 @@ $ expand file.txt > file.txt
  
 #### Solution to the Issue
 ~~~ bash
-$ echo "($ expand file.txt)" > file.txt
+$ echo "$(expand file.txt)" > file.txt
 ~~~
  * This will guarantee 'expand' reads the file.txt before it write to file.txt
  
