@@ -6,7 +6,7 @@ gcc flags
 
 `gcc` is a compiler command that has the ability to execute options or 'Flags' when compiling.  These flags can be grouped and executed via the command line:
 
-`-o` places output in a file.
+`-o` places output in a filename of your choice.  If you do not use the `-o` flag the output file will have the same name as the file being compiled without any extension.
 
 `-g` turns on debugging information. 
 
@@ -14,14 +14,12 @@ gcc flags
 
 `-Wall` enables all the warnings.
 
-`-ar` creates an archive instead of a program.
+`-O` enables optimization.
 
 ~~~ bash
 $ gcc test.c -o test
 $ gcc -g test.c
-$ gcc -Werror test.c
-$ gcc -Wall test.c
-$ gcc -ar test.c
+$ gcc -Werror -Wall -O test.c
 ~~~
 
 
@@ -33,11 +31,13 @@ $ gcc -ar test.c
 #### `-o`
 ~~~ bash
 $ gcc test.c -o test
+$ gcc test.c -o
+$ gcc test.c -o out
 ~~~
 
 ##### Break it down
 
-This is a very simple example where test.c is being compiled and outputted to the test file.  The output filename is specified after the flag.  Input: test.c, Output: test
+In the first line of code, test.c is being compiled and outputted to the file specified file named test.  The filename is specified after the `-o` option.  Input: test.c, Output: test.  In the Second line of code the `-o` option is not used, but the result will be the same. So, the results would be the same because the file being compiled is named test.c.
 
 
 
@@ -84,14 +84,30 @@ This option is short for "warn all".  This option turns on almost all warnings w
 
 
 
-#### `-ar`
+#### `-O`
 ~~~ bash
-$ gcc -ar test.c
+$ gcc -O test.c
+$ gcc -O1 test.c
+
 ~~~
 
 ##### Break it down
 
-This option creates an archive (a static library) instead of a program. The resulting file will have an .a ending.
+In the first line of code, the `-O` option instructs the compiler to try and reduce code size and execution time, without performing any optimizations that take a great deal of compilation time.  There are additional variations to the `-O` option that use alternative methods to optimize a file.  Examples include:  `-O1`, `-O2`, `-O3` and `-Os`.
+
+
+`-O1` Further Optimizes where the compilation takes somewhat more time, and a lot more memory for a large function.
+
+
+`-O2` Optimizes even more. GCC performs nearly all supported optimizations that do not involve a space-speed tradeoff.
+
+
+`-O3` Optimize yet more. -O3 turns on all optimizations specified by -O2 and also turns on the -finline-functions, -funswitch-loops, -fpredictive-commoning, -fgcse-after-reload, -ftree-loop-vectorize, -ftree-loop-distribute-patterns, -fsplit-paths -ftree-slp-vectorize, -fvect-cost-model, -ftree-partial-pre, -fpeel-loops and -fipa-cp-clone options.
+
+
+`-Os` Optimize for size. -Os enables all -O2 optimizations that do not typically increase code size. It also performs further optimizations designed to reduce code size.
+
+
 
 
 
