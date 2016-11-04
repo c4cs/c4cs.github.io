@@ -10,34 +10,24 @@ in the [su Command](https://www.techonthenet.com/linux/commands/su.php)). In
 other words, it is called the switch user command
 
 __Note:__ It is most commonly employed to change the ownership from
-an ordinary user to the administrative user. Therefore it is oftern
+an ordinary user to the administrative user. Therefore it is often
 refered as the superuser command.
 
-
-
 ~~~ bash
-$ su root
+$sudo su root
 ~~~
 
 <!--more-->
 
 ### Example
+Let's suppose there is a user named alex.
+By default, the root account is disabled and doesn't have any password.
+To access root, we can run:
 
 ~~~ bash
-$ su root
-Password:
-$ sudo alex
-Password:
-~~~
-
-By default, the root account is disabled and doesn't have any password. To create
-one, we can run as follow:
-
-~~~ bash
-$ sudo passwd root
-Enter new UNIX password: 
-Retype new UNIX password: 
-passwd: password updated successfully
+$ sudo su root
+[sudo] password for alex: 
+root@alex-VirtualBox:/home/alex#
 ~~~
 
 Another way to login as root user:
@@ -47,6 +37,14 @@ $ sudo -s
 [sudo] password for alex:
 ~~~
 
+Here it asks for alex's password not root password.
+
+If you are a superuser on the box and would like to masquerade as user alex,
+you can run:
+
+~~~ bash
+$ sudo su -alex
+~~~
 
 ### Useful Options / Examples
 There's some good commands you can run with su!
@@ -64,7 +62,4 @@ alex.
 ~~~ bash
 $ su - alex
 ~~~ 
-
-
-
 
