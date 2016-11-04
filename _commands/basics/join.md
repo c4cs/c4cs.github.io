@@ -40,7 +40,7 @@ $ join -1 1 -2 1 a.txt b.txt
 
 ##### Break it down
 
- * The `-1` and `-2` option tells `join` to combine the file based on a specific column in the two files. In this case, join is combining the two files based on column 1 in a.txt (based on -1 flag) and column 1 in b.txt (based on -2 flag). 
+ * The `-1` and `-2` option tells `join` to combine the file based on a specific column in the two files. In this case, join is combining the two files based on column 1 in a.txt (based on `-1` flag) and column 1 in b.txt (based on `-2` flag). 
 
 #### `join -t`
 
@@ -84,23 +84,4 @@ Carl,02
 
  * The `-o` option tells join to only return the columns specified. In this case, we only return the matching fields of column 1 from the first file (scores.txt) and column 2 from the second file (id.txt).
 
-
-
 Note: `join` can be combined with <a href="sort">`sort`</a> if the files you want to join are out of order.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
