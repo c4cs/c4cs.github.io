@@ -7,7 +7,7 @@ expand
 `expand` a command that convert tabs to spaces.
 
 ~~~ bash
-expand [OPTION] [FILE]
+$ expand [OPTION] [FILE]
 ~~~
 
 <!--more-->
@@ -42,6 +42,18 @@ int main() {
     printf(How useful is that??);
     return 0;
 }
-
 ~~~
 
+
+### Possible Issue
+~~~ bash
+$ expand file.txt > file.txt
+~~~
+ * This would fail as the file.txt truncated before 'expand' can read the file.txt
+ 
+#### Solution to the Issue
+~~~ bash
+$ echo "($ expand file.txt)" > file.txt
+~~~
+ * This will guarantee 'expand' reads the file.txt before it write to file.txt
+ 
