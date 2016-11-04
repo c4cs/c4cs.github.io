@@ -55,6 +55,7 @@ This shows that you can alias commands with multiple words.
 
 ~~~bash
 $ alias gdesk="cd ~/Desktop"
+$ gdesk
 $ pwd
 /home/user/Desktop
 ~~~
@@ -63,6 +64,7 @@ One thing to be careful about is if you alias the cd command without using the ~
 
 ~~~bash
 $ alias gdesk="cd Desktop"
+$ gdesk
 bash: cd: Desktop: No such file or directory
 ~~~
 
