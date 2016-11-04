@@ -15,6 +15,6 @@ slidesName: f16/week9
 #  - TBD
 lectureSummary:
 leccapWed: tZBWTk
-leccapFri:
+leccapFri: GypC2G
 ---
 
