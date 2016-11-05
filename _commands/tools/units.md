@@ -12,13 +12,15 @@ $ units [-f unitsfile] [-q] [-v] [from-unit to-unit]...
 
 <!--more-->
 
-The units are defined in an external data file. You can use the extensive data file that comes with this program, or you can provide your own data file to suit your needs. You can use the program interactively with prompts, or you can use it from the command line.
+The command above will list the value you will need to multiply (*) or divide (/) your original number by to convert to your desired units listed.
 
-will list the value you will need to multiply (*) or divide (/) your original number by to convert to your desired units listed.
+The units are defined in an external data file. You can use the extensive data file that comes with this program, or you can provide your own data file to suit your needs. You can use the program interactively with prompts, or you can use it from the command line.
 
 ~~~ bash
 $ units
-~~~
+~~~The command above will list the value you will need to multiply (*) or divide (/) your original number by to convert to your desired units listed.
+
+
 
 with no command line arguments, input will be read from standard input.
 
