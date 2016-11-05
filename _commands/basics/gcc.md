@@ -6,7 +6,7 @@ gcc flags
 
 `gcc` is a compiler command that has the ability to execute options or 'Flags' when compiling.  These flags can be grouped and executed via the command line:
 
-`-o` places output in a filename of your choice.  If you do not use the `-o` flag the output file will have the same name as the file being compiled without any extension.
+`-o` places output in a filename of your choice.  If you do not use the `-o` flag the output file will have the name and extention: 'a.out'.
 
 `-g` turns on debugging information. 
 
@@ -16,14 +16,13 @@ gcc flags
 
 `-O` enables optimization.
 
+__NOTE__: See below for details.
+
 ~~~ bash
 $ gcc test.c -o test
 $ gcc -g test.c
 $ gcc -Werror -Wall -O test.c
 ~~~
-
-
-
 <!--more-->
 
 ### Useful Options / Examples
@@ -31,13 +30,12 @@ $ gcc -Werror -Wall -O test.c
 #### `-o`
 ~~~ bash
 $ gcc test.c -o test
-$ gcc test.c -o
 $ gcc test.c -o out
 ~~~
 
 ##### Break it down
 
-In the first line of code, test.c is being compiled and outputted to the file specified file named test.  The filename is specified after the `-o` option.  Input: test.c, Output: test.  In the Second line of code the `-o` option is not used, but the result will be the same. So, the results would be the same because the file being compiled is named test.c.
+In the first line of code, test.c is being compiled and outputted to the file specified file named test.  The filename is specified after the `-o` option.  Input: test.c, Output: test.  In the Second line, the input file is test.c and the ouput file name will be 'out.out'.
 
 
 
@@ -88,7 +86,6 @@ This option is short for "warn all".  This option turns on almost all warnings w
 ~~~ bash
 $ gcc -O test.c
 $ gcc -O1 test.c
-
 ~~~
 
 ##### Break it down
@@ -102,10 +99,10 @@ In the first line of code, the `-O` option instructs the compiler to try and red
 `-O2` Optimizes even more. GCC performs nearly all supported optimizations that do not involve a space-speed tradeoff.
 
 
-`-O3` Optimize yet more. -O3 turns on all optimizations specified by -O2 and also turns on the -finline-functions, -funswitch-loops, -fpredictive-commoning, -fgcse-after-reload, -ftree-loop-vectorize, -ftree-loop-distribute-patterns, -fsplit-paths -ftree-slp-vectorize, -fvect-cost-model, -ftree-partial-pre, -fpeel-loops and -fipa-cp-clone options.
+`-O3` Optimize yet more. `-O3` turns on all optimizations specified by `-O2` and also turns on the `-finline-functions`, `-funswitch-loops`, `-fpredictive-commoning`, `-fgcse-after-reload`, `-ftree-loop-vectorize`, `-ftree-loop-distribute-patterns`, `-fsplit-paths -ftree-slp-vectorize`, `-fvect-cost-model`, `-ftree-partial-pre`, `-fpeel-loops` and `-fipa-cp-clone` options.
 
 
-`-Os` Optimize for size. -Os enables all -O2 optimizations that do not typically increase code size. It also performs further optimizations designed to reduce code size.
+`-Os` Optimize for size. This option enables all `-O2` optimizations that do not typically increase code size. It also performs further optimizations designed to reduce code size.
 
 
 
