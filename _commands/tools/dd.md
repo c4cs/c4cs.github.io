@@ -6,7 +6,7 @@ dd
 
 `dd` is a utility that can be used to convert and copy files in a number of ways. This can be used for backing up/restoring entire hard drives or partions, converting data formats, converting the case of a file, and more.
 
-<div class="alert-warning">
+<div class="alert alert-warning">
 Warning: dd is often referred to by many as 'disk destroyer' or 'data deleter' due to its potential to erase large chunks of data when used improperly. If you plan on testing any of these commands exercise extreme caution to avoid losing any significant data.
 </div>
 
