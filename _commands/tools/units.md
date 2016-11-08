@@ -18,9 +18,7 @@ The units are defined in an external data file. You can use the extensive data f
 
 ~~~ bash
 $ units
-~~~The command above will list the value you will need to multiply (*) or divide (/) your original number by to convert to your desired units listed.
-
-
+~~~
 
 with no command line arguments, input will be read from standard input.
 
@@ -70,10 +68,10 @@ $ units -f filename
 $ units --file filename
 ~~~
 
-Use filename as the units data file rather than the default units data file `units.dat'.
+Use filename as the units data file rather than the default units data file `units.dat`.
 
 ~~~bash
 $ units --check-verbose
 ~~~
 
-Like the `-check` option, this option prints a list of units that cannot be reduced.  But to help find unit  definitions that cause endless loops, it lists the units as they are checked.  If `units' hangs, then the last unit to be printed has a bad definition.
+Like the `-check` option, this option prints a list of units that cannot be reduced.  But to help find unit  definitions that cause endless loops, it lists the units as they are checked.  If `units` hangs, then the last unit to be printed has a bad definition.
