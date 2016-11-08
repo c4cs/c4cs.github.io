@@ -19,27 +19,27 @@ $ cmatrix -option
 
 #### OPTIONS
 
-`-a: Asynchronour scroll
+`-a`: Asynchronour scroll
 
-`-b: Bold characters on
+`-b`: Bold characters on
 
-`-B: All bold characters(overrides -b)
+`-B`: All bold characters(overrides -b)
 
-`-f: Force the Linux $TERM type to be on
+`-f`: Force the Linux $TERM type to be on
 
-`-l: Linux mode (sets "matrix.fnt" font in console)
+`-l`: Linux mode (sets "matrix.fnt" font in console)
 
-`-o: Use old-style scrolling
+`-o`: Use old-style scrolling
 
-`-h: Print usage and exit
+`-h`: Print usage and exit
 
-`-n: No bold characters (overrides -b and -B)
+`-n`: No bold characters (overrides -b and -B)
 
-`-s: "Screensaver" mode, exits on first keystroke
+`-s`: "Screensaver" mode, exits on first keystroke
 
-`-u delay: Screen update delay 0 - 9, default 4
+`-u delay`: Screen update delay 0 - 9, default 4
 
-`-C color: Use this color for matrix (default green). Valid colors are green, red, blue, white, yellow, cyan, magenta, and black. 
+`-C color`: Use this color for matrix (default green). Valid colors are green, red, blue, white, yellow, cyan, magenta, and black. 
 
 #### And BOOM! 
 
