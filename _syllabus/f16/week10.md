@@ -15,7 +15,7 @@ lecturer: mmdarden
 #advancedTopics:
 #  - TBD
 lectureSummary:
-leccapWed:
+leccapWed: mt4NiF
 leccapFri:
 ---
 
