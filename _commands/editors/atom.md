@@ -46,3 +46,5 @@ Tired of using git through command line? No worries, there are several packages 
 Yeah, most editors can not pickup SQL expressions, but this one can.
 
 #### [More cool packages](https://atom.io/packages)
+
+How to install packages? Open up Atom, search the package you want in settings section and click download. It very simple.
