@@ -25,9 +25,6 @@ literate={*}{{\char42}}1
          {-}{{\char45}}1
          {^}{{\char94}}1
 }
-\lstset{
-  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
-}
 
 % http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
 \lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
@@ -37,7 +34,7 @@ literate={*}{{\char42}}1
 \begin{document}
 
 \fancyfoot[L]{\color{gray} C4CS -- F'16}
-\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[R]{\color{gray} Revision 1.1}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
@@ -116,6 +113,14 @@ If you have a valid Kerberos ticket, when you run
 \texttt{ssh~login.engin.umich.edu} you should not be prompted for a password,
 you'll just log straight in!
 
+\emph{Note:} If you are on macOS Sierra, Apple removed support for the
+\texttt{GSSAPITrustDNS} option. You can still test your Kerberos setup by
+connecting to a CAEN server directly (no modifications to\texttt{~/.ssh/config}
+necessary):
+
+\begin{lstlisting}
+  ssh -K uniqname@caen-vnc-vm14.engin.umich.edu
+\end{lstlisting}
 
 \subsection*{AFS}
 
