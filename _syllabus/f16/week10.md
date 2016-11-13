@@ -16,6 +16,6 @@ lecturer: mmdarden
 #  - TBD
 lectureSummary:
 leccapWed: mt4NiF
-leccapFri:
+leccapFri: 0Pxmad
 ---
 
