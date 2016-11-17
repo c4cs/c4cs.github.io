@@ -18,7 +18,7 @@ homeworkTopics:
   - Working remotely with umich's CAEN
 advancedTopics:
   - Working in existing codebases
-  - Making it _your_ editor through plugins
+  - Making it <i>your</i> editor through plugins
 lectureSummary:
 leccapWed: tZBWTk
 leccapFri: GypC2G
