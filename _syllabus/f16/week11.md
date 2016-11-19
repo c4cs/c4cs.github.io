@@ -13,7 +13,7 @@ lecturer: mmdarden
 #advancedTopics:
 #  - TBD
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: YODXMK
+leccapFri: l8PjBD
 ---
 
