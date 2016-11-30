@@ -16,7 +16,7 @@ lectureTopics:
 #advancedTopics:
 #  - TBD
 lectureSummary:
-leccapWed:
+leccapWed: IP7Jl0
 leccapFri:
 ---
 
