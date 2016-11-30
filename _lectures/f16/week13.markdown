@@ -293,6 +293,11 @@ scan-build: Run 'scan-view /tmp/scan-build-2016-11-30' to examine bug reports
 
 ## Try running `cppcheck` and `scan-build` on an old project
 
+```bash
+$ cppcheck --enable=all .
+$ scan-build make
+```
+
 ### Did they find any errors?
 
 ## Try running them on a current project
