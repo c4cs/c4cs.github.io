@@ -188,6 +188,11 @@ printf("%d\n", i);
 
 ## Pick any prior code you've written and try profiling it
 
+```bash
+$ perf record ./your_program
+$ perf report
+```
+
 ### > The bigger the better
 
 ## Are the results what you expect?
