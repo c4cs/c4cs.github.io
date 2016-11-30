@@ -315,9 +315,9 @@ scan-build: Run 'scan-view /tmp/scan-build-2016-11-30' to examine bug reports
 
 ## Two special topics lectures
 
-### - Wed: ...
+### - Wed: Networking
 
-### - Fri: ...
+### - Fri: Virtual Private Servers
 
 ## Come to at least one (like usual)
 
