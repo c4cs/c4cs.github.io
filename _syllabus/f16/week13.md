@@ -17,6 +17,6 @@ lectureTopics:
 #  - TBD
 lectureSummary:
 leccapWed: IP7Jl0
-leccapFri:
+leccapFri: PyL8Qg
 ---
 
