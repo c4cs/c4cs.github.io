@@ -170,17 +170,17 @@ An IP uniquely identifies an interface.
 ## TCP vs UDP
 Two popular Transport Layer protocols (but not the only ones!)
 
-__TCP__: More guarantees
+__TCP__: More guarantees (ordering, best-effort delivery attempt)
 
-__UDP__: Less overhead
+__UDP__: Less overhead (Fast)
 
 --
 
 ## Different use cases
 - Farther down the model we go the dumber the protocols are
 - Not everything has the same requirements
-    - Video streaming service might not care if some data is lost
-    - Banks obviously would
+    - Gaming service might not care if some data is lost
+    - Websites obviously would
 
 --
 
