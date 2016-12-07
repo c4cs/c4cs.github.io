@@ -10,7 +10,7 @@ lectureTopics:
   - L7 Protocols (HTTP, DNS)
   - Routing
 lectureSummary: Follow down the rabbit hole of what happens when you visit www.google.com.
-leccapWed:
+leccapWed: qDFSP1
 leccapFri:
 ---
 
