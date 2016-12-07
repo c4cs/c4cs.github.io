@@ -90,6 +90,10 @@ dig www.google.com
 
 --
 
+```bash
+dig +trace www.google.com
+```
+
 - Pattern: "I don't know the answer, but I know who does"
 - Recursive/distributed approach
     - Limits data each server is required to store
