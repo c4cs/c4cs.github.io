@@ -61,11 +61,11 @@ office hours, demo your running code, and answer all the bolded questions.
 \emph{coverage} tools. They are deeply integrated with the \texttt{gcc}
 compiler. When you pass the \texttt{-p} (``profile'') flag to \texttt{gcc},
 the compiler will actually modify your program, causing it to record profiling
-information while it runs. What's weird here is that simply run your compiled
-program to generate profiling information and don't use the \texttt{gprof}
-tool until you want to parse the output. Unlike with \texttt{perf}, where it
-was a run-time decision to profile, with these tools profiling is a
-compile-time choice.
+information while it runs. What's weird here is that you simply run your
+compiled program to generate profiling information and don't use the
+\texttt{gprof} tool until you want to parse the output. Unlike with
+\texttt{perf}, where it was a run-time decision to profile, with these tools
+profiling is a compile-time choice.
 
 To get started, try this:
 \begin{verbatim}
