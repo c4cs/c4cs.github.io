@@ -11,8 +11,7 @@ lectureTopics:
   - What can I do with them?
   - Demos
   - Parting thoughts
-lectureSummary: We talk about the progression of computing, from terminal to
-cloud, and demo a few cool thigs the cloud leets us do.
+lectureSummary: We talk about the progression of computing, from terminal to cloud, and demo a few cool thigs the cloud leets us do.
 leccapWed:
 leccapFri:
 ---
