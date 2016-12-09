@@ -122,7 +122,7 @@ docker run -it ubuntu bash
 
 * Disposable servers in the cloud!
 
-_Check out the HitHub Student Pack for free credits to many cool services!_
+_Check out the [GitHub Student Pack](https://education.github.com/pack) for free credits to many cool services!_
 
 ---
 
