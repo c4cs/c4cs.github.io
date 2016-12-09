@@ -13,6 +13,6 @@ lectureTopics:
   - Parting thoughts
 lectureSummary: We talk about the progression of computing, from terminal to cloud, and demo a few cool thigs the cloud leets us do.
 leccapWed:
-leccapFri:
+leccapFri: 69hZnb
 ---
 
