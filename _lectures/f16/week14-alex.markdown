@@ -34,6 +34,12 @@ _alex chojnacki_
 
 _Okay, yeah, it's a "virtual private server" ..._
 
+--
+
+* _Virtual ..._
+* _Private ..._
+* _Server ..._
+
 ---
 
 # What does Wikipedia say about it?
