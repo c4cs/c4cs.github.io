@@ -461,7 +461,7 @@ def grade():
 		email = '''
 <p>Hello {},</p>
 <br />
-<p>Your Homework&nbsp;9 has been graded.</p>
+<p>Your Homework&nbsp;7 has been graded.</p>
 <p>Your raw score is {:1.1f}/4.0.</p>
 <p>Your final score is {}/4.</p>
 '''
