@@ -489,7 +489,7 @@ def grade():
 <p>If you believe there to be an issue with the grading of your assignment
 reply to this email before Monday, December&nbsp;19.</p>
 <p>If you would like more information on how your assignment was graded, you can
-look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/static/f16/hw/autograders/git-II/grade.py">autograder script</a></p>.
+look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/f16/hw/autograders/git-II/grade.py">autograder script</a></p>.
 '''
 
 		email += '''
