@@ -67,14 +67,14 @@ def send_email(uniqname, body):
 	FROM = 'c4cs-staff@umich.edu'
 	TO = uniqname + '@umich.edu'
 	#TO = 'ppannuto' + '@umich.edu'
-	CC = ['ppannuto@umich.edu',]
+	#CC = ['ppannuto@umich.edu',]
 	encoding = 'html'
 
 	msg = MIMEMultipart()
 	msg['Subject'] = SUBJECT
 	msg['From'] = FROM
 	msg['To'] = TO
-	msg['CC'] = ','.join(CC)
+	#msg['CC'] = ','.join(CC)
 	msg.attach(MIMEText(body, encoding))
 
 	if not ACTUALLY_SEND:
