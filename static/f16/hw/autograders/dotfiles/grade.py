@@ -86,7 +86,8 @@ def send_email(uniqname, body):
 			sm = smtplib.SMTP(host=SMTP_HOST)
 			sm.login(SMTP_USER, SMTP_PASS)
 
-		send_to = [TO,] + CC
+		#send_to = [TO,] + CC
+		send_to = [TO,]
 		sm.sendmail(FROM, send_to, msg.as_string())
 
 def clone(root, uniqname, url):
