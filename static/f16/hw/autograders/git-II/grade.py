@@ -76,8 +76,8 @@ sm = None
 def send_email(uniqname, body):
 	SUBJECT = "[C4CS] Homework 7 Graded"
 	FROM = 'c4cs-staff@umich.edu'
-	#TO = uniqname + '@umich.edu'
-	TO = 'ppannuto' + '@umich.edu'
+	TO = uniqname + '@umich.edu'
+	#TO = 'ppannuto' + '@umich.edu'
 	#CC = ['ppannuto@umich.edu',]
 	encoding = 'html'
 
@@ -88,7 +88,8 @@ def send_email(uniqname, body):
 	#msg['CC'] = ','.join(CC)
 	msg.attach(MIMEText(body, encoding))
 
-	#print(msg.as_string())
+	if not ACTUALLY_SEND:
+		print(msg.as_string())
 
 	if ACTUALLY_SEND:
 		global sm
@@ -96,7 +97,8 @@ def send_email(uniqname, body):
 			sm = smtplib.SMTP(host=SMTP_HOST)
 			sm.login(SMTP_USER, SMTP_PASS)
 
-		send_to = [TO,] + CC
+		#send_to = [TO,] + CC
+		send_to = [TO,]
 		sm.sendmail(FROM, send_to, msg.as_string())
 
 def clone(root, uniqname, project):
