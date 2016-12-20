@@ -240,7 +240,7 @@ def grade(uniqname):
 	email = '''
 <p>Hello {},</p>
 <br />
-<p>Your final course grade is {}/100, a {}.</p>
+<p>Your final course grade is {}/100, {}.</p>
 '''.format(uniqname, uniqs[uniqname]['final'], uniqs[uniqname]['letter'])
 
 	email += '''
