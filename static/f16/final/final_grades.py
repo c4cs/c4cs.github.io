@@ -134,6 +134,9 @@ def load_grades():
 			else:
 				uniqs[uniq]['adv'][id] = 'No'
 
+	for line in open(GRADES_PATH + 'advanced/adv2_bonus.csv'):
+		uniqs[line.split(',')[0]]['adv2bonus'] = 'Yes'
+
 	for uniq in uniqs:
 		hw_total = 0
 		for wk in uniqs[uniq]['hw']:
@@ -201,6 +204,12 @@ def load_grades():
 						first = True
 			except KeyError:
 				pass
+
+		# Special case the adv2 bonus point
+		if 'adv2bonus' in uniqs[uniq]:
+			uniqs[uniq]['adv'][2] = 'Yes (+1)'
+			adv_total += 1
+
 		uniqs[uniq]['adv_total'] = adv_total
 
 		uniqs[uniq]['final'] = hw_total + adv_total + attn_total
