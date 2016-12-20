@@ -346,8 +346,15 @@ def do_grading():
 
 # Generate canvas-friendly csv
 def write_wolv_grades():
+	enrolled = []
+	for row in csv.DictReader(open(GRADES_PATH + 'gradebook.csv')):
+		if row['Student'] == '    Points Possible':
+			continue
+		if row['Student'] == 'Student, Test':
+			continue
+		enrolled.append(row['SIS Login ID'])
 	with open(GRADES_PATH + 'final_grades.csv', 'w') as out:
-		for uniq in sorted(uniqs):
+		for uniq in sorted(enrolled):
 			out.write('{},{}\n'.format(uniq, uniqs[uniq]['letter']))
 
 if __name__ == '__main__':
