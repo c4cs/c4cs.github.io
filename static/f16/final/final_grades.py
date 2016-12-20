@@ -254,10 +254,23 @@ def grade(uniqname):
 
 	email += '''
 <hr />
-<p>It was wonderful having everyone in class this term.</p>
+<p>It was wonderful having everyone in class this term. We hope that this
+course will help you throughout the rest of your career in computer science, or
+whatever career path you may pursue.
+Materials from class will remain online on the course homepage and free for
+anyone to access in perpetuity.</p>
 <p>We would really appreciate if everyone could fill out
 <a href="https://docs.google.com/a/umich.edu/forms/d/e/1FAIpQLScKpWL3RkzwXcQ6-i3fJh0Xwqg2kNTGNv44V20CaVOCy1tn9Q/viewform">this survey</a>
 on how we can improve the course. The survey is completely anonymous.</p>
+<p>One of the challenges we continually face is reaching out to incoming
+computer science students. Many reviews "wish they had taken this before
+280/281", but it is hard for us to reach students who have not yet declared CS
+(and joined our e-mail lists) or found the
+<a href="https://www.facebook.com/groups/343020979078852/">CSE Facebook group</a>.
+If you found this course helpful, please help our outreach efforts by
+encouraging new students in CS to consider C4CS. If there are ways in which you
+think we could improve the class, please let us know in the
+<a href="https://docs.google.com/a/umich.edu/forms/d/e/1FAIpQLScKpWL3RkzwXcQ6-i3fJh0Xwqg2kNTGNv44V20CaVOCy1tn9Q/viewform">exit survey</a>.
 '''
 
 	email += '''
@@ -319,6 +332,12 @@ computed final grades.</p>
 	email += '    <td>{}</td>\n'.format(uniqs[uniqname]['adv_total'])
 	email += '  </tr>\n'
 	email += '</table>\n'
+
+	email += '''
+<hr />
+<p>Wishing you a happy holidays and a wonderful future in computer science!</p>
+<p>The C4CS Staff</p>
+'''
 
 	#print(email)
 
