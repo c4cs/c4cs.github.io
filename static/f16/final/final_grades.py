@@ -256,7 +256,7 @@ on how we can improve the course. The survey is completely anonymous.</p>
 <h3>Detailed Grade Breakdown</h3>
 <p>If you have any questions about how final grades were calculated,
 <a href="https://c4cs.github.io/#grading">here</a> is the course rubric, and
-<a href="#">this script</a>
+<a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/f16/final/final_grades.py">this script</a>
 computed final grades.</p>
 <table border="1">
   <tr>
