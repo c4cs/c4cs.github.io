@@ -2,6 +2,13 @@
 layout: default
 ---
 
+<div class="text-center">
+  <hr />
+  <h1 style="color: red; font-size: 300%">!!! This is the F16 version of the course !!!</h1>
+  <h1 style="color: red; font-size: 200%"><a href="/">Click here to go to the current course homepage</a></h1>
+  <hr />
+</div>
+
 <div class="jumbotron">
   <p>This 1-credit seminar is designed to teach the essentials of using a
   computer effectively for EECS students. While the target audience is CS/CE/DS
@@ -12,7 +19,6 @@ layout: default
   cover.</p>
 </div>
 
-{% if site.updates.length > 0 %}
 <div class="alert alert-info">
   <h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
 
@@ -44,8 +50,16 @@ layout: default
 
   </div><!-- old-updates -->
 </div>
-{% endif %}
 
+<div class="alert alert-success" style="text-align: center">
+	<h2>Registration Information</h2>
+	<h4>The course numbers in Wolverine Access are <strong>31180</strong> for 002,
+	and <strong>31181</strong> for 003.</h4>
+	<h4>Be sure to register only for <strong>sections 002 or 003</strong>, the other
+	398 sections are different courses!</h4>
+	<hr />
+	<h4 style="text-align: right">For any other questions, email <a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a></h4>
+</div>
 <hr />
 
 {% assign anchor_text="Course Pre-Requisites" %}
@@ -71,30 +85,27 @@ completed.</p>
 {% include anchor.html %}
 <p>
 For general issues, e-mail the course staff at <a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a>.
-For sensitive issues, please e-mail Marcus directly.
+For sensitive issues, please e-mail Pat and Marcus directly.
 </p>
 <div class="table-responsive">
   <table class="table staff-table">
     <tr>
+      <td><img src="/static/img/ppannuto-square.jpg" alt="Pat Pannuto"      /></td>
       <td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
       <td><img src="/static/img/mterwil-square.jpg"  alt="Matt Terwilliger" /></td>
       <td><img src="/static/img/thealex-square.jpg"  alt="Alex Chojnacki"   /></td>
-      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"   /></td>
-      <td><img src="/static/img/ankshah-square.jpg"  alt="Ankit Shah"       /></td>
     </tr>
     <tr>
+      <td>Pat Pannuto</td>
       <td>Marcus Darden</td>
       <td>Matt Terwilliger</td>
       <td>Alex Chojnacki</td>
-      <td>Cameron Gagnon</td>
-      <td>Ankit Shah</td>
     </tr>
     <tr>
+      <td><a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a></td>
       <td><a href="mailto:mmdarden@umich.edu">mmdarden@umich.edu</a></td>
       <td><a href="mailto:mterwil@umich.edu">mterwil@umich.edu</a></td>
       <td><a href="mailto:thealex@umich.edu">thealex@umich.edu</a></td>
-      <td><a href="mailto:cgagnon@umich.edu">cgagnon@umich.edu</a></td>
-      <td><a href="mailto:ankshah@umich.edu">ankshah@umich.edu</a></td>
     </tr>
   </table>
 </div>
@@ -102,10 +113,9 @@ For sensitive issues, please e-mail Marcus directly.
 {% assign anchor_text="Course Resources" %}
 {% assign anchor_name="resources" %}
 {% include anchor.html %}
-<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/ixgsfwif4f35is" target="_blank">Piazza</a></h4>
-<h4>Assignment Submission &amp; Grades &ndash; <a
-        href="https://gradescope.com/courses/5574" target="_blank">Gradescope</a></h4>
-<ul><li>Gradescope entry code: <code>MX54N9</code></li></ul>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/iqo81dkv68b1jb" target="_blank">Piazza</a></h4>
+<h4>Assignment Submission &amp; Grades &ndash; <a href="https://gradescope.com/courses/3499" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: 9D87R9</li></ul>
 <!--
 <p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
 so that all students may benefit from the question and answer. To reach the course staff, please e-mail
@@ -117,10 +127,10 @@ so that all students may benefit from the question and answer. To reach the cour
 {% assign anchor_name="times" %}
 {% include anchor.html %}
 <dl class="dl-horizontal">
-  <dt>Section 003 (28920)</dt>
-  <dd>1670 BBB, Friday 1:30PM &mdash; 3:00PM</dd>
-  <dt>Section 004 (28657)</dt>
-  <dd>AUD CHRYS, Friday 10:00AM &mdash; 11:30AM</dd>
+  <dt>Section 002 (31180)</dt>
+  <dd>1670 BBB, Wednesday 1:30-3:00</dd>
+  <dt>Section 003 (31181)</dt>
+  <dd>1670 BBB, Friday 1:30-3:00</dd>
 </dl>
 <p>In general, you may attend any section, however if the classrooms become
 overfull, we will have to ask that you attend the section you are officially
@@ -134,6 +144,11 @@ registered for.</p>
 {% assign anchor_name="schedule" %}
 {% assign anchor_html_entity="h3" %}
 {% include anchor.html %}
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-warning-sign"></span>
+  As this is a new class, the syllabus is subject to change in response to
+  feedback and class needs throughout the term.
+</div>
 <div class="table-responsive">
   <table class="table">
     <tr>
@@ -142,7 +157,7 @@ registered for.</p>
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'w17' %}
+      {% if week.categories contains 'f16' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
@@ -239,7 +254,7 @@ without actually penalizing your grade.</p>
 
 <h4>Grading Issues / Regrade Requests</h4>
 
-Regrades are handled on <a href="https://gradescope.com/courses/5574" target="_blank">Gradescope</a>.
+Regrades are handled on <a href="https://gradescope.com/courses/3499" target="_blank">Gradescope</a>.
 We will close regrade requests roughly one week after assignments are returned.
 
 {% assign anchor_text="Attendance and Participation (30% / 30 points)" %}
@@ -310,10 +325,10 @@ you did the whole thing or you did not.</p>
   Shoulders of Giants</em>. To encourage you to get started early and spread the
 advanced exercises load across the semester, the first advanced exercise you
 submit from each section is worth 10 points. Another advanced exercise in the
-same section is worth 5 points. If you do one advanced exercise from each
+same section is worth 2 points. If you do one advanced exercise from each
 section, the final section's first advanced exercise is worth half: 5 points. If
 a student completes all 11 advanced exercise, they will earn
-(10&nbsp;+&nbsp;5)&nbsp;+&nbsp;(10&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;+&nbsp;(10&nbsp;+&nbsp;5&nbsp;+&nbsp;5&nbsp;)&nbsp;+&nbsp;(5&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;=&nbsp;70&nbsp;points.
+(10&nbsp;+&nbsp;2)&nbsp;+&nbsp;(10&nbsp;+&nbsp;2&nbsp;+&nbsp;2)&nbsp;+&nbsp;(10&nbsp;+&nbsp;2&nbsp;+&nbsp;2&nbsp;)&nbsp;+&nbsp;(5&nbsp;+&nbsp;2&nbsp;+&nbsp;2)&nbsp;=&nbsp;49&nbsp;points.
 
 
 <!--
@@ -339,5 +354,4 @@ a student completes all 11 advanced exercise, they will earn
 
 <ul>
   <li><a href="/archive/w16/">Winter 2016</a></li>
-  <li><a href="/archive/f16/">Fall 2016</a></li>
 </ul>
