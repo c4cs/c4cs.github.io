@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Developing'
 week: 7
 dates: 02/17/2017
 lecturer: mmdarden

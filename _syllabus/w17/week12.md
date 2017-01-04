@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Standing on the Shoulders of Giants'
 week: 12
 dates: 03/24/2017
 lecturer: mmdarden

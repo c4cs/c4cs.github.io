@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Being Efficient'
 week: 4
 dates: 01/27/2017
 lecturer: mmdarden

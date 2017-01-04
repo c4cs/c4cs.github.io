@@ -1,4 +1,5 @@
 ---
+sectionHeader: Introduction and Basics
 week: 1
 dates: 01/06/2017
 lecturer: mmdarden
