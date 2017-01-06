@@ -31,6 +31,26 @@ defaults:
     values:
       layout: lecture
   - scope:
+      path: "_lectures/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/w16"
+    values:
+      category: w16
+  - scope:
+      type: syllabus
+    values:
+      layout: syllabus
+  - scope:
+      path: "_syllabus/f16"
+    values:
+      category: f16
+  - scope:
       path: "_lectures/w17"
     values:
       category: w17
@@ -38,14 +58,6 @@ defaults:
       path: "_updates/w17"
     values:
       category: w17
-  - scope:
-      path: "_updates/w17"
-    values:
-      category: w17
-  - scope:
-      type: syllabus
-    values:
-      layout: syllabus
   - scope:
       path: "_syllabus/w17"
     values:
