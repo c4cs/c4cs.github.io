@@ -13,6 +13,6 @@ title: "Introduction, Virtual Machines, & Command Line Primer"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: DsbkXq
+leccapFri: L3hTLF
 ---
