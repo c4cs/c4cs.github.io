@@ -4,3 +4,5 @@ _site
 *.swp
 *.swo
 *.DS_store
+*.aux
+*.out
