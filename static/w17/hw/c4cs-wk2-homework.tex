@@ -162,6 +162,10 @@ class assigns you a project is:
     > tar -xf eecs280-w15-p2.tgz
     > rm eecs280-w15-p2.tgz
     \end{Verbatim}
+  \item Create a blank starter cpp file
+    \begin{lstlisting}
+    > touch p2.cpp
+    \end{lstlisting}
   \item Add it all to git and commit it
     \begin{lstlisting}
     > git add *
@@ -179,49 +183,23 @@ adding stub functions. {\small (No, you don't actually need to read this spec)}
 
 \medskip
 \noindent
-There are 15 functions we need to stub out. That could be a pain, but
-fortunately the header file has already done most of the work. We'll drill
-into this command in the future, but for today, simply run:
-\begin{lstlisting}
-> echo -e '#include <cassert>\n#include "p2.h"\n' > p2.cpp
-> grep ';' p2.h | grep -v ' \*' >> p2.cpp
-\end{lstlisting}
+There are 15 functions we need to stub out. Fortunately, your c4cs staff have
+saved you some trouble. You should download our copy of \texttt{p2.cpp}:
 
-\medskip
-\noindent
-People can sometimes have strong opinions about text editors. One reason is
-that the editors that many programmers use can do far more than simply edit
-text.  Let's look at one example. Start by opening \texttt{p2.cpp} with
-\texttt{vim}:\\
-\begin{lstlisting}
-> vim p2.cpp
-# press 'jjj'    so that your cursor is on the i of int sum(...
-# press 'qq'     to begin recording a macro into the vim register q
-# press 'f;'     jump to the ';' character
-# press 's'      remove character under the cursor and enter insert mode
-# insert the needed text:
-#   '<space>{<enter>assert(false);<enter>}<enter><escape>'
-# press 'j'      so that your cursor is on the i of int product(...
-# press 'q'      to finish recording the macro
-# press '16@q'   16 times play the commands stored in register q
-# save and quit vim
-\end{lstlisting}
-\noindent
+\begin{Verbatim}[fontsize=\footnotesize]
+> wget 'https://raw.githubusercontent.com/the-alex/c4cs-eecs280/master/p2.cpp' -O p2.cpp
+\end{Verbatim}
 
 \noindent
-Now try running \texttt{make}. Cool, a building project in 60\,seconds or less.
+Now try running \texttt{make}. Cool; the project builds. But what changed?
+Fortunately, git can help us figure this out.
 
-\medskip
-\noindent
-\textbf{Commit the changes.}
+\textbf{What command will show you the \hl{difference} between your working
+directory and already committed changes?}
 
-\medskip
+\vspace{1.0cm}
 \noindent
-{\small\emph{%
-Note: This example happened to use vim, other editors also supports
-macros, for example in emacs \texttt{C-x~(}, \texttt{C-x~)}, and
-\texttt{C-x~e} will record, finish, and execute a macro.
-}}
+\textbf{Now, go ahead and commit the changes.}
 
 \newpage
 
@@ -240,14 +218,14 @@ Instead, we would prefer if git would \hl{ignore} the built output.
 
 \medskip
 \noindent
-\textbf{Commit a change so that built output is ignored.} When you are done,
+\textbf{Commit a change so that \underline{built output is \hl{ignored}}.} When you are done,
 \texttt{git status} should print
 \begin{Verbatim}[fontsize=\footnotesize]
   On branch master
   nothing to commit, working directory clean
 \end{Verbatim}
 
-
+\bigskip
 \textbf{Once you have completed all of the steps on the previous page, copy
 the output of:\\
 ~\\
@@ -268,8 +246,8 @@ exact state right now (even though it is not yet finished / not working).
 \textbf{\large \color{red}
   \begin{center}\texttt{* * *}\end{center}
   Later in the term we will analyze how you have been using git and how you
-  may improve. It is important that you have at least one non-trivial project
-  (e.g. a class project) that you have used git to maintain.
+  may improve. It is important that you have \hl{at least one non-trivial
+  project} (e.g. a class project) that you have used git to maintain.
   \begin{center}\texttt{* * *}\end{center}
 }
 \noindent
