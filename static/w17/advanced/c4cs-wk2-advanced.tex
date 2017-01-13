@@ -191,46 +191,7 @@ also print a message that suggests running the command
   your repository with anyone else. Use with caution.
 } if any errors are present.
 
-\bigskip
-
-\hrule
-\emph{Want even more? For an extra bonus point (1 point of extra credit):}
-
 \medskip
-\noindent
-Many commit messages will include snippets of code or a quote of a log or
-something else to help explain the commit. By convention, quoted blocks are
-indented with spaces.
-%
-\begin{quote}
-\begin{Verbatim}[fontsize=\scriptsize]
-Author: Brad Campbell <bradjc5@gmail.com>
-Date:   Sun Apr 19 22:02:53 2015 -0700
-
-Fix error on edit items page
-
-Need to handle the string "None", which isn't a number, fixes:
-
-  Traceback (most recent call last):
-    ...<snip>...
-    File "chezbetty-1.4.1.egg/chezbetty/templates/admin/item_edit.jinja2", line 56, in <module>
-      <dt>Days Until Out</dt> <dd>{{ stats.until_out|round(0)|int }}</dd>
-    File "Jinja2-2.7.3-py3.4.egg/jinja2/filters.py", line 657, in do_round
-      return round(value, precision)
-  TypeError: type str doesn't define __round__ method
-
-Fixes #172.
-\end{Verbatim}
-\end{quote}
-%
-It does not make sense to spell check the quoted material, however.
-
-\medskip
-\noindent
-\textbf{Modify your commit hook so that it does not spellcheck any line that
-begins with at least two spaces.}
-
-\newpage
 
 \subsection*{Some tips}
 \begin{itemize}
