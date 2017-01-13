@@ -43,14 +43,14 @@ literate={*}{{\char42}}1
 
 \begin{document}
 
-\fancyfoot[L]{\color{gray} C4CS -- F'16}
+\fancyfoot[L]{\color{gray} C4CS -- W'17}
 \fancyfoot[R]{\color{gray} Revision 1.0}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
 
 \title{\textbf{Advanced Exercise -- Week 2\\}}
-\author{\textbf{\color{red}{Due: Before October 1, 10:00PM}}}
+\author{\textbf{\color{red}{Due: Before January 27, 10:00PM}}}
 \date{}
 \maketitle
 
@@ -59,7 +59,7 @@ literate={*}{{\char42}}1
 To receive credit for this assignment you will need to stop by someone's
 office hours, demo your running code, and answer some questions.
 %
-\emph{Reminder: There are no office hours at 9:30PM on October~1st, plan ahead.}
+\emph{Reminder: There are no office hours at 9:30PM on January~27th, plan ahead.}
 
 
 \section{Git Golf}
@@ -191,46 +191,7 @@ also print a message that suggests running the command
   your repository with anyone else. Use with caution.
 } if any errors are present.
 
-\bigskip
-
-\hrule
-\emph{Want even more? For an extra bonus point (1 point of extra credit):}
-
 \medskip
-\noindent
-Many commit messages will include snippets of code or a quote of a log or
-something else to help explain the commit. By convention, quoted blocks are
-indented with spaces.
-%
-\begin{quote}
-\begin{Verbatim}[fontsize=\scriptsize]
-Author: Brad Campbell <bradjc5@gmail.com>
-Date:   Sun Apr 19 22:02:53 2015 -0700
-
-Fix error on edit items page
-
-Need to handle the string "None", which isn't a number, fixes:
-
-  Traceback (most recent call last):
-    ...<snip>...
-    File "chezbetty-1.4.1.egg/chezbetty/templates/admin/item_edit.jinja2", line 56, in <module>
-      <dt>Days Until Out</dt> <dd>{{ stats.until_out|round(0)|int }}</dd>
-    File "Jinja2-2.7.3-py3.4.egg/jinja2/filters.py", line 657, in do_round
-      return round(value, precision)
-  TypeError: type str doesn't define __round__ method
-
-Fixes #172.
-\end{Verbatim}
-\end{quote}
-%
-It does not make sense to spell check the quoted material, however.
-
-\medskip
-\noindent
-\textbf{Modify your commit hook so that it does not spellcheck any line that
-begins with at least two spaces.}
-
-\newpage
 
 \subsection*{Some tips}
 \begin{itemize}
