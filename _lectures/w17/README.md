@@ -13,7 +13,7 @@ Creating PDF versions
 1. Pick a week + run this beautiful magic:
 
 ```
-    WEEK=7 \
-    IP=$(ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2) \
-    docker run --rm --net=host -v `pwd`:/slides astefanutti/decktape http://$IP:4000/lectures/w17/week$WEEK slides.pdf
+WEEK=7 \
+IP=$(ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2) \
+docker run --rm --net=host -v `pwd`:/slides astefanutti/decktape http://$IP:4000/lectures/w17/week$WEEK week$WEEK.pdf
 ```
