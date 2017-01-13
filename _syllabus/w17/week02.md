@@ -2,15 +2,26 @@
 week: 2
 dates: 01/13/2017
 lecturer: mmdarden
+slidesName: w17/week2
 homeworkRelease: 2017-01-13 15:00:00
+#advancedRelease: 2017-01-13 2:00:00
 solutionRelease: 2017-01-20 15:00:00
 title: "Basic Git"
-# lectureTopics:
-#   - TBD
-# homeworkTopics:
-#   - TBD
-# advancedTopics:
-#   - TBD
+lectureTopics:
+  - What's version control?
+  - Why is it important?
+  - Git fundamentals
+  - Advanced git highlights
+  - "Social Coding"
+homeworkTopics:
+  - Intro tutorial to git
+  - Setting up a class project with git
+  - Basic usage and configuration
+advancedTopics:
+  - Rescuing repositories in bad states
+  - Commit hooks
+commands:
+  - git
 lectureSummary:
 leccapWed:
 leccapFri:
