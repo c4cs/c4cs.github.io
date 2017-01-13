@@ -5,7 +5,7 @@ dates: 01/06/2017
 lecturer: mmdarden
 slidesName: w17/week1
 homeworkRelease: 2017-01-06 15:00:00
-solutionRelease: 2017-01-13 15:00:00
+solutionRelease: 2017-01-14 22:00:00
 title: "Introduction, Virtual Machines, & Command Line Primer"
 lectureTopics:
   - Lines of text as a universal interface

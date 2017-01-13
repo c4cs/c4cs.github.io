@@ -5,7 +5,7 @@ lecturer: mmdarden
 slidesName: w17/week2
 homeworkRelease: 2017-01-13 15:00:00
 #advancedRelease: 2017-01-13 2:00:00
-solutionRelease: 2017-01-20 15:00:00
+solutionRelease: 2017-01-21 22:00:00
 title: "Basic Git"
 lectureTopics:
   - What's version control?
