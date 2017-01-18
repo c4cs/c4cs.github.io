@@ -23,6 +23,6 @@ advancedTopics:
 commands:
   - git
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: kSb8LE
+leccapFri: NOUqoC
 ---
