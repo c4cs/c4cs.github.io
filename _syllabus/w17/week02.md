@@ -23,6 +23,8 @@ advancedTopics:
 commands:
   - git
 lectureSummary:
+  - Darden was using bash-git-prompt during the demo
+  - Open source: https://github.com/magicmonty/bash-git-prompt
+  - Install via git clone or brew (MacOS)
 leccapWed: kSb8LE
 leccapFri: NOUqoC
----
