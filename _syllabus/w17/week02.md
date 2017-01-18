@@ -22,10 +22,7 @@ advancedTopics:
   - Commit hooks
 commands:
   - git
-lectureSummary:
-  - Darden was using bash-git-prompt during the demo
-  - Open source: https://github.com/magicmonty/bash-git-prompt
-  - Install via git clone or brew (MacOS)
+lectureSummary: During lecture, Darden was using a program called `git-bash-prompt`. [Here's a link to download and install it if you're interested](https://github.com/magicmonty/bash-git-prompt). Install via git clone or homebrew (MacOS)
 leccapWed: kSb8LE
 leccapFri: NOUqoC
 ---
