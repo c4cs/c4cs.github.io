@@ -31,14 +31,14 @@ commands:
   - $variable
   - history
   - grep
-  - tee
+#  - tee
 #  - ">>"
 #  - ">"
 #  - chown/chgrp
-  - "|"
+#  - "|"
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: gWkG4c
+leccapFri: Rh0K0n
 ---
 #---
 #lectureTopics:
