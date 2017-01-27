@@ -20,6 +20,13 @@ homeworkTopics:
 advancedTopics:
   - Working in existing codebases
   - Making it <i>your</i> editor through plugins
+commands:
+  - objdump
+  - stat
+  - ed
+  - sed
+  - vim
+  - emacs
 lectureSummary:
 leccapWed:
 leccapFri:
