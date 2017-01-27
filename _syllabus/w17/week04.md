@@ -28,6 +28,6 @@ commands:
   - vim
   - emacs
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed:YiDN2t
+leccapFri:1Tc3Qx
 ---
