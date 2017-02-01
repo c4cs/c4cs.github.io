@@ -25,7 +25,7 @@ commands:
   - stat
   - ed
   - sed
-  - vim
+  - vi
   - emacs
 lectureSummary:
 leccapWed: YiDN2t
