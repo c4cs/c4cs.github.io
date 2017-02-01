@@ -22,9 +22,6 @@ Regretably, I don't have the time (tonight) to write a guide to emacs. That
 said, if you come to my office hours wanting to know how to customize emacs,
 I will gleefully learn along with you.
 
-[Here's a good post on the vim/emacs
-debate](http://stackoverflow.com/a/1433315/3681820)
-
 ## On customization
 
 When you install your first plugin, there can be an urge to go crazy and
