@@ -1,0 +1,361 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+%\lstset{
+%  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+%}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{C4CS -- F'16}
+\fancyfoot[R]{Revision 1.0}
+\fancyfoot[C]{\thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Homework 3\\Shells, Environment, and Scripting}}
+\date{}
+\maketitle
+
+%\section*{Submission Instructions}
+%Submit this assignment on \href{https://gradescope.com/courses/3499}{Gradescope}.
+%You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+%helpful to edit and fill out this PDF.
+%You may also print, handwrite, and scan this assignment.
+
+
+\section{Understanding your \texttt{PATH}}
+
+In a terminal, type \texttt{PATH=} (just hit enter after the equal sign, no
+space characters anywhere). Try to use the terminal like normal (try running
+\texttt{ls}). What happened?
+
+\textbf{Give an example of a command that used to work but now doesn't:}
+\begin{quote}
+  \color{violet}
+  Most things don't work \texttt{mv, cp, rename, gcc, make, ...}. I even gave
+  you one example in the question itself (\texttt{ls}).
+\end{quote}
+
+\textbf{Can you still run this command with an empty \texttt{PATH}? How?}
+\begin{quote}
+  \color{violet}
+  Lecture showed off the \texttt{which} command, but that may have flown by.
+
+  This is a great example of something that should have been managable to
+  figure out on your own.
+  The first google result for ``ls command not found'', is a stack exchange
+  post where (admittedly the second response) says ``To check that it is
+  indeed a problem with your path, what's the result of \texttt{/bin/ls} ?''
+  (The query ``what does PATH do'' is equally fruitful).
+
+  Another good way of problem-solving this would be to open a new terminal and
+  look at the original contents (i.e.\ \texttt{echo \$PATH}). The
+  colon-separated list is a little cryptic, but exploring those directories
+  would hopefully let you figure this out.
+\end{quote}
+
+\textbf{Give an example of a command that works the same even with an empty
+\texttt{PATH}. Why does this command still work?}
+\begin{quote}
+  \color{violet}
+  Anything built-in to bash would still work. \texttt{cd} is the easy answer
+  here (why doesn't it make sense for \texttt{cd} to be an extrenal command?).
+  For a full list, you can type \texttt{help} and see a list of built-ins
+  (incidentally, \texttt{help} itself is a built-in and would have been a
+  good answer to this question).
+
+  A interesting last question to add would have been, \emph{Why do you need to
+    type \texttt{./a.out} to run your programs instead of simply
+  \texttt{a.out}? What is the dot in \texttt{./} doing?}
+\end{quote}
+
+
+\newpage
+\section{Playing with the shell a bit: Special Variables}
+
+Bash has quite a few special variables that can be very useful when writing
+scripts or while working at the terminal.
+
+\textbf{What does the variable \texttt{\$?} do? Give an example where this
+value is useful}
+\begin{quote}
+  \color{violet}
+  \texttt{\$?} holds the return value of the last command run. By convention,
+  this is 0 if the command succeeded and nonzero if the command failed.
+  It can be useful when writing scripts, especially if you want to have fairly
+  complex things happen depending on success or failure (making it hard to
+  just use \texttt{\&\&} or \texttt{||}).
+
+  Try writing a simple program and varying the return value from
+  \texttt{main}. Run your program and look a the value of \texttt{echo \$?}.
+\end{quote}
+
+\textbf{What does the variable \texttt{\$1} do? Give an example where this
+value is useful}
+\begin{quote}
+  \color{violet}
+  \texttt{\$1} is the first argument to a function. Bash syntax looks a little
+  different that some other languages you may have seen before. You use can
+  use it something like this:
+
+  \begin{lstlisting}
+$ cat b.sh
+#!/usr/bin/env bash
+
+# The first argument passed to this script
+echo $1
+
+# Argument 0 is the script itself
+echo $0
+
+function iamafunction {
+       	echo "In iamafunction"
+       	# Notice, no argument list, just assume they're there
+       	echo "   Arg1 is ->$1<-"
+       	echo "   Arg2 is ->$2<-"
+       	echo "   Arg3 is ->$3<-"
+}
+
+# Can pass things through and in a different order, spaces separate arguments,
+# no ()'s to call:
+iamafunction one two three
+
+# Can pass through variables too, note that $1 for the script is now $2 inside
+# the called function and $3 is empty, so it just prints nothing
+iamafunction firstarg $1
+
+[-bash] Fri 07 Oct 19:39 [/tmp/bb]
+$ ./b.sh arg1 arg2
+arg1
+./b.sh
+In iamafunction
+   Arg1 is ->one<-
+   Arg2 is ->two<-
+   Arg3 is ->three<-
+In iamafunction
+   Arg1 is ->firstarg<-
+   Arg2 is ->arg1<-
+   Arg3 is -><-
+  \end{lstlisting}
+\end{quote}
+
+\newpage
+\section{Basic Scripting}
+
+Recall from lecture that scripting is really just programming, only in a very
+high-level language. Interestingly, \texttt{sh} is probably one of the oldest
+languages in regular use today.
+
+\texttt{make} is a good tool for build systems, but we can actually use some
+basic scripting to accomplish a lot of the same things.
+First, write a simple C program that prints ``Hello World!''.
+Write a shell script named \texttt{build.sh} that performs the following
+actions:
+\begin{enumerate}
+  \item Compile your program
+  \item Runs your program
+  \item Verifies that your program outputs exactly the string ``Hello World!''
+    \begin{itemize}
+      \item There are good utilities that check the \texttt{\ul{diff}}erence of two
+        files. They could be helpful.
+    \end{itemize}
+  \item Prints the string ``All tests passed.'' If the output is correct, or
+    prints ``Test failed. Expected output $>>$Hello World$<<$, got
+    output $>>$\{the program output\}$<<$''.
+\end{enumerate}
+
+\begin{quote}
+  \color{red}
+  I think this question would have been improved with a little more direction
+  to help you get started, specifically, I would add:
+
+  To get you started, here's a simple shell script. Try copying it and running it.
+  \begin{lstlisting}
+  #!/usr/bin/env bash
+
+  echo "Hello, I am a shell script"
+
+  # Anything after a # character is a comment
+
+  # Shell scripts are like working in a terminal, only the script types the
+  # commands automatically for you
+
+  pwd
+  ls
+
+  # You won't break anything with shell scripts. The best way to write one is
+  # to add some commands and run it until the script does what you want.
+  \end{lstlisting}
+
+  Recall that your shell script began life a simple text file, it's up to you
+  to let the operating system know that this is actually now an executable
+  program. ($\leftarrow$ this is a pointer to \texttt{chmod +x} without
+  actually saying it)
+\end{quote}
+
+\st{\textbf{Copy the output of \texttt{cat build.sh} here:}}
+\textbf{\color{red} Show that your script works as expected for both correct
+and buggy hello world programs. Copy the contents of your script below:}
+
+
+\begin{quote}
+  \color{violet}
+
+  As for a solution, there are \textbf{many} ways of answering this question.
+  This is true of scripting in general. Scripts are (usually) not meant to be
+  ``pretty'' programs. There is no need to have the shortest or most elegant
+  solution. That's a waste of everyone's time. They are the kind of tool where
+  you simply find something that works and move on.
+
+  To that end, I've copied in several different solutions from several
+  different students that show off the various ways this could be done on the
+  next page.
+
+  \newpage
+  \lstset{tabsize=1}
+  \lstset{basicstyle=\footnotesize\ttfamily}
+  \begin{lstlisting}
+  Probably my favorite submission, as the citation history at the bottom shows
+  how this student identified the three challenges (command output -> variable,
+  conditionals in bash, and string comparison in bash), found examples for each,
+  and synthesized a result:
+
+  #!/bin/bash
+  #1. Compile the program
+  gcc main.c -o hello_world
+
+  #2. Run the program
+  output_val=$(./hello_world)
+  expected_val='Hello World!'
+
+  #3. Verify the program outputs 'Hello World!'
+  if [ "$output_val" == "$expected_val" ]
+  then
+    echo "All tests passed"
+  else
+    echo "Test failed. Expected output >>Hello World<<, got output >>$output_val<<"
+  fi
+
+  Sources:
+  http://www.cyberciti.biz/faq/unix-linux-bsd-appleosx-bash-assign-variable-command-output/
+  http://www.thegeekstuff.com/2010/06/bash-if-statement-examples/
+  http://stackoverflow.com/questions/4277665/how-do-i-compare-two-string-variables-in-an-if-statement-in-bash
+
+  --------------------------------------------------------------------------
+
+  #!/bin/bash
+  # Compile and make executable
+  gcc hello.c -o hello_exec
+
+  # Set the desired value in a temp variable
+  test="Hello World!"
+
+  # Store the output in a temp variable
+  output="$(./hello_exec)"
+
+  # Run diff against the desired string
+  diff <(echo $output) <(echo $test) &>/dev/null
+
+  # Check the exit code of diff
+  if [ $? = 0 ]; then
+    echo "All tests passed."
+  else
+    echo "Test failed. Expected output >>$test<<, got output>>$output<<"
+  fi
+
+  --------------------------------------------------------------------------
+
+  $ cat build.sh
+  g++ hello.cpp -o hello
+  "Hello World!" > correct
+  ./hello > output
+  cmp --silent output correct\
+    && echo "All tests passed"\
+  || echo "Test Failed. Expected output >>Hello World!<<, got output >>$(cat output)<<"
+
+  --------------------------------------------------------------------------
+
+  gcc main.c -o main
+  ./main > file1
+  echo -n "Hello World!" > file2
+  if diff -q file1 file2 > /dev/null; then
+    echo "All tests passed."
+  else
+    echo -n "Test failed. Expected output >>Hello World!<<, got output >>"
+    cat file1
+    echo "<<"
+  fi
+
+  \end{lstlisting}
+\end{quote}
+
+
+\vfill
+
+\section{Controlling your environment}
+
+In lecture, we added a directory to our \texttt{PATH} so that we could just
+type \texttt{hello} and the Hello World program would run. It would be
+annoying to update the \texttt{PATH} variable every time we open a new
+terminal. Fortuntately, we can do better.
+
+\textbf{Describe how you would set up your system to modify your \texttt{PATH}
+  automatically every time you open a new terminal (what file would you change
+  and what would you put in it?)}
+
+\begin{quote}
+  \color{violet}
+  Any of the files that are read on startup would work, but the traditional
+  one to use is \texttt{.bashrc}
+
+  You'll need to include \texttt{export} such any changes are propogated into
+  subshells. Something like:
+
+  \texttt{export PATH=\$PATH:~/bin}
+
+  is quite common.
+\end{quote}
+
+\textbf{Roughly how long did you spend on this assignment? \rule{5cm}{0.1mm}}
+\end{document}
