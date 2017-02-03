@@ -23,6 +23,6 @@ advancedTopics:
 lectureSummary: |
     Some [tips and tricks](/commands/git) to make working with git more
     enjoyable.
-leccapWed:
-leccapFri:
+leccapWed: rUeHbq
+leccapFri: F7pYIU
 ---
