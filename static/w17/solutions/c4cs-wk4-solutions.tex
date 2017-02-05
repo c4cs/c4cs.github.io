@@ -1,0 +1,522 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Homework 4\\Editors}}
+\author{\textbf{\color{violet}{Solutions}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/3499}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section*{\emph{Optional} Readings}
+
+{\small
+
+\subsection*{Interrupting Developers and Makers vs Managers}
+In lecture we spent a little time talking about the mental model of
+programmers. As computer science grows, there is a growing body of research
+and wisdom in how to maximize the efficacy of individual programmers.
+One of the key revelations is that programming is a creative process. It
+requires time to ``page in'' what you are working on. As a result, even small
+interruptions (read: text messages) can be far more costly than you may
+realize.
+
+\medskip
+\noindent
+\url{http://thetomorrowlab.com/2015/01/why-developers-hate-being-interrupted/}\\
+\emph{Why developers hate being interrupted}, by Derek Johnson at The Tomorrow Lab.
+
+\noindent
+\url{http://www.paulgraham.com/makersschedule.html}\\
+\emph{Maker's Schedule, Manager's Schedule}, by Paul Graham, co-founder of Y~Combinator.
+
+\medskip
+\noindent
+Once you are in a job environment and meetings become a regular thing, one of
+the best tricks I learned is to schedule a few 4-hour meetings with yourself
+throughout the week. It both prevents others from interrupting you (your
+calendar shows you as busy) and lets you mentally prepare for a good, reliable
+work session.
+(A similar alternative, some find
+\href{http://lifehacker.com/productivity-101-a-primer-to-the-pomodoro-technique-1598992730}{pomodoro}
+helpful)
+
+%As you work on homework this week, especially for your programming-heavy EECS
+%classes, I encourage you to try turning off your phone (yes, seriously, off),
+%close your browser and start from a blank session (hiding the browser window
+%with your Facebook tab doesn't help if messenger keeps dinging), and see if
+%your software development experience is any different.\footnote{
+%  It can be hard to be not keep opening a Facebook tab every time you Google
+%  something. Sometimes when I am having a particularly hard time forcing
+%  myself to work, I'll ``black hole'' things I might be tempted to distract
+%  myself with: \\
+%  \texttt{printf "\# Disable some sites\char`\\n127.0.0.1\char`\\tfacebook.com\char`\\n127.0.0.1\char`\\treddit.com\char`\\n" | sudo tee -a /etc/hosts}\\
+%  You can undo this by editing \texttt{/etc/hosts} later.
+%}
+
+\subsection*{Software Engineering in the Real World}
+\url{http://blogs.msdn.com/b/peterhal/archive/2006/01/04/509302.aspx}\\
+\emph{What Do Programmers Really Do Anyway?}, by Peter Hallam, then-Microsoft~Developer
+\begin{quote}
+  \emph{%
+    Why is 5 times more time spent modifying code than writing new code? The
+    answer is that new code becomes old code almost instantly.  Write some new
+    code. Go for coffee. All of sudden you've got old code.
+  }
+\end{quote}
+This post gives a nice perspective on what enterprise software engineering is
+really like. School projects are misleading. Rarely in life will you be faced
+with a spec and a blank text file. Far more often you are building on or
+improving something that came before you and will exist long after you.
+
+\medskip
+\noindent
+\url{http://www.joelonsoftware.com/articles/fog0000000069.html}\\
+\emph{Things You Should Never Do, Part I}, by Joel Spolsky
+\begin{quote}
+  \emph{It's harder to read code than to write it.}
+\end{quote}
+Building on the previous, rarely in life are you handed a spec and a blank text
+file, often in life you are handed a spec and a pile of (seemingly) spaghetti
+code that does at least some of it. This article discusses the hidden value of
+the built-up institutional knowledge and the high value of working code.
+
+\medskip
+\noindent
+\emph{When was the last time you saw a hunt-and-peck pianist?} -Jeff Atwood,
+co-founder of Stack Overflow and Discourse.\\
+Some extras on the
+\href{http://blog.codinghorror.com/we-are-typists-first-programmers-second/}
+{value of being a good typist}
+and
+\href{http://blog.codinghorror.com/going-commando-put-down-the-mouse/}
+{ditching the mouse for the keyboard}.
+
+}
+
+% I had some intention of some articles on text editors here, but I think these
+% are actually more useful, if a bit preachy
+
+
+\newpage
+\section{Trying out some of the fancy features}
+
+People often complain about how difficult the simple things are using
+text-based text editors. Indeed, Notepad (or TextEdit) make changing some
+text and saving a file very easy.
+In this question we explore some of the things that Notepad (and nano, and
+gedit, and Microsoft Word\dots) cannot do.
+
+I encourage you to play around with things as you work through this question.
+The intent is to expose you to features you may not have been aware of along
+with some context for why they are useful.
+
+There are many things to try here.
+\textbf{For credit on this question, you only need to choose any 5.}
+That said, I encourage you to try all of these.
+
+For this question, you may choose \texttt{vim} or \texttt{Emacs}, whichever
+you are more comfortable with.
+
+\begin{quote}
+  \color{blue}I'll present solutions in blue for vim, \color{red}and in red for Emacs.
+\end{quote}
+
+\medskip
+\noindent
+To start, grab copies of two files full of code:
+\begin{quote}
+  \texttt{\# Examples from \url{http://web.mst.edu/~price/cs53/code_example.html}}\\
+  \texttt{wget \url{http://web.mst.edu/~price/cs53/fs11/workDecider.cpp}}\\
+  \texttt{wget \url{http://web.mst.edu/~price/cs53/KatsBadcode.cpp}}
+\end{quote}
+\smallskip
+\hrule
+\bigskip
+
+\begin{enumerate}
+  \item Sometimes you will come across some ugly code. Your editor can help
+    make it better. Open \texttt{KatsBadcode.cpp}. Among other issues, the
+    really bad tabbing makes this hard to read.\\
+    \textbf{Describe how to automatically fix the whitespace for the whole file.}
+    \begin{quote}\tt
+      {\color{blue} gg=G (gg-go to top of file, = re-indent from here to, G-the end of the file)}
+
+      {\color{red} C-x h <tab>} or {\color{red}C-x h C-M-\textbackslash}
+      and as a courtesy to your collaborators, \newline give {\color{red} M-x delete-trailing-whitespace} a go
+    \end{quote}
+  \item Editing one file is nice, but often it's really useful to compare
+    files side-by-side (source and headers, spec and implementation).\\
+    \textbf{Describe the command sequence to create another window side-by-side with your current window, switch to it, and then open a file in that window.}
+    \begin{quote}\tt
+      {\color{blue} :split [filename] (or :vsplit), Ctrl-W + (W or arrow)}
+
+      {\color{red} C-x 4 f <filename>} or more manually {\color{red} C-x 3 (or C-x 2), C-x o, C-x C-f <filename>}
+    \end{quote}
+
+    Try playing around with these two views, copy/paste code between them,
+    bind them so they scroll together, resize them, add more splits.\\
+  \item Editors also have pretty nice integration with compilation tools. With
+    \texttt{KatsBadcode.cpp} open, try typing \texttt{:make KatsBadcode} in
+    \texttt{vim} or \texttt{M-x compile<enter>make KatsBadcode} in
+    \texttt{Emacs}.\footnote{
+      Descriptions of \texttt{Emacs} commands are usually written as
+      \texttt{C-c} or \texttt{M-x}, which mean ``Ctrl+C'' or ``Meta+x''
+      respectively. Meta is often mapped to the escape and/or alt key,
+      \texttt{M-x} means press Escape and then x or hold alt and press x.
+    }
+    \begin{quote}
+      First cool thing that happened: Yes, you can run \texttt{make}
+      \emph{without} any Makefile anywhere. We'll cover how that happened
+      during build-system week.
+    \end{quote}
+    Building \texttt{KatsBadcode.cpp} will fail with several errors.\\
+    \textbf{Describe how to navigate between compilation errors automatically.}
+    \begin{quote}\tt
+      {\color{blue} :cn, :cp}
+
+      {\color{red} C-x `, M-g p} or {\color{red} M-x next-error, M-x previous-error}
+    \end{quote}
+  \item While C-style languages support \texttt{/* block comments */}, others
+    such as Python have no block comments and require you to put a \texttt{\#}
+    at the beginning of every line.\\
+    \textbf{Describe how to efficiently comment out a large block of Python code.}
+    \begin{quote}\tt
+      \color{blue} Ctrl-v, highlight range, Shift-i, \#, Escape
+
+      \color{red} C-space, highlight range, M-;
+    \end{quote}
+  \item (This one is actually about the terminal emulator): The normal
+    keyboard shortcuts to copy/paste are Ctrl-C and Ctrl-V. These do not work
+    in the terminal, however.\\
+    \textbf{Explain what Ctrl-C does in a terminal.}
+    \begin{quote}\small
+      \color{violet} In a terminal, Ctrl-C sends the signal \texttt{SIGKILL} to
+      the foreground process (whoa, wordy!).
+
+      Breaking that down, normally when you write programs, your program asks
+      the operating system for input events. If a user types ``hello'', your
+      program doesn't see it until it calls \texttt{cin} (on the flip side, if
+      your program calls \texttt{cin} before the operating system has anything
+      to send it (before the user has typed anything), then your program is
+      put to sleep by the operating system until there is data available).
+
+      Sometimes, however, the operating system needs to send an
+      \emph{asynchronous} message to your program, that is it needs to send a
+      message that your program didn't ask for. In unix, \emph{signals} are
+      the mechanism that deliver these messages. One such asynchronous message
+      is the kill signal (\texttt{SIGKILL}), which is usually understood to
+      mean that the user wants your program to exit. If your program does not
+      implement a \emph{signal handler} (special function) and register it to
+      catch \texttt{SIGKILL}, then the operating system will kill your program
+      automatically (this is why Ctrl-C will kill the programs you write).
+
+      Many programs will install handlers, however, to \emph{catch} the signal
+      and do something different with it. For example, try hitting Ctrl-C when
+      running vim, what happens? Ctrl-Z also sends a signal, \texttt{SIGSTOP}.
+      This signal is special in that it \emph{cannot be caught}. When a
+      program receives a \texttt{SIGSTOP} signal, it is immediately suspended.
+      This can be a useful way to bail out of a program (such as \texttt{ed})
+      that Ctrl-C isn't killing and you can't figure out how to stop.
+      Note the program is \textbf{not} dead (yet), but you can kill a stopped
+      program to remove it completely.
+    \end{quote}
+    \textbf{Describe how to copy/paste using the keyboard in a terminal.}
+    \begin{quote}\tt
+      \color{violet} Ctrl-Shift-C and Ctrl-Shift-V
+    \end{quote}
+  \item The default cut/copy/paste(/put/yank/kill) operations do not put text in
+    the system clipboard (that is you cannot copy/paste into/from other
+    applications).
+    \textbf{Describe how to copy/paste a region of text to/from the system
+    clipboard using your text editor.}
+    \begin{quote}\tt
+      \color{blue} Use "+ to select the system clipboard register (+), that is
+      "+yy to copy the current line, or "+p to paste
+
+      \color{red} A freebie because it basically works already, Copy M-w,
+      Paste C-y -- however, I couldn't find an obvious way to make it work in
+      -nw mode, which could cause issues if something spawns emacs without a
+      window.
+    \end{quote}
+  \item Many times you have a repetitive task that you need to do say 10 or 20
+    times. It's too short to justify writing a script or anything fancy, but
+    it's annoying to type the same thing over and over again. As example,
+    reformatting the staff list to a nice JSON object:
+    \begin{verbatim}                                staff = [
+Pannuto,Pat                        {"first": "Pat", "last": "Pannuto"},
+Darden,Marcus                      {"first": "Marcus", "last": "Darden"},
+Terwilliger,Matt                   {"first": "Matt", "last": "Terwilliger"},
+Chojnacki,Alex                     {"first": "Alex", "last": "Chojnacki"},
+                                ]\end{verbatim}
+    Editors support the record and reply of \emph{macros}. With macros, you
+    can start recording, puzzle out how to turn one line into the other, and
+    then simply replay it for the rest. As a general rule, do not bother
+    trying to be optimal or efficient, just find anything that works.
+    Try starting with the column on the left and devising a macro to turn it
+    into the column on the right.\\
+    \textbf{Describe how to record and replay a macro.}
+    \emph{\small (you do not need to include the contents of your macro)}
+    \begin{quote}\tt
+      \color{blue}qq, <commands>, q (to stop recording), @q to replay (note
+      the second q is a register, so you could also do qa and @a)
+
+      {\footnotesize(my macro): \verb!yypws^M^[i{"first": ^[A,^[kddpkJli"last": ^[A}^[0f:lli"^[wwi"^[f:lli"^[$i"^[kJ0j!}
+
+      \color{red} C-x ( , <commands>, C-x ) , C-x e to replay
+
+      {\footnotesize(my macro): <tab> {"first" <space> C-right C-f C-space C-right
+          \newline C-w C-left " C-y ", <space> "last": <space> " C-right "}}
+    \end{quote}
+  \item Similar to how \texttt{$\sim$/.bashrc} configures your shell, a
+    \texttt{$\sim$/.vimrc} or \texttt{$\sim$/.emacs} file\footnote{
+      These files do not exist by default, you have to create them.
+    } can configure how your editor behaves. Here are some excerpts from the
+    staff's configuration files:
+    {\color{blue}
+    \begin{lstlisting}
+    .vimrc:
+    set number    " double-quote means comment in vimscript; this turns on line numbers
+    map ; :       " this line and the next makes ; act like : so that you don't have to
+    noremap ;; ;  " hit shift all the time, typing ";;" will act as ";" used to
+    \end{lstlisting}
+    }
+
+    {\color{red}
+    \begin{lstlisting}
+    .emacs:
+    ; line numbers - in Emacs, ; means a comment
+    (global-linum-mode t)
+    (setq linum-format "%d ")
+    ; Changes all yes/no questions to y/n type
+    (fset 'yes-or-no-p 'y-or-n-p)
+    \end{lstlisting}
+    }
+    \textbf{Add something useful not listed above to your editor's configuration file.\\
+      Describe  what you added and why.}
+      \begin{quote}\tt\small
+        \color{blue}
+        " Show whitespace characters\\
+        " helps notice bad tabbing and eliminates trailing whitespace characters\\
+        set list\\
+        set listchars=tab:.\ ,trail:.\\
+
+        \color{red}
+        ;set return go to newline and indent\\
+        (global-set-key (kbd "RET") 'newline-and-indent)\\
+
+        ; m-x compile scrolls automatically\\
+        (setq compilation-scroll-output 'first-error)\\
+
+        ; show trailing whitespace\\
+        (setq-default show-trailing-whitespace t)\\
+        ; delete trailing whitespace on save\\
+        (add-hook 'before-save-hook 'delete-trailing-whitespace)\\
+
+        ; enable better package manager\\
+        (require 'package)\\
+        (add-to-list 'package-archives\\
+                     '("marmalade" . "http://marmalade-repo.org/packages/"))\\
+        (add-to-list 'package-archives\\
+                     '("melpa" . "http://melpa.org/packages/") t)\\
+        (package-initialize)\\
+        ; M-x install-package or M-x package-list-packages\\
+
+      \end{quote}
+    \item Some final little things
+    \small
+    \begin{enumerate}
+      \item Editors understand balanced ()'s and \{\}'s.
+        \textbf{Describe how to jump from one token to its match, such as from
+          the opening \{ on line~29 of \texttt{KatsBadcode} to its partner \}
+          on line~58.
+        }
+        \begin{quote}\tt
+          \color{blue}Simply type \%
+
+          \color{red} C-M-right, C-M-left
+        \end{quote}
+      \item Now imagine if you are editing code and you determine you can
+        remove an if block, for example removing the \texttt{if} on line~28 of
+        \texttt{KatsBadcode} and running its body unconditionally. You need to
+        fix the indentation level of all 20~lines of the body.\\
+        \textbf{Describe how to change the indentation level of a block of code.}
+        \begin{quote}\tt
+          \color{blue} Select the region (Shift-V), hit $<$ (or $3<$ for three in, etc)
+
+          \color{red} C-u - 20 C-x <tab>
+        \end{quote}
+      \item Sometimes it's useful to run quick little commands. For example,
+        your code needs to read from a file, but you can't remember if it's
+        called \texttt{sample\_data.txt} or \texttt{sampleData.txt}.\\
+        \textbf{Describe how to run `ls' directly from within your editor.}
+        \begin{quote}\tt
+          {\color{blue} :!ls}
+
+          {\color{red} M-! ls} or {\color{red} M-x shell-command}
+        \end{quote}
+    \end{enumerate}
+\end{enumerate}
+
+
+\newpage
+\section{Remote work}
+One thing that can make life very convienent is learning how to work on remote
+machines. CAEN has a large number of machines available for students to use
+remotely, at \url{login.engin.umich.edu}. Let's check that out.
+
+\texttt{ssh} is the \textbf{s}ecure \textbf{sh}ell program, and is used to
+securely log in to remote machines.
+
+Run \texttt{ssh login.engin.umich.edu} to log into a CAEN machine. Take a look
+around, this is the same login environment and home directory as if you had
+sat down at a physical CAEN machine.
+
+Use \texttt{vim} or \texttt{emacs} to create a file called \texttt{test.txt}
+on CAEN. Put some text in it, save, and quit.
+
+Now try to run \texttt{gedit~test.txt}.
+
+\textbf{What error do you get? Why?}
+\begin{quote}
+  \color{violet}
+  \begin{lstlisting}
+** (gedit:30002): WARNING **: Could not open X display
+
+(gedit:30002): Gtk-WARNING **: cannot open display:
+  \end{lstlisting}
+  Graphical applications in Linux connect to a \emph{display server} called
+  \textbf{X11}, commonly just called \textbf{X}. It's X that is responsible
+  for hosting a \emph{window manager}, which is thing that lets a bunch of
+  application windows all share the same screen.
+
+  Because the machine you've logged into doesn't have a screen, there is no
+  display server running, so \texttt{gedit} has nowhere to render itself,
+  hence this error.
+
+  One really cool thing about how X is designed: unlike OS X or Windows,
+  programs that are running on one physical machine can display their window
+  on a different physical machine, this is called \ul{X forwarding}.
+\end{quote}
+
+Close your ssh session (log out of the terminal, either by typing
+\texttt{exit} or pressing \texttt{Ctrl-d} at an empty prompt). Then log in
+again with the additional \texttt{-X} flag to ssh:
+\texttt{ssh~-X~login.engin.umich.edu}.
+
+Now try running \texttt{gedit test.txt} -- great! Only, now you cannot do
+anything else in that terminal.
+
+\textbf{How can you keep using this terminal without killing the gedit session
+  that is already running?}
+
+\textbf{How should you launch \texttt{gedit} so that you can still use the
+  terminal?}
+
+\emph{\small (Hint: remember we talked about shell \ul{job control} a few
+  weeks ago)}
+
+\begin{quote}
+  \color{violet}
+  You can keep using \texttt{gedit} by \ul{suspend}ing it by pressing
+  \texttt{Ctrl-z} and then \ul{background}ing it by running \texttt{bg}.
+
+  You can run \texttt{gedit} in the background when you first start it up by
+  adding an ampersand to the end of the command, like this:
+
+  \texttt{gedit \&}
+
+  These \ul{job control} features are part of \texttt{bash}, though most
+  shells include similar if not identical commands.
+\end{quote}
+
+\vfill
+Try running a more graphically intensive program, such as the \texttt{eclipse}
+IDE or \texttt{matlab}. How does it compare to sitting at a physical CAEN
+machine? How does it compare to using
+\href{http://caenfaq.engin.umich.edu/12374-Linux-Login-Service/how-do-i-connect-to-a-caen-linux-computer-remotely}{VNC}
+to log into CAEN? (And how good is your Internet connection right now ;) ?)
+
+\bigskip
+\hrule
+You may also find the \textbf{s}ecure \textbf{c}o\textbf{p}y program,
+\texttt{scp}, useful for moving files between your machine and the remote
+machine. Assuming you have the file `test.txt' on your local machine,
+
+\texttt{scp~test.txt~login.engin.umich.edu:}
+
+will copy the file to CAEN. Note the trailing colon, this is what tells
+\texttt{scp} to copy to a remote machine.
+
+You can also specify a path on one or both machines. Assuming that you have
+the folder `inhomeoncaen' on your CAEN account and `local' in the current
+directory of your machine,
+
+\texttt{scp~login.engin.umich.edu:inhomeoncaen/test.txt~local/}
+
+will the file \texttt{test.txt} from CAEN to your machine.
+
+\texttt{scp} operates just like \texttt{cp}, that is, you have to pass the
+\texttt{-r} flag if you want to copy a directory, such as
+
+\texttt{scp~-r~project1~login.engin.umich.edu:classes/eecs280/}
+
+\emph{(There's no question on \texttt{scp}, just a tool for you to play with)}
+
+\end{document}
