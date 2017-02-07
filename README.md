@@ -23,6 +23,8 @@ number of dependencies to resolve first:
 ```bash
 $ sudo apt-get install ruby ruby-dev build-essential patch zlib1g-dev liblzma-dev nodejs
 $ sudo gem install jekyll bundler
+$ bundle install
+$ bundle exec jekyll serve # serves site at http://127.0.0.1:4000
 ```
 
 For more information on setting up, see [GitHub's guide][gh docs] or [Jekyll's documentation][jekyll docs].
