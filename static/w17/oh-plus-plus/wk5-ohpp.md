@@ -123,9 +123,171 @@ Lots of `git status`? Yep. Always `git status`, `git status`, `git status`.
 
 ## rebase
 
+`git rebase` is a very powerful, and sometimes a very confusing tool. However,
+understanding this built in command can lead to very clean git histories as
+well as easily revertible commits. As we saw in the examples above, usually
+when you're done working on a branch, you will `git merge` it back into
+`master`. This results in a "merge commit". This workflow is very common, and
+not necessarily a bad idea, however if there are many times that feature
+branches are being merged into a master branch, the git history can look a bit
+hectic. Many open-source projects have contributor notes specifying what the
+requirements are when adding code to the main repository, and rebasing will
+likely be a part of that workflow.
+
+A small side note, yet something that has a lot of bang for your buck, is
+understanding what `git pull` does. What happens under the hood is that git runs
+ `git fetch` and then `git merge FETCH_HEAD`. Sometimes, as a result of this, we
+ can get merge commits. This can further clutter the git history. If you want
+ `git pull` to default to performing a rebase, you can type `git pull --rebase`.
+ Or if you wish to set that as your default, you can run `git config --global
+ pull.rebase true`.
+
+### Example workflow using `git merge` vs. `git rebase`
+
+When working on a project and using `git merge` you may have a history such as:
+
+```
+Most recent in time
+
+ H   <--- This is the merge commit which comes from running 'git merge feature'
+ |\
+ E G  <-- Add some commits that aren't on master
+ | |
+ D F  <-- First commit on a branch named 'feature'
+ |/
+ C
+ |
+ B
+ |
+ A
+
+Oldest in time
+```
+
+
+If you want to see what this looks like happening tens of times in a short
+amount of time, clone the websites' repository and look through the history
+using this git command:
+
+`git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
+ %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit`
+
+
+__Protip__: alias the above command to `gl` to be able to use that to quickly get a
+sense of a project's history.
+
+`alias gl='git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
+%s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit'`
+
+
+Now what would the history look like if we rebase instead of merging? This is
+what the history will look like just before we run `git rebase master` when
+we're on the feature branch.
+
+```
+Most recent
+
+ E G  <-- Add some commits that aren't on master
+ | |
+ D F  <-- First commit on a branch named 'feature'
+ |/
+ C
+ |
+ B
+ |
+ A
+
+Oldest
+```
+
+After running `git rebase master` when we're on the feature branch,
+we will end up with this:
+
+```
+Most recent
+
+   G'
+   |
+   F' <-- Our first commit on the feature branch
+  /
+ E    <-- Last commit on master
+ |
+ D
+ |
+ C
+ |
+ B
+ |
+ A
+
+Oldest
+```
+
+What rebasing does is re-apply any commits you made in your feature branch, on top of the `HEAD` of
+master. It also generates new commit hashes for them, but otherwise the commits
+are nearly identical (this is why there is a quote next to the F and G commits,
+since they are technically different to git, but really the same to you).
+When you run this command you will still get merge __conflicts__, but not merge
+__commits__.
+
+At this point, you may be saying, "Well, our work still isn't in the master
+branch, so what do we do?" Well, we can `git merge feature` when we're on
+the master branch. This will now perform what is called a 'fast-forward' merge,
+because all of the history on master is already accounted for in the feature
+branch, so no merge commit will be created.
+
+Our history now looks like this:
+
+```
+Most recent
+
+ G' <-- Master and feature branch are both here now
+ |
+ F'
+ |
+ E
+ |
+ D
+ |
+ C
+ |
+ B
+ |
+ A
+
+Oldest
+```
+
+What a beautiful, linear history! Now if you're done developing on the feature
+branch, you can delete it with `git branch -D feature`, and be on your way.
+
+
 ### interactive
 
-### non-interactive
+Looking at the last example, we see that both the commits `F` and `G` were
+re-applied onto `master` from our `feature` branch. However, what if everyone
+else who saw our feature didn't need to know about both `F` and `G` commits, but
+maybe just one commit saying the entire feature was done? This is where
+interactive rebasing comes in!
+
+
+Interactive rebasing can help you do several things, however, the one we will be
+talking about here is what is referred to as "squashing commits" together to
+make one commit.
+
+Interactive rebasing is invoked with `git rebase --interactive <commit>` or `git rebase
+-i <commit>` on the command line. The point in time that running `git rebase -i` takes
+place is just before we want to merge our feature branch into master. Because
+this involves opening a text editor to modify the commits, it is difficult to
+show exactly how to do this through here. However, a good example can be found
+[here](https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history#squash-commits-together).
+
 
 ## More resources
+
+To learn about the power of rebasing in general, I do suggest reading [this
+article](https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history#squash-commits-together).
+It highlight several of the common use cases and goes through each one with an
+example.
+
 
