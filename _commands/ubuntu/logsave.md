@@ -7,15 +7,15 @@ logsave
 logsave saves the output of a command into a logfile
 
 ~~~ bash
-$logsave file.txt {Linux command}
+$logsave file.txt {linux command}
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
-On top of the output, logsave will also add a timestamp and results of the command to standard output.  If the designated file does not appear, logsave will queue the data and write to the file upon its creation. 
+On top of the output, logsave will also add a timestamp and results of the command to standard output.  If the designated file does not appear, logsave will queue the data and write to the file upon its creation.
 
-The logsave command also takes a few options: 
+The logsave command also takes a few options:
 
 -a
 This appends output to the designated file, rather than replacing its current contents.
@@ -27,7 +27,7 @@ This displays verbose output.
 #### Example command
 $ logsave output.txt df -h  
 ##### Break it down
-Here, logsave saves the output of df, a Linux command that shows free disk space, to var/output.txt, the designated file. 
+Here, logsave saves the output of df, a Linux command that shows free disk space, to var/output.txt, the designated file.
 #### Example command
 $ logsave -a output.log echo "hello world"
 hello world

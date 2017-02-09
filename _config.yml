@@ -71,6 +71,10 @@ defaults:
     values:
       category: basics
   - scope:
+      path: "_commands/caen"
+    values:
+      category: caen
+  - scope:
       path: "_commands/shells"
     values:
       category: shells
@@ -99,7 +103,7 @@ defaults:
     values:
       category: os_x
 
-command_categories: ["basics", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
+command_categories: ["basics", "caen", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
 
 # Build settings
 markdown: kramdown
@@ -114,4 +118,3 @@ markdown_ext: "mkdown,mkdn,mkd,md"
 
 # Needed for Travis
 exclude: [vendor]
-
