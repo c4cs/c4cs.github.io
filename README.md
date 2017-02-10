@@ -17,15 +17,15 @@ Content for the website is written in [Markdown][].
 To contribute to the [reference page][], navigate to `_commands/` and then to the specific section and edit an existing `.md` file or create a new one.
 For example, to edit the `cd` reference, edit `_commands/basics/cd.md`.
 
-In order to build the site locally on your computer, install [Jekyll][]:
+In order to build the site locally on your __Ubuntu__ computer, there are a
+number of dependencies to resolve first:
 
-1. Install [ruby][]: `# apt-get install ruby ruby-dev`.
-(Substitute `apt-get install` with the appropriate command for your package manager.
-For example, [Homebrew][] users can use `brew install` and pacman users can use `pacman -S`.
-Leave out `ruby-dev` on other platforms.)
-2. Install [Jekyll][] and [bundler][]: `# gem install jekyll bundler`.
-
-(Note: `#` denotes shell with root permissions. I.e., precede the above commands with `sudo`.)
+```bash
+$ sudo apt-get install ruby ruby-dev build-essential patch zlib1g-dev liblzma-dev nodejs
+$ sudo gem install jekyll bundler
+$ bundle install
+$ bundle exec jekyll serve # serves site at http://127.0.0.1:4000
+```
 
 For more information on setting up, see [GitHub's guide][gh docs] or [Jekyll's documentation][jekyll docs].
 
