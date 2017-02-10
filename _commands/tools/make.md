@@ -62,7 +62,7 @@ resize.exe
 ~~~
 
 ##### Break it down
-`make clean` in this Makefile is set up to remove all executables, .out.txtm and .out.ppm files. This is good to have if you want a nice clean start before you compile again.
+`make clean` in this Makefile is set up to remove all executables, `.out.txt` and `.out.ppm` files. This is good to have if you want a nice clean start before you compile again.
 
 
 ### Final Remarks
