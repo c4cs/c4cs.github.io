@@ -32,6 +32,12 @@
     <script src="https://rawgit.com/gnab/remark/gh-pages/downloads/remark-latest.min.js">
     </script>
     <script>
+      remark.macros.scale_img = function(percentage) {
+        var url = this;
+        return '<img src="' + url + '" style="width: ' + percentage + '" />'
+      };
+    </script>
+    <script>
       var slideshow = remark.create();
     </script>
     {% include scripts.html %}
