@@ -18,6 +18,6 @@ advancedTopics:
   - (Basic) shell job control
   - Automated testing
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: qlB5Sh
+leccapFri: Unxdri
 ---
