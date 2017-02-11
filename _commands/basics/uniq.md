@@ -36,6 +36,26 @@ _Notice that the 2 that follows the 3 is not filtered, even though it is repeate
  * This is the default action if no flag is specified
  * The `-u` option tells `uniq` to filter out only those lines that are unique, with non-consecutive repeated lines being treated as unique instances
  * Refer to the example above. No flag is specified, so the deafult `-u` option is used
+ * The `-u` option is most commonly used with [sort](/commands/sort) to first sort a file and then remove consecutive duplicated lines (see example below)
+
+~~~ bash
+$ cat numbers.txt
+2
+2
+0
+2
+1
+1
+3
+4
+4
+$ numbers.txt | sort | uniq -u
+0
+1
+2
+3
+4
+~~~
 
 #### `uniq -d`
 
@@ -86,6 +106,33 @@ $ uniq -D numbers.txt
 ##### Break it down
 
  * The `-D` option tells `uniq` to print all duplicate lines, instead of just the first duplicate of each group of duplicate lines
+
+#### `uniq -c`
+
+~~~ bash
+$ cat numbers.txt
+2
+2
+0
+2
+1
+1
+3
+4
+4
+$ uniq -D numbers.txt
+2 2
+1 0
+1 2
+2 1
+1 3
+2 4
+~~~
+
+##### Break it down
+
+ * The `-c` option tells `uniq` to print 2 all unique lines, retaining the first line of consecutive repeated lines, and also generate a count of the number of consecutive repeated lines. For unique lines, the count will be 1.
+ * The first column is the count, and the second column is the filtered output
 
 
 
