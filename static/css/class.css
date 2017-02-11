@@ -79,14 +79,17 @@
 	height: 100%;
 }
 
-.anchor-icon {
+.anchor-icon:before {
   position: relative;
   left: -25px;
   margin-right: -16px;
-  margin-top: -50px;
-  padding-top: 250px;
+  content:"";
+  display:block;
+  height:50px; /* fixed header height*/
+  margin:-50px 0 0; /* negative fixed header height */
 
 }
+
 @media only screen and (max-width : 480px) {
   .anchor-icon {
     display: none;
