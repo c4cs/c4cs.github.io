@@ -113,7 +113,7 @@ ourselves and anyone else looking at our code why and what we committed.
 Commit messages have a particular style: they should be written in the imperative
 mood, without ending punctuation. Certain verbs, like "Add", "Implement", and
 "Remove", are good first words in a commit message. Read [Chris Beams' "How to Write
-a Git Commit Message"](http://chris.beams.io/posts/git-commit/) to learn the best
+a Git Commit Message"](https://chris.beams.io/posts/git-commit/) to learn the best
 practices.
 
 If we run git status again, we see that file1.cpp is no longer "modified," in 
