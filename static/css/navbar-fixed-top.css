@@ -1,11 +1,11 @@
 body {
   min-height: 2000px;
-  padding-top: 70px;
+  padding-top: 120px;
 }
 
 a.anchor {
   display: block;
   position: relative;
-  top: -120px;
+  top: -70px;
   visibility: hidden;
 }
