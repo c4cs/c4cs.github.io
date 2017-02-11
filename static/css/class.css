@@ -83,6 +83,8 @@
   position: relative;
   left: -25px;
   margin-right: -16px;
+  padding-top: 2cm;
+  margin-top: 2cm;
 }
 @media only screen and (max-width : 480px) {
   .anchor-icon {
