@@ -83,7 +83,6 @@
   position: relative;
   left: -25px;
   margin-right: -16px;
-  outline: 0;
 }
 
 .anchor-icon:before {
@@ -99,9 +98,4 @@
     display: none;
    position: relative; 
   }
-}
-
-*{
-	outline: 0;
-outline: none;
 }
