@@ -79,10 +79,13 @@
 	height: 100%;
 }
 
-.anchor-icon:before {
+.anchor-icon{
   position: relative;
   left: -25px;
   margin-right: -16px;
+}
+
+.anchor-icon:before {
   content:"";
   display:block;
   height:50px; /* fixed header height*/
