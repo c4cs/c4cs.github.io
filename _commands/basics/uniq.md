@@ -49,7 +49,7 @@ $ cat numbers.txt
 3
 4
 4
-$ numbers.txt | sort | uniq -u
+$ numbers.txt | sort | uniq
 0
 1
 2
@@ -120,7 +120,7 @@ $ cat numbers.txt
 3
 4
 4
-$ uniq -D numbers.txt
+$ uniq -c numbers.txt
 2 2
 1 0
 1 2
@@ -131,7 +131,7 @@ $ uniq -D numbers.txt
 
 ##### Break it down
 
- * The `-c` option tells `uniq` to print 2 all unique lines, retaining the first line of consecutive repeated lines, and also generate a count of the number of consecutive repeated lines. For unique lines, the count will be 1.
+ * The `-c` option tells `uniq` to print all unique lines, retaining the first line of consecutive repeated lines, and also generate a count of the number of consecutive repeated lines. For unique lines, the count will be 1.
  * The first column is the count, and the second column is the filtered output
 
 
