@@ -90,25 +90,13 @@ But first, read over everything your script should do:
         pass and non-zero otherwise.
     \end{itemize}
         \pagebreak
-  \item Run the \texttt{cppcheck} utility for this project
-    \begin{itemize}
-      \item \emph{\small You will need to install this utility first
-        (\texttt{sudo~apt-get~install~cppcheck}), your script may assume that
-        cppcheck is already installed}
-      \item \texttt{cppcheck} is a style and correctness checker (it is a
-        \emph{linter} and a \emph{static analysis} tool).
-      \item You should invoke \texttt{cppcheck} as
-        ``\texttt{cppcheck~--enable=all~.}'' (try it out!)
-      \item You should again save the regular output and error output into
-        separate files.
-    \end{itemize}
 \item Generate a nice report when everything is done and alert the user
     using \texttt{notify-send}
         \begin{itemize}
             \item Try running \texttt{notify-send "I am a title" "And I am a body"}
             \item Your notification should include in the notification what you
-                think is useful. At a minimum it should include (a) how many test
-                cases passed, and (b) if the style checker reported any warnings.
+                think is useful. At a minimum it should include how many test
+                cases passed.
         \end{itemize}
 \end{enumerate}
 
@@ -183,8 +171,7 @@ Now, let's try it out with the repository you created in Homework~4:
 \begin{itemize}
   \item Build up your solution in parts. Get step 1 working then commit it.
     Then onto step 2.
-  \item Steps 1 and 5 are probably the most challenging. Step 6 is almost an
-    exact copy of step 4.
+  \item Steps 1 and 5 are probably the most challenging.
   \item You, of course, do not need to actually implement project~2 from
     EECS\,280.  I recommend something like this:%
 \lstset{basicstyle=\footnotesize\ttfamily}
