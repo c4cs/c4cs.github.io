@@ -49,7 +49,7 @@ $ cat numbers.txt
 3
 4
 4
-$ numbers.txt | sort | uniq
+$ cat numbers.txt | sort | uniq
 0
 1
 2
