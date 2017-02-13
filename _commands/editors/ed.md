@@ -1,7 +1,7 @@
 ---
 ---
 
-COMMAND
+ed
 -------
 
 Short description of the command
