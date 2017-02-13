@@ -85,7 +85,7 @@
   margin-right: -16px;
 }
 
-.anchor-icon:before {
+.anchor:before {
   content:"";
   display:block;
   height:50px; /* fixed header height*/
