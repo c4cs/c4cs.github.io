@@ -18,7 +18,7 @@
 \begin{document}
 
 \fancyfoot[L]{\color{gray} C4CS -- W'17}
-\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[R]{\color{gray} Revision 1.1}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
@@ -64,7 +64,7 @@ But first, read over everything your script should do:
     \end{itemize}
   \item Assuming the directory you created above is at \texttt{\$PROJ\_TMP\_DIR}, run
     \begin{itemize}
-      \item \texttt{git clone -{}-local .\ \$PROJ\_TMP\_DIR/\$(git describe -{}-always)}
+      \item \texttt{git clone -{}-local \$1\ \$PROJ\_TMP\_DIR/\$(git describe -{}-always)}
     \end{itemize}
 \item Call a \ul{second script} (\texttt{run-tests-bg} or something like that) that runs in the background to execute the
     remaining tasks. This second script should do all of its work in the clone
