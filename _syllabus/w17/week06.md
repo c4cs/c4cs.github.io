@@ -3,6 +3,7 @@ week: 6
 dates: 02/10/2017
 lecturer: mmdarden
 homeworkRelease: 2017-02-10 15:00:00
+advancedRelease: 2017-02-10 15:00:00
 solutionRelease: 2017-02-18 15:00:00
 title: "Unix II"
 slidesName: w17/week6
@@ -18,6 +19,6 @@ advancedTopics:
   - (Basic) shell job control
   - Automated testing
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: qlB5Sh
+leccapFri: Unxdri
 ---
