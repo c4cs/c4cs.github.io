@@ -4,8 +4,8 @@ $(function() {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
-        var scrollToPosition = $(target).offset().top - 50000;
-        $('html').animate({ 'scrollTop': scrollToPosition }, 600);
+        var scrollToPosition = $(target).offset().top;
+        $('html').animate({ 'scrollTop': scrollToPosition }, 60);
         //$('html, body').animate({
          // scrollTop: target.offset().top
         }, 1000);
