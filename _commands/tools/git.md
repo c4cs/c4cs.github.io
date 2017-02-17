@@ -332,6 +332,18 @@ pleasant. You may not like all of these or you may have other preferences, you
 should explore!
 
 
+Git Stash
+---------
+
+When working on a large project, you may find yourself in a position where you're halfway through implementing one feature, but then somebody asks you to switch to a different feature. What do you do with the progress that you've made on the first feature? One option would be to commit the work you've done so far, but if it's a work-in-progress, it might not even compile! Another option would be to make a temporary directory and put the work in there, but now you'd have two directories to manage and it could become a version control nightmare. Fortunately, git provides an easy way to handle this situation: the stash.
+
+The stash is a hidden data structure that you can use to store changes to the working directory that have not yet been committed. These changes can then be loaded out of the stash at a later time when you want to resume working on that part of the project.
+
+To store a set of changes in the stash, first modify the files in your working directory, and then type `git stash save`. Git will then store away those modifications and restore your working directory to a clean slate matching the most recent commit. When you want to bring the changes back, type `git stash apply` and your most recently stashed work will be loaded into the working directory. (Note that if the repository has changed in the meantime, you may have to resolve merge conflicts upon loading from the stash.)
+
+Saving and applying are the most fundamental commands for working with the stash, but there are a few other helpful commands as well. `git stash list` will show a list of all of the work that's been stored in the stash, ordered from newest to oldest. Work that was stored with the default `git stash save` command will only be indentified by the commit on which that work was made, but you could instead add a custom message with `git stash save "<message>"`. Individual entries in the stash can be removed with `git stash drop stash@{<number>}`, where `<number>` is the index of the entry in the stash list, and the entire stash can be emptied with `git stash clear`. Finally, the command `git stash pop` will apply the most recent stash entry and then remove it, essentially treating the stash as a stack data structure. 
+
+
 ~/.gitconfig
 ------------
 
