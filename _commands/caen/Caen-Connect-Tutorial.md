@@ -1,15 +1,13 @@
 ---
 ---
 
-Caen-Connect-Tutorial
+Caen Connect Tutorial
 -------
 
-Caen-Connect-Tutorial walks through with you the way to sync your local project folder to your remote CAEN (Linux) machine instantly using SFTP, so you could ssh into CAEN, and do the stuff that you want CAEN to do.
+Caen Connect Tutorial walks through with you the way to sync your local project folder to your remote CAEN (Linux) machine instantly using SFTP, so you could ssh into CAEN, and do the stuff that you want CAEN to do.
 
 
 <!--more-->
-
-# CAEN-Connect-Tutorial
 
 ***NOTE: BEFORE you read the rest of the tutorial, MAKE SURE that you are a student attending the University of Michigan, Ann Arbor (preferably a College of Engineering student). Though this tutorial may also apply to other similar situations, it will be your responbility to learn to adapt. Cheers =P***
 
@@ -17,7 +15,7 @@ Caen-Connect-Tutorial walks through with you the way to sync your local project 
 
 ## Introduction
 
-**Caen-Connect-Tutorial** walks through with you the way to sync your local project folder to your remote CAEN (Linux) machine **instantly** using **SFTP**, so you could ssh into CAEN, and do the stuff that you want CAEN to do.
+**Caen Connect Tutorial** walks through with you the way to sync your local project folder to your remote CAEN (Linux) machine **instantly** using **SFTP**, so you could ssh into CAEN, and do the stuff that you want CAEN to do.
 
 ## Possible Cases of Usage
 
@@ -40,50 +38,25 @@ Now, to make this happen, all you need is a [sublime text](https://www.sublimete
 #### Real Magic
 1. **Configurations**
 
-	Open up your **root/parent project directory** (where you put all your project folders for this course) and create a new json file named **`sftp-config.json`**. Open it up, and copy-paste in the following code:
+	Open up your **root/parent project directory** (where you put all your project folders for this course) and create a new json file named **`sftp-config.json`**. Open it up, and copy-paste in [this](https://github.com/lxieyang/caen-connect-tutorial/blob/master/sftp-config.example.json) piece of code.
 
-	```json
-	{    
-	    "type": "sftp",
+	<img src="https://image.ibb.co/bNvvfa/json.png" style="width: 100%" alt="sync">
 
-	    "save_before_upload": true,
-	    "upload_on_save": true,
-	    "sync_down_on_open": false,
-	    "sync_skip_deletes": false,
-	    "sync_same_age": true,
-	    "confirm_downloads": false,
-	    "confirm_sync": true,
-	    "confirm_overwrite_newer": false,
 
-	    "host": "login.engin.umich.edu",
-	    "user": "your-uniqname",
-	    "password": "your-password",
-
-	    "remote_path": "/afs/umich.edu/user/l/x/your-uniqname/path/to/your/project/folder",
-	    "ignore_regexes": [
-	        "\\.sublime-(project|workspace)", "sftp-config(-alt\\d?)?\\.json",
-	        "sftp-config(-alt\\d?)?\\.example.json",
-	        "sftp-settings\\.json", "/venv/", "\\.svn/", "\\.hg/", "\\.git/",
-	        "\\.bzr", "_darcs", "CVS", "\\.DS_Store", "Thumbs\\.db", "desktop\\.ini"
-	    ],
-
-	    "connect_timeout": 30,
-	}
-	```
 	Then, change all instances of `your-uniqname`s to your actual **uniqname**, change all instances of `your-password` to your **CAEN password**, change all instances of `path/to/your/project/folder` to where you want to put your project on CAEN. Now, go ahead and save it.
 
 	A sample config file can also be found here: [sftp-config.example.json](https://raw.githubusercontent.com/lxieyang/caen-connect-tutorial/master/sftp-config.example.json)
 
 	To explain a bit:
-	> `upload_on_save` will automatically upload the entire root/parent project folder to CAEN.
+	- `upload_on_save` will automatically upload the entire root/parent project folder to CAEN.
 
-	> `user` specifies whose CAEN account to upload your project to
+	- `user` specifies whose CAEN account to upload your project to
 
-	> `password` specifies your password to CAEN
+	- `password` specifies your password to CAEN
 
-	> `remote_path` specifies where your project folder is located on CAEN
+	- `remote_path` specifies where your project folder is located on CAEN
 
-	> More configurations could be found here: [Sublime SFTP Settings](https://wbond.net/sublime_packages/sftp/settings#Settings)
+	- More configurations could be found here: [Sublime SFTP Settings](https://wbond.net/sublime_packages/sftp/settings#Settings)
 
 2. **Upload on save**
 
@@ -146,4 +119,4 @@ Best,
 
 [Xieyang](http://lxieyang.github.io)
 
-Last updated: 02/08/2017 21:49:59 EST
+Last updated: 02/16/2017 19:49:59 EST

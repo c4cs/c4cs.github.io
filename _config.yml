@@ -73,7 +73,7 @@ defaults:
   - scope:
       path: "_commands/caen"
     values:
-      category: caen
+      category: tutorials
   - scope:
       path: "_commands/shells"
     values:
@@ -103,7 +103,7 @@ defaults:
     values:
       category: os_x
 
-command_categories: ["basics", "caen", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
+command_categories: ["basics", "tutorials", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
 
 # Build settings
 markdown: kramdown
