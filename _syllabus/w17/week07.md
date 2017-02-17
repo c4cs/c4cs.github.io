@@ -21,7 +21,17 @@ advancedTopics:
   - <tt>gcc</tt> and <tt>make</tt> integration
   - Exploring alternative build systems
 commands:
-  - echo, ed, cat, emacs, make, sed, touch, tr, |, >, <<
+  - echo
+  - ed
+  - cat
+  - emacs
+  - make
+  - sed
+  - touch
+  - tr
+  - |
+  - >
+  - <<
 lectureSummary:
 leccapWed:
 leccapFri:
