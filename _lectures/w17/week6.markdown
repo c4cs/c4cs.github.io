@@ -107,7 +107,21 @@ class: center, middle
 
 ---
 
+# 3 Ways to get/use input/output
+
+  1. Use pipes (|) to connect multiple commands
+  2. Use redirection to read/write files
+  3. Use a subshell $() to assign to variables
+
+---
+
 # File Redirection
+
+## File descriptors, name and number
+
+  - 0: Standard Input (stdin, cin)
+  - 1: Standard Output (stdout, cout)
+  - 2: Standard Error (stderr, cerr)
 
 ## Operators
 
@@ -117,12 +131,6 @@ class: center, middle
   - `>&` merge output
   - `<&` merge input
   - `<<` "Here Document"
-
-## Descriptors, Name and Number
-
-  - 0: Standard Input (stdin, cin)
-  - 1: Standard Output (stdout, cout)
-  - 2: Standard Error (stderr, cerr)
 
 ---
 
