@@ -29,9 +29,9 @@ commands:
   - sed
   - touch
   - tr
-  - |
-  - >
-  - <<
+  - "|"
+  - ">"
+  - "<<"
 lectureSummary:
 leccapWed:
 leccapFri:
