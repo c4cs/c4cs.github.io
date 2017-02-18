@@ -3,7 +3,7 @@
 ip
 ----
 
-`ip` is a powerful networking tool that when simply used will display information on kernel-resident interfaces. Much like `ifconfig`, it can turn devices on/off and set IP and MAC addresses. `ip` also wraps popular commands like netstat, ndp, arp, and route into its functionality.
+`ip` is a powerful networking tool that when simply used will display information on kernel-resident interfaces. Much like `ifconfig`, it can turn devices on/off and set IP and MAC addresses. `ip` also wraps popular commands like `netstat`, `ndp`, `arp`, and `route` into its functionality.
 
 ~~~ bash
 # Close the first ethernet connection 
@@ -22,7 +22,7 @@ Also, `en0` is the equivalent to Linux's `wlan0` wireless interface.
 
 ### ip vs. ifconfig
 
-#### `Display ethernet interface 1`
+##### Display ethernet interface 1
 
 ~~~ bash
 $ ifconfig eth1
@@ -30,7 +30,7 @@ $ ifconfig eth1
 $ ip addr show eth1
 ~~~
 
-####  `Turn eth1 off`
+#####  Turn eth1 off
 
 ~~~ bash
 $ ifconfig eth1 down
@@ -38,7 +38,7 @@ $ ifconfig eth1 down
 $ ip link set eth1 down
 ~~~
 
-####  `Set eth1 IP to 192.168.1.1`
+#####  Set eth1 IP to 192.168.1.1
 
 ~~~ bash
 $ ifconfig eth1 192.168.1.1
@@ -68,10 +68,9 @@ $ ip neigh en0
 192.168.1.255 dev en0 INCOMPLETE
 224.0.0.251 dev en0 lladdr AA:BB:CC:DD:EE:FF REACHABLE
 239.255.255.250 dev en0 lladdr AA:BB:CC:DD:EE:FF REACHABLE
-
-#[IP] [device] [interface] [MAC] [STATUS]
 ~~~
-
+  - [IP] dev [interface] [MAC] [STATUS]
+  
 ### Routing Tables
 
 The `route` or `r` command will show the kernels main routing table.
