@@ -7,7 +7,7 @@ ifconfig
 `ifconfig` is used to configure a network interface or display information about all active or inactive connections.
 
 <div class="alert alert-warning">
-<a href="#"></a>Warning: While ifconfig is still used, it is recommended to use iproute2 (Linux) or iproute2mac <a href="commands/ip" style="font-weight:bold;">[See reference on 'ip'].</a> ip is a much more powerful tool that can do everything ifconfig can do, and lots more.
+<a href="/"></a>Warning: While ifconfig is still used, it is recommended to use iproute2 (Linux) or iproute2mac <a href="/commands/ip" style="font-weight:bold;">[See reference on 'ip'].</a> ip is a much more powerful tool that can do everything ifconfig can do, and lots more.
 </div>
 
 <!--more-->
