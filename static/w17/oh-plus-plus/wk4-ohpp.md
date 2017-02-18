@@ -135,4 +135,70 @@ nmap <leader>erc :e ~/.config/nvim/init.vim<CR>
 * [A laundry list of interesting
 configurations](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
 
+## 'emacs'
+
+Key points:
+* Emacs is very command based:
+   - Many of the commands you will learn are started with other commands and direct typing of
+     commands afterwards (etc M -x ...., C -x ...)
+* Emacs has a versatile list of modes:
+   - Emacs has a mode for most everything you could want to do, thought it will require some
+     research to understand the route you wnat to take getting there
+* Emacs has all of its tools built into the editor
+   - Editing any of the settings and managing packages and customization is all handled through
+     Emacs itself because it has built in GUI's for these aspects of the editor.
+
+# First thing to know
+
+* In order to acces the myriad of commands in Emacs, the notation that begins accessing them begins with either:
+  - 'C -...' which is the same as pressing Ctrl with another key (examples like C -a). There is
+     also the command 'C -x', which prompts for another command to come afterwards (example C -x
+     (C -s).
+  --and--
+  - 'M -...' which is the same as pressin Alt with a key.  There is also 'M -x' and his key is 
+    very important because it prompts the user for command input afterward, in the minibuffer.
+  - These commands will appear in the minibuffer at the bottom of the Emacs editor in a small
+    window.
+  - These tools are essential to operating Emacs as they control the way you interact with the 
+    program. For more information on commands in Emacs, it is highly reccomended to check out the 
+    wiki to get a better understanding on the depth you can go into. Keep in mind that it is not 
+    required to understand every in and out of Emacs to operate it efficiently. (visit https://
+    www.emacswiki.org/emacs/CategoryCommands for more)
+
+* Certain customization aspects of Emacs require you to edit the init file in Emacs. This is located in your home directory, usually under the name .emacs. If it is not this look inside your .emacs.d directory (from your home) and try to find .init.el.
+.
+
+# Installing packages
+* Installing packages is very easy in Emacs as it has a built in GUI just to do so. This is accessed by the command 'M -x list-packages' to open a list of packages in Emacs. You can then scroll through and mark packages for installation with 'i', 'u' to unmark them, and 'x' to perform the installation. You can press 'RET' to get more information on the pacakge you're on too.
+
+* If you want to install an outside package, there are two routes you can go down. You can either:
+   - insert code in the init file of emacs in the format of: 
+     (require 'package)
+     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+            If you wanted to get to the melpa archives, for example.
+   - or you can use the command 'M -x customize-variable' and then type 'package-archives' in
+     order to edit archives through a GUI
+
+# Customizing colorscheme
+* Emacs already has a list of built in colorschemes you can choose from, simply from going to the GUI menu through the command 'M -x customize-themes', and you can select some of the pre-canned ones listed. 
+
+* Installing custom themes in Emacs requires you to add a directory to the load path of emacs. This is a fairly easy task if you already have access to your .init file (told you it would come in handy):
+  - In order to start this process you look online for some custom themes and place them in a 
+    directory that you know. A fairly common practice is to place in the ~/.emacs.d/lisp 
+    directory, which if it isn't there you can just make.
+  - Then, go to your init file and add the following line to the init file:
+    (add-to-list 'custom-theme-load-path "your-file-path").
+  - From there you should be able to see the loaded theme in the GUI list when you run M-x 
+    customize-themes
+
+
+    
+
+
+
+
+
+
+
+
 
