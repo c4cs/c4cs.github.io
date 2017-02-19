@@ -33,14 +33,14 @@ PID  COMMAND      %CPU  TIME     #TH   #WQ  #PORT MEM    PURG   CMPR PGRP PPID
 ~~~
 
 
+The `top` command is often used to display the processes that are using the most memory which can be viewed by typing `M`. The processes can also be sorted by CPU usage by typing `P`. A task can be killed using top by pressing `k` and then entering the process id.
 
 ### Useful Options / Examples
 
 After running the `top` command:
 
 
-
-### `Q`
+#### `Q`
 
 
 
@@ -48,7 +48,7 @@ Exit the process list and go back to terminal
 
 
 
-### `M`
+#### `M`
 
 
 
@@ -56,7 +56,7 @@ Sort the process list by memory usage with process using the most memory first
 
 
 
-### `P`
+#### `P`
 
 
 
@@ -64,7 +64,7 @@ Sort the process list by cpu usage
 
 
 
-### `N`
+#### `N`
 
 
 
@@ -72,7 +72,7 @@ Sort the process list by process id
 
 
 
-### `T`
+#### `T`
 
 
 
@@ -80,7 +80,7 @@ Sort the process list by running time
 
 
 
-### `R`
+#### `R`
 
 
 
@@ -88,26 +88,29 @@ Reverse the sorting order of the currently sorted column. By default, sorting is
 
 
 
-### `U`
+#### `U`
 
 
 
 View only the processes of a specific user
 
 
-### `l`
+#### `l`
 
 
 Hide the load average information
 
 
-### `m`
+#### `m`
 
 
 Hide the memory information
 
 
-### `t`
+#### `t`
 
 
 Hide the task and cpu information
+
+#### `h`
+Opens a help menu
