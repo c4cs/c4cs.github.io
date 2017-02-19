@@ -4,17 +4,35 @@
 asciiview
 -------
 
-`aview/asciiview` is a high quality ASCII art image viewer.
+`asciiview` generates an ASCII image based on any png file provided by the user.
 
 ~~~ bash
-$ asciiview cow.png
+$ asciiview filename.png
 ~~~
 
 <!--more-->
 
-### Example
-You can remove your glasses or move away from the screen to see the cow in ASCII!
+### Install
 
+~~~ bash
+$ sudo apt-get install aview
+~~~
+
+### Controls
+Once you run the command successfully, it will open a separate window to display the acsii image. There are several useful optoins to view, modify, and save the image.
+
+*	If the image is out of the window range, you can move it by `a,w,d,x` or `A,W,D,X`.
+*	If the image is too small/large, you can use `+/-` to zoom in/out.
+*	Use `.` or `,` to increase or decrease contrast.
+*	Use `>` or `<` to increase or decrease brightness.
+*	Press `s` if you want to save the image. `asciiview` supports many formats (text, html, and etc.).
+*	Press `q` to exit.
+
+### Example
+If you can't find a cow in the image, remove your glasses or move away from the screen!
+
+~~~ bash
+$ asciiview cow.png
                 j#0000000!!400000!!!40Lad009!!400000!!400000001                 
                 j#000000L.:../\ad00000000000w==:.!..:-j#0000001                 
                 j#0000000,:::: 0000000000@99;=;;.:::-_000000001                 
@@ -40,37 +58,7 @@ You can remove your glasses or move away from the screen to see the cow in ASCII
                 j#0000000!.::: .::::.-O3O7'.:::: -::: 400000001                 
                 j#000000P.:::  ::-:.:.=O3':::::-:  ::: 00000001                 
                 j#000000L -:.  :::-:- _00,-.::.::  ::  00000001
+~~~
 
-### CONTROLS
-* `a,w,d,x` Move the image one row/column.
-* `A,W,D,X` Move the image one page.
-* `Z,+` Zoom in.
-* `z,-` Zoom out.
-* `s` Save image.
-* `m` Change dithering mode.
-* `q` Quit the viewer.
-* `i` Turn inversion on.
-* `I` Turn inversion off.
-* `u` Select attributes.
-* `f` Select font.
-* `SPACE` Redraw screen.
-* `.` Increase contrast (dot).
-* `,` Decrease contrast (comma).
-* `'` Increase gamma (single quote).
-* `;` Decrease gamma (semicolon).
-* `>` Increase brightness.
-* `<` Decrease brightness.
-
-### OPTIONS
-For a complete description, type aview `--help`.  This shows all options.
-
-### LICENSE
-`aview` is covered by the GNU General Public License (GPL).
-
-### OTHER FUN COMMANDS
-`aafire`, `aainfo`, `aasavefont`, `aatest`, `aaflip`, `aa3d`, `aatv`, `bb`.
-
-### AUTHOR
-Jan Hubicka <hubicka@freesoft.cz>
-
-This manual page was originally written by Michael Bramer <grisu@debian.org>, for the Debian GNU/Linux system (but may be used by others).
+### Additional Command
+`asciiview` is based on `aview`, which only show files in PNM format. You can explore more by typing `aview --help`. Enjoy & have fun!
