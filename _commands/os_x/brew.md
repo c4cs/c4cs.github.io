@@ -21,7 +21,7 @@ That's right - `brew` uses emojis as part of its standard output 🙌
 
 Various Linux distributions include package managers for installing software out of the box (e.g. `apt-get` for Ubuntu), and `brew` is a third-party effort to replicate the same for OS X. As an example of `brew` usage, above is an example of installing [rsync](https://en.wikipedia.org/wiki/Rsync). 
 
-To install `brew`, the [official Homebrew website](http://brew.sh) directs you to run this command, which incidentally explains itself as it runs:
+To install `brew`, the [official Homebrew website](https://brew.sh) directs you to run this command, which incidentally explains itself as it runs:
 
 ~~~
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
