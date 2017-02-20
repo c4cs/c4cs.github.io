@@ -71,7 +71,7 @@ defaults:
     values:
       category: basics
   - scope:
-      path: "_commands/caen"
+      path: "_commands/tutorials"
     values:
       category: tutorials
   - scope:
