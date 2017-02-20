@@ -1,7 +1,7 @@
 ---
 ---
 
-COMMAND
+objdump
 -------
 
 TODO: Claim the issue for this command and add documentation for this command
