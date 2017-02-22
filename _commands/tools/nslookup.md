@@ -2,24 +2,23 @@
 ---
 
 nslookup
--------
-
-nslookup which stands for "name server lookup" is used to query internet name servers interactively for information. 
+------- 
 
 ~~~ bash
-nslookup [-option ...] [host-to-find | -[server]]
+nslookup www.google.com
 ~~~
 
 <!--more-->
 
-### Useful Options / Examples
+
 #### Example command
 ~~~ 
 nslookup microsoft.com
 ~~~
-##### Break it down
+
 The response would be: 
 
+~~~
 Server:		141.211.125.17
 Address:	141.211.125.17#53
 
@@ -34,10 +33,11 @@ Name:	microsoft.com
 Address: 104.40.211.35
 Name:	microsoft.com
 Address: 104.43.195.251
+~~~
 
-*Here 141.211.125.17 is the address of our system's DNS. #53 indicates that we are communicating with it on port 53, 
+* Here 141.211.125.17 is the address of our system's DNS. #53 indicates that we are communicating with it on port 53, 
 which is the standard port number DNS's use to accept queries. 
-*Below this is the lookup info of microsoft.com. Here we get 5 different addresses which indicates that when you access 
+* Below this is the lookup info of microsoft.com. Here we get 5 different addresses which indicates that when you access 
 microsoft.com you may be directed to any of these servers. 
 
 #### Example command
@@ -49,6 +49,7 @@ nslookup 31.13.74.36
 This is the reverese lookup using the IP address
 The response would be: 
 
+~~~
 Server:		141.211.125.17
 Address:	141.211.125.17#53
 
@@ -71,5 +72,8 @@ ns4.facebook.com	internet address = 69.171.245.32
 ns4.facebook.com	has AAAA address 2a03:2880:ffff:c:face:b00c:0:35
 ns5.facebook.com	internet address = 66.220.145.65
 ns5.facebook.com	has AAAA address 2a03:2880:fffe:c:face:b00c:0:35
+~~~
 
-These are the DNS addresses associated with facebook.com
+* These are the DNS addresses associated with facebook.com
+* An AAAA record is what associates a domain name with the specific IP address, so that the browser knows where to go to access the website. 
+* AAAA is associated with IPv6 (Internet Protocol version 6) records and A is associated with IPv4 records. The eight groups of four hexademinal digits seperated by colons is the IPv6 address. 
