@@ -21,11 +21,11 @@ from email.mime.base import MIMEBase
 import git # pip install gitpython
 
 # Get an updated version of sh with proper pushd support
-sys.path.insert(0, '/Users/ppannuto/code/sh')
+# sys.path.insert(0, '/Users/ppannuto/code/sh')
 import sh
 from sh import mkdir, rm
 
-GRADES_PATH = '/Users/mterwilliger/Downloads/'
+GRADES_PATH = '/home/mterwilliger/Downloads/'
 
 if 'rerun' not in sys.argv:
     if os.path.exists('/tmp/q1') or os.path.exists('/tmp/q2a') or os.path.exists('/tmp/q2b'):
@@ -425,8 +425,8 @@ def grade_q2b(uniqname):
 
     with sh.pushd(path):
         golden = '''\
-README.md
 main.py
+README.md
 sales-2016-03-01
 sales-2016-03-02
 sales-2016-03-03
@@ -489,7 +489,7 @@ def grade():
             email += '''
 <hr />
 <p>If you believe there to be an issue with the grading of your assignment
-reply to this email before Monday, December&nbsp;19.</p>
+reply to this email before Monday, March&nbsp;13.</p>
 <p>If you would like more information on how your assignment was graded, you can
 look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/w17/hw/autograders/git-II/grade.py">autograder script</a></p>.
 '''
