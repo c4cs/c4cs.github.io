@@ -27,7 +27,7 @@ $ hash
 
 #### `hash -r`
 This option clears the cached hash table.
-
+(Note: Changing $PATH is equivalent to running this command - the hash table is$
 ~~~ bash
 $ hash
   hits	command
