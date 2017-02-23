@@ -8,8 +8,8 @@ dates: {lecDate}
 lecturer: mmdarden
 homeworkRelease: {hwDate}
 solutionRelease: {solDate}
+# ohppRelease: {lecDate}
 title: "{title}"
-ohPlusPlus: {oh_plus_plus}
 # lectureTopics:
 #   - TBD
 # homeworkTopics:
@@ -76,12 +76,8 @@ for idx, lecture in enumerate(lectures):
         lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
         hwDate  = lecDate.replace(hours=15)
         solDate = hwDate.shift(weeks=1)
-
-
 	 
-	oh_plus_plus_link = wk{0:02d}-ohpp.md'.format(idx + 1)
-
-
+	#oh_plus_plus_link = wk{0:02d}-ohpp.md'.format(idx + 1)
 
         weekData = template.format(
             lecDate= lecDate.format('MM/DD/YYYY'),
@@ -89,7 +85,7 @@ for idx, lecture in enumerate(lectures):
             solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
             title= lecture['title'],
             week= idx + 1,
-	    oh_plus_plus = oh_plus_plus_link,
+	    ohppRelease = lecDate.format('MM/DD/YYYY')
         )
 
         f.write(weekData)

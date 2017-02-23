@@ -1,12 +1,13 @@
 ---
+
 week: 3
 dates: 01/20/2017
 lecturer: mmdarden
 slidesName: w17/week3
 homeworkRelease: 2017-01-20 15:00:00
-ohppRelease: 01/20/2017
 advancedRelease: 2017-01-20 15:00:00
 solutionRelease: 2017-01-28 22:00:00
+ohppRelease: 2017-01-20
 title: "Shells, Environment, Scripting, and Bash"
 lectureTopics:
   - How do programs start

@@ -55,11 +55,6 @@
       <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
       </p>
     {% endif %}
-    {% for oh_plus_plus in page.ohPlusPlus %}
-      <p>
-      <a href="/static/w17/oh-plus-plus/{{ oh_plus_plus }}">OH++ Slides</a>
-      </p>
-    {% endfor %}
     {% if page.leccapWed %}
       <p>Morning Lecture</p>
       <ul>
@@ -117,5 +112,12 @@
     {% else %}
       <p>No homework this week!</p>
     {% endif %}
+    {% if page.ohppRelease %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign ohppRelease = page.ohppRelease | date: '%s' | times: 1 %}
+      {% if now > ohppRelease %}
+          <p><a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/w17/oh-plus-plus/wk{{ page.week }}-ohpp.md">OH++ Week {{ page.week }} [GitHub]</a></p>
+    {% endif %}
+{% endif %}
   </td>
 </tr>
