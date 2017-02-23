@@ -30,6 +30,6 @@ commands:
   - touch
   - tr
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: WFl3dB
+leccapFri: J0TqPQ
 ---
