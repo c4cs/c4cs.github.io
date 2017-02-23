@@ -8,7 +8,7 @@ advancedRelease: 2017-01-27 15:00:00
 solutionRelease: 2017-02-04 15:00:00
 title: "Editors"
 slidesName: w17/week4
-ohPlusPlus: wk4-ohpp.md
+ohppRelease: 01/27/2017
 lectureTopics:
   - Is there anything special about text editors?
   - Philosophy of text editors

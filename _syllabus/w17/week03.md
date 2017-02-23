@@ -4,7 +4,7 @@ dates: 01/20/2017
 lecturer: mmdarden
 slidesName: w17/week3
 homeworkRelease: 2017-01-20 15:00:00
-ohPlusPlus: wk3-ohpp.md
+ohppRelease: 01/20/2017
 advancedRelease: 2017-01-20 15:00:00
 solutionRelease: 2017-01-28 22:00:00
 title: "Shells, Environment, Scripting, and Bash"
