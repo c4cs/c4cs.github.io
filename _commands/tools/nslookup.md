@@ -4,7 +4,8 @@
 nslookup
 -------
 -------
-nslookup, which stands for "name server lookup", is used to query internet name servers interactively
+nslookup, which stands for "name server lookup", is used to query internet name servers interactively.
+By default, nslookup tranlsates a domain name to an IP address, or vice versa. 
 
 ~~~ bash
 nslookup www.google.com
