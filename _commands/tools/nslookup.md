@@ -2,7 +2,9 @@
 ---
 
 nslookup
-------- 
+-------
+-------
+nslookup which stands for "name server lookup" is used to query internet name servers interactive
 
 ~~~ bash
 nslookup www.google.com
