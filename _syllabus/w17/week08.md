@@ -11,5 +11,5 @@ lectureTopics:
 #   - TBD
 lectureSummary:
 leccapWed:
-leccapFri:
+leccapFri: eGkrN7
 ---
