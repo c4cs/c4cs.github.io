@@ -16,7 +16,7 @@ lectureTopics:
 #   - TBD
 # advancedTopics:
 #   - TBD
-lectureSummary: Created an [RPN calculator](https://github.com/ppannuto/c4cs-f16-rpn) in Python.
+lectureSummary: Created an [RPN calculator](https://gitlab.eecs.umich.edu/mmdarden/c4cs-w17-rpn) in Python.
 leccapWed:
 leccapFri:
 ---
