@@ -17,6 +17,6 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary: Created an [RPN calculator](https://gitlab.eecs.umich.edu/mmdarden/c4cs-w17-rpn) in Python.
-leccapWed:Gf9zIW
-leccapFri:Aa5Sud
+leccapWed: Gf9zIW
+leccapFri: Aa5Sud
 ---
