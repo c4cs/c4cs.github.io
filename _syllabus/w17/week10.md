@@ -3,7 +3,7 @@ week: 10
 dates: 03/10/2017
 lecturer: mmdarden
 homeworkRelease: 2017-03-10 15:00:00
-advancedRelease: 2017-03-18 15:00:00
+advancedRelease: 2017-03-10 15:00:00
 solutionRelease: 2017-03-18 15:00:00
 title: "Unit Testing and Python"
 slidesName: w17/week10
