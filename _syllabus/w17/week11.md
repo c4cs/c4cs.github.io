@@ -4,7 +4,7 @@ dates: 03/17/2017
 lecturer: mmdarden
 homeworkRelease: 2017-03-17 15:00:00
 advancedRelease: 2017-03-17 15:00:00
-solutionRelease: 2017-03-25 15:00:00
+solutionRelease: 2017-03-25 22:00:00
 title: "Debuggers"
 slidesName: w17/week11
 lectureTopics:
@@ -20,6 +20,6 @@ advancedTopics:
   - <tt>printf</tt> debugging
   - Extending <tt>gdb</tt>
 lectureSummary: Files for class [inf.c](/static/w17/wk11/inf.c) [math.c](/static/w17/wk11/math.c)
-leccapWed:kVXEIG
-leccapFri:1EMLVn
+leccapWed: kVXEIG
+leccapFri: 1EMLVn
 ---
