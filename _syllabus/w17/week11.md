@@ -20,6 +20,6 @@ advancedTopics:
   - <tt>printf</tt> debugging
   - Extending <tt>gdb</tt>
 lectureSummary: Files for class [inf.c](/static/w17/wk11/inf.c) [math.c](/static/w17/wk11/math.c)
-leccapWed:
-leccapFri:
+leccapWed:kVXEIG
+leccapFri:1EMLVn
 ---
