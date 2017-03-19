@@ -71,90 +71,13 @@ makes sense.
 \newpage
 \section{\texttt{Git}ting started}
 
-When we first introduced git, we focused on the basics and how to use it
-locally. Next lecture, when we revisit git, we'll talk about sharing a
-repository with multiple collaborators and all that that entails. As a small
-preview, we'll use a few of the features now. As we walk through this, we'll
-introduce a few new terms and concepts. \emph{You are not expected to
-understand all of this yet}, however we wanted to show you a real-world
-example and give you some experience before the next git lecture.
-
-First, we \texttt{\ul{clone}} a remote repository:
+Please \texttt{clone} the following repository:
 
 \begin{lstlisting}
 @>@ git clone https://gitlab.eecs.umich.edu/c4cs/debugging-basics
 \end{lstlisting}
 
-Unlike \texttt{init}, which creates a new repository from scratch, the
-\texttt{clone} command tells git to go copy an existing repository from the
-supplied location. The location that you cloned from will automatically be set
-up as the \texttt{\ul{\mbox{origin}}}. Much like in Makefiles, where there is
-nothing actually special about the ``\texttt{all}'' target, there is nothing
-magical about the \texttt{origin} in git. It is simply an arbitrary name used
-by convention.
-
-First things first, let's check out what status has to say about this new
-repository.
-\begin{lstlisting}
-@>@ cd debugging-basics
-@>@ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-nothing to commit, working directory clean
-\end{lstlisting}
-We have a new line of information!
-Git is a \emph{distributed} version control system. This means that if you
-make changes (add new commits) on your machine, they will not automatically
-show up on any other machine.
-Being ``up-to-date'' means that there are no changes on your machine that you
-have not shared with the other machine, nor are there any changes on the other
-machine that your machine knows about but has not integrated---this can be a
-bit subtle and confusing, we'll talk about it next lecture.
-
-Now let's take a quick look at what has happened in this repository:
-\begin{lstlisting}
-@>@ git log
-\end{lstlisting}
-Because we cloned a repository, it already has some history. You can also try
-\texttt{git~log~-p} to see the changes in more detail.
-
-Next we introduce a new feature, \texttt{\ul{branches}}:
-\begin{lstlisting}
-@>@ git checkout gdb-debug-1
-Branch gdb-debug-1 set up to track remote branch gdb-debug-1 from origin.
-Switched to a new branch 'gdb-debug-1'
-\end{lstlisting}
-{\small (don't worry about the tracking part for now)}
-
-Branches allow us to take some code with a shared history and explore in two
-different directions. Try running \texttt{git~log} again. Notice that the
-first two commits are the same, but the third commit is different.
-
-We can use the \texttt{\ul{git branch}} command, with no other arguments, to
-simply list all of our local branches:
-\begin{lstlisting}
-@>@ git branch
-  master
-* gdb-debug-1
-\end{lstlisting}
-We can see from the asterisk that we currently have the \texttt{gdb-debug-1}
-branch \texttt{\ul{checked~out}}.
-By default, every repository begins with a branch named \texttt{\ul{master}}.
-If you run \texttt{git~branch} in one of your other repositories, you will see
-that it has one branch, named master, that you have been using all along.
-
-You may find a visual view of what is going on here helpful:
-\begin{lstlisting}
-@>@ sudo apt-get install gitk
-...
-@>@ gitk --all
-\end{lstlisting}
-{\small (don't worry about the remote/origin labels for now)}
-
-Notice how there is a shared history of two commits, that then diverges to two
-branches, \texttt{master} and \texttt{gdb-debug-1}.
-
-Each part of this homework will take place on a different branch.
+This repository contains 4 branches: \texttt{master}, \texttt{gdb-debug-1}, \texttt{gdb-debug-2}, and \texttt{valgrind-debug}. Each part of this homework will take place on a different branch.
 
 \section{Finding primes}
 
