@@ -74,7 +74,7 @@ for idx, lecture in enumerate(lectures):
     with open('w17/week{0:02d}.md'.format(idx + 1), 'w') as f:
         lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
         hwDate  = lecDate.replace(hours=15)
-        solDate = hwDate.shift(weeks=1)
+        solDate = hwDate.shift(weeks=1, hours=7)
 
         weekData = template.format(
             lecDate= lecDate.format('MM/DD/YYYY'),
