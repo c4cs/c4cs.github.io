@@ -29,12 +29,11 @@ class: center, middle
 
 ## One-time Actions
 
-1. Register an account at https://testpypi.python.org
-2. Edit your ~/.pypirc file
+Register an account at https://testpypi.python.org/pypi
 
 ## Per-project Actions
 
-1. Clone the sample project `git clone https://github.org/pypa/sampleproject.git <myproject>`
+1. Clone the sample project `git clone https://github.com/pypa/sampleproject.git <myproject>`
 2. Edit the source files
 3. Edit the meta files (LICENSE.txt, MANIFEST.in, README.rst, setup.py)
 4. Prep your package `python setup.py sdist`
