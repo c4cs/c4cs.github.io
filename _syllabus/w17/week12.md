@@ -18,6 +18,6 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: SEoJtr
+leccapFri: CJspa4
 ---
