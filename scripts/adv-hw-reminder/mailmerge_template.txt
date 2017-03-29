@@ -1,0 +1,19 @@
+TO: {{email}}
+SUBJECT: [c4cs] Advanced Homework Reminder
+FROM: c4cs-staff@umich.edu
+
+Hi {{uniq}},
+
+This is a friendly reminder that advanced homework is 30% of your grade
+in EECS 398. At this time, we have {{num_complete}} exercise(s) recorded for you.
+Please reply immediately if you believe there to be an error.
+
+Exercise 11 is the last of the "Developing" section, due this
+Friday, March 31, in the last office hour ending at 1:30 PM.
+There is no advanced exercise week 15.
+
+Assignments and grading policies are on the course website:
+
+https://c4cs.github.io/#syllabus-advanced
+
+- c4cs staff
