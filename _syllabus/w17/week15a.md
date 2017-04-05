@@ -1,8 +1,8 @@
 ---
-week: 15
-dates: 04/14/2017
-lecturer: Staff
-title: "Based on course interest (TBD)"
+week: 15a
+dates: 04/14/2017 (AM)
+lecturer: cgagnon
+title: "TBD"
 # lectureTopics:
 #   - TBD
 # homeworkTopics:
