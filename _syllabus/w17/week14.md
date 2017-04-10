@@ -18,6 +18,6 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapWed: HItjWn
+leccapFri: eorSxW
 ---
