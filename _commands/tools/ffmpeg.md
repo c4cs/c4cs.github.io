@@ -3,7 +3,15 @@
 ffmpeg
 ----
 
-`ffmpeg` is a command line tool that is used for converting and editing audio and video files. Its reference page can be found [here](https://ffmpeg.org/ffmpeg.html). Install by typing the following command:
+`ffmpeg` is a command line tool that is used for converting and editing audio and video files.
+
+~~~ bash
+$ ffmpeg -i sample.avi sample.mp4
+~~~
+
+<!--more-->
+
+Its reference page can be found [here](https://ffmpeg.org/ffmpeg.html). Install by typing the following command:
 
 ~~~ bash
 $ sudo apt install ffmpeg
@@ -29,7 +37,7 @@ ffmpeg allows you to set how high of a quality you want your conversion to be. T
 $ ffmpeg -i sample.mp4 -q 12 sample.avi
 ~~~
 
-If instead you wish to convert to a .mp4, you must use the `-crf` argument. 
+If instead you wish to convert to a .mp4, you must use the `-crf` argument.
 
 ~~~ bash
 $ ffmpeg -i sample.avi -crf 2 sample.mp4
@@ -40,12 +48,12 @@ It may be useful to take a video and cut it into a series of images. In order to
 
 ~~~ bash
 $ ffmpeg -i sample.avi -r 1 -s [WxH] -f image2 sample-%d.jpeg
-~~~ 
+~~~
 
 **Break it down**
 
--  `-i` in this command specifies the input file of sample.avi. 
--  `-r` specifies the framerate for the conversion, in this case we set it to one frame per second. `-s` is used to specify the desired width and height, denoted as [WxH]. So, for example, if you wanted a 1920x1080 image or video, you'd use the argument `-s 1920x1080`. 
+-  `-i` in this command specifies the input file of sample.avi.
+-  `-r` specifies the framerate for the conversion, in this case we set it to one frame per second. `-s` is used to specify the desired width and height, denoted as [WxH]. So, for example, if you wanted a 1920x1080 image or video, you'd use the argument `-s 1920x1080`.
 -  `-f` tells ffmpeg that you want to **f**orce the file conversion to the specified format encoding, in this case we chose image2 which is used for .jpeg and .png among others.
 -  `%d` is called a sequence pattern. This allows you to convert the video into many image files with the same prefix, in this case `sample-`. In our case, if you have a 60 second video, you would end up with 60 images labeled sample-1.jpeg through sample-60.jpeg. You can 0-pad these sequences by using `%d0N` where N - 1 is the number of 0's you want before the number. So if using `%d03` you would see sample-001 instead.
 
