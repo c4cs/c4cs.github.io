@@ -14,5 +14,5 @@ lectureTopics:
 #   - TBD
 lectureSummary:
 leccapWed:
-leccapFri:
+leccapFri: LDRhyq
 ---

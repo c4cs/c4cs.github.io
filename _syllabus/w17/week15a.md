@@ -9,6 +9,6 @@ lectureTopics:
    - Pluggable Authentication Modules
    - Logging and Securing a VPS
 lectureSummary:
-leccapWed:
+leccapWed: IciHD5
 leccapFri:
 ---
