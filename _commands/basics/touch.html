@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Computing for Computer Scientists</title>
+  <meta name="description" content="cat">
+
+  <link rel="canonical" href="https://c4cs.github.io/commands/basics/cat.html" data-proofer-ignore>
+  <script>
+// Redirect to HTTPS by default
+// https://konklone.com/post/github-pages-now-sorta-supports-https-so-use-it
+var host = "c4cs.github.io";
+if ((host == window.location.host) && (window.location.protocol != "https:")) {
+  window.location.protocol = "https";
+}
+  </script>
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/css/navbar-fixed-top.css" />
+  <link rel="stylesheet" href="/static/css/sticky-footer-navbar.css" />
+  <link rel="stylesheet" href="/static/css/fullcalendar.io/fullcalendar.css" />
+  <link rel="stylesheet" href="/static/css/class.css" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand hidden-xs" href="/">Computing for Computer Scientists</a>
+        <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">C4CS</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li><a href="/reference#basics">Basics</a></li>
+          
+            <li><a href="/reference#shells">Shells</a></li>
+          
+            <li><a href="/reference#scripting">Scripting</a></li>
+          
+            <li><a href="/reference#tools">Tools</a></li>
+          
+            <li><a href="/reference#editors">Editors</a></li>
+          
+            <li><a href="/reference#toys">Toys</a></li>
+          
+            <li><a href="/reference#ubuntu">Ubuntu</a></li>
+          
+            <li><a href="/reference#os_x">Os_x</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="container">
+          <h2 id="touch">touch</h2>
+
+<p><code class="highlighter-rouge">touch</code> is used for changing file timestamps as well as creating new files. It's useful for keeping track of the last time you edited a file for easy access later.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$</span>touch<span class="k">*</span>  <span class="nb">helloWorld.txt 
+	</code></pre>
+	</div>
+
+<h3 id="example">Another Short Example</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$</span>touch text.txt 
+<span class="gp">$ </span>ls -l text.txt
+-rw-rw-r-- 1 [user] [user] 0 Mar 20 23:33 text.txt
+</code></pre>
+</div>
+
+<p> By applying the touch command to text.txt, it updated the access and modification time of the file to the time that the command was used.</p>
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+<p>You'll never believe all the crazy, zany, fantabulously bonkers stuff you can do wth this command, but here's some of that stuff anyway:</p>
+
+<h4 id="touch -a"><code class="highlighter-rouge">touch -a</h4>
+<p> Changes only the access time. Useful if you want a timestamp but didn't change anything.</p>
+
+<h4 id="touch -c, --no-create"><code class="highlighter-rouge">touch -c, --no-create</h4>
+<p> If the touch command is used with a filename not found in the current directory, a new file will be created by default. This command disables that feature, instructing touch not to create any files.</p>
+
+<h4 id="touch -d, --date=STRING"><code class="highlighter-rouge">touch -d, --date=STRING</h4>
+<p> Parses STRING and uses it instead of the current time. Good for if you want to write a custom time or marker to reference a touch. </p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="pull-right">
+      <p class="text-muted">
+      &copy; 2015 <a href="http://patpannuto.com">Pat Pannuto</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/moment.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/fullcalendar.io/fullcalendar.js"></script>
+<script src="/static/js/fullcalendar.io/gcal.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: '',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    defaultView: 'agendaWeek',
+    allDaySlot: false,
+    minTime: '10:00:00',
+    maxTime: '22:00:00',
+    weekends: false,
+    contentHeight: 'auto',
+    editable: false,
+    googleCalendarApiKey: 'AIzaSyBDG9pxcme_PaOIwJmKeEvldUzWhHn3Sog',
+    events: {
+      googleCalendarId: '4a0vvtkg11f6g0qs2er37gkkf8@group.calendar.google.com'
+    },
+    loading: function(bool) {
+      $('#calendar-loading').toggle(bool);
+    }
+  });
+});
+</script>
+
+
+
+  </body>
+
+</html>
+
