@@ -89,15 +89,15 @@ for uniq, grades in raw_grades.items():
     final_grade += ceil_plus_half(sum(grades['homework'].values()), 40)
 
     # Attendance
-    # Any points over 30 points are worth half their value
+    # Any points over 30 points are worth half their value.
     final_grade += ceil_plus_half(sum(grades['attendance'].values()), 30)
 
     # Advanced
     advanced_raw = [
-        sum([grades['advanced'][i] for i in [2,3]]),
-        sum([grades['advanced'][i] for i in [4,5,6]]),
-        sum([grades['advanced'][i] for i in [7,10,11]]),
-        sum([grades['advanced'][i] for i in [12,13,14]])
+        sum([grades['advanced'][i] for i in [2,3]]),      # Introduction and Basics
+        sum([grades['advanced'][i] for i in [4,5,6]]),    # Being Efficient
+        sum([grades['advanced'][i] for i in [7,10,11]]),  # Developing
+        sum([grades['advanced'][i] for i in [12,13,14]]), # Standing on the Shoulders of Giants
     ]
 
     all_sections = True
