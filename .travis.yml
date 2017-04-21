@@ -8,7 +8,7 @@ cache: bundler
 
 script:
   - bundle exec jekyll build
-  - bundle exec htmlproofer --assume-extension --check-html --url-ignore '/.*docs.google.com/a/umich.edu.*/,https://chris.beams.io/posts/git-commit/,https://gradescope.com/courses/5574' ./_site --file-ignore /lectures/f16/,/lectures/w17/,/archive/
+  - bundle exec htmlproofer --assume-extension --check-html --disable-external ./_site --file-ignore /lectures/f16/,/lectures/w17/,/archive/
 
 # --file-ignore /lectures/f16/
 # Resolves
