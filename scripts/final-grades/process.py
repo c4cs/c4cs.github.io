@@ -120,3 +120,15 @@ for uniq, grades in raw_grades.items():
 final_letter_grades = {}
 for uniq, grade in final_grades.items():
     final_letter_grades[uniq] = score_to_grade(grade)
+
+with open('mailmerge_database.csv', 'w') as outf:
+    writer = csv.DictWriter(outf, fieldnames=['email', 'name', 'number', 'letter'])
+    writer.writeheader()
+
+    for uniq in final_grades.keys():
+        writer.writerow({
+            'email': '{}@umich.edu'.format(uniq),
+            'name': uniq,
+            'number': '{:.2f}'.format(final_grades[uniq]),
+            'letter': final_letter_grades[uniq],
+        })
