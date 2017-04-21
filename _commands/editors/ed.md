@@ -14,13 +14,14 @@ $ed
 
 <!--more-->
 This will open an empty file in ed. 
-Since ed is generally silent with feedback strart by typing 'H' and pressing enter. This way `ed` will print error messages when you do something wrong.
+Since ed is generally silent with feedback start by typing 'H' and pressing enter. This way `ed` will print error messages when you do something wrong.
 
 Note: Most commands in the following list can be run with a line number before the command to perform that action on that line.
+
 ### Here are things you can do in the editor 
 - `q` - exit if the buffer is empty
 - `Q` - exit unconditionally 
-- `a` - start writing into the buffer, when you are done put a period `.`by itself
+- `a` - start writing into the buffer, when you are done put a period `.` by itself
 - `p` - print line
 - `n` - print line and line number
 - `c` - replace line
