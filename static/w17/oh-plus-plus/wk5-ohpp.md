@@ -48,7 +48,9 @@ you more.
 __Q__: What's the difference between `master` and `origin/master`? `master` is
 your local branch `master`. `origin/master` is our local computer's knowledge of
 the remote's branch `master`. They don't have to be the same -- you might be
-ahead of or behind `origin`.
+ahead of or behind `origin`. For example, if your project partner `push`es their
+branch `master` to `origin/master`, yours will _not_ automagically update:
+you'll need to `pull` their changes in first.
 
 ## `git` vs Git[Hub|Lab]
 `git` as a version control system is a subset of the functionality provided by
@@ -63,9 +65,10 @@ niceties not built into `git` (not a comprehensive list):
   only in a different location (usually your account as opposed to the project
   maintainer's) with different permissions. Why? The project maintainer doesn't
   want everyone to have push access to their repository - that would be quite
-  dangerous. So instead, a user can _fork_ their repository, and create a _pull
-  request_ upstream.
-- __Pull requests__ are requests to merge in a patch (code change) from a user.
+  dangerous. Forks provide a quick, safe, and easy way for you to hack around on
+  a project. So, if you're interested in something, fork it, fool around, and
+  when you have something worth sharing, create a __pull request__ upstream.
+- __Pull requests__ are requests to merge a branch you've pushed to GitHub.
   They're wrapped in a nice interface that allows everyone to centrally comment
   and easily collaborate.
 - __Issues__ are another way to collaborate on a project
@@ -74,7 +77,9 @@ niceties not built into `git` (not a comprehensive list):
 
 __Note__: An _upstream_ repository is considered the "main" repository.
 
-## global `.gitignore`
+## Tweaking git
+
+### global `.gitignore`
 Pesky `.DS_Store` files? `Thumbs.db`? `.swp`? Some of this crap you never want
 to commit, regardless of the project. Git provides per-user (as opposed to
 per-repository) settings for ignoring files too:
@@ -90,6 +95,43 @@ consideration.
 __Note__: I call mine `.gitignore_global` and put it in my home folder. The
 second command tells git where to look, put yours wherever is most convenient
 for you.
+
+### other gitconfig
+
+`git` provides a bunch of options for tweaking behavior to fit your workflow.
+You can do this globally (by a `.gitconfig` file in your home folder) and/or
+per-project by editing the `.git/config` file. Here's my global gitconfig for
+some ideas:
+
+```ini
+[user]
+    name = Matthew Terwilliger
+    email = matt@terwilligers.com
+[push]
+    default = simple
+[core]
+    excludesfile = /Users/mterwilliger/.gitignore_global
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[credential]
+    helper = osxkeychain
+[alias]
+    graph = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+[pull]
+    rebase = true
+[help]
+    autocorrect = 5
+[rebase]
+    autostash = true
+```
+
+A few highlights:
+
+- `core.editor` sets `vim` as my default editor
+- `credential.helper` will store HTTPS passwords in the macOS keychain (I'm told
+  there are similiar helpers for other platforms)
+- `alias.graph` we covered in lecture!
+- `help.autocorrect` will turn `git psuh` into `git push` automatically
 
 ## stash
 Git's `stash` is a double edged sword. It can be super useful, but quickly turn
