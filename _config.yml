@@ -63,6 +63,18 @@ defaults:
     values:
       category: w17
   - scope:
+      path: "_lectures/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_syllabus/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_updates/f17"
+    values:
+      category: f17
+  - scope:
       type: commands
     values:
       layout: reference

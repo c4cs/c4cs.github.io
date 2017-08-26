@@ -23,55 +23,52 @@ leccapFri:
 
 lectures = [
     {
-    'date': '01/06/2017',
+    'date': '09/08/2017',
     'title': 'Introduction, Virtual Machines, & Command Line Primer'
     }, {
-    'date': '01/13/2017',
+    'date': '09/15/2017',
     'title': 'Basic Git'
     }, {
-    'date': '01/20/2017',
+    'date': '09/22/2017',
     'title': 'Shells, Environment, Scripting, and Bash'
     }, {
-    'date': '01/27/2017',
+    'date': '09/29/2017',
     'title': 'Editors'
     }, {
-    'date': '02/03/2017',
+    'date': '10/06/2017',
     'title': 'Git II'
     }, {
-    'date': '02/10/2017',
+    'date': '10/13/2017',
     'title': 'Unix II'
     }, {
-    'date': '02/17/2017',
+    'date': '10/20/2017',
     'title': 'Build Systems'
     }, {
-    'date': '02/24/2017',
-    'title': 'Optional Lecture: TBD'
-    }, {
-    'date': '03/03/2017',
-    'title': 'Spring break no lecture'
-    }, {
-    'date': '03/10/2017',
+    'date': '10/27/2017',
     'title': 'Unit Testing and Python'
     }, {
-    'date': '03/17/2017',
+    'date': '11/03/2017',
     'title': 'Debuggers'
     }, {
-    'date': '03/24/2017',
+    'date': '11/10/2017',
     'title': 'Package Managers & Development Environment'
     }, {
-    'date': '03/31/2017',
+    'date': '11/17/2017',
     'title': 'IDEs'
     }, {
-    'date': '04/07/2017',
+    'date': '11/24/2017',
+    'title': 'No lecture, Thanksgiving break'
+    }, {
+    'date': '12/01/2017',
     'title': 'A Sampling of Other Things'
     }, {
-    'date': '04/14/2017',
+    'date': '12/08/2017',
     'title': 'TBA - Staff'
     }
 ]
 
 for idx, lecture in enumerate(lectures):
-    with open('w17/week{0:02d}.md'.format(idx + 1), 'w') as f:
+    with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
         lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
         hwDate  = lecDate.replace(hours=15)
         solDate = hwDate.shift(weeks=1, hours=7)

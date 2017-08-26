@@ -2,6 +2,13 @@
 layout: default
 ---
 
+<div class="text-center">
+  <hr />
+  <h1 style="color: red; font-size: 300%">!!! This is the W17 version of the course !!!</h1>
+  <h1 style="color: red; font-size: 200%"><a href="/">Click here to go to the current course homepage</a></h1>
+  <hr />
+</div>
+
 <div class="jumbotron">
   <p>This 1-credit seminar is designed to teach the essentials of using a
   computer effectively for EECS students. While the target audience is CS/CE/DS
@@ -18,7 +25,7 @@ layout: default
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
   {% for update in site.updates %}
-    {% if update.categories contains 'f17' %}
+    {% if update.categories contains 'w17' %}
       {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
       {% assign update_date = update.date | date: '%s' | times: 1 %}
       {% if update_date > onemonthago %}
@@ -32,7 +39,7 @@ layout: default
   <div id="old-updates" style="display: none">
 
     {% for update in site.updates %}
-      {% if update.categories contains 'f17' %}
+      {% if update.categories contains 'w17' %}
         {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
         {% assign update_date = update.date | date: '%s' | times: 1 %}
         {% if update_date <= onemonthago %}
@@ -75,15 +82,24 @@ For sensitive issues, please e-mail Marcus directly.
   <table class="table staff-table">
     <tr>
       <td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
-      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"/></td>
+      <td><img src="/static/img/mterwil-square.jpg"  alt="Matt Terwilliger" /></td>
+      <td><img src="/static/img/thealex-square.jpg"  alt="Alex Chojnacki"   /></td>
+      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"   /></td>
+      <td><img src="/static/img/ankshah-square.jpg"  alt="Ankit Shah"       /></td>
     </tr>
     <tr>
       <td>Marcus Darden</td>
+      <td>Matt Terwilliger</td>
+      <td>Alex Chojnacki</td>
       <td>Cameron Gagnon</td>
+      <td>Ankit Shah</td>
     </tr>
     <tr>
       <td><a href="mailto:mmdarden@umich.edu">mmdarden@umich.edu</a></td>
+      <td><a href="mailto:mterwil@umich.edu">mterwil@umich.edu</a></td>
+      <td><a href="mailto:thealex@umich.edu">thealex@umich.edu</a></td>
       <td><a href="mailto:cgagnon@umich.edu">cgagnon@umich.edu</a></td>
+      <td><a href="mailto:ankshah@umich.edu">ankshah@umich.edu</a></td>
     </tr>
   </table>
 </div>
@@ -91,10 +107,10 @@ For sensitive issues, please e-mail Marcus directly.
 {% assign anchor_text="Course Resources" %}
 {% assign anchor_name="resources" %}
 {% include anchor.html %}
-<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/fall2017/eecs398002fa2017" target="_blank">Piazza</a></h4>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/ixgsfwif4f35is" target="_blank">Piazza</a></h4>
 <h4>Assignment Submission &amp; Grades &ndash; <a
-        href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a></h4>
-<ul><li>Gradescope entry code: <code>9D554P</code></li></ul>
+        href="https://gradescope.com/courses/5574" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: <code>MX54N9</code></li></ul>
 <!--
 <p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
 so that all students may benefit from the question and answer. To reach the course staff, please e-mail
@@ -106,9 +122,14 @@ so that all students may benefit from the question and answer. To reach the cour
 {% assign anchor_name="times" %}
 {% include anchor.html %}
 <dl class="dl-horizontal">
-  <dt>Section 002 (28326)</dt>
-  <dd>1013 DOW, Friday 11:00AM &mdash; 12:30PM</dd>
+  <dt>Section 003 (28920)</dt>
+  <dd>1670 BBB, Friday 1:30PM &mdash; 3:00PM</dd>
+  <dt>Section 004 (28657)</dt>
+  <dd>AUD CHRYS, Friday 10:00AM &mdash; 11:30AM</dd>
 </dl>
+<p>In general, you may attend any section, however if the classrooms become
+overfull, we will have to ask that you attend the section you are officially
+registered for.</p>
 
 <div id='calendar-loading'>Loading calendar...</div>
 <div id='calendar'></div>
@@ -131,7 +152,7 @@ so that all students may benefit from the question and answer. To reach the cour
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'f17' %}
+      {% if week.categories contains 'w17' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
