@@ -31,6 +31,26 @@ defaults:
     values:
       layout: lecture
   - scope:
+      path: "_lectures/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/w16"
+    values:
+      category: w16
+  - scope:
+      type: syllabus
+    values:
+      layout: syllabus
+  - scope:
+      path: "_syllabus/f16"
+    values:
+      category: f16
+  - scope:
       path: "_lectures/w17"
     values:
       category: w17
@@ -39,17 +59,21 @@ defaults:
     values:
       category: w17
   - scope:
-      path: "_updates/w17"
-    values:
-      category: w17
-  - scope:
-      type: syllabus
-    values:
-      layout: syllabus
-  - scope:
       path: "_syllabus/w17"
     values:
       category: w17
+  - scope:
+      path: "_lectures/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_syllabus/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_updates/f17"
+    values:
+      category: f17
   - scope:
       type: commands
     values:
@@ -58,6 +82,10 @@ defaults:
       path: "_commands/basics"
     values:
       category: basics
+  - scope:
+      path: "_commands/tutorials"
+    values:
+      category: tutorials
   - scope:
       path: "_commands/shells"
     values:
@@ -87,7 +115,7 @@ defaults:
     values:
       category: os_x
 
-command_categories: ["basics", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
+command_categories: ["basics", "tutorials", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
 
 # Build settings
 markdown: kramdown
@@ -102,4 +130,3 @@ markdown_ext: "mkdown,mkdn,mkd,md"
 
 # Needed for Travis
 exclude: [vendor]
-

@@ -3,4 +3,6 @@ _site
 .jekyll-metadata
 *.swp
 *.swo
-Gemfile.lock
+*.DS_store
+*.aux
+*.out

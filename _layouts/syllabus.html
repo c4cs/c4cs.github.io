@@ -56,13 +56,13 @@
       </p>
     {% endif %}
     {% if page.leccapWed %}
-      <p>Wednesday Lecture</p>
+      <p>Morning Lecture</p>
       <ul>
         <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapWed }}" target="_blank">Lecture Video</a></li>
       </ul>
     {% endif %}
     {% if page.leccapFri %}
-      <p>Friday Lecture</p>
+      <p>Afternoon Lecture</p>
       <ul>
         <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a></li>
       </ul>
@@ -92,21 +92,21 @@
       {% assign now = 'now' | date: '%s' | times: 1 %}
       {% assign homeworkRelease = page.homeworkRelease | date: '%s' | times: 1 %}
       {% if now > homeworkRelease %}
-        <p><a href="static/f16/hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
-        <p><a href="static/f16/hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
+        <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
+        <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
       {% endif %}
       {% if page.advancedRelease %}
         {% assign advancedRelease = page.advancedRelease | date: '%s' | times: 1 %}
         {% if now > advancedRelease %}
-          <p><a href="static/f16/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
-          <p><a href="static/f16/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+          <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
+          <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
         {% endif %}
       {% endif %}
       {% if page.solutionRelease %}
         {% assign solutionRelease = page.solutionRelease | date: '%s' | times: 1 %}
         {% if now > solutionRelease %}
           <hr />
-          <p><a href="static/f16/solutions/c4cs-wk{{ page.week }}-solutions.pdf">Solutions&nbsp;{{ page.week }} [pdf]</a></p>
+          <p><a href="/static/{{ page.categories }}/solutions/c4cs-wk{{ page.week }}-solutions.pdf">Solutions&nbsp;{{ page.week }} [pdf]</a></p>
         {% endif %}
       {% endif %}
     {% else %}

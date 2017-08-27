@@ -113,7 +113,7 @@ ourselves and anyone else looking at our code why and what we committed.
 Commit messages have a particular style: they should be written in the imperative
 mood, without ending punctuation. Certain verbs, like "Add", "Implement", and
 "Remove", are good first words in a commit message. Read [Chris Beams' "How to Write
-a Git Commit Message"](http://chris.beams.io/posts/git-commit/) to learn the best
+a Git Commit Message"](https://chris.beams.io/posts/git-commit/) to learn the best
 practices.
 
 If we run git status again, we see that file1.cpp is no longer "modified," in 
@@ -331,6 +331,25 @@ This is a collection of tips and tricks that can make working with git more
 pleasant. You may not like all of these or you may have other preferences, you
 should explore!
 
+
+Git Stash
+---------
+
+When working on a large project, you may find yourself in a position where you're halfway through implementing one feature, but then somebody asks you to switch to a different feature. What do you do with the progress that you've made on the first feature? One option would be to commit the work you've done so far, but if it's a work-in-progress, it might not even compile! Another option would be to make a temporary directory and put the work in there, but now you'd have two directories to manage and it could become a version control nightmare. Fortunately, git provides an easy way to handle this situation: the stash.
+
+The stash is a hidden data structure that you can use to store changes to the working directory that have not yet been committed. These changes can then be loaded out of the stash at a later time when you want to resume working on that part of the project.
+
+To store a set of changes in the stash, first modify the files in your working directory (and `git add` any untracked files), and then type `git stash save`. Git will then store away those modifications and restore your working directory to a clean slate matching the most recent commit. When you want to bring the changes back, type `git stash apply` and your most recently stashed work will be loaded into the working directory. (Note that if the repository has changed in the meantime, you may have to resolve merge conflicts upon loading from the stash.)
+
+Saving and applying are the most fundamental commands for working with the stash, but there are a few other helpful commands as well:
+
+  * `git stash list` will show a list of all of the work that's been stored in the stash, ordered from newest to oldest.
+  * `git stash save "<message>"` will give the entry in the stash list a custom message so that you'll know later what the stashed work was doing.
+  * `git stash drop stash@{<number>}` will remove an entry from the stash, where `<number>` is the index of the entry in the stash list.
+  * `git stash pop` will `apply` the most recent stash entry and then `drop` it, essentially treating the stash as a stack data structure.
+  * `git stash clear` will empty the entire stash.
+
+The full `git stash` documentation can be found [here](https://git-scm.com/docs/git-stash).
 
 ~/.gitconfig
 ------------

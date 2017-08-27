@@ -12,14 +12,13 @@ layout: default
   cover.</p>
 </div>
 
-{% if site.updates.length > 0 %}
 <div class="alert alert-info">
   <h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
 
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
   {% for update in site.updates %}
-    {% if update.categories contains 'f16' %}
+    {% if update.categories contains 'f17' %}
       {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
       {% assign update_date = update.date | date: '%s' | times: 1 %}
       {% if update_date > onemonthago %}
@@ -33,7 +32,7 @@ layout: default
   <div id="old-updates" style="display: none">
 
     {% for update in site.updates %}
-      {% if update.categories contains 'f16' %}
+      {% if update.categories contains 'f17' %}
         {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
         {% assign update_date = update.date | date: '%s' | times: 1 %}
         {% if update_date <= onemonthago %}
@@ -44,7 +43,6 @@ layout: default
 
   </div><!-- old-updates -->
 </div>
-{% endif %}
 
 <hr />
 
@@ -77,24 +75,18 @@ For sensitive issues, please e-mail Marcus directly.
   <table class="table staff-table">
     <tr>
       <td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
-      <td><img src="/static/img/mterwil-square.jpg"  alt="Matt Terwilliger" /></td>
-      <td><img src="/static/img/thealex-square.jpg"  alt="Alex Chojnacki"   /></td>
+      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"/></td>
       <td><img src="/static/img/samkhan-square.jpg"  alt="Samiur Khan"   /></td>
-      <td><img src="/static/img/ankshah-square.jpg"  alt="Ankit Shah"       /></td>
     </tr>
     <tr>
       <td>Marcus Darden</td>
-      <td>Matt Terwilliger</td>
-      <td>Alex Chojnacki</td>
+      <td>Cameron Gagnon</td>
       <td>Samiur Khan</td>
-      <td>Ankit Shah</td>
     </tr>
     <tr>
       <td><a href="mailto:mmdarden@umich.edu">mmdarden@umich.edu</a></td>
-      <td><a href="mailto:mterwil@umich.edu">mterwil@umich.edu</a></td>
-      <td><a href="mailto:thealex@umich.edu">thealex@umich.edu</a></td>
+      <td><a href="mailto:cgagnon@umich.edu">cgagnon@umich.edu</a></td>
       <td><a href="mailto:samkhan@umich.edu">samkhan@umich.edu</a></td>
-      <td><a href="mailto:ankshah@umich.edu">ankshah@umich.edu</a></td>
     </tr>
   </table>
 </div>
@@ -102,10 +94,10 @@ For sensitive issues, please e-mail Marcus directly.
 {% assign anchor_text="Course Resources" %}
 {% assign anchor_name="resources" %}
 {% include anchor.html %}
-<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/ixgsfwif4f35is" target="_blank">Piazza</a></h4>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/fall2017/eecs398002fa2017" target="_blank">Piazza</a></h4>
 <h4>Assignment Submission &amp; Grades &ndash; <a
-        href="https://gradescope.com/courses/5574" target="_blank">Gradescope</a></h4>
-<ul><li>Gradescope entry code: <code>MX54N9</code></li></ul>
+        href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: <code>9D554P</code></li></ul>
 <!--
 <p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
 so that all students may benefit from the question and answer. To reach the course staff, please e-mail
@@ -117,14 +109,9 @@ so that all students may benefit from the question and answer. To reach the cour
 {% assign anchor_name="times" %}
 {% include anchor.html %}
 <dl class="dl-horizontal">
-  <dt>Section 003 (28920)</dt>
-  <dd>1670 BBB, Friday 1:30PM &mdash; 3:00PM</dd>
-  <dt>Section 004 (28657)</dt>
-  <dd>AUD CHRYS, Friday 10:00AM &mdash; 11:30AM</dd>
+  <dt>Section 002 (28326)</dt>
+  <dd>1013 DOW, Friday 11:00AM &mdash; 12:30PM</dd>
 </dl>
-<p>In general, you may attend any section, however if the classrooms become
-overfull, we will have to ask that you attend the section you are officially
-registered for.</p>
 
 <div id='calendar-loading'>Loading calendar...</div>
 <div id='calendar'></div>
@@ -134,6 +121,11 @@ registered for.</p>
 {% assign anchor_name="schedule" %}
 {% assign anchor_html_entity="h3" %}
 {% include anchor.html %}
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-warning-sign"></span>
+  The syllabus is subject to change in response to
+  feedback and class needs throughout the term.
+</div>
 <div class="table-responsive">
   <table class="table">
     <tr>
@@ -142,7 +134,7 @@ registered for.</p>
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'w17' %}
+      {% if week.categories contains 'f17' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
@@ -234,7 +226,7 @@ will then convert to a final score using the following conversion:</p>
 
 <p>The idea here is that homework does not have to 100% perfect to receive full
 credit. In addition, course staff can be a little &ldquo;nit-picky&rdquo;,
-taking of tenths of points to draw your attention to corrections and suggestions
+taking off tenths of points to draw your attention to corrections and suggestions
 without actually penalizing your grade.</p>
 
 <h4>Grading Issues / Regrade Requests</h4>
@@ -340,4 +332,5 @@ a student completes all 11 advanced exercise, they will earn
 <ul>
   <li><a href="/archive/w16/">Winter 2016</a></li>
   <li><a href="/archive/f16/">Fall 2016</a></li>
+  <li><a href="/archive/w17/">Winter 2017</a></li>
 </ul>
