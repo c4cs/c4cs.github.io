@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 12
 dates: 11/24/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "No lecture, Thanksgiving break"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

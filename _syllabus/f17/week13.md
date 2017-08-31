@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 13
 dates: 12/01/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "A Sampling of Other Things"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

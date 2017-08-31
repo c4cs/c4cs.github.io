@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 14
 dates: 12/08/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "TBA - Staff"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

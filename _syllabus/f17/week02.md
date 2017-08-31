@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 2
 dates: 09/15/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Basic Git"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

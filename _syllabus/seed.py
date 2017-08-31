@@ -3,6 +3,7 @@
 import arrow
 
 template = """---
+sectionHeader:{sectionHeader}
 week: {week}
 dates: {lecDate}
 lecturer: mmdarden
@@ -16,13 +17,13 @@ title: "{title}"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---
 """
 
 lectures = [
     {
+    'sectionHeader': 'Introduction and Basics',
     'date': '09/08/2017',
     'title': 'Introduction, Virtual Machines, & Command Line Primer'
     }, {
@@ -32,6 +33,7 @@ lectures = [
     'date': '09/22/2017',
     'title': 'Shells, Environment, Scripting, and Bash'
     }, {
+    'sectionHeader': 'Being Efficient',
     'date': '09/29/2017',
     'title': 'Editors'
     }, {
@@ -41,6 +43,7 @@ lectures = [
     'date': '10/13/2017',
     'title': 'Unix II'
     }, {
+    'sectionHeader': 'Developing',
     'date': '10/20/2017',
     'title': 'Build Systems'
     }, {
@@ -50,6 +53,7 @@ lectures = [
     'date': '11/03/2017',
     'title': 'Debuggers'
     }, {
+    'sectionHeader': 'Standing on the Shoulders of Giants',
     'date': '11/10/2017',
     'title': 'Package Managers & Development Environment'
     }, {
@@ -69,11 +73,16 @@ lectures = [
 
 for idx, lecture in enumerate(lectures):
     with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
+        secHeader = lecture.get('sectionHeader', '')
         lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
         hwDate  = lecDate.replace(hours=15)
         solDate = hwDate.shift(weeks=1, hours=7)
 
+        if secHeader != '':
+            secHeader = " '{}'".format(secHeader)
+
         weekData = template.format(
+            sectionHeader= secHeader,
             lecDate= lecDate.format('MM/DD/YYYY'),
             hwDate= hwDate.format('YYYY-MM-DD HH:mm:ss'),
             solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),

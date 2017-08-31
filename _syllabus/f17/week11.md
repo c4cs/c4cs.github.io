@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 11
 dates: 11/17/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "IDEs"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

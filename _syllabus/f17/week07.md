@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Developing'
 week: 7
 dates: 10/20/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Build Systems"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

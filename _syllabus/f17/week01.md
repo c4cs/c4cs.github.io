@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Introduction and Basics'
 week: 1
 dates: 09/08/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Introduction, Virtual Machines, & Command Line Primer"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

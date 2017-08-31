@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 6
 dates: 10/13/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Unix II"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

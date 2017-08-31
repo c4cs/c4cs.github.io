@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Being Efficient'
 week: 4
 dates: 09/29/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Editors"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

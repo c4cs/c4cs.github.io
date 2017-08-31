@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 9
 dates: 11/03/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Debuggers"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

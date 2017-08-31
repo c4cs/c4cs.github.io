@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 8
 dates: 10/27/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Unit Testing and Python"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

@@ -1,4 +1,5 @@
 ---
+sectionHeader: 'Standing on the Shoulders of Giants'
 week: 10
 dates: 11/10/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Package Managers & Development Environment"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---

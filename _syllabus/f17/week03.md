@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 3
 dates: 09/22/2017
 lecturer: mmdarden
@@ -12,6 +13,5 @@ title: "Shells, Environment, Scripting, and Bash"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
 leccapFri:
 ---
