@@ -3,19 +3,22 @@
 
 chown/chgrp
 -----------
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-`chown`/`chgrp` changes the user that _owns_ the file or the _group_ that owns the file.
-
+<!-- minimal example -->
 ~~~ bash
-$ ls -l file
--rw-r--r--  1 ppannuto  ... file
-$ sudo chown root file
-$ ls -l file
--rw-r--r--  1 root      ... file
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
+#### Example command
 
+##### Break it down
+
+#### Example command
+
+##### Break it down

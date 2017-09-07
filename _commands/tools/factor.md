@@ -3,41 +3,22 @@
 
 factor
 --
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-`factor` is used to list all prime factors of each integer number.
-
+<!-- minimal example -->
 ~~~ bash
-$ factor [NUMBER]...
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
-will list every prime factor the the list of input numbers.  The other main usage for `factor`,
-
-~~~ bash
-$ factor
-~~~
-
-with no command line arguments, input will be read from standard input.
-
-Generally, use:
-
-~~~ bash
-$ factor [NUMBER1] [NUMBER2]...
-~~~
-
 ### Useful Options / Examples
 
-There are very few options for factor. there are only two.
+#### Example command
 
-~~~ bash
-$ factor --help
-~~~
+##### Break it down
 
-will display a help file and exit.
+#### Example command
 
-~~~bash
-$ factor --versions
-~~~
-
-will display version information and exit.
+##### Break it down

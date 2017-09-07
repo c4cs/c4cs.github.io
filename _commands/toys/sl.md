@@ -3,47 +3,22 @@
 
 sl
 -------
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-Prints a train whenever you mistype ls as sl.
-
+<!-- minimal example -->
 ~~~ bash
-$ sl
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
-~~~bash
-$ sl
-     ====        ________                ___________
-  _D _|  |_______/        \__I_I_____===__|_________|
-   |(_)---  |   H\________/ |   |        =|___ ___|      _________________ 
-   /     |  |   H  |  |     |   |         ||_| |_||     _|                \_____A
-  |      |  |   H  |__--------------------| [___] |   =|                        |
-  | ________|___H__/__|_____/[][]~\_______|       |   -|                        |
-  |/ |   |-----------I_____I [][] []  D   |=======|____|________________________|_
-__/ =| o |=-~~\  /~~\  /~~\  /~~\ ____Y___________|__|__________________________|_
- |/-=|___||    ||    ||    ||    |_____/~\___/          |_D__D__D_|  |_D__D__D_|
-  \_/      \__/  \__/  \__/  \__/      \_/               \_/   \_/    \_/   \_/
-~~~
+### Useful Options / Examples
 
+#### Example command
 
-It is like the example above, but better.
+##### Break it down
 
-### How to install sl
-~~~bash
-$ sudo apt-get install sl
-~~~
+#### Example command
 
-### Special flags
-* '-a'
- the train flies
-
-* '-l'
- a small train
-
-* '-F'
- a flying train
-
-* '-e'
- allows ctrl+c
-
+##### Break it down

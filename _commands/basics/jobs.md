@@ -3,55 +3,22 @@
 
 jobs
 --
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-`jobs` is used to _list_ all active or suspended jobs. `jobs` will commonly be used with the [`fg`](/commands/fg) and [`bg`](/commands/bg) commands.
-
+<!-- minimal example -->
 ~~~ bash
-$ jobs
-list of jobs in form
-[jobID]		status		jobs
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### `jobs -l`
-~~~ bash
-$ jobs -l
-[1]		14891	Running		firefox &
-[2]+	14900	Stopped		sleep 10s
-[3]-	14912	Running		sleep 20s &
-~~~
+#### Example command
 
-##### Description
-~~~ bash
-$ jobs -l
-[1]		14891	Running		firefox &
-[2]+	14900	Stopped		sleep 10s
-[3]-	14912	Running		sleep 20s &
- |        |        |            |
- \- jobID |        |            |
-          \- PID   |            |
-                   \- status    |
-                                \-job
-~~~
+##### Break it down
 
-### `jobs -r`
-~~~ bash
-$ jobs -l
-[1]		Running		firefox &
-[3]-	Running		sleep 20s &
-~~~
+#### Example command
 
-##### Description
- * the `-r` flag tells `jobs` to limit the list to running jobs
-
-#### `jobs -s`
-~~~ bash
-$ jobs -s
-[2]+	14900	Stopped		sleep 10s
-~~~
-
-##### Description
- * the `-s` flag tells `jobs` to limit the list to stopped jobs
+##### Break it down

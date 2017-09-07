@@ -5,10 +5,10 @@ $ (Dollar sign prefix to a variable)
 -------
 
 '$variable'
-The dollar sign prefix is used to print the value of 'variable'.
+The dollar sign prefix allows the shell to interpret the phrase as a variable.
 
 ~~~ bash
-echo $PATH
+$ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 ~~~
 
@@ -30,9 +30,8 @@ $ VARX=5; echo $VARX
 ~~~bash
 $ EXEC="./hello.out"; $EXEC
 Hello World!
-~~~ 
+~~~
 
 ##### Break it down
 
-* The terminal replaces the $EXEC with its value, and reads it as if it was typed by the user. Therefore, the terminal runs the executable 'hello.out'. 
-
+* The terminal replaces the $EXEC with its value, and reads it as if it was typed by the user. Therefore, the terminal runs the executable 'hello.out'.

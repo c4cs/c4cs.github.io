@@ -3,10 +3,10 @@
 
 objdump
 -------
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-TODO: Claim the issue for this command and add documentation for this command
-by submitting a pull request.
-
+<!-- minimal example -->
 ~~~ bash
 *short* example of command usage and output
 ~~~
@@ -22,4 +22,3 @@ by submitting a pull request.
 #### Example command
 
 ##### Break it down
-

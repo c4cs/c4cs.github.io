@@ -86,15 +86,15 @@ mallory  - pts/3        2016-03-19 22:40   .         10892 (10.1.1.3)
 |          |            |                 |          |        user's address
 |          |            |                 |          |        :0 is shown for
 |          |            |                 |          |        local users
-|          |            |                 |          | 
+|          |            |                 |          |
 |          |            |                 |          \- The process ID
 |          |            |                 |             of the user's
 |          |            |                 |             shell
-|          |            |                 | 
+|          |            |                 |
 |          |            |                 \- Shows the idle time of session
 |          |            | 
 |          |            \- Time the user logged in
-|          | 
+|          |
 |          \- Shows where the shell is located. :0 means the user
 |             on a local X Windows display session. pts stands for
 |             "pseudo-terminal session" and created by remote sessions

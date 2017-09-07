@@ -3,45 +3,22 @@
 
 rev
 ---
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-Rev reverses the lines of a file. This utility will copy the files specified in the command to standard output while reversing the order of each of the characters in every line. If no files are specified, it will use standard input and read in lines.  
-
-The general format is:
-
+<!-- minimal example -->
 ~~~ bash
-$ rev [file...]
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
-A simple example is:
+### Useful Options / Examples
 
-~~~ bash
-$ rev HelloWorld.cpp
-~~~
+#### Example command
 
-This will output !dlroW olleH if the file was "Hello World!"
+##### Break it down
 
-### Useful Options
+#### Example command
 
-### Examples
-
-~~~ bash 
-$ echo "Pat Pannuto" | rev
-~~~
-
-Will output: otunnaP taP
-
-~~~ bash
-$ rev myFile.cpp
-~~~
-
-Will output: 
-oG
-!eulB
-
-If the original file said:
-Go
-Blue!
-
- 
+##### Break it down

@@ -4,7 +4,7 @@
 emacs
 --
 
-`emacs` is used to edit files in emacs
+`emacs` is used to edit files in emacs.
 
 ~~~ bash
 $ emacs filename
@@ -84,7 +84,7 @@ Open a frame with 70 chars wide and 24 chars high.
 
 ##### Break it down
 
- * Set the Emacs window’s width, height, and position as specified. The width and height are specified 
+ * Set the Emacs window’s width, height, and position as specified. The width and height are specified
    in characters; the default is 80x24.
 
 #### `emacs -fg`
@@ -99,4 +99,3 @@ Open Emacs and set the color of the text red.
 
  * On color displays, sets the color of the text.
    See the file /usr/lib/X11/rgb.txt for a list of valid color names.
-

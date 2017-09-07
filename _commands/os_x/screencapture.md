@@ -4,11 +4,10 @@
 screencapture
 -------
 
-`screencapture` is used to capture an image of the whole, or part of the screen.
+`screencapture` is used to capture an image of the whole, or part of the screen, saving it into the current working directory.
 
 ~~~ bash
-#Takes a screenshot of the entire screen and saves it to the file screencap.png in the cwd
-screencapture screencap.png
+$ screencapture screencap.png
 ~~~
 
 <!--more-->
@@ -24,8 +23,8 @@ xcode-select --install
 ### Synopsis
 
 ~~~ bash
-screencapture [options] [file] 
-~~~ 
+screencapture [options] [file]
+~~~
 
 ### Flags
 
@@ -83,6 +82,3 @@ Below are some other cool flags and their descriptions, try them out!
 |      -s      | Open the taken picture in a new Mail message. |
 |      -x      | Do not play sounds. |
 |      -help   | Display help |
-
-
-

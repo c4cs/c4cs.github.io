@@ -5,10 +5,9 @@ pbcopy
 -------
 
 `pbcopy` is used to copy text from the terminal into the clipboard.
-The linux equivalent of `pbcopy` is `xclip`.
+The Linux equivalent of `pbcopy` is `xclip`.
 
 ~~~ bash
-# Copies the contents of a file into the clipboard
 $ pbcopy < example.txt
 ~~~
 
@@ -65,4 +64,3 @@ $ pbcopy -pboard font < text.txt
 * 3: The `find` option signals to the `-pboard` flag to copy into find clipboard. Running cmd+f after this command will pre-populate the search bar with 'hello'.
 * 4: The `font` option signals to the `-pboard` flag to copy to the font clipboard. This command specifically, pipes the contents of test.txt into the font clipboard.  The font clipboard allows you to copy the font from a selection (in this case, test.txt),
  and paste it onto some other text.
-
