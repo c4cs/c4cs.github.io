@@ -3,15 +3,29 @@ sectionHeader: 'Introduction and Basics'
 week: 1
 dates: 09/08/2017
 lecturer: mmdarden
-homeworkRelease: 2017-09-08 15:00:00
+homeworkRelease: 2017-09-08 13:00:00
 solutionRelease: 2017-09-15 22:00:00
 title: "Introduction, Virtual Machines, & Command Line Primer"
-# lectureTopics:
-#   - TBD
-# homeworkTopics:
-#   - TBD
-# advancedTopics:
-#   - TBD
-lectureSummary:
+lectureTopics:
+  - Lines of text as a universal interface
+  - Examples of unix commands and command synthesis
+homeworkTopics:
+  - Set up a virtual machine
+  - Some light reading
+advancedTopics:
+  - None this week
+commands:
+  - cat
+  - cd
+  - cp
+  - less
+  - ls
+  - mkdir
+  - more
+  - mv
+  - pwd
+  - rm
+  - rmdir
+lectureSummary: Syllabus week! We're not going for broke, just an easy introduction to the C4CS curriculum.
 leccapFri:
 ---
