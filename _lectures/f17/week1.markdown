@@ -208,7 +208,7 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 <div style="display: flex;">
 <div style="margin: auto;">
 .center-center[
-# `</administrivia>`
+# Administrivia
 ]
 </div>
 </div>
