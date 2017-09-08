@@ -94,3 +94,4 @@ total 53872
    instead of 11594838 bytes.
  * The `-S` flag asks `ls` to sort the output by file size. This can be useful
    for finding big files taking up lots of space that shouldn't be around.
+

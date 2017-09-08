@@ -4,7 +4,8 @@
 cd
 --
 
-`cd` is used to _change directory_. `cd` is a useful tool to navigate up and down the hierarchy of the file systems on your machine, and move into a given directory.
+`cd` is used to _change directory_. Unlike most commands, `cd` is not
+a separate program, it is a shell built-in. `cd` is a useful tool to navigate up and down the hierarchy of the file systems on your machine, and move into a given directory.
 
 ~~~ bash
 $ cd ~
@@ -12,7 +13,7 @@ $ cd /home
 ~~~
 
 <!--more-->
-Unlike most commands, `cd` is not a separate program, it is a shell built-in.
+
 ### Useful Options / Examples
 
 
@@ -20,7 +21,7 @@ Unlike most commands, `cd` is not a separate program, it is a shell built-in.
 
 Jump to the last directory that you were in. This will not always necessarily be the parent to your current directory, which would instead be the case if you were to use `cd ..`
 
-(Note that this command prints current path after completion.)
+(Note that this command prints current path after completion)
 
 ~~~ bash
 Alborz-Brals-MacBook-Pro:basics abral$ pwd
@@ -76,7 +77,7 @@ Alborz-Brals-MacBook-Pro:~ abral$ pwd
 
 #### `cd /`
 
-Jump to the root directory
+Jump to the root directory 
 
 ~~~ bash
 Alborz-Brals-MacBook-Pro:basics abral$ pwd
