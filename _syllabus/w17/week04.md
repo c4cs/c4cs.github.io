@@ -6,6 +6,7 @@ lecturer: mmdarden
 homeworkRelease: 2017-01-27 15:00:00
 advancedRelease: 2017-01-27 15:00:00
 solutionRelease: 2017-02-04 15:00:00
+ohppRelease: 2017-01-27
 title: "Editors"
 slidesName: w17/week4
 lectureTopics:

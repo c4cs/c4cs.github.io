@@ -9,6 +9,7 @@ dates: {lecDate}
 lecturer: mmdarden
 homeworkRelease: {hwDate}
 solutionRelease: {solDate}
+# ohppRelease: {lecDate}
 title: "{title}"
 # lectureTopics:
 #   - TBD
@@ -88,6 +89,7 @@ for idx, lecture in enumerate(lectures):
             solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
             title= lecture['title'],
             week= idx + 1,
+	    ohppRelease = lecDate.format('MM/DD/YYYY')
         )
 
         f.write(weekData)
