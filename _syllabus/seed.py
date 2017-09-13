@@ -75,8 +75,11 @@ for idx, lecture in enumerate(lectures):
     with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
         secHeader = lecture.get('sectionHeader', '')
         lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
-        hwDate  = lecDate.replace(hours=15)
-        solDate = hwDate.shift(weeks=1, hours=7)
+        # homework out at 11am (start of first lecture) each week
+        hwDate  = lecDate.replace(hours=11)
+        # homework due/solution released 1.5 weeks after released (due on
+        # Wednesday night at midnight)
+        solDate = hwDate.shift(weeks=1, days=5, hours=13)
 
         if secHeader != '':
             secHeader = " '{}'".format(secHeader)

@@ -3,8 +3,8 @@ sectionHeader: 'Developing'
 week: 7
 dates: 10/20/2017
 lecturer: mmdarden
-homeworkRelease: 2017-10-20 15:00:00
-solutionRelease: 2017-10-27 22:00:00
+homeworkRelease: 2017-10-20 11:00:00
+solutionRelease: 2017-11-02 00:00:00
 title: "Build Systems"
 # lectureTopics:
 #   - TBD
