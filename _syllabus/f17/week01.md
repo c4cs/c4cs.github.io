@@ -28,5 +28,5 @@ commands:
   - rm
   - rmdir
 lectureSummary: Syllabus week! We're not going for broke, just an easy introduction to the C4CS curriculum.
-leccapFri:
+leccapFri: LdBvMG
 ---
