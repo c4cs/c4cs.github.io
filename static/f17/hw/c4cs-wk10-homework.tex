@@ -35,30 +35,6 @@ literate={*}{{\char42}}1
 \lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
 
 
-% Python syntax in listings
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\lstdefinestyle{Python}{
-  language=Python,  
-  aboveskip=3mm,
-  belowskip=3mm,
-  numbers=left,
-  numbersep=8pt,
-  numberstyle=\small\ttfamily\color{gray},
-  basicstyle={\small\ttfamily},
-  commentstyle=\color{gray},
-  showstringspaces=false,
-  tabsize=4,
-    showspaces=false,
-    showtabs=false,
-    breaklines=true,
-    showstringspaces=false,
-    breakatwhitespace=true,
-    commentstyle=\color{pgreen},
-    keywordstyle=\color[HTML]{A71D5D},
-    stringstyle=\color[HTML]{0086B3},
-    basicstyle=\ttfamily
-}
-
 
 \usepackage[colorlinks,urlcolor={blue}]{hyperref}
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
@@ -67,241 +43,117 @@ literate={*}{{\char42}}1
 
 \begin{document}
 
-%\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
-\fancyhead[C]{}
-\fancyhead[L]{}
-\fancyhead[R]{}
 
 \fancyfoot[L]{\color{gray} C4CS -- F'17}
 \fancyfoot[R]{\color{gray} Revision 1.0}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
-
-\title{\textbf{Homework 10\\Unit Testing and Python}}
-\author{\textbf{\color{red}{Due: Wednesday, November 8, 11:59PM (Hard Deadline)}}}
+\title{\textbf{Homework 10\\Towards a Development Environment}}
+\author{\textbf{\color{red}{Due: Wednesday, November 22nd, 11:59PM (Hard Deadline)}}}
 \date{}
 \maketitle
 
-\section*{Submission Instructions}
-When you are done, submit a link to your GitHub repository here: \url{https://goo.gl/forms/3eJa7Vr8csNp2Usy2}
-
-\bigskip
-
-\begin{mdframed}\centering
-For this assignment, we will build on the RPN calculator from lecture.
-\end{mdframed}
-
-
-
-\section{Continuous Integration}
-One of the neat elements of modern software development is \emph{continuous
-  integration}. CI technologies automatically run test suites throughout the
-development process and help prevent bugs from creeping in.
-
-\subsection{The Setup}
-
-While GitLab does support CI, it's not quite set up and working here at
-Michigan yet, so we'll do this next bit using
-\href{https://github.com}{GitHub} instead.
-We'll use \href{https://travis-ci.org/}{Travis CI} as our CI platform.
-
-\begin{enumerate}
-  \item As a first step, create accounts on both of these platforms -- do
-    GitHub first, Travis CI will use your GitHub account.
-  \item Next, create a new repository named \textbf{c4cs-w17-rpn} on GitHub.
-  \item Like submitting for attendance, we'll follow the directions from
-    GitHub for ``\dots{}or push an existing repository from the command
-    line''. \emph{However}, we already have a remote named ``origin'', so
-    we'll need to change the commands just a little:
-    \begin{itemize}
-      \item \texttt{git remote add \textbf{github} https://github.com/\textbf{your-github-username}/c4cs-w17-rpn.git}
-      \item \texttt{git push -u \textbf{github} master}
-    \end{itemize}
-  \item Refresh the GitHub page in your browser -- you should see your code!
-  \item Now that we have a repository, we need to enable Travis CI for this
-    repository. Visit \url{https://travis-ci.org/profile} and enable Travis
-    for the repository you just made.
-    \begin{itemize}
-      \item You may need to click the ``Sync Account'' button in the top
-        right if it doesn't immediately show up
-    \end{itemize}
-\end{enumerate}
-
-\emph{Note: Final versions of \texttt{rpn.py} and \texttt{test\_rpn.py} from
-  lecture are on the course homepage (\url{https://c4cs.github.io/}).}
-
-\newpage
-
-\subsection{The Part You Have to Figure Out}
-
-Travis uses a file named \texttt{.travis.yml}\footnote{%
-  Note the leading period for this file. Remember that makes it a \emph{hidden
-    file}. This means it won't show up if you just run \texttt{ls}. You have
-  to run \texttt{ls -a} (think ``all'') to see it. Other than this little
-  quirk, hidden files are like any other. You can edit them with any text
-  editor, no fanciness.
-} to figure out what it needs to do. You will need to create this file, commit
-it, and then run \texttt{git push} to push that commit to GitHub. Once you
-push, Travis will automatically start running.
-
-It is very likely that Travis will error on your first try. That's fine. Just
-make some changes to \texttt{.travis.yml}, commit, and push again.
-
-The things you'll have to tell Travis in your configuration file:
-\begin{enumerate}
-  \item This is a Python project
-  \item This project requires Python3 (any version of Python3, but 3.5 is a
-    good choice)
-  \item How to run your tests
-\end{enumerate}
-
-A few links that may help:
-\begin{itemize}
-  \item Wikipedia on YAML for a syntax primer: \url{https://en.wikipedia.org/wiki/YAML}
-  \item Travis CI's getting started guide:
-    \url{https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI\%3A}
-  \item Travis CI's guide for Python:
-    \url{https://docs.travis-ci.com/user/languages/python/}
-  \item Travis Lint: \url{http://lint.travis-ci.org/}
-    \begin{itemize}
-      \item A \emph{linter} is a tool that checks code for syntax and style
-        problems. It validates that things are correct, make sense, and gives
-        feedback on how to make your code better.
-      \item I'm really bad at writing YAML, the syntax has just never made
-        sense to me, so I find this really useful
-    \end{itemize}
-\end{itemize}
-
-When you've got everything working,
-\texttt{https://travis-ci.org/\textbf{your-github-username}/c4cs-w17-rpn}
-should look something like this:
-
-\includegraphics[width=\linewidth]{travis-rpn-working}
-
-
-\vfill
-
-\begin{mdframed}\centering
-For this class, we're happy to do everything publicly. If you use GitHub and
-Travis CI for other class projects
-\textbf{\emph{\large You MUST create PRIVATE repositories}}.
-
-You can do this for free as a student, grab a copy of the
-\href{https://education.github.com/pack}{GitHub Student Developer Pack} to get
-started.
-
-{\color{red}
-  For most EECS classes at Michigan, posting your code online (e.g. a public
-  repository) is an honor code violation. You may be subject to failing the
-  project, failing the course, or other penalties.
-
-  \textbf{\emph{\Large DO NOT PUT CODE FOR OTHER EECS CLASSES IN PUBLIC REPOSITORIES}}
-}
-\end{mdframed}
-
-
-
-
-
-
-
-
-
-
-\newpage
-
-\section{Let's do some test-driven-development}
-
-\subsection{Make the test}
-Add a test to your test suite for the exponentiation operator (the carat:
-\texttt{\^{}}). Once you have finished your test, commit and push your test.
-Verify that your Travis build \textbf{fails} (you have not implemented carat
-support yet!). Fix your Travis setup if you need to.
-
-\subsection{Add the implementation}
-Add support to your RPN calculator for exponentiation. Commit, push,
-and verify that your CI build is ``green'' (the tests pass).
-
 
 \section*{Submission Instructions}
-When you are done, submit a link to your GitHub repository here: \url{https://goo.gl/forms/3eJa7Vr8csNp2Usy2}
+When you are done, submit a link to your GitHub repository here: \url{https://docs.google.com/forms/d/e/1FAIpQLSf0-UO8GcD7vi3KT98Ss4aNt13ywu5vpKdLWhbYv0boV0xEKg/viewform}
+
+
+\section{A dotfiles repository}
+
+As we've seen in class, many tools store their configuration in ``dotfiles''
+in your home directory. While this is convenient for configuring things on one
+machine, often you may have multiple machines that you use (desktop at
+work, laptop for travel, etc). It would be really nice if all of these things
+stayed in sync.
+
+Fortunately, we've also learned a great tool for keeping things synchronized
+in this class -- git! Keeping your configuration files in git has the added
+benefit that you can try changes that your aren't sure if you will like
+(e.g\ trying out \href{http://blog.sanctum.geek.nz/vi-mode-in-bash/}{vi mode
+in bash}) knowing that you can easily revert them later.
+
+The trick is that it's not a good idea to make your home directory a git
+repository (because then every file in your home directory would be in that
+repository!). Instead, create a folder named \texttt{dotfiles}, make that a
+repository, and then use symlinks to point from where tools expect your
+dotfiles (in your home directory) to where they actually are (the dotfiles
+folder):
+
+\begin{lstlisting}
+  $ ls -l ~/.bashrc
+  lrwxr-xr-x  1 ppannuto  staff  40 Mar 31 23:43 /Users/ppannuto/.bashrc ->
+  /Users/ppannuto/Dropbox/dotfiles/.bashrc
+\end{lstlisting}
+
+
+\section{Remote work and configuring connections}
+Previously, we have directed you to look at \texttt{ssh} and \texttt{scp}
+for doing work on and moving files to and from remote machines. Repeated
+typing of anything in a Linux environment should be leading you to asking,
+``Is there any way I can do this with less typing?'' The answer lies with the
+\emph{OpenSSH SSH client configuration files}, whose reference can be found
+with \texttt{man ssh\_config}. Full documentation can be found on the man
+page, of course, but some more concrete examples and sample files are right
+at the end of a google search.
+
+This investigation will show you that hosts can be configured and referred to
+using simple (short) nicknames defined in \textasciitilde/.ssh/config. An
+example from the instructor's config file looks like:
+
+\begin{lstlisting}
+# UMich GitLab
+Host gitlab
+  HostName gitlab.com
+  User git
+  IdentityFile ~/.ssh/mmdarden_rsa
+
+# CAEN
+Host mmd
+  HostName login.engin.umich.edu
+  User mmdarden
+  Compression yes
+  
+# Home media server
+Host nas
+  HostName 10.180.239.64
+  User darden
+  IdentityFile ~/.ssh/id_rsa
+\end{lstlisting}
+
+These hosts can be specified by their shorter nicknames anywhere you would
+use the full User@HostName. This leads to simplified logins, shorter
+\texttt{git clone} commmands, and easier file management with \texttt{scp},
+among other things:
+
+\begin{lstlisting}
+  $ ssh mmd  # login to CAEN as mmdarden at login.engin.umich.edu
+  $ git clone gitlab:mmdarden/vimconfig.git
+  $ scp nas:music/artist/album/song.mp3 .  # copy a song to my local machine
+\end{lstlisting}
+  
+
+\subsection*{The Assignment}
+Create a dotfiles repository. Move your existing \texttt{.bashrc} file into
+this repository, commit it, and set up a symlink from your home directory for
+bashrc. Create an \texttt{ssh\_config} file and add it to your dotfiles
+repository. Finally, pick at least one other dotfile to move under version
+control and add it to this repository. For ideas, here are the files in my
+dotfiles folder:
+
+\begin{lstlisting}[escapechar=!]
+  .bash_aliases .bash_profile .bashfuncs .bashrc .gitconfig .gitignore .gsdesktop-helper!\footnote{Pour one out... (dead config file from \href{https://github.com/intarstudents/GSDesktop-Helper}{this} for \href{https://en.wikipedia.org/wiki/Grooveshark}{Grooveshark})}!
+  .hgrc .inputrc .pypirc .screenrc .vim!\footnote{This is actually a directory for \href{https://github.com/tpope/vim-pathogen}{Pathogen}}!  .vimrc
+  setup_dotfiles.sh!\footnote{This is a script that deletes any existing dotfiles (e.g.\ things usually ship with a template \texttt{.bashrc}) and replaces them with symlinks to the dotfile repo. It also handles ssh-config, which lives at \textasciitilde/.ssh/config}!
+  ssh-config
+\end{lstlisting}
+
+You can also find \emph{lots} of other dotfiles repositories on the web with
+tons of cool ideas for configurations. Some of the staff even have pretty good
+dotfiles repositories\dots
+
+Use any repository hosting service (Umich Gitlab, GitHub, personal server,
+etc) to make your dotfiles repo publically accessible. Then submit a link to
+your repository at the link given on the first page of this homework
 
 \end{document}
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-
-\section{Leveraging Classes}
-
-Classes, objects, polymorphism, inheritance, and all the rest of that
-vocabulary can seem a little intimidating sometimes, especially when you are
-first starting.
-
-\emph{Note for the 280 folks: This is coming slightly before object-oriented
-  materials in 280.  You \textbf{do not} need to deeply understand objects,
-  Python classes, etc to do this assignment. The goal is to show a simple
-  example and hopefully give some intuition for when you do cover objects in
-  280.}
-
-Let's take a look at how we can convert the template from lecture (left) to make a
-Calculator object (right):
-
-\begin{minipage}{.49\textwidth}
-\begin{lstlisting}[style=Python]
-#!/usr/bin/env python3
-
-def calculate(string):
-    pass
-def main():
-
-    while True:
-        calculate(input("rpn> "))
-if __name__ == '__main__':
-    main()
-\end{lstlisting}
-\end{minipage}
-\begin{minipage}{.49\textwidth}
-\begin{lstlisting}[style=Python]
-#!/usr/bin/env python3
-class Calculator:
-    def calculate(self, string):
-        pass
-def main():
-    calc = Calculator()
-    while True:
-        calc.calculate(input("rpn> "))
-if __name__ == '__main__':
-    main()
-\end{lstlisting}
-\end{minipage}
-
-The changes are
-\begin{enumerate}
-  \item Add the line \texttt{class Calculator:}, which is defining a new type
-    of object, a Calculator
-  \item Indent the \texttt{calculate} function and its whole function body to
-    make that function part of the new Calculator object, instead of being a
-    global function
-  \item Change the \texttt{calculate} function to take a \texttt{self}
-    argument
-    \begin{itemize}
-      \item \texttt{self} is a reference to the current calculator instance,
-        it's more or less the \texttt{this} pointer from \texttt{C++}
-      \item If none of that made sense, don't worry, you can just ignore
-        \texttt{self} for now
-    \end{itemize}
-  \item Create an \emph{instance} of a Calculator object on line 6
-  \item On line 8, \texttt{calculate} is no longer a global function, so we
-    have to ask the \texttt{calc} object we got on line 6 to call
-    \texttt{calculate}
-\end{enumerate}
-
-\end{comment}
