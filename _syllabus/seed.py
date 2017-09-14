@@ -71,26 +71,27 @@ lectures = [
     }
 ]
 
-for idx, lecture in enumerate(lectures):
-    with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
-        secHeader = lecture.get('sectionHeader', '')
-        lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
-        # homework out at 11am (start of first lecture) each week
-        hwDate  = lecDate.replace(hours=11)
-        # homework due/solution released 1.5 weeks after released (due on
-        # Wednesday night at midnight)
-        solDate = hwDate.shift(weeks=1, days=5, hours=13)
+if __name__ == '__main__':
+    for idx, lecture in enumerate(lectures):
+        with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
+            secHeader = lecture.get('sectionHeader', '')
+            lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
+            # homework out at 11am (start of first lecture) each week
+            hwDate  = lecDate.replace(hours=11)
+            # homework due/solution released 1.5 weeks after released (due on
+            # Wednesday night at midnight)
+            solDate = hwDate.shift(weeks=1, days=5, hours=13)
 
-        if secHeader != '':
-            secHeader = " '{}'".format(secHeader)
+            if secHeader != '':
+                secHeader = " '{}'".format(secHeader)
 
-        weekData = template.format(
-            sectionHeader= secHeader,
-            lecDate= lecDate.format('MM/DD/YYYY'),
-            hwDate= hwDate.format('YYYY-MM-DD HH:mm:ss'),
-            solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
-            title= lecture['title'],
-            week= idx + 1,
-        )
+            weekData = template.format(
+                sectionHeader= secHeader,
+                lecDate= lecDate.format('MM/DD/YYYY'),
+                hwDate= hwDate.format('YYYY-MM-DD HH:mm:ss'),
+                solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
+                title= lecture['title'],
+                week= idx + 1,
+            )
 
-        f.write(weekData)
+            f.write(weekData)
