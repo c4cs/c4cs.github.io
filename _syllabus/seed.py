@@ -8,6 +8,7 @@ week: {week}
 dates: {lecDate}
 lecturer: mmdarden
 homeworkRelease: {hwDate}
+advancedThisWeek: {advThisWeek}
 solutionRelease: {solDate}
 title: "{title}"
 # lectureTopics:
@@ -25,7 +26,8 @@ lectures = [
     {
     'sectionHeader': 'Introduction and Basics',
     'date': '09/08/2017',
-    'title': 'Introduction, Virtual Machines, & Command Line Primer'
+    'title': 'Introduction, Virtual Machines, & Command Line Primer',
+    'adv': 'false'
     }, {
     'date': '09/15/2017',
     'title': 'Basic Git'
@@ -61,7 +63,8 @@ lectures = [
     'title': 'IDEs'
     }, {
     'date': '11/24/2017',
-    'title': 'No lecture, Thanksgiving break'
+    'title': 'No lecture, Thanksgiving break',
+    'adv': 'false',
     }, {
     'date': '12/01/2017',
     'title': 'A Sampling of Other Things'
@@ -85,10 +88,15 @@ if __name__ == '__main__':
             if secHeader != '':
                 secHeader = " '{}'".format(secHeader)
 
+            weekHasAdv = 'true'
+            if lecture.get('adv'):
+                weekHasAdv = lecture.get('adv')
+
             weekData = template.format(
                 sectionHeader= secHeader,
                 lecDate= lecDate.format('MM/DD/YYYY'),
                 hwDate= hwDate.format('YYYY-MM-DD HH:mm:ss'),
+                advThisWeek= weekHasAdv,
                 solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
                 title= lecture['title'],
                 week= idx + 1,
