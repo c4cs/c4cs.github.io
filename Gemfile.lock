@@ -130,6 +130,7 @@ GEM
     parallel (1.10.0)
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
+    pdflatex (0.2.1)
     public_suffix (1.5.3)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
@@ -156,6 +157,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   html-proofer
+  pdflatex
 
 BUNDLED WITH
-   1.13.6
+   1.15.4
