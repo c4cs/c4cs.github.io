@@ -11,6 +11,7 @@ homeworkRelease: {hwDate}
 advancedThisWeek: {advThisWeek}
 solutionRelease: {solDate}
 title: "{title}"
+slidesName: "{lecSlide}"
 # lectureTopics:
 #   - TBD
 # homeworkTopics:
@@ -76,7 +77,8 @@ lectures = [
 
 if __name__ == '__main__':
     for idx, lecture in enumerate(lectures):
-        with open('f17/week{0:02d}.md'.format(idx + 1), 'w') as f:
+        lecSlide = 'f17/week{0:02d}.md'.format(idx + 1)
+        with open(lecSlide, 'w') as f:
             secHeader = lecture.get('sectionHeader', '')
             lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
             # homework out at 11am (start of first lecture) each week
