@@ -50,10 +50,14 @@
       {{ page.lectureSummary | markdownify }}
     {% endif %}
     {% if page.slidesName %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign lectureRelease = page.lectureRelease | date: '%s' | times: 1 %}
+      {% if now > lectureRelease %}
       <p>
-      <a href="lectures/{{ page.slidesName }}">Slides</a>
-      <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+        <a href="lectures/{{ page.slidesName }}">Slides</a>
+        <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
       </p>
+      {% endif %}
     {% endif %}
     {% if page.leccapFri %}
       <p>
