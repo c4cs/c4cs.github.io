@@ -3,7 +3,9 @@ sectionHeader:
 week: 5
 dates: 10/06/2017
 lecturer: mmdarden
+slidesName: f17/week5
 homeworkRelease: 2017-10-06 11:00:00
+lectureRelease: 2017-10-06 11:00:00
 advancedThisWeek: true
 solutionRelease: 2017-10-19 00:00:00
 title: "Git II"

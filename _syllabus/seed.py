@@ -7,11 +7,12 @@ sectionHeader:{sectionHeader}
 week: {week}
 dates: {lecDate}
 lecturer: mmdarden
+slidesName: {lecSlide}
 homeworkRelease: {hwDate}
+lectureRelease: {lecReleaseDate}
 advancedThisWeek: {advThisWeek}
 solutionRelease: {solDate}
 title: "{title}"
-slidesName: "{lecSlide}"
 # lectureTopics:
 #   - TBD
 # homeworkTopics:
@@ -77,12 +78,14 @@ lectures = [
 
 if __name__ == '__main__':
     for idx, lecture in enumerate(lectures):
-        lecSlide = 'f17/week{0:02d}.md'.format(idx + 1)
-        with open(lecSlide, 'w') as f:
+        syllabusInfo = 'f17/week{0:02d}.md'.format(idx + 1)
+        lecSlide = 'f17/week{0:01d}'.format(idx + 1)
+        with open(syllabusInfo, 'w') as f:
             secHeader = lecture.get('sectionHeader', '')
             lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
             # homework out at 11am (start of first lecture) each week
-            hwDate  = lecDate.replace(hours=11)
+            hwDate = lecDate.replace(hours=11)
+            hwFormatted = hwDate.format('YYYY-MM-DD HH:mm:ss')
             # homework due/solution released 1.5 weeks after released (due on
             # Wednesday night at midnight)
             solDate = hwDate.shift(weeks=1, days=5, hours=13)
@@ -97,7 +100,9 @@ if __name__ == '__main__':
             weekData = template.format(
                 sectionHeader= secHeader,
                 lecDate= lecDate.format('MM/DD/YYYY'),
-                hwDate= hwDate.format('YYYY-MM-DD HH:mm:ss'),
+                lecSlide= lecSlide,
+                lecReleaseDate= hwFormatted,
+                hwDate= hwFormatted,
                 advThisWeek= weekHasAdv,
                 solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
                 title= lecture['title'],
