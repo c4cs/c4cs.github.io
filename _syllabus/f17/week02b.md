@@ -3,7 +3,7 @@ week: 2b
 dates: 09/16/2017
 lecturer: cgagnon
 slidesName: f17/week2b
-title: "Crash Course on EECS@umich(.com)"
+title: "Crash Course on EECS@umich(.edu)"
 lectureTopics:
   - What is a terminal and how are we already familiar with it?
   - Getting familiar with common commands and actions on the command line
