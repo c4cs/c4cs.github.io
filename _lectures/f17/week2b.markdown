@@ -263,27 +263,27 @@ Now you can type `ssh caen` and give your password to login
 
 ---
 
-# git
+# `git`
 
 <hr/>
 
-## Talked about in lecture yesterday
-
-## - Let's set up ssh keys with GitHub
+### Let's set up ssh keys with GitHub
 
   - `ssh-keygen -t rsa -b 4096 -C your_email@example.com`
     - On Mac: `cat ~/.ssh/id_rsa_github.pub | pbcopy` (install `pbcopy`)
     - On Ubuntu: `cat ~/.ssh/id_rsa_github.pub` and then copy it to your clipboard
   - Go to https://github.com/settings/keys
+  - Do *NOT* copy the `~/.ssh/id_rsa_github` key. That one is *private*
 
 --
 
- - Do *NOT* copy the `~/.ssh/id_rsa_github` key. That one is *private*
-
---
-
-## Update your remote urls
-  - `git remote set-url origin https://github.com/USERNAME/REPOSITORY.git`
+### Add this to your `~/.ssh/config` file:
+```
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_github
+```
 
 --
 
@@ -382,8 +382,16 @@ class: center, middle
 
 ### After you `cd` around a bit, `z` builds up a database that lets you quickly jump to where you need to go
 
-
   - ex. `z 398` takes you to your `398` folder
+
+--
+
+## How to install
+  - On Mac with `brew`:
+    - `brew install z`
+  - On Ubuntu:
+    - `git clone https://github.com/rupa/z ~/z`
+    - `echo ". ~/z/z.sh" >> ~/.bashrc`
 
 ---
 
