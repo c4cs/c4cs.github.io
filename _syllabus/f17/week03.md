@@ -34,5 +34,5 @@ commands:
   - history
   - grep
 lectureSummary:
-leccapFri:
+leccapFri: H4Sr8r
 ---
