@@ -9,12 +9,30 @@ lectureRelease: 2017-09-22 11:00:00
 advancedThisWeek: true
 solutionRelease: 2017-10-05 00:00:00
 title: "Shells, Environment, Scripting, and Bash"
-# lectureTopics:
-#   - TBD
-# homeworkTopics:
-#   - TBD
-# advancedTopics:
-#   - TBD
+lectureTopics:
+  - How do programs start
+  - Why does environment matter?
+  - Scripting versus programming
+  - Examples
+#homeworkTopics:
+#  - Right tool for the right job
+#  - TBD
+#advancedTopics:
+#  - TBD
+commands:
+  - chmod
+  - man
+  - file
+  - echo
+  - seq
+  - true
+  - which
+  - export
+  - "yes"
+  - "$_"
+  - $variable
+  - history
+  - grep
 lectureSummary:
 leccapFri:
 ---
