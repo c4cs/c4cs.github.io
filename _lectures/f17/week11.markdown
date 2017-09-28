@@ -213,15 +213,6 @@ main -> do_math -> divide
 
 ---
 
-
-# Attendance:
-
-## http://tinyurl.com/c4cs-f17-dbug
-
-
----
-
-
 # GDB Does Python!!
 
   * Access to GDB internals

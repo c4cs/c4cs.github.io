@@ -193,12 +193,6 @@ questioning the "origin of QWERTY was to slow down typists" myth]
 
 ---
 
-# Let's get attendance
-
-## www.tinyurl.com/c4cs-f17-ed
-
----
-
 # Reviewing some old magic
 
 Remember Homework 2?
