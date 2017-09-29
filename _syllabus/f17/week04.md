@@ -29,5 +29,5 @@ commands:
   - vi
   - emacs
 lectureSummary:
-leccapFri:
+leccapFri: jYHM7p
 ---
