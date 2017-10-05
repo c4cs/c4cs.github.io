@@ -84,8 +84,8 @@ if __name__ == '__main__':
             secHeader = lecture.get('sectionHeader', '')
             lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')
             # homework out at 11am (start of first lecture) each week
-            hwDate = lecDate.replace(hours=11, tzinfo='US/Eastern')
-            hwFormatted = hwDate.format('YYYY-MM-DD HH:mm:ss ZZ')
+            hwDate = lecDate.replace(hours=11)
+            hwFormatted = hwDate.format('YYYY-MM-DD HH:mm:ss')
             # homework due/solution released 1.5 weeks after released (due on
             # Wednesday night at midnight)
             solDate = hwDate.shift(weeks=1, days=5, hours=13)
@@ -104,7 +104,7 @@ if __name__ == '__main__':
                 lecReleaseDate= hwFormatted,
                 hwDate= hwFormatted,
                 advThisWeek= weekHasAdv,
-                solDate= solDate.format('YYYY-MM-DD HH:mm:ss ZZ'),
+                solDate= solDate.format('YYYY-MM-DD HH:mm:ss'),
                 title= lecture['title'],
                 week= idx + 1,
             )

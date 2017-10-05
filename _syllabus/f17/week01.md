@@ -4,10 +4,10 @@ week: 1
 dates: 09/08/2017
 lecturer: mmdarden
 slidesName: f17/week1
-homeworkRelease: 2017-09-08 11:00:00 -04:00
-lectureRelease: 2017-09-08 11:00:00 -04:00
+homeworkRelease: 2017-09-08 11:00:00
+lectureRelease: 2017-09-08 11:00:00
 advancedThisWeek: false
-solutionRelease: 2017-09-21 00:00:00 -04:00
+solutionRelease: 2017-09-21 00:00:00
 title: "Introduction, Virtual Machines, & Command Line Primer"
 lectureTopics:
   - Lines of text as a universal interface
