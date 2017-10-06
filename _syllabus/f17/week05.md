@@ -3,7 +3,7 @@ sectionHeader:
 week: 5
 dates: 10/06/2017
 lecturer: mmdarden
-slidesName: f17/week5
+slidesName:
 homeworkRelease: 2017-10-06 11:00:00
 lectureRelease: 2017-10-06 11:00:00
 advancedThisWeek: true
