@@ -21,5 +21,5 @@ lectureTopics:
 homeworkTopics:
 advancedTopics:
 lectureSummary:
-leccapFri:
+leccapFri: EznmyT
 ---
