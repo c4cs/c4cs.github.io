@@ -3,12 +3,15 @@
 
 bg
 ---
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
 
-<!-- minimal example -->
+'bg' resumes a stopped job in the background, so the terminal remains usable.
+
 ~~~ bash
-*short* example of command usage and output
+$ gedit file.txt
+^Z
+$ bg 'gedit file.txt'
+$ jobs
+[1]+ Running    gedit file.txt
 ~~~
 
 <!--more-->
@@ -16,9 +19,15 @@ TODO: Add documentation for this command by submitting a pull request.
 ### Useful Options / Examples
 
 #### Example command
+'bg' can be passed job numbers as well as job names
 
-##### Break it down
+~~~ bash
+$ jobs
+[1]+ Stopped    gedit file.txt
+$ bg 1
+$
+~~~
 
-#### Example command
+### Related Commands
 
-##### Break it down
+
