@@ -120,7 +120,17 @@ scripts or while working at the terminal.
 
 \textbf{What does the variable \texttt{\$?} do? Give an example where this
 value is useful}
-\vspace{2cm}
+\begin{quote}
+  \color{violet}
+  \texttt{\$?} holds the return value of the last command run. By convention,
+  this is 0 if the command succeeded and nonzero if the command failed.
+  It can be useful when writing scripts, especially if you want to have fairly
+  complex things happen depending on success or failure (making it hard to
+  just use \texttt{\&\&} or \texttt{||}).
+
+  Try writing a simple program and varying the return value from
+  \texttt{main}. Run your program and look at the value of \texttt{echo \$?}.
+\end{quote}
 
 \textbf{What does the variable \texttt{\$1} do? Give an example where this
 value is useful}
