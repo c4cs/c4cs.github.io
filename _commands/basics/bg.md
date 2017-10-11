@@ -40,7 +40,7 @@ $ jobs
 $
 ~~~
 
-#### Background multiple tasks at once by passing multiple arguments
+#### Background multiple jobs at once by passing multiple arguments
 ~~~ bash
 $ jobs
 $ sleep 15
