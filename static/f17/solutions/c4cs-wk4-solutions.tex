@@ -174,8 +174,12 @@ That said, I encourage you to try all of these.
 For this question, you may choose \texttt{vim} or \texttt{Emacs}, whichever
 you are more comfortable with.
 
-\bigskip
-\hrule
+\begin{quote}
+  \color{blue}I'll present solutions in blue for vim, \color{red}and in red for Emacs.
+\end{quote}
+
+\medskip
+\noindent
 To start, grab copies of two files full of code:
 \begin{quote}
   \texttt{\# Examples from \url{http://web.mst.edu/~price/cs53/code_example.html}}\\
@@ -191,12 +195,21 @@ To start, grab copies of two files full of code:
     make it better. Open \texttt{KatsBadcode.cpp}. Among other issues, the
     really bad tabbing makes this hard to read.\\
     \textbf{Describe how to automatically fix the indentation for the whole file.}
-    \vspace{6em}
+    \begin{quote}\tt
+      {\color{blue} gg=G (gg-go to top of file, = re-indent from here to, G-the end of the file)}
+
+      {\color{red} C-x h <tab>} or {\color{red}C-x h C-M-\textbackslash}
+      and as a courtesy to your collaborators, \newline give {\color{red} M-x delete-trailing-whitespace} a go
+    \end{quote}
   \item Editing one file is nice, but often it's really useful to compare
     files side-by-side (source and headers, spec and implementation).\\
     \textbf{Describe the command sequence to create a window split (within your
         text editor) side-by-side with your current window, switch to it, and then open a file in that window.}\\
-    \vspace{6em}
+    \begin{quote}\tt
+      {\color{blue} :split [filename] (or :vsplit), Ctrl-W + (W or arrow)}
+
+      {\color{red} C-x 4 f <filename>} or more manually {\color{red} C-x 3 (or C-x 2), C-x o, C-x C-f <filename>}
+    \end{quote}
 
     Try playing around with these two views, copy/paste code between them,
     bind them so they scroll together, resize them, add more splits.\\
@@ -216,30 +229,74 @@ To start, grab copies of two files full of code:
     \end{quote}
     Building \texttt{KatsBadcode.cpp} will fail with several errors.\\
     \textbf{Describe how to navigate between compilation errors automatically.}
-    \vspace{6em}
+    \begin{quote}\tt
+      {\color{blue} :cn, :cp}
+
+      {\color{red} C-x `, M-g p} or {\color{red} M-x next-error, M-x previous-error}
+    \end{quote}
   \item While C-style languages support \texttt{/* block comments */}, others
     such as Python have no block comments and require you to put a \texttt{\#}
     at the beginning of every line.\\
     \textbf{Describe how to efficiently comment out a large block of Python code.}
-    \vspace{6em}
+    \begin{quote}\tt
+      \color{blue} Ctrl-v, highlight range, Shift-i, \#, Escape
+
+      \color{red} C-space, highlight range, M-;
+    \end{quote}
   \item (This one is actually about the terminal emulator): The normal
     keyboard shortcuts to copy/paste are Ctrl-C and Ctrl-V. These do not work
     in the terminal, however.\\
     \textbf{Explain what Ctrl-C does in a terminal.}\\
-    ~\\
-    ~\\
-    ~\\
-    ~\\
-    ~\\
+    \begin{quote}\small
+      \color{violet} In a terminal, Ctrl-C sends the signal \texttt{SIGKILL} to
+      the foreground process (whoa, wordy!).
+
+      Breaking that down, normally when you write programs, your program asks
+      the operating system for input events. If a user types ``hello'', your
+      program doesn't see it until it calls \texttt{cin} (on the flip side, if
+      your program calls \texttt{cin} before the operating system has anything
+      to send it (before the user has typed anything), then your program is
+      put to sleep by the operating system until there is data available).
+
+      Sometimes, however, the operating system needs to send an
+      \emph{asynchronous} message to your program, that is it needs to send a
+      message that your program didn't ask for. In unix, \emph{signals} are
+      the mechanism that deliver these messages. One such asynchronous message
+      is the kill signal (\texttt{SIGKILL}), which is usually understood to
+      mean that the user wants your program to exit. If your program does not
+      implement a \emph{signal handler} (special function) and register it to
+      catch \texttt{SIGKILL}, then the operating system will kill your program
+      automatically (this is why Ctrl-C will kill the programs you write).
+
+      Many programs will install handlers, however, to \emph{catch} the signal
+      and do something different with it. For example, try hitting Ctrl-C when
+      running vim, what happens? Ctrl-Z also sends a signal, \texttt{SIGSTOP}.
+      This signal is special in that it \emph{cannot be caught}. When a
+      program receives a \texttt{SIGSTOP} signal, it is immediately suspended.
+      This can be a useful way to bail out of a program (such as \texttt{ed})
+      that Ctrl-C isn't killing and you can't figure out how to stop.
+      Note the program is \textbf{not} dead (yet), but you can kill a stopped
+      program to remove it completely.
+    \end{quote}
     \textbf{Describe how to copy/paste using the keyboard within the terminal (not
     in your text editor that may be running within terminal).}
-    \vspace{6em}
+    \begin{quote}\tt
+      \color{violet} Ctrl-Shift-C and Ctrl-Shift-V
+    \end{quote}
   \item The default cut/copy/paste(/put/yank/kill) operations do not put text in
     the system clipboard (that is you cannot copy/paste into/from other
     applications).
     \textbf{Describe how to copy/paste a region of text to/from the system
     clipboard using your text editor.}
-    \vspace{6em}
+    \begin{quote}\tt
+      \color{blue} Use "+ to select the system clipboard register (+), that is
+      "+yy to copy the current line, or "+p to paste
+
+      \color{red} A freebie because it basically works already, Copy M-w,
+      Paste C-y -- however, I couldn't find an obvious way to make it work in
+      -nw mode, which could cause issues if something spawns emacs without a
+      window.
+    \end{quote}
   \item Many times you have a repetitive task that you need to do say 10 or 20
     times. It's too short to justify writing a script or anything fancy, but
     it's annoying to type the same thing over and over again. As example,
@@ -259,11 +316,20 @@ Shah,Ankit                         {"first": "Ankit", "last": "Shah"},
     into the column on the right.\\
     \textbf{Describe how to record and replay a macro.}
     \emph{\small (you do not need to include the contents of your macro)}
-    \vspace{6em}
+    \begin{quote}\tt
+      \color{blue}qq, <commands>, q (to stop recording), @q to replay (note
+      the second q is a register, so you could also do qa and @a)
+
+      {\footnotesize(my macro): \verb!yypws^M^[i{"first": ^[A,^[kddpkJli"last": ^[A}^[0f:lli"^[wwi"^[f:lli"^[$i"^[kJ0j!}
+
+      \color{red} C-x ( , <commands>, C-x ) , C-x e to replay
+
+      {\footnotesize(my macro): <tab> {"first" <space> C-right C-f C-space C-right
+          \newline C-w C-left " C-y ", <space> "last": <space> " C-right "}}
+    \end{quote}
     % Easter egg for those who look, here is mine (in vim):
     % yypws^M^[i{"first": ^[A,^[kddpkJli"last": ^[A}^[0f:lli"^[wwi"^[f:lli"^[$i"^[kJ0j
 
-\newpage
   \item Similar to how \texttt{$\sim$/.bashrc} configures your shell, a
     \texttt{$\sim$/.vimrc} or \texttt{$\sim$/.emacs} file\footnote{
       These files do not exist by default, you have to create them.
@@ -284,7 +350,35 @@ Shah,Ankit                         {"first": "Ankit", "last": "Shah"},
     \end{lstlisting}
     \textbf{Add something useful not listed above to your editor's configuration file.\\
       Describe  what you added and why.}
-    \vspace{12em}
+      \begin{quote}\tt\small
+        \color{blue}
+        " Show whitespace characters\\
+        " helps notice bad tabbing and eliminates trailing whitespace characters\\
+        set list\\
+        set listchars=tab:.\ ,trail:.\\
+
+        \color{red}
+        ;set return go to newline and indent\\
+        (global-set-key (kbd "RET") 'newline-and-indent)\\
+
+        ; m-x compile scrolls automatically\\
+        (setq compilation-scroll-output 'first-error)\\
+
+        ; show trailing whitespace\\
+        (setq-default show-trailing-whitespace t)\\
+        ; delete trailing whitespace on save\\
+        (add-hook 'before-save-hook 'delete-trailing-whitespace)\\
+
+        ; enable better package manager\\
+        (require 'package)\\
+        (add-to-list 'package-archives\\
+                     '("marmalade" . "http://marmalade-repo.org/packages/"))\\
+        (add-to-list 'package-archives\\
+                     '("melpa" . "http://melpa.org/packages/") t)\\
+        (package-initialize)\\
+        ; M-x install-package or M-x package-list-packages\\
+
+      \end{quote}
   \item Some final little things
     \small
     \begin{enumerate}
@@ -293,18 +387,30 @@ Shah,Ankit                         {"first": "Ankit", "last": "Shah"},
           the opening \{ on line~29 of \texttt{KatsBadcode} to its partner \}
           on line~58.
         }
-        \vspace{4em}
+        \begin{quote}\tt
+          \color{blue}Simply type \%
+
+          \color{red} C-M-right, C-M-left
+        \end{quote}
       \item Now imagine if you are editing code and you determine you can
         remove an if block, for example removing the \texttt{if} on line~28 of
         \texttt{KatsBadcode} and running its body unconditionally. You need to
         fix the indentation level of all 20~lines of the body.\\
         \textbf{Describe how to change the indentation level of a block of code.}
-        \vspace{4em}
+        \begin{quote}\tt
+          \color{blue} Select the region (Shift-V), hit $<$ (or $3<$ for three in, etc)
+
+          \color{red} C-u - 20 C-x <tab>
+        \end{quote}
       \item Sometimes it's useful to run quick little commands. For example,
         your code needs to read from a file, but you can't remember if it's
         called \texttt{sample\_data.txt} or \texttt{sampleData.txt}.\\
         \textbf{Describe how to run `ls' directly from within your editor.}
-        \vspace{4em}
+        \begin{quote}\tt
+          {\color{blue} :!ls}
+
+          {\color{red} M-! ls} or {\color{red} M-x shell-command}
+        \end{quote}
     \end{enumerate}
 \end{enumerate}
 
@@ -328,7 +434,27 @@ on CAEN. Put some text in it, save, and quit.
 Now try to run \texttt{gedit~test.txt}.
 
 \textbf{What error do you get? Why?}
-\vspace{6em}
+\begin{quote}
+  \color{violet}
+  \begin{lstlisting}
+** (gedit:30002): WARNING **: Could not open X display
+
+(gedit:30002): Gtk-WARNING **: cannot open display:
+  \end{lstlisting}
+  Graphical applications in Linux connect to a \emph{display server} called
+  \textbf{X11}, commonly just called \textbf{X}. It's X that is responsible
+  for hosting a \emph{window manager}, which is thing that lets a bunch of
+  application windows all share the same screen.
+
+  Because the machine you've logged into doesn't have a screen, there is no
+  display server running, so \texttt{gedit} has nowhere to render itself,
+  hence this error.
+
+  One really cool thing about how X is designed: unlike OS X or Windows,
+  programs that are running on one physical machine can display their window
+  on a different physical machine, this is called \ul{X forwarding}.
+\end{quote}
+
 
 Close your ssh session (log out of the terminal, either by typing
 \texttt{exit} or pressing \texttt{Ctrl-d} at an empty prompt). Then log in
@@ -346,7 +472,19 @@ anything else in that terminal.
 
 \emph{\small (Hint: remember we talked about shell \ul{job control} a few
   weeks ago)}
-\vspace{6em}
+\begin{quote}
+  \color{violet}
+  You can keep using \texttt{gedit} by \ul{suspend}ing it by pressing
+  \texttt{Ctrl-z} and then \ul{background}ing it by running \texttt{bg}.
+
+  You can run \texttt{gedit} in the background when you first start it up by
+  adding an ampersand to the end of the command, like this:
+
+  \texttt{gedit \&}
+
+  These \ul{job control} features are part of \texttt{bash}, though most
+  shells include similar if not identical commands.
+\end{quote}
 
 Try running a more graphically intensive program, such as the \texttt{eclipse}
 IDE or \texttt{matlab}. How does it compare to sitting at a physical CAEN
