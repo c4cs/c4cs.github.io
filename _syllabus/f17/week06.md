@@ -13,7 +13,13 @@ lectureTopics:
   - Lines of text as a universal interface
   - Examples of unix commands and command synthesis
 homeworkTopics:
+  - Basics of regular expressions
+  - Guided intro to some tools
+  - Synthesizing tools into powerful queries
 advancedTopics:
+  - Shell scripting
+  - (Basic) shell job control
+  - Automated testing
 lectureSummary:
 leccapFri:
 ---

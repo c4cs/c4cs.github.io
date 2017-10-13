@@ -13,34 +13,7 @@ class: center, middle
 
 ---
 
-# Administrative
-
----
-
-# Regex/Regexp
-
-## What is it?
-
-  - 99 Problems
-  - All the "Big" tools use it
-  - Try out
-    - www.regular-expressions.info
-    - www.regexr.com
-  - Endless amusement during live demos
-
---
-
-## The Basics
-
-  - Special Characters `\^$.|?*+()[]{}`
-  - Character classes `[<chars>]`
-  - Shorthand classes `\<char>` and `[[:class:]]`
-  - Anchors
-  - Alternation
-  - Repetition
-  - Greedy & Lazy
-  - Grouping
-  - Backreferencing
+# Unix: What do we know so far?
 
 ---
 
@@ -70,6 +43,33 @@ class: center, middle
   - uniq
   - diff
   - comm
+
+---
+
+# Regex/Regexp
+
+## What is it?
+
+  - 99 Problems
+  - All the "Big" tools use it
+  - Try out
+    - www.regular-expressions.info
+    - www.regexr.com
+  - Endless amusement during live demos
+
+--
+
+## The Basics
+
+  - Special Characters `\^$.|?*+()[]{}`
+  - Character classes `[<chars>]`
+  - Shorthand classes `\<char>` and `[[:class:]]`
+  - Anchors
+  - Alternation
+  - Repetition
+  - Greedy & Lazy
+  - Grouping
+  - Backreferencing
 
 ---
 
