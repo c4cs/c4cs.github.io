@@ -29,5 +29,3 @@ git-archive(1)           - Create an archive of files from a named tree
 git-bisect(1)            - Use binary search to find the commit that introduced a bug
 ...
 ~~~
-
-##### Break it down
