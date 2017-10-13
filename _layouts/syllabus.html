@@ -64,6 +64,17 @@
       <a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a>
       </p>
     {% endif %}
+    {% if page.asciicasts %}
+      <p><b>Asciicasts:</b>
+      {% for asciicast in page.asciicasts %}
+        {% if forloop.last %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a>
+        {% else %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a> &#x25cf;
+        {% endif %}
+      {% endfor %}
+      </p>
+    {% endif %}
     {% if page.commands %}
       <hr />
       <p><b>B1G TEN Commands</b><p>

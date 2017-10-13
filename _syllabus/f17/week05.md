@@ -21,5 +21,8 @@ lectureTopics:
 homeworkTopics:
 advancedTopics:
 lectureSummary:
+asciicasts:
+  - 141139 
+  - 142198
 leccapFri: EznmyT
 ---
