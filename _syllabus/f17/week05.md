@@ -19,8 +19,13 @@ lectureTopics:
   - Commit everything, branch often
   - Cleaning history - Rebasing, squashing
 homeworkTopics:
+  - Thinking in git
+  - Practice with merging, conflicts
 advancedTopics:
-lectureSummary:
+  - Using git to collaborate for real
+lectureSummary: |
+    Some [tips and tricks](/commands/git) to make working with git more
+    enjoyable.
 asciicasts:
   - 141139 
   - 142198
