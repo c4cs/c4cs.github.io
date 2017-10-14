@@ -35,6 +35,7 @@ Sudoers entry:
 #### `sudo -u`
 
 This allows a user to carry out a command as another user. It will execute the command as the specified target user.
+
 ~~~bash
 $    sudo -u serverUser rails db:drop
 [sudo] password for currentUser:
@@ -77,7 +78,7 @@ Reading package lists... Done
 
 This runs the command specified without prompting the user for their password. The `-n` flag stands for _non-interactive_. This is particularly useful when writing shell-scripts.
 
-### `sudo -v`
+#### `sudo -v`
 
 This extends the verification timeout period and allows users to continue to carry out `sudo` commands without having to enter the password for a longer period of time.
 
