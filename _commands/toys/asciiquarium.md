@@ -3,22 +3,30 @@
 
 asciiquarium
 -------
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+`asciiquarium` is a script that doubles as a cool screensaver for the terminal.
 
-<!-- minimal example -->
-~~~ bash
-*short* example of command usage and output
+To start `asciiquarium`, simply type the following:
+
+~~~bash
+$ asciiquarium
 ~~~
 
-<!--more-->
+Using ascii art, `asciiquarium` gives the terminal the feel of being out at sea
+with fish swimming around and the occasional fisherman. `asciiart`  is not built-in to your terminal. 
 
-### Useful Options / Examples
+If you are using a linux machine, do the following steps:
 
-#### Example command
+~~~bash
+$ wget http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz
+$ tar -zxvf asciiquarium.tar.gz
+$ cd asciiquarium_1.1/
+$ chmod +x asciiquarium
+$ sudo cp asciiquarium /usr/local/bin/asciiquarium
+$ sudo cpan Term::Animation
+$ asciiquarium
+~~~
 
-##### Break it down
-
-#### Example command
-
-##### Break it downs
+### Useful Commands
+- `r` - redo the art
+- `q` - quit the program
+- `p` - pause the program
