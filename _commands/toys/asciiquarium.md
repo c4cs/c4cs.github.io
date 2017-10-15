@@ -12,7 +12,11 @@ $ asciiquarium
 ~~~
 
 Using ascii art, `asciiquarium` gives the terminal the feel of being out at sea
-with fish swimming around and the occasional fisherman. `asciiart`  is not built-in to your terminal. 
+with fish swimming around and the occasional fisherman.
+
+![asciiquarium](http://www.robobunny.com/projects/asciiquarium/screenshot.png)
+
+`asciiquarium`  is not built-in to your terminal and in order to use it, you have to install it to your machine. 
 
 If you are using a linux machine, do the following steps:
 
@@ -24,6 +28,14 @@ $ chmod +x asciiquarium
 $ sudo cp asciiquarium /usr/local/bin/asciiquarium
 $ sudo cpan Term::Animation
 $ asciiquarium
+~~~
+
+For Mac users, there's a nice [packaged
+version](https://habilis.net/macasciiquarium/MacAsciiquarium_1.1.0.dmg) that will run out of the box,
+courtesy of Chuck Houpt:
+
+~~~bash
+https://habilis.net/macasciiquarium/
 ~~~
 
 ### Useful Commands
