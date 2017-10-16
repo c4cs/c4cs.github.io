@@ -57,3 +57,8 @@ $ grep -c -v "s" animals.txt        // counts all animals that don't contain an 
 $ grep -i "^A" animals.txt
 // finds and prints all animals that begin with an "a" or an "A"
 ~~~
+
+#### Other Useful Options
+
+##### `-n`, `--line-number` will list the line number of the matching line before the contents
+##### `-l`, `--files-with-matches` will list the input files that contain a matching line, not the matching lines themselves
