@@ -44,7 +44,16 @@ $ grep -c "axb$" animals.txt        // counts all animals that end "axb"
 
 ~~~ bash
 $ grep -v "^[aeiou]" animals.txt
-// finds and prints all animals that do not begin with a vowel
+// finds and prints all animals that do not begin with a lower-case vowel
 $ grep -c -v "s" animals.txt        // counts all animals that don't contain an "s"
 17460
+~~~
+
+#### -i, -&#45;ignore-case
+
+##### Regular expressions, by their nature, are case sensitive. Sometimes, it can be annoying to construct a regex that inherently ignores case differences between letters; this can be especially true when working with extended ASCII or Unicode characters. The `-i` or `--ignore-case` option handles this automatically.
+
+~~~ bash
+$ grep -i "^A" animals.txt
+// finds and prints all animals that begin with an "a" or an "A"
 ~~~
