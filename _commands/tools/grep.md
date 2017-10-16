@@ -6,6 +6,8 @@ grep
 
 `grep` is a program for searching text files for lines that match regular exprssions. It can be used for all sorts of pattern-matching and text-based query analysis.
 
+<!-- more -->
+
 ~~~ bash
 $ grep "wolf" animals.txt    // finds all animals containing "wolf" (wolf spider, grey wolf, wolfhound, etc.)
 $ grep "^wolf" animals.txt   // finds all animals beginning with "wolf" (wolf spider, wolfhound, etc.)
@@ -15,8 +17,6 @@ $ grep "do+"                 // finds all animals containing a three-letter sequ
 ~~~
 
 By default, `grep` will print all the matching lines to standard output (the console) with the matching parts colored. This behavior can be modified by using one or more of the the command line options `grep` offers.
-
-<!--more-->
 
 ### Useful Options / Examples
 
