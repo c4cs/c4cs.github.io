@@ -16,7 +16,8 @@ q # to quit
 
 ### Useful Options / Examples
 
-#### `man -f <command>` shows a list of related commands that match the <command> keyword
+`man -f <command>` shows a list of related commands that match the <command> keyword
+
 ~~~ bash
 $ man -f git
 perlgit(1)               - Detailed information about git and the Perl repository
@@ -30,6 +31,7 @@ git-archive(1)           - Create an archive of files from a named tree
 git-bisect(1)            - Use binary search to find the commit that introduced a bug
 ...
 ~~~
+
 #### Manual sections
 
 The numbers in parentheses next to the commands correspond to the manual section they are in:
@@ -46,6 +48,7 @@ The standard sections of the manual include:
     8      System Administration tools and Daemons
 
 e.g. `man -f printf` lists `printf(1)`, and `printf(3)`:
+
 ~~~ bash
 $ man 1 printf
 # displays printf (as a command) man page
@@ -75,6 +78,7 @@ q
     SEE ALSO
 
 #### Man pages reference
+
 ~~~ bash
 $ man man
 # displays the man pages for man
