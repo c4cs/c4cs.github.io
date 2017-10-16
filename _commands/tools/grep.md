@@ -61,4 +61,12 @@ $ grep -i "^A" animals.txt
 #### Other Useful Options
 
 ##### `-n`, `--line-number` will list the line number of the matching line before the contents
-##### `-l`, `--files-with-matches` will list the input files that contain a matching line, not the matching lines themselves
+`-l`, `--files-with-matches` will list the input files that contain a matching line, not the matching lines themselves
+
+### Redirecting Input/Output
+
+##### Comments about input/output redirection and piping go here
+
+### Regular Expression Basics
+
+##### Carat, Dolalr Sign, Dot, Plus, Asterisk, Bracket-Groups, Ranges
