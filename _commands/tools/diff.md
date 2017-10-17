@@ -2,23 +2,40 @@
 ---
 
 diff
--------
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+--
 
-<!-- minimal example -->
+`diff` is used to check for the differences between two files line by line. This is very useful for checking a programs output against a file containing its expected output.
+
 ~~~ bash
-*short* example of command usage and output
+$ printf "this/ndifference\n" > first.txt
+$ printf "this/nsimilarity\n" > second.txt
+$ diff first.txt second.txt
+2c2
+< difference
+---
+> similarity
+$
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### Example Command
+When the files completely match, there is no output from `diff`.
 
-##### Break it down
+~~~ bash
+$ printf "same" > first.txt
+$ printf "same" > second.txt
+$ diff first.txt second.txt
+$
+~~~
 
-#### Example command
 
-##### Break it down
+#### `diff -y`
+
+This outputs both files in 2 columns with a '|' marking lines with differences, similar to the standard output of 'sdiff'.
+
+~~~ bash
+~~~
+
