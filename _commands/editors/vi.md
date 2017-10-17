@@ -16,6 +16,13 @@ $ vi [filename]
 
 
 <!--more-->
+<style>
+img {
+    width: 75%;
+    height: auto;
+}
+</style>
+
 This will open a file with the name specified. If there is an
 existing file with that name, it will open that file, however if no file is
 found with that name, a new, empty one will be created.
@@ -177,9 +184,9 @@ exists just because, were it omitted, vim wouldn't be a text editor. The bulk of
 vim's most useful features lie in normal mode and in visual mode.
 
 Normal mode's featureset can be roughly divided into the following categories:
-**"basic editor essentials"**, **navigation**, and **doing weird stuff**,
+**basic editor essentials**, **navigation**, and **doing weird stuff**,
 
-### "Basic Editor Essentials"
+### Basic Editor Essentials
 
 Things like [saving files](http://vim.wikia.com/wiki/Saving_a_file),
 [opening new files, opening new tabs, splitting the
@@ -237,8 +244,7 @@ provide a non-exhaustive list of them below:
   in the current line.
 
 #### Demonstrative Screencast
-
-**TODO: INSERT NORMAL MODE NAVIGATION SCREENCAST**
+![normal-nav](../static/commands/img/normal_nav.gif)
 
 ### Doing Weird Stuff
 
@@ -254,27 +260,6 @@ provide a non-exhaustive list of them below:
 - `zz`:     Center the screen on the cursor.
 - `zt`:     Move the screen so that the current line is at the top.
 - `zb`:     Move the screen so that the current line is at the bottom.
-
-**TODO: INSERT NORMAL MODE WEIRD STUFF SCREENCAST**
-
-#### Commands
-
-These aren't truly keyboard shortcuts. You'll notice that typing the `:`
-character opens a small command line at the bottom-left of your window: the
-following are terminal-esque commands that you type and then execute by pressing
-`ENTER` (a.k.a. `<cr>`, for "carriage return").
-
-- `:retab<cr>`: Convert a file that's been indented with spaces into a file
-  indentated with tabs, or vice versa.
-- `:help <VIM-FEATURE>`: The Book of Help. Opens vim's help page for
-  `<VIM-FEATURE>`\*.
-
-(\* Try `:help help`, which -- as you would expect -- gives you the help page
-for the `help` command. Then try `:help gqq`, or just `:h gqq` for short, to
-learn about `textwidth` and line wrapping!)
-
-**TODO: INSERT NORMAL MODE RETAB SCREENCAST**
-
 
 ## Visual Mode
 
@@ -324,7 +309,7 @@ and generally should -- use the "special" normal mode navigation keys (`w`, `$`,
 etc.) to select the text range you want. Moving the cursor backwards
 (`b`, `k`, etc.) will also work.
 
-**TODO: INSERT BASIC VISUAL MODE DEMO**
+![visual-normal](../static/commands/img/visual_normal.gif)
 
 #### `-- VISUAL LINE --`
 
@@ -332,15 +317,27 @@ Used for selecting entire lines of text at a time. The mode you'll probably use
 most frequently, at least when programming. To use, move the cursor to the first
 line you want to select, then press `V`.
 
-**TODO: INSERT VISUAL LINE DEMO**
+![visual-line](../static/commands/img/visual_line.gif)
 
 #### `-- VISUAL BLOCK --`
 
-Used for select rectangular blocks of text. The mode that'll convince you to
-start indenting with spaces, or at least to indent with tabs and use spaces for
-alignment.
+Used for select rectangular blocks of text. Though it can be used for cutting
+and pasting, it's often used to perform precise edits on multiple consecutive
+lines at a time.
 
-**TODO: INSERT VISUAL BLOCK DEMO**
+Visual block mode has special behavior when used in conjunction with insert
+mode. Selecting a visual block and substituting it by pressing `s` allows you
+to replace each line in your selected block with the text you type. Selecting a
+visual block and prepending text with `I` will prepend text onto each line, while
+`A` will append text onto each line.
+
+This mode is one of the most compelling arguments to indent with spaces, or at
+least to indent with tabs and use spaces for alignment.
+
+To use, move the cursor to a corner of the text you want to select, then press
+`CTRL-v`.
+
+![visual-block](../static/commands/img/visual_block.gif)
 
 ---
 
