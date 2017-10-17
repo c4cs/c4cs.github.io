@@ -164,22 +164,20 @@ and it's a special command in and of itself. It replaces every character that
 you have highlighted with the next character you type and immediately returns
 you to normal mode.)
 
-You can enter insert mode **from normal mode and from visual mode.**
-
 ## Normal Mode
 
-Normal mode, as its name suggests, is the "standard" mode. You start in normal
-mode when you launch vim, and you return to normal mode whenever you finish
-performing edits in another mode.
+Normal mode, as its name suggests, is the mode you'll spend the most time using.
+You start in normal mode when you launch vim, and you return to normal mode
+when you exit another.
 
 This is counterintuitive for many people because they're used to text editors
-and word processors that "stay in insert mode" almost all the time (e.g. nano,
+and word processors that almost always "stay in insert mode" (e.g. nano,
 gedit, Microsoft Word, LibreOffice Writer, etc.) Many novice vim users spend
 _all_ of their time in insert mode, only entering normal mode to save their work
 and to close vim.
 
 Editing exclusively in normal mode defeats the entire purpose of using vim! By
-itself, insert mode is nothing but a less capable version of nano. Insert mode
+itself, insert mode is nothing but a less capable clone of nano. Insert mode
 exists just because, were it omitted, vim wouldn't be a text editor. The bulk of
 vim's most useful features lie in normal mode and in visual mode.
 
@@ -202,7 +200,7 @@ You'll recall that we recommend _not_ using the `META-b` and `META-f` shortcuts
 to skip back/forward one word from within insert mode. That's because one of the
 primary purposes of normal mode is fast file navigation.
 
-Normal mode has a number of keybindings that make file navigation easier. We
+Normal mode has a number of keybindings that make navigating files easier. We
 provide a non-exhaustive list of them below:
 
 #### Basic Navigation Keys
@@ -273,14 +271,14 @@ using visual mode.
     operator.  It is the only way to select a block of text.
 
 [Operators](http://vimdoc.sourceforge.net/htmldoc/motion.html) allow you to
-perform operations on large amounts of text. You'll likely use the operators for
-cutting, copying, and pasting text more than any other, but there are a number
-of other things you can do as well.
+edit text in bulk. Cutting, copying ("yanking"), and pasting ("putting") in vim
+requires the use of operators.
 
 ### Cut, Copy, and Paste
 
 Basic copy-pasting makes use of the unnamed register (`""`). This register is
-filled with the text most recently grabbed by any of the following:
+like a bucket filled with the text most recently grabbed by any of the
+following:
 
 - Text deleted using the `c`, `d`, or `x` operators,
 - Text replaced using the `s` operator.
