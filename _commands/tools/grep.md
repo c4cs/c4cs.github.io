@@ -63,9 +63,19 @@ $ grep -i "^A" animals.txt
 ##### `-n`, `--line-number` will list the line number of the matching line before the contents
 `-l`, `--files-with-matches` will list the input files that contain a matching line, not the matching lines themselves
 
-### Redirecting Input/Output
+### Input/Output
 
-##### Comments about input/output redirection and piping go here
+##### `grep` can be used with one file or with multiple files by listing more than one in the input position for the command. You can even use regular expressions to match multiple files!
+
+~~~ bash
+$ grep "umich" file1.txt file2.txt       // search two files explicitly
+// output here
+$ grep "umich" *.txt			         // search all .txt files in the current directory
+// output here
+$ grep "umich" .                         // search all files in the current directory
+~~~
+
+Input can also be piped into `grep` from another program or redirected using &lt;. Likewise, the output of `grep` can be piped into another program (including another `grep`) or redirected using &gt;
 
 ### Regular Expression Basics
 
