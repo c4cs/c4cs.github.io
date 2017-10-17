@@ -79,4 +79,24 @@ Input can also be piped into `grep` from another program or redirected using &lt
 
 ### Regular Expression Basics
 
-##### Carat, Dolalr Sign, Dot, Plus, Asterisk, Bracket-Groups, Ranges
+##### Here are some useful symbols and techniques for regular expressions. This is just a very basic overview; regular expressions are extremely powerful if you know how to wield them.
+* ^ matches the beginning of a line
+  Example: "^A" will match all lines beginning with a capital "A"
+* $ matches the end of a line
+  Example: "e$" will match all lines ending with a lower-case "e"
+* . matches any single character (including whitespace)
+  Example: "b.b" will match all lines that contain two lower-case "b"s separated by a single character (i.e. "bob" or "b&b")
+* * will match the preceding character zero or more times
+  Example: "a*b" will match all lines that contain any number of lower-case "a"s (including 0) followed by a lower-case "b"
+  Example: "blue.*green" will match all lines that contain "blue" followed at some point later by "green"
+* + will match the preceding character one or more times
+  Example: "a+b" will match all lines that contain at least one (but possibly more) lower-case "a" immediately followed by a lower-case "b"
+  Example: "blue.+green" will match all lines that contain "blue" followed later by "green" with at least one character in between
+* /w will match any letter, digit, or the underscore
+* /d will match any digit
+* /s will match any whitespace (space, tab, newline, etc.)
+* To match any of a group of characters, place them in []
+  Example: "[aeiou]$" will match all lines that end in a vowel
+* To match any of a range of characters, place them in [] separated by a -
+  Example: "^[1-9][0-9]$" will match all lines that are numbers between 10 and 99 inclusive
+  Example: "^[A-Z][a-z]+$" will match all lines that start with a capital followed by at leaste on lower-case letter, and only contains letters
