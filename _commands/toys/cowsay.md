@@ -30,7 +30,16 @@ $sudo apt-git install cowsay
 ~~~bash
 $cowsay Moo
 ~~~
-
+~~~ bash
+ ______ 
+< moo! >
+ ------ 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+~~~
 
 ##### Example command
 ~~~bash
