@@ -45,6 +45,20 @@ $ cowsay Moo
 ~~~bash
 $ cowsay -f vader.cow "Luke, I am your udder"
 ~~~
+~~~ bash
+ _______________________
+< Luke, I am your udder >
+ -----------------------
+        \    ,-^-.
+         \   !oYo!
+          \ /./=\.\______
+               ##        )\/\
+                ||-----w||
+                ||      ||
+
+               Cowth Vader
+~~~
+
 
 
 
