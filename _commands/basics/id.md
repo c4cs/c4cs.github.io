@@ -5,8 +5,20 @@ id
 --
 `id` is a command that prints out the effective and real user and group ids.
 <!-- one line explanation would go here -->
-The syntax for the command is:
+
 <!-- minimal example -->
+
+The syntax for the command is:
+
+~~~ bash
+id [option(s)]
+~~~
+
+<!--more-->
+
+### Useful Options / Examples
+
+#### `id`
 
 ~~~ bash
 id [option(s)]
@@ -15,11 +27,6 @@ id [option(s)] [USERNAME]
 
  * The `id` command prints out information for the current user. However, it is possible to specify a different user by appending their name to the end of the command.
 
-<!--more-->
-
-### Useful Options / Examples
-
-#### `id`
 Simply entering `id` prints out all the information about the current user.
 
 ~~~bash
@@ -58,3 +65,4 @@ biswash adm cdrom sudo dip plugdev lpadmin sambashare vboxsf
 ~~~
 
  * The main reason to use the id command is to find to which group an user belongs to. This is helpful when switching between users with different permissions and settings.
+
