@@ -8,11 +8,6 @@ du
 <!-- minimal example -->
 ~~~ bash
 $ du [options] [directories and/or files]
-$ du
-$ du home/eecs398/hw1
-$ du -h
-$ du -sh
-$ du -a
 ~~~
 
 <!--more-->
@@ -22,19 +17,19 @@ $ du -a
 #### `du`
 ~~~ bash
 $ du
-$ 236 ./hw1
-$ 375 ./hw2
-$ 1794 .
+236 ./hw1
+375 ./hw2
+1794 .
 ~~~
 
 ##### Break it down
 
   * This is the simplest usage of `du`. It prints out the size of your current working directory and the size of all the directories inside of your current directory in KB. This example assumes you're in your `home/eecs398` directory, which contains the subdirectories `hw1/` and `hw2/`, both of which only contain files.
 
-#### `du home/eecs398/hw1`
+#### `du [directory or file]`
 ~~~ bash
 $ du home/eecs398/hw1
-$ 236 ./_hw1
+236 ./_hw1
 ~~~
 
 ##### Break it down
@@ -44,9 +39,9 @@ $ 236 ./_hw1
 #### `du -h`
 ~~~ bash
 $ du -h
-$ 236K ./hw1
-$ 375K ./hw2
-$ 1.7M .
+236K ./hw1
+375K ./hw2
+1.7M .
 ~~~
 
 ##### Break it down
@@ -56,7 +51,7 @@ $ 1.7M .
 #### `du -sh`
 ~~~ bash
 $ du -sh
-$ 1.7M .
+1.7M .
 ~~~
 
 ##### Break it down
@@ -66,14 +61,14 @@ $ 1.7M .
 #### `du -a`
 ~~~ bash
 $ du -a
-$ 106K ./hw1/hw1.tex
-$ 130K ./hw1/hw1.pdf
-$ 236K ./hw1
-$ 75K  ./hw2/hw2.tex
-$ 300K ./hw2/hw2.pdf
-$ 375K ./hw2
-$ 400K ./README.pdf
-$ 1.7M .
+106K ./hw1/hw1.tex
+130K ./hw1/hw1.pdf
+236K ./hw1
+75K  ./hw2/hw2.tex
+300K ./hw2/hw2.pdf
+375K ./hw2
+400K ./README.pdf
+1.7M .
 ~~~
 
 ##### Break it down
