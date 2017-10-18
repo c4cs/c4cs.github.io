@@ -28,7 +28,7 @@ $sudo apt-git install cowsay
 
 #### Example command
 ~~~bash
-$cowsay Moo
+$ cowsay Moo
 ~~~
 ~~~ bash
  ______ 
@@ -43,7 +43,7 @@ $cowsay Moo
 
 ##### Example command
 ~~~bash
-$cowsay -f vader.cow "Luke, I am your udder"
+$ cowsay -f vader.cow "Luke, I am your udder"
 ~~~
 
 
