@@ -31,15 +31,11 @@ $sudo apt-git install cowsay
 $cowsay Moo
 ~~~
 
-##### Break it down
-<!-- ![cowsay](../../static/img/cowsayMoo.png) -->
-![cowsay](cowsayMoo.png)<br/>
 
 ##### Example command
 ~~~bash
 $cowsay -f vader.cow "Luke, I am your udder"
 ~~~
 
-##### Break it down
-![cowsay](cowsayVader.png)
+
 
