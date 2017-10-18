@@ -16,12 +16,6 @@ $ vi [filename]
 
 
 <!--more-->
-<style>
-img {
-    width: 75%;
-    height: auto;
-}
-</style>
 
 This will open a file with the name specified. If there is an
 existing file with that name, it will open that file, however if no file is
