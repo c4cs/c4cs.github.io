@@ -37,7 +37,7 @@ Red Wolf
 Wolf
 ~~~
 
-By default, `grep` will print all the matching lines to standard output (the console) with the matching parts colored. This behavior can be modified by using one or more of the the command line options `grep` offers.
+By default, `grep` will print all the matching lines to standard output (the console) in the same order they appear in the source with the matching parts colored. This behavior can be modified by using one or more of the the command line options `grep` offers.
 
 ### Useful Options / Examples
 
@@ -46,11 +46,11 @@ By default, `grep` will print all the matching lines to standard output (the con
 ##### Using the `-c` or `--count` option overrides the default output behavior of `grep`. Instead of printing all of the matches to the console, it will print the number of lines that match. This is a useful option if, for example, you only want to know if there are any matches (count &lt;&gt; 0) but aren't as concerned with what those matches actually are.
 
 ~~~ bash
-$ grep -c "wolf" animals.txt        // counts all animals containing "wolf"
-187
-$ grep -c "^ll.*" animals.txt       // counts all animals that begin with "ll"
-1
-$ grep -c "axb$" animals.txt        // counts all animals that end with "axb"
+$ grep -c ^B animals.txt            // count the number of animals beginning with "B"
+66
+$ grep -c [Ll]l animals.txt         // count the number of animals containing "ll" or "Ll"
+46
+$ grep -c end$ animals.txt          // count the number of animals ending with "end"
 0
 ~~~
 
@@ -59,10 +59,16 @@ $ grep -c "axb$" animals.txt        // counts all animals that end with "axb"
 ##### Regular expressions can be tricky to use, especially when you want to find text that doesn't match a particular regex. This is made easier by the `-v` or `--invert-match` option, which finds lines in the target input that do not match the given regular expression.
 
 ~~~ bash
-$ grep -v "^[aeiou]" animals.txt
-// finds and prints all animals that do not begin with a lower-case vowel
-$ grep -c -v "s" animals.txt        // counts all animals that don't contain an "s"
-17460
+$ grep -v ^[AEIOU] animals.txt    // list all animals that don't start with a vowel
+Baboon
+Bacterian Camel
+Badger
+...
+Zebu
+Zonkey
+Zorse
+$ grep -c -v s animals.txt        // count all animals that don't contain an "s"
+427
 ~~~
 
 #### -i, -&#45;ignore-case
@@ -70,8 +76,17 @@ $ grep -c -v "s" animals.txt        // counts all animals that don't contain an 
 ##### Regular expressions, by their nature, are case sensitive. Sometimes, it can be annoying to construct a regex that inherently ignores case differences between letters; this can be especially true when working with extended ASCII or Unicode characters. The `-i` or `--ignore-case` option handles this automatically.
 
 ~~~ bash
-$ grep -i "^A" animals.txt
-// finds and prints all animals that begin with an "a" or an "A"
+$ grep -i m[aeiou]n animals.txt        // list all animals that contain an "m" (or "M") followed by any vowel followed by an "n" (or "N")
+Birman
+Caiman
+...
+Mongoose
+Mongrel
+Monitor Lizard
+...
+Tiger Salamander
+Vervet Monkey
+Woolly Monkey
 ~~~
 
 #### Other Useful Options
