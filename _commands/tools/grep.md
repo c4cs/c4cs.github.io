@@ -76,7 +76,7 @@ $ grep -c -v s animals.txt        // count all animals that don't contain an "s"
 ##### Regular expressions, by their nature, are case sensitive. Sometimes, it can be annoying to construct a regex that inherently ignores case differences between letters; this can be especially true when working with extended ASCII or Unicode characters. The `-i` or `--ignore-case` option handles this automatically.
 
 ~~~ bash
-$ grep -i m[aeiou]n animals.txt        // list all animals that contain an "m" or "M", then a vowel, then an "n" or "N"
+$ grep -i m[aeiou]n animals.txt        // list all animals that contain "m" or "M", then a vowel, then "n" or "N"
 Birman
 Caiman
 ...
@@ -117,7 +117,7 @@ Input can also be piped into `grep` from another program or redirected using &lt
     * `e$` will match all lines ending with a lower-case "e"
 * `.` matches any single character (including whitespace)
     * `b.b` will match all lines that contain two lower-case "b"s separated by a single character (i.e. "bob" or "b&b")
-	* `^...$' will match all lines that are exactly three characters long
+	* `^...$` will match all lines that are exactly three characters long
 * `*` will match the preceding character zero or more times
     * `a*b` will match all lines that contain any number of lower-case "a"s (including 0) followed by a lower-case "b"
     * `blue.*green` will match all lines that contain "blue" followed at some point later (maybe immediately) by "green"
@@ -135,5 +135,5 @@ Input can also be piped into `grep` from another program or redirected using &lt
 
 ##### Here are some good resources if you want to learn more about regular expressions or get practice:
 * [Regular-Expressions.info](http://www.regular-expressions.info/)
-* [W3Schools (for JavaScript)](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+* [W3Schools (for JavaScript specifically, but has a good general syntax reference)](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
 * [RegEx Golf](https://alf.nu/RegexGolf)
