@@ -39,6 +39,7 @@ $ echo " There is no new line before me." >> example.txt
 $ cat example.txt
 Hello World. There is not new line before me.
 ~~~
+
 #### Example command
 `echo` can also be used with pattern matching. The following command line will show all the cpp files under current directory. 
 
@@ -46,17 +47,19 @@ Hello World. There is not new line before me.
 $ echo *.cpp
 ~~~
 
-The following command line will show all the file under current directory.
+The following command line will show all the files under current directory.
 
 ~~~ bash
 $ echo *
 ~~~
+
 #### Example command
 'echo' can be used to show the environment value. The following command line will show user's PATH environment variable.
 
 ~~~ bash
 $ echo $PATH
 ~~~
+
 #### Example command
 `echo -e` flag is used to enable the backslash-escaped characters in following table:
 
@@ -65,7 +68,6 @@ $ echo -e -n "Hello World.\nThis is a new line.\n"
 Hello World.
 This is a newline.
 ~~~
-
 
 ~~~
 |       |                                        Backslashescaped characters                                         |
