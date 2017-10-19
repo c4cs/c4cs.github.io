@@ -39,7 +39,24 @@ $ echo " There is no new line before me." >> example.txt
 $ cat example.txt
 Hello World. There is not new line before me.
 ~~~
+#### Example command
+`echo` can also be used with pattern matching. The following command line will show all the cpp files under current directory. 
 
+~~~ bash
+$ echo *.cpp
+~~~
+
+The following command line will show all the file under current directory.
+
+~~~ bash
+$ echo *
+~~~
+#### Example command
+'echo' can be used to show the environment value. The following command line will show user's PATH environment variable.
+
+~~~ bash
+$ echo $PATH
+~~~
 #### Example command
 `echo -e` flag is used to enable the backslash-escaped characters in following table:
 
@@ -50,9 +67,10 @@ This is a newline.
 ~~~
 
 
-|       |                                        Backslashescaped characters                                        |
+~~~
+|       |                                        Backslashescaped characters                                         |
 |-------|:----------------------------------------------------------------------------------------------------------:|
-|   \\\  |                                    a literal backslash character ("\\").                                    |
+|   \\  |                                    a literal backslash character ("\\").                                   |
 |   \a  |                                                  An alert.                                                 |
 |   \b  |                                                 Backspace.                                                 |
 |   \c  |                                    Produce no further output after this.                                   |
@@ -62,7 +80,6 @@ This is a newline.
 |   \r  |                                               Carriage Return                                              |
 |   \t  |                                               Horizontal tab                                               |
 |   \v  |                                                Vertical tab                                                |
-|   \\  |                                                  Backslash                                                 |
 |  \NNN | The character whose ASCII code is NNN(octal); if NNN is not a valid octal number, it is printed literally. |
 | \xnnn | The character whose ASCII code is the hexadecimal value nnn.                                               |
-
+~~~
