@@ -70,7 +70,7 @@ This is a newline.
 ~~~
 |       |                                        Backslashescaped characters                                         |
 |-------|:----------------------------------------------------------------------------------------------------------:|
-|   \\  |                                    a literal backslash character ("\\").                                   |
+|   \\  |                                    a literal backslash character ("\").                                   |
 |   \a  |                                                  An alert.                                                 |
 |   \b  |                                                 Backspace.                                                 |
 |   \c  |                                    Produce no further output after this.                                   |
