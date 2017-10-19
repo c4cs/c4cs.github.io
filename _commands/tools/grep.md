@@ -43,7 +43,7 @@ By default, `grep` will print all the matching lines to standard output (the con
 
 #### -c, -&#45;count
 
-##### Using the `-c` or `--count` option overrides the default output behavior of `grep`. Instead of printing all of the matches to the console, it will print the number of lines that match. This is a useful option if, for example, you only want to know if there are any matches (count &lt;&gt; 0) but aren't as concerned with what those matches actually are.
+##### Using the `-c` or `--count` option overrides the default output behavior of `grep`. Instead of printing all of the matches to the console, it will print the number of lines that match. This is a useful option if, for example, you only want to know if there are any matches (count &gt; 0) but aren't as concerned with what those matches actually are.
 
 ~~~ bash
 $ grep -c ^B animals.txt            // count the number of animals beginning with "B"
