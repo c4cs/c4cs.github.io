@@ -61,7 +61,7 @@ $ grep -c end$ animals.txt          // count the number of animals ending with "
 ~~~ bash
 $ grep -v ^[AEIOU] animals.txt    // list all animals that don't start with a vowel
 Baboon
-Bacterian Camel
+Bactrian Camel
 Badger
 ...
 Zebu
