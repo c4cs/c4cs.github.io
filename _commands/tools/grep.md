@@ -6,19 +6,35 @@ grep
 
 `grep` is a program for searching text files for lines that match regular exprssions. It can be used for all sorts of pattern-matching and text-based query analysis.
 
+~~~ bash
+$ grep -i crab animals.txt
+Crab
+Crab-Eating Macaque
+Hermit Crab
+Horseshoe Crab
+King Crab
+~~~
+
 <!--more-->
 
+This reference page uses the [animals.txt](/animals.txt) file for all of its examples. This list was taken from [Millie Bond's A-Z Index of Animals](https://a-z-animals.com/animals/).
+
+Below are a sample of possible patterns you can match using `grep`:
+
 ~~~ bash
-$ grep "wolf" animals.txt
-// finds and prints all animals containing "wolf" (wolf spider, grey wolf, wolfhound, etc.)
-$ grep "^wolf" animals.txt
-// finds and prints  all animals beginning with "wolf" (wolf spider, wolfhound, etc.)
-$ grep "wolf$" animals.txt
-// finds and prints all animals ending with "wolf" (grey wolf, etc.)
-$ grep "^c.*$"
-// finds and prints all animals beginning with the letter "c"
-$ grep "do+"
-// finds and prints all animals containing a three-character sequence that begins with "do"
+$ grep Wolf animals.txt             // list all animals containig "Wolf"
+Arctic Wolf
+Irish WolfHound
+Red Wolf
+Wolf
+Wolf Spider
+$ grep ^Wolf animals.txt            // list all animals beginning with "Wolf"
+Wolf
+Wolf Spider
+$ grep Wolf$ animals.txt            // list all animals ending with "Wolf"
+Arctic Wolf
+Red Wolf
+Wolf
 ~~~
 
 By default, `grep` will print all the matching lines to standard output (the console) with the matching parts colored. This behavior can be modified by using one or more of the the command line options `grep` offers.
