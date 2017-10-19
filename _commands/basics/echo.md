@@ -34,9 +34,7 @@ Hello World
 `echo -n` is a useful flag if you don't want the trailing newline after the string
 
 ~~~ bash
-$ echo -n "Hello World." > example.txt
-$ echo " There is no new line before me." >> example.txt
-$ cat example.txt
+$ echo -n "Hello World." ; echo " There is no new line before me."
 Hello World. There is not new line before me.
 ~~~
 
