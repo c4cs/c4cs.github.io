@@ -76,7 +76,7 @@ $ grep -c -v s animals.txt        // count all animals that don't contain an "s"
 ##### Regular expressions, by their nature, are case sensitive. Sometimes, it can be annoying to construct a regex that inherently ignores case differences between letters; this can be especially true when working with extended ASCII or Unicode characters. The `-i` or `--ignore-case` option handles this automatically.
 
 ~~~ bash
-$ grep -i m[aeiou]n animals.txt        // list all animals that contain an "m" (or "M") followed by any vowel followed by an "n" (or "N")
+$ grep -i m[aeiou]n animals.txt        // list all animals that contain an "m" or "M", then a vowel, then an "n" or "N"
 Birman
 Caiman
 ...
@@ -118,22 +118,22 @@ Input can also be piped into `grep` from another program or redirected using &lt
 * `.` matches any single character (including whitespace)
     * `b.b` will match all lines that contain two lower-case "b"s separated by a single character (i.e. "bob" or "b&b")
 	* `^...$' will match all lines that are exactly three characters long
-* `&#42;` will match the preceding character zero or more times
+* `*` will match the preceding character zero or more times
     * `a*b` will match all lines that contain any number of lower-case "a"s (including 0) followed by a lower-case "b"
-    * `blue.&#42;green` will match all lines that contain "blue" followed at some point later (maybe immediately) by "green"
-* `&#43;` will match the preceding character one or more times
-    * `a&#43;b` will match all lines that contain at least one (but possibly more) lower-case "a" immediately followed by a lower-case "b"
-    * `blue.&#43;green` will match all lines that contain "blue" followed later by "green" with at least one character in between
+    * `blue.*green` will match all lines that contain "blue" followed at some point later (maybe immediately) by "green"
+* `+` will match the preceding character one or more times
+    * `a+b` will match all lines that contain at least one (but possibly more) lower-case "a" immediately followed by a lower-case "b"
+    * `blue.+green` will match all lines that contain "blue" followed later by "green" with at least one character in between
 * `\w` will match any letter, digit, or the underscore
 * `\d` will match any digit
 * `\s` will match any whitespace (space, tab, newline, etc.)
 * To match any of a group of characters, place them in `[]`
     * `[aeiou]$` will match all lines that end in a vowel
-* To match any of a range of characters, place them in [] separated by a `-`
+* To match any of a range of characters, place them in `[]` separated by a `-`
     * `^[1-9][0-9]$` will match all lines that are numbers between 10 and 99 inclusive
-    * `^[A-Z][a-z]&#43;$` will match all lines that start with a capital followed by at leaste on lower-case letter, and only contains letters
+    * `^[A-Z][a-z]+$` will match all lines that start with a capital followed by at leaste on lower-case letter, and only contains letters
 
-Here are some good resources if you want to learn more about regular expressions or get practice:
+##### Here are some good resources if you want to learn more about regular expressions or get practice:
 * [Regular-Expressions.info](http://www.regular-expressions.info/)
 * [W3Schools (for JavaScript)](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
 * [RegEx Golf](https://alf.nu/RegexGolf)
