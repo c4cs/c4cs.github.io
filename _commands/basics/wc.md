@@ -21,7 +21,7 @@ $ cd [OPTION]... --files0-from=F
 The `wc` command without passing any parameter will display a basic result of ”tecmint.txt file. The three numbers shown below are 12 (number of lines), 16 (number of words) and 112 (number of bytes) of the file.
 
 ~~~ bash
-[root@tecmint ~]# wc tecmint.txt
+$ wc tecmint.txt
 12  16 112 tecmint.txt
 ~~~
 
@@ -31,7 +31,7 @@ The `wc` command without passing any parameter will display a basic result of �
 To count number of newlines in a file use the option ‘-l‘, which prints the number of lines from a given file. Say, the following command will display the count of newlines in a file. In the output the first filed assigned as count and second field is the name of file.
 
 ~~~ bash
-[root@tecmint ~]# wc -l tecmint.txt
+$ wc -l tecmint.txt
 12 tecmint.txt
 ~~~
 
@@ -40,7 +40,7 @@ To count number of newlines in a file use the option ‘-l‘, which prints the 
 Using ‘-w‘ argument with ‘wc‘ command prints the number of words in a file. Type the following command to count the words in a file.
 
 ~~~ bash
-[root@tecmint ~]# wc -w tecmint.txt
+$ wc -w tecmint.txt
 16 tecmint.txt
 ~~~
 
@@ -50,7 +50,7 @@ Using ‘-w‘ argument with ‘wc‘ command prints the number of words in a fi
 Using ‘-c‘ with ‘wc‘ command will print the total number of bytes in a file.
 
 ~~~ bash
-[root@tecmint ~]# wc -c tecmint.txt
+$ wc -c tecmint.txt
 112 tecmint.txt
 ~~~
 
@@ -60,7 +60,7 @@ Using ‘-c‘ with ‘wc‘ command will print the total number of bytes in a f
 Using ‘-m‘ with ‘wc‘ command will print the total number of characters in a file.
 
 ~~~ bash
-[root@tecmint ~]# wc -m tecmint.txt
+$ wc -m tecmint.txt
 112 tecmint.txt
 ~~~
 
@@ -70,6 +70,6 @@ Using ‘-m‘ with ‘wc‘ command will print the total number of characters i
 The ‘wc‘ command allow an argument ‘-L‘, it can be used to print out the length of longest (number of characters) line in a file. So, we have the longest character line (‘Scientific Linux‘) in a file.
 
 ~~~ bash
-[root@tecmint ~]# wc -L tecmint.txt
+$ wc -L tecmint.txt
 16 tecmint.txt
 ~~~
