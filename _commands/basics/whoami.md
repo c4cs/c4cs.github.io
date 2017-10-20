@@ -3,20 +3,30 @@
 
 whoami
 --
-TODO: Add documentation for this command by submitting a pull request.
+`whoami` prints the username of the current user when invoked
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ whoami
+mmdarden
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
-
+`whoami` returns root if you are the system administrator
+~~~ bash
+$ whoami
+root
+~~~
 #### Example command
+`whoami` has been obsoleted by the `id` command
 
+~~~ bash
+$ id -un
+mmdarden
+~~~
 ##### Break it down
 
 #### Example command
