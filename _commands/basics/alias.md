@@ -6,17 +6,12 @@ alias
 
 `alias` instructs the shell to replace one string with another when executing commands.
 
-Here, we will create an alias to prevent accidental deletion by changing how the `rm` command works.
-
 ~~~ bash
 $ touch sample.txt
 $ rm -i sample.txt
 rm: remove regular empty file 'sample.txt'? Y
 $ touch sample.txt
 $ alias rm='rm -i'
-$ rm sample.txt
-rm: remove regular empty file 'sample.txt'? Y
-$ 
 ~~~
 
 <!--more-->
@@ -30,11 +25,11 @@ $
 5. Can help standardize the names of commands across multiple operating systems (`alias dir='ls'`)
 
 ### Description
-Aliases are used to customize the shell session interface.  Using alias, frequently-used command can be invoked
+Aliases are used to customize the shell session interface.  Using alias, frequently-used commands can be invoked
 using a different, preferred term; and complex or commonly used options can be used as the defaults for a given command.
 
-Aliases **only** persist for the current session, however, they can be loaded at login time by modifying the shell's
-**.rc** file.  To add them permanently, we have to edit or shell profile files (**~/bashr**c) and enter the alias into the file.
+Aliases only persist for the **current** session, however, they can be loaded at login time by modifying the shell's
+**.rc** file.  To add them permanently, we have to edit our shell profile files (**~/.bashrc**) and enter the alias into the file.
 
 ### Syntax
 ~~~ bash
@@ -76,7 +71,7 @@ So the command `ls` is actually an alias such that using `ls` will always displa
 
 
 `unalias` removes aliases created during the current session **and** permanent aliases that are listed in system 
-configuration files.  The option *-a* tells `unalias* to remove all aliases for the current user for the current 
+configuration files.  The option *-a* tells `unalias` to remove all aliases for the current user for the current 
 shell.
 
 Another way to remove an alias is by using the `alias` command to create a new alias with the same name to 
@@ -93,7 +88,7 @@ cjlebioda@cjlebioda-VirtualBox:~$ ll
 This alias will make our process table searchable with an argument we will pass in:
 
 ~~~ bash
-$ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+$ alias psg='ps aux | grep -i -e'
 $ psg bash
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 cjlebio+  2093  0.0  0.0  29764   356 pts/4    Ss   21:54   0:00 bash
