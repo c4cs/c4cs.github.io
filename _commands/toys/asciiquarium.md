@@ -7,9 +7,14 @@ asciiquarium
 
 To start `asciiquarium`, simply type the following:
 
+<!-- minimal example -->
 ~~~bash
 $ asciiquarium
 ~~~
+
+<!--more-->
+
+### Examples of `asciiquarium`
 
 Using ascii art, `asciiquarium` gives the terminal the feel of being out at sea
 with fish swimming around and the occasional fisherman.
@@ -38,7 +43,7 @@ courtesy of Chuck Houpt:
 https://habilis.net/macasciiquarium/
 ~~~
 
-### Useful Commands
+#### Useful Commands
 - `r` - redo the art
 - `q` - quit the program
 - `p` - pause the program
