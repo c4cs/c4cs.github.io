@@ -3,7 +3,7 @@
 
 asciinema
 ---
-`aciinema` is a tool that allows you to record a terminal session with out having to use screen capture. It also allows for easy copy-pasting!
+`asciinema` is a tool that allows you to record a terminal session with out having to use screen capture. It also allows for easy copy-pasting!
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
