@@ -15,7 +15,7 @@ $ which echo
 
 ### Useful Options / Examples
 
-`which -a [command(s)]`
+#### `which -a [command(s)]`
 `which` can be used with the flag '-a' to display all matching commands in $PATH, not just the first
 
 ~~~bash
@@ -24,7 +24,7 @@ $ which -a less
 /bin/less
 ~~~
 
-`which [program]`
+#### `which [program]`
 
 `which` can be used with certain programs
 
@@ -34,7 +34,7 @@ $ which nano
 /usr/bin/nano
 ~~~
 
-`which [commands]`
+#### `which [commands]`
 
 `which` can be with multiple input commands at once
 
