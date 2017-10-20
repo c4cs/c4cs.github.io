@@ -37,11 +37,11 @@ Format -- a sequence of characters which specifies how output will appear:
 
 %Y - year
 
-#### Example command
+### Example command
 
 `ls -al > output_$(date+"%m_%d_%Y")`
 
-##### Break it down
+### Break it down
 
 In bash, this command will generate a directory listing with ls, and redirect the output to a file 
 which includes the current day, month, and year in the file name. It does this using bash command 
