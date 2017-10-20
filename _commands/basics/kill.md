@@ -3,22 +3,31 @@
 
 kill
 --
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
 
-<!-- minimal example -->
+`kill` is used to send a signal to a process.
+
 ~~~ bash
-*short* example of command usage and output
+kill [-s] [-l] %pid
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
 
-##### Break it down
+#### `kill -9 -1`
 
-#### Example command
+Kills all processes possible to be killed.
 
-##### Break it down
+#### `kill -l 11`
+
+Translates signal number 11 into its signal name.
+
+#### `kill -L`
+
+Lists the available signal choices in a tabular format.
+
+#### `kill 123 543 2341 3453`
+
+Sends the default signal (TERM) to the processes with IDs 123, 543, 2341, and 3453, terminating those processes.
+
