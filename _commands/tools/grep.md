@@ -17,7 +17,7 @@ King Crab
 
 <!--more-->
 
-This reference page uses the [animals.txt](/src/animals.txt) file for all of its examples. This list was taken from [Millie Bond's A-Z Index of Animals](https://a-z-animals.com/animals/).
+This reference page uses the [animals.txt](../static/commands/src/animals.txt) file for all of its examples. This list was taken from [Millie Bond's A-Z Index of Animals](https://a-z-animals.com/animals/).
 
 Below are a sample of possible patterns you can match using `grep`:
 
