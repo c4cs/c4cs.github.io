@@ -3,7 +3,7 @@
 
 touch
 ---
-Creates a new empty file and can also change timestamps on existing files. Useful for creating empty files quickly.
+`touch` Creates a new empty file and can also change timestamps on existing files. Useful for creating empty files quickly.
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
@@ -20,7 +20,7 @@ touch main.cpp
 Allows you to create multiple empty files at the same time.
 
 ~~~ bash
-touch main.cpp file1.h file1.cpp
+$ touch main.cpp file1.h file1.cpp
 ~~~
 This command is creating 3 new empty files: main.cpp, file1.h, and file1.cpp.
 
@@ -29,7 +29,7 @@ This command is creating 3 new empty files: main.cpp, file1.h, and file1.cpp.
 Allows user to change the access time.
 
 ~~~ bash
-touch -a main.cpp
+$ touch -a main.cpp
 ~~~
 This changes the access time for main.cpp to the current time. 
 
@@ -38,14 +38,6 @@ This changes the access time for main.cpp to the current time.
 Allows user to change modification time.
 
 ~~~ bash
-touch -m main.cpp
+$ touch -m main.cpp
 ~~~ 
 This changes the modification time of main.cpp to the current time.
-
-#### Example command
-
-##### Break it down
-
-#### Example command
-
-##### Break it down
