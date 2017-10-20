@@ -24,4 +24,5 @@ advancedTopics:
   - Exploring alternative build systems
 lectureSummary:
 leccapFri:
+asciicasts:143326
 ---
