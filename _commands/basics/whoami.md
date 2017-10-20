@@ -27,8 +27,4 @@ root
 $ id -un
 mmdarden
 ~~~
-##### Break it down
 
-#### Example command
-
-##### Break it down
