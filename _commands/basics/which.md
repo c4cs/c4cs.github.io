@@ -3,12 +3,12 @@
 
 which
 --
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
 
-<!-- minimal example -->
+'which' returns the pathname of the command being passed in as an argument
+
 ~~~ bash
-*short* example of command usage and output
+$ which ls
+usr/bin/ls
 ~~~
 
 <!--more-->
