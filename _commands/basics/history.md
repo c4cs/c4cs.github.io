@@ -74,7 +74,7 @@ $ history -a
 
 ##### **Break it down**
 This adds the commands executed since the beginning of the current session to the history file. 
-Unless a file is specified, the value of HISTFILE is used at the history file.
+Unless a file is specified, the value of `$HISTFILE` is used as the history file.
 It produces no output.
 
 #### `history -n [file]`
@@ -85,7 +85,7 @@ $ history -n
 
 ##### **Break it down**
 This adds to the history list entries that have been added to the history file since the beginning of 
-the current session. Unless a file is specified, the value of HISTFILE is used at the history file. 
+the current session. Unless a file is specified, the value of `$HISTFILE` is used as the history file. 
 It produces no output.
 
 #### `history -r [file]`
@@ -96,7 +96,7 @@ $ history -r
 
 ##### **Break it down**
 This adds all entries in the history file to the history list. 
-Unless a file is specified, the value of HISTFILE is used at the history file. It produces no output.
+Unless a file is specified, the value of `$HISTFILE` is used as the history file. It produces no output.
 
 #### `history -w [file]`
 
@@ -106,7 +106,7 @@ $ history -w
 
 ##### **Break it down**
 This writes all entries in the history list to the history file. 
-Unless a file is specified, the value of HISTFILE is used at the history file. It produces no output.
+Unless a file is specified, the value of `$HISTFILE` is used as the history file. It produces no output.
 
 #### `history -p [args]`
 
