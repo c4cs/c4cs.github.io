@@ -4,7 +4,7 @@
 which
 --
 
-'which' returns the pathname of the command being passed in as an argument
+`which` returns the pathname of the command being passed in as an argument
 
 ~~~ bash
 $ which ls
