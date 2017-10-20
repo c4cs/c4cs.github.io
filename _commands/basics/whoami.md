@@ -14,13 +14,13 @@ mmdarden
 
 <!--more-->
 
-### Useful Options / Examples
+### Example Command
 `whoami` returns root if you are the system administrator
 ~~~ bash
 $ whoami
 root
 ~~~
-#### Example command
+#### 
 `whoami` has been obsoleted by the `id` command
 
 ~~~ bash
