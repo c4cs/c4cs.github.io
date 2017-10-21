@@ -4,7 +4,7 @@
 wc
 --
 
-`wc` prints newline, word, and byte counts for each FILE.
+`wc` prints newline, word, and byte counts for each `FILE`.
 
 ~~~ bash
 $ wc tecmint.txt
@@ -14,7 +14,6 @@ $ wc tecmint.txt
 <!--more-->
 
 ### Useful Options / Examples
-
 
 #### `wc -l`
 
@@ -27,7 +26,7 @@ $ wc -l tecmint.txt
 
 #### `wc -w`
 
-Using `-w` argument with `wc` command prints the number of words in a file. Type the following command to count the words in a file.
+Using `-w` argument with `wc` command prints the number of words in a file.
 
 ~~~ bash
 $ wc -w tecmint.txt
@@ -35,7 +34,6 @@ $ wc -w tecmint.txt
 ~~~
 
 #### `wc -c`
-
 
 Using `-c` with `wc` command will print the total number of bytes in a file.
 
@@ -46,7 +44,6 @@ $ wc -c tecmint.txt
 
 #### `wc -m`
 
-
 Using `-m` with `wc` command will print the total number of characters in a file.
 
 ~~~ bash
@@ -55,7 +52,6 @@ $ wc -m tecmint.txt
 ~~~
 
 #### `wc -L`
-
 
 The ‘wc‘ command allow an argument ‘-L‘, it can be used to print out the length of longest (number of characters) line in a file.
 
