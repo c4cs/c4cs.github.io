@@ -2,13 +2,13 @@
 ---
 
 uniq
---
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+------
+
+`uniq` allows a user to report or filter repeated lines that are adjacent in a file. If no input or output files are given, uniqu will read and write from standard input or output respectfully. 
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+uniq [options] in.txt out.txt
 ~~~
 
 <!--more-->
