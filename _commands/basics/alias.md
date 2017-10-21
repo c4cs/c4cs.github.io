@@ -7,11 +7,10 @@ alias
 `alias` instructs the shell to replace one string with another when executing commands.
 
 ~~~ bash
-$ touch sample.txt
-$ rm -i sample.txt
-rm: remove regular empty file 'sample.txt'? Y
-$ touch sample.txt
 $ alias rm='rm -i'
+$ rm sample.txt
+rm: remove regular empty file 'sample.txt'? Y
+$ 
 ~~~
 
 <!--more-->
