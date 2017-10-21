@@ -28,5 +28,5 @@ done
 
 #### `rm -rf directory || true`
 
-This is useful because sometimes we want to make sure that a command that could end with an error will return with exist status zero, to make sure that a script will continue running.
+This is useful because sometimes we want to make sure that a command that could end with an error will return with exit status zero, to make sure that a script will continue running.
 
