@@ -43,7 +43,7 @@ Modes include:
 
 ----
 
-#### `chmod [referene(s)][operator][mode(s)] file`
+#### `chmod [reference(s)][operator][mode(s)] file`
 
 ~~~bash
 $ chmod u+x file 
@@ -57,7 +57,7 @@ $ chmod g-w, uo=rw file
 
 ----
 
-#### `chmod --reference=[file1] [file2`
+#### `chmod --reference=[file1] [file2]`
 
 ~~~bash
 $ chmod --reference=file1 file2 
@@ -89,6 +89,6 @@ $ chmod u+x *
 
 ##### Break it down
 
-* Adds execute permision to users for allsubdirectories under directory
+* Adds execute permision to users for all subdirectories under directory
 
 ----
