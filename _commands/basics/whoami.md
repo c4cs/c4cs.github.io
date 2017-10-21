@@ -32,4 +32,4 @@ mmdarden
 ~~~
 
 ### id Command
-you can read more about the `id` command [here][id.md]
+you can read more about the `id` command [here](id.md)
