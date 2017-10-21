@@ -10,6 +10,7 @@ whoami
 ~~~ bash
 $ whoami
 mmdarden
+
 ~~~
 
 <!--more-->
@@ -19,6 +20,7 @@ mmdarden
 ~~~ bash
 $ whoami
 root
+
 ~~~
 #### 
 `whoami` has been obsoleted by the `id` command
@@ -26,5 +28,8 @@ root
 ~~~ bash
 $ id -un
 mmdarden
+
 ~~~
 
+### id Command
+you can read more about the `id` command [here][c4cs.github.io/_commands/basics/id.md]
