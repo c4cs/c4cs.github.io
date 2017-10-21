@@ -7,9 +7,9 @@ kill
 `kill` is used to send a signal to a process.
 
 ~~~ bash
-kkill [-s] [-l] PID(s)
+$ kill [-s] [-l] %pid
 ~~~
-### Break it down
+
 --signal: Specify the signal to be sent.
 -l: List signal names. 
 
@@ -17,23 +17,16 @@ kkill [-s] [-l] PID(s)
 
 ### Useful Options / Examples
 
-
-#### `kill -9 PID`
+#### `$ kill -9 PID`
 
 Kills a signal using its PID. 
 -9 stands for the SIGKILL signal.
 
-#### `ps ux`
+#### `$ kill -9 -1`
 
-Displays all the running applications together with its PID.
+Kills all processes that can be killed.
 
-~~~ bash
-USER   PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
-name     579   7.8  1.3  3655068 213376   ??  S     8:50PM   0:27.94 /Application
-name     470   3.4  2.1  3631392 344480   ??  S     8:32PM   1:36.03 /Application
-~~~
-
-#### `kill -l`
+#### `$ kill -l`
 
 ~~~ bash
  1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL
@@ -47,5 +40,4 @@ name     470   3.4  2.1  3631392 344480   ??  S     8:32PM   1:36.03 /Applicatio
 ~~~
 
 Lists the available signal choices in a tabular format.
-
 
