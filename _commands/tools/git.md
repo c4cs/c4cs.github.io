@@ -296,7 +296,7 @@ detached head which limits what you can do on the branch. You can merge your cur
 `other` branch by using `git merge other`. This will try to combine the commits in both branches in
 chronological order. Issues will emerge if there are conflicting changes in the branches. These
 issues must be resolved manually.
-Alternatively you can do `git pull origin other` to `fetch` then `merge` in one command.
+Alternatively you can do `git fetch origin other` to `fetch` then `merge` in one command.
 
 ~~~ bash
 $ git fetch origin other
