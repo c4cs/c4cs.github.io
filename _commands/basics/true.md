@@ -3,22 +3,30 @@
 
 true
 --
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
 
-<!-- minimal example -->
+`true` a statement that logically evaluates to true. It is often used to check whether statements evaluated succesfully or not. It is the logical inverse of 'false', also a unix command.
+
 ~~~ bash
-*short* example of command usage and output
+$ true
+$ rm -rf directory || true
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### `true`
 
-##### Break it down
+This just logically evaluates to true. This is most useful in scripting 
 
-#### Example command
+~~~ bash
+while true
+do
+   echo 'infinite loop'
+done
+~~~
 
-##### Break it down
+#### `rm -rf directory || true`
+
+This is useful because sometimes we want to make sure that a command that could end with an error will return with exit status zero, to make sure that a script will continue running.
+
