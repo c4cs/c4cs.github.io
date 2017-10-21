@@ -5,27 +5,41 @@ who
 --
 TODO: Add documentation for this command by submitting a pull request.
 <!-- one line explanation would go here -->
+## Description
 Displays list of all users currently logged on 
 
 <!-- minimal example -->
-### Example Command
+### Example Output 
 ~~~ bash
 $ Username console  Oct 12 08:20 
 $ Username ttys000  Oct 20 09:35 
 ~~~
 
+### Example Command
 <!--more-->
+~~~ bash
+$ who -b 
+reboot ~ Oct 12 8:20
 
-### Description
+$ who -T
+Username - console  Oct 12 08:20 
+Username + ttys000  Oct 20 20:04 
+
+$ who -u
+Username console  Oct 12 08:20  old  	    99
+Username ttys000  Oct 20 20:04   .   	 87780
+
+~~~
+
  The who utility displays a list of all users currently logged on, showing for each user the login name, tty
  name, the date and time of login, and hostname if not local.
 
 #### Available options:
- `-a`    Same as -bdlprTtu.
+ `-a`     Same as `-bdlprTtu.` 
  
- `-b`    Time of last system boot.
+ `-b`    Time of last system boot. 
  
- `-d`    Print dead processes.
+ `-d`    Print dead processes. 
  
  `-H`    Write column headings above the regular output.
  
@@ -35,7 +49,7 @@ $ Username ttys000  Oct 20 09:35
  
  `-p`    Print active processes spawned by launchd(8) (unsupported).
  
- `-q`    Quick mode'': List only the names and the number of users currently logged on.  When this option is
+ `-q`    Quick mode: List only the names and the number of users currently logged on.  When this option is
          used, all other options are ignored.
          
   `-r`   Print the current runlevel.  This is meaningless on Mac OS X.
