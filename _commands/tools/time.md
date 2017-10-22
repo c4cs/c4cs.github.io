@@ -7,7 +7,7 @@ time
 <!-- one line explanation would go here -->
 
 
-`time` measures the time it takes to run a program. It takes at least a command as an argument and outputs the result to either a file or the screen.
+`time` outputs the runtime of a program that is given as an argument.
 
 <!-- minimal example -->
 ~~~ bash
@@ -20,13 +20,15 @@ sys 	0m0.000s
 
 <!--more-->
 
-**real:** refers to the total time taken to run a command from call to return.
+**real:** refers to the amount of time spent in the user program called.
 
 **user:** refers to the amount of time spent in the process called.
 
 **sys:** refers to the amount of time spent in the kernel during the call.
 
 ### Useful Options / Examples
+
+There are two `time` commands available to most terminals. There is the `time` that is a built-in shell command and there is a `time` that is a command similar to ls that must be called using the path to where the command is located (unless you add it to your path). They work identically when called with no arguments, but you can call the non-built-in time command with some additional flags that offer more functionality.
 
 #### Example command
 
