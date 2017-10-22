@@ -28,7 +28,7 @@ sys 	0m0.000s
 
 ### Useful Options / Examples
 
-There are two `time` commands available to most terminals. There is the `time` that is a built-in shell command and there is a `time` that is a command similar to ls that must be called using the path to where the command is located (unless you add it to your path). They work identically when called with no arguments, but you can call the non-built-in time command with some additional flags that offer more functionality.
+There are two `time` commands available to most terminals. There is the `time` that is a shell built-in command and there is a `time` that is a command similar to `ls`. You must specify the path to the non shell built-in command because otherwise the built-in `time` command takes precedence. They work identically when called with no arguments, but you can call the non-built-in time command with some additional flags that offer more functionality. The below examples use the `/usr/bin/time` command (the non built-in command).
 
 #### Example command
 
