@@ -8,9 +8,9 @@ whoami
 
 <!-- minimal example -->
 ~~~ bash
+
 $ whoami
 mmdarden
-
 ~~~
 
 <!--more-->
@@ -18,18 +18,18 @@ mmdarden
 ### Example Command
 `whoami` returns root if you are the system administrator
 ~~~ bash
+
 $ whoami
 root
-
 ~~~
 #### 
 `whoami` has been obsoleted by the `id` command
 
 ~~~ bash
+
 $ id -un
 mmdarden
-
 ~~~
 
-### id Command
-you can read more about the `id` command [here](id.md)
+### `id` Command
+You can read more about the `id` command [here](id)
