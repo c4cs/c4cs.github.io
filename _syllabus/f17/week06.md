@@ -21,5 +21,5 @@ advancedTopics:
   - (Basic) shell job control
   - Automated testing
 lectureSummary:
-leccapFri:
+leccapFri: 4nh2aD
 ---
