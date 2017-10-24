@@ -1,52 +1,45 @@
 ---
 ---
+
 df
--------
+--
 
+`df` displays the amount of disk space available on the file system containing
+each file name argument.
 
-Example of command usage and output
 ~~~ bash
-$df
-
-Filesystem               1K-blocks     Used  Available Use% Mounted on
-/dev/mapper/vg1-lv_root  255494800 12306556  230186724   6% /
-devtmpfs                   8149492        0    8149492   0% /dev
-tmpfs                      8175728   103820    8071908   2% /dev/shm
-tmpfs                      8175728     8876    8166852   1% /run
-tmpfs                      8175728        0    8175728   0% /sys/fs/cgroup
-tmpfs                       307200     6052     301148   2% /var/lib/sss/db
-/dev/sda4                   495844   158214     312030  34% /boot
-/dev/sda1                   507904    36652     471252   8% /boot/efi
-/dev/mapper/vg1-lv_tmp    30832548    45440   29197860   1% /tmp
-AFS                     2147483647        0 2147483647   0% /afsSIZE Format
+$ df [OPTIONS] [FOLDER]
 ~~~
 
-
-`df` displays the amount of disk space available on the file system containing each file name argument. If no file name is given, the space available on all currently mounted file systems is shown. Disk space is shown in 1 K blocks by default, unless the environment variable POSIXLY_CORRECT is set, in which case 512-byte blocks are used.
-
-
-Display values are in units of the first available SIZE from --block-size, and the DF_BLOCK_SIZE, BLOCK_SIZE and BLOCKSIZE environment variables. Otherwise, units default to 1024 bytes (or 512 if POSIXLY_CORRECT is set).
-
-SIZE is an integer and optional unit (example: 10M is 10*1024*1024). Units are K, M, G, T, P, E, Z, Y (powers of 1024) or KB, MB, ... (powers of 1000).
-tmpfs                      1635148       32    1635116   1% /run/user/99515263
-
 <!--more-->
+If no file name is given, the space available on all currently mounted file
+systems is shown. Disk space is shown in 1 K blocks by default, unless the
+environment variable `POSIXLY_CORRECT` is set, in which case 512-byte blocks are
+used.
+
+Display values are in units of the first available `SIZE` from `--block-size`,
+and the `DF_BLOCK_SIZE`, `BLOCK_SIZE` and `BLOCKSIZE` environment variables.
+Otherwise, units default to 1024 bytes (or 512 if `POSIXLY_CORRECT` is set).
+
+`SIZE` is an integer and optional unit (example: `10M` is 10\*1024\*1024). Units are
+`K`, `M`, `G`, `T`, `P`, `E`, `Z`, `Y` (powers of 1024) or `KB`, `MB`, ... (powers of 1000).
 
 
-
-If an argument is the absolute file name of a disk device node containing a mounted file system, df shows the space available on that file system rather than on the file system containing the device node (which is always the root file system). df cannot show the space available on unmounted file systems, because on most kinds of systems doing so requires very system-specific knowledge of file system structures.
+If an argument is the absolute file name of a disk device node containing a
+mounted file system, `df` shows the space available on that file system rather
+than on the file system containing the device node (which is always the root
+                                                    file system). `df` cannot show
+the space available on unmounted file systems, because on most kinds of systems
+doing so requires very system-specific knowledge of file system structures.
 
 
 ### Useful Options / Example
 
-~~~ bash
-$ df -h
-~~~
-
+#### `df -h`
 Display all file systems and their disk usage but uses human readable formatting.
 
 ~~~ bash
-bash-4.2$ df -h
+$ df -h
 Filesystem               Size  Used Avail Use% Mounted on
 /dev/mapper/vg1-lv_root  244G   12G  220G   6% /
 devtmpfs                 7.8G     0  7.8G   0% /dev
@@ -63,12 +56,12 @@ tmpfs                    1.6G   32K  1.6G   1% /run/user/99515263
 
 
 #### Example command
+
+#### `df [FOLDER]`
+Display the amount of free space in the `public_html` directory
+
 ~~~ bash
-$df example_folder
-~~~
-Display the amount of free space in the public_html directory
-~~~ bash
-$df example_folder
+$ df example_folder
 Filesystem      1K-blocks  Used  Available Use% Mounted on
 AFS            2147483647     0 2147483647   0% /home/divshar
 ~~~
@@ -95,7 +88,3 @@ AFS            2147483647     0 2147483647   0% /home/divshar
 | -v | Ignored; included for compatibility reasons. |
 | --help | Display a help message and exit. |
 | --version | Output version information and exit. |
-
-
-
-
