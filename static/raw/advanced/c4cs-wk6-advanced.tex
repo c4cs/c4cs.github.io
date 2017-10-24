@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{lastpage}
 \usepackage{listings}
+\usepackage{lipsum}
 \lstset{basicstyle=\small\ttfamily}
 \usepackage{soul}
 \usepackage{upquote}
@@ -180,9 +181,56 @@ index eebeb87..fa1bc1e 100644
 \end{lstlisting}
 \end{itemize}
 
-\subsection*{Automating Automated Background Testing}
+\subsection*{Submission checkoff}
+\begin{itemize}
+  \item[$\square$] Explain what the clone command from step~2 does.
+  \item[$\square$] Show off your script working
+    \begin{itemize}
+      \item[$\square$] With all passing test cases
+      \item[$\square$] With some failing test cases
+      \item[$\square$] Show how to find and examine the output from a failing
+        test case
+    \end{itemize}
+  \item[$\square$] Show that your script is generic by running it with different
+    git repositories that contain tests
+    \begin{itemize}
+      \item If you aren't in a programming EECS class, grab
+        \href{http://www.andrewdeorio.com/teaching/eecs280/}{any other 280
+        project}.
+    \end{itemize}
+\end{itemize}
+
+
+\medskip
+
+\subsection*{[Optional Section] Automating Automated Background Testing}
 Surprise! The way you wrote your script makes it very easy to install it as a git
-\texttt{post-commit} hook. Try:
+\texttt{post-commit} hook. However, one more change will need to be made to the
+script. The \texttt{post-commit} hook doesn't pass in the repository path as the
+argument to the script. Instead, you will need to check in your script if the
+repository path is given to the script. Based on that information you know
+whether the script is run by git or by a user (since a user would pass in the
+repository path). If it's run by git, you'll need to know what directory the
+script is run from. Some info from the
+\href{https://git-scm.com/docs/githooks}{git docs} contains this information:
+
+\begin{quote}
+    Before Git invokes a hook, it changes its working directory to either
+    \texttt{\$GIT\_DIR} in a bare repository or \textbf{the root of the working tree in a
+    non-bare repository.}
+\end{quote}
+
+\noindent
+Emphasis mine.
+
+\begin{itemize}
+    \item Hint: \texttt{pwd} might come in handy here
+\end{itemize}
+
+\medskip
+
+\noindent
+Once those changes have been made, try:
 
 \begin{itemize}\tt
     \item cd \textasciitilde/eecs280-w15/p2/.git/hooks~~~\#\,Or wherever you put this
@@ -200,24 +248,5 @@ automatically get upgraded.
 
 \noindent
 All right, we are finally set up. Make a new commit and test out the new hook!
-
-\subsection*{Submission checkoff}
-\begin{itemize}
-  \item[$\square$] Explain what the clone command from step~2 does.
-  \item[$\square$] Show off your script working
-    \begin{itemize}
-      \item[$\square$] With all passing test cases
-      \item[$\square$] With some failing test cases
-      \item[$\square$] Show how to find and examine the output from a failing
-        test case
-    \end{itemize}
-  \item[$\square$] Show that your script is generic by installing it (symlinking
-    it) into a repository for an EECS class you are currently taking
-    \begin{itemize}
-      \item If you aren't in a programming EECS class, grab
-        \href{http://www.andrewdeorio.com/teaching/eecs280/}{any other 280
-        project}.
-    \end{itemize}
-\end{itemize}
 
 \end{document}
