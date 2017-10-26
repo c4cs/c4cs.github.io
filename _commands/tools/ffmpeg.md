@@ -7,14 +7,8 @@ ffmpeg
 
 <!-- minimal example -->
 ~~~ bash
-# Base syntax
-$ ffmpeg [global_options] {[input_file_options] -i input_url} ... {[output_file_options] output_url} ...
-
-# List all supported formats
-$ ffmpeg -formats
-
-# Help
-$ ffmpeg -h
+# Convert between filetypes
+$ ffmpeg -i input.mp4 output.avi
 ~~~
 
 <!--more-->
