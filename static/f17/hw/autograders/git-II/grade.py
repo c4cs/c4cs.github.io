@@ -20,6 +20,7 @@ from email.mime.base import MIMEBase
 
 import git # pip install gitpython
 
+
 # Get an updated version of sh with proper pushd support
 # sys.path.insert(0, '/Users/ppannuto/code/sh')
 import sh
@@ -425,8 +426,8 @@ def grade_q2b(uniqname):
 
     with sh.pushd(path):
         golden = '''\
-main.py
 README.md
+main.py
 sales-2016-03-01
 sales-2016-03-02
 sales-2016-03-03
@@ -463,7 +464,7 @@ def grade():
         email = '''
 <p>Hello {},</p>
 <br />
-<p>Your Homework&nbsp;5 has been graded.</p>
+<p>Your Homework&nbsp;5 has been graded (again).</p>
 <p>Your raw score is {:1.1f}/4.0</p>
 <p>Your final score is {}/4</p>
 '''
@@ -490,7 +491,7 @@ def grade():
 <p>If you believe there to be an issue with the grading of your assignment
 reply to this email before Monday, March&nbsp;13.</p>
 <p>If you would like more information on how your assignment was graded, you can
-look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/f17/hw/autograders/git-II/grade.py">autograder script</a></p>.
+look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/master/static/f17/hw/autograders/git-II/grade.py">autograder script</a>.</p>
 '''
 
         email += '''
@@ -513,7 +514,7 @@ look over the <a href="https://github.com/c4cs/c4cs.github.io/blob/master/static
         uniq_to_grade[uniqname] = final_grade
 
         #break
-        time.sleep(1)
+        time.sleep(0.25)
 
 
 def do_check_clone(uniqname, name):
