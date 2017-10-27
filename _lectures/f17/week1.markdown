@@ -26,6 +26,8 @@ class: center, middle
 
 - The goal is to give you the ability to pick up, learn, and use tools effectively
 
+- The goal is not to completely teach you any tool (they made the internets for that!)
+
 ---
 
 # This class is _NOT_ a set of tutorials

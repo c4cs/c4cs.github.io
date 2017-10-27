@@ -116,6 +116,7 @@ class: center, middle
   - Spacing
     - Critical
     - Maddening
+    - No spaces around = in assignment!
 
 ---
 
