@@ -43,3 +43,19 @@ lets you share your work	      | lets you backup your data
 collaboration			      | refrigerator
 ~~~
 
+
+#### `diff -q`
+
+This command reports if the files differ, but does not report the differences. It prints nothing if the files are the same
+
+~~~ bash
+$ printf "different?" > first.txt
+$ printf "yes" > second.txt
+$ diff -q first.txt second.txt
+Files first.txt and second.txt differ
+$ printf "same" > third.txt
+$ printf "same" > fourth.txt
+$ diff -q third.txt fourth.txt
+$
+~~~
+
