@@ -14,14 +14,12 @@ $ diff first.txt second.txt
 < difference
 ---
 > similarity
-$
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example Command
 When the files completely match, there is no output from `diff`.
 
 ~~~ bash
@@ -34,15 +32,14 @@ $
 
 #### `diff -y`
 
-This outputs both files in 2 columns with a '|' marking lines with differences, similar to the standard output of 'sdiff'.
+Fully outputs both files in 2 columns with a '\|' marking lines with differences, similar to the standard output of `sdiff`.
 
 ~~~ bash
-$ printf "working with github\nlets you share your work\ncollaboration" > first.txt
-$ printf "working with github\nlets you backup your data\nrefrigerator" > second.txt
+$ printf "working with github\nlets you share your work\ncollaboration" > haiku1.txt
+$ printf "working with github\nlets you backup your data\nrefrigerator" > haiku2.txt
 $ diff -y haiku1.txt haiku2.txt
 working with github			working with github
 lets you share your work	      | lets you backup your data
 collaboration			      | refrigerator
-$
 ~~~
 
