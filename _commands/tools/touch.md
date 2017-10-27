@@ -8,7 +8,7 @@ touch
 
 <!-- minimal example -->
 ~~~ bash
-touch main.cpp
+$ touch main.cpp
 ~~~
 
 <!--more-->
