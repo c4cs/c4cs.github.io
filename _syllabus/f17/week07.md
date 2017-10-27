@@ -1,5 +1,5 @@
 ---
-sectionHeader: 'Developing'
+sectionHeader: 'Segment 3: Developing'
 week: 7
 dates: 10/20/2017
 lecturer: mmdarden
@@ -23,7 +23,5 @@ advancedTopics:
   - <tt>gcc</tt> and <tt>make</tt> integration
   - Exploring alternative build systems
 lectureSummary:
-leccapFri: kThGTw
-asciicasts:
-  - 143326
+leccapFri:
 ---
