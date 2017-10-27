@@ -37,13 +37,13 @@ the `-r` flag specifies the desired output framerate in fps. This example is con
 $ ffmpeg -i input.mp4 -vf fps=1/60 screenshot%d.png
 ```
 
-This gets stills of a .mp4 every second and call them screenshot[NUM].png. It stores them in the current directory.
+This gets stills of a .mp4 every second and call them `screenshot[NUM].png`. It stores them in the current directory.
 
 ``` bash
 $ ffmpeg -f image2 -pattern_type glob -framerate 12 -i 'still-*.jpeg' -s WxH output.avi
 ```
 
-Alternatively, you can turn a bunch of images that you have into a video. Here image2 is a required format, a 12 fps video `output.avi` is being created from all images that follow the file naming pattern `still-*.jpeg`.
+Alternatively, you can turn a bunch of images that you have into a video. Here `image2` is a required format, a 12 fps video `output.avi` is being created from all images that follow the file naming pattern `still-*.jpeg`.
 
 ``` bash
 $ ffmpeg -i input.mp4 -ss 00:00:25 -codec copy -t 40 output.mp4
