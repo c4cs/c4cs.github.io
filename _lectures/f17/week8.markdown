@@ -1,5 +1,5 @@
 ---
-permalink: /lectures/f17/week8.html
+permalink: /lectures/f17/week10.html
 ---
 
 class: center, middle
@@ -272,7 +272,7 @@ OPERATORS = {
 
 1. Go to https://gitlab.eecs.umich.edu
 2. Click "New Project"
-3. Name your project **exactly**: `c4cs-w17-rpn`
+3. Name your project **exactly**: `c4cs-f17-rpn`
 4. Set your project to **publically visible**
 <img src="img/gitlab-visibility.png" width="400px" />
 5. Scroll down and follow the directions for **existing folder or Git repository**
@@ -281,4 +281,3 @@ OPERATORS = {
   - `git remote add .....`
   - `git push -u origin master`
     - Your username is your uniqname, and password is your umich.edu password
-
