@@ -13,7 +13,7 @@ slidesName: f17/week7
 lectureTopics:
   - Conceptual model for a build system
   - Basic operation of <tt>make</tt>
-  - sub: syntax, goals, targets, rules, varaiables (yours and <tt>make</tt>'s)
+  - sub: syntax, goals, targets, rules, variables (yours and <tt>make</tt>'s)
 homeworkTopics:
   - Basic operation
   - Understanding goals and targets
@@ -23,5 +23,5 @@ advancedTopics:
   - <tt>gcc</tt> and <tt>make</tt> integration
   - Exploring alternative build systems
 lectureSummary:
-leccapFri:
+leccapFri: kThGTw
 ---
