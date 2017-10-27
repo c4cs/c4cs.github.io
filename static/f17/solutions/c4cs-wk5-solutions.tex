@@ -1,0 +1,362 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 5\\Git II}}
+\author{\textbf{\color{red}{Due: Friday, October 20th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+For this assignment, all of your submissions will be to GitLab.
+
+
+\section*{Optional Reading}
+
+\emph{Git is a purely functional data structure}, by Philip Nilsson, from Jayway.
+
+\url{http://www.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/}
+
+I highly encourage reading this when you have some time to read the article
+carefully and think deeply about the material.
+This article presents an excellent way of thinking about git and how it
+operates.
+
+
+
+\section{Evaluating git usage}
+
+Earlier this semester, we asked you to use git with at least one project. Now
+you will set up that project to be shared with the course staff. Visit
+\url{https://gitlab.eecs.umich.edu} and create a new project named
+\textbf{exactly} \texttt{c4cs-f17-wk5}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Interal or Public).
+
+Add this new repository as a remote (\texttt{git remote add \dots}) to your
+existing project.
+
+Push the project to this new remote.
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{cgagnon} and
+\texttt{mmdarden}.
+(Choose ``Members'' from the drop-down list from the settings gear in the top
+right to manage this permission).
+
+We will run a test script, checking our access to everyone's repository on
+Thursday.
+
+
+\newpage
+\section{Handling merge conflicts}
+
+\subsection{Content Conflict}
+
+Clone \url{https://gitlab.eecs.umich.edu/c4cs/c4cs-f17-conflict1.git}
+
+This repository has a \texttt{master} branch and a \texttt{merge\_me} branch
+that have diverged. Merge the \texttt{merge\_me} branch into \texttt{master},
+resolving the conflict.
+
+When you are done, running \texttt{bash test.sh} should print ``Success'' and
+running \texttt{python main.py} should print something reasonable (if
+factually inaccurate now, hooray!).
+
+Create a new repository in your GitLab named \textbf{exactly}
+\texttt{c4cs-f17-conflict1}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Interal or Public).
+
+Push your changes to your new repository. (\emph{\small Note: This will be a
+  different ``remote''})
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{cgagnon} and
+\texttt{mmdarden}.
+(Choose ``Members'' from the drop-down list from the settings gear in the top
+right to manage this permission).
+
+We will run a test script, checking our access to everyone's repository on
+Thursday night.
+
+{\color{violet}
+    First, clone the repository:
+    \begin{verbatim}
+$ git clone https://gitlab.eecs.umich.edu/c4cs/c4cs-f17-conflict1.git
+    \end{verbatim}
+
+    This brings down the \texttt{master} branch onto our machine and adds
+    \texttt{c4cs/c4cs-f17-conflict1} as a remote. We can verify this:
+
+    \begin{verbatim}
+$ git remote -v
+origin  https://gitlab.eecs.umich.edu/c4cs/c4cs-f17-conflict1.git (fetch)
+origin  https://gitlab.eecs.umich.edu/c4cs/c4cs-f17-conflict1.git (push)
+$ git branch
+* master
+    \end{verbatim}
+
+    Now we want to merge in the branch \texttt{merge\_me}. However, we don't
+    have this particular branch locally, as is seen from the \texttt{git branch}
+    command above. It resides on the remote server \texttt{origin}.
+
+    \begin{verbatim}
+$ git merge origin/merge_me
+Auto-merging test.sh
+CONFLICT (content): Merge conflict in test.sh
+Auto-merging main.py
+CONFLICT (content): Merge conflict in main.py
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   main.py
+        both modified:   test.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+    \end{verbatim}
+
+    \newpage
+
+    Let's have a look at the two files with conflicts. Notice the markers
+    \texttt{<<<<<< HEAD ==== >>>>>> origin/merge\_me}. These are conflict
+    markers. Everything below \texttt{HEAD} is what was in \texttt{HEAD} (which
+    points to the \texttt{master} branch in our case) before the merge.
+    Everything below the equals and above \texttt{origin/merge\_me} was is what
+    was in that branch.
+    
+    \textbf{Important note:} The conflict markers are automatically inserted by
+    git but should \textbf{never} be committed.
+
+    Git tries its best to merge intelligently, but sometimes if the same areas
+    of a file change it needs a human to reconcile the differences. This is an
+    example of one such case. The correct solutions for each file are below:
+
+    \begin{verbatim}
+$ cat main.py | nl
+...
+37  if __name__ == '__main__':
+38          print_welcome()
+39          print('')
+40          print('According to current estimates, the diag construction will be done:')
+41          time = compute_time(2) # 2 is March
+42          print(pretty_print(2, 2016, time))
+$ cat test.sh | nl
+ 1  diff <(python main.py) golden.txt
+...
+    \end{verbatim}
+
+    In \texttt{main.py} we wanted to keep the first part of our message from
+    \texttt{master} and the second better estimate from \texttt{merge\_me}. In
+    \texttt{test.sh}, the conflict was resolved by keeping everything from
+    \texttt{master}. You can verify this by running \texttt{./test.sh} and
+    seeing the success message.
+
+    To complete the merge:
+
+    \begin{verbatim}
+$ ./test.sh
+Success
+$ git add test.sh main.py
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   main.py
+$ git commit
+[master 810c3af] Merge remote-tracking branch 'origin/merge_me'
+    \end{verbatim}
+
+    You'll notice that \texttt{test.sh} does not appear in the \texttt{git
+    status}. This is because it's actually identical to the master branch's
+    copy. i.e. nothing changed, so there are no changes to be committed for that
+    file.
+}
+
+\newpage
+\subsection{File Path Conflict}
+
+Repeat the same steps for
+\url{https://gitlab.eecs.umich.edu/c4cs/c4cs-f17-conflict2.git}
+
+Be sure to read over the commit history so that you are sure that the result
+of your merge has the right data!
+
+{\color{violet}
+    We start out very similar to the previous question.
+
+    \begin{verbatim}
+$ git merge origin/merge_me
+CONFLICT (modify/delete): sales-march-1st deleted in origin/merge_me and
+modified in HEAD. Version HEAD of sales-march-1st left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Changes to be committed:
+
+        new file:   sales-2016-03-01
+        new file:   sales-2016-03-02
+        new file:   sales-2016-03-03
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+
+        deleted by them: sales-march-1st
+    \end{verbatim}
+
+    It appears that \texttt{sales-march-1st} doesn't fit the pattern of our
+    other files. Intuition tells us it should probably be deleted, but we
+    should double check.
+    
+    \begin{verbatim}
+# command below shows logs from merge_me & describes files changed in each commit
+$ git log --name-status origin/merge_me 
+commit 0e9f1fba2bd00827dad94bc44585ed8b9f2f2c26
+Author: Pat Pannuto <pat.pannuto@gmail.com>
+Date:   Fri Mar 11 10:49:17 2016 -0500
+
+    Add March 3rd. Change naming scheme
+
+    Using human-friendly names "march 1st" makes it harder than needed
+    for computers to parse the dates. It will also break the simple
+    sorting of tools like `ls` once you get to two-digit dates.
+
+    Change the naming scheme to parse-friendly, sort-friendly numbers
+    instead.
+
+A       sales-2016-03-01
+A       sales-2016-03-02
+A       sales-2016-03-03
+D       sales-march-1st
+D       sales-march-2nd
+
+commit f8e2f6933c9ea0f20bdc361934ebed1c55c53c40
+...
+\end{verbatim}
+\newpage
+\begin{verbatim}
+commit 302584e32cc72978c6febb1b138d2afd892a7a25
+Author: Pat Pannuto <pat.pannuto@gmail.com>
+Date:   Fri Mar 11 10:52:45 2016 -0500
+
+    Update March 1st with real sales data
+
+    Replace the placeholder data with the real sales data from March 1st.
+
+M       sales-march-1st
+
+commit 1710c112b061bb1d4c43d0366b73a225fe93eb91
+Author: Pat Pannuto <pat.pannuto@gmail.com>
+Date:   Fri Mar 11 10:14:18 2016 -0500
+
+    Add initial sales calculation (note: buggy!)
+
+    This is the point in history where the two branches will diverge.
+
+M       main.py
+A       sales-march-1st
+
+commit b469c96bae4424dfdc33c7aae253a663bd56735e
+Author: Pat Pannuto <pat.pannuto@gmail.com>
+Date:   Fri Mar 11 10:08:56 2016 -0500
+
+    Initial commit.
+
+A       README.md
+A       main.py
+    \end{verbatim}
+
+    Interpreting commit messages modified files tells us quite a bit.  In
+    \texttt{fe93eb91}, we committed buggy data to the (now deleted) sales file.
+    We then see that in \texttt{892a7a25} we update our file with real data, so
+    \texttt{master} definitely contains old data. Finally, in \texttt{f2f2c26}
+    we see why the files were renamed. We can confidently delete
+    \texttt{sales-march-1st}.
+
+    \begin{verbatim}
+$ git rm sales-march-1st
+sales-march-1st: needs merge
+rm 'sales-march-1st'
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        new file:   sales-2016-03-01
+        new file:   sales-2016-03-02
+        new file:   sales-2016-03-03
+        deleted:    sales-march-1st
+$ git commit
+[master f58156c] Merge remote-tracking branch 'origin/merge_me'
+    \end{verbatim}
+}
+
+\end{document}

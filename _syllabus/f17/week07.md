@@ -23,5 +23,7 @@ advancedTopics:
   - <tt>gcc</tt> and <tt>make</tt> integration
   - Exploring alternative build systems
 lectureSummary:
-leccapFri:
+leccapFri: kThGTw
+asciicasts:
+  - 143326
 ---
