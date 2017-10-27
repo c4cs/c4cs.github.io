@@ -22,7 +22,7 @@ Allows you to create multiple empty files at the same time.
 ~~~ bash
 $ touch main.cpp file1.h file1.cpp
 ~~~
-This command is creating 3 new empty files: main.cpp, file1.h, and file1.cpp.
+This command is creating 3 new empty files: `main.cpp`, `file1.h`, and `file1.cpp`.
 
 #### `touch -a filename`
 
@@ -31,7 +31,7 @@ Allows user to change the access time.
 ~~~ bash
 $ touch -a main.cpp
 ~~~
-This changes the access time for main.cpp to the current time. 
+This changes the access time for `main.cpp` to the current time. 
 
 #### `touch -m filename`
 
@@ -40,4 +40,4 @@ Allows user to change modification time.
 ~~~ bash
 $ touch -m main.cpp
 ~~~ 
-This changes the modification time of main.cpp to the current time.
+This changes the modification time of `main.cpp` to the current time.
