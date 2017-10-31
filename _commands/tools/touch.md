@@ -13,7 +13,7 @@ $ touch main.cpp
 
 <!--more-->
 
-### Useful Options / Examples 
+### Useful Options / Examples
 
 #### `touch -a filename1 filename2 filename3 ...`
 
