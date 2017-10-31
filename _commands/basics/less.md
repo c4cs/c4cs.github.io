@@ -56,7 +56,7 @@ n
 | Space bar   |                               Next Page                              |
 | b           |                             Previous Page                            |
 | v           |                             Edit Content                             |
-| j           |                         or ↵ Enter	Next Line                        |
+| j           |                         or ↵ Enter  Next Line                        |
 | k           |                             Previous Line                            |
 | F           |              Follow Mode (for logs). Interrupt to abort.             |
 | g or <      |                              First Line                              |
@@ -77,4 +77,4 @@ n
 | q           |                                 Quit                                 |
 ~~~
 
-Reference: https://en.wikipedia.org/wiki/Less_(Unix)
+[Reference](https://en.wikipedia.org/wiki/Less_(Unix))
