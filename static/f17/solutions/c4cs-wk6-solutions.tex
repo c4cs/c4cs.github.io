@@ -508,9 +508,9 @@ committed? What test could you quickly run to find out?}
   Since we're looking at ``\texttt{git~grep~insert\_list}'', let's test this
   by creating a simple test file:
 
-  \texttt{echo "This file has insert\_list it" > test\_file}
+  \texttt{echo "This file has insert\_list in it" > test\_file}
 
-  Run \texttt{git~grep~insert\_file}, it doesn't match (not suprising, it's
+  Run \texttt{git~grep~insert\_list}, it doesn't match (not surprising, it's
   still untracked). Then stage the new file:
 
   \texttt{git add test\_file}
