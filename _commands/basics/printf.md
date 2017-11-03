@@ -35,9 +35,9 @@ $
 
 #### Break it down
 
-* This command takes advantage of the ability for 'printf' to use whitespace by adding tabs into the output using \t to add tabs and a newline at the end
+* This command takes advantage of the ability for `printf` to use whitespace by adding tabs into the output using \t to add tabs and a newline at the end
 
-* This command also demonstrates how to add characters to strings that would normally give a command to 'printf'. Quotations usually specify what is meant to be fed into 'printf', but using \\" allows an actual double quote to be inserted into the string.
+* This command also demonstrates how to add characters to strings that would normally give a command to `printf`. Quotations usually specify what is meant to be fed into `printf`, but using \\" allows an actual double quote to be inserted into the string.
 
 ~~~ bash
 $ printf "put a number here: %d and a different one here: %d\n" 21 45
