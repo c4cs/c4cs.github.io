@@ -23,5 +23,5 @@ advancedTopics:
   - <tt>printf</tt> debugging
   - Extending <tt>gdb</tt>
 lectureSummary: Files for class [inf.c](/static/f17/wk09/inf.c) [math.c](/static/f17/wk09/math.c)
-leccapFri:
+leccapFri: ncZ7vg
 ---
