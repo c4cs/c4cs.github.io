@@ -4,14 +4,18 @@
 who
 --
 <!-- one line explanation would go here -->
+
 ## Description
 Displays list of all users currently logged on 
 
 <!-- minimal example -->
-### Example Output 
+
+### Example Output
+<!--more-->
 ~~~ bash
-$ Username console  Oct 12 08:20 
-$ Username ttys000  Oct 20 09:35 
+ $ who
+ Username console  Oct 12 08:20 
+ Username ttys000  Oct 20 09:35 
 ~~~
 
  The who utility displays a list of all users currently logged on, showing for each user the login name, tty
@@ -22,8 +26,10 @@ $ Username ttys000  Oct 20 09:35
  
  `-b`    Time of last system boot. 
  
-             $ who -b 
-             reboot ~ Oct 12 8:20
+ ~~~ bash
+   $ who -b 
+   reboot ~ Oct 12 8:20
+~~~
 
  `-d`    Print dead processes. This command shows the zombie processes or processes that have already been executed.
             
@@ -33,8 +39,10 @@ $ Username ttys000  Oct 20 09:35
  
  `-m`    Only print information about the current terminal.  This is the POSIX way of saying who am i.
  
-             $ who -m
-             Norinlava ttys000  Oct 29 18:35 
+ ~~~ bash
+   $ who -m
+   Norinlava ttys000  Oct 29 18:35 
+ ~~~
  
  `-p`    Print active processes spawned by launchd(8) (unsupported).
  
@@ -48,17 +56,24 @@ $ Username ttys000  Oct 20 09:35
   `-T`   Print a character after the user name indicating the state of the terminal line: +' if the terminal is
          writable; -' if it is not; and ?' if a bad line is encountered.
          
-             $ who -T
-             Username - console  Oct 12 08:20 
-             Username + ttys000  Oct 20 20:04 
+   ~~~ bash
+         
+    $ who -T
+    Username - console  Oct 12 08:20 
+    Username + ttys000  Oct 20 20:04 
+   ~~~
 
   `-t`   Print last system clock change (unsupported).
   
-  `-u`   Print the idle time for each user, and the associated process ID. 
+  `-u`   Print the idle time for each user, and the associated process ID.
   
-             $ who -u
-             Username console  Oct 12 08:20  old  	    99
-             Username ttys000  Oct 20 20:04   .   	 87780
+  ~~~ bash
+  
+   $ who -u
+   Username console  Oct 12 08:20  old  	    99
+   Username ttys000  Oct 20 20:04   .   	 87780
+  
+  ~~~
   
   `am I` Returns the invoker's real user name.
   
