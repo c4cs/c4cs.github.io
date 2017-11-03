@@ -1,5 +1,5 @@
 ---
-permalink: /lectures/f17/week14.html
+permalink: /lectures/f17/week13.html
 ---
 
 class: center, middle

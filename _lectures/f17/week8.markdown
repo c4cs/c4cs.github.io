@@ -281,4 +281,3 @@ OPERATORS = {
   - `git remote add .....`
   - `git push -u origin master`
     - Your username is your uniqname, and password is your umich.edu password
-
