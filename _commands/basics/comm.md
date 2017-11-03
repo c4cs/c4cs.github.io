@@ -8,28 +8,21 @@ Compares two sorted files line by line and writes three columns to standard outp
 
 <!-- minimal example -->
 ~~~ bash
-cat words1.txt
-Apple
-Banana
-Orange
+$ cat file1.txt
+abc
+def
+ghi
 
-cat words2.txt
-apple
-banana
-orange
+$ cat file2.txt
+abc
+ghi
+klm
 
-comm words comm words1.txt words2.txt
-Apple
-Banana
-Orange
-        apple
-        banana
-        orange
-
-comm -i words1.txt words2.txt
-            Apple
-            Banana
-            Orange
+$ comm file1.txt file2.txt
+		abc
+def
+		ghi
+	klm
 ~~~
 
 <!--more-->
