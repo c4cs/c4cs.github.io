@@ -5,7 +5,7 @@ who
 --
 <!-- one line explanation would go here -->
 
-## Description
+### Description
 Displays list of all users currently logged on 
 
 <!-- minimal example -->
