@@ -46,7 +46,7 @@ put a number here: 21 and a different one here: 45
 
 #### Break it down
 
-*This command takes advantage of being able to insert decimal numbers into strings using the %d to refer to decimals
+* This command takes advantage of being able to insert decimal numbers into strings using the %d to refer to decimals
 
 ~~~ bash
 $ whatIMade="variable"
