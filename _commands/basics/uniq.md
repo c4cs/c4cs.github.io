@@ -50,7 +50,7 @@ $ sort in.txt | uniq -u
 line3
 ~~~
 
-The `-u` flag lists only lines in the file that did not have a duplicate line adjacent to it. It is the oposite of the `-d` flag. 
+The `-u` flag lists only lines in the file that did not have a duplicate line adjacent to it. It is the inverse of the `-d` flag. 
 
 #### Example command
 
@@ -61,7 +61,7 @@ line2
 line3
 ~~~
 
-The `-i` flag tells uniq to be case insensitive when comparing adjacent lines. With the `-i` flag given, 'line1' and 'LINE1' will be conisered duplictes if adjacent in the file and which ever string appeared first in the file is the one that will be display.
+The `-i` flag tells uniq to be case insensitive when comparing adjacent lines. With the `-i` flag given, 'line1' and 'LINE1' will be conisered duplictes if adjacent in the file and which ever string appeared first in the file is the one that will be displayed.
 
 #### Example command
 
@@ -70,4 +70,4 @@ $ sort in.txt | uniq -c -f 1
 6 line1
 ~~~
 
-The `-f num` flag tells uniq to ignore the first `num` 'fields' in each line. A 'field' is a string in the line seperated by whitespace. In this example, since each line was had only one field and we gave `num` a value of 1 , the command would compare only the empty space in each line, which of course would be duplicates. 
+The `-f num` flag tells `uniq` to ignore the first `num` 'fields' in each line. A 'field' is a string in the line seperated by whitespace. In this example, since each line had only one field and we gave `num` a value of 1, the command would compare only the empty space in each line, which of course would be duplicates.
