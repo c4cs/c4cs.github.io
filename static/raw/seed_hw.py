@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 
-
 import arrow
 import os
-import re
 import sys
-
-
 # see https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
 sys.path.insert(0, '../../_syllabus')
 # import the lectures from the other seed file for the syllabus so we don't have
 # two copies of the lecture dates floating around
 from seed import lectures
 
-COURSE_SEMESTER = 'F' # Fall = 'F'; Winter = 'W'
-COURSE_YEAR = '17' # 2017 = 17; 2017 = 18
+
+##################### UPDATE THESE VALUES EACH SEMESTER ########################
+CURRENT_SEM = 'F\'17'
 GRADESCOPE_COURSE_NUMBER = '9999' # find this on gradescope.com
+################################################################################
+
 
 HW_TEMPLATE_HEADER = "\\\\\\fancyhead[C]{\\\\\\hl{Select the right page in Gradescope or we will not grade the question!}}\\\\\n" +\
 "\\\\\\fancyhead[L]{}\\\\\n" +\
@@ -175,15 +174,15 @@ hw_info = [
 
 
 _HEADER_INSERT_KEYWORDS = "%%% TITLE INFO INSERTED HERE AUTOMATICALLY"
-def seed_all_hw(cur_sem_hw_dir):
+def seed_all_hw():
 
     for abs_week_num, hw in enumerate(hw_info):
         abs_week_num += 1
         # do hw
         hw_template = get_header(hw) + get_body(hw, 'Homework') + get_submission(hw)
         filename = get_filename(hw['week'], 'homework')
-        copy_file_to_dest(abs_week_num, hw, 'homework', 'hw', cur_sem_hw_dir)
-        insert_header_into_tex_file(hw_template, cur_sem_hw_dir, 'hw', filename)
+        copy_file_to_dest(abs_week_num, hw, 'homework', 'hw')
+        insert_header_into_tex_file(hw_template, 'hw', filename)
 
         # do adv hw
         if not hw.get('advanced'):
@@ -192,10 +191,10 @@ def seed_all_hw(cur_sem_hw_dir):
 
         adv_hw_template = get_body_adv(hw) + get_adv_submission(hw['advanced'])
         filename = get_filename(hw['week'], 'advanced')
-        copy_file_to_dest(abs_week_num, hw, 'advanced', 'advanced', cur_sem_hw_dir)
-        insert_header_into_tex_file(adv_hw_template, cur_sem_hw_dir, 'advanced', filename)
+        copy_file_to_dest(abs_week_num, hw, 'advanced', 'advanced')
+        insert_header_into_tex_file(adv_hw_template, 'advanced', filename)
 
-def copy_src_files(cur_sem_hw_dir):
+def copy_src_files():
     """ Copy src files such as images and `.tar.gz`s to the destination directory"""
     for directory in ['./advanced/src', './hw/src']:
         for (dirpath, dirname, filenames) in os.walk(directory):
@@ -205,26 +204,27 @@ def copy_src_files(cur_sem_hw_dir):
                 src_path = get_path(dirpath, filename)
                 # cut off the '/src' part since that's not in the destination
                 # directory
-                dest_path = get_destination_path(cur_sem_hw_dir, dirpath[:-4], filename)
+                dest_path = get_destination_path(dirpath[:-4], filename)
                 copy_file(src_path, dest_path)
 
 
-def insert_header_into_tex_file(template, cur_sem_hw_dir, hw_type, file_to_modify):
-    dest_file = get_destination_path(cur_sem_hw_dir, hw_type, file_to_modify)
-    os.system("sed -i '' -e \"s/{find}/{replace}/g\" {dest_file}".format(
+def insert_header_into_tex_file(template, hw_type, file_to_modify):
+    dest_file = get_destination_path(hw_type, file_to_modify)
+    print('looking for: {}'.format(dest_file))
+    os.system("sed -i -e \"s/{find}/{replace}/g\" {dest_file}".format(
         find=_HEADER_INSERT_KEYWORDS,
         replace=template,
         dest_file=dest_file
     ))
 
-def copy_file_to_dest(abs_week_num, hw, file_type, hw_type, cur_sem_hw_dir):
+def copy_file_to_dest(abs_week_num, hw, file_type, hw_type):
     # source file is absolute week numbering, meaning there are no skips in weeks 1-12
     src_file = get_filename(abs_week_num, file_type)
     src_path = get_path(hw_type, src_file)
     # destination file will have relative week numbering, meaning there are
     # skips in weeks for holidays/breaks
     dest_file = get_filename(hw['week'], file_type)
-    dest_path = get_destination_path(cur_sem_hw_dir, hw_type, dest_file)
+    dest_path = get_destination_path(hw_type, dest_file)
     copy_file(src_path, dest_path)
 
 def get_path(directory, filename):
@@ -240,16 +240,13 @@ def copy_file(src_path, dest_path):
         dest_path=dest_path
     ))
 
-def get_destination_path(cur_sem_hw_dir, hw_type, dest_file):
+def get_destination_path(hw_type, dest_file):
     dest_path = '../{semester}/{hw_type}/{dest_filename}'.format(
-        semester=cur_sem_hw_dir,
+        semester=CURRENT_SEM.replace('\'', '').lower(),
         hw_type=hw_type,
         dest_filename=dest_file
     )
     return dest_path
-
-def get_cur_sem_dir(sem, year):
-    return "{semester}{year}".format(semester=sem.lower(), year=year)
 
 def get_filename(week, hw_type):
     return 'c4cs-wk{week}-{hw_type}.tex'.format(
@@ -266,7 +263,6 @@ def get_header(hw):
     return HW_TEMPLATE_HEADER
 
 def get_body(hw, hw_type):
-    FULL_COURSE_YEAR = COURSE_SEMESTER + '\'' + COURSE_YEAR
     # lookup the lecture date by the homework week number (-1 because of 0 indexing)
     release_date = arrow.get(lectures[hw['week']-1]['date'], 'MM/DD/YYYY')
     # calculate the submission date based on the release date
@@ -274,7 +270,7 @@ def get_body(hw, hw_type):
             hours=12, minutes=59)
     # format the submission date as is custom for the homework
     due_date = due_date.format('dddd, MMMM Do, h:mmA')
-    return HW_TEMPLATE_BODY % (FULL_COURSE_YEAR, hw['revision'], hw_type,
+    return HW_TEMPLATE_BODY % (CURRENT_SEM, hw['revision'], hw_type,
             hw['week'], hw['title'], due_date)
 
 def get_body_adv(hw):
@@ -300,10 +296,7 @@ def get_adv_submission(hw):
 
 
 if __name__ == "__main__":
-    print("!!! You must build the PDFs yourself after this process is done. !!!")
-    print("Running the following in the ../semester/hw and " +\
-          "../semester/advanced directories should create the pdfs:")
-    print("`for file in *.tex; do pdflatex $file; pdflatex $file; rm *.out *.log *.aux; done`")
-    cur_sem_hw_dir = get_cur_sem_dir(COURSE_SEMESTER, COURSE_YEAR)
-    seed_all_hw(cur_sem_hw_dir)
-    copy_src_files(cur_sem_hw_dir)
+    print("This script is usually only run on Travis to assist in building PDFs")
+    print('cur dir:', os.system('pwd'))
+    seed_all_hw()
+    copy_src_files()
