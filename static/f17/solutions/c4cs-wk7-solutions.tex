@@ -26,6 +26,7 @@ keepspaces=true,
 literate={*}{{\char42}}1
          {-}{{\char45}}1
          {^}{{\char94}}1
+         {@}{{\char64}}1
 }
 \lstset{
   moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
@@ -47,8 +48,8 @@ literate={*}{{\char42}}1
 \fancyhead[L]{}
 \fancyhead[R]{}
 
-\fancyfoot[L]{\color{gray} C4CS -- W'17}
-\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.1}
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
@@ -301,7 +302,7 @@ MARKER
   \texttt{CPPFILES} appears for both, which can also be useful).
 
   \begin{lstlisting}
-  make CFLAGS=-Os CXXFLAGS=-O3 hello wazzup
+  make CFLAGS=-O3 CXXFLAGS=-Os hello wazzup
   \end{lstlisting}
 
 \end{quote}
