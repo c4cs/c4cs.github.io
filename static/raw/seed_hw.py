@@ -55,7 +55,9 @@ ADVANCED_HW_SUBMISSION_INSTRUCTIONS = "\\\\\\section*{Submission Instructions}\\
 "To receive credit for this assignment you will need to stop by someone's\\\\\n" +\
 "office hours, demo your running code, and answer some questions. \\\\\\textbf{\\\\\\color{red}{Make sure\\\\\n" +\
 "to check the office hour schedule as the real due date is at the last office\\\\\n" +\
-"hours before the date listed above.}} This applies to assignments that need to be gone over with a TA only."
+"hours before the date listed above.}} This applies to assignments that need to be gone over with a TA only.\\\\\n" +\
+"\\\\\\textbf{Extra credit is given for early turn-ins of advanced exercises. These details " +\
+"can be found on the website under the advanced homework grading policy.}"
 
 
 hw_info = [
@@ -149,7 +151,7 @@ hw_info = [
     'submission_link': 'https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSf0-UO8GcD7vi3KT98Ss4aNt13ywu5vpKdLWhbYv0boV0xEKg\/viewform',
     'advanced':
         {
-        'revision':'1.0',
+        'revision':'1.1',
         },
     },
     {
