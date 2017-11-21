@@ -16,5 +16,5 @@ title: "IDEs"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapFri: bpmAi4
 ---
