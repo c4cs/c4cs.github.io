@@ -14,7 +14,7 @@ GEM
     coffee-script-source (1.11.1)
     colorator (1.1.0)
     colorize (0.8.1)
-    commonmarker (0.17.6)
+    commonmarker (0.17.7)
       ruby-enum (~> 0.5)
     concurrent-ruby (1.0.5)
     ethon (0.11.0)

@@ -8,6 +8,7 @@ homeworkRelease: 2017-11-17 11:00:00
 lectureRelease: 2017-11-17 11:00:00
 advancedThisWeek: true
 title: "IDEs"
+lectureTopics:
   - What is an IDE?
   - How are they useful?
   - IDE toolsets
@@ -17,6 +18,6 @@ title: "IDEs"
 #   - TBD
 # advancedTopics:
 #   - TBD
-lectureSummary:
+lectureSummary: IDEs and how to use em
 leccapFri: bpmAi4
 ---
