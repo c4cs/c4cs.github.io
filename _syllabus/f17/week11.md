@@ -7,10 +7,12 @@ slidesName:
 homeworkRelease: 2017-11-17 11:00:00
 lectureRelease: 2017-11-17 11:00:00
 advancedThisWeek: true
-solutionRelease: 2017-11-30 00:00:00
 title: "IDEs"
-# lectureTopics:
-#   - TBD
+  - What is an IDE?
+  - How are they useful?
+  - IDE toolsets
+  - Modifying an IDE
+  - IDEs and their use cases
 # homeworkTopics:
 #   - TBD
 # advancedTopics:
