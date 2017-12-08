@@ -36,7 +36,13 @@ You use a whole bunch of networked computers to store, manage, process informati
 # History
 
 - Post WW2 - main frames
+
+--
+
 - 1980s - PC revolution but still...
+
+--
+
 - Before and into 2000s - you had to get your own hardware to run servers
 
 ---
@@ -49,11 +55,24 @@ You use a whole bunch of networked computers to store, manage, process informati
 
 # Types of services
 
-(AAS mean "as-a-service")
+--
+
 - IAAS - infrastructure
+
+--
+
 - PAAS - platform
+
+--
+
 - CAAS - container
+
+--
+
 - FAAS - function
+
+--
+
 - SAAS - service
 
 ---
