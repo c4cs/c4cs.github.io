@@ -16,5 +16,5 @@ lectureTopics:
 # - none
 lectureSummary:
 # - [Slides on accessibility](https://docs.google.com/presentation/d/13M6HiQ2x8nrUb1XMWquslF2LqdrNg-cb_3-UM-qm6CU/edit?usp=sharing)
-leccapFri:
+leccapFri: tQtpbn
 ---

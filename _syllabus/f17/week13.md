@@ -16,5 +16,5 @@ title: "A Sampling of Other Things"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapFri: 2oTYEJ
 ---
