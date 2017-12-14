@@ -96,24 +96,13 @@ for uniq, grades in raw_grades.items():
     advanced_raw = [
         sum([grades['advanced'][i] for i in [2,3]]),      # Introduction and Basics
         sum([grades['advanced'][i] for i in [4,5,6]]),    # Being Efficient
-        sum([grades['advanced'][i] for i in [7,10,11]]),  # Developing
-        sum([grades['advanced'][i] for i in [12,13,14]]), # Standing on the Shoulders of Giants
+        sum([grades['advanced'][i] for i in [7,8,9]]),    # Developing
+        sum([grades['advanced'][i] for i in [10,11,13]]), # Standing on the Shoulders of Giants
     ]
 
-    all_sections = True
+    # Advanced grading script takes care of the weighted adv-hw points
     for score in advanced_raw:
-        if score <= 0:
-            all_sections = False
-            break
-
-    # The first from each section is worth 10 points, others worth half
-    for score in advanced_raw:
-        final_grade += ceil_plus_half(score, 10)
-
-    # Except for if a student completes exercises from all 4 categories
-    if all_sections:
-        # then last section is only worth half
-        final_grade -= 5
+        final_grade += float(score)
 
     final_grades[uniq] = final_grade
 
