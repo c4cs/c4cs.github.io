@@ -61,6 +61,7 @@ for uniq, data in raw.items():
         'homework': {},
         'advanced': {},
         'attendance': {},
+        'extra': {},
     }
 
     for k, v in data.items():
@@ -79,6 +80,8 @@ for uniq, data in raw.items():
             # Advanced Exercise 02 (262450)
             k = int(k.split()[2])
             raw_grades[uniq]['advanced'][k] = float(v)
+        elif 'Extra Credit' in k:
+            raw_grades[uniq]['extra'] = float(v)
 
 final_grades = {}
 for uniq, grades in raw_grades.items():
@@ -91,6 +94,8 @@ for uniq, grades in raw_grades.items():
     # Attendance
     # Any points over 30 points are worth half their value.
     final_grade += ceil_plus_half(sum(grades['attendance'].values()), 30)
+
+    final_grade += grades['extra']
 
     # Advanced
     advanced_raw = [
