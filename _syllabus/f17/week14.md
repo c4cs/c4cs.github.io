@@ -3,9 +3,8 @@ sectionHeader:
 week: 14
 dates: 12/08/2017
 lecturer: samkhan, cyanliu
-slidesName: f17/week14
 lectureRelease: 2017-12-08 11:00:00
-advancedThisWeek: false
+slidesName: f17/week14
 title: "Staff Lecture"
 lectureTopics:
   - Cloud Computing

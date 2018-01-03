@@ -2,8 +2,7 @@
 sectionHeader:
 week: 12
 dates: 11/24/2017
-lecturer:
-advancedThisWeek: false
+lecturer: n/a
 title: "No lecture, Thanksgiving break"
 # lectureTopics:
 #   - TBD
