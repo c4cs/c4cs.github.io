@@ -54,8 +54,8 @@
       {% assign lectureRelease = page.lectureRelease | date: '%s' | times: 1 %}
       {% if now > lectureRelease %}
       <p>
-        <a href="lectures/{{ page.slidesName }}">Slides</a>
-        <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+        <a href="/lectures/{{ page.slidesName }}">Slides</a>
+        <a href="/lectures/{{ page.slidesName }}.pdf">[pdf]</a>
       </p>
       {% endif %}
     {% endif %}
