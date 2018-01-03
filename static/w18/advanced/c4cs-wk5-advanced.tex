@@ -1,0 +1,265 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Advanced Homework 5\\}}
+\author{\textbf{\color{red}{Due: Wednesday, October 18th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions. \textbf{\color{red}{Make sure
+to check the office hour schedule as the real due date is at the last office
+hours before the date listed above.}} This applies to assignments that need to be gone over with a TA only.
+\textbf{Extra credit is given for early turn-ins of advanced exercises. These details can be found on the website under the advanced homework grading policy.}
+
+
+\section*{Contributing to an open source project}
+
+While version control is useful for your own projects and helps with group
+class projects, what really makes it awesome it how accessible it makes
+collaborating and contributing to big (or small) projects.
+
+One thing that's awesome about computer science is that there are many
+opportunities for early-career students to make contributions -- if you aren't
+familiar, check out
+\href{https://www.quora.com/What-companies-have-internship-programs-specifically-for-college-freshmen-and-sophomores}{some
+  of the programs for CS freshman/sophomores at major companies}; or check out
+alternative programs like Google Summer of Code
+(\href{http://write.flossmanuals.net/gsocstudentguide/am-i-good-enough/}
+{``Am I Good Enough?''}, the summer of code program can be an excellent way to
+spend a summer in place of a more traditional internship.
+\href{https://developers.google.com/open-source/gsoc/timeline}
+  {Checkout the timeline to see when to apply.})
+
+Slightly less committal than a full-time job, you're also more than qualified
+to help contribute to open source projects. Sometimes this is contributing
+code. Many times the most helpful can be improving documentation -- try to
+follow the installation instructions and take notes on what confused you and
+how you might improve them.
+
+For this exercise, the goal is to make a \ul{non-trivial} contribution to an
+open source project.
+
+\begin{quote}
+  \emph{non-trivial}, adj. -- More than just fixing the spelling of a few words.
+    Rewriting a paragraph of documentation to be clearer is great though. A code
+    fix could be a one character change if it fixes a bug, etc. Ultimately,
+    it'll be up to the discretion of course staff. Something non-trivial should
+    take more than two minutes, probably doesn't need to take more than fifteen.
+\end{quote}
+
+\section*{Submission Instructions}
+
+Since you're sometimes working on someone else's schedule (i.e. don't push
+another project to merge your changes just to meet the deadline for your
+homework!), you need to have a \ul{substantial portion} of the work done by
+the deadline.
+
+\begin{quote}
+  \emph{substantial}, adj. -- A loosely defined concept. Basically a
+  well-formed commit or series of commits, an explanation to the project
+  maintainer about what you'd like to change/fix and why, and submitted to the
+  project. This should be something publicly viewable / auditable (e.g. a
+  pull request, a post to a mailing list, etc).
+\end{quote}
+
+It's possible that the project will reject your change, sometimes not for a
+great reason. If you had what we deem to be a well-crafted request, we'll give
+credit even if it was not merged. The goal is to get you some experience with
+learning how to submit changes to another project.
+
+\begin{mdframed}\centering
+A good first place to start is by reading over
+\href{https://guides.github.com/activities/contributing-to-open-source/#contributing}{GitHub's
+  guide to contributing to open source projects}.
+\end{mdframed}
+
+\newpage
+
+\section*{One Option: Contributing to the class website}
+
+This class itself is an open source project!
+
+If you haven't already, check out \url{https://c4cs.github.io/reference}
+
+The goal is to build up a quick reference for common commands, as well as some
+examples of how to use them and any gotcha's they may have. The hope is that
+it's easier for people who are learning (i.e.\ you) to write documentation
+that's helpful for other people who are learning as opposed to course staff
+who don't really remember well what was confusing when we were first learning.
+
+Look through the reference and find something that could use improvement. Or,
+add a new command that we've talked about in class or that you have other
+experience with that's not in the reference yet.
+
+To ensure that people aren't working on the same things, before you get
+started, check to see if there's an
+\href{https://github.com/c4cs/c4cs.github.io/issues}{open issue} for what you
+want to work on. If no one's doing it yet, make a new issue so that others
+know what you're working on. If someone on the course staff opened an issue for
+something you'd like to work on please comment to claim.
+
+\subsection*{Some help to get started}
+
+\subsubsection*{GitHub Pages}
+
+Notice how the course homepage is \texttt{c4cs.\ul{github.io}}? GitHub has a
+really neat feature called \href{https://pages.github.com/}{GitHub Pages},
+that will turn a repository into a website -- hosted for free.
+What's really nice about this is that it means it is very easy for many
+people to collaborate to develop a website, it's just a repository!
+
+In the simplest setup, GitHub will simply serve the files in the repository as
+static web pages. Writing lots of HTML by hand, however, can be a pain, so
+GitHub supports a \emph{site generator}, \href{https://jekyllrb.com/}{jekyll}.
+Using jekyll, adding an update to the homepage is as simple as adding
+\href{https://github.com/c4cs/c4cs.github.io/blob/master/_updates/f16/2016-10-11-chaos.md}{a text file}.
+The site will also
+\href{https://github.com/c4cs/c4cs.github.io/blob/master/index.html#L32}%
+{automatically hide updates older than one month}.
+
+\subsubsection*{Getting Going}
+
+First, grab a copy of course website repository
+(\url{https://github.com/c4cs/c4cs.github.io}). From there, crack open the
+\texttt{README} file. This is almost always a good place to start. It usually
+contains background on the project, some information regarding installation (if
+it's a package), dev environment setup, and anything else that might be
+pertinent to someone just diving into a new codebase.
+
+Once things are running, it should print out
+\begin{quote}\tt
+  Server address: http://127.0.0.1:4000/
+\end{quote}
+
+Visit \url{http://127.0.0.1:4000/} in your browser and you should see your own
+local copy of the course website! Try making some changes to the site and then
+refresh the page in your browser.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+{\centering
+  \hrule
+\bigskip
+  \LARGE OR \\
+  \Large (next page)
+\bigskip
+  \hrule
+}
+
+
+\newpage
+
+\section*{Another Option: Any project of your choosing}
+
+
+\subsection*{How to Get Started}
+
+Getting started is the hardest part. There is an overwhelming number of
+projects to choose from.
+Big projects, such as Mozilla, often have
+\href{https://developer.mozilla.org/en-US/docs/Introduction}
+{documentation explaining how to contribute},
+their bug trackers will track and let you query things like
+\href{https://bugzilla.mozilla.org/buglist.cgi?resolution=---&classification=Client%20Software&emailtype1=regexp&status_whiteboard_type=allwordssubstr&query_format=advanced&emailassigned_to1=1&status_whiteboard=%5Bgood%20first%20bug%5D&email1=nobody}
+{[good first bug]},
+and their contributors are often friendly to beginners, with
+\href{https://bugzilla.mozilla.org/show_bug.cgi?id=361983#c11}
+{good advice for getting started}.
+The negative with big projects is that they are big. You have to learn a large
+codebase in order to get started at all.
+
+On the flip side, small projects, such as
+\href{https://github.com/kylelady/omnomnorth}{omnomnorth}
+can be easier to make changes to, but harder to get started with as they do
+not have mature ``getting started'' guides.
+
+If possible, I recommend picking something that you use. It's easier to
+motivate yourself to work on something you use, and there's something pretty
+cool about \href{https://github.com/um-cseg/chez-betty/}{using your own
+software every day}.
+\href{https://github.com/Aluxian/Facebook-Messenger-Desktop}{Many}
+\href{https://github.com/GNOME/gnome-terminal}{things}
+\href{https://github.com/gnachman/iTerm2}{you}
+\href{https://github.com/tmux/tmux}{(should)}
+\href{https://trac.transmissionbt.com/wiki/Building}{use}
+\href{https://github.com/scummvm/scummvm}{are}
+\href{https://github.com/GNOME/gimp}{open}
+\href{https://github.com/videolan/vlc}{source}.
+Many libraries, such as the
+\href{https://bitbucket.org/birkenfeld/pygments-main}
+{near-universal syntax highlighting library}, the
+\href{https://github.com/jgm/pandoc}
+{near-universal document converter}, or a
+\href{https://github.com/tartley/colorama}
+{simple library for pretty terminal output}
+have a lot of low-hanging fruit (check out the ``Issues'' tab).
+
+\subsection*{Some local options}
+
+Are you a fan of \href{https://chezbetty.eecs.umich.edu}{Chez Betty}? There
+are some open \href{https://github.com/um-cseg/chez-betty/issues}{issues} there.
+Speak a foreign language? Help extend Betty's
+\href{https://github.com/um-cseg/chez-betty/blob/master/README.translation.md}{translation
+support} (or help translate any other project, there's huge demand for
+translations).
+
+\href{https://oh.eecs.umich.edu}{oh.eecs.umich.edu}, our office hours help queue is also
+\href{https://github.com/mterwill/office-hours-help-queue/issues}{open source}.
+
+Interested in getting into research? Some of the research labs at Michigan
+have big projects that could use help. Check out Alex Halderman's research group
+projects: \href{https://github.com/zmap}{ZMap} and
+\href{https://github.com/Censys}{Censys}. Or stuff from my lab,
+\href{https://github.com/lab11}{Lab11}, the embedded systems research group.
+Or Ed Olsen's \href{https://april.eecs.umich.edu/software/}{Robotics group}.
+If you're interested in research with someone, fixing one of their problems is
+a \emph{great} way to introduce yourself :).
+
+\end{document}
