@@ -4,7 +4,7 @@ permalink: /lectures/w18/week1.html
 
 class: center, middle
 
-# EECS 398 :: 003, 004
+# EECS 398 :: 001
 ## Computing for Computer Scientists
 
 .copyright[
@@ -25,6 +25,8 @@ class: center, middle
 - Though, we will cover a lot of cool tools
 
 - The goal is to give you the ability to pick up, learn, and use tools effectively
+
+- The goal is not to completely teach you any tool (they made the internets for that!)
 
 ---
 
@@ -101,32 +103,27 @@ write a basic "Hello World" program
    * Lecture materials
    * Syllabus, schedule, etc
 
-- You can also get here from [canvas](https://umich.instructure.com/courses/131625/external_tools/6325)
+- You can also get here from [canvas](https://umich.instructure.com/courses/192925)
 
-### [Piazza](https://piazza.com/class/ixgsfwif4f35is)
+### [Piazza](https://piazza.com/class/jbuc78hg26ttu)
 
 - Essentially high-latency digital office hours
 
    * All questions _private_ by default
 
-### [Gradescope](https://gradescope.com/courses/5574)
+### [Gradescope](https://gradescope.com/courses/13649)
 
 - Homework submission
 
    * Warning, their clocks are unsympathetic
 
-- Entry code MX54N9 <small>(also on course homepage)</small>
+- Entry code 92R5Z7 <small>(also on course homepage)</small>
 
 ---
 
-# Course Meeting Times and Locations
+# Course Meeting Time and Location
 
-- **Section 003** 1670 BBB, Friday 1:30-3:00p
-- **Section 004** 220 Chrys (auditorium), Friday 10:00-11:30a
-
-In general, you may attend any section, however if the classroom becomes
-overfull, we will have to ask that you attend the section you are officially
-registered for.
+- **Section 001** AUD CHRYS, Friday 10:00a-11:30a
 
 ![Screenshot of Course Calendar](img/calendar.png)
 
@@ -161,7 +158,7 @@ registered for.
 .column-33[
 **30% Attendance & Participation**
 
-- 12 weeks not counting the first week (or optional pre-spring break lecture)
+- 12 weeks not counting the first week
 - We'll take attendance every week, somehow
 ]
 
@@ -213,7 +210,7 @@ The CSE department has some loaner laptops available for the semester<sup>&dagge
 <div style="display: flex;">
 <div style="margin: auto;">
 .center-center[
-# `</administrivia>`
+# Administrivia
 ]
 </div>
 </div>
@@ -311,7 +308,7 @@ background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), 
 
 - What is a shell?
 
-- Why learn this stuff in 2018?
+- Why learn this stuff in 2017?
 
 - The critical basics:
 
