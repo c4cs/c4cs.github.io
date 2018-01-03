@@ -3,10 +3,10 @@ sectionHeader:
 week: 11
 dates: 11/17/2017
 lecturer: mmdarden
+lectureRelease: 2017-11-17 11:00:00
 slidesName:
 homeworkRelease: 2017-11-17 11:00:00
-lectureRelease: 2017-11-17 11:00:00
-advancedThisWeek: true
+advancedRelease: 2017-11-17 11:00:00
 title: "IDEs"
 lectureTopics:
   - What is an IDE?

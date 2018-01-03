@@ -27,9 +27,45 @@ collections:
 
 defaults:
   - scope:
-      type: lectures
+      path: "_syllabus/w18"
     values:
-      layout: lecture
+      category: w18
+  - scope:
+      path: "_lectures/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_updates/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_syllabus/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_lectures/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_updates/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_syllabus/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_lectures/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_updates/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_syllabus/f16"
+    values:
+      category: f16
   - scope:
       path: "_lectures/f16"
     values:
@@ -43,37 +79,13 @@ defaults:
     values:
       category: w16
   - scope:
+      type: lectures
+    values:
+      layout: lecture
+  - scope:
       type: syllabus
     values:
       layout: syllabus
-  - scope:
-      path: "_syllabus/f16"
-    values:
-      category: f16
-  - scope:
-      path: "_lectures/w17"
-    values:
-      category: w17
-  - scope:
-      path: "_updates/w17"
-    values:
-      category: w17
-  - scope:
-      path: "_syllabus/w17"
-    values:
-      category: w17
-  - scope:
-      path: "_lectures/f17"
-    values:
-      category: f17
-  - scope:
-      path: "_syllabus/f17"
-    values:
-      category: f17
-  - scope:
-      path: "_updates/f17"
-    values:
-      category: f17
   - scope:
       path: "_lectures/w18"
     values:

@@ -54,8 +54,8 @@
       {% assign lectureRelease = page.lectureRelease | date: '%s' | times: 1 %}
       {% if now > lectureRelease %}
       <p>
-        <a href="lectures/{{ page.slidesName }}">Slides</a>
-        <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+        <a href="/lectures/{{ page.slidesName }}">Slides</a>
+        <a href="/lectures/{{ page.slidesName }}.pdf">[pdf]</a>
       </p>
       {% endif %}
     {% endif %}
@@ -103,9 +103,12 @@
       {% if now > homeworkRelease %}
         <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
         <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
-        {% if page.advancedThisWeek %}
+        {% if page.advancedRelease %}
+          {% assign advancedRelease = page.advancedRelease | date: '%s' | times: 1 %}
+          {% if now > advancedRelease %}
             <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
             <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+          {% endif %}
         {% endif %}
       {% endif %}
       {% if page.solutionRelease %}

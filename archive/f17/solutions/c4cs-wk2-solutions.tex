@@ -1,0 +1,422 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+%\lstset{
+%  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+%}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 2\\Git}}
+\author{\textbf{\color{red}{Due: Wednesday, September 27th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/9999}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section{Git's Chicken and Egg Problem}
+
+Git has a (well-deserved) reputation as a tool with a high learning curve.
+There are several reasons for this. One is that git has a bad user interface
+-- the commands and flags you use to get things done are frustratingly
+inconsistent and simply must be learned over time.
+The bigger reason, however, is that using git requires having an understanding
+of how git works and learning how git works requires having some experience
+using git. This circular dependency makes it hard to get started as there is
+no good way to break in. The best we can do is try to hold your hand as you
+get started.
+
+\medskip
+\noindent
+Code Academy and GitHub teamed up to build a nice, online git beginners tool.
+As you work through the exercises, pay attention to the explanations of each
+step at the top of the page, and the ``Advice'' section at the
+bottom/bottom-right of the page. The text introduces several new pieces of
+git-specific language.
+
+\medskip
+\noindent
+\textbf{Complete the online course at \url{https://try.github.io}. Grab a
+  screenshot of your badge from \href{https://www.codeschool.com/account/prizes}{here}.
+  Then copy and paste the image and URL below.
+  \color{red}{\small (You will need to sign in or create an account to get your badge)}
+}
+
+\medskip
+\noindent
+\fbox{
+  \begin{minipage}{0.5\textwidth}
+    My badge and URL as an example:
+
+    \includegraphics[width=.9\textwidth]{badge}
+
+    \footnotesize
+    \url{https://www.codeschool.com/users/3364599/badges/121}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \begin{center}
+      Your badge here
+    \end{center}
+  \end{minipage}
+}
+
+
+\subsection*{Some other tutorials / resources}
+
+There is a \emph{lot} written on the Internet about how to learn git. Some
+highlights:
+
+\begin{itemize}
+  \item For a deeper dive into git from the basics to the very advanced, check
+    out \href{https://www.atlassian.com/git/tutorials}{Atlassian's tutorials}
+    (Atlassian is the company behind BitBucket and JIRA).
+  \item For more visual learners, check out this
+    \href{http://pcottle.github.io/learnGitBranching/}{interactive visual
+    learning game} -- caveat this game simplifies some things, but I think
+    it's still a useful tool to learn from.  There's even some
+    \href{https://github.com/pcottle/learnGitBranching/issues/201}{low-hanging
+    fruit} lying around to improve this tool.
+  \item A lighter, more humorous
+    \href{http://adriansampson.net/blog/git.html}{``quick-reference'' guide}
+    and \href{http://ohshitgit.com/}{a more, uh, frustrated version} (warning:
+    language).
+\end{itemize}
+
+
+\newpage
+\section{Using git in your own projects}
+\textbf{\color{red} This sets up the \ul{Winter 2015} EECS 280 P2 as
+an example. 280 students please don't get confused!!}
+\begin{enumerate}
+    \setcounter{enumi}{-1}
+  \item Install git: \texttt{sudo apt install git}
+\end{enumerate}
+\noindent
+Using version control well is a habit learned over time. As a first step, for
+the rest of the term, the \textbf{first} thing you should do whenever an EECS
+class assigns you a project is:
+\begin{enumerate}
+  \item Create a repository
+    \begin{Verbatim}[fontsize=\footnotesize]
+    > mkdir -p eecs280-w15/project2
+    > cd eecs280-w15/project2
+    > git init
+    \end{Verbatim}
+  \item Grab a copy of the spec
+    \begin{Verbatim}[fontsize=\footnotesize]
+    > wget 'https://drive.google.com/uc?id=0B4qlH840ZwikRmQtdkRIeTZjODA&export=download' -O spec.pdf
+    \end{Verbatim}
+  \item Grab any starter code
+    \begin{Verbatim}[fontsize=\footnotesize]
+    > wget 'https://drive.google.com/uc?id=0B4qlH840ZwikbkZLS3Z5YTVSeW8&export=download' -O eecs280-w15-p2.tgz
+    > tar -xf eecs280-w15-p2.tgz
+    > rm eecs280-w15-p2.tgz
+    \end{Verbatim}
+  \item Create a blank starter cpp file
+    \begin{lstlisting}
+    > touch p2.cpp
+    \end{lstlisting}
+  \item Add it all to git and commit it
+    \begin{lstlisting}
+    > git add *
+    > git status # Check to make sure everything looks right
+    > git commit
+    \end{lstlisting}
+\end{enumerate}
+Do this \textbf{before} even beginning to read the spec. Make it a habit.
+
+\medskip
+\noindent
+If you try typing \texttt{make}, you'll find that this starter code does not
+compile. The spec has a great tip at the bottom of page~11 that suggests
+adding stub functions. {\small (No, you don't actually need to read this spec)}
+
+\medskip
+\noindent
+There are 15 functions we need to stub out. Fortunately, your c4cs staff have
+saved you some trouble. You should download our copy of \texttt{p2.cpp}:
+
+\begin{Verbatim}[fontsize=\footnotesize]
+> wget 'https://raw.githubusercontent.com/the-alex/c4cs-eecs280/master/p2.cpp' -O p2.cpp
+\end{Verbatim}
+
+\noindent
+Now try running \texttt{make}. Cool; the project builds. But what changed?
+Fortunately, git can help us figure this out.
+
+\textbf{What command will show you the \hl{difference} between your working
+directory and already committed changes?}
+
+\begin{quote}
+  \color{violet}
+  git diff
+\end{quote}
+
+\vspace{1.0cm}
+\noindent
+\textbf{Now, go ahead and commit the changes to \texttt{p2.cpp} \underline{only}.}
+
+\newpage
+
+\medskip
+\noindent
+You ran \texttt{git status} before committing those changes, right? (Because
+it's \emph{always} a good idea to run \texttt{git status} \emph{all} the time).
+You probably noticed that annoying ``Untracked Files'' section that
+lists all of the compiled output the Makefile made. It doesn't really make
+sense to track compiled output in a version control system (it is hard to
+track changes on a binary file such as an executable).\footnote{%
+  Some binary files are good to check in though, such as the project
+  specification, which will rarely or never change.
+}
+Instead, we would prefer if git would \hl{ignore} the built output.
+
+\medskip
+\noindent
+\textbf{Commit a change so that \underline{built output is \hl{ignored}}.} When you are done,
+\texttt{git status} should print
+\begin{Verbatim}[fontsize=\footnotesize]
+  On branch master
+  nothing to commit, working directory clean
+\end{Verbatim}
+
+\medskip
+\textbf{Once you have completed all of the steps on the previous page, copy
+the output of:\\
+~\\
+\texttt{$>$ git log -n2 -p | head -n 40}}
+
+\begin{quote}
+  \color{violet}
+  The only real question here required you to go learn about the
+  \texttt{.gitignore} file. This file is a convenience that tells git about
+  the files that you explicitly do not want to track, such as built output.
+  The purpose is to prevent them from showing up as ``Untracked Files'' all
+  of the time in \texttt{git status}.
+
+  While you can list files explicitly one-by-one, it's often more useful to
+  use wildcards (the \texttt{*} operator). My solution does this to
+  automatically ignore any file ending in ``\texttt{\_text}''.
+
+  GitHub maintains a \href{https://github.com/github/gitignore}{list of
+  template gitignore files} that can be a good place to start from.
+
+\begin{lstlisting}
+ppannuto@ppannuto-c4cs-vm:~/hw4$ git log -n2 -p | head -n 40
+commit 8f614fbf43150236055000b53a27ba8748f8438f
+Author: Pat Pannuto <ppannuto@umich.edu>
+Date:   Thu Feb 4 23:34:18 2016 -0500
+
+    Add gitignore
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..eaac059
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,2 @@
++p2-tests
++*_test
+
+commit 7cf44db2e47b13a402d10d404448a811d84f0c78
+Author: Pat Pannuto <ppannuto@umich.edu>
+Date:   Thu Feb 4 23:33:21 2016 -0500
+
+    Stubs
+
+diff --git a/p2.cpp b/p2.cpp
+new file mode 100644
+index 0000000..55cc9eb
+--- /dev/null
++++ b/p2.cpp
+@@ -0,0 +1,54 @@
++#include <cassert>
++#include "p2.h"
++
++int sum(list_t list) {
++	assert(false);
++}
++int product(list_t list) {
++	assert(false);
++}
++int accumulate(list_t list, int (*fn)(int, int), int identity) {
++	assert(false);
+  \end{lstlisting}
+\end{quote}
+
+\section{A little about shells and your \emph{environment}}
+
+Try the following:
+
+\begin{lstlisting}
+# The /tmp directory holds temporary files. It's a great place to do some
+# quick tests or experiments, however it is automatically emptied every time
+# the machine reboots. This means if your machine crashes, you *will* lose
+# everything in /tmp.
+#
+# Don't ever put anything you care about in /tmp !!
+
+> mkdir /tmp/throwaway
+> cd /tmp/throwaway
+> git init
+> echo hello > world
+> git add world
+> git commit
+\end{lstlisting}
+
+\noindent
+Git automatically opens a text editor for you to enter a commit message.
+
+\bigskip
+\noindent
+\textbf{What text editor did git open for you? \rule{5cm}{0.1mm}}
+
+\begin{quote}
+  \color{violet}
+  This will change depending on whether you've installed a \texttt{vim}
+  package previously. The \texttt{vim} packages will set
+  up \texttt{vim} to be the default system editor, in which case this will
+  open \texttt{vim}. If you haven't installed \texttt{vim}, it will open
+  \texttt{nano}.
+\end{quote}
+
+\bigskip
+\noindent
+Git is not the only program that will open an editor automatically.
+If you don't like the default choice, we can change it using an
+\emph{environment variable} called \texttt{EDITOR}. Try the following:
+
+\begin{lstlisting}
+> echo "it's a small" > world
+> git add world
+> export EDITOR="emacs -nw"
+> git commit
+\end{lstlisting}
+
+{\small\emph{Note: Shells are fussy about spaces, \textbf{do not} put spaces
+    around the \texttt{=} in these commands}}
+
+\bigskip
+\noindent
+\textbf{What text editor did git open for you? \rule{5cm}{0.1mm}}
+
+\bigskip
+\noindent
+\textbf{What does the \texttt{-nw} flag do?
+  {\footnotesize (Hint: Try it without \texttt{-nw})}
+}
+\begin{quote}
+  \color{violet}
+  It will now open emacs as the editor for commit messages.
+
+  The \texttt{-nw}, or ``\texttt{--no-window-system}'', option tells
+  \texttt{Emacs} not to create a new window, rather to open in the existing
+  terminal, like the default behavoir of \texttt{vim}.
+
+  You can also go the other direction and ask \texttt{vim} to open in its own
+  window like \texttt{Emacs} by running \texttt{gvim} instead of \texttt{vim}.
+\end{quote}
+
+
+\noindent
+Perhaps, however, you do not want to change the editor used for every program,
+but only for git. We can do that too. Try the following:
+
+\begin{lstlisting}
+> echo "on top of the" > world
+> GIT_EDITOR=gedit git commit world
+\end{lstlisting}
+
+\noindent
+\textbf{If you set \texttt{EDITOR} and \texttt{GIT\_EDITOR} to different
+values, which takes priority?}
+\begin{quote}
+  \color{violet}
+  Usually, more specific things take priority over more general things, so
+  \texttt{GIT\_EDITOR} takes priority here.
+\end{quote}
+
+\vfill
+
+\noindent
+\textbf{Roughly how long did you spend on this assignment? \rule{5cm}{0.1mm}}
+\medskip
+
+\hrule
+\small
+Some extra things to think about {\small (i.e.\ not graded)}:
+Notice that we used two different approaches for setting environment
+variables.
+In the second example, we set the environment variable in-line, which means it
+only lasts for the lifetime of that command. If you run \texttt{git\,commit}
+again without the \texttt{GIT\_EDITOR=} part, git will use the old editor.
+
+In the first case we used the \texttt{export} command, which sets
+that variable permanently for the lifetime \emph{of that shell}. If you make
+another commit in that shell, git will use the same value of \texttt{EDITOR}.
+What happens if you open a new terminal? Which editor gets used?
+
+It would be annoying to manually set \texttt{EDITOR} every time you open a new
+shell. When \texttt{bash} (the shell program) starts, it reads the file
+\texttt{\textasciitilde/.bashrc}, that is the ``hidden file'' (leading
+\texttt{.}) named \texttt{.bashrc} in your home directory
+(\texttt{\textasciitilde} is a shortcut to your home).
+Try adding \texttt{export EDITOR="gedit"} to your
+\texttt{\textasciitilde/.bashrc} file and then make some new commits. Does the
+editor in your \emph{current} shell change? What about if you open a
+\emph{new} shell? What if you don't include the ``\texttt{export}''?
+
+
+\end{document}
