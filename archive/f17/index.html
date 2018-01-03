@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<div class="text-center">
+  <hr />
+  <h1 style="color: red; font-size: 300%">!!! This is the F17 version of the course !!!</h1>
+  <h1 style="color: red; font-size: 200%"><a href="/">Click here to go to the current course homepage</a></h1>
+  <hr />
+</div>
 
 <div class="jumbotron">
   <p>This 1-credit seminar is designed to teach the essentials of using a
@@ -18,7 +24,7 @@ layout: default
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
   {% for update in site.updates %}
-    {% if update.categories contains 'w18' %}
+    {% if update.categories contains 'f17' %}
       {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
       {% assign update_date = update.date | date: '%s' | times: 1 %}
       {% if update_date > onemonthago %}
@@ -32,7 +38,7 @@ layout: default
   <div id="old-updates" style="display: none">
 
     {% for update in site.updates %}
-      {% if update.categories contains 'w18' %}
+      {% if update.categories contains 'f17' %}
         {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
         {% assign update_date = update.date | date: '%s' | times: 1 %}
         {% if update_date <= onemonthago %}
@@ -138,7 +144,7 @@ so that all students may benefit from the question and answer. To reach the cour
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'w18' %}
+      {% if week.categories contains 'f17' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
@@ -344,5 +350,4 @@ awarded for the assignment.
   <li><a href="/archive/w16/">Winter 2016</a></li>
   <li><a href="/archive/f16/">Fall 2016</a></li>
   <li><a href="/archive/w17/">Winter 2017</a></li>
-  <li><a href="/archive/f17/">Fall 2017</a></li>
 </ul>
