@@ -1,5 +1,5 @@
 ---
-sectionHeader: 'Being Efficient'
+sectionHeader: 'Segment 2: Being Efficient'
 week: 4
 dates: 01/26/2018
 lecturer: mmdarden

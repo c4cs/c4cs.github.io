@@ -1,5 +1,5 @@
 ---
-sectionHeader: 'Introduction and Basics'
+sectionHeader: 'Segment 1: Introduction and Basics'
 week: 1
 dates: 01/05/2018
 lecturer: mmdarden

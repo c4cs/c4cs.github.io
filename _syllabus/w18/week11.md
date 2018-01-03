@@ -1,5 +1,5 @@
 ---
-sectionHeader: 'Standing on the Shoulders of Giants'
+sectionHeader: 'Segment 4: Standing on the Shoulders of Giants'
 week: 11
 dates: 03/16/2018
 lecturer: mmdarden

@@ -1,5 +1,5 @@
 ---
-sectionHeader: 'Developing'
+sectionHeader: 'Segment 3: Developing'
 week: 7
 dates: 02/16/2018
 lecturer: mmdarden
