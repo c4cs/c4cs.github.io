@@ -87,6 +87,18 @@ defaults:
     values:
       layout: syllabus
   - scope:
+      path: "_lectures/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_syllabus/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_updates/w18"
+    values:
+      category: w18
+  - scope:
       type: commands
     values:
       layout: reference
