@@ -1,5 +1,4 @@
 ---
-sectionHeader:
 week: 15
 dates: 04/13/2018
 lecturer: TBA
