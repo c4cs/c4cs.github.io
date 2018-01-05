@@ -152,7 +152,7 @@ write a basic "Hello World" program
 
 - One homework every week except the last week
 - (Yes there is homework this week)
-- Due at 10PM every Saturday
+- Due the last minute of the second Wednesday after class
 ]
 
 .column-33[
@@ -166,7 +166,7 @@ write a basic "Hello World" program
 **30% Advanced Exercises**
 
 - Explore a topic in more depth
-- Two week window to turn them in
+- Due the second Wednesday after class
 - _Must be turned in at office hours_
 ]
 
@@ -280,27 +280,35 @@ background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)), 
 
 ---
 
-# What is a computer, really?
+# The C4CS Game!!
 
 --
 
-## What is a "Virtual Machine"
-
-#### How might we make one?
+## Round 1: The Forearm Check
 
 --
+
+## Round 2a: What is a computer, really?
+
+--
+
+## Round 2b: What makes up a computer?
+
+--
+
+## What is a "Virtual Machine?"
+
+--
+
+### Also a safe playground for you to explore
+
+### Also a common platform for teaching
 
 # &nbsp;
 
-### VMs are a safe playground for you to explore
-
-### And a common platform for teaching
-
-# &nbsp;
-
 --
 
-## For Homework 1, you'll install a VM to use this term
+## For HW1, you'll install a VM to use this semester
 
 ---
 
