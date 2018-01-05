@@ -6,7 +6,7 @@ lecturer: mmdarden
 #lectureRelease: 2018-01-05 10:00:00
 slidesName: w18/week1
 homeworkRelease: 2018-01-05 10:00:00
-advancedRelease: 2018-01-05 10:00:00
+#advancedRelease: 2018-01-05 10:00:00
 #solutionRelease: 2018-01-18 00:00:00
 title: "Introduction, Virtual Machines, & Command Line Primer"
 lectureTopics:
