@@ -2,10 +2,10 @@
 week: 2
 dates: 01/12/2018
 lecturer: mmdarden
-lectureRelease: 2018-01-01 9:30:00
+lectureRelease: 2018-01-12 9:30:00
 slidesName: w18/week2
-homeworkRelease: 2018-01-01 9:30:00
-advancedRelease: 2018-01-01 9:30:00
+homeworkRelease: 2018-01-12 9:30:00
+advancedRelease: 2018-01-12 9:30:00
 #solutionRelease: 2018-01-25 00:00:00
 lectureTopics:
   - What's version control?
