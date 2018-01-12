@@ -1,4 +1,5 @@
 ---
+sectionHeader:
 week: 2
 dates: 01/12/2018
 lecturer: mmdarden
