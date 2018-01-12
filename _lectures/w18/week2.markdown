@@ -212,4 +212,4 @@ Example borrowed from http://www.paulboxley.com/blog/2015/01/a-simple-example-of
 
     - Try using it for other homework or a side project!
 
- - Deadline for this is Week 5 — Git II (Oct 06)
+ - Deadline for this is Week 5 — Git II (Feb 02)
