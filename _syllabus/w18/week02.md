@@ -32,5 +32,5 @@ commands:
   - tree
   - cp
 lectureSummary: During lecture, Prof. Darden was using a program called `git-bash-prompt`. [Here's a link to download and install it if you're interested](https://github.com/magicmonty/bash-git-prompt). Install via `git clone` or `homebrew` (MacOS)
-leccapFri:
+leccapFri: ZX1FDy
 ---
