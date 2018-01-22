@@ -167,7 +167,7 @@ commit message (\textbf{exactly this, capitalization matters}):
 \end{quote}
 After trying to commit, type \texttt{git status}. What happened? Go back and
 look at the commit hook. Do you understand what it does? Try running
-\texttt{git commit --no-verify} with the same commit message. Go edit the
+\texttt{git commit -{}-no-verify} with the same commit message. Go edit the
 commit hook and delete the line \texttt{exit 1}. Try making a new commit with
 the same commit message, what happens now? What is \texttt{\$1} in this
 script?  (not sure? try adding lines like \texttt{echo~\$1} or

@@ -14,8 +14,7 @@ lectureTopics:
   - Scripting versus programming
   - Examples
 #homeworkTopics:
-#  - Right tool for the right job
-#  - TBD
+#  - `PATH` Environment Variable
 #advancedTopics:
 #  - TBD
 commands:
@@ -32,6 +31,6 @@ commands:
   - $variable
   - history
   - grep
-lectureSummary:
-leccapFri:
+lectureSummary: Prof Darden mentioned [Homebrew](https://brew.sh/) (a package manager for Mac) during lecture. It's an extremely useful tool for Mac users and can speed up environment setups.
+leccapFri: m4fzZv
 ---
