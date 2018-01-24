@@ -8,7 +8,7 @@ slidesName: w18/week2
 title: "Basic Git"
 homeworkRelease: 2018-01-12 9:30:00
 advancedRelease: 2018-01-12 9:30:00
-#solutionRelease: 2018-01-25 00:00:00
+solutionRelease: 2018-01-25 00:00:00
 lectureTopics:
   - What's version control?
   - Why is it important?
