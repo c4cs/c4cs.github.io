@@ -28,5 +28,5 @@ commands:
   - vi
   - emacs
 lectureSummary: Every developer has their own go-to editor that they've configured and are familiar with (try talking to each of the staff - it may cause quite a debate). It doesn't necessarily matter what you use as long as you're comfortable with it, though it is definitely beneficial to know <i>at least</i> one Terminal-Based Text Editor.
-leccapFri:
+leccapFri: 3I280P
 ---
