@@ -19,6 +19,7 @@ upload_files() {
 }
 
 if [ "$TRAVIS_EVENT_TYPE" == "cron" ] do
+  then
   setup_git
   commit_files
   upload_files
