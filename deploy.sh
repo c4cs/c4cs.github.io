@@ -8,7 +8,7 @@ setup_git() {
 }
 
 commit_files() {
-  git checkout -b master
+  git checkout master
   git add .
   git commit --allow-empty -m "Travis build: $TRAVIS_BUILD_NUMBER"
 }
