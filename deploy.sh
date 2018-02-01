@@ -18,9 +18,6 @@ upload_files() {
   git push --quiet --set-upstream origin-pages master
 }
 
-if [ "$TRAVIS_EVENT_TYPE" == "cron" ] do
-  then
-  setup_git
-  commit_files
-  upload_files
-fi
+setup_git
+commit_files
+upload_files
