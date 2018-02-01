@@ -8,16 +8,18 @@ setup_git() {
 }
 
 commit_files() {
-  git checkout -b $TRAVIS_BRANCH
+  git checkout -b master
   git add .
   git commit --allow-empty -m "Travis build: $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
   git remote add origin-pages https://${GH_TOKEN}@github.com/c4cs/c4cs.github.io.git > /dev/null 2>&1
-  git push --quiet --set-upstream origin-pages $TRAVIS_BRANCH
+  git push --quiet --set-upstream origin-pages master
 }
 
-setup_git
-commit_files
-upload_files
+if [ "$TRAVIS_EVENT_TYPE" == "cron" ] do
+  setup_git
+  commit_files
+  upload_files
+fi
