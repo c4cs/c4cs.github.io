@@ -8,6 +8,9 @@ script:
 - bundle exec jekyll build
 - bundle exec htmlproofer --assume-extension --check-html --disable-external ./_site
   --file-ignore /lectures/f16/,/lectures/w17/,/lectures/f17/,/lectures/w18/,/archive/
+after_success:
+  - chmod +x ./deploy.sh
+  - ./deploy.sh
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
