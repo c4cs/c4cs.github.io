@@ -30,6 +30,8 @@ lectureSummary: |
 
     Git II is an OH++ topic, the sessions are February 10, 10-11:30a and
     11:30a-1p in 1670 BBB.
+
+	Summary of my VM changes [VM.md](/static/w18/wk05/VM.md)
 asciicasts:
   - 160787
   - 160791
