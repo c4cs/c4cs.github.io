@@ -27,5 +27,11 @@ commands:
 lectureSummary: |
     Some [tips and tricks](/commands/git) to make working with git more
     enjoyable.
-leccapFri:
+
+    Git II is an OH++ topic, the sessions are February 10, 10-11:30a and
+    11:30a-1p in 1670 BBB.
+asciicasts:
+  - 160787
+  - 160791
+leccapFri: GHzTl6
 ---
