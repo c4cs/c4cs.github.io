@@ -17,6 +17,7 @@ timezone: America/Detroit
 permalink: none
 
 collections:
+  asciicasts:
   commands:
     output: true
     permalink: /commands/:title
@@ -26,6 +27,10 @@ collections:
     output: true
 
 defaults:
+  - scope:
+      path: "_asciicasts/w18"
+    values:
+      category: w18
   - scope:
       path: "_syllabus/w18"
     values:
@@ -78,6 +83,10 @@ defaults:
       path: "_updates/w16"
     values:
       category: w16
+  - scope:
+      type: asciicasts
+    values:
+      layout: asciicasts
   - scope:
       type: lectures
     values:

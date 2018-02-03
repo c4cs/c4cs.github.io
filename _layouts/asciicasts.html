@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include head.html %}
+    <!-- XXX Generic body conflicts with lecture slides, should move back to head.html though -->
+    <link rel="stylesheet" href="/static/css/navbar-fixed-top.css" />
+    <link rel="stylesheet" href="/static/css/class.css" />
+    <link rel="stylesheet" type="text/css" href="/static/asciinema-player.css" />
+  </head>
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="container">
+          <asciinema-player src="/_includes/asciicasts/wk05-left.json" cols="68" rows="37"></asciinema-player>
+          <script src="asciinema-player.js"></script>
+          {% for cast in asciicasts %}
+            <asciinema-player src="/_includes/asciicasts/{{ cast }}" cols="68" rows="37"></asciinema-player>
+            <script src="asciinema-player.js"></script>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
+

@@ -68,7 +68,7 @@
       <p><b>Asciicasts:</b>
       {% for asciicast in page.asciicasts %}
         {% if forloop.last %}
-          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a>
+          <a href="/asciicasts">Asciicast {{ forloop.index }}</a>
         {% else %}
           <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a> &#x25cf;
         {% endif %}
