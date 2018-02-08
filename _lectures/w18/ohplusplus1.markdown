@@ -129,6 +129,7 @@ class: center, middle
 ### 2. [Clone](https://help.github.com/articles/cloning-a-repository/) your forked repository
 
 ### 3. [Create an issue](https://help.github.com/articles/creating-an-issue/)/take ownership of an existing issue
+Do this in the parent repository, not your fork
 <img alt="issue" width="600" src="https://help.github.com/assets/images/help/repository/repo-tabs-issues.png" />
 
 ---
@@ -168,6 +169,7 @@ Then follow setup instructions in the `README.md`
 ```sh
 $ git status
 $ git add <files>
+$ git commit -m "<Descriptive commit message>"
 $ git push --set-upstream origin <feature-name>
 ```
 
