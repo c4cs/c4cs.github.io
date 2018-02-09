@@ -3,12 +3,12 @@
 
 tar
 -------
-TODO: Add documentation for this command by submitting a pull request.
+((t)ape (ar)chive) is a computer software utility for collecting many files into one archive file
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+tar -zcf eecs398.tar.gz homework1.txt homework2.pdf homework3.tex
 ~~~
 
 <!--more-->
