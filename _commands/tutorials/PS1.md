@@ -75,7 +75,7 @@ Here you will find a small walk through on updating your `PS1` permanantley in y
 	So in theis example when our working directory gets printed, it will be printed green.
 	There are many color codes and commands to use when customizing your PS1, go look them up and play around!
 
-5.Changing your PS1 permanently
+5.Changing your `PS1` permanently
 	
 	To permanently change your PS1 youmust modify your bashrc file. 
 	To do this you must open it in a text editor. 
@@ -83,6 +83,8 @@ Here you will find a small walk through on updating your `PS1` permanantley in y
 	vim / .bashrc
 
 	Navigate till you find this block of code
+
+	-------------------------------------
 
 	# uncomment for a colored prompt, if the terminal has the capability; turned
 	# off by default to not distract the user: the focus in a terminal window
@@ -106,7 +108,10 @@ Here you will find a small walk through on updating your `PS1` permanantley in y
     	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 	fi
 
-	Add your code to the 'PS1=' and add your code to after the debain part of your bashrc file. 
+	-------------------------------------
+
+
+	Add your code to the 'PS1=' and add your code after the debain part of your bashrc file. 
 
 	Save your changes and restart your terminal. 
 
@@ -118,6 +123,6 @@ Useful Links:
 
 2.[If you want something to generate the PS1 for you](http://ezprompt.net/)
 
-3. [More on colors](https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt)
+3.[More on colors](https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt)
 
-4. [Even more on colors](https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/)
+4.[Even more on colors](https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/)
