@@ -3,22 +3,33 @@
 
 wget
 -------
-TODO: Add documentation for this command by submitting a pull request.
+`wget` Allows you to pull files and directories straight from a web server.
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ wget http://web.mst.edu/~price/cs53/code_example.html
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### wget --progress=type
 
-##### Break it down
+`wget` Can be used with many different flags. One helpful flag is the `--progress` flag, which will change how download progress is shown. Accetable arguments are `dot` and `bar`.
 
-#### Example command
+~~~ bash
+$ wget --progress=dot http://web.mst.edu/~price/cs53/code_example.html
+$ wget --progress=bar http://web.mst.edu/~price/cs53/code_example.html
+~~~
 
-##### Break it down
+NOTE: `bar` is used by default when none are specified.
+
+#### wget -c
+
+`wget` Can also be included with the `-c` flag. This will continue a partially completed download that `wget` was used for in the past.
+
+~~~ bash
+$ wget -c http://web.mst.edu/~price/cs53/code_example.html
+~~~
