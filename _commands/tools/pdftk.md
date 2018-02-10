@@ -41,5 +41,5 @@ This allows you to remove pages from a pdf. In this example pages 5 through 11 w
 $ pdftk in1.pdf cat 1east 2-end output out1.pdf
 ~~~
 
-This allows you to rotate the first page of the pdf by 90 degrees clockwise. 
+This allows you to rotate the first page of the pdf file by 90 degrees clockwise.
 
