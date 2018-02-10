@@ -11,22 +11,21 @@ Locates the binary, source, and manual page for a command.
 $whereis ls
 
 ls: /bin/ls /usr/share/man/man1/ls.1.gz
-~~~
+
 
 $whereis vim
 
 vim: /usr/bin/vim.tiny /usr/bin/vim /usr/bin/vim.basic /etc/vim /usr/share/vim /usr/share/man/man1/vim.1.gz
 <!--more-->
 
+~~~
 ### Useful Options / Examples
 
 #### Example command
-There is an option to list all the paths whereis uses to search for commands
+There is an option to list all the paths whereis uses to search for commands:
 
 whereis -l
 
-
-##### Break it down
 For my system this is the output:
 
 ~~~ bash
@@ -157,11 +156,11 @@ Thus, we need some flags for this scenario:
 
 $whereis -m -u *
  
-##### Break it down
 The -u flag allows for whereis to show the command names that have unusual entries
 
 Here we also use the -m flag to only look for manuals, we can also use -b for binary files.
 
+~~~bash
 $whereis -m -u *
 
 chmod: /usr/share/man/man1/chmod.1.gz /usr/share/man/man2/chmod.2.gz
@@ -173,4 +172,4 @@ passwd: /usr/share/man/man1/passwd.1ssl.gz /usr/share/man/man1/passwd.1.gz /usr/
 printf: /usr/share/man/man3/printf.3.gz /usr/share/man/man1/printf.1.gz
 rmdir: /usr/share/man/man1/rmdir.1.gz /usr/share/man/man2/rmdir.2.gz
 sleep: /usr/share/man/man3/sleep.3.gz /usr/share/man/man1/sleep.1.gz
-
+~~~
