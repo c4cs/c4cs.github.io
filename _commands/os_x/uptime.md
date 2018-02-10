@@ -1,3 +1,16 @@
-The 'uptime' command
+---
+---
 
-Allows user in OSX to check how long your computer has been on or been rebooted
+uptime
+-------
+
+`uptime` is used to check how long your Mac has been on since the last reboot
+
+~~~ bash
+$ uptime
+~~~
+
+
+
+
+
