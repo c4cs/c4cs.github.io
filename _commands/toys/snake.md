@@ -3,22 +3,15 @@
 
 snake
 -------
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+`snake` is a variation on the classic game.
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ snake
 ~~~
 
 <!--more-->
 
-### Useful Options / Examples
+### Game instructions:
 
-#### Example command
-
-##### Break it down
-
-#### Example command
-
-##### Break it down
+#### Use the arrow keys to maneuver around the screen, collecting as many "$" as possible, while avoiding the snake.  Running into the "#" sign ends the game.
