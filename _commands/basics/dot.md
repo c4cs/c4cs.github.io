@@ -1,3 +1,13 @@
+---
+---
+
+dot (.)
+-------
+The period (dot) is short hand for the bash built in "source". It will read and execute commands from a file in the current environment and return the exit status of the last command executed.
+<!-- one line explanation would go here -->
+
+<!-- minimal example -->
+~~~ bash
 -bash-4.2$ echo "echo "hello world"" > hello
 -bash-4.2$ . hello
 hello world
