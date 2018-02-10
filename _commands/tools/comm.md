@@ -1,0 +1,54 @@
+---
+---
+
+comm
+--
+
+`comm` is used to check for the common lines between two sorted files line by line. This command will produce three columns of output, each showing the lines unique to file1, the unique to file2 and the common lines between file1 and file2. This is useful for checking the common content between two files. 
+
+~~~ bash
+$ printf "apple\ntomato\n"> MyFruits.txt
+$ printf "carrot\ntomato\n"> MyVegetables.txt
+$ comm MyFruits.txt MyVegetables.txt
+apple
+	carrot
+		tomato
+
+~~~
+
+<!--more-->
+
+### Useful Options / Examples
+
+The output of comm can be redirected into a CSV file for more convenient view and manipulate using a spreadsheet.
+
+~~~ bash
+$ comm MyFruits.txt MyVegetables.txt > common.csv
+~~~
+
+
+#### `comm -1`
+
+Suppress column 1. That is to not showing the lines unique to file1 in the output. Similarly, there are comm -2(suppressing column 2, lines unique to file2), comm -3 (suppressing column 3, lines that appear in both files).
+
+~~~ bash
+$ printf "apple\ntomato\n"> MyFruits.txt
+$ printf "carrot\ntomato\n"> MyVegetables.txt
+$ comm -12 MyFruits.txt MyVegetables.txt
+tomato
+~~~
+
+
+#### `comm --check-order`
+
+This command reports if one of the input files is not in sorted
+
+~~~ bash
+$ printf "apple\ntomato\n"> MyFruits.txt
+$ printf "tomato\ncarrot\n"> MyVegetables.txt
+$ comm --check-order MyFruits.txt MyVegetables.txt
+apple
+		tomato
+comm: file 2 is not in sorted order
+~~~
+
