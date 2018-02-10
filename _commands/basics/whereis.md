@@ -12,6 +12,7 @@ $whereis ls
 
 ls: /bin/ls /usr/share/man/man1/ls.1.gz
 ~~~
+
 $whereis vim
 
 vim: /usr/bin/vim.tiny /usr/bin/vim /usr/bin/vim.basic /etc/vim /usr/share/vim /usr/share/man/man1/vim.1.gz
@@ -28,6 +29,7 @@ whereis -l
 ##### Break it down
 For my system this is the output:
 
+~~~ bash
 $whereis -l
 
 bin: /usr/bin
@@ -147,6 +149,7 @@ src: /usr/src/linux-headers-4.4.0-104
 src: /usr/src/virtualbox-guest-5.0.40
 src: /usr/src/linux-headers-4.4.0-104-generic
 
+~~~
 
 #### Example command
 Sometimes the command whereis is looking for is unusual(empty documentation or documentation with multiple places).
