@@ -13,6 +13,8 @@ $ uptime
 
 <!--more-->
 
+### Useful Options / Examples
+
 Uptime gives a one line display for each of the following
 
 The current time:
@@ -27,12 +29,19 @@ How many users are currently logged on
 The system load averages for the past 1, 5, and 15 minutes
 1.91 2.04 2.13
 
-### Useful Options / Examples
+#### uptime syntax
+~~~bash
+uptime [options]
+~~~
 
-#### Example command
+Below are some flags and their descriptions
+|     Flag     |               Description                |
+| :----------: | :--------------------------------------: |
+|      -h      |  Displays a help message |
+|      -V      |  Displays the version information |
 
-##### Break it down
 
-#### Example command
 
-##### Break it down
+
+
+
