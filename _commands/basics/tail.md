@@ -23,7 +23,7 @@ $ tail -n 15 example.txt
 ~~~
 
 ##### Break it down
- * The `n` flag specifies the number of line that tail will print.
+ * The `n` flag specifies the number of lines that tail will print.
 
 #### `tail -c`
 
@@ -41,4 +41,4 @@ $ tail -f example.txt
 ~~~
 
 ##### Break it down
- * The `f` flag follows the file and outputs any new text added to the end of the file
+ * The `f` flag follows the file and outputs any new text added to the end of the file.
