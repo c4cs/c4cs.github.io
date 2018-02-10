@@ -12,6 +12,7 @@ or to compress a directory^ into a .zip file.
 ^zip -r new.zip dir1
 ~~~
 
+<!--more-->
 '@' (Not on MacOS): If a file list is specified as -@, zip takes
 the list of input files from standard input and not command line
 
