@@ -6,15 +6,16 @@ sort
 "Sort" is a standard command that sorts and outputs the input it was given.  
 Blank space is the default field separator.
 
-<!-- Brief example -->
+<!-- minimal example -->
 ~~~ bash
 $ sort names
   Aaron
   Brian
 ~~~
 
+<!--more-->
 
-### Useful Flags
+### Useful Options / Examples
 
 The -n flag lets you sort numerical input.
 
