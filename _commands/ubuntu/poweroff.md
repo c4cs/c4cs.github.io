@@ -59,7 +59,7 @@ $ poweroff -w
 #### `poweroff --verbose`
 
 ~~~bash
-$ useradd -f 20 inactive	
+$ poweroff --verbose	
 ~~~
 
  * `--verbose` will output slightly more verbose messages when rebooting.
