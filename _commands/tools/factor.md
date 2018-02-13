@@ -7,21 +7,19 @@ factor
 
 <!-- minimal example -->
 ~~~ bash
-$ factor 369
-369
-3
-3
-41
+$ factor 42
+42: 2 3 7
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### `factor [number]`
 
-##### Break it down
+Factor takes in one parameter, and that is a  positive integer. `factor` will parse through all of the prime factors of the number and return them to the console in an easy to read manner.
 
-#### Example command
-
-##### Break it down
+~~~ bash
+$ factor 51
+51: 3 17
+~~~
