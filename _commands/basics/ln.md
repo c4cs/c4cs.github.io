@@ -3,22 +3,24 @@
 
 ln
 --
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
 
-<!-- minimal example -->
+'ln' creates a link to another file or directory
+
 ~~~ bash
-*short* example of command usage and output
+$ ln /dir1/file1 /dir2/file2
 ~~~
 
 <!--more-->
 
-### Useful Options / Examples
+#The default is creating a hard link, if you want to create a symbolic link, you#should use the '-s' option:
+$ ln -s /dir1/file1 /dir2/file2
+#Then the path of /dir1/file1 will be saved in /dir2/file2
 
-#### Example command
-
-##### Break it down
-
-#### Example command
-
-##### Break it down
+###### other options
+-b --backup #delete the previous backup
+-d --directory #To create a link to directories
+-f --force #Force to create a link even if the dir or file does not exist
+-i --interface #ask the user's permission before cover the original file
+-s --symbolic #create symbolic link instead of hard link
+--help #show help information
+--version #show version information
