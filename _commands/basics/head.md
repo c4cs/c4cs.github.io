@@ -36,7 +36,6 @@ Our World!
 Your World!
 ~~~
 
-##### Break it down
 * `head` gives the user the option to display the first lines of multiple files, where each file is preceded by a header consisting of the string _==> FILENAME <==_.
 
 
@@ -52,7 +51,6 @@ World!
 My World!
 ~~~
 
-##### Break it down
 * The `-n [count]` option asks `head` to output the first `count` lines of each of the specified files.
 
 #### `head -c [bytes]`
@@ -62,7 +60,6 @@ Hi World!
 Hey
 ~~~
 
-##### Break it down
 * The `-n [bytes]` option asks `head` to output the first `bytes` bytes of each of the specified files.
 
 #### `ls | head -n 7`
@@ -77,5 +74,4 @@ Gemfile
 Gemfile.lock
 ~~~
 
-##### Break it down
 * `head` can also be piped with other commands. For example, we can retrieve the __First 7__ contents of a directory using `ls | head -n 7`.
