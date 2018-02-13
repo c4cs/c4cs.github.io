@@ -3,12 +3,15 @@
 
 factor
 --
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+`factor` prints all of the prime factors of a number.
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ factor 369
+369
+3
+3
+41
 ~~~
 
 <!--more-->
