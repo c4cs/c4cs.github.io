@@ -7,6 +7,7 @@ cal is a program that displays a calendar
 <!-- one line explanation would go here -->
 
 
+
 <!-- minimal example -->
 ~~~ bash
 $ cal
