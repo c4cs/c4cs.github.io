@@ -1,0 +1,135 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+mmdarden@VMarcus:~$ man firefox
+mmdarden@VMarcus:~$ firefox --help
+
+(process:2054): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+Usage: firefox [ options ... ] [URL]
+       where options include:
+
+X11 options
+  --display=DISPLAY  X display to use
+  --sync             Make X calls synchronous
+  --g-fatal-warnings Make all warnings fatal
+
+Firefox options
+  -h or --help       Print this message.
+  -v or --version    Print Firefox version.
+  -P <profile>       Start with <profile>.
+  --profile <path>   Start with profile at <path>.
+  --migration        Start with migration wizard.
+  --ProfileManager   Start with ProfileManager.
+  --no-remote        Do not accept or send remote commands; implies --new-instance.
+  --new-instance     Open new instance, not a new window in running instance.
+  --UILocale <locale> Start with <locale> resources as UI Locale.
+  --safe-mode        Disables extensions and themes for this session.
+  --jsconsole        Open the Browser Console.
+  --jsdebugger       Open the Browser Toolbox.
+  --start-debugger-server [port|path] Start the debugger server on a TCP port or Unix domain socket path.  Defaults to TCP port 6000.
+  --browser          Open a browser window.
+  --new-window <url> Open <url> in a new window.
+  --new-tab <url>    Open <url> in a new tab.
+  --private-window <url> Open <url> in a new private window.
+  --preferences      Open Preferences dialog.
+  --search <term>    Search <term> with your default search engine.
+  --recording <file> Record drawing for a given URL.
+  --recording-output <file> Specify destination file for a drawing recording.
+  --setDefaultBrowser Set this app as the default browser.
+
+      -g or --debug          Start within debugger
+      -d or --debugger       Specify debugger to start with (eg, gdb or valgrind)
+      -a or --debugger-args  Specify arguments for debugger
+mmdarden@VMarcus:~$ which firefox
+mmdarden@VMarcus:~$ which firefox
+/usr/bin/firefox
+mmdarden@VMarcus:~$ ls -l /usr/bin/firefox 
+lrwxrwxrwx 1 root root 25 Jan 14 21:42 /usr/bin/firefox -> ../lib/firefox/firefox.sh
+mmdarden@VMarcus:~$ file !$
+file /usr/bin/firefox
+/usr/bin/firefox: symbolic link to ../lib/firefox/firefox.sh
+mmdarden@VMarcus:~$ vi foo.sh
+mmdarden@VMarcus:~$ file !$
+file foo.sh
+foo.sh: a /usr/bin/env bash script, ASCII text executable
+mmdarden@VMarcus:~$ ls
+Desktop    Downloads         foo.sh  Pictures  Templates
+Documents  examples.desktop  Music   Public    Videos
+mmdarden@VMarcus:~$ ls Pictures/
+mmdarden@VMarcus:~$ file /usr/lib/firefox/firefox.sh 
+/usr/lib/firefox/firefox.sh: POSIX shell script, ASCII text executable
+mmdarden@VMarcus:~$ less -N !$
+less -N /usr/lib/firefox/firefox.sh
+mmdarden@VMarcus:~$ file /usr/lib/firefox/firefox
+/usr/lib/firefox/firefox: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=e1b6280f5e67f07da16165c6de5e24a133d2f43a, stripped
+mmdarden@VMarcus:~$ /usr/lib/firefox/firefox
+
+(process:2116): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+
+
+
+
+
+
+
+Cc
+^C
+mmdarden@VMarcus:~$ /usr/lib/firefox/firefox &
+[1] 2171
+mmdarden@VMarcus:~$ 
+(process:2171): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ jobs
+[1]+  Running                 /usr/lib/firefox/firefox &
+mmdarden@VMarcus:~$ 
+mmdarden@VMarcus:~$ jobs
+[1]+  Running                 /usr/lib/firefox/firefox &
+mmdarden@VMarcus:~$ kill %1
+mmdarden@VMarcus:~$ 
+[1]+  Terminated              /usr/lib/firefox/firefox
+mmdarden@VMarcus:~$ sleep 5m
+^Z
+[1]+  Stopped                 sleep 5m
+mmdarden@VMarcus:~$ sleep 10m &
+[2] 2232
+mmdarden@VMarcus:~$ jobs
+[1]+  Stopped                 sleep 5m
+[2]-  Running                 sleep 10m &
+mmdarden@VMarcus:~$ fg
+sleep 5m
+^Z
+[1]+  Stopped                 sleep 5m
+mmdarden@VMarcus:~$ bg
+[1]+ sleep 5m &
+mmdarden@VMarcus:~$ jobs
+[1]-  Running                 sleep 5m &
+[2]+  Running                 sleep 10m &
+mmdarden@VMarcus:~$ ls Desktop/
+firefox.desktop
+mmdarden@VMarcus:~$ file Desktop/firefox.desktop 
+Desktop/firefox.desktop: UTF-8 Unicode text
+mmdarden@VMarcus:~$ less !$
+less Desktop/firefox.desktop
+[1]-  Done                    sleep 5m
+mmdarden@VMarcus:~$ vi foo.sh 
+mmdarden@VMarcus:~$ ls -l foo.sh 
+-rw-rw-r-- 1 mmdarden mmdarden 30 Jan 15 12:00 foo.sh
+mmdarden@VMarcus:~$ ./foo.sh
+bash: ./foo.sh: Permission denied
+mmdarden@VMarcus:~$ chmod u+x foo.sh 
+mmdarden@VMarcus:~$ !fil
+file Desktop/firefox.desktop 
+Desktop/firefox.desktop: UTF-8 Unicode text
+mmdarden@VMarcus:~$ ./foo.sh 
+
+[2]+  Done                    sleep 10m
+mmdarden@VMarcus:~$ ls -l foo.sh 
+-rwxrw-r-- 1 mmdarden mmdarden 30 Jan 15 12:00 foo.sh
+mmdarden@VMarcus:~$ 
+

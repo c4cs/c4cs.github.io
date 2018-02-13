@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include head.html %}
+    <!-- XXX Generic body conflicts with lecture slides, should move back to head.html though -->
+    <link rel="stylesheet" href="/static/css/navbar-fixed-top.css" />
+    <link rel="stylesheet" href="/static/css/class.css" />
+  </head>
+
+  <body>
+
+    {% include reference_header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="container">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
+

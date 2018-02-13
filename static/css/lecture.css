@@ -1,0 +1,84 @@
+/***********************************************************/
+/* GLOBAL TAG STYLING
+/***********************************************************/
+
+img {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+/***********************************************************/
+/* REMARK STYLE OVERRIDES
+/***********************************************************/
+
+.remark-slide-content h1 {
+  font-size: 45px;
+}
+
+.remark-slide-content h2 {
+  font-size: 35px;
+}
+
+.remark-slide-content h3 {
+  font-size: 30px;
+}
+
+/***********************************************************/
+/* CUSTOM CLASSES
+/***********************************************************/
+
+div.full-dark-image {
+  background-size: 100% 100%;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.left-column {
+  width: 49%;
+  float: left;
+}
+
+.right-column {
+  width: 49%;
+  float: right;
+}
+
+.column-33 {
+  width: 33%;
+  float: left;
+  padding-left: 5px;
+}
+
+.column-66 {
+  width: 66%;
+  float: left;
+  padding-left: 5px;
+}
+
+.padding-lr-40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.opacity-25 {
+  opacity: .25;
+}
+
+.small-75 {
+  font-size: 75%;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 75%;
+  opacity: 0.75;
+}

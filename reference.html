@@ -1,0 +1,35 @@
+---
+layout: reference
+---
+
+<h1>Quick Reference</h1>
+
+<p>This page collects commands we have (or will) discuss throughout the course.
+Click on a command for more details on its operation and some examples of
+common or useful operations. We encourage students to contribute to this page
+through the advanced homework on git and open source contributions.</p>
+
+{% for category in site.command_categories %}
+  <h2><a class="anchor" name="{{category}}"></a>{{ category | capitalize }}</h2>
+  <div class="container-fluid">
+    <div class="row">
+      {% for command in site.commands %}
+        {% if command.categories contains category %}
+          <a href="{{ command.url }}">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              {{ command.content | split: '<!--more-->' | first }}
+            </div>
+            {% assign mod2 = forloop.index | modulo: 2 %}
+            {% assign mod3 = forloop.index | modulo: 3 %}
+            {% if mod2 == 0 %}
+              <div class="clearfix visible-sm-block"></div>
+            {% endif %}
+            {% if mod3 == 0 %}
+              <div class="clearfix visible-lg-block visible-md-block"></div>
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}

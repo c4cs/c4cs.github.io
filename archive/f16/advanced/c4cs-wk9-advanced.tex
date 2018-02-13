@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Exercise 9}}
+\author{\textbf{\color{red}{Due: Saturday, November 19, 10:00PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions.
+
+\medskip
+\noindent
+\section{Some Tools that Support Other Tools}
+\emph{For part 1, you may use vim or Emacs, whichever you are more comfortable
+  with.}
+
+Integrated Development Environments (IDEs), such as Visual Studio, Xcode, or
+Eclipse provide many features beyond simple text editing.\footnote{
+  Interestingly, ``simple text editing'' is often what IDEs are worst at
+  out-of-the-box. Hence part~3 of this assignment.
+}
+Some of the most useful features rely on an understanding of C/C++ code,
+allowing you to jump from a function's use to its definition, inspect the types
+of complex structures, and assist authoring by suggesting possible
+completions.
+
+Vim and Emacs both support rudimentary autocompletion out-of-the-box. Try
+editing an existing file and start typing a function you've used before, then
+hit \texttt{ctrl-n} and \texttt{ctrl-p} in vim or \texttt{M-/} in Emacs. This
+autocompletion has no understanding of C, it simply does string matching with
+any other strings anywhere else in the open files.\footnote{
+  Vim also understands how to parse C \texttt{\#include} directives and Python
+  \texttt{import} statements, and will search those files as well.
+}
+
+There are two utilities, ctags/etags (vim/Emacs respectively) and cscope that
+can be integrated with your editor to provide some contextually aware editing
+assistance.
+ctags/etags works pretty much out of the box. Somewhat annoyingly, cscope
+requires you to generate a list of files for it to process. You may find that
+the \texttt{find} utility, and its filetype filters in particular, are very
+helpful for generating this file list.
+
+Set up ctags/etags and cscope for any project of your choosing, and integrate
+them with your editor of choice.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Show off ctags usage
+    \begin{itemize}
+      \item[$\square$] What did you have to do to generate tags for ctags/etags?
+      \item[$\square$] How often do you need to generate tags (after what
+        changes do you need to regenerate tags)?
+      \item[$\square$] What did you have to do to integrate ctags/etags with
+        your editor?
+    \end{itemize}
+  \item[$\square$] Show off cscope usage
+    \begin{itemize}
+      \item[$\square$] How did you generate a file list for cscope?
+      \item[$\square$] How often do you need to run cscope?
+      \item[$\square$] What did you have to do to integrate cscope with your
+        editor?
+    \end{itemize}
+  \item[$\square$] Explain the difference between ctags and cscope
+    \begin{itemize}
+      \item[$\square$] Is one strictly better than the other or is it useful
+        in some cases to set up both? Why?
+    \end{itemize}
+\end{itemize}
+
+
+
+\newpage
+\section{Extending Editors}
+
+ctags/etags and cscope are programs that run independently of your text
+editor. You can also extend your editor with plugins. For vim, plugins are
+written in the custom language vimscript; Emacs itself is a Lisp interpreter,
+and plugins are written in Emacs Lisp. Sublime is written Python, as are its
+plugins. Atom in Javascript, et cetera.
+
+While writing a plugin is a great way to learn a lot about the internals of
+your editor, it can be a steep learning curve. Fortunately, the Internet has
+an enormous library of really interesting and powerful plugins.
+As an example, there are plugins that solve the annoyance from part~1, that
+will automatically regenerate tags whenever needed.
+
+Pick (at least) two plugins to install in your editor.\footnote{%
+  How to find them, choose? Try Googling ``best plugins for (editor)'', pick
+  whatever seems cool to you.
+} You may find it is easier to first install a plugin manager and then install
+plugins.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] For each plugin:
+    \begin{itemize}
+      \item[$\square$] What does this plugin do?
+      \item[$\square$] Show off how you use it
+      \item[$\square$] Why did you install this plugin?
+    \end{itemize}
+\end{itemize}
+
+
+\section{Everything Old is New Again}
+
+While advanced IDEs and new text editors come out remarkably often, people who
+have learned how to navigate and manipulate text using vim or emacs are
+generally not willing to give that up.
+For this reason, there are plugins (or in some cases it's built-in) to provide
+vim-like or Emacs-like editing modes for nearly every editor.
+
+Pick your favorite ``advanced'' GUI editor (suggestions Visual Studio, Xcode,
+Eclipse, Sublime, or Atom -- gvim doesn't count) and set it up to edit text in
+vim or Emacs mode. You may need to find and install a plugin first.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Explain how to set up and use vim/emacs mode for (editor)
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Homework 13}}
+\author{\textbf{\color{red}{Due: Saturday, April 15 10:00PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours and demo your new skills.
+
+\section*{Taking IDEs Farther}
+In lecture we showed valgrind running in Xcode, we looked at online (text-
+based) IDEs, we saw IDEs that didn't even include a ``text editor.'' Your task
+is to push your IDE usage beyond what was done in the regular homework. Try
+2 new things, and be ready to demo them to a course staff member.
+
+\begin{enumerate}
+\item Create an account with an online IDE service. Migrate a project there,
+      and be sure to use source control (GitHub or GitLab). Do some non-trivial
+      development, like finishing your current class project for another class,
+      or making meaningful commits (locally) to a class or personal project.
+\item Build an app with 2+ hours of development time in a ``Visual IDE'' like
+      Scratch or App Inventor.
+\item Set up 4 or 5 IFTTT recipes (the more related they are, the better).
+\item Trick out your desktop IDE (Xcode or Visual Studio) to extend or swap out
+      current functionality. This would be like using g++ in the IDE, or make,
+      or valgrind, gcov, eslint, etc.
+\end{enumerate}
+
+\emph{You are welcome to do this assignment either on your native operating
+  system on your machine or inside the class VM, whichever helps you learn the
+  most.}
+
+\end{document}

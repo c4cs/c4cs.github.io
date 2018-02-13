@@ -1,0 +1,267 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{enumitem}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyhead[C]{\hl{Select the right page(s) in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+
+%Default Python
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{Python}{
+  language=Python,  
+  aboveskip=3mm,
+  belowskip=3mm,
+  numbers=left,
+  numbersep=8pt,
+  numberstyle=\small\ttfamily\color{gray},
+  basicstyle={\small\ttfamily},
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  tabsize=4,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    commentstyle=\color{pgreen},
+    keywordstyle=\color[HTML]{A71D5D},
+    stringstyle=\color[HTML]{0086B3},
+    basicstyle=\ttfamily
+}
+
+\title{\textbf{Homework 11\\Python Scripting}}
+\author{Assigned: Friday, March 25, 11:00AM}
+\date{\textbf{\color{red}{Due: Friday, April 1, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/2248}{Gradescope}.
+You must submit every page of this PDF.
+We recommend using the free online tool \href{https://www.pdfescape.com}{PDFescape}
+to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+\medskip
+\noindent
+There may multiple answers for each question. If you are unsure,
+state your assumptions and your reasoning for why you think your answer
+makes sense.
+
+
+\section{Getting Started}
+Before we begin, install Python 3 along with the package installation tool \href{https://pypi.python.org/pypi/pip}{pip}. Python 3 is the newest version of Python (succeeding Python 2). Similar to how Ubuntu lets you install packages for your operating system with \texttt{apt-get}, the \texttt{pip} program will let you easily install, update, and remove Python libraries (also called ``packages''). \\
+\medskip 
+
+Python comes with a lot of neat features that make very cumbersome tasks in other languages trivial. In the following questions, provide a snippet of Python code that solves the problem. These questions are meant to get you familiar with the language; additionally, we recommend referencing the \href{https://docs.python.org/3/}{Python documentation} or trying a \href{http://www.learnpython.org/}{Python tutorial} if you're new to the language. 
+
+\textbf{For the following questions, the number of lines rendered is only a suggestion on the approximate length of the solution. You are not required to stay within the limit or go beyond the limit.}
+\begin{enumerate}
+
+% -------------------------------------------------------------------
+\begin{minipage}{\textwidth}
+    \item A common file format is CSV, or ``comma-separated values''. Here is an example of a CSV file:
+  
+    \begin{verbatim}
+      1,2,3
+      50,600,7000
+      35,65,95\end{verbatim}
+  
+    If we read this file into a string, it would be hard to access the number at position $(1, 2)$, for example. We would like to write \texttt{csv\_data[1][2]} to access the element at $(1, 2)$. This problem takes substantial work in C++ but can be done in one or two lines of Python.
+  
+    \textbf{Given a CSV string, parse it into a Python list.} In this example, we are only dealing with one row of a CSV file.
+    \begin{lstlisting}[style=Python]
+csv_raw = "1,2,3"
+# Your code here:
+
+
+
+print(q1_csv_data)     # should print: ['1', '2', '3']
+print(q1_csv_data[1])  # should print: 2
+    \end{lstlisting}
+\end{minipage}
+
+% -------------------------------------------------------------------
+\begin{minipage}{\textwidth}
+    \item Our previous solution fails in a lot of cases, such as commas within a CSV element. Most commonly done operations (like a full-fledged CSV parser) are already solved in python through either built-ins or through one of the many packages. Check out the \href{https://docs.python.org/2/library/csv.html}{csv} package.
+
+    \textbf{Given a CSV file (q2.csv), parse it into a Python 2d-list using the csv package.}
+  
+  \begin{lstlisting}[style=Python]
+# Your code here:
+
+
+
+
+
+
+
+
+print(q2_csv_data[1][1]) # should print: 600
+print(q2_csv_data[2])    # should print: ['35', '65', '95']
+    \end{lstlisting}
+\end{minipage}
+
+% -------------------------------------------------------------------
+\begin{minipage}{\textwidth}
+    \item One powerful feature of Python is the \href{https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions}{list comprehension}, which allows you to express complicated array transformations in very little code.
+  
+    \textbf{Using a list comprehension, create a new list from the given list, which contains only the odd integers.}
+  
+  \begin{lstlisting}[style=Python]
+arr = [1, 2, 3, 4, 5, 6, 7, 42, 42]
+# Your code here:
+
+
+
+print(odd_nums) # should print [1, 3, 5, 7]
+    \end{lstlisting}
+\end{minipage}
+
+% -------------------------------------------------------------------
+\begin{minipage}{\textwidth}
+  \item Dictionaries are Python's map data structure, similar to \texttt{map} and \texttt{unordered\_map} in C++. They can be used to associate a key with a value.
+    
+\textbf{Pick your favorite three courses and create a dictionary called \texttt{fav\_courses} associating the course code (such as ``EECS-203'') with the course name (such as ``Discrete Math''). Then write \texttt{print\_courses}, which takes a dictionary as a parameter and prints out each course code, a colon, and then the course name (on separate lines).}
+  
+  \begin{lstlisting}[style=Python]
+def print_courses(courses):
+    # Print courses here:
+
+
+
+
+# Create 'fav_courses' here:
+
+
+
+
+
+
+print_courses(fav_courses)
+# You should have printed something like this (order doesn't matter):
+# EECS-203: Discrete Math
+# EECS-376: Foundations of computer Science
+# EECS-477: Algorithms
+# (Although most of you will not pick so many math-heavy courses)
+  \end{lstlisting}
+\end{minipage}
+
+% -------------------------------------------------------------------
+\begin{minipage}{\textwidth}
+    \item Now we're going to play with file I/O, so that we can write scripts to alter files. \textbf{Create a file called \texttt{courses.txt} with these lines}:
+    \begin{lstlisting}[style=Python]
+EECS-280,Introduction to Programming and Data Structures
+EECS-281,Data Structures and Algorithms
+EECS-388,Computer Security
+EECS-398,Essentials for Computer Scientists
+EECS-445,Machine learning
+    \end{lstlisting} 
+    \textbf{Modify your script above to read data from \texttt{courses.txt} and combine it with your favorite courses listed above, and then print it out using \texttt{print\_courses}}. You do not need to rewrite your definition of \texttt{print\_courses} or \texttt{fav\_courses} here.
+  \begin{lstlisting}[style=Python]
+# Your code here:
+
+
+
+
+
+
+
+
+
+
+
+# Should print out about eight entries. If your favorite course was listed in
+# the previous question and was also in courses.txt, you do not have to print
+# it out more than once.
+print_courses(fav_courses)
+  \end{lstlisting}
+\end{minipage}
+\end{enumerate}
+
+\section{Scripts}
+Before beginning, use pip to install the Python package \texttt{sh}.
+
+\begin{enumerate} 
+% -------------------------------------------------------------------
+  \item \texttt{sh} is a full-fledged subprocess interface for Python; namely, it will let you run bash commands in Python easily. \textbf{Us sh to write a Python script that, given a text file, prints out all the words in decreasing order of frequency, along with how many times each word appears.}
+  \vspace{5cm}
+
+% -------------------------------------------------------------------
+  \item \textbf{Use \texttt{sh} to write a script to go through all directories in the current directory, identify if they are git repositories, and if so, run \texttt{git pull} on each one.}
+  \vspace{5cm}
+
+\end{enumerate} 
+
+\newpage
+\section{Exploration}
+You'll find that libraries are plentiful and powerful in Python. However, there are so many that it can cause issues with dependencies and incompatibilities. To exemplify, if you were to give a stranger your new scripts from this project they might not have sh installed, or might have different versions of other packages set-up (e.g., csv). To solve this problem we can use a \textit{package manager}, which will allow us to manage our packages intelligently. We're going to let you pick your management tool! We recommend either using \href{https://www.continuum.io/downloads}{Conda} or \href{https://pip.pypa.io/en/stable/}{pip} \& \href{https://virtualenv.pypa.io/en/latest/}{virtualenv}, but you may use any other setup.
+
+There are lots of articles online that will help you pick; here are two discussions: \href{http://stackoverflow.com/questions/20994716/what-is-the-difference-between-pip-and-conda}{``What is the difference between pip and conda?''} and \href{http://dubroy.com/blog/so-you-want-to-install-a-python-package/}{``So you want to install a Python package.''}.
+
+\noindent Package ideas:
+\begin{description}
+  \item[Matplotlib] beautiful plotting.
+  \item[BeautifulSoup4] web scrapping. 
+  \item[Selenium] automate web browser interaction.
+  \item[Jupyter] interactive python notebooks.
+  \item[Pandas] database tool.
+  \item[Flask] web server.
+  \item[Requests] web requests.
+  \item[Pillow] image processing.
+  \item[NumPy] numerical computation.
+  \item[PyQT] GUIs.
+  \item[sklearn] machine learning.
+  \item[iPython] improved python command line tool.
+  \item[Arrow] powerful time and date package.
+  \item[Progressbar] progress bars, as the name suggests.
+  \item[Logging] intelligent logging system.
+\end{description}
+\vspace{2cm}
+
+\newpage
+\textbf{What package management system are you using? Create a snapshot of your environment after getting it to work on all the previous scripts in this homework, paste your snapshot here. Why is this useful?}
+\vspace{9cm}
+
+\textbf{Find a Python package that solves a problem you're interested in. What's the package called? Provide an example code snippet of a cool problem it solves and explain what it does. We've provided a few packages we think are interesting, as potential options.}
+\vspace{9cm}
+
+\end{document}

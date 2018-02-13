@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{soul}
+\usepackage{xcolor}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Bonus Advanced Homework\\Upstreaming}}
+\author{Released: Friday, January 22, 11:00AM}
+\date{
+\textbf{\color{red}{Milestone~1 (Must start by) Friday, March 18}}\\
+~\\
+\textbf{\color{red}{Due: Before lecture on Friday, April 8}}
+}
+\maketitle
+
+
+\section*{Submission Instructions}
+This assignment is different than most. You have nearly 10~weeks, however you
+will have to start early because \emph{you do not control the timetable}.
+
+\medskip
+\noindent
+To receive credit for this assignment you will need to stop by someone's
+office hours, explain your improvement, and demonstrate your interaction with
+an open source project.
+
+\section{Upstreaming Code}
+
+One of the coolest parts of computer science is that with only a small amount
+of learning and experience, you are qualified to provide real contributions
+to software projects used by hundreds to millions of people around the
+world.\footnote{%
+  Don't believe me? Go check out
+  \href{http://write.flossmanuals.net/gsocstudentguide/am-i-good-enough/}{Google
+  Summer of Code's ``Am I Good Enough?''}. The summer of code program can be
+  an excellent way to spend a summer in lieu of a more traditional internship.
+  \href{https://developers.google.com/open-source/gsoc/timeline}
+  {Applications open February~29 and close March~25 this year}.
+}
+There is a lot of code to be written in the world and not nearly enough people
+qualified to write it.
+
+Nearly everyone in the world uses open source software every day. As a
+computer scientist you will very likely use a lot more open source software
+than most people.
+Contributing back to an open source project is a great way to pay back into
+this ecosystem, a \emph{great} way to gain some real-world software
+experience, and a nice feather for any r\'esum\'e.\footnote{%
+  Though for many reasons, it should not \emph{replace} your r\'esum\'e.
+  \href{https://blog.jcoglan.com/2013/11/15/why-github-is-not-your-cv/}
+  {This post} is a long read on the subject (it's also worth reading several
+  of the linked posts). This area is interesting reading for understanding
+  some of how computer science is evolving as a field culturally.
+}
+
+
+\subsection*{How to Get Started}
+
+Getting started is the hardest part. There is an overwhelming number of
+projects to choose from.
+Big projects, such as Mozilla, often have
+\href{https://developer.mozilla.org/en-US/docs/Introduction}
+{documentation explaining how to contribute},
+their bug trackers will track and let you query things like
+\href{https://bugzilla.mozilla.org/buglist.cgi?resolution=---&classification=Client%20Software&emailtype1=regexp&status_whiteboard_type=allwordssubstr&query_format=advanced&emailassigned_to1=1&status_whiteboard=%5Bgood%20first%20bug%5D&email1=nobody}
+{[good first bug]},
+and their contributors are often friendly to beginners, with
+\href{https://bugzilla.mozilla.org/show_bug.cgi?id=361983#c11}
+{good advice for getting started}.
+The negative with big projects is that they are big. You have to learn a large
+codebase in order to get started at all.
+
+On the flip side, small projects, such as
+\href{https://github.com/kylelady/omnomnorth}{omnomnorth}
+can be easier to make changes to, but harder to get started with as they do
+not have mature ``getting started'' guides and their developer(s) (if there's
+even more than one) may not have the time (or patience) to mentor young
+coders.
+
+If possible, I recommend picking something that you use. It's easier to
+motivate yourself to work on something you use, and there's something pretty
+cool about \href{https://github.com/um-cseg/chez-betty/}{using your own
+software every day}.
+\href{https://github.com/Aluxian/Facebook-Messenger-Desktop}{Many}
+\href{https://github.com/GNOME/gnome-terminal}{things}
+\href{https://github.com/gnachman/iTerm2}{you}
+\href{https://github.com/tmux/tmux}{(should)}
+\href{https://trac.transmissionbt.com/wiki/Building}{use}
+\href{https://github.com/scummvm/scummvm}{are}
+\href{https://github.com/GNOME/gimp}{open}
+\href{https://github.com/videolan/vlc}{source}.
+Many libraries, such as the
+\href{https://bitbucket.org/birkenfeld/pygments-main}
+{near-universal syntax highlighting library}, the
+\href{https://github.com/jgm/pandoc}
+{near-universal document converter}, or a
+\href{https://github.com/tartley/colorama}
+{simple library for pretty terminal output}
+have a lot of low-hanging fruit (check out the ``Issues'' tab).
+
+\newpage
+\subsection*{The Assignment:}
+
+Pick an active open source project and make a meaningful contribution to it.
+%
+\begin{quote}
+  \textbf{\emph{active}, adj.} A project used by a reasonable number (say
+  100+) of people that you don't know.
+\end{quote}
+%
+\begin{quote}
+  \textbf{\emph{meaningful}, adj.} A non-trivial change. More than a one-word
+  documentation fix. Bigger documentation fixes, such as adding a thorough
+  installation / getting started guide to a project that doesn't have one is a
+  great contribution. Fixing an open issue/bug is great. Adding a feature is
+  great. Anything 10 lines+ of code is likely good. A one character change
+  that fixes a reported bug is also good, however.
+
+  Ultimately, this is
+  \href{https://en.wikipedia.org/wiki/I_know_it_when_I_see_it}{subjective}.
+  However, if you feel you can justify to a course staff that it was
+  meaningful, then it probably was.
+\end{quote}
+%
+Having you contribution accepted, especially your first one, often takes some
+back-and-forth. The project owner will want you to make small changes. Be
+prepared for this, it doesn't mean that your overall patch is bad! This does
+mean, however, that it can take a little time for your patch to be accepted.
+
+\medskip
+\noindent
+Submitting a patch to an open source project is a public process. Usually via
+something like a pull request if the project uses a collaboration site like
+GitHub or BitBucket, or by sending an e-mail to a public mailing list. To
+ensure you start early enough to have a decent chance of your patch being
+merged, Milestone~1 is the deadline for your first public action. That is,
+\hl{you must start the public process of submitting your contribution(s)
+by March~18th}.
+
+\medskip
+\noindent
+If you have previously contributed to an open source project, consider this
+assignment a good excuse to go contribute again. Contributions made prior to
+this semester don't count.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] What project you picked, why
+  \item[$\square$] What problem/feature you picked, why
+  \item[$\square$] How did you implement/fix it?
+  \item[$\square$] Show a history of your communication with the upstream maintainers
+  \item[$\square$] Show that your patch was accepted -- or (judgment call)
+    that you put forth a solid effort thus far and will likely continue to
+    put forth the effort to get this patch in
+\end{itemize}
+
+%\newpage
+%\section*{Appendix}
+%
+%Some common courtesy things:
+%
+%\begin{itemize}
+%  \item \textbf{DO NOT} change whitespace or other formatting
+%  \item \textbf{DO} adhere to the project's existing conventions -- if it's a
+%    Python project that uses tab characters instead of 4~spaces, go with it;
+%    if it's a C~project that calls functions as \texttt{add~(a, b)} instead of
+%    \texttt{add(a, b)}\footnote{
+%      Some coding conventions do this so that it is easy to search for the
+%      function's declaration, \texttt{int add(int a, int b)} (no space), and
+%      callers of the function, \texttt{add~(a, b)} (space), without having to
+%      know anything else about the fuction (i.e. serach for \texttt{"add("})
+%    } then be consistent with that too.
+%\end{itemize}
+
+\end{document}

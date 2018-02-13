@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Exercise -- Week 14\\}}
+\author{\textbf{\color{red}{Due: Before April 18, 10:00PM}}}
+\date{Note: Be sure to double check the OH schedule!}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer all the bolded questions.
+
+\section*{\texttt{gprof} and \texttt{gcov}}
+
+\emph{For this assignment, use the code from Question 1 of this week's
+  homework.}
+
+\texttt{gprof} and \texttt{gcov} are slightly different \emph{profiling} and
+\emph{coverage} tools. They are deeply integrated with the \texttt{gcc}
+compiler. When you pass the \texttt{-p} (``profile'') flag to \texttt{gcc},
+the compiler will actually modify your program, causing it to record profiling
+information while it runs. What's weird here is that you simply run your
+compiled program to generate profiling information and don't use the
+\texttt{gprof} tool until you want to parse the output. Unlike with
+\texttt{perf}, where it was a run-time decision to profile, with these tools
+profiling is a compile-time choice.
+
+To get started, try this:
+\begin{verbatim}
+  $ gcc -g -p main.c -o main_with_profiling
+  $ ./main_with_profiling
+  # Notice that because of the -p flag, running the program made a gmon.out file
+  $ ls
+  gmon.out  main_with_profiling  main.c  Makefile
+  # Now when we run gprof, your program is not running, you're simply matching
+  # up the program that was run with the profile data it generated
+  $ gprof main_with_profiling gmon.out | less
+\end{verbatim}
+
+Do the \% time values at the top look familiar?
+
+Adding the \texttt{-p} flag caused \texttt{gcc} to emit everything that
+\texttt{gprof} needed. The first thing to figure out is the additional flags
+needed for gcc to generate \texttt{gcov} data and how to use \texttt{gcov} to
+parse the generated file.
+
+\vspace{1cm}
+
+One interesting thing that gcov can show you is ``taken/not~taken'' statistics
+for branches (how often was this if statement true).
+
+Modify the code from the homework to include some branches. Include some that
+are always taken, some that are never taken, and some that are taken
+probabilistically with 25, 50, and 75\% chance (\texttt{man~3~rand} will be
+helpful). The probability that each branch is taken should be read from a
+file or command-line argument, i.e.\ you must be able to change the
+probability that a branch will be taken \emph{without} recompiling your code.
+Your branches should run many, many times.
+
+\textbf{Show the output of gcov's branch metrics and show that your
+  probabilities are working as expected.}
+
+\textbf{Show how changing the probabilities leads to different results.}
+\vspace{1cm}
+
+Gcc supports something called \emph{Profile Guided Optimization}. The idea
+here is that gcc can use the result of a profiling run to guide it
+compilation. For example, if a branch is likely to be taken, it can provide
+hints to the CPU that that branch will be taken. In some cases, it will even
+emit code that removes the branch, assumes it was taken, and checks at the end
+whether it was right, undo-ing the code that was run if it was wrong.
+
+\textbf{Show how to add coverage information to compilation and optimization.}
+
+\textbf{Can you find a program that runs faster with coverage information? Any
+  previous projects that do searches are good candidates. Anything
+  long-running will be better.}
+If you can't find something that runs noticeably faster, can you at least show
+an example where the compiled output (\texttt{objdump -Sd a.out | less}) changes? Can you give
+a \emph{rough} explanation of what changed (you \emph{do not} need to
+understand x86 assembly! An educated guess is fine). objdump gives a lot of
+information, you only need to look at specific functions though -- use search.
+
+\end{document}

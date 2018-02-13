@@ -1,0 +1,73 @@
+\documentclass{article}
+%\usepackage{fullpage}
+%\usepackage[top=1in, bottom=1in, left=1cm,right=1cm]{geometry}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{C4CS -- W'16}
+\fancyfoot[R]{Revision 1.0}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Advanced Homework 1\\A Different Kind of Virtual Machine}}
+\author{Assigned: Friday, January 8, 11:00AM}
+\date{\textbf{\color{red}{Due: Friday, January 15, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+\noindent
+\emph{Not all of the Advanced Homeworks are the same difficulty. I would rate
+  this as one of the hardest ones (but cool!) in no small part because you
+  have not been taught a lot of what you need to know to do this assignemt.
+  I have asked the course staff not to help out with this assignment, but I
+  am curious to see if there are some folks who are capable of doing it.
+}
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours and demo your running code.
+You will need to explain all of the differences in the output of running
+\texttt{file} on the native code versus the ARM code to the instructor.
+
+
+\section{Emulating an ARM}
+
+Using VirtualBox, we were able to simulate a whole computer, running a
+computer as a program inside a running computer. Part of what helped us out
+was that the simulated computer we were running was very similar to the
+actual, underlying hardware. Critically, the guest operating system was built
+for the same \href{https://en.wikipedia.org/wiki/Instruction_set}{ISA} as the
+host machine. What if that's not the case, however? What if we wanted to
+create a virtual machine for something like a smartphone, that uses an ARM
+architecture, and run that simulation on our x64 machine?
+
+It turns out we can do this! In fact, the Android development environment ships
+with \href{http://developer.android.com/tools/devices/emulator.html}{a tool}
+that does exactly that. For this assignment we aren't going to simulate a
+whole phone, but we will use the same underlying tool,
+\href{http://qemu.org}{QEMU}. The Quick Emulator (QEMU) is capable of
+on-the-fly recompilation, or
+\href{https://en.wikipedia.org/wiki/Binary_translation}{binary translation},
+which allows it to run a program compiled for an ARM machine on an x64 machine
+by rewriting ARM instructions as x64 instructions as they're executed. Today,
+we're going to build a simple Hello World program for an ARM but run it on an
+x64 machine.
+
+\begin{enumerate}
+  \item Write a simple Hello World program and save it as \texttt{main.c}
+  \item Look at the output of \texttt{cc main.c -o main\_x64 \&\& file main\_x64}.
+    Copy this down somewhere and save it for later for comparison.
+  \item Install an ARM \href{https://en.wikipedia.org/wiki/Cross_compiler}{cross compiler}
+  \item Compile \texttt{main.c} using the cross compiler. Run \texttt{file} on
+    the resulting binary. How does it compare to the version that used the
+    regular compiler?
+  \item Install qemu-arm in your virtual machine (yes, a VM can run a VM,
+    though binary translation is technically not creating a virtual machine)
+  \item Run \texttt{qemu-arm main\_arm} to print ``Hello World'' by running
+    translated ARM code as a native x64 process in a virtual machine!
+\end{enumerate}
+
+\end{document}

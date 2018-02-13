@@ -1,0 +1,29 @@
+<script src="/static/js/fullcalendar.io/fullcalendar.js"></script>
+<script src="/static/js/fullcalendar.io/gcal.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: '',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    defaultView: 'agendaWeek',
+    allDaySlot: true,
+    minTime: '10:00:00',
+    maxTime: '22:00:00',
+    weekends: false,
+    nowIndicator: true,
+    contentHeight: 'auto',
+    editable: false,
+    googleCalendarApiKey: 'AIzaSyBDG9pxcme_PaOIwJmKeEvldUzWhHn3Sog',
+    events: {
+      googleCalendarId: '4a0vvtkg11f6g0qs2er37gkkf8@group.calendar.google.com'
+    },
+    loading: function(bool) {
+      $('#calendar-loading').toggle(bool);
+    }
+  });
+});
+</script>
+

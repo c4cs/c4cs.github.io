@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Asap);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Asap';
+      }
+      h2, h3 {
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+    <link rel="stylesheet" href="/static/css/lecture.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+{{ content }}
+
+    </textarea>
+    <!--
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    -->
+    <script src="https://rawgit.com/gnab/remark/gh-pages/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      remark.macros.scale_img = function(percentage) {
+        var url = this;
+        return '<img src="' + url + '" style="width: ' + percentage + '" />'
+      };
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+    {% include scripts.html %}
+    {% include calendar_footer.html %}
+  </body>
+</html>

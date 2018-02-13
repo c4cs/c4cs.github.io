@@ -1,0 +1,19 @@
+TO: {{email}}
+SUBJECT: [C4CS] Advanced Homework Reminder
+FROM: c4cs-staff@umich.edu
+
+Hi {{uniq}},
+
+This is a friendly reminder that advanced homework is 30% of your grade
+in EECS 398. At this time, we have {{num_complete}} exercise(s) recorded for you.
+Please reply immediately if you believe there to be an error.
+
+Including this section, there are two sections of the course remaining. This
+means if you have not completed any advanced homework you will need to complete
+four in order to earn full points for advanced homework. Please review the
+assignment and grading policy on the course website for the full information:
+
+https://c4cs.github.io/#syllabus-advanced
+
+Cheers,
+- C4CS staff

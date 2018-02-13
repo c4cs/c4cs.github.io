@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.1}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+
+\title{\textbf{Homework 10\\Profiling}}
+\author{Assigned: Friday, March 18}
+\date{\textbf{\color{red}{Due: Friday, March 25, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/2248}{Gradescope}.
+You must submit every page of this PDF.
+We recommend using the free online tool \href{https://www.pdfescape.com}{PDFescape}
+to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+There may multiple answers for each question. If you are unsure,
+state your assumptions and your reasoning for why you think your answer
+makes sense.
+
+\textbf{\hl{You must select the right page for each question on Gradescope.\\
+    If you do not select the right pages, we will not grade the question.}}
+
+\section*{Optional Reading}
+
+\emph{Developer Survey 2016}, from Stack Overflow.
+
+\url{https://stackoverflow.com/research/developer-survey-2016}
+
+Some students have asked for some insights into CS in industry. Every year,
+Stack Overflow does a large survey of developers. Their intro does a nice job
+of covering its caveats, but it remains an interesting look into what it means
+to have a career in CS and what CS in the real world looks like.
+
+
+\section*{CAVEATS}
+
+\texttt{gprof} is \textbf{not} a debugging tool. Your code \textbf{must} work
+correctly before trying to run gprof. Your code \textbf{must} exit normally
+(no segfault, exception, etc) or gprof will not do anything!
+
+\texttt{gprof} \textbf{does not work} on macs. On mac, the best tool to use is
+\href{https://developer.apple.com/library/watchos/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/index.html}{Instruments},
+however, for this homework please use your VM and gprof.
+
+
+\newpage
+\section{Reasoning about performance}
+
+Clone a copy of
+\url{https://gitlab.eecs.umich.edu/ppannuto/c4cs-w16-profiling}.
+
+Look through \texttt{main.c} to understand what this program is doing (not
+much, a ``nop'' is ``no-operation'', that is, sit idle for a cycle). The call
+graph of this program is about:
+\begin{verbatim}
+\-- main
+    \-- parent
+            \-- child1
+            \-- child2
+    \-- no_children
+\end{verbatim}
+
+The \texttt{time} utility reports how long a program takes to run.
+
+Run \texttt{make~baseline}.
+
+\textbf{How long did it take for the baseline to run?\\
+  Given how long baseline took, how long do you expect each of the following
+  to take from the start of each function until it finishes?}
+
+\bigskip
+\textbf{Baseline} \underline{\hspace{3cm}} seconds
+
+\bigskip
+\textbf{child1} \underline{\hspace{3cm}} seconds
+
+\bigskip
+\textbf{child2} \underline{\hspace{3cm}} nanoseconds $\leftarrow$ note the units here
+
+\bigskip
+\textbf{parent} \underline{\hspace{3cm}} seconds $\leftarrow$ think carefully about this one! What's weird about the for loops?
+
+\bigskip
+\textbf{no\_children} \underline{\hspace{3cm}} seconds
+
+
+
+\section{\texttt{gprof} overhead}
+
+Now run \texttt{make~overhead}.
+
+\textbf{What is the difference between \texttt{main\_no\_profiling} and
+  \texttt{main\_with\_profiling}?}
+\vspace{2cm}
+
+\textbf{Which ran faster, \texttt{main\_no\_profiling} or
+  \texttt{main\_with\_profiling}? \ul{Why?}}
+\vspace{3cm}
+
+\textbf{Between child1 or child2, which should you remove such that
+  \texttt{main\_no\_profiling} and \texttt{main\_with\_profiling} will have
+  nearly the same runtime? \ul{Why} remove that child?}
+
+\newpage
+\section{Understanding \texttt{gprof}}
+\label{understanding}
+
+Finally, run \texttt{make~profile.txt}. Take a look at the
+\texttt{profile.txt} file.
+
+\textbf{The gprof output has many different times it reports, such as
+  ``cumulative seconds'' and ``self seconds''. Which timing report matches
+  what Question~1 asked for?}
+\vspace{3cm}
+
+\textbf{How well did your estimates from Question 1 line up with the time
+  reported by gprof?\\
+  What explains the difference between your estimate and
+  the time reported by gprof?}
+\vspace{4cm}
+
+\textbf{What generated the file \texttt{gmon.out}?}
+\vspace{3cm}
+
+
+\newpage
+\section*{Document Revision History}
+March 21, 5PM: Revise the first question in section \ref{understanding}.
+
+\textbf{\st{Did Question 1 ask for ``cumulative seconds'' or ``self seconds''?  What is the difference?}} 
+$\rightarrow$
+\textbf{The gprof output has many different times it reports, such as
+  ``cumulative seconds'' and ``self seconds''. Which timing report matches
+  what Question~1 asked for?}
+
+\end{document}

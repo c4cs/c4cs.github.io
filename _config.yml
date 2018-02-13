@@ -1,0 +1,156 @@
+title: Computing for Computer Scientists
+email: ppannuto@umich.edu
+description: > # this means to ignore newlines until "url:"
+  This 1-credit seminar is designed to teach the essentials of using a computer
+  effectively for EECS students. While the target audience is CS/CE/DS
+  students, any student wishing to learn how to use their computer much more
+  effectively is encouraged to join. Topics covered include shells,
+  environment, scripting, Makefiles, compilers, debugging tools, and version
+  control. The last month of the course will be open to student input for
+  remaining useful topics to cover.
+url: "https://c4cs.github.io" # the base hostname & protocol for your site
+
+google_analytics_id: UA-70360310-1
+
+timezone: America/Detroit
+
+permalink: none
+
+collections:
+  commands:
+    output: true
+    permalink: /commands/:title
+  syllabus:
+  updates:
+  lectures:
+    output: true
+
+defaults:
+  - scope:
+      path: "_syllabus/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_lectures/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_updates/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_syllabus/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_lectures/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_updates/f17"
+    values:
+      category: f17
+  - scope:
+      path: "_syllabus/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_lectures/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_updates/w17"
+    values:
+      category: w17
+  - scope:
+      path: "_syllabus/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_lectures/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/f16"
+    values:
+      category: f16
+  - scope:
+      path: "_updates/w16"
+    values:
+      category: w16
+  - scope:
+      type: lectures
+    values:
+      layout: lecture
+  - scope:
+      type: syllabus
+    values:
+      layout: syllabus
+  - scope:
+      path: "_lectures/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_syllabus/w18"
+    values:
+      category: w18
+  - scope:
+      path: "_updates/w18"
+    values:
+      category: w18
+  - scope:
+      type: commands
+    values:
+      layout: reference
+  - scope:
+      path: "_commands/basics"
+    values:
+      category: basics
+  - scope:
+      path: "_commands/tutorials"
+    values:
+      category: tutorials
+  - scope:
+      path: "_commands/shells"
+    values:
+      category: shells
+  - scope:
+      path: "_commands/scripting"
+    values:
+      category: scripting
+  - scope:
+      path: "_commands/tools"
+    values:
+      category: tools
+  - scope:
+      path: "_commands/editors"
+    values:
+      category: editors
+  - scope:
+      path: "_commands/toys"
+    values:
+      category: toys
+  - scope:
+      path: "_commands/ubuntu"
+    values:
+      category: ubuntu
+  - scope:
+      path: "_commands/os_x"
+    values:
+      category: os_x
+
+command_categories: ["basics", "tutorials", "shells", "scripting", "tools", "editors", "toys", "ubuntu", "os_x"]
+
+# Build settings
+markdown: kramdown
+
+# This is a bit of a hack, since we're using remark, which expects
+# to render markdown itself, we need to prevent jekyll from picking
+# it up and parsing it, however we would still like to use the templating
+# features of jekyll so that we can just write slides alone, in a
+# markdown file. Thus we override the extensions list so that jekyll does
+# not treat .markdown files as markdown.
+markdown_ext: "mkdown,mkdn,mkd,md"
+
+# Needed for Travis
+exclude: [vendor]

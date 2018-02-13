@@ -1,0 +1,1201 @@
+---
+layout: default
+---
+
+<div class="text-center">
+  <hr />
+  <h1 style="color: red; font-size: 300%">!!! This is the W16 version of the course !!!</h1>
+  <h1 style="color: red; font-size: 200%"><a href="/">Click here to go to the current course homepage</a></h1>
+  <hr />
+</div>
+
+<div class="jumbotron">
+	<p>This 1-credit seminar is designed to teach the essentials of using a
+	computer effectively for EECS students. While the target audience is CS/CE/DS
+	students, any student wishing to learn how to use their computer much more
+	effectively is encouraged to join. Topics covered include shells, environment,
+	scripting, Makefiles, compilers, debugging tools, and version control. The
+	last month of the course will be open to student input for remaining useful
+	topics to cover.</p>
+</div>
+
+<div class="alert alert-info">
+  <h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
+
+  {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
+  {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
+  {% for update in site.updates %}
+    {% if update.categories contains 'w16' %}
+      {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+      {% assign update_date = update.date | date: '%s' | times: 1 %}
+      {% if update_date > onemonthago %}
+        {{ update.output }}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates</a></p>
+
+  <div id="old-updates" style="display: none">
+
+    {% for update in site.updates %}
+      {% if update.categories contains 'w16' %}
+        {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+        {% assign update_date = update.date | date: '%s' | times: 1 %}
+        {% if update_date <= onemonthago %}
+          {{ update.output }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+  </div><!-- old-updates -->
+</div>
+<!--
+<div class="alert alert-success" style="text-align: center">
+	<h2>Registration Information</h2>
+	<h4>The course numbers in Wolverine Access are <strong>31938</strong> for 003,
+	<strong>34428</strong> for 004, and <strong>34525</strong> for 005.</h4>
+	<h4>Be sure to register only for <strong>sections 003, 004, or 005</strong>, the other
+	398 sections are different courses!</h4>
+	<hr />
+	<h4 style="text-align: right">For any other questions, email me at <a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a></h4>
+</div>
+-->
+<hr />
+
+
+<h2><a class="anchor" name="prereqs"></a>Course Pre-Requisites</h2>
+The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
+EECS&nbsp;182/183, however it is advised that students have either taken or are
+concurrently enrolled in EECS&nbsp;280.  A basic understanding of programming
+(if/else, for, while) and a passing familiarity with a compiler and command
+prompt is the only expected background.
+
+<h2><a class="anchor" name="syllabus"></a>Syllabus &amp; Essential Info</h2>
+
+<h3>Course Staff</h3>
+<div class="table-responsive">
+<table class="table staff-table">
+	<tr>
+		<td><img src="static/img/ppannuto-square.jpg" alt="Pat Pannuto"      /></td>
+		<td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
+		<td><img src="static/img/mxsmith-square.jpg"  alt="Max Smith"        /></td>
+		<td><img src="static/img/sniderdj-square.jpg" alt="David Snider"     /></td>
+		<td><img src="static/img/wkhan-square.jpg"    alt="Waleed Khan"      /></td>
+		<td><img src="static/img/mterwil-square.jpg"  alt="Matt Terwilliger" /></td>
+		<td><img src="static/img/thealex-square.jpg"  alt="Alex Chojnacki"   /></td>
+		<td><img src="static/img/malihuss-square.jpg" alt="Mo Hussein"       /></td>
+	</tr>
+	<tr>
+		<td>Pat Pannuto</td>
+		<td>Marcus Darden</td>
+		<td>Max Smith</td>
+		<td>David Snider</td>
+		<td>Waleed Khan</td>
+		<td>Matt Terwilliger</td>
+		<td>Alex Chojnacki</td>
+		<td>Mo Hussein</td>
+	</tr>
+</table>
+</div>
+
+<h3>Course Resources</h3>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">Piazza</a></h4>
+<h4>Assignment Submission &amp; Grades &ndash; <a href="https://gradescope.com/courses/2248" target="_blank">Gradescope</a></h4>
+<!--
+<p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
+so that all students may benefit from the question and answer. To reach the course staff, please e-mail
+<a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a>.
+-->
+<p>To borrow a CSE laptop for the semester, contact Don Winsor at <a href="mailto:don@umich.edu">don@umich.edu</a>.</p>
+<p>
+For general issues, e-mail the course staff at <a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a>.
+For sensitive issues, please e-mail me directly at <a href="mailto:ppannuto@umich.edu">ppannuto@umich.edu</a>.
+</p>
+
+<h3><a class="anchor" name="times"></a>Course Meeting Times and Locations</h3>
+<dl class="dl-horizontal">
+	<dt>Section 003</dt>
+	<dd>1571 GGBL, Friday 1:30-2:30</dd>
+	<dt>Section 004</dt>
+	<dd>1571 GGBL, Friday 2:30-3:30</dd>
+	<dt>Section 005</dt>
+	<dd>1013 DOW, Friday 11:00-12:00</dd>
+</dl>
+<p>In general, you may attend any section, however if the classrooms become
+overfull, we will have to ask that you attend the section you are officially
+registered for.</p>
+
+<div id='calendar-loading'>Loading calendar...</div>
+<div id='calendar'></div>
+<a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
+
+<h3>Syllabus</h3>
+<div class="alert alert-warning">
+	<span class="glyphicon glyphicon-warning-sign"></span>
+	As this is a new class, the syllabus is subject to change in response to
+	feedback and class needs throughout the term.
+</div>
+<div class="table-responsive">
+<table class="table">
+	<tr>
+		<th></th>
+		<th></th>
+		<th style="min-width: 300px;">Topic</th>
+		<th style="min-width: 400px;">Lecture Materials</th></tr>
+	<tr>
+		<th class="week">Week&nbsp;1</th>
+		<td>1/8</td>
+		<td rowspan="2">Welcome to Computing for Computer Scientists
+			<ul>
+			<li>Course goals, philosophy, and background</li>
+			<li>Administrivia</li>
+			<li>What is a computer?</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			Slides
+			<ul>
+				<li><a href="lec/c4cs-wk1-slides.pptx">pptx</a></li>
+				<li><a href="lec/c4cs-wk1-slides.pdf">pdf</a></li>
+			</ul>
+			Video
+			<ul>
+				<li><a class="leccap" href="https://leccap.engin.umich.edu/leccap/viewer/r/iKI1z7">Slides + Video</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk1-homework.pdf">Homework&nbsp;1&nbsp;[pdf]</a></p>
+			<p><a href="hw/c4cs-wk1-homework.tex">Homework&nbsp;1&nbsp;[tex]</a></p>
+			<p><a href="hw/c4cs-wk1-advanced.pdf">Advanced&nbsp;Exercise&nbsp;1&nbsp;[pdf]</a></p>
+			<p><a href="hw/c4cs-wk1-advanced.tex">Advanced&nbsp;Exercise&nbsp;1&nbsp;[tex]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;2</th>
+		<td>1/15</td>
+		<td rowspan="2">
+			<p>Shells and environment, basic scripting</p>
+			<ul>
+				<li>Unix history, especially in the context of tools</li>
+				<li>The job of a shell</li>
+				<li>$HOME, $PATH, etc</li>
+				<li>history, Ctrl-R, etc</li>
+				<li>.bashrc, alias, export</li>
+				<li>shell variables and functions</li>
+				<li>basic flow control</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>This week's lecture focused on &ldquo;the job of a shell&rdquo;,
+			specifically how programs are launched.
+			The lecture format is a bit of a &ldquo;choose your own adventure&rdquo;
+			as students in class ask questions. The 11 and 1:30
+			lectures spent more time and detail on the window
+			manager and 2:30 lecture went a little more in depth on
+			the behavior of the shell and environment.</p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a href="lec/20160115/lecture-20160115.txt">Terminal</a></li>
+				<li><a href="lec/20160115/firefox.desktop">firefox.desktop</a></li>
+				<li><a href="lec/20160115/foo.sh">foo.sh</a></li>
+				<li><a href="lec/20160115/banana.gif">banana.gif</a></li>
+			</ul>
+			<p>Lecture (1:30p-2:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/di9ZiI" target="_blank">Lecture Video</a></li>
+				<li><a href="lec/c4cs-wk2-terminal-log-sec003.html">Terminal Capture</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/QKm6xd" target="_blank">Lecture Video</a></li>
+				<li><a href="lec/c4cs-wk2-terminal-log-sec004.html">Terminal Capture</a></li>
+			</ul>
+			<p><small><i>Note: The tool I used to capture my terminal input and output from the afternoon lectures was not the best, it is a little hard to read. I apologize for that, I will try to find something better for future weeks.</i></small></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk2-homework.pdf">Homework 2 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk2-homework.tex">Homework 2 [tex]</a></p>
+			<p><a href="hw/c4cs-wk2-advanced.pdf">Advanced Exercise 2 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk2-advanced.tex">Advanced Exercise 2 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk2-homework-solutions.pdf">Solutions 2 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;3</th>
+		<td>1/22</td>
+		<td rowspan="2">
+			<p><strong>Editors</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>Origin and purpose</li>
+				<li>Diversity of editors</li>
+				<li>Text editor vs program that edits text</li>
+				<li>Why terminal-based text editors are still relevant</li>
+				<li>Why terminal-based text editors are not relevant anymore</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>A little on text editing without opening an editor</li>
+				<li>Basic operation of &ldquo;the big two&rdquo;</li>
+				<li>Semi-guided exploration of editor capabilities</li>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<li>Extending text-based editors: Deep integration with code</li>
+				<li>Extending text-based editors: Third-party additions</li>
+				<li>Extending IDEs: Recovering text-based editor interfaces</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>This week's lecture focused on &ldquo;editors&rdquo;.
+			Lecture opened with an example of an editor most people
+			do not often see or use, a hex editor, and demonstrated
+			how we can edit compiled binaries directly to change
+			their behavior. Then we played with one of the first
+			text editors, <tt>ed</tt>. The homework explores how
+			some of <tt>ed</tt>'s interfaces live on today. From
+			there we talked about the mental model of a software
+			developer when editing software and how editors play
+			into that. Finally, we closed lecture with a discussion
+			on the distinction between text editors and source code
+			editors, which of those are included in Integrated
+			Development Environments (IDEs), and whether that is the
+			right choice. The advanced homework explores how to
+			bridge this gap in both directions, from source editor
+			to IDE and from IDE with text editor to IDE with source
+			editor.
+			</p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/SrqIP4" target="_blank">Lecture Video</a></li>
+				<li><a href="lec/2016-01-22/sec005-top.html">Top Terminal</a></li>
+				<li><a href="lec/2016-01-22/sec005-bot.html">Bottom Terminal</a></li>
+			</ul>
+			<p>Lecture (1:30p-2:30p)</p>
+			<ul>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/5KhU9V" target="_blank">Lecture Video</a></li>
+				<li><a href="lec/2016-01-22/sec004-top.html">Top Terminal</a></li>
+				<li><a href="lec/2016-01-22/sec004-bot.html">Bottom Terminal</a></li>
+			</ul>
+			<p><small><i>I used two terminal windows to show things
+				side-by-side during lecture. If you are
+				reviewing the terminal output, I recommend
+				opening both and scrolling in parallel.</i></small></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk3-homework.pdf">Homework 3 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk3-homework.tex">Homework 3 [tex]</a></p>
+			<p><a href="hw/c4cs-wk3-advanced.pdf">Advanced Exercise 3 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk3-advanced.tex">Advanced Exercise 3 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk3-homework-solutions.pdf">Solutions 3 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;4</th>
+		<td>1/29</td>
+		<td rowspan="2">
+			<p><strong>Revision Control Basics &amp; Git</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>What's version control?</li>
+				<li>Why is it important?</li>
+				<ul><li>Thought Exercise: Why doesn&rsquo;t everything have version control?</li></ul>
+				<li>Today's VCS of choice: git</li>
+				<li>Git fundamentals</li>
+				<li>Advanced git highlights</li>
+				<li>The era of social coding</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Intro tutorial to git</li>
+				<li>Setting up a class project with git</li>
+				<li>Basic usage and configuration</li>
+			</ul>
+
+			<p>Advanced</p>
+			<ul>
+				<li>Rescuing repositories in bad states</li>
+				<li>Commit hooks</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>This week we introduced version control. We talked a
+			little about what it means to be a version control
+			system, what the fundamental primitives of version
+			control are, and showed at the very end the powerful
+			constructs you can build on version control.</p>
+			<p>We spent the bulk of lecture doing a deep dive on
+			the basic operation <tt>git</tt>. We start by
+			introducing the three major logical concepts in
+			<tt>git</tt>, the working directory, the staging area,
+			and the repository.  Next we explore how the various
+			commands move <em>changesets</em> or diffs between these
+			three places.</p>
+			<p>
+			The major commands we covered were
+			<tt>status</tt>,
+			<tt>add</tt>,
+			<tt>reset</tt>,
+			<tt>commit</tt>,
+			<tt>checkout</tt>, and
+			<tt>diff</tt>.
+			</p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/Vk3p56" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/vDFqVu" target="_blank">Lecture Video</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk4-homework.pdf">Homework 4 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk4-homework.tex">Homework 4 [tex]</a>
+			<a href="hw/badge.png">[png]</p>
+			<p><a href="hw/c4cs-wk4-advanced.pdf">Advanced Exercise 4 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk4-advanced.tex">Advanced Exercise 4 [tex]</a></p>
+			<p style="text-align: center"><strong>&ndash; &ndash; &ndash;</strong></p>
+			<a class="anchor" name="bonus1"></a>
+			<p><a href="hw/c4cs-bonus1-advanced.pdf">Bonus Advanced [pdf]</a></p>
+			<p><a href="hw/c4cs-bonus1-advanced.tex">Bonus Advanced [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk4-homework-solutions.pdf">Solutions 4 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;5</th>
+		<td>2/5</td>
+		<td rowspan="2">
+			<p><strong>Shells&nbsp;II, Unix Tools &amp; Philosophy</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>Lines of text as a universal interface</li>
+				<li>Examples of unix commands and command synthesis</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Basics of regular expressions</li>
+				<li>Guided intro to some tools</li>
+				<li>Synthesizing tools into powerful queries</li>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<li>Shell scripting</li>
+				<li>(Basic) shell job control</li>
+				<li>Automated testing</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>This week opened with a recap of commmand that have
+			been encountered by the course thus far. Stay tuned for
+			a post about that coming soon.</p>
+			<p>The focus of lecture this week shifted a little to
+			trying to learn <em>how</em> to learn about a new
+			tool. Specifically, we started from the notion of,
+			given that <tt>tr</tt> is a &ldquo;cool command&rdquo;
+			that you should learn about, what are the effective ways
+			to learn about how a tool behaves?</p>
+			<p>At the end of lecture, we explored how we can chain
+			together individually simple commands to build powerful
+			constructs. The homework explores this topic is a guided
+			manner as well.</p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/d9hiSY" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/UbPrJM" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p><a href="static/list.txt">Combined list of commands encountered thus far</a></p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk5-homework.pdf">Homework 5 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk5-homework.tex">Homework 5 [tex]</a>
+			<a href="hw/notification.png">[png]</p>
+			<p><a href="hw/c4cs-wk5-advanced.pdf">Advanced Exercise 5 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk5-advanced.tex">Advanced Exercise 5 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk5-homework-solutions.pdf">Solutions 5 [pdf]</a></p>
+			<p><small>2/19: <a href="https://github.com/c4cs/assignments/commit/0131f247528f0e6dc2547ebeb49bf1f1a233cae6">Minor corrections</a> to the solutions.</small></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;6</th>
+		<td>2/12</td>
+		<td rowspan="2">
+			<p><strong>Build Systems</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>Conceptual model for a build system</li>
+				<li>HW2 script, what <em>didn&rsquo;t</em> it do?</li>
+				<li>Basic operation of <tt>make</tt></li>
+				<ul>
+					<li>syntax, goals, targets, rules, variables (yours and make's)</li>
+				</ul>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Basic operation</li>
+				<li>Understanding goals and targets</li>
+				<li>Built-ins and implicit rules</li>
+				<small>
+					<ul>
+						<li>Guided digging into how a tool works</li>
+					</ul>
+				</small>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<!--<li>Introduction to <tt>autotools</tt> and the rest of the traditional deployment ecosystem</li>-->
+				<li><tt>gcc</tt> and <tt>make</tt> integration</li>
+				<li>Exploring alternative build systems</li>
+			</ul>
+		</td>
+        <td rowspan="2">
+            <p>This week we focused on build systems- which sound crazy complicated,
+            but are actually built realized by simple concepts like graphs and 
+            variables. In lecture, we started off by asking "What is a build system?
+            Why do they matter? What do they help us do?"</p>
+            <p>In the simplest case, a build system allows you to save build or
+            compilation commands to variable names like 'all_tests' or 'submit'.
+            This saves us from trying to remember the gcc arguments for each type
+            of executable or test we want to make or run.</p>
+            <p>In class, we focused on the 'make' program, which is a build system
+            everyone should be familiar with from 280 and 281. We talked about the
+            syntax of 'make' in terms of targets, dependencies, and rules, and
+            demonstrated it's behavior with a quick example composed of shell 
+            scripts.</p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/otqrkS" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/e7L78G" target="_blank">Lecture Video</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk6-homework.pdf">Homework 6 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk6-homework.tex">Homework 6 [tex]</a>
+			<p><a href="hw/c4cs-wk6-advanced.pdf">Advanced Exercise 6 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk6-advanced.tex">Advanced Exercise 6 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk6-homework-solutions.pdf">Solutions 6 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;7</th>
+		<td>2/19</td>
+		<td rowspan="2">
+			<p><strong>Debuggers I</strong></p>
+			<p>Lecture <em>(<a href="static/lecture/wk7-gdb.pdf">lecture notes</a>)</em></p>
+			<ul>
+				<li>(Midterm course evaluation feedback)</li>
+				<li>What a debugger (the tool) does</li>
+				<li>What a debugger (the tool) doesn&rsquo;t do</li>
+				<li>What a debugger (a person) must do</li>
+				<li>How to reason about debugging a problem?</li>
+				<li>Open: Things that &ldquo;can&rsquo;t&rdquo; be debugged?
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Building a mental model for debugging</li>
+				<li>Introducing valgrind</li>
+			</ul>
+			<!--
+			<p>Advanced</p>
+			<ul>
+				<li>Extending gdb to understand your data structures</li>
+				<li>A tool we won't have time to cover (gprof? gcov?)</li>
+			</ul>
+			-->
+		</td>
+		<td rowspan="2">
+			<p>This week we talked about debuggers, specifically the gdb debugging
+			utility. This lecture is a little different as early labs in other EECS
+			classes have already introduced gdb, so everyone should already have at
+			least a passing familiarity with gdb. What we try to go through in
+			lecture then is to understand the primitives that gdb provides &ndash;
+			the way that gdb lets us examine and modify machine state &ndash; and how
+			to stitch those primitives together to debug.</p>
+			<p>Said differently, recall that debugging is essentially a search
+			problem: At the beginning you have a program starting to run with some
+			inputs and at the end you have the final state with the incorrect outputs.
+			Tracking down a bug requires finding when between a program's beginning
+			and end things went from being correct to incorrect. A debugger, such as
+			gdb, is a tool that lets you stop and examine any point in time between
+			the beginning and end. It is up to you, however, to point the tool to the
+			right points in time in order to identify where things went wrong.</p>
+			<p><small><em>If you were unable to attend lecture this week and are
+					watching online, I think the afternoon lecture was slightly smoother
+					this week and recommend that one.</em></small></p>
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/l5PJDH" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/PcD1De" target="_blank">Lecture Video</a></li>
+			</ul>
+			<hr />
+			<p>
+			<a href="static/lecture/wk7-gdb.pdf">Preliminary lecture notes</a>
+			&ndash;
+			<a href="lec/wk7/math.c">math.c</a>
+			&ndash;
+			<a href="lec/wk7/inf.c">inf.c</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk7-homework.pdf">Homework 7 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk7-homework.tex">Homework 7 [tex]</a>
+			<p><a href="hw/c4cs-wk7-advanced.pdf">Advanced Exercise 7 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk7-advanced.tex">Advanced Exercise 7 [tex]</a>
+			<hr />
+			<p><a href="hw/c4cs-wk7-homework-solutions.pdf">Solutions 7 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;8</th>
+		<td>2/26</td>
+		<td rowspan="2">
+			<p><strong>Optional Lecture: Building Basic Continuous Integration</strong></p>
+			<p>Together as a group, we're going to do
+			<a href="hw/c4cs-wk5-advanced.pdf">Advanced Exercise&nbsp;5</a>. The end
+			result here is pretty awesome. Every time you commit some work, in the
+			background, your code will automatically build, run all test cases, and
+			run some static analysis (tools that help catch bugs without even writing
+			tests!). When it's all done, it'll pop up a nice notification letting you
+			know how things went.
+			</p>
+		</td>
+		<td rowspan="2">
+			<p>This lecture was a little more intimate, in honor of spring break.</p>
+			<p>During class, we went through the thought process for how to approach
+			and complete Advanced Exercise&nbsp;5. Posted here is a cleaned up and
+			commented version of the script we built in class.</p>
+			<p>Lecture (1:30p-2:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/szF0zv" target="_blank">Lecture Video</a></li>
+			</ul>
+			<hr />
+			<p>
+			<a href="https://gist.github.com/anonymous/877eede707f2889f4c59">post-commit-helper</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			No homework, enjoy break!
+		</td>
+	</tr>
+	<tr><td colspan="4"><center><i>Spring Break</i></center></td></tr>
+	<tr id="week9">
+		<th class="week">Week&nbsp;9</th>
+		<td>3/11</td>
+		<td rowspan="2">
+			<p><strong>Using Git Effectively</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>Understanding branches</li>
+				<li>Basic merging</li>
+				<li>&ldquo;Expanding the triangle&rdquo;</li>
+				<ul>
+					<li>Push, <em>fetch</em>, pull</li>
+					<li>Remote branches and remotes as branches</li>
+				</ul>
+				<li>Synchronizing work (+stashing)</li>
+				<li>Commit everything, branch often</li>
+				<li>Cleaning history: Rebasing, squashing</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Thinking in git</li>
+				<li>Practice with merging, conflicts</li>
+				<li>Practice rewriting history</li>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<li>Using git to collaborate for real</li>
+			</ul>
+			<!--
+				<li>Logs, blame</li>
+				<li>Others: cvs, svn, hg, bzr</li>
+				<li>Meta: repo+git</li>
+				<li>Coverage ; &ldquo;code coverage&rdquo;</li>
+			-->
+		</td>
+		<td rowspan="2">
+			<p>This lecture digs into git, trying to understand what's going on
+			underneath the hood. We introduce the concept of branching and show how
+			it affects history. Next we introduce merging, which bring branches back
+			together. Then we introduce the concept of remotes and show how remote
+			repositories are really just the same thing as branches.</p>
+
+			<p>What we sadly did not quite have time to get to in class was the key
+			git philosophy: <em>commit everything and commit often</em>. Some folks
+			stuck around after the last lecture to go a little longer and talk
+			through some of these ideas. The key thing is commit little pieces of
+			progress. It is easy to get in a trap where you feel like you do not want
+			to commit something until it is working. But if you only commit
+			1,000-line changes after you have everything, then you may as well not be
+			using version control!</p>
+
+			<p>In the supplemental lecture, we introduced the concept of
+			<em>feature branches</em>. The idea is that when you start working on
+			something new, you can create a new branch for that feature. Since this
+			branch is not yet part of the offical history, you should not feel bad
+			about making lots of little commits as you get little pieces working.
+			Once you get all of the way there, you can re-write history!
+			</p>
+
+			<p>We also built up a small collection of
+			<a href="lec/git-niceties">tips and tricks</a>
+			to make working with git more enjoyable.
+			</p>
+
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/a1fGMZ" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/j3NtLO" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Supplemental Lecture (3:40-4:20p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/jgdfLI" target="_blank">Supplemental Lecture Video</a></li>
+			</ul>
+			<hr />
+			<a href="lec/c4cs-wk9-notes.md">Preliminary Lecture Notes</a>
+			&ndash;
+			<a href="lec/git-niceties">Git Niceties</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk9-homework.pdf">Homework 9 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk9-homework.tex">Homework 9 [tex]</a>
+			<p><a href="hw/c4cs-wk9-advanced.pdf">Advanced Exercise 9 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk9-advanced.tex">Advanced Exercise 9 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk9-homework-solutions.pdf">Solutions 9 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;10</th>
+		<td>3/18</td>
+		<td rowspan="2">
+			<p><strong>Profiling</strong></p>
+			<p>Lecture</p>
+			<ul>
+				<li>What is profiling?</li>
+				<li>How to build a profiler?</li>
+				<li>How to use a profiler?</li>
+				<li>How to understand the results of a profiler?</li>
+			</ul>
+			<p>Homework</p>
+			<ul>
+				<li>Using gprof</li>
+				<li>Understanding profiling mechanics</li>
+			</ul>
+			<p>Advanced</p>
+			<ul>
+				<li>Introducing gcov</li>
+				<li>Advanced metrics</li>
+				<li>Profile guided optimization</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>
+			A lighter week this week, we talked about profiling.
+			</p>
+
+			<p>
+			Profilers are tools that help you understand where your code is spending
+			its time. Profilers are <strong>not</strong> debugging tools. Your code
+			needs to work and work as expected before a profiler will be useful.
+			Profiling is the last step, optimization to help figure out how to improve
+			your code.
+			</p>
+
+			<p>In lecture, we went through an understanding of how to build a basic
+			profiler from scratch, showing the key concepts of operation. In practice,
+			modern profilers do more (check out the advanced homework for some examples
+			of this). We ended lecture looking at how to use the <tt>gprof</tt> tool,
+			a real-world profiler.
+			</p>
+
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/5PaKv6" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/yvCX9e" target="_blank">Lecture Video</a></li>
+			</ul>
+			<hr />
+			<a href="lec/c4cs-wk10-notes.md">Preliminary Lecture Notes</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><small><em>March 21, 5PM: Updated to Revsion 1.1</em></small></p>
+			<p><a href="hw/c4cs-wk10-homework.pdf">Homework 10 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk10-homework.tex">Homework 10 [tex]</a>
+			<p><a href="hw/c4cs-wk10-advanced.pdf">Advanced Exercise 10 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk10-advanced.tex">Advanced Exercise 10 [tex]</a></p>
+			<hr />
+			<p><a href="hw/c4cs-wk10-homework-solutions.pdf">Solutions 10 [pdf]</a></p>
+		</td>
+	</tr>
+	<tr><td colspan="4" style="background-color: #ffa"><center><i>Nothing below here will be on the final exam</i></center></td></tr>
+	<tr>
+		<th class="week">Week&nbsp;11</th>
+		<td>3/25</td>
+		<td rowspan="2">
+			<p><strong>Scripting without bash</strong></p>
+			<p><em>&ldquo;I'm too lazy to do all that by hand, so I just wrote a script to do it&rdquo;</em> &ndash; <strong>How??</strong></p>
+			<ul>
+				<li>Accelerated intro to practical Python for the experienced programmer</li>
+				<li>Quick syntax overview</li>
+				<ul>
+					<li>Functions and flow control</li>
+					<li>&ldquo;Everything is an object&rdquo;</li>
+				</ul>
+				<li>I/O, user and files</li>
+				<ul>
+					<li>Argument input</li>
+					<li>Runtime input</li>
+					<li>Finding / reading / writing files</li>
+				</ul>
+				<li>Libraries are what makes it magic</li>
+				<ul>
+					<li><em>For just about anything you want to do, someone on the Internet has written a thing that does it</em></li>
+					<li>Many are built-in</li>
+					<li>Many, many more are not</li>
+					<li>Understanding imports</li>
+					<li>Finding and using libraries: <tt>pip</tt> and PyPi</li>
+				</ul>
+		</td>
+		<td rowspan="2">
+			<p>This week we talked about Python. We used an
+			<a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank">RPN calculator</a>
+			as an example to work through during lecture. Grab a copy of the code
+			<a href="https://gitlab.eecs.umich.edu/ppannuto/c4cs-w16-rpn" target="_blank">here</a>.</p>
+
+			<p>In lecture, we started with <code>rpn_basic.py</code>, working through
+			its operation and Python constructs. Then we slowly starting fixing bugs
+			and adding features. The idea was to progress towards the features in
+			<code>rpn_class.py</code> during lecture.</p>
+
+			<p>Beyond what we able to present in lecutre, the repository includes
+			two more complete files, <code>rpn_class.py</code> which gives an example
+			of how to make a Python class and <code>rpn_kitchen_sink.py</code>, a
+			heavily-commented example that shows off many more advanced features.
+			I encourage you to check these out when you have some time!</p>
+
+			<p>Lecture (11a-12p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/hRRqxz" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/SrfrzP" target="_blank">Lecture Video</a></li>
+			</ul>
+			<hr />
+			<p>
+			<a href="lec/c4cs-wk11-notes.md">Preliminary Lecture Notes</a>
+			&ndash;
+			<a href="https://gitlab.eecs.umich.edu/ppannuto/c4cs-w16-rpn">RPN Code</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk11-homework.pdf">Homework 11 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk11-homework.tex">Homework 11 [tex]</a>
+			<p><a href="hw/c4cs-wk11-advanced.pdf">Advanced Exercise 11 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk11-advanced.tex">Advanced Exercise 11 [tex]</a></p>
+			<p style="color: red;"><strong>Advanced Exercise 11 Deadline Extended to Wed, 4/13 at 3PM</strong></p>
+			<!--
+			<hr />
+			<p><a href="hw/c4cs-wk11-homework-solutions.pdf">Solutions 11 [pdf]</a></p>
+			-->
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;12</th>
+		<td>4/1</td>
+		<td rowspan="2">
+			<p><strong>How to best work on my machine?</strong></p>
+			<ul>
+				<li>Setting up a local environment</li>
+				<li>How to work remotely?</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>Lecture this week starts from the idea of a local environment and what
+			that really means. It is not just setting up your machine for
+			&ldquo;development&rdquo;, it is setting it up for C++ development,
+			for iOS development, for web development. Each of these environments are
+			unique, and while there are some common threads (editors, version control),
+			ultimately each has some things that make it unique.</p>
+
+			<p>That idea brings us to the major topic, <em>package managers</em>. These
+			are tools that help manage libraries, tools, building, distribution, or
+			other things appropriate to the environment you are currently working in.
+			Every environment has its own package management system. Ubuntu has apt,
+			Python has pip, Ruby has gems, OS X has the App Store (it's a package
+			manager, really!). In lecture we go over what a package manager has to do
+			to achieve its goals and how it does it. Along the way we examine how
+			package managers differ.</p>
+
+			<p>As some closing thoughts, we look at how the philosophy of a development
+			environment is changing from the older C/C++ model of a global system
+			development environment to project-specific environments. We introduce
+			the idea of virtual environments, their purpose, and how different tools
+			manage these concepts. Finally we briefly discuss how tools such as
+			Vagrant recapture this virtual environment principle for development
+			ecosystems that do not have it built-in.</p>
+
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/lnVwbL" target="_blank">Lecture Video</a></li>
+			</ul>
+
+			<hr />
+			<a href="lec/c4cs-wk12-notes.md">Preliminary Lecture Notes</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk12-homework.pdf">Homework 12 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk12-homework.tex">Homework 12 [tex]</a>
+			<p style="color: red;"><strong>Homework 12 Deadline Extended to Wed, 4/13 at 3PM</strong></p>
+			<p><a href="hw/c4cs-wk12-advanced.pdf">Advanced Exercise 12 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk12-advanced.tex">Advanced Exercise 12 [tex]</a></p>
+			<!--
+			<hr />
+			<p><a href="hw/c4cs-wk12-homework-solutions.pdf">Solutions 12 [pdf]</a></p>
+			-->
+		</td>
+	</tr>
+	<tr style="background-color: #ffa">
+		<th class="week">Final&nbsp;Exam</th>
+		<td><strong>Monday</strong> April&nbsp;4<br />7:00-8:30</td>
+		<td rowspan="2" colspan="2">
+			<p>We have several exam rooms. Please be sure you go to the right room.</p>
+			<p>Based on the first letter of your <strong><em>uniqname</em></strong>:</p>
+			<ul>
+				<li><strong>uniqnames</strong> beginning with <tt>a-f</tt>: AUD&nbsp;CHRYS</li>
+				<li><strong>uniqnames</strong> beginning with <tt>g-l</tt>: 1571&nbsp;GGBL</li>
+				<li><strong>uniqnames</strong> beginning with <tt>m-n</tt>: 1017&nbsp;DOW</li>
+				<li><strong>uniqnames</strong> beginning with <tt>o-w</tt>: 1013&nbsp;DOW</li>
+				<li><strong>uniqnames</strong> beginning with <tt>x-z</tt>: 1010&nbsp;DOW</li>
+				<li><em>Overflow and persons needing extra time:</em> 1018&nbsp;DOW</li>
+			</ul>
+		</td>
+	</tr>
+	<tr style="background-color: #ffa">
+		<td colspan="2" class="syllabus-homework" style="text-align: center; font-size: 125%;">
+			<p><strong><a href="hw/c4cs-practice-exam.pdf">Practice Exam</a></strong></p>
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;13</th>
+		<td>4/8</td>
+		<td rowspan="2">
+			<p><strong>Digging into IDEs</strong></p>
+			<ul>
+				<li>Decomposing an IDE &ndash; all the same tools!</li>
+				<li>How to use IDEs effectively? How to get more effective because you use an IDE?</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/Ym97Vv" target="_blank">Lecture Video</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			<p><a href="hw/c4cs-wk13-homework.pdf">Homework 13 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk13-homework.tex">Homework 13 [tex]</a>
+			<p><a href="hw/c4cs-wk13-advanced.pdf">Advanced Exercise 13 [pdf]</a></p>
+			<p><a href="hw/c4cs-wk13-advanced.tex">Advanced Exercise 13 [tex]</a></p>
+			<hr />
+			<!-- <p><a href="hw/c4cs-wk13-homework-solutions.pdf">Solutions 13 [pdf]</a></p> -->
+		</td>
+	</tr>
+	<tr>
+		<th class="week">Week&nbsp;14</th>
+		<td>4/15</td>
+		<td rowspan="2">
+			<p><strong>11:00 &ndash; Mo: Security as a User</strong></p>
+			<ul>
+				<li>What kinds of things should I be doing to be secure?</li>
+				<li>Why are they important? What's happening under the hood?</li>
+			</ul>
+			<p><strong>1:30 &ndash; Alex: VPS / Containers / Etc</strong></p>
+			<ul>
+				<li>What is a virtual private server (VPS)?</li>
+				<li>What can I do with a VPS?</li>
+				<li>How do companies use VPSs?</li>
+			</ul>
+			<p><strong>2:30 &ndash; Matt: How does the Internet work?</strong></p>
+			<ul>
+				<li>Introduction to networking protocols/concepts (OSI model:
+				IPv4/v6, Routing, NAT, DNS, DHCP, etc.)</li>
+				<li>What kinds of tools can inspect networks to understand how they're
+				working (or diagnose and fix when they're failing?)</li>
+			</ul>
+		</td>
+		<td rowspan="2">
+			<p>The 1:30 lecture this week starts off with our very own Marcus
+			Darden winning this year's HKN Best Professor Award.</p>
+			<p><strong>Congratulations Marcus!!</strong></p>
+
+			<hr />
+
+			<p>Lecture (11:00a-12:00p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/4nE6AZ" target="_blank">Lecture Video</a></li>
+			</ul>
+			<p>Lecture (1:30p-2:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/BFE2U4" target="_blank">Lecture Video</a></li>
+				<li><a href="https://github.com/the-alex/vps-talk-c4cs" target="_blank">Notes</a></li>
+			</ul>
+			<p>Lecture (2:30p-3:30p)</p>
+			<ul>
+				<li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/WNFhEi" target="_blank">Lecture Video</a></li>
+				<li><a href="https://github.com/mterwill/networking-lecture/blob/master/notes.md" target="_blank">Notes</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="syllabus-homework">
+			No homework, good luck on finals!
+		</td>
+	</tr>
+</table>
+</div><!-- table-responsive -->
+
+<!--
+<p>Some suggestions for special topics lectures:</p>
+<ul>
+	<li>cron jobs</li>
+	<li>Python, Perl, &lt;insert pet scripting language here&gt;, ...</li>
+	<li>Personal Security / Integrity - disk encryption, pgp, etc</li>
+	<li>Packaging (how to get your program into apt-get repositories)</li>
+	<li>Internet basics (routing, AS's, DNS, UDP, TCP, etc etc)</li>
+	<li>Internet tools, (nc, dig, nslookup, whois, etc)</li>
+	<li>LaTeX</li>
+	<li>Postscript</li>
+</ul>
+-->
+
+<h2><a class="anchor" name="grading"></a>Attendance, Grading, and Homework</h2>
+<p>
+This course is graded on a straight scale, it will not be curved.
+Each component is graded independently and then combined into a final grade.
+</p>
+
+<h3>Final Grades</h3>
+<table class="table grade-table">
+	<tr>
+		<th></th>
+		<th>A+<br /><small>&gt;4.0</small></th>
+		<th>A<br /><small>[3.67,&nbsp;4.0]</small></th>
+		<th>A-<br /><small>[3.33,&nbsp;3.67)</small></th>
+		<th>B+<br /><small>[3.0,&nbsp;3.33)</small></th>
+		<th>B<br /><small>[2.67,&nbsp;3.0)</small></th>
+		<th>B-<br /><small>[2.33,&nbsp;2.67)</small></th>
+		<th>C+<br /><small>[2.0,&nbsp;2.33)</small></th>
+		<th>C<br /><small>[1.67,&nbsp;2.0)</small></th>
+		<th>C-<br /><small>[1.33,&nbsp;1.67)</small></th>
+		<th>D+<br /><small>[1.0,&nbsp;1.33)</small></th>
+		<th>D<br /><small>(0.0,&nbsp;1.0)</small></th>
+		<th>F<br /><small>0.0</small></th>
+	</tr>
+</table>
+
+<p>
+As example, a student with 19 attendance points, 16 homework points, 3 advanced
+exercise points, and a 95% on the final exam would receive a final grade of
+(3.67+3.33+4.0+.95*4.0) / 4.0 = 3.7, 3.7&nbsp;&gt;&nbsp;3.67&nbsp;&rarr;&nbsp;A.
+</p>
+
+<h3>Attendance (25%)</h3>
+
+<p>Attendance is required for this course. Each lecture will begin with a
+question from last week&rsquo;s material. A correct answer is worth 2&nbsp;points,
+an incorrect answer is worth 1&nbsp;point, and no answer is worth 0&nbsp;points.
+The week before spring break is optional with no attendance taken.
+The maximum possible attendance score is thus 13&nbsp;x&nbsp;2&nbsp;=&nbsp;26.
+</p>
+
+<div class="table-responsive">
+<table class="table grade-table">
+	<tr>
+		<th></th>
+		<th>A+ (4.33)</th>
+		<th>A (4.0)</th>
+		<th>A- (3.67)</th>
+		<th>B+ (3.33)</th>
+		<th>B (3.0)</th>
+		<th>B- (2.67)</th>
+		<th>C+ (2.33)</th>
+		<th>C (2.0)</th>
+		<th>C- (1.67)</th>
+		<th>D+ (1.33)</th>
+		<th>D (1.0)</th>
+		<th>F (0.0)</th>
+	</tr>
+	<tr>
+		<th>Attendance Points</th>
+		<td>24&#x2011;26</td>
+		<td>20&#x2011;23</td>
+		<td>18&#x2011;19</td>
+		<td>16&#x2011;17</td>
+		<td>14&#x2011;15</td>
+		<td>12&#x2011;13</td>
+		<td>10&#x2011;11</td>
+		<td>8&#x2011;9</td>
+		<td>6&#x2011;7</td>
+		<td>4&#x2011;5</td>
+		<td>2&#x2011;3</td>
+		<td>0&#x2011;1</td>
+	</tr>
+</table>
+</div>
+
+<h3>Homeworks (25%)</h3>
+
+<p>There are 12 homeworks in the course. Homework is due by the
+<i>beginning</i> of the first lecture the week after it is assigned. Homeworks
+will be graded on a {0,1,2} scale:</p>
+<dl class="dl-horizontal">
+	<dt>0 points</dt><dd>No / very little effort</dd>
+	<dt>1 point<dd>A solid effort, but not complete</dd>
+	<dt>2 points<dd>Completed successfully</dd>
+</dl>
+<p>This is a 1&nbsp;credit course and the homeworks are designed to be
+commensurate with that. The goal of the homeworks is to reinforce concepts
+introduced in lecture and to give hands-on experience working with tools.</p>
+<p>An A&nbsp;student will have at least 18 total homework points (e.g. 6&nbsp;1's and 6&nbsp;2's).</p>
+
+<div class="table-responsive">
+<table class="table grade-table">
+	<tr>
+		<th></th>
+		<th>A+ (4.33)</th>
+		<th>A (4.0)</th>
+		<th>A- (3.67)</th>
+		<th>B+ (3.33)</th>
+		<th>B (3.0)</th>
+		<th>B- (2.67)</th>
+		<th>C+ (2.33)</th>
+		<th>C (2.0)</th>
+		<th>C- (1.67)</th>
+		<th>D+ (1.33)</th>
+		<th>D (1.0)</th>
+		<th>F (0.0)</th>
+	</tr>
+	<tr>
+		<th>Homework Points</th>
+		<td>22&#x2011;24</td>
+		<td>20&#x2011;21</td>
+		<td>18&#x2011;19</td>
+		<td>16&#x2011;17</td>
+		<td>14&#x2011;15</td>
+		<td>12&#x2011;13</td>
+		<td>10&#x2011;11</td>
+		<td>8&#x2011;9</td>
+		<td>6&#x2011;7</td>
+		<td>4&#x2011;5</td>
+		<td>2&#x2011;3</td>
+		<td>0&#x2011;1</td>
+	</tr>
+</table>
+</div>
+
+<h3>Advanced Exercises (25%)</h3>
+
+<p>Each homework will have at least one advanced exercise option. The intention
+is to give a guided exploration of topics that people find most interesting.
+These advanced exercises will also be a little more time consuming, have a little
+less guidance, and require you to research and discover a little on your own.
+Over the course of the semester, you are expected to do at least three of the
+advanced exercises.</p>
+<p>The advanced exercises are graded on a simple 0 or 1 system, either you did
+the whole thing or you did not. Some weeks may have multiple advanced exercise
+options, however you may only earn 1 advanced exercise point per week (though
+that shouldn&rsquo;t stop you from doing more if you are interested!).</p>
+
+<div class="table-responsive">
+<table class="table grade-table">
+	<tr>
+		<th></th>
+		<th class="grade-table">A+ (4.33)</th>
+		<th class="grade-table">A (4.0)</th>
+		<th class="grade-table">B (3.0)</th>
+		<th class="grade-table">C (2.0)</th>
+		<th class="grade-table">F (0.0)</th>
+	</tr>
+	<tr>
+		<th>Advanced Exercises Points</th>
+		<td>6+</td>
+		<td>3&#x2011;5</td>
+		<td>2</td>
+		<td>1</td>
+		<td>0</td>
+	</tr>
+</table>
+</div>
+
+<h3>Final Exam (25%)</h3>
+<p>
+The final exam will be cumulative over all of the whole term.
+We have a 90-minute time slot for the exam.
+This is a very broad course. The exam is not designed to be &ldquo;tricky&rdquo;
+or test the esoteric corners of things presented in lecture. A student who
+attended every lecture and completed all the homeworks will likely need minimal
+studying for this exam.
+</p>
+
+<h2><a class="anchor" name="links"></a>Useful Links / Resources</h2>
+<ul>
+	<li><a href="http://c-faq.com/index.html">comp.lang.c FAQ</a>: Next time
+	you're bored, don't facebook, reddit, or google+; instead skim a
+	section. It's really interesting material, presented in short, easy
+	snippets</li>
+	<li><a href="http://stackoverflow.com">Stack Overflow</a>: Got a
+	problem? Try searching here instead of Google. Odds favor this site will
+	be the first result anyway, and it's answers are much more complete,
+	readable, and useful</li>
+</ul>

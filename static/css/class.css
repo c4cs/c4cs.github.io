@@ -1,0 +1,97 @@
+.scale {
+	height: 1em;
+	width: 1em;
+}
+
+.h2 {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.update {
+	margin-top: 20px;
+}
+
+.syllabus-section-header {
+  background-color: #ffa;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.staff-table img {
+	width: 125px;
+	border-radius: 10%;
+}
+
+.staff-table td {
+	text-align: center;
+}
+
+.grade-table {
+	text-align: center;
+}
+
+.grade-table > tbody > tr > th {
+	text-align: center;
+}
+
+/* https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/ */
+.calendar-container {
+	position: relative;
+	padding-bottom: 51.5%; /* 500/970 = 0.515 */
+	height: 0;
+	overflow: hidden;
+}
+
+.calendar-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.fc-location {
+	color: #EEE;
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 1000px;
+	}
+}
+
+@screen and (max-width: 767px) {
+	.table-responsive > .table > tbody > tr > td {
+		white-space: inherit;
+	}
+}
+
+/* Override bootstrap's default table behavoir */
+@media screen and (max-width: 767px) {
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: normal;
+  }
+}
+
+.syllabus-homework {
+	height: 100%;
+}
+
+.anchor-icon {
+  position: relative;
+  left: -25px;
+  margin-right: -16px;
+}
+@media only screen and (max-width : 480px) {
+  .anchor-icon {
+    display: none;
+  }
+}
+

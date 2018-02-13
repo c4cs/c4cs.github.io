@@ -1,0 +1,27 @@
+5568c5568,5573
+< 		
+---
+> 
+> 		locationHtml =
+> 			'<span class="fc-location">' +
+> 				(htmlEscape(event.location || '') || '&nbsp;') +
+> 			'</span>';
+> 
+5581,5582c5586,5587
+< 						titleHtml + ' ' + timeHtml : // put a natural space in between
+< 						timeHtml + ' ' + titleHtml   //
+---
+> 						locationHtml + ' ' + titleHtml + ' ' + timeHtml : // put a natural space in between
+> 						timeHtml + ' ' + titleHtml + ' ' + locationHtml   //
+6953a6959,6964
+> 					(event.location ?
+> 						'<div class="fc-location">' +
+> 							htmlEscape(event.location) +
+> 						'</div>' :
+> 						''
+> 						) +
+11893c11904
+< });
+\ No newline at end of file
+---
+> });

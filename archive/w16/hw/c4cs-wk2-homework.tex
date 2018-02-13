@@ -1,0 +1,133 @@
+\documentclass{article}
+%\usepackage{fullpage}
+%\usepackage[top=1in, bottom=1in, left=1cm,right=1cm]{geometry}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+\fancyfoot[L]{C4CS -- W'16}
+\fancyfoot[R]{Revision 1.0}
+\fancyfoot[C]{\thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+\title{\textbf{Homework 2\\Shells and Your Environment}}
+\author{Assigned: Friday, January 15, 11:00AM}
+\date{\textbf{\color{red}{Due: Friday, January 22, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/2248}{Gradescope}.
+You must submit every page of this PDF.
+We recommend using the free online tool \href{https://www.pdfescape.com}{PDFescape}
+to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section{Understanding your environment}
+
+When you open a new terminal window, a lot has actually happened behind the
+scenes before your prompt shows up. In lecture we introduced the files
+\texttt{\textasciitilde/.bashrc} and \texttt{\textasciitilde/.bash\_aliases}
+as some files that are read when a new session starts, however, there more
+than just those.
+
+\textbf{List all of the files read by your shell during startup that
+contribute to your environment. List files in the order that they are read.}
+\emph{Hint: Don't forget about global files, such as those in \texttt{/etc}}
+
+\vspace{4cm}
+
+
+\noindent
+Run the command \texttt{set}.\footnote{
+  That dumps a lot of text to the screen. Try running \texttt{set | less} to
+  get a scrollable view or \texttt{set $>$ output.txt} to save the output to a
+  file for easier viewing.
+}
+This command prints your current
+environment, that is, all of the variables currently set to any
+value.  Also try the command \texttt{env}, which only includes variables
+that have been ``exported'', that is variables that will be set for child
+processes. Why do you think so many variables are set, but not exported?
+
+\textbf{Pick a variable that is set but not exported (something printed by
+  \texttt{set} but not by \texttt{env}). Explain why you think that
+  variable is useful for the shell process, but not for a child process
+  spawned (created) by the shell:
+}
+\vspace{2cm}
+
+
+\noindent
+While some variables should be familiar from the first part of this question,
+there are many more variables in your environment than those set by
+\texttt{.bashrc} and friends.
+
+\textbf{Pick a variable not set during shell startup. Explain where that
+variable comes from (what sets it) and what its value means
+\emph{(do not use the same variable as the previous question)}:}
+
+
+\newpage
+\section{Special Variables}
+
+Bash has quite a few special variables that can be very useful when writing
+scripts or while working at the terminal.
+
+\textbf{What does the variable \texttt{\$?} do? Give an example where this
+value is useful}
+\vspace{3cm}
+
+\textbf{What does the variable \texttt{\$\_} do? Give an example where this
+value is useful}
+\vspace{3cm}
+
+
+\section{Understanding your \texttt{PATH}}
+
+In a terminal, type \texttt{PATH=} (just hit enter after the equal sign, no
+space characters anywhere). Try to use the terminal like normal (try running
+\texttt{ls}). What happened?
+
+\textbf{Give an example of a command that used to work but now doesn't:}
+\vspace{3cm}
+
+\textbf{Can you still run this command with an empty \texttt{PATH}? How?}
+\vspace{3cm}
+
+\textbf{Give an example of a command that works the same even with an empty
+\texttt{PATH}. Why does this command still work?}
+\vspace{3cm}
+
+
+\newpage
+\section{Basic Scripting}
+
+Recall from lecture that scripting is really just programming, only in a very
+high-level language. Interestingly, \texttt{sh} is probably one of the oldest
+languages in regular use today.
+
+\texttt{make} is a good tool for build systems, but we can actually use some
+basic scripting to accomplish a lot of the same things.
+First, write a simple C program that prints ``Hello World!''.
+Write a shell script named \texttt{build.sh} that performs the following
+actions:
+\begin{enumerate}
+  \item Compile your program
+  \item Runs your program
+  \item Verifies that your program outputs exactly the string ``Hello World!''
+  \item Prints the string ``All tests passed.'' if the output is correct, or
+    prints ``Test failed. Expected output $>>$Hello World$<<$, got
+    output $>>$\{the program output\}$<<$''.
+\end{enumerate}
+
+\textbf{Copy the output of \texttt{cat build.sh} here:}
+
+
+\end{document}

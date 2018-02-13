@@ -1,0 +1,125 @@
+{% if page.sectionHeader %}
+  <tr class="syllabus-section-header">
+    <td colspan="4">{{ page.sectionHeader }}</td>
+  </tr>
+{% endif %}
+<tr>
+  <th class="week">Week&nbsp;{{ page.week }}</th>
+  <td>{{ page.dates }}</td>
+  <td rowspan="3">
+    <strong>{{ page.title | markdownify }}</strong>
+    {% if page.lectureTopics %}
+      <p>Lecture</p>
+      <ul>
+        {% for topic in page.lectureTopics %}
+          {% if topic.sub %}
+            <ul><li>{{ topic.sub }}</li></ul>
+          {% else %}
+            <li>{{ topic }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if page.homeworkTopics %}
+      <p>Homework</p>
+      <ul>
+        {% for topic in page.homeworkTopics %}
+          {% if topic.sub %}
+            <ul><li>{{ topic.sub }}</li></ul>
+          {% else %}
+            <li>{{ topic }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if page.advancedTopics %}
+      <p>Advanced</p>
+      <ul>
+        {% for topic in page.advancedTopics %}
+          {% if topic.sub %}
+            <ul><li>{{ topic.sub }}</li></ul>
+          {% else %}
+            <li>{{ topic }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </td>
+  <td rowspan="3">
+    {% if page.lectureSummary %}
+      {{ page.lectureSummary | markdownify }}
+    {% endif %}
+    {% if page.slidesName %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign lectureRelease = page.lectureRelease | date: '%s' | times: 1 %}
+      {% if now > lectureRelease %}
+      <p>
+        <a href="/lectures/{{ page.slidesName }}">Slides</a>
+        <a href="/lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+      </p>
+      {% endif %}
+    {% endif %}
+    {% if page.leccapFri %}
+      <p>
+      <a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a>
+      </p>
+    {% endif %}
+    {% if page.asciicasts %}
+      <p><b>Asciicasts:</b>
+      {% for asciicast in page.asciicasts %}
+        {% if forloop.last %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a>
+        {% else %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a> &#x25cf;
+        {% endif %}
+      {% endfor %}
+      </p>
+    {% endif %}
+    {% if page.commands %}
+      <hr />
+      <p><b>B1G TEN Commands</b><p>
+      {% for command in page.commands %}
+        {% if forloop.last %}
+          <a href="commands/{{ command }}">{{ command }}</a>
+        {% else %}
+          <a href="commands/{{ command }}">{{ command }}</a> &#x25cf;
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    {% for lecturer in page.lecturer %}
+      <p><em>{{ lecturer }}</em></p>
+    {% endfor %}
+  </td>
+</tr>
+<tr>
+  <td colspan="2" class="syllabus-homework">
+    {% if page.homeworkRelease %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign homeworkRelease = page.homeworkRelease | date: '%s' | times: 1 %}
+      {% if now > homeworkRelease %}
+        <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
+        <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
+        {% if page.advancedRelease %}
+          {% assign advancedRelease = page.advancedRelease | date: '%s' | times: 1 %}
+          {% if now > advancedRelease %}
+            <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
+            <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      {% if page.solutionRelease %}
+        {% assign solutionRelease = page.solutionRelease | date: '%s' | times: 1 %}
+        {% if now > solutionRelease %}
+          <hr />
+          <p><a href="/static/{{ page.categories }}/solutions/c4cs-wk{{ page.week }}-solutions.pdf">Solutions&nbsp;{{ page.week }} [pdf]</a></p>
+        {% endif %}
+      {% endif %}
+    {% else %}
+      <p>No homework this week!</p>
+    {% endif %}
+  </td>
+</tr>

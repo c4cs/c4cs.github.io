@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyfoot[L]{\color{gray} C4CS -- W'16}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+
+
+\title{\textbf{Homework 6\\Build Systems}}
+\author{Assigned: Friday, February 12, 11:00AM}
+\date{\textbf{\color{red}{Due: Friday, February 19, 11:00AM (Hard Deadline)}}}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/2248}{Gradescope}.
+You must submit every page of this PDF.
+We recommend using the free online tool \href{https://www.pdfescape.com}{PDFescape}
+to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+\hl{Even if there are not questions to answer on the first page, please still
+submit every page of this PDF.}
+
+There may multiple answers for each question. If you are unsure,
+state your assumptions and your reasoning for why you think your answer
+makes sense.
+
+
+
+\newpage
+\begin{mdframed}\centering
+For this assignment, we will experiment in the EECS\,280~W15 repository you
+created for Homework~4.
+\end{mdframed}
+
+\section{Expressing Dependencies}
+\begin{enumerate}\small
+  \item Run \texttt{make} to build everything.
+  \item Run \texttt{make} again (nothing happens).
+  \item Edit \texttt{p2.cpp} and make a change (add a comment or something).
+  \item Run \texttt{make} again.
+  \item Edit \texttt{p2.h} and make a change (add a comment or something).
+  \item Run \texttt{make} again.
+\end{enumerate}
+
+\textbf{Why did make rebuild things after step~4 but not after step~6? Why is
+this a problem?}
+\vspace{2cm}
+
+\textbf{Rewrite the rule for \texttt{simple\_test} so that make rebuilds
+correctly for any changes you make:\footnote{You do not need to worry about
+  system header files}}
+% (Original rule):
+%\begin{lstlisting}
+%simple_test: simple_test.cpp p2.cpp Recursive_list.cpp Binary_tree.cpp \
+%	      recursive.cpp test_helpers.cpp
+%	g++ -Wall -Werror -pedantic -O2 \
+%	      simple_test.cpp p2.cpp Recursive_list.cpp Binary_tree.cpp \
+%	      recursive.cpp test_helpers.cpp -o simple_test
+%\end{lstlisting}
+\vspace{2cm}
+
+\emph{\small Think this is a pain? Check out the advanced homework for a
+  BetterWay$^{TM}$.}
+
+
+\section{From Build Engine to Rules Engine}
+
+Makefiles are often asked to do more than simply build your software. A common
+example is a rule named \texttt{clean} that deletes everything built by the
+Makefile.
+
+\begin{enumerate}\small
+  \item Run \texttt{make} to build everything.
+  \item Run \texttt{make clean} to delete everything that was built.
+  \item Run \texttt{make} to build everything.
+  \item Run \texttt{touch clean}
+  \item Run \texttt{ls} {(\footnotesize do you understand what \texttt{touch} does?)}
+  \item Run \texttt{make clean}
+\end{enumerate}
+
+Why did make run the \texttt{clean} rule after step~2 but not after step~5?
+
+\textbf{What flag can you pass to make so that it unconditionally ``builds''
+  the \texttt{clean} target?}
+
+\texttt{make -\_\_ clean}
+
+\textbf{Describe how to fix the Makefile so that fake targets like \texttt{clean} work correctly.}
+\vspace{2cm}
+
+\section{Removing Duplicated Effort}
+
+Notice that currently the \texttt{all} target and the \texttt{test} target
+have the same list of dependencies.
+
+\textbf{List \ul{all} the changes you have to make to the Makefile so that the
+  \texttt{test} target correctly depends on the \texttt{all} target in all
+  cases.}
+\vspace{2cm}
+
+\section{Anything Special about All?}
+\label{q:all}
+
+Currently, if you just type \texttt{make}, make will run \texttt{make all}.
+One might wonder why make chooses the \texttt{all} goal by default.
+While you could look this up, we are computer \emph{scientists}.
+Make changes to the Makefile until you are confident that you understand how
+make chooses the default goal.
+
+\textbf{Describe the experiments you ran in order to determine what target
+  make builds by default.}
+\vspace{3cm}
+
+\newpage
+
+\section{Pulling Some Pieces Together}
+
+Option~3 from Question~3 on Homework~3 (during week~3!) noted:
+\begin{quote}
+  First cool thing that happened: Yes, you can run make without any Makefile
+  anywhere. We'll cover how that happened during build-system week.
+\end{quote}
+First let's get a simple environment set up and try some things out:
+\begin{lstlisting}
+@>@ mkdir /tmp/wk6 && cd $_
+@>@ echo -e '#include <stdio.h>\n\nint main() {\n\tprintf("Howdy\\n");\n\treturn 0;\n}\n' > hello.c
+@>@ make
+@>@ make hello
+@>@ ./hello
+\end{lstlisting}
+Does \texttt{make clean} work? Why not?
+
+Now try
+\begin{lstlisting}
+@>@ rm hello
+@>@ make -r hello
+\end{lstlisting}
+What does the \texttt{-r} flag do?
+
+Next try
+\begin{lstlisting}
+@>@ make CFLAGS=-03 hello
+\end{lstlisting}
+What changed when hello was built this time?
+
+Finally run
+\begin{lstlisting}
+@>@ make hello -p | less
+\end{lstlisting}
+
+\medskip
+\textbf{Find the built-in rule that runs to create ``hello'' from ``hello.c''
+  and copy it here:}
+%(can you also find where the default goal set from \cref{q:all}?)
+\vspace{2cm}
+
+
+Now let's add an additional file to the mix, only a C++ file this time:
+\\{(\footnotesize This example uses a
+  \href{https://en.wikipedia.org/wiki/Here_document\#Unix_shells}{special
+    shell syntax} for easily writing multiple lines to a shell command)}
+\begin{lstlisting}
+@>@ cat << MARKER > wazzup.cpp
+#include <iostream>
+
+int main() {
+  std::cout << "Wazzup?" << std::endl;
+  return 0;
+}
+MARKER
+@>@ cat wazzup.cpp
+\end{lstlisting}
+
+\textbf{Using what you have learned, write a single make command (i.e. only
+  call make once) that, without a Makefile, will build both ``hello'' and
+  ``wazzup'', but builds hello optimized for speed (\texttt{-O3}) and wazzup
+  optimized for size (\texttt{-Os}).
+}
+
+
+
+
+\end{document}
