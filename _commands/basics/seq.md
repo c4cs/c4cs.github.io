@@ -72,7 +72,7 @@ $ seq 2 2 10
 
 #### Bash Script
 
-##### input
+##### Input
 
 ~~~ bash
 > for i in $(seq 3)
@@ -81,7 +81,7 @@ $ seq 2 2 10
 > done
 ~~~
 
-##### output
+##### Output
 
 ~~~ bash
 i is now 1
