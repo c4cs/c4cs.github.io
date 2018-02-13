@@ -1,0 +1,109 @@
+<h2 id="cp">cp</h2>
+
+<p><code class="highlighter-rouge">cp</code> is used to <em>copy</em> files or directories.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp <span class="nb">source </span>destination
+<span class="gp">$ </span>cp file1.txt file2.txt
+<span class="gp">$ </span>cp -b file1.txt file2.txt
+<span class="gp">$ </span>cp -v file1.txt file2.txt
+<span class="gp">$ </span>cp <span class="k">*</span> ~/Desktop
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="cp-1"><code class="highlighter-rouge">cp</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp file1.txt file2.txt
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+
+<ul>
+  <li>This is the simplest use of <code class="highlighter-rouge">cp</code>. It copies the contents of <code class="highlighter-rouge">file1.txt</code> and puts
+it into <code class="highlighter-rouge">file2.txt</code>. If <code class="highlighter-rouge">file2.txt</code> does not exist, it creates it and puts the
+contents of <code class="highlighter-rouge">file1.txt</code> into it. If <code class="highlighter-rouge">file2.txt</code> does exist, it overwrites it.</li>
+</ul>
+
+<h4 id="cp--b"><code class="highlighter-rouge">cp -b</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp -b file1.txt file2.txt
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+
+<ul>
+  <li>This flag makes a backup of the destination (if it exists) before overwriting it.
+The backup file will be called <code class="highlighter-rouge">file2.txt~</code>. If the destination does not exist, the
+flag doesn’t do anything.</li>
+</ul>
+
+<h4 id="cp--r"><code class="highlighter-rouge">cp -r</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp -r eecs280-w15 eecs280-w15-copy
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li>The <code class="highlighter-rouge">-r</code> option will copy directories recursively. That means that if you want to
+make a copy of a folder, including its sub-folders, you must include the <code class="highlighter-rouge">-r</code> flag.
+In the example above, the command will copy over all of the contents of <code class="highlighter-rouge">eecs280-w15</code>
+into another folder called <code class="highlighter-rouge">eecs280-w15-copy</code>.</li>
+</ul>
+
+<h4 id="cp--u"><code class="highlighter-rouge">cp -u</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp -u file1.txt file2.txt
+</code></pre>
+</div>
+
+<h5 id="break-it-down-3">Break it down</h5>
+
+<ul>
+  <li>This option ensures that the copy only occurs when the source file is newer than the
+destination file or when the destination file is missing. If <code class="highlighter-rouge">file2.txt</code> is updated 
+after <code class="highlighter-rouge">file1.txt</code>, the <code class="highlighter-rouge">file1.txt</code> will not be copied over to <code class="highlighter-rouge">file2.txt</code>. If <code class="highlighter-rouge">file2.txt</code>
+does not exist, it is created and will contain the contents of <code class="highlighter-rouge">file1.txt</code>.</li>
+</ul>
+
+<h4 id="cp--v"><code class="highlighter-rouge">cp -v</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp -v file1.txt file2.txt
+<span class="s1">'file1.txt'</span> -&gt; <span class="s1">'file2.txt'</span>
+</code></pre>
+</div>
+
+<h5 id="break-it-down-4">Break it down</h5>
+
+<ul>
+  <li>This option explains what is being done during the copy process. It can be combined with
+other flags (like <code class="highlighter-rouge">-u</code>) so that it can be determined whether the copy occurred or
+not. If the copy did not occur, there will be no output.</li>
+</ul>
+
+<h4 id="cp-file1txt-desktophw4"><code class="highlighter-rouge">cp file1.txt ~/Desktop/HW4</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp file1.txt ~/Desktop/HW4
+</code></pre>
+</div>
+
+<h5 id="break-it-down-5">Break it down</h5>
+
+<ul>
+  <li>This usage of cp is very useful. Instead of copying directly to another file, a directory
+can be specified. <code class="highlighter-rouge">file1.txt</code> will be copied over to a newly created file in the specified
+directory.</li>
+</ul>
+
+<h4 id="cp--desktophw4"><code class="highlighter-rouge">cp * ~/Desktop/HW4</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp <span class="k">*</span> ~/Desktop/HW4
+</code></pre>
+</div>
+
+<h5 id="break-it-down-6">Break it down</h5>
+
+<ul>
+  <li>This usage of cp is similar to the example above. This time, all the files of the current
+folder will be copied to the specified directory. It is particularly useful if you wish
+to copy all files in one directory into another.</li>
+</ul>

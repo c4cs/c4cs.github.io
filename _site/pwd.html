@@ -1,0 +1,63 @@
+<h2 id="pwd">pwd</h2>
+
+<p><code class="highlighter-rouge">pwd</code> stands for print working directory. <code class="highlighter-rouge">pwd</code> outputs the full pathname of the current work directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">pwd</span>
+/home/bo/Desktop
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">pwd</code> can also be used to store the full path to the current directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">x</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--information">Useful Options / Information</h3>
+
+<h4 id="pwd-vs-binpwd"><code class="highlighter-rouge">pwd</code> vs <code class="highlighter-rouge">/bin/pwd</code></h4>
+<ul>
+  <li><code class="highlighter-rouge">/bin/pwd</code> ignores symlinks and prints actual directory by default.</li>
+  <li><code class="highlighter-rouge">pwd</code> is a shell builtin provided by bash that links to <code class="highlighter-rouge">/bin/pwd</code></li>
+  <li><code class="highlighter-rouge">/bin/pwd</code> is the binary version of pwd</li>
+</ul>
+
+<h4 id="pwd--l"><code class="highlighter-rouge">pwd -L</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s . <span class="nb">test</span>
+<span class="gp">$ </span><span class="nb">cd test</span> <span class="o">&amp;&amp;</span> <span class="nb">pwd</span>
+/home/bo/Desktop/test
+<span class="gp">$ </span>/bin/pwd
+/home/bo/Desktop
+<span class="gp">$ </span>/bin/pwd -L
+/home/bo/Desktop/test
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+<ul>
+  <li><code class="highlighter-rouge">--logical</code> or <code class="highlighter-rouge">-L</code> option displays the logical current working directory.</li>
+  <li>Built in ‘pwd’ includes symlinks by default except when <code class="highlighter-rouge">-P</code> is used.
+    <ul>
+      <li><code class="highlighter-rouge">/bin/pwd</code> ignore symlinks and prints out the actual directory.</li>
+      <li>For <code class="highlighter-rouge">/bin/pwd</code> to get the same result as the built in <code class="highlighter-rouge">pwd</code>, you must use the <code class="highlighter-rouge">-L</code> option.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="pwd--p"><code class="highlighter-rouge">pwd -P</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> ~/bin
+<span class="gp">$ </span><span class="nb">pwd</span>
+/home/bo/bin
+<span class="gp">$ </span><span class="nb">pwd</span> -P
+/home/bo/realdata/scripts/utils
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+<ul>
+  <li><code class="highlighter-rouge">--physical</code> or <code class="highlighter-rouge">-P</code> Print a fully resolved name for the current directory. That is, all components of the printed name will be actual directory names–none will be symbolic links.</li>
+</ul>

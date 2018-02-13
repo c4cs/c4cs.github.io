@@ -1,0 +1,57 @@
+<h2 id="wc">wc</h2>
+
+<p><code class="highlighter-rouge">wc</code> prints newline, word, and byte counts for each <code class="highlighter-rouge">FILE</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc tecmint.txt
+12  16 112 tecmint.txt
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="wc--l"><code class="highlighter-rouge">wc -l</code></h4>
+
+<p>To count number of newlines in a file use the option <code class="highlighter-rouge">-l</code>, which prints the number of lines from a given file.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc -l tecmint.txt
+12 tecmint.txt
+</code></pre>
+</div>
+
+<h4 id="wc--w"><code class="highlighter-rouge">wc -w</code></h4>
+
+<p>Using <code class="highlighter-rouge">-w</code> argument with <code class="highlighter-rouge">wc</code> command prints the number of words in a file.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc -w tecmint.txt
+16 tecmint.txt
+</code></pre>
+</div>
+
+<h4 id="wc--c"><code class="highlighter-rouge">wc -c</code></h4>
+
+<p>Using <code class="highlighter-rouge">-c</code> with <code class="highlighter-rouge">wc</code> command will print the total number of bytes in a file.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc -c tecmint.txt
+112 tecmint.txt
+</code></pre>
+</div>
+
+<h4 id="wc--m"><code class="highlighter-rouge">wc -m</code></h4>
+
+<p>Using <code class="highlighter-rouge">-m</code> with <code class="highlighter-rouge">wc</code> command will print the total number of characters in a file.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc -m tecmint.txt
+112 tecmint.txt
+</code></pre>
+</div>
+
+<h4 id="wc--l-1"><code class="highlighter-rouge">wc -L</code></h4>
+
+<p>The ‘wc‘ command allow an argument ‘-L‘, it can be used to print out the length of longest (number of characters) line in a file.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wc -L tecmint.txt
+16 tecmint.txt
+</code></pre>
+</div>
