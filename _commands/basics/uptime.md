@@ -4,7 +4,7 @@
 uptime
 ------
 
-`uptime` is used to check how long your computer has been on since the last reboot
+`uptime` is used to check how long your computer has been on since the last reboot. This is useful for the user as it allows the user to determine whether a restart or shut down is necessary for the computer.
 
 ~~~ bash
 $ uptime
@@ -15,7 +15,7 @@ $ uptime
 
 ### Useful Options / Examples
 
-Uptime gives a one line display for each of the following
+'uptime' gives a one line display for each of the following
 
 The current time:
 
@@ -41,13 +41,13 @@ The system load averages for the past 1, 5, and 15 minutes:
 1.91 2.04 2.13
 ~~~
 
-#### uptime syntax
+### uptime syntax
 ~~~bash
 uptime [options]
 ~~~
 
 #### uptime -p
-Displays only the uptime in a readable manner
+Displays only the time the computer has been on in a readable manner
 
 ~~~bash
 uptime -p
