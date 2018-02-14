@@ -5,7 +5,7 @@ linuxlogo
 -------
 `linuxlogo`  is a Linux command line utility that generates a color ANSI picture of logo with a few system information.
 
-To use `cowsay`, simply type:
+To use `linuxlogo`, simply type:
 
 ~~~ bash
 $ sudo apt install linuxlogo
