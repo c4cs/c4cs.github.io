@@ -4,7 +4,7 @@
 uptime
 ------
 
-`uptime` is used to check how long your Mac has been on since the last reboot
+`uptime` is used to check how long your computer has been on since the last reboot
 
 ~~~ bash
 $ uptime
@@ -46,12 +46,22 @@ The system load averages for the past 1, 5, and 15 minutes:
 uptime [options]
 ~~~
 
-Below are some flags and their descriptions
+#### uptime -p
+Displays only the uptime in a readable manner
 
-|     Flag     |               Description                |
-| :----------: | :--------------------------------------: |
-|      -h      |  Displays a help message |
-|      -V      |  Displays the version information |
+~~~bash
+uptime -p
+up 11 minutes
+~~~
+
+#### uptime -s
+Displays the time when the system first started
+
+~~~bash
+uptime -s
+2018-02-14 11:49:24
+~~~
+
 
 
 
