@@ -18,16 +18,28 @@ $ uptime
 Uptime gives a one line display for each of the following
 
 The current time:
+
+~~~bash
 11:31
+~~~
 
 How long the system has been running:
+
+~~~bash
 1 day, 1:22
+~~~
 
-How many users are currently logged on
+How many users are currently logged on:
+
+~~~bash
 2 users
+~~~
 
-The system load averages for the past 1, 5, and 15 minutes
+The system load averages for the past 1, 5, and 15 minutes:
+
+~~~bash
 1.91 2.04 2.13
+~~~
 
 #### uptime syntax
 ~~~bash
@@ -35,6 +47,7 @@ uptime [options]
 ~~~
 
 Below are some flags and their descriptions
+
 |     Flag     |               Description                |
 | :----------: | :--------------------------------------: |
 |      -h      |  Displays a help message |
