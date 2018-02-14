@@ -16,8 +16,7 @@ $ stat stat.md
 ### Useful Options / Examples
 The output is structured as below:
 ~~~ bash
-st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim
-st_mtim st_ctim st_blksize st_blocks
+st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim st_mtim st_ctim st_blksize st_blocks
 ~~~
 `st_dev` – identifier of device containing file
 `st_ino` – inode number
