@@ -4,7 +4,7 @@
 date
 -------
 <!-- one line explanation would go here -->
-`date` returns a system time the user specified.
+`date` returns a system time specified by the user.
 <!-- minimal example -->
 ~~~ bash
 $ date
@@ -19,10 +19,11 @@ This command returns the standard current time. With different options and param
 
 ### Useful Options / Examples
 
+The syntax for using options is:
+
 ~~~ bash
-$ date --help
+date [options]
 ~~~
-Run this command to display a list of options.
 
 The useful options include:
 
@@ -33,28 +34,35 @@ The useful options include:
 %s  show the current seconds from 1970-01-01 00:00:00 UTC
 ~~~
 
-For more help, run
-~~~ bash
-man date
-~~~
-to view the manual of this command.
-
-#### Example command
-
-~~~ bash
-$ date +%s
-1517939576
-~~~
-
-##### Break it down
-
-#### Example command
+Here are some examples of using options:
 
 ~~~ bash
 $ date +%a%b
 TueFeb
 ~~~
 
-##### Break it down
+~~~ bash
+$ date +%s
+1517939576
+~~~
+
+The syntax for using flags is:
+
+~~~ bash
+date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+~~~d
+
+Here is a simple example of using flag:
+
+~~~ bash
+date --universal
+Wed Feb 14 07:16:15 UTC 2018
+~~~
+
+For more help, run
+~~~ bash
+man date
+~~~
+to view the manual of this command.
 
 Reference: https://linode.com/docs/tools-reference/tools/use-the-date-command-in-linux/
