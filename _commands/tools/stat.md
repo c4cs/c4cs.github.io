@@ -18,18 +18,18 @@ The output is structured as below:
 ~~~ bash
 st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim st_mtim st_ctim st_blksize st_blocks
 ~~~
-`st_dev` – identifier of device containing file
-`st_ino` – inode number
-`st_mode` – protection mode; see also Unix permissions
-`st_nlink` – reference count of hard links
-`st_uid` – user identifier of owner
-`st_gid` – group identifier of owner
-`st_rdev` – device identifier (if special file)
-`st_size` – total file size, in bytes
-`st_atime` – time of last access
-`st_mtime` – time of last modification
-`st_ctime` – time of last status change
-`st_blksize` – preferred block size for file system I/O, which can depend upon both the system and the type of file system[3]
+`st_dev` – identifier of device containing file<br/>
+`st_ino` – inode number<br/>
+`st_mode` – protection mode; see also Unix permissions<br/>
+`st_nlink` – reference count of hard links<br/>
+`st_uid` – user identifier of owner<br/>
+`st_gid` – group identifier of owner<br/>
+`st_rdev` – device identifier (if special file)<br/>
+`st_size` – total file size, in bytes<br/>
+`st_atime` – time of last access<br/>
+`st_mtime` – time of last modification<br/>
+`st_ctime` – time of last status change<br/>
+`st_blksize` – preferred block size for file system I/O, which can depend upon both the system and the type of file system[3]<br/>
 `st_blocks` – number of blocks allocated in multiples of DEV_BSIZE (usually 512 bytes).
 #### Example commands
 `-r` - Display raw information, That is for all the fields displayed above, display the raw, numerical value
