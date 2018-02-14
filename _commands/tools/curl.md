@@ -9,6 +9,7 @@ curl
 ~~~ bash
 $ curl http://www.google.com
 ~~~
+This will output the content of of the url to the command line
 
 <!--more-->
 
@@ -31,3 +32,33 @@ Saves the curl commands for all three urls in their respective files
 ~~~ bash
 $ curl -O http://fakeurl.ca -O http://fakeurl1.ca
 ~~~
+
+#### `curl protocol:url`
+
+Will force curl to use the desired protocol
+
+~~~bash
+$ curl dict://dict.org/m:hello
+~~~
+
+Will get the definition of hello from a dictionary
+
+#### `curl -u username url`
+
+This will specify username for the proxy authentication
+
+~~~bash
+$ curl -u jsmith sftp://random.com
+~~~
+
+Uses sftp to get a file from an SSH server
+
+#### `curl -# url`
+
+Will display a more simple progress bar then the default one
+
+~~~bash
+$ curl -# testurl.com
+~~~
+
+
