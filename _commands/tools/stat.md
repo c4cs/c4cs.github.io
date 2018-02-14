@@ -6,7 +6,9 @@ stat
 Displays information about the file pointed to by [filename]
 ~~~ bash
 $ stat stat.md
-16777217 14633638 -rw-r--r-- 1 [user] staff 0 439 "Feb  9 22:08:11 2018" "Feb  9 22:08:08 2018" "Feb  9 22:08:08 2018" "Feb  9 21:29:18 2018" 4096 8 0x40 stat.md
+16777217 14633638 -rw-r--r-- 1 [user] staff 0 439 "Feb  9 22:08:11 2018"
+"Feb  9 22:08:08 2018" "Feb  9 22:08:08 2018" "Feb  9 21:29:18 2018"
+4096 8 0x40 stat.md
 ~~~
 
 <!--more-->
@@ -14,7 +16,8 @@ $ stat stat.md
 ### Useful Options / Examples
 The output is structured as below:
 ~~~ bash
-st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim st_mtim st_ctim st_blksize st_blocks
+st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim
+st_mtim st_ctim st_blksize st_blocks
 ~~~
 `st_dev` – identifier of device containing file
 `st_ino` – inode number
@@ -33,13 +36,16 @@ st_mode st_ino st_dev st_rdev st_nlink st_uid st_gid st_size st_atim st_mtim st_
 `-r` - Display raw information, That is for all the fields displayed above, display the raw, numerical value
 ~~~ bash
 $ stat -r stat.md
-16777217 14636916 0100644 1 501 20 0 1800 1518234259 1518234256 1518234256 1518229758 4096 8 64 stat.md
+16777217 14636916 0100644 1 501 20 0 1800 1518234259 1518234256
+1518234256 1518229758 4096 8 64 stat.md
 ~~~
 <!--##### Break it down-->
 `-s` - Display information in `'shell output'`,  suitable for initializing variables
 ~~~ bash
 $ stat -s stat.md
-st_dev=16777217 st_ino=14637054 st_mode=0100644 st_nlink=1 st_uid=501 st_gid=20 st_rdev=0 st_size=1905 st_atime=1518234359 st_mtime=1518234357 st_ctime=1518234357 st_birthtime=1518229758 st_blksize=4096 st_blocks=8 st_flags=64
+st_dev=16777217 st_ino=14637054 st_mode=0100644 st_nlink=1 st_uid=501
+st_gid=20 st_rdev=0 st_size=1905 st_atime=1518234359 st_mtime=1518234357 st_ctime=1518234357 st_birthtime=1518229758 st_blksize=4096 st_blocks=8
+st_flags=64
 ~~~
 `-x` - Display information in a more easier to read format
 ~~~ bash
