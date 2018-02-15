@@ -1,47 +1,44 @@
 ---
-
 ---
-
-
 
 tmux
-
----
+--
 
 'tmux' allows a user to use 1 terminal window to access multiple separate terminal sessions. It lets you keep running them in the background by detaching them and then reattach them to a different terminal.
 
 ~~~ bash
-
 $ tmux
 $ tmux new -s myname
 $ tmux a -t myname
 $ tmux ls
 $ tmux kill-session -t myname
-
 ~~~
+
+<!--more-->
 
 ### Useful Options / Examples
 
-#### CTRL-B + % or CTRL-B + "
 
-##### % represents a vertical split, while " represents a horizontal split. This will split the terminal window into multiple terminal sessions. Use CTRL-B + arrow keys to navigate.
+#### `CTRL-B + % or CTRL-B + "`
 
-#### tmux new -s foo
+% represents a vertical split, while " represents a horizontal split. This will split the terminal window into multiple terminal sessions. Use CTRL-B + arrow keys to navigate.
 
-##### New creates a session with the name foo and attaches it to the terminal. Adding -d to the end will create a detached session named foo. To list sessions, use the command tmux ls.
+#### `tmux new -s foo`
 
-#### tmux attach -t foo
+New creates a session with the name foo and attaches it to the terminal. Adding -d to the end will create a detached session named foo. To list sessions, use the command tmux ls.
 
-##### Attaches the session to the existing tmux session named foo.
+#### `tmux attach -t foo`
 
-#### CTRL-B + d
+Attaches the session to the existing tmux session named foo.
 
-##### Detaches from session.
+#### `CTRL-B + d`
 
-#### tmux kill-session -t foo
+Detaches from session.
 
-##### Kills session named foo. To kill all sessions except for the current one, use tmux kill-session -a. To kill all sessions except for the session named foo, use tmux kill-session -a -t foo.
+#### `tmux kill-session -t foo`
 
-#### tmux list-commands
+Kills session named foo. To kill all sessions except for the current one, use tmux kill-session -a. To kill all sessions except for the session named foo, use tmux kill-session -a -t foo.
 
-##### Lists out every tmux command and its respective arguments.
+#### `tmux list-commands`
+
+Lists out every tmux command and its respective arguments.
