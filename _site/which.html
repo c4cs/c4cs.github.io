@@ -1,0 +1,53 @@
+<h2 id="which">which</h2>
+
+<p><code class="highlighter-rouge">which</code> returns the first matching command(s) in $PATH</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>which <span class="nb">echo</span>
+/bin/echo
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<p><code class="highlighter-rouge">which -a [command(s)]</code></p>
+
+<p><code class="highlighter-rouge">which</code> can be used with the flag <code class="highlighter-rouge">-a</code> to display all matching commands in <code class="highlighter-rouge">$PATH</code>, not just the first</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>which -a less
+/usr/bin/less
+/bin/less
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">which [program]</code></p>
+
+<p><code class="highlighter-rouge">which</code> can be used with certain programs</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>which nano
+/usr/bin/nano
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">which [commands]</code></p>
+
+<p><code class="highlighter-rouge">which</code> can be with multiple input commands at once</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>which less nano
+/usr/bin/less
+/usr/bin/nano
+</code></pre>
+</div>
+
+<h4 id="putting-it-all-together">Putting it all together</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>which -a less nano
+/usr/bin/less
+/bin/less
+/usr/bin/nano
+/bin/nano
+</code></pre>
+</div>
+
+<p>The command will display all paths in the order they are found. In this case, all locations of <code class="highlighter-rouge">less</code> are listed in order first and then the same for <code class="highlighter-rouge">nano</code></p>

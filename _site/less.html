@@ -1,0 +1,75 @@
+<h2 id="less">less</h2>
+<p><code class="highlighter-rouge">less</code> is a tool to view a text file one screen at a time. You can navigate through the file with <code class="highlighter-rouge">j</code> or <code class="highlighter-rouge">RETURN</code>, and backwards with <code class="highlighter-rouge">k</code></p>
+
+<!-- minimal example -->
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>less hello.txt
+<span class="c"># displays hello.txt</span>
+q <span class="c"># to quit</span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<p>Typing <code class="highlighter-rouge">/</code> within <code class="highlighter-rouge">less</code> allows you to forward search using regex
+and <code class="highlighter-rouge">?</code> allows you to backward search
+pressing <code class="highlighter-rouge">n</code> goes to the next item</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>less hello.txt
+........
+........
+........
+..git...
+.....git
+
+:/git
+<span class="c"># git will be highlighted</span>
+n
+<span class="c"># the next git is highlighted</span>
+</code></pre>
+</div>
+
+<h1 id="options">Options:</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>| Options |                         Description                        |
+|---------|:----------------------------------------------------------:|
+| -?      |                       Displays help.                       |
+| -I      |               Makes search case insensitive.               |
+| -M      |                    More detailed prompt.                   |
+| -S      | Long lines are chopped, and can be seen by side scrolling. |
+| -X      |      Contents of file remain on screen after exiting.      |
+</code></pre>
+</div>
+
+<h1 id="commands">Commands:</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>| Command     |                              Description                             |
+|-------------|:--------------------------------------------------------------------:|
+| Space bar   |                               Next Page                              |
+| b           |                             Previous Page                            |
+| v           |                             Edit Content                             |
+| j           |                         or ↵ Enter  Next Line                        |
+| k           |                             Previous Line                            |
+| F           |              Follow Mode (for logs). Interrupt to abort.             |
+| g or &lt;      |                              First Line                              |
+| G or &gt;      |                               Last Line                              |
+| &lt;n&gt;G        |                               Line &lt;n&gt;                               |
+| /&lt;text&gt;     |      Forward Search for &lt;text&gt;. Text is interpreted as a regex.      |
+| ?&lt;text&gt;     |                        Backward Search like /                        |
+| n           |                           Next Search Match                          |
+| N           |                         Previous Search Match                        |
+| Esc u       |       Turn off Match Highlighting (see -g command line option)       |
+| -&lt;c&gt;        | Toggle option &lt;c&gt;, e.g., -i toggles option to match case in searches |
+| m&lt;c&gt;        |                             Set Mark &lt;c&gt;                             |
+| '&lt;c&gt;        |                            Go to Mark &lt;c&gt;                            |
+| = or Ctrl+G |                           File information                           |
+| :n          |                               Next file                              |
+| :p          |                             Previous file                            |
+| h           |             Help. This is presented with less, q to quit.            |
+| q           |                                 Quit                                 |
+</code></pre>
+</div>
+
+<p><a href="https://en.wikipedia.org/wiki/Less_(Unix)">Reference</a></p>

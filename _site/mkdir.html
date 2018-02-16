@@ -1,0 +1,95 @@
+<h2 id="mkdir">mkdir</h2>
+
+<p><code class="highlighter-rouge">mkdir</code> is used to create directories (if they do not already exist) on a file system.</p>
+
+<p>The general format is</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir <span class="o">[</span>options] directories
+</code></pre>
+</div>
+
+<!--more-->
+
+<p>A simple example is:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir dir1
+</code></pre>
+</div>
+
+<p>This will create a folder named <strong>dir1</strong> under the current path.</p>
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="mkdir--p--parents"><code class="highlighter-rouge">mkdir -p,--parents</code></h4>
+<p>Create parent directories as necessary. (If the sepcified parent directory already exist, no error is reported.)</p>
+
+<p>This is helpful when we are creating nested directories. For example, when we do</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir -p /home/a/b/c
+</code></pre>
+</div>
+
+<p>if <strong>/home/a/b/</strong> does not exist, <strong>mkdir</strong> will first create it, and then create <strong>/c</strong> under it. But if we are not using the <strong>-p</strong> flag, it will report an error saying <strong>/home/a/b/</strong> does not exist.</p>
+
+<p>Also, if we are creating a directory that is already exist, without the <strong>-p</strong> flag, there will be an error saying “ File exists”; while adding the <strong>-p</strong> flag will not report an error. For example,</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /a/d
+<span class="gp">$ </span>mkdir /a/d
+mkdir: cannot create directory ‘/a/d’: File exists
+<span class="gp">$ </span>mkdir -p /a/d
+</code></pre>
+</div>
+
+<h4 id="mkdir--m---modemode"><code class="highlighter-rouge">mkdir -m, --mode=</code><em><code class="highlighter-rouge">MODE</code></em></h4>
+
+<p>Set file access mode (as with the <strong>chmod</strong> command).</p>
+
+<p>For example,</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir -m 444 dir1
+</code></pre>
+</div>
+
+<p>will create folder <strong>dir1</strong> which is read only for all users.</p>
+
+<p>More usage about file access mode code can be found <a href="https://help.ubuntu.com/community/FilePermissions#Changing_Permissions">here</a>.</p>
+
+<h4 id="mkdir--v---verbose"><code class="highlighter-rouge">mkdir -v, --verbose</code></h4>
+
+<p>Verbose output; print a message for each created directory.</p>
+
+<p>For example, if we do</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir -v -p -m 444 a/b/c
+</code></pre>
+</div>
+
+<p>where <strong>a</strong> exists, but <strong>a/b</strong> does not, it will print</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir: created directory <span class="sb">`</span>a/b<span class="s1">'
+mkdir: created directory `a/b/c'</span>
+</code></pre>
+</div>
+
+<p>(Yes, it will just print the directory name, but not the file access mode.)</p>
+
+<h4 id="creating-multiple-and-nested-directories-in-one-line">Creating Multiple and Nested directories in one line</h4>
+<p>This is not done by <strong>mkdir</strong> itself. Instead, it can be done through making use of the Shell extension.</p>
+
+<p>For example,</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir -p a/<span class="o">{</span>b1/c1/<span class="o">{</span>d1,d2<span class="o">}</span>,b2,b3<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>will create a tree like this</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>a
+│   b2
+│   b3
+└───b1
+    └─── c1
+         │   d1
+         │   d2
+</code></pre>
+</div>

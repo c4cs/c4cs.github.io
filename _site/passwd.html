@@ -1,0 +1,128 @@
+<h2 id="passwd">passwd</h2>
+<p><code class="highlighter-rouge">passwd</code> is used to change the password of a user account
+<!-- one line explanation would go here --></p>
+
+<!-- minimal example -->
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>passwd <span class="o">[</span>OPTION] <span class="o">[</span>USER]
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+<p>A user can run <code class="highlighter-rouge">passwd</code> to change their own password and a superuser can use <code class="highlighter-rouge">passwd</code> to change another user’s password.</p>
+
+<h4 id="passwd-1"><code class="highlighter-rouge">passwd</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>passwd
+Changing password <span class="k">for</span> <span class="o">[</span>USER].
+<span class="o">(</span>current<span class="o">)</span> UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+<ul>
+  <li><code class="highlighter-rouge">passwd</code> with no options or user specified will change the password of the user running the command.</li>
+</ul>
+
+<h4 id="sudo-passwd-otheruser"><code class="highlighter-rouge">sudo passwd [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd other
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+<ul>
+  <li>If you have superuser privileges, you can modify the password of other users.</li>
+  <li>Prefix the command with <code class="highlighter-rouge">sudo</code> to run it as a superuser.</li>
+  <li>This will allow you to change the password for another user and not be prompted for their password.</li>
+</ul>
+
+<h4 id="sudo-passwd--s-otheruser"><code class="highlighter-rouge">sudo passwd -S [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd -S other
+other P 10/17/2017 0 99999 7 -1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-S</code> option displays password information for a given user.</li>
+  <li>The 7 fields correspond to the following values:
+    <ol>
+      <li>User’s login name</li>
+      <li>Password usability (‘L’ if locked, ‘NP’ if there is no password, ‘P’ if there is a usable password)</li>
+      <li>Date of last password change</li>
+      <li>Minimum password age (days)</li>
+      <li>Maximum password age (days)</li>
+      <li>Warning period before a required password change</li>
+      <li>Number of days to change a password after the maximum password age is reached</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="sudo-passwd--l-otheruser"><code class="highlighter-rouge">sudo passwd -l [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd -l other
+passwd: password expiry information changed.
+<span class="gp">$ </span>sudo passwd -S other
+other L 10/17/2017 0 99999 7 -1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-3">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-l</code> option allows a superuser to lock another user’s account by disabling their password.</li>
+  <li>To have their password unlocked, a user will need to contact a superuser to unlock it.</li>
+  <li>User’s who have had their password locked can still login using other authentication methods (SSH).</li>
+</ul>
+
+<h4 id="sudo-passwd--u-otheruser"><code class="highlighter-rouge">sudo passwd -u [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd -u other
+passwd: password expiry information changed.
+<span class="gp">$ </span>sudo passwd -S other
+other P 10/17/2017 0 99999 7 -1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-4">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-u</code> option allows a superuser to unlock another user’s account by enabling their previous password.</li>
+</ul>
+
+<h4 id="sudo-passwd--d-otheruser"><code class="highlighter-rouge">sudo passwd -d [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd -d other
+passwd: password expiry information changed.
+<span class="gp">$ </span>sudo passwd -S other
+other NP 10/17/2017 0 99999 7 -1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-5">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-d</code> option allows a superuser to delete another user’s password.</li>
+  <li>This will disable logins for a users account, without disabling their account completely.</li>
+</ul>
+
+<h4 id="sudo-passwd--e-otheruser"><code class="highlighter-rouge">sudo passwd -e [OTHER_USER]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo passwd -e other
+passwd: password expiry information changed.
+<span class="gp">$ </span>sudo passwd -S other
+other P 01/01/1970 0 99999 7 -1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-6">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-e</code> option allows a superuser to expires another user’s account which will require that user to change their password.</li>
+</ul>

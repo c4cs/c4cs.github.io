@@ -1,0 +1,108 @@
+<h2 id="printf">printf</h2>
+
+<p><code class="highlighter-rouge">printf</code> is used to format and output data.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">printf </span>format <span class="o">[</span>argument]
+<span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"%f</span><span class="se">\n</span><span class="s2">"</span> 7
+7.000000
+<span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"%d</span><span class="se">\n</span><span class="s2"> "</span> 0xF
+15
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="printf-1"><code class="highlighter-rouge">printf</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"%f</span><span class="se">\n</span><span class="s2">"</span> 5
+</code></pre>
+</div>
+
+<h4 id="break-it-down">Break it down</h4>
+
+<ul>
+  <li>Prints out the number 5 as a float on a new line. The default is to print with 6 decimals.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"</span><span class="se">\t\"</span><span class="s2">Quotations</span><span class="se">\"\t\n</span><span class="s2">"</span>
+	<span class="s2">"Quotations"</span>	
+<span class="err">$</span>
+</code></pre>
+</div>
+
+<h4 id="break-it-down-1">Break it down</h4>
+
+<ul>
+  <li>
+    <p>This command takes advantage of the ability for <code class="highlighter-rouge">printf</code> to use whitespace by adding tabs into the output using \t to add tabs and a newline at the end</p>
+  </li>
+  <li>
+    <p>This command also demonstrates how to add characters to strings that would normally give a command to <code class="highlighter-rouge">printf</code>. Quotations usually specify what is meant to be fed into <code class="highlighter-rouge">printf</code>, but using \” allows an actual double quote to be inserted into the string.</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"put a number here: %d and a different one here: %d</span><span class="se">\n</span><span class="s2">"</span> 21 45
+put a number here: 21 and a different one here: 45
+</code></pre>
+</div>
+
+<h4 id="break-it-down-2">Break it down</h4>
+
+<ul>
+  <li>This command takes advantage of being able to insert decimal numbers into strings using the %d to refer to decimals</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">whatIMade</span><span class="o">=</span><span class="s2">"variable"</span>
+<span class="gp">$ </span><span class="nv">myVariable</span><span class="o">=</span>56
+<span class="gp">$ </span><span class="nb">printf</span> <span class="s2">"I made a %s and its value is %d. Wow!</span><span class="se">\n</span><span class="s2">"</span> <span class="nv">$whatIMade</span> <span class="nv">$myVariable</span>
+I made a variable and its value is 56. Wow!
+</code></pre>
+</div>
+
+<h4 id="break-it-down-3">Break it down</h4>
+
+<ul>
+  <li>Variables can be referenced and used in place of strings, decimals, or other types</li>
+</ul>
+
+<h4 id="using-printf-in-a-script">Using printf in a script</h4>
+<p>The script input:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#/bin/bash</span>
+<span class="nv">line</span><span class="o">===============================</span>
+<span class="nv">line</span><span class="o">=</span><span class="nv">$line$line</span>
+
+<span class="nv">header</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2"> %-10s %8s %10s %11s</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nv">format</span><span class="o">=</span><span class="s2">" %-10s %08d %10s %11.2f</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="nv">width</span><span class="o">=</span>43
+
+<span class="nb">printf</span> <span class="s2">"</span><span class="nv">$header</span><span class="s2">"</span> <span class="s2">"ITEM NAME"</span> <span class="s2">"ITEM ID"</span> <span class="s2">"COLOR"</span> <span class="s2">"PRICE"</span>
+
+<span class="nb">printf</span> <span class="s2">"%</span><span class="nv">$width</span><span class="s2">.</span><span class="k">${</span><span class="nv">width</span><span class="k">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+
+<span class="nb">printf</span> <span class="s2">"</span><span class="nv">$format</span><span class="s2">"</span> <span class="se">\</span>
+Triangle 13  red 20 <span class="se">\</span>
+Oval 204449 <span class="s2">"dark blue"</span> 65.656 <span class="se">\</span>
+Square 3145 orange .7
+</code></pre>
+</div>
+
+<p>After running script:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+ITEM NAME   ITEM ID      COLOR       PRICE
+<span class="o">===========================================</span>
+ Triangle   00000013        red       20.00
+ Oval       00204449  dark blue       65.66
+ Square     00003145     orange        0.70
+</code></pre>
+</div>
+
+<h4 id="break-it-down-4">Break it down</h4>
+<ul>
+  <li>Using a script to be able to set up different variables to format terminal output to make a table</li>
+  <li>header and format specify strings, decimals, and floats that are of a certain length to make table columns consistent</li>
+</ul>
+

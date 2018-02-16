@@ -1,0 +1,28 @@
+<h2 id="true">true</h2>
+
+<p><code class="highlighter-rouge">true</code> a statement that logically evaluates to true. It is often used to check whether statements evaluated succesfully or not. It is the logical inverse of ‘false’, also a unix command.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">true</span>
+<span class="gp">$ </span>rm -rf directory <span class="o">||</span> <span class="nb">true</span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="true-1"><code class="highlighter-rouge">true</code></h4>
+
+<p>This just logically evaluates to true. This is most useful in scripting</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">while </span><span class="nb">true
+</span><span class="k">do
+   </span><span class="nb">echo</span> <span class="s1">'infinite loop'</span>
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<h4 id="rm--rf-directory--true"><code class="highlighter-rouge">rm -rf directory || true</code></h4>
+
+<p>This is useful because sometimes we want to make sure that a command that could end with an error will return with exit status zero, to make sure that a script will continue running.</p>
+

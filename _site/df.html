@@ -1,0 +1,141 @@
+<h2 id="df">df</h2>
+
+<p><code class="highlighter-rouge">df</code> displays the amount of disk space available on the file system containing
+each file name argument.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>df <span class="o">[</span>OPTIONS] <span class="o">[</span>FOLDER]
+</code></pre>
+</div>
+
+<!--more-->
+<p>If no file name is given, the space available on all currently mounted file
+systems is shown. Disk space is shown in 1 K blocks by default, unless the
+environment variable <code class="highlighter-rouge">POSIXLY_CORRECT</code> is set, in which case 512-byte blocks are
+used.</p>
+
+<p>Display values are in units of the first available <code class="highlighter-rouge">SIZE</code> from <code class="highlighter-rouge">--block-size</code>,
+and the <code class="highlighter-rouge">DF_BLOCK_SIZE</code>, <code class="highlighter-rouge">BLOCK_SIZE</code> and <code class="highlighter-rouge">BLOCKSIZE</code> environment variables.
+Otherwise, units default to 1024 bytes (or 512 if <code class="highlighter-rouge">POSIXLY_CORRECT</code> is set).</p>
+
+<p><code class="highlighter-rouge">SIZE</code> is an integer and optional unit (example: <code class="highlighter-rouge">10M</code> is 10*1024*1024). Units are
+<code class="highlighter-rouge">K</code>, <code class="highlighter-rouge">M</code>, <code class="highlighter-rouge">G</code>, <code class="highlighter-rouge">T</code>, <code class="highlighter-rouge">P</code>, <code class="highlighter-rouge">E</code>, <code class="highlighter-rouge">Z</code>, <code class="highlighter-rouge">Y</code> (powers of 1024) or <code class="highlighter-rouge">KB</code>, <code class="highlighter-rouge">MB</code>, … (powers of 1000).</p>
+
+<p>If an argument is the absolute file name of a disk device node containing a
+mounted file system, <code class="highlighter-rouge">df</code> shows the space available on that file system rather
+than on the file system containing the device node (which is always the root
+                                                    file system). <code class="highlighter-rouge">df</code> cannot show
+the space available on unmounted file systems, because on most kinds of systems
+doing so requires very system-specific knowledge of file system structures.</p>
+
+<h3 id="useful-options--example">Useful Options / Example</h3>
+
+<h4 id="df--h"><code class="highlighter-rouge">df -h</code></h4>
+<p>Display all file systems and their disk usage but uses human readable formatting.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>df -h
+Filesystem               Size  Used Avail Use% Mounted on
+/dev/mapper/vg1-lv_root  244G   12G  220G   6% /
+devtmpfs                 7.8G     0  7.8G   0% /dev
+tmpfs                    7.8G  102M  7.7G   2% /dev/shm
+tmpfs                    7.8G  8.7M  7.8G   1% /run
+tmpfs                    7.8G     0  7.8G   0% /sys/fs/cgroup
+tmpfs                    300M  6.0M  295M   2% /var/lib/sss/db
+/dev/sda4                485M  155M  305M  34% /boot
+/dev/sda1                496M   36M  461M   8% /boot/efi
+/dev/mapper/vg1-lv_tmp    30G   45M   28G   1% /tmp
+AFS                      2.0T     0  2.0T   0% /afs
+tmpfs                    1.6G   32K  1.6G   1% /run/user/99515263
+</code></pre>
+</div>
+
+<h4 id="example-command">Example command</h4>
+
+<h4 id="df-folder"><code class="highlighter-rouge">df [FOLDER]</code></h4>
+<p>Display the amount of free space in the <code class="highlighter-rouge">public_html</code> directory</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>df example_folder
+Filesystem      1K-blocks  Used  Available Use% Mounted on
+AFS            2147483647     0 2147483647   0% /home/divshar
+</code></pre>
+</div>
+
+<h4 id="options">Options</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-a, –all</td>
+      <td>Include dummy file systems.</td>
+    </tr>
+    <tr>
+      <td>-B, –block-size=SIZE</td>
+      <td>Scale sizes by SIZE before printing them. E.g., ‘-BM’ prints sizes in units of 1,048,576 bytes. See “SIZE Format” below for more information.</td>
+    </tr>
+    <tr>
+      <td>–total</td>
+      <td>Display a grand total.</td>
+    </tr>
+    <tr>
+      <td>-h, –human-readable</td>
+      <td>Print sizes in human readable format (e.g., 1K 234M 2G).</td>
+    </tr>
+    <tr>
+      <td>-H, –si</td>
+      <td>Same as -h, but use powers of 1000 instead of 1024.</td>
+    </tr>
+    <tr>
+      <td>-i, –inodes</td>
+      <td>List inode information instead of block usage.</td>
+    </tr>
+    <tr>
+      <td>-k</td>
+      <td>Like –block-size=1K.</td>
+    </tr>
+    <tr>
+      <td>-l, –local</td>
+      <td>Limit listing to local file systems.</td>
+    </tr>
+    <tr>
+      <td>–no-sync</td>
+      <td>Do not invoke a sync before getting usage info, which is the default setting.</td>
+    </tr>
+    <tr>
+      <td>-P, –portability</td>
+      <td>Use the POSIX output format.</td>
+    </tr>
+    <tr>
+      <td>–sync</td>
+      <td>Invoke a sync before getting usage info.</td>
+    </tr>
+    <tr>
+      <td>-t, –type=TYPE</td>
+      <td>Limit listing to file systems of type TYPE.</td>
+    </tr>
+    <tr>
+      <td>-T, –print-type</td>
+      <td>Print file system type.</td>
+    </tr>
+    <tr>
+      <td>-x, –exclude-type=TYPE</td>
+      <td>Limit listing to file systems not of type TYPE.</td>
+    </tr>
+    <tr>
+      <td>-v</td>
+      <td>Ignored; included for compatibility reasons.</td>
+    </tr>
+    <tr>
+      <td>–help</td>
+      <td>Display a help message and exit.</td>
+    </tr>
+    <tr>
+      <td>–version</td>
+      <td>Output version information and exit.</td>
+    </tr>
+  </tbody>
+</table>

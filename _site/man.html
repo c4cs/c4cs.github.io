@@ -1,0 +1,89 @@
+<h2 id="man">man</h2>
+<p><code class="highlighter-rouge">man</code> provides <em>manual pages</em> for terminal commands</p>
+
+<!-- minimal example -->
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>man git
+<span class="c"># displays git man page</span>
+q <span class="c"># to quit</span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<p><code class="highlighter-rouge">man -f &lt;command&gt;</code> shows a list of related commands that match the <command /> keyword</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>man -f git
+perlgit<span class="o">(</span>1<span class="o">)</span>               - Detailed information about git and the Perl repository
+git<span class="o">(</span>1<span class="o">)</span>                   - the stupid content tracker
+git-add<span class="o">(</span>1<span class="o">)</span>               - Add file contents to the index
+git-am<span class="o">(</span>1<span class="o">)</span>                - Apply a series of patches from a mailbox
+git-annotate<span class="o">(</span>1<span class="o">)</span>          - Annotate file lines with commit information
+git-apply<span class="o">(</span>1<span class="o">)</span>             - Apply a patch to files and/or to the index
+git-archimport<span class="o">(</span>1<span class="o">)</span>        - Import an Arch repository into Git
+git-archive<span class="o">(</span>1<span class="o">)</span>           - Create an archive of files from a named tree
+git-bisect<span class="o">(</span>1<span class="o">)</span>            - Use binary search to find the commit that introduced a bug
+...
+</code></pre>
+</div>
+
+<h4 id="manual-sections">Manual sections</h4>
+
+<p>The numbers in parentheses next to the commands correspond to the manual section they are in:</p>
+
+<p>The standard sections of the manual include:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1      User Commands
+2      System Calls
+3      C Library Functions
+4      Devices and Special Files
+5      File Formats and Conventions
+6      Games et. al.
+7      Miscellanea
+8      System Administration tools and Daemons
+</code></pre>
+</div>
+
+<p>e.g. <code class="highlighter-rouge">man -f printf</code> lists <code class="highlighter-rouge">printf(1)</code>, and <code class="highlighter-rouge">printf(3)</code>:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>man 1 <span class="nb">printf</span>
+<span class="c"># displays printf (as a command) man page</span>
+q
+<span class="gp">$ </span>man 3 <span class="nb">printf</span>
+<span class="c"># displays printf (as a stdlib fn) man page</span>
+q
+</code></pre>
+</div>
+
+<h4 id="sections-within-a-manual-page">Sections within a manual page:</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>NAME             Name of manual page
+SYNOPSIS         A brief summary of the command or function's interface
+CONFIGURATION    Configuration details for a device [Normally only in Section 4]
+DESCRIPTION      An explanation of what the program, function, or format does
+OPTIONS          [Normally only in Sections 1, 8]
+EXIT STATUS      [Normally only in Sections 1, 8]
+RETURN VALUE     [Normally only in Sections 2, 3]
+ERRORS           [Typically only in Sections 2, 3]
+ENVIRONMENT
+FILES
+VERSIONS         [Normally only in Sections 2, 3]
+ATTRIBUTES       [Normally only in Sections 2, 3]
+CONFORMING TO
+NOTES
+BUGS
+EXAMPLE
+SEE ALSO
+</code></pre>
+</div>
+
+<h4 id="man-pages-reference">Man pages reference</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>man man
+<span class="c"># displays the man pages for man</span>
+q
+<span class="gp">$ </span>man man-pages
+<span class="c"># displays information of manual sections and descriptions</span>
+q
+</code></pre>
+</div>

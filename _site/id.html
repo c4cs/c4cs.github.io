@@ -1,0 +1,68 @@
+<h2 id="id">id</h2>
+<p><code class="highlighter-rouge">id</code> is a command that prints out the effective and real user and group ids.
+<!-- one line explanation would go here --></p>
+
+<!-- minimal example -->
+
+<p>The syntax for the command is:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>id <span class="o">[</span>option<span class="o">(</span>s<span class="o">)]</span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="id-1"><code class="highlighter-rouge">id</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>id <span class="o">[</span>option<span class="o">(</span>s<span class="o">)]</span>
+id <span class="o">[</span>option<span class="o">(</span>s<span class="o">)]</span> <span class="o">[</span>USERNAME]
+</code></pre>
+</div>
+
+<ul>
+  <li>The <code class="highlighter-rouge">id</code> command prints out information for the current user. However, it is possible to specify a different user by appending their name to the end of the command.</li>
+</ul>
+
+<p>Simply entering <code class="highlighter-rouge">id</code> prints out all the information about the current user.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>id
+<span class="nv">uid</span><span class="o">=</span>1000<span class="o">(</span>biswash<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1000<span class="o">(</span>biswash<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span>1000<span class="o">(</span>biswash<span class="o">)</span>,4<span class="o">(</span>adm<span class="o">)</span>,24<span class="o">(</span>cdrom<span class="o">)</span>,27<span class="o">(</span>sudo<span class="o">)</span>,30<span class="o">(</span>dip<span class="o">)</span>,46<span class="o">(</span>plugdev<span class="o">)</span>,113<span class="o">(</span>lpadmin<span class="o">)</span>,128<span class="o">(</span>sambashare<span class="o">)</span>,999<span class="o">(</span>vboxsf<span class="o">)</span>
+</code></pre>
+</div>
+
+<h4 id="id--u"><code class="highlighter-rouge">id -u</code></h4>
+<p>The <code class="highlighter-rouge">-u</code> flag prints out the current user ID</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>id -u
+1000
+</code></pre>
+</div>
+
+<h4 id="id--g--id--g"><code class="highlighter-rouge">id -g</code> &amp;&amp; <code class="highlighter-rouge">id -G</code></h4>
+<p>The <code class="highlighter-rouge">-g</code> flag prints out the current group id, whereas the <code class="highlighter-rouge">-G</code> flag prints out the id of all groups.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>id -g
+1000
+<span class="gp">$ </span>id -G
+1000 4 24 27 30 46 113 128 999
+</code></pre>
+</div>
+
+<h4 id="id--n"><code class="highlighter-rouge">id -n</code></h4>
+<p>The <code class="highlighter-rouge">-n</code> flag is used in conjuction with the <code class="highlighter-rouge">-u</code> and the <code class="highlighter-rouge">-g</code> flags to find the name of the user or group rather than their id.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>id -un
+biswash
+<span class="gp">$ </span>id -gn
+biswash
+<span class="gp">$ </span>id -Gn
+biswash adm cdrom sudo dip plugdev lpadmin sambashare vboxsf
+</code></pre>
+</div>
+
+<ul>
+  <li>The main reason to use the id command is to find to which group an user belongs to. This is helpful when switching between users with different permissions and settings.</li>
+</ul>
+

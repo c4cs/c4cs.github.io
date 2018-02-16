@@ -1,0 +1,93 @@
+<h2 id="cat">cat</h2>
+
+<p><code class="highlighter-rouge">cat</code> is a command that <em>concatenates</em> files and prints the concatenated files to the standard output.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"This is an:"</span> &gt; beginning.txt
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"example"</span> &gt; end.txt
+<span class="gp">$ </span>cat beginning.txt end.txt
+This is an:
+example
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="example-command">Example command</h4>
+<p><code class="highlighter-rouge">cat</code>’s output can be redirected into a file for easy use. It can also be useful for printing out an entire file to the screen.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"This is an:"</span> &gt; beginning.txt
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"example"</span> &gt; end.txt
+<span class="gp">$ </span>cat beginning.txt end.txt
+This is an:
+example
+<span class="gp">$ </span>cat beginning.txt end.txt &gt; complete.txt <span class="c">#Output gets fed into complete.txt</span>
+<span class="gp">$ </span>cat complete.txt <span class="c">#This prints the whole file to standard output</span>
+This is an:
+example
+</code></pre>
+</div>
+
+<h4 id="example-command-1">Example command</h4>
+
+<p>The <code class="highlighter-rouge">cat</code> command can be useful when trying to read a small piece of code. The <code class="highlighter-rouge">-n</code>, <code class="highlighter-rouge">--number</code> flag is useful for this because it numbers the output lines.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"#include &lt;stdio.h&gt;
+int main() {
+	printf("</span>This is an example of how to use cat to see line numbers <span class="k">in </span>a file<span class="s2">");
+	printf("</span>How useful is that??<span class="s2">");
+	return 0;
+}"</span> &gt; example.c
+<span class="gp">$ </span>cat -n example.c
+     1	<span class="c">#include &lt;stdio.h&gt;</span>
+     2	int main<span class="o">()</span> <span class="o">{</span>
+     3	        <span class="nb">printf</span><span class="o">(</span>This is an example of how to use cat to see line numbers <span class="k">in </span>a file<span class="o">)</span>;
+     4	        <span class="nb">printf</span><span class="o">(</span>How useful is that??<span class="o">)</span>;
+     5	        <span class="k">return </span>0;
+     6	<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="example-command-2">Example command</h4>
+
+<p>The <code class="highlighter-rouge">cat</code> command can take no arguments. If it is run with no arguments, it simply copies standard input into standard output. This is useful for making quick files.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat &gt; main.c
+<span class="c">#include &lt;stdio.h&gt;</span>
+int main<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">printf</span><span class="o">(</span><span class="s2">"See how easy this is?"</span><span class="o">)</span>;
+	<span class="k">return </span>0;
+<span class="o">}</span>
+//Ctrl+D stops standard input
+
+<span class="gp">$ </span>cat main.c
+<span class="c">#include &lt;stdio.h&gt;</span>
+int main<span class="o">()</span> <span class="o">{</span>
+	<span class="nb">printf</span><span class="o">(</span><span class="s2">"See how easy this is?"</span><span class="o">)</span>;
+	<span class="k">return </span>0;
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="example-command-3">Example command</h4>
+
+<p>The <code class="highlighter-rouge">cat</code> command can can also use heredocs to take in input. You can then use redirection to direct this input into an output file, as shown below.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat <span class="sh">&lt;&lt; HEREDOCEND &gt; outfile.txt
+EECS 398 is a 1 credit minicourse. This 1-credit seminar is designed to teach the essentials of 
+using a computer effectively for EECS students. While the target audience is CS/CE/DS students, 
+any student wishing to learn how to use their computer much more effectively is encouraged to join. 
+Topics covered include shells, environment, scripting, Makefiles, compilers, debugging tools, and 
+version control. The last month of the course will be open to student input for remaining useful topics to cover.
+HEREDOCEND
+
+</span><span class="gp">$ </span>cat outfile.txt
+EECS 398 is a 1 credit minicourse. This 1-credit seminar is designed to teach the essentials of 
+using a computer effectively <span class="k">for </span>EECS students. While the target audience is CS/CE/DS students, 
+any student wishing to learn how to use their computer much more effectively is encouraged to join. 
+Topics covered include shells, environment, scripting, Makefiles, compilers, debugging tools, and 
+version control. The last month of the course will be open to student input <span class="k">for </span>remaining useful topics to cover.
+
+</code></pre>
+</div>

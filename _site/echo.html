@@ -1,0 +1,80 @@
+<h2 id="echo">echo</h2>
+
+<p><code class="highlighter-rouge">echo</code> is used to display a message on the screen and write the given message to standard output with a newline at the end.  <code class="highlighter-rouge">echo</code> is implemented as built-in command in many command shells like bash, ksh, csh.
+<!-- one line explanation would go here --></p>
+
+<!-- minimal example -->
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"Hello World"</span>
+Hello World
+<span class="gp">$ </span><span class="nb">echo </span>Hello World
+Hello World
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="example-command">Example command</h4>
+<p><code class="highlighter-rouge">echo</code> output can be redirected into a file for easy use.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo </span>Hello World &gt; example.txt
+<span class="gp">$ </span>cat example.txt
+Hello World
+</code></pre>
+</div>
+
+<h4 id="example-command-1">Example command</h4>
+<p><code class="highlighter-rouge">echo -n</code> is a useful flag if you don’t want the trailing newline after the string</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> -n <span class="s2">"Hello World."</span> ; <span class="nb">echo</span> <span class="s2">" There is no new line before me."</span>
+Hello World. There is not new line before me.
+</code></pre>
+</div>
+
+<h4 id="example-command-2">Example command</h4>
+<p><code class="highlighter-rouge">echo</code> can also be used with pattern matching. The following command line will show all the cpp files under current directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="k">*</span>.cpp
+</code></pre>
+</div>
+
+<p>The following command line will show all the files under current directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="k">*</span>
+</code></pre>
+</div>
+
+<h4 id="example-command-3">Example command</h4>
+<p>‘echo’ can be used to show the environment value. The following command line will show user’s PATH environment variable.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="nv">$PATH</span>
+</code></pre>
+</div>
+
+<h4 id="example-command-4">Example command</h4>
+<p><code class="highlighter-rouge">echo -e</code> flag is used to enable the backslash-escaped characters in following table:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> -e -n <span class="s2">"Hello World.</span><span class="se">\n</span><span class="s2">This is a new line.</span><span class="se">\n</span><span class="s2">"</span>
+Hello World.
+This is a newline.
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>|       |                                        Backslashescaped characters                                         |
+|-------|:----------------------------------------------------------------------------------------------------------:|
+|   \\  |                                    a literal backslash character ("\").                                    |
+|   \a  |                                                  An alert.                                                 |
+|   \b  |                                                 Backspace.                                                 |
+|   \c  |                                    Produce no further output after this.                                   |
+|   \e  |                        The escape character; equivalent to pressing the escape key.                        |
+|   \f  |                                                  Form feed                                                 |
+|   \n  |                                                  New line                                                  |
+|   \r  |                                               Carriage Return                                              |
+|   \t  |                                               Horizontal tab                                               |
+|   \v  |                                                Vertical tab                                                |
+|  \NNN | The character whose ASCII code is NNN(octal); if NNN is not a valid octal number, it is printed literally. |
+| \xnnn | The character whose ASCII code is the hexadecimal value nnn.                                               |
+</code></pre>
+</div>

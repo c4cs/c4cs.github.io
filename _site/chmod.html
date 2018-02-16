@@ -1,0 +1,103 @@
+<h2 id="chmod">chmod</h2>
+<!--TODO: Add documentation for this command by submitting a pull request.-->
+<!-- one line explanation would go here -->
+<p><code class="highlighter-rouge">chmod</code> (change mode) is the command to change permissions to system objects (files and directories).</p>
+
+<!-- minimal example -->
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod u+x filename
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="chmod-1"><code class="highlighter-rouge">chmod</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod <span class="o">[</span>references][operator][modes] file ...
+</code></pre>
+</div>
+
+<p>References include:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">u</code> for user</li>
+  <li><code class="highlighter-rouge">g</code> for group</li>
+  <li><code class="highlighter-rouge">o</code> for other</li>
+</ol>
+
+<p>Operators include:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">+</code> adds specified modes to specified classes</li>
+  <li><code class="highlighter-rouge">-</code> removes specified nodes to specified classes</li>
+  <li><code class="highlighter-rouge">=</code> will set specified classes to exact specified modes</li>
+</ol>
+
+<p>Modes include:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">r</code> (read)</li>
+  <li><code class="highlighter-rouge">w</code> (write)</li>
+  <li><code class="highlighter-rouge">x</code> (execute)</li>
+</ol>
+
+<hr />
+
+<h4 id="chmod-referencesoperatormodes-file"><code class="highlighter-rouge">chmod [reference(s)][operator][mode(s)] file</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod u+x file 
+<span class="gp">$ </span>chmod g-w, <span class="nv">uo</span><span class="o">=</span>rw file 
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+
+<ul>
+  <li>The first command will add write permission for file to user</li>
+  <li>The second command will remove write permission for group, and set user and other to have read and write permissions only</li>
+</ul>
+
+<hr />
+
+<h4 id="chmod---referencefile1-file2"><code class="highlighter-rouge">chmod --reference=[file1] [file2]</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod --reference<span class="o">=</span>file1 file2 
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+
+<ul>
+  <li>Sets file2’s permissions to be the same as file1</li>
+</ul>
+
+<hr />
+
+<h4 id="chmod--r-referencesoperatormodes-directory"><code class="highlighter-rouge">chmod -R [reference(s)][operator][mode(s)] directory</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -R u+x directory-name/
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li>Adds execute permission to users for all files under directory</li>
+</ul>
+
+<hr />
+
+<h4 id="chmod-referencesoperatormodes-"><code class="highlighter-rouge">chmod [reference(s)][operator][mode(s)] *</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod u+x <span class="k">*</span>
+</code></pre>
+</div>
+
+<h5 id="break-it-down-3">Break it down</h5>
+
+<ul>
+  <li>Adds execute permision to users for all subdirectories under directory</li>
+</ul>
+
+<hr />

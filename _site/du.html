@@ -1,0 +1,82 @@
+<h2 id="du">du</h2>
+<p><code class="highlighter-rouge">du</code>, or <em>disk usage</em>, reports the sizes of directories, including of all of their contents and the sizes of individual files, and the sizes of each directory in the directory tree.</p>
+
+<!-- minimal example -->
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du <span class="o">[</span>options] <span class="o">[</span>directories and/or files]
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="du-1"><code class="highlighter-rouge">du</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du
+236 ./hw1
+375 ./hw2
+1794 .
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+
+<ul>
+  <li>This is the simplest usage of <code class="highlighter-rouge">du</code>. It prints out the size of your current working directory and the size of all the directories inside of your current directory in KB. This example assumes you’re in your <code class="highlighter-rouge">home/eecs398</code> directory, which contains the subdirectories <code class="highlighter-rouge">hw1/</code> and <code class="highlighter-rouge">hw2/</code>, both of which only contain files.</li>
+</ul>
+
+<h4 id="du-directory-or-file"><code class="highlighter-rouge">du [directory or file]</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du home/eecs398/hw1
+236 ./_hw1
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+
+<ul>
+  <li>This prints out the size of your <code class="highlighter-rouge">home/eecs398/hw1</code> directory. If this directory contained any subdirectories, it would print out the size of those subdirectories as well.</li>
+</ul>
+
+<h4 id="du--h"><code class="highlighter-rouge">du -h</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du -h
+236K ./hw1
+375K ./hw2
+1.7M .
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li>This prints out directory sizes in human-readable form, so instead of printing out only KB for each directory, it prints out the number of B, MB, KB, or GB depending on the size of each directory.</li>
+</ul>
+
+<h4 id="du--sh"><code class="highlighter-rouge">du -sh</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du -sh
+1.7M .
+</code></pre>
+</div>
+
+<h5 id="break-it-down-3">Break it down</h5>
+
+<ul>
+  <li>This tells du to <em>only</em> print out the size of your current working directory (instead of printing out the size of all of your current working directories <em>and</em> the sizes of all of its subdirectories).</li>
+</ul>
+
+<h4 id="du--a"><code class="highlighter-rouge">du -a</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>du -a
+106K ./hw1/hw1.tex
+130K ./hw1/hw1.pdf
+236K ./hw1
+75K  ./hw2/hw2.tex
+300K ./hw2/hw2.pdf
+375K ./hw2
+400K ./README.pdf
+1.7M .
+</code></pre>
+</div>
+
+<h5 id="break-it-down-4">Break it down</h5>
+
+<ul>
+  <li>This tells du to also print out the sizes of every individual file in your current working directory and all of its subdirectories.</li>
+</ul>

@@ -1,0 +1,69 @@
+<h2 id="mv">mv</h2>
+
+<p><code class="highlighter-rouge">mv</code> is used to move a source file or directory into a destination directory. It is also commonly used to rename files.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mv <span class="nb">source </span>desination
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="mv-source-destination"><code class="highlighter-rouge">mv source destination</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls 
+file1 file2 file3 directory1
+<span class="gp">$ </span>mv file1 directory1 
+<span class="gp">$ </span>tree
+.
+├── directory1
+│   └── file1
+├── file2
+└── file3
+
+1 directory, 3 files
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+
+<ul>
+  <li>mv source destination simply moves the source file to the destination directory. In this case, we moved file1 into directory1.</li>
+  <li>note: tree will list the file heirarchy of the current directory. If you don’t have it installed, you can use homebrew ( brew install tree).</li>
+</ul>
+
+<h4 id="mv-oldfilename-newfilename"><code class="highlighter-rouge">mv oldfilename newfilename</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls 
+file1
+<span class="gp">$ </span>mv file1 file1newname
+<span class="gp">$ </span>ls 
+file1newname
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+
+<ul>
+  <li>mv is commonly used to change the name of files. Simply replace ‘source’ and ‘destination’ with the old and the new names of the file respectively.</li>
+</ul>
+
+<h4 id="mv--i--v-source-destination"><code class="highlighter-rouge">mv -i -v source destination</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls 
+file1 directory1 
+<span class="gp">$ </span>touch directory1/file2
+<span class="gp">$ </span>mv directory1/file2 .
+overwrite ./file2? <span class="o">(</span>y/n <span class="o">[</span>n]<span class="o">)</span> y
+directory1/file2 -&gt; ./file2
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li><code class="highlighter-rouge">-i</code> will run the mv command in ‘interactive mode’, meaning that it will prompt the user for confirmation whenever they are about to override a file</li>
+  <li><code class="highlighter-rouge">-v</code> runs mv in ‘verbose mode’ where what is being moved and where it is being moved to is depicted in the terminal</li>
+  <li>Many people alias mv to mv -iv by adding <code class="highlighter-rouge">alias mv='mv -iv'</code> to their <code class="highlighter-rouge">.bashrc</code>.</li>
+</ul>
+
