@@ -38,7 +38,7 @@ literate={*}{{\char42}}1
 \fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
 \pagestyle{fancyplain}
 
-\title{\textbf{Advanced Homework 7\\}}
+\title{\textbf{Advanced Homework 8\\}}
 \author{\textbf{\color{red}{Due: Wednesday, February 28th, 11:59PM (Hard Deadline)}}}
 \date{}
 \maketitle
@@ -53,144 +53,106 @@ hours before the date listed above.}} This applies to assignments that need to b
 
 
 \begin{mdframed}[innerleftmargin=38pt,innerrightmargin=38pt]\justify
-  This assignment asks to you work with any EECS project. You may use a
-  current project, a previous project, or the EECS\,280~W15 project we've been
-  using throughout the homeworks so far.
+  For first two parts, you're welcome to keep going with the RPN example from
+  lecture and the homework, \textbf{or} you may use code from one of your
+  other EECS classes.
 
-  If you do use a current EECS project, remember to commit everything before
-  experimenting (you are using version control for all your projects, right?).
-  Some of the examples reference the EECS\,280~W15 project, however they should
-  be easy enough to translate to any other project.
+  {\color{red}Remember, you \textbf{MUST} use \textbf{PRIVATE} repositories
+    for code from other EECS classes.} Private services are generally free for
+  students, check out the \href{https://education.github.com/pack}{GitHub Student Developer Pack}.
 \end{mdframed}
 
-\section{Compiler-Assisted Makefiles}
+\section{Coverage}
 
-As we saw in the regular homework, it can be somewhat hard to correctly list
-all of the dependencies of a file. However, there is one program that knows
-all of the files that the compiler needs to read in order to compile your
-code, and that program is the compiler!
+Test suites are only as good as the code they test. If you don't test a
+calculator's multiply function, then you will never notice if it breaks. The
+term \emph{coverage} refers to how much of your code your tests cover---how
+much is tested.
 
-Try running \texttt{gcc~-MM~simple\_test.cpp} (also try running
-\texttt{gcc~-M~simple\_test.cpp}, do you understand the difference?).
-%One thing to note is that the target for the emitted rule is an object file
-%(\texttt{simple\_test.o}), not the final executable (\texttt{simple\_test}).
-What does \texttt{-MMD} do?
+In addition to running your test suite, \emph{integration hooks} (the things
+that run when you push changes to GitHub) can also do a test suite coverage
+analysis. Some tools integrate with Travis, while others are standalone. I've
+had success with Coveralls and Python, but you're welcome to try any code
+coverage tool you like.
 
-\textbf{Modify the makefile to auto-generate the dependencies for
-  \texttt{simple\_test} and use them when building \texttt{simple\_test}.}
+\textbf{Your job:} Add automated code coverage analysis to any project.
 
-Notes / tips:
+\subsection*{Submission checkoff:}
 \begin{itemize}
-  \item You \textbf{do not} need to set up the whole project to use
-    auto-generated dependencies. This is tricky to do correctly.
-    The goal is for you to play with this a little just to see how the
-    mechanisms work. People have since developed tools that are easier to use
-    and understand than gcc+make for auto-generating dependencies.\footnote{
-      This is not to say that gcc's dependency generation is not useful.
-      Indeed, \href{https://ninja-build.org/manual.html\#ref_headers}{ninja
-        uses it}. Ninja, however explicitly understands that generating
-      dependencies is a step in the build process, making it conceptually
-      easier and cleaner than make.
-    }
+  \item[$\square$] Which coverage tool did you use, why?
+  \item[$\square$] What did you have to do to get the automatic integration
+    working?
+  \item[$\square$] Add some more code that you don't have a test for, show
+    that coverage goes down.
     \begin{itemize}
-      \item If your solution is full of \texttt{\%}'s, you should be prepared
-        to explain in depth how everything is working and what everything is
-        doing.
+      \item[$\square$] (You don't have to do this live, save a copy of an
+        old report before adding new code)
     \end{itemize}
-  \item Auto-generated dependencies generally add additional rules. Their
-    purpose is to make sure that \emph{updates} work correctly. They are not
-    needed for the first build. This means that to start, you only need to
-    modify an existing rule that already builds code correctly to also build
-    dependency information.
+\end{itemize}
+
+\section{A little vanity never hurt :)}
+
+Maybe you've seen the little icons that show up on GitHub pages before that
+report the status of tools:
+
+\includegraphics[width=.5\linewidth]{badges.png}
+
+These are usually called \emph{badges}. They're a new-ish thing, but give a
+nice at-a-glance status view for your project.
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Add a badge for your build status from Travis CI
+  \item[$\square$] If your coverage service supports badges (coveralls does),
+    add that too
+\end{itemize}
+
+
+\section{Exploring Python's many libraries}
+
+One of the things that makes Python very powerful is the diverse array of
+\emph{modules} (the Python word for libraries) that it includes. For example,
+it's annoying that in our calculator, if we have a typo, you can't just hit
+the up arrow and edit the line, you have to type the whole thing again.
+
+The bash terminal (and many, many other programs) use the \texttt{readline}
+library for user input, and it provides many of the nicer things you're used
+to (up arrow for last commands, Ctrl-r to search history, tab completion, etc).
+
+By the magic of Python, we can get all those features really easily, simply
+add the line:
+\begin{quote}
+  \texttt{import readline}
+\end{quote}
+near the top of your \texttt{rpn.py} file. Now when you run your calculator,
+up arrow works!
+
+\textbf{Your Job:} Find a Python library that does something cool and
+integrate it into your calculator. (Or think of a cool feature you want and
+find a Python library that does it!)
+
+Some ideas:
+\begin{itemize}
+  \item Log smarter. Currently our calculator prints out its internal stack
+    all the time, but really we only want to do that if we're debugging
+    things.
+  \item Colorize things. Print back the user input but highlight operators in
+    a different color text. Maybe print negative numbers as a bold red.
+  \item Handle errors better. Lots of unexpected inputs can kill the whole
+    program, that's not great. Find something that will automatically recover
+    and start again.
+  \item If you're feeling adventurous, it's not too hard to create a basic
+    graphical interface, number buttons and a text box, in Python
+    (\href{https://wiki.python.org/moin/TkInter}{TkInter} is probably easiest,
+    though not the prettiest -- there are
+    \href{https://wiki.python.org/moin/GuiProgramming}{many options}).
+  \item Or anything else you think is cool!
 \end{itemize}
 
 \subsection*{Submission checkoff:}
 \begin{itemize}
-  \item[$\square$] Explain the changes you made to your Makefile
-    \begin{itemize}
-      \item[$\square$] Show that auto-generated dependencies are working
-        correctly (i.e. \texttt{make~\&\&~touch~recursive.h~\&\&~make}).
-    \end{itemize}
-\end{itemize}
-
-
-\newpage
-\section{Alternative Build Systems}
-
-Make is a (relatively) simple program and comes installed on nearly every
-system. However, as we've seen, make can be hard to use, and it can be hard to
-get things completely correct. There are many other build systems out there.
-This question asks you to try out my personal favorite and another one of your
-own choosing.
-
-\subsection{\href{http://gittup.org/tup/}{tup}}
-The reason I like tup is that it aspires to be \emph{provably correct}. It
-uses \href{https://en.wikipedia.org/wiki/Filesystem_in_Userspace}{FUSE} to
-monitor every file system call, which means that if your compile command reads
-or writes a file, tup knows about it. This also means that tup can
-\emph{implicitly} do the same thing as gcc's \texttt{-M} options---the first
-time the build runs it builds up a database of all the static files (mostly
-header files) gcc reads and watches them for changes. Because the build system
-is doing this, it works automatically and transparently for every command, not
-just gcc.  For generated files this lets tup verify that your dependencies are
-correct, e.g.\ if a rule attempts to run \texttt{./simple\_test}, a file built
-by a different rule, but does not list \texttt{./simple\_test} as an input
-dependency, tup will alert you with an error if you forgot to express a
-dependency.
-
-Tup also supports \href{http://gittup.org/tup/manual.html#lbAK}{variants},
-which will automatically build multiple variations of your code.
-%
-As an example of why this is useful (likely near and dear to the heart of all
-281 students), often it is useful to start and get things working with
-optimizations turned off (\texttt{-Og})\footnote{
-  Note, that's \texttt{-Og} \emph{not} \texttt{-O0}. Level~0 turns off
-  \emph{all} optimizations and emits very slow and na\"ive code.
-  \\
-  From the gcc man page, ``Optimize debugging experience. -Og enables
-  optimizations that do not interfere with debugging. It should be the
-  optimization level of choice for the standard edit-compile-debug cycle,
-  offering a reasonable level of optimization while maintaining fast
-  compilation and a good debugging experience.''
-} and then turn optimizations to max (\texttt{-O3~-flto~-DNDEBUG}) to get the
-speediest programs. Unfortunately, you can sometimes introduce bugs\footnote{
-  Or really useful warnings. Some warnings the compiler can only discover when
-  optimizations are turned on.
-} when doing debug builds and then not notice until the next time you do a
-release build. Wouldn't it be great to just always build both?
-
-\textbf{Create a copy of an EECS project and convert it to use tup.}
-
-\textbf{Set up (at least) two variants (e.g. ``debug'' and ``release'' variants).}
-
-\subsection*{Submission checkoff:}
-\begin{itemize}
-  \item[$\square$] Show off basic tup functionality and your Tupfiles
-  \item[$\square$] Show off your variants and explain the differences between
-    them, why did you choose those build options?
-\end{itemize}
-
-\subsection{Another build system of your choosing}
-There are many to choose from, some of the more appropriate ones to consider
-may be cmake, scons, gradle, or ninja.
-
-\textbf{Choose another build system, read about it, and try to understand what
-it does that is different, ``better'', or ``worse'' compared to \texttt{make} or
-\texttt{tup}.}
-
-You don't need to set up a whole project using this build system, though
-playing with it a little may help deepen you understanding of what it provides
-and how it's different.
-
-\subsection*{Submission checkoff:}
-\begin{itemize}
-  \item[$\square$] Which build system did you learn about? Why that one?
-  \item[$\square$] What type of projects is this build system ``best'' at
-    (what was it designed for)?
-    \begin{itemize}
-      \item[$\square$] What does it do differently that makes it better for
-        this application?
-    \end{itemize}
+  \item[$\square$] What new feature did you add?
+  \item[$\square$] What module(s) did you use to make it happen?
 \end{itemize}
 
 \end{document}
