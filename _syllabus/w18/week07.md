@@ -10,17 +10,14 @@ advancedRelease: 2018-02-16 00:00:00
 #solutionRelease: 2018-03-01 00:00:00
 title: "Unit Testing and Python"
 lectureTopics:
-  - Conceptual model for a build system
-  - Basic operation of <tt>make</tt>
-  - sub: syntax, goals, targets, rules, variables (yours and <tt>make</tt>'s)
-homeworkTopics:
-  - Basic operation
-  - Understanding goals and targets
-  - Built-ins and implicit rules
-  - sub: <small>Guided digging into how a tool works</small>
-advancedTopics:
-  - <tt>gcc</tt> and <tt>make</tt> integration
-  - Exploring alternative build systems
-lectureSummary:
+  - What's unit testing?
+  - Test driven development
+  - Python
+  - Live coding to learn these
+# homeworkTopics:
+#   - TBD
+# advancedTopics:
+#   - TBD
+lectureSummary: Created an [RPN calculator](https://gitlab.eecs.umich.edu/c4cs/rpn) in Python.
 leccapFri:
 ---
