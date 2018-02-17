@@ -52,3 +52,35 @@ apple
 comm: file 2 is not in sorted order
 ~~~
 
+#### comm combined usage with sort & uniq
+
+The input file can be sorted and pipelined so that the comm command can work properly.
+
+~~~ bash
+$ printf "apple\ntomato\norange\napple\n"> MyFruits.txt
+$ printf "tomato\ncarrot\nbroccoli\n"> MyVegetables.txt
+$ comm <(sort MyFruits.txt|uniq) <(sort MyVegetables.txt|uniq)
+apple
+	broccoli
+	carrot
+orange
+		tomato
+~~~
+
+#### 'comm -i'
+
+The option i ignores case sensitivity.
+
+~~~ bash
+$ printf "Apple\nBanana\n"> BigFruits.txt
+$ printf "apple\nbanana\n"> SmallFruits.txt
+$ comm BigFruits.txt SmallFruits.txt
+	apple
+Apple
+	banana
+Banana
+$ comm -i BigFruits.txt SmallFruits.txt
+		apple
+		banana
+~~~
+
