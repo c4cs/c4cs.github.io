@@ -117,7 +117,7 @@ class: center, middle
 ### 1.  [Fork](https://help.github.com/articles/fork-a-repo/) the repository you want to contribute to
 
 ### 2. [Clone](https://help.github.com/articles/cloning-a-repository/) your forked repository
- Use either HTTPS (more secure) or SSH (more convenient) [remote URL](https://help.github.com/articles/which-remote-url-should-i-use/)
+ Use either HTTPS or SSH [remote URL](https://help.github.com/articles/which-remote-url-should-i-use/)
 <img alt="clone" width="600" src="https://help.github.com/assets/images/help/repository/remotes-url.png" />
 
 ---
