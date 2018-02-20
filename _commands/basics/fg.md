@@ -3,6 +3,8 @@
 
 fg
 --
+This is a demo
+
 TODO: Add documentation for this command by submitting a pull request.
 <!-- one line explanation would go here -->
 
