@@ -20,15 +20,18 @@ johndoe@example:~$
 ### Useful Options / Examples
 The syntax for su is su [options] [username]  
 with options:  
--c, --command COMMAND  
--, -l, --login    
+`-c`, `--command COMMAND`
 
 #### Example command
 ~~~ bash
 johndoe@example:~$ su -c 'ls /home/janedoe' - janedoe
 ~~~
 
-##### This command switches to janedoe's account and lists the contents of janedoe's home directory
+This command switches to janedoe's account and lists the contents of janedoe's home directory
+
+
+`-`, `-l`, `--login`
+
 
 
 #### Example command
@@ -36,4 +39,25 @@ johndoe@example:~$ su -c 'ls /home/janedoe' - janedoe
 johndoe@example:~$ su -l janedoe
 ~~~
 
-##### This command provides the login environment of the user.
+This command provides the login environment of the user.
+
+
+`-s`, `--shell SHELL`
+
+### Example command
+~~~ bash
+johndoe@example:~$ su -s '/bin/dash' janedoe
+~~~
+
+This command invokes the shell specified.
+
+
+`-p`, `--preserve-environment`
+
+### Example command
+~~~bash
+johndoe@example:~$ su -p janedoe
+~~~
+
+This command preserves the current environment.
+
