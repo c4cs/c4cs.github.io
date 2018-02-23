@@ -22,6 +22,8 @@ $ snake
 Screenshot:
 ![snake](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599)
 
+[![https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599.png)](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599)
+
 If running on Mac, to play a different variation of snake do the following:
 
 ~~~
@@ -40,10 +42,7 @@ Once in emacs, press the escape key, then press x, then type the word snake and 
 Screenshot:
 [![https://gyazo.com/49e5cf1deba7c6fc6180bad548864780](https://i.gyazo.com/49e5cf1deba7c6fc6180bad548864780.png)](https://gyazo.com/49e5cf1deba7c6fc6180bad548864780)
 
-/home/chuckledoodle/Desktop/snakeMACOSX
-
 ###Useful Commands:
-
 - `left arrow key`  -  move left
 - `right arrow key` -  move right
 - `up arrow key`    -  move up
