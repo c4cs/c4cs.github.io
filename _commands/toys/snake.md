@@ -38,4 +38,13 @@ Once in emacs, press the escape key, then press x, then type the word snake and 
 #### Use the arrow keys to maneuver around the screen, collecting as many red rectangles as possible without letting the snake double back on itself or hit the sides of the screen!
 
 Screenshot:
-![snake](https://gyazo.com/102bc412bc7fd2a262358211e99bdaedbc412)
+[![https://gyazo.com/49e5cf1deba7c6fc6180bad548864780](https://i.gyazo.com/49e5cf1deba7c6fc6180bad548864780.png)](https://gyazo.com/49e5cf1deba7c6fc6180bad548864780)
+
+/home/chuckledoodle/Desktop/snakeMACOSX
+
+###Useful Commands:
+
+- `left arrow key`  -  move left
+- `right arrow key` -  move right
+- `up arrow key`    -  move up
+- `down arrow key`  -  move down
