@@ -63,16 +63,53 @@ In order to receive credit, you will need to prove the test cases for your addit
 
 \subsection*{Feature List:}
 Choose \textbf{three (3)} of the following features to build. You may elect to build any number of custom features and each will count as a separate feature - you are not restricted to just one custom feature.
+
 \begin{itemize}
-  \item[$\square$] \textbf{Trigonometric Functions}
+  \item[$\square$] \textbf{Implement additional calculator keys}
   
-Implement the ability to use Trigonometric functions. For example, a user should be able to enter \texttt{0 sin} and receive the output \texttt{1}.\newline
+  For this feature, implement the following subfeatures:
+	\begin{itemize}
+	\item[$\square$] Calculate percentages using the \texttt{\%}. You may find \href{https://blogs.msdn.microsoft.com/oldnewthing/20080110-00/?p=23853}{this article} helpful.
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Calculate exponent using \texttt{\^}.
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Perform integer division using \texttt{\/\/}.
+	\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Implement bitwise operators (and, or and not)}
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Implement a basic math library}
+  
+  For this feature, implement the following subfeatures:
+  \begin{itemize}
+	\item[$\square$] Allow for usage of constants (\texttt{pi}, \texttt{e}, ...)
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Binary functions
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Unary functions (\texttt{sin}, \texttt{cos}, etc.)
+	\end{itemize}
 \end{itemize}
 
 \begin{itemize}
   \item[$\square$] \textbf{Degrees and Radians Mode}
   
 	This would follow from the above feature. Add a command/method which can set whether trigonometric operations use degrees or radians. For example, by entering the keyword \texttt{rad}, if the operation \texttt{3.1415 sin} is entered, the output would be \texttt{0}. Equivalently, if the mode is set using \texttt{deg}, if the operation \texttt{360 cos} is entered, the output would be \texttt{1}.\newline
+\end{itemize}
+
+\newpage
+
+\begin{itemize}
+  \item[$\square$] \textbf{Use the Results of a Previous Calculation}
+  
+	Add the ability to use the results of your previous calculation in the next calculation. For example, if we have the first input as \texttt{2 3 +} followed by the next command \texttt{:ans 7 +}, the output should be \texttt{12}. In order to implement this, you will need to define a language - in the example we used the colon(:) to denote this special variable \newline
 \end{itemize}
 
 \begin{itemize}
@@ -130,10 +167,32 @@ Implement a command that will rotate the order of all items currently on the sta
 Implement a command that will add a copy of the current top element to the stack. For example, if the stack currently contains \{\texttt{2 4 6}\}, after calling this operator the stack should be \{\texttt{2 2 4 6}\}.\newline
 \end{itemize}
 
+\newpage
+
+\begin{itemize}
+  \item[$\square$] \textbf{Allow a Persistent Stack}
+  
+Make the stack for your RPN calculator persistent. For example, the input \texttt{1 2 3 +} should not produce any errors. From this, the prompt should also be customized to display information about the stack. Using the previous example, the prompt could now be customized to be \texttt{rpn calculator [1, 5]}, or something similar.
+
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Add a Memory System}
+  
+Add a basic memory system to your calculator. This would be equivalent to the \texttt{M+}, \texttt{M-}, \texttt{MR} and \texttt{MC} on a regular calculator. This could be extended to add a near infinite amount of memory registers by defining another special character (as in the "Use the Results of a Previous Calculation). For example, these registers could be called using the \texttt{\&} key: \texttt{\&myval+}, \texttt{\&c4cs-}, etc.
+
+\end{itemize}
+
+\begin{itemize}
+	\item[$\square$] \textbf{Read data in from an external file}
+	
+Add the ability to read in data from an external file for your calculator. This external file could be formatted in a style of your choice (csv, tsv, etc.).
+\end{itemize}
+
 \begin{itemize}
   \item[$\square$] \textbf{Custom Feature!}
   
-If there is a meaningful command not listed above and currently not already implemented by the calculator, you may choose to implement this instead.\newline
+If there is a meaningful command not listed above and currently not already implemented by the calculator, you may choose to implement this instead. For example, you could choose to use other Python libraries (such as numbers, cmath, decimal, fractions, statistics, random, NumPy, SciPy, etc) to add new features. \newline
 \end{itemize}
 
 \newpage
