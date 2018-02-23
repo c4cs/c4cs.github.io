@@ -4,11 +4,8 @@
 seq
 -------
 
-'seq' prints out a sequence of numbers to standard out. If no flags are given the seq starts at 1 and increments by 1 until the given number input is reached.
 =======
-`seq` is used to produce a sequence of numbers
-<!-- one line explanation would go here -->
-
+'seq' prints out a sequence of numbers to standard out. If no flags are given the seq starts at 1 and increments by 1 until the given number input is reached.
 
 ~~~ bash
 
