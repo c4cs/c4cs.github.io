@@ -26,6 +26,10 @@ If running on Mac, to play a different variation of snake do the following:
 
 ~~~
 $ emacs
+  [esc]
+  [x]
+  snake
+  [enter]
 ~~~
 Once in emacs, press the escape key, then press x, then type the word snake and press enter.  At this point you should be in the game.
 
