@@ -20,8 +20,6 @@ $ snake
 #### Use the arrow keys to maneuver around the screen, collecting as many "$" as possible, while avoiding the snake.  Running into the "#" sign ends the game.
 
 Screenshot:
-![snake](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599)
-
 [![https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599.png)](https://gyazo.com/0f42fcdc20b74eeefaadaf89eb59c599)
 
 If running on Mac, to play a different variation of snake do the following:
