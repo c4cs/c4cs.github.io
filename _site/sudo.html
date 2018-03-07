@@ -1,0 +1,83 @@
+<h2 id="sudo">sudo</h2>
+
+<p><code class="highlighter-rouge">sudo</code> allows a user to execute a command as a different user (with the default being the root user). <code class="highlighter-rouge">sudo</code> is useful when commands need to be performed with elevated privileges, such as installing system updates.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$    </span>sudo apt-get update
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="sudo--ll"><code class="highlighter-rouge">sudo -ll</code></h4>
+
+<p>This allows a user to find out all of the root commands that they are able to execute and all the users they are able to execute these commands as. <code class="highlighter-rouge">sudo -l</code> could be used to do this, but for long lists, <code class="highlighter-rouge">sudo -ll</code> produces a cleaner output.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">user@computer-VirtualBox:~/c4cs.github.io$ </span>sudo -ll
+<span class="o">[</span>sudo] password <span class="k">for </span>user: 
+Matching Defaults entries <span class="k">for </span>user on computer:
+    env_reset, mail_badpass,
+    <span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/bin
+User user may run the following commands on computer:
+Sudoers entry:
+    RunAsUsers: ALL
+    RunAsGroups: ALL
+    Commands:
+	ALL
+</code></pre>
+</div>
+
+<h4 id="sudo--u"><code class="highlighter-rouge">sudo -u</code></h4>
+
+<p>This allows a user to carry out a command as another user. It will execute the command as the specified target user.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$    </span>sudo -u serverUser rails db:drop
+<span class="o">[</span>sudo] password <span class="k">for </span>currentUser:
+</code></pre>
+</div>
+
+<h4 id="sudo--b-or-sudo-"><code class="highlighter-rouge">sudo -b</code> or <code class="highlighter-rouge">sudo &amp;</code></h4>
+
+<p>This runs a sudo command in the background, allowing the current terminal session to still be used while the command is running. Note that most interactive commands will not work correctly in background mode.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$    </span>sudo -b matlab
+</code></pre>
+</div>
+
+<h4 id="sudo-"><code class="highlighter-rouge">sudo !!</code></h4>
+
+<p>Runs the previous command with <code class="highlighter-rouge">sudo</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$    </span>user@computer:~<span class="nv">$ </span>apt-get update
+Reading package lists... Done
+W: chmod 0700 of directory /var/lib/apt/lists/partial failed - SetupAPTPartialDirectory <span class="o">(</span>1: Operation not permitted<span class="o">)</span>
+E: Could not open lock file /var/lib/apt/lists/lock - open <span class="o">(</span>13: Permission denied<span class="o">)</span>
+E: Unable to lock directory /var/lib/apt/lists/
+W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches <span class="o">(</span>13: Permission denied<span class="o">)</span>
+W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches <span class="o">(</span>13: Permission denied<span class="o">)</span>
+<span class="gp">$    </span>user@computer:~<span class="nv">$ </span>sudo !!
+sudo apt-get update
+<span class="o">[</span>sudo] password <span class="k">for </span>user: 
+Hit:1 http://us.archive.ubuntu.com/ubuntu xenial InRelease
+Get:2 http://us.archive.ubuntu.com/ubuntu xenial-updates InRelease <span class="o">[</span>102 kB]    
+Hit:3 http://ppa.launchpad.net/canonical-chromium-builds/stage/ubuntu xenial InRelease
+Get:4 http://security.ubuntu.com/ubuntu xenial-security InRelease <span class="o">[</span>102 kB]     
+Get:5 http://us.archive.ubuntu.com/ubuntu xenial-backports InRelease <span class="o">[</span>102 kB]  
+Get:6 http://us.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages <span class="o">[</span>540 kB]
+Fetched 846 kB <span class="k">in </span>0s <span class="o">(</span>1,149 kB/s<span class="o">)</span>                                              
+Reading package lists... Done
+</code></pre>
+</div>
+
+<h4 id="sudo--n"><code class="highlighter-rouge">sudo -n</code></h4>
+
+<p>This runs the command specified without prompting the user for their password. The <code class="highlighter-rouge">-n</code> flag stands for <em>non-interactive</em>. This is particularly useful when writing shell-scripts.</p>
+
+<h4 id="sudo--v"><code class="highlighter-rouge">sudo -v</code></h4>
+
+<p>This extends the verification timeout period and allows users to continue to carry out <code class="highlighter-rouge">sudo</code> commands without having to enter the password for a longer period of time.</p>
+
+<h3 id="related-commands">Related Commands</h3>
+
+<p><a href="../commands/su">su</a></p>

@@ -1,0 +1,81 @@
+<h2 id="cd">cd</h2>
+
+<p><code class="highlighter-rouge">cd</code> is used to <em>change directory</em>. Unlike most commands, <code class="highlighter-rouge">cd</code> is not
+a separate program, it is a shell built-in. <code class="highlighter-rouge">cd</code> is a useful tool to navigate up and down the hierarchy of the file systems on your machine, and move into a given directory.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> ~
+<span class="gp">$ </span><span class="nb">cd</span> /home
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="cd--"><code class="highlighter-rouge">cd -</code></h4>
+
+<p>Jump to the last directory that you were in. This will not always necessarily be the parent to your current directory, which would instead be the case if you were to use <code class="highlighter-rouge">cd ..</code></p>
+
+<p>(Note that this command prints current path after completion)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7_2/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">cd</span> /tmp
+Alborz-Brals-MacBook-Pro:tmp abral<span class="nv">$ </span><span class="nb">pwd</span>
+/tmp
+Alborz-Brals-MacBook-Pro:tmp abral<span class="nv">$ </span><span class="nb">cd</span> -
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7_2/c4cs.github.io/_commands/basics
+</code></pre>
+</div>
+
+<h4 id="cd-"><code class="highlighter-rouge">cd ..</code></h4>
+
+<p>Another way to jump back directory</p>
+
+<p>The two dot characters <code class="highlighter-rouge">..</code> represent the parent directory to the current directory in which we are working</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">cd</span> ..
+Alborz-Brals-MacBook-Pro:_commands abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands
+</code></pre>
+</div>
+
+<h4 id="cd--1"><code class="highlighter-rouge">cd .</code></h4>
+
+<p>The one dot character <code class="highlighter-rouge">.</code> represents the current directory in which we are working. This command simply moves us to our current directory</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">cd</span> .
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands/basics
+</code></pre>
+</div>
+
+<p>Of course, this accomplishes nothing; however, there are other uses for the <code class="highlighter-rouge">.</code> character pertaining to the <code class="highlighter-rouge">cd</code> command. Some of the more common uses can be found on the <a href="https://c4cs.github.io/commands/dot">dot(.) page of the C4CS website</a></p>
+
+<h4 id="cd-1"><code class="highlighter-rouge">cd</code></h4>
+
+<p>Jump back to home directory (same as “cd ~” or “cd /home”)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">cd
+</span>Alborz-Brals-MacBook-Pro:~ abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral
+</code></pre>
+</div>
+
+<h4 id="cd--2"><code class="highlighter-rouge">cd /</code></h4>
+
+<p>Jump to the root directory</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">pwd</span>
+/Users/abral/Desktop/Computer_Science/EECS 398 <span class="o">(</span>C4CS<span class="o">)</span>/adv_HW_7/c4cs.github.io/_commands/basics
+Alborz-Brals-MacBook-Pro:basics abral<span class="nv">$ </span><span class="nb">cd</span> /
+Alborz-Brals-MacBook-Pro:/ abral<span class="nv">$ </span><span class="nb">pwd</span>
+/
+</code></pre>
+</div>

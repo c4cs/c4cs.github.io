@@ -1,0 +1,112 @@
+<h2 id="more">more</h2>
+
+<p>The <code class="highlighter-rouge">more</code> command displays the file called name in the screen. The RETURN key displays the next line of the file. The spacebar displays the next screen of the file.</p>
+
+<p>The syntax is:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>more <span class="o">[</span>options] <span class="o">[</span>files]
+</code></pre>
+</div>
+
+<!--more-->
+
+<p>A simple example is:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>more text.txt
+</code></pre>
+</div>
+
+<p>It will display the content of <strong>text.txt</strong> file on the screen
+It is similar with <code class="highlighter-rouge">cat</code> command, but using <code class="highlighter-rouge">cat</code> command is annoyed if the text file is long, all the output scrolls off the top of the screen. 
+<code class="highlighter-rouge">more</code> command fixes that problem by letting the user scroll the output one screenful of data at a time.</p>
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="more--d-files"><code class="highlighter-rouge">more -d [files]</code></h4>
+<p>It will display “Press space to continue, ‘q’ to quit</p>
+
+<p>For example, when we do:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>more -d foo.sh
+</code></pre>
+</div>
+
+<p>It will show an intruction message <strong>“Press space to continue, ‘q’ to quit”</strong> at the bottom of the screen</p>
+
+<h4 id="more-number-files"><code class="highlighter-rouge">more +[number] [files]</code></h4>
+
+<p>It wil count logical lines rather than screen lines</p>
+
+<p>For example:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>more +10 foo.sh
+</code></pre>
+</div>
+
+<p>It will display the file starting at number <strong>10</strong></p>
+
+<h4 id="more-pattern-files"><code class="highlighter-rouge">more +/[pattern] [files]</code></h4>
+
+<p>It will display the file, beginning at the first line containing the [pattern]</p>
+
+<p>For example:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>more +/<span class="s1">'Hello'</span> hello.c
+</code></pre>
+</div>
+
+<p>It will display the first line containing <strong>‘Hello’</strong> string of the **‘hello.c’ file</p>
+
+<p>There are other useful options as the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Options</th>
+      <th style="text-align: center">Descitption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>-c</strong></td>
+      <td style="text-align: center">Page through the file by clearing the window. (not scrolling).</td>
+    </tr>
+    <tr>
+      <td><strong>-f</strong></td>
+      <td style="text-align: center">Count logical lines rather than screen lines (wrapping text)</td>
+    </tr>
+    <tr>
+      <td><strong>-l</strong></td>
+      <td style="text-align: center">Ignores form feed (^L) characters.</td>
+    </tr>
+    <tr>
+      <td><strong>-s</strong></td>
+      <td style="text-align: center">Displays multiple blank lines as one blank line.</td>
+    </tr>
+    <tr>
+      <td><strong>-u</strong></td>
+      <td style="text-align: center">Does not display underline characters and backspace (^H).</td>
+    </tr>
+    <tr>
+      <td><strong>-w</strong></td>
+      <td style="text-align: center">Waits for a user to press a key before exiting.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+

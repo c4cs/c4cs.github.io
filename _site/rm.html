@@ -1,0 +1,62 @@
+<h2 id="rm">rm</h2>
+
+<p><code class="highlighter-rouge">rm</code> is used to delete one or multiple files from your current directory. Be careful when using because this does not move the item to trash, it permanetly deletes it.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm file1.txt file2.txt
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="rm--d"><code class="highlighter-rouge">rm -d</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm -d directory1
+<span class="gp">$ </span>rm -d directory2
+rm: directory2: Directory not empty
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+<ul>
+  <li>The <code class="highlighter-rouge">-d</code> flag will remove directorys that are empty. In the example above, directory1 was empty and thus deleted while directory2 was not.</li>
+</ul>
+
+<h4 id="rm--r"><code class="highlighter-rouge">rm -R</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm -R directory2
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+<ul>
+  <li>Similar to the <code class="highlighter-rouge">-d</code> flag, the <code class="highlighter-rouge">-R</code> flag attempts to remove the file hierarchy rooted in each file argument. This allows for directories with files inside to be deleted.</li>
+  <li>If the <code class="highlighter-rouge">-i</code> option is specified, the user is prompted for confirmation before the attempt is made to remove the directory. If the user does not respond affirmatively, the file hierarchy rooted in that directory is skipped.</li>
+</ul>
+
+<h4 id="rm--v"><code class="highlighter-rouge">rm -v</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm -v file.txt
+file.txt
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li>the <code class="highlighter-rouge">-v</code> command puts the rm command into verbose mode. This will print the name of the files that will be deleted.</li>
+</ul>
+
+<h4 id="rm--f"><code class="highlighter-rouge">rm -f</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm -f file.txt
+</code></pre>
+</div>
+
+<h5 id="break-it-down-3">Break it down</h5>
+
+<ul>
+  <li>the <code class="highlighter-rouge">-f</code> flag allows the user who is using the rm command to remove the write-protected file without prompting the user.</li>
+</ul>
+

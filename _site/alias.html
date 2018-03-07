@@ -1,0 +1,92 @@
+<h2 id="alias">alias</h2>
+
+<p><code class="highlighter-rouge">alias</code> instructs the shell to replace one string with another when executing commands.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">alias </span><span class="nv">rm</span><span class="o">=</span><span class="s1">'rm -i'</span>
+<span class="gp">$ </span>rm sample.txt
+rm: remove regular empty file <span class="s1">'sample.txt'</span>? Y
+<span class="gp">$ </span>
+</code></pre>
+</div>
+
+<!--more-->
+
+<p>The advantages of using alias include:</p>
+
+<ol>
+  <li>Time Saving: can shorten the length of commands so we do not need to type out all the characters</li>
+  <li>No longer need to remember long command names</li>
+  <li>Can run multiple commands (using command chaining) with a single alias</li>
+  <li>Correct common misspellings of commands (<code class="highlighter-rouge">alias pdw='pwd'</code>)</li>
+  <li>Can help standardize the names of commands across multiple operating systems (<code class="highlighter-rouge">alias dir='ls'</code>)</li>
+</ol>
+
+<h3 id="description">Description</h3>
+<p>Aliases are used to customize the shell session interface.  Using alias, frequently-used commands can be invoked
+using a different, preferred term; and complex or commonly used options can be used as the defaults for a given command.</p>
+
+<p>Aliases only persist for the <strong>current</strong> session, however, they can be loaded at login time by modifying the shell’s
+<strong>.rc</strong> file.  To add them permanently, we have to edit our shell profile files (<strong>~/.bashrc</strong>) and enter the alias into the file.</p>
+
+<h3 id="syntax">Syntax</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias</span> <span class="o">[</span><span class="nv">name</span><span class="o">=[</span><span class="s1">'command'</span><span class="o">]]</span>
+</code></pre>
+</div>
+
+<p><em>name</em> is the name of the new alias.</p>
+
+<p><em>command</em> is the command(s) which it initiates.</p>
+
+<p>The alias name and replacement text can contain any valid shell input expect for <em>=</em>.</p>
+
+<p>The commands, including any options, arguments and redirection operators, are all enclosed within a pair of
+single or double quotes.</p>
+
+<h3 id="optionsexamples">Options/Examples</h3>
+
+<h4 id="aliasalias--pcompgen--a"><code class="highlighter-rouge">alias</code>/<code class="highlighter-rouge">alias -p</code>/<code class="highlighter-rouge">compgen -a</code></h4>
+
+<p>Invoking <code class="highlighter-rouge">alias</code> with no arguments will display all currently aliased commands.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">cjlebioda@cjlebioda-VirtualBox:~$ </span><span class="nb">alias
+alias </span><span class="nv">alert</span><span class="o">=</span><span class="s1">'notify-send --urgency=low -i "$([ $? = 0 ] &amp;&amp; echo terminal || echo error)" "$(history|tail -n1|sed -e '</span><span class="se">\'</span><span class="s1">'s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//'</span><span class="se">\'</span><span class="s1">')"'</span>
+<span class="nb">alias </span><span class="nv">egrep</span><span class="o">=</span><span class="s1">'egrep --color=auto'</span>
+<span class="nb">alias </span><span class="nv">fgrep</span><span class="o">=</span><span class="s1">'fgrep --color=auto'</span>
+<span class="nb">alias </span><span class="nv">grep</span><span class="o">=</span><span class="s1">'grep --color=auto'</span>
+<span class="nb">alias </span><span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CF'</span>
+<span class="nb">alias </span><span class="nv">la</span><span class="o">=</span><span class="s1">'ls -A'</span>
+<span class="nb">alias </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -alF'</span>
+<span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
+</code></pre>
+</div>
+
+<p>So the command <code class="highlighter-rouge">ls</code> is actually an alias such that using <code class="highlighter-rouge">ls</code> will always display color output.</p>
+
+<h4 id="removing-aliases">Removing Aliases</h4>
+
+<p><code class="highlighter-rouge">unalias</code> removes aliases created during the current session <strong>and</strong> permanent aliases that are listed in system 
+configuration files.  The option <em>-a</em> tells <code class="highlighter-rouge">unalias</code> to remove all aliases for the current user for the current 
+shell.</p>
+
+<p>Another way to remove an alias is by using the <code class="highlighter-rouge">alias</code> command to create a new alias with the same name to 
+overwrite the existing alias with that name.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">cjlebioda@cjlebioda-VirtualBox:~$ </span><span class="nb">unalias </span>ll
+<span class="gp">cjlebioda@cjlebioda-VirtualBox:~$ </span>ll
+-bash:ll: <span class="nb">command </span>not found
+</code></pre>
+</div>
+
+<h4 id="example-command">Example Command</h4>
+
+<p>This alias will make our process table searchable with an argument we will pass in:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">alias </span><span class="nv">psg</span><span class="o">=</span><span class="s1">'ps aux | grep -i -e'</span>
+<span class="gp">$ </span>psg bash
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+cjlebio+  2093  0.0  0.0  29764   356 pts/4    Ss   21:54   0:00 bash
+cjlebio+  2151  0.0  0.1  29780  3404 pts/17   Ss+  21:57   0:00 bash
+cjlebio+ 18476  0.0  0.2  29704  5220 pts/18   Ss   22:18   0:00 bash
+<span class="gp">$ </span>
+</code></pre>
+</div>

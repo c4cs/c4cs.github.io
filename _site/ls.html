@@ -1,0 +1,97 @@
+<h2 id="ls">ls</h2>
+
+<p><code class="highlighter-rouge">ls</code> is used to <em>list</em> the contents of a directory. By default, <code class="highlighter-rouge">ls</code> will simply print file names.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls
+directory file
+</code></pre>
+</div>
+
+<!--more-->
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="ls--a"><code class="highlighter-rouge">ls -a</code></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -a
+.            ..           .hidden_file directory    file
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+
+<ul>
+  <li>The <code class="highlighter-rouge">-a</code> option asks <code class="highlighter-rouge">ls</code> to list <em>all</em> files. By convention, files or
+directories whose name start with a leading <code class="highlighter-rouge">.</code> are considered to be
+hidden files. Many times a program’s configuration file is a hidden file
+(such as <code class="highlighter-rouge">~/.bashrc</code>). Another common use is for psuedo-temporary files
+that are important to the program but not the user (such as caches).</li>
+  <li>The special directories <code class="highlighter-rouge">.</code> and <code class="highlighter-rouge">..</code> are created by the operating system.
+They refer to the current directory (<code class="highlighter-rouge">.</code>) and parent directory (<code class="highlighter-rouge">..</code>).
+It is this special directory that makes <code class="highlighter-rouge">./a.out</code> work, the leading <code class="highlighter-rouge">./</code>
+is just a convenient shortcut for specifying a complete path.</li>
+</ul>
+
+<h4 id="ls--l"><code class="highlighter-rouge">ls -l</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -l
+total 8
+-rwxr-xr-x  1 ppannuto  wheel   0 Mar  8 11:38 executable_file
+-rw-r--r--  2 ppannuto  wheel   0 Mar  8 11:38 hard_linked_file_ref1
+-rw-r--r--  2 ppannuto  wheel   0 Mar  8 11:38 hard_linked_file_ref2
+-rw-r--r--  1 ppannuto  wheel   0 Mar  8 11:38 regular_file
+lrwxr-xr-x  1 ppannuto  wheel  12 Mar  8 11:38 symlink_to_regular_file -&gt; regular_file
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+<div class="highlighter-rouge"><pre class="highlight"><code>lrwxr-xr-x  1 ppannuto  wheel  12 Mar  8 11:38 symlink_to_regular_file -&gt; regular_file
+|---------  | |-------  |----  |-------------- |--------------------------------------
+|           | |         |      |               |
+|           | |         |      |               \- File Name: Normally just the name of
+|           | |         |      |                             the file. For symlinks, it
+|           | |         |      |                             will also print the target
+|           | |         |      |                             of the link
+|           | |         |      |
+|           | |         |      \- Last Modified Time: When this file was last touched
+|           | |         |
+|           | |         \- Group: This is the group that owns this file
+|           | |
+|           | \- Owner: This is the user who owns this file
+|           |
+|           \- Reference Count: This is the number of directory entries that point to
+|                               this file. Notice that it is 2 for the hard-linked files.
+|
+\- Permissions: 'l' means this file is a symbolic link, it is not actually a file, but
+                a pointer to the real file
+
+                Next are (r)ead, (w)rite, and e(x)ecute permissions. There are three
+                sets of these. The first is for the user that owns the file (ppannuto),
+                the next is for the group that owns the file (wheel), and the last is
+                for others (any user who is not the owner and is not in the wheel group).
+
+                The easiest way to change permissions is the chmod command. For example,
+                chmod +x file_name will add execute permissions to a file.
+</code></pre>
+</div>
+
+<h4 id="ls--lsh-varlog--head--5"><code class="highlighter-rouge">ls -lSh /var/log | head -5</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -lSh | head -5
+total 53872
+-rw-r--r--@  1 root             admin              11M Mar  8 11:36 commerce.log
+-rw-r--r--@  1 ppannuto         staff              11M Mar  8 11:36 install.log
+-rw-r--r--   1 root             wheel             1.1M Mar  6 13:53 corecaptured.log
+-rw-r-----@  1 root             admin             687K Mar  8 11:49 system.log
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+
+<ul>
+  <li>The <code class="highlighter-rouge">-h</code> flag asks for “human readable” output. This is a common flag for
+many low-level tools. The effect is that the file size is printed as 11M
+instead of 11594838 bytes.</li>
+  <li>The <code class="highlighter-rouge">-S</code> flag asks <code class="highlighter-rouge">ls</code> to sort the output by file size. This can be useful
+for finding big files taking up lots of space that shouldn’t be around.</li>
+</ul>
+

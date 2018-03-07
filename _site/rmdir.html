@@ -1,0 +1,49 @@
+<h2 id="rmdir">rmdir</h2>
+
+<p><code class="highlighter-rouge">rmdir</code> is used to remove empty directories.</p>
+
+<p>The format is</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rmdir <span class="o">[</span>options] directories
+</code></pre>
+</div>
+
+<!--more-->
+
+<p>A basic example is</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rmdir dir1
+</code></pre>
+</div>
+
+<p>This will remove folder dir1 in the current path if it is empty.</p>
+
+<h3 id="useful-options--examples">Useful Options / Examples</h3>
+
+<h4 id="rmdir--p"><code class="highlighter-rouge">rmdir -p</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rmdir -p dir2/dir3/dir4
+</code></pre>
+</div>
+
+<h5 id="break-it-down">Break it down</h5>
+<p>The <code class="highlighter-rouge">-p</code> or <code class="highlighter-rouge">--parents</code> flag will remove the parent directories of the specified directory, if they are empty. In this example, it means that the directories dir2, dir3, and dir4 will be removed.</p>
+
+<h4 id="rmdir--v"><code class="highlighter-rouge">rmdir -v</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rmdir -v dir5
+rmdir: removing directory, <span class="s1">'dir5'</span>
+</code></pre>
+</div>
+
+<h5 id="break-it-down-1">Break it down</h5>
+<p>The <code class="highlighter-rouge">-v</code> or <code class="highlighter-rouge">--verbose</code> flag will provied additional information about what is happening.</p>
+
+<h4 id="rmdir---ignore-fail-on-non-empty"><code class="highlighter-rouge">rmdir --ignore-fail-on-non-empty</code></h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rmdir --ignore-fail-on-non-empty dir6
+</code></pre>
+</div>
+
+<h5 id="break-it-down-2">Break it down</h5>
+<p>If dir6 it not empty, adding the <code class="highlighter-rouge">--ignore-fail-on-non-empty</code> command will prevent an error message from being printed.</p>

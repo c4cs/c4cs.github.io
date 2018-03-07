@@ -1,0 +1,68 @@
+<h2 id="who">who</h2>
+
+<p>Displays list of all users currently logged on</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>who
+Username console  Oct 12 08:20
+Username ttys000  Oct 20 09:35
+</code></pre>
+</div>
+
+<!--more-->
+<p>The who utility displays a list of all users currently logged on, showing for each user the login name, tty
+name, the date and time of login, and hostname if not local.</p>
+
+<h4 id="available-options-with-examples">Available options with examples:</h4>
+<p><code class="highlighter-rouge">-a</code>     Same as <code class="highlighter-rouge">-bdlprTtu</code>. This command processes the system database used for user information.</p>
+
+<p><code class="highlighter-rouge">-b</code>    Time of last system boot.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>who -b
+reboot ~ Oct 12 8:20
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">-d</code>    Print dead processes. This command shows the zombie processes or processes that have already been executed.</p>
+
+<p><code class="highlighter-rouge">-H</code>    Write column headings above the regular output.</p>
+
+<p><code class="highlighter-rouge">-l</code>    Print system login processes (unsupported). This command shows the terminals where a user can log in.</p>
+
+<p><code class="highlighter-rouge">-m</code>    Only print information about the current terminal.  This is the POSIX way of saying who am i.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>who -m
+Norinlava ttys000  Oct 29 18:35
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">-p</code>    Print active processes spawned by launchd(8) (unsupported).</p>
+
+<p><code class="highlighter-rouge">-q</code>    Quick mode: List only the names and the number of users currently logged on.  When this option is
+used, all other options are ignored.</p>
+
+<p><code class="highlighter-rouge">-r</code>   Print the current runlevel.  This is meaningless on Mac OS X.</p>
+
+<p><code class="highlighter-rouge">-s</code>   List only the name, line and time fields. This is the default.</p>
+
+<p><code class="highlighter-rouge">-T</code>   Print a character after the user name indicating the state of the terminal line: ‘+’ if the terminal is
+writable; ‘-‘ if it is not; and ‘?’ if a bad line is encountered.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>who -T
+Username - console  Oct 12 08:20
+Username + ttys000  Oct 20 20:04
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">-t</code>   Print last system clock change (unsupported).</p>
+
+<p><code class="highlighter-rouge">-u</code>   Print the idle time for each user, and the associated process ID.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>who -u
+Username console  Oct 12 08:20  old  	    99
+Username ttys000  Oct 20 20:04   .   	 87780
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">am I</code> Returns the invoker’s real user name.</p>
+
+<p><code class="highlighter-rouge">file</code> By default, who gathers information from the file <code class="highlighter-rouge">/var/run/utmpx</code>.  An alternative file may be specified.</p>
