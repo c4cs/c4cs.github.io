@@ -1,5 +1,5 @@
 ---
-permalink: /lectures/w18/week9.html
+permalink: /lectures/w18/week10.html
 ---
 
 class: center, middle
@@ -130,17 +130,3 @@ What else could we automate?
 - make-based tools build well and then... bash
 - proprietary tools integrate with or control IDEs
 - CI tools use build systems, IDE aware, Notifications
-
----
-
-# Closing remarks
-
-- **New section!!**
-- Max points from Advanced Exercises in 3 or more sections
-- Reminder: You must submit to staff at OH
-
-???
-
-- 30 total AE points
-- (10 + 5) + (10 + 5 + 5) + (10 + 5 + 5) + (5 + 5 + 5) = 70
-- Missing AE in two sections = Need to do 5 AE for full points
