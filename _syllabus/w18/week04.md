@@ -7,7 +7,7 @@ lectureRelease: 2018-01-25 9:30:00
 slidesName: w18/week4
 homeworkRelease: 2018-01-25 9:30:00
 advancedRelease: 2018-01-25 9:30:00
-#solutionRelease: 2018-02-08 00:00:00
+solutionRelease: 2018-02-08 00:00:00
 title: "Editors"
 lectureTopics:
   - Is there anything special about text editors?

@@ -6,7 +6,7 @@ lectureRelease: 2018-02-09 00:00:00
 slidesName: w18/week6
 homeworkRelease: 2018-02-09 00:00:00
 advancedRelease: 2018-02-09 00:00:00
-#solutionRelease: 2017-10-26 00:00:00
+solutionRelease: 2017-10-26 00:00:00
 title: "Unix II"
 lectureTopics:
   - Lines of text as a universal interface
