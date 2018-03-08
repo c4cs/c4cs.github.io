@@ -2,7 +2,7 @@
 week: 10
 dates: 03/09/2018
 lecturer: mmdarden
-lectureRelease: 2018-03-09 11:00:00
+lectureRelease: 2018-03-08 00:00:00
 slidesName: w18/week10
 homeworkRelease: 2018-03-09 00:00:00
 advancedRelease: 2018-03-09 00:00:00
