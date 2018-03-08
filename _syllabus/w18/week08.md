@@ -15,5 +15,5 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary: Attendance is completely optional! If you come, we’ll be working on extending the RPN calculator built in class.
-leccapFri:
+leccapFri: tgPP28
 ---
