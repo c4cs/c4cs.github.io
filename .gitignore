@@ -8,3 +8,4 @@ _site
 *.out
 .bundle
 vendor
+.idea/
