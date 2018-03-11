@@ -14,35 +14,26 @@ $ linuxlogo
 
 <!--more-->
 
+### Useful Commands / Examples
+- `-a` generate the linux logo without color
+- `-u` also display system uptime
+- `-l` print LOGO only and exclude all other System Information
+- `-L list` see other built-in logos for various Linux distributions
+- `-L NUM` print logo with number NUM
+- `-L NAME` print logo with name NAME
+
 #### Example command
 
 ~~~bash
 $ linuxlogo 
 ~~~
-~~~ bash
-        _,met$$$$$gg.
-     ,g$$$$$$$$$$$$$$$P.
-   ,g$$P""       """Y$$.".
-  ,$$P'              `$$$.
-',$$P       ,ggs.     `$$b:
-`d$$'     ,$P"'   .    $$$                               ,#.
- $$P      d$'     ,    $$P      ##:          :##        :###:
- $$:      $$.   -    ,d$$'      ##'          `##         `#'
- $$;      Y$b._   _,d$P'    __  ##     __     ##  __      _     __          _
- Y$$.    `.`"Y$$$$P"'     ,####:##  ,######.  ##.#####. :### ,######. ###.####:
- `$$b      "-.__         ,##' `###  ##:  :##  ###' `###  ##' #:   `## `###' `##:
-  `Y$$b                  ##    `##  ##    ##  ##'   `##  ##    ___,##  ##:   `##
-   `Y$$.                 ##     ##  #######:  ##     ##  ##  .#######  ##'    ##
-     `$$b.               ##     ##  ##'       ##     ##  ##  ##'  `##  ##     ##
-       `Y$$b.            ##.   ,##  ##        ##    ,##  ##  ##    ##  ##     ##
-         `"Y$b._         :#:._,###  ##:__,##  ##:__,##' ,##. ##.__:##. ##     ##
-             `""""       `:#### ###  ######'  `######'  #### `#####"## ##     ##
+![linuxlogo](https://www.tecmint.com/wp-content/uploads/2015/06/Get-Default-OS-Logo.png)
 
-Linux Version 4.4.0-43-Microsoft, Compiled #1-Microsoft Wed Dec 31 14:42:53 PST 2014
-         Four 2.4GHz Intel i5 Processors, 32M RAM, 19208 Bogomips Total
-                                    suwenhao
+~~~bash
+$ linuxlogo -L 1
 ~~~
+![linuxlogo](https://www.tecmint.com/wp-content/uploads/2015/06/Print-AIX-Logo.png)
 
 
 
-Visit [here](https://www.tecmint.com/linux_logo-tool-to-print-color-ansi-logos-of-linux/) for more
+Visit [here](https://www.tecmint.com/linux_logo-tool-to-print-color-ansi-logos-of-linux/) for more information.
