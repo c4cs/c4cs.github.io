@@ -3,16 +3,19 @@
 
 find
 ---
-`find` is used to search one or more directory trees of a file system, to locate files based on user-defined specifications and to apply a user-defined action on each matched target. 
+`find` is used to search one or more directory trees of a file system, to locate files based on user-defined specifications and to apply a user-defined action on each matched target.
 
 <!-- minimal example -->
 ~~~ bash
-$ find
+$ find .
 .
+./dir1_sln
 ./dir1
 ./dir1/fileInDir.txt
+./dir1/file1.txt
 ./file3.txt
 ./file2.txt
+./file1.txt.copy
 ./file1.txt
 ~~~
 
@@ -49,7 +52,7 @@ Operators can be used to enhance the expressions of the find command. Operators 
 `find` supports several type filters. They can be configured using
 
 ~~~ bash
-$ find -type x
+$ find path... -type x
 ~~~
 
 where x may be any of:
@@ -91,10 +94,10 @@ $ tree
 2 directories, 6 files
 ~~~
 
-#### `find`
+#### `find .`
 
 ~~~ bash
-$ find
+$ find .
 .
 ./dir1_sln
 ./dir1
@@ -108,12 +111,12 @@ $ find
 
 ##### Break it down
 
-Equivalent to `find .` and `find . -print`. It simply lists out all the files in the current directory as well as the subdirectories in the current directory. Symlinks are included but not followed.
+Equivalent to `find . -print`. It simply lists out all the files in the current directory as well as the subdirectories in the current directory. Symlinks are included but not followed.
 
-#### `find -L`
+#### `find -L .`
 
 ~~~ bash
-$ find -L
+$ find -L .
 .
 ./dir1_sln
 ./dir1_sln/fileInDir.txt
