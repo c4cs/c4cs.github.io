@@ -3,22 +3,33 @@
 
 apropos
 ---
-TODO: Add documentation for this command by submitting a pull request.
+`apropos` searches the man database for entry that contains the string passed in as argument. 
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ apropos whoami
+whoami (1)           - print effective userid
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### `apropos STRING_ARGUMENT`
 
-##### Break it down
+Outputs a list of entries in the what is data base that contain the the string argument
 
-#### Example command
+~~~ bash
+$ apropos whoami
+whoami (1)           - print effective userid
+~~~
 
-##### Break it down
+* The string argument is not case sensitive.
+
+~~~ bash
+$ apropos wHOaMi
+whoami (1)           - print effective userid
+~~~
+
+* Press 'q' to quit the apropos display.
