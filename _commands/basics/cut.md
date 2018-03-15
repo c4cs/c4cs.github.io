@@ -42,7 +42,7 @@ Alexandra, Smith, Female, 71
 
 #### Example command
 ~~~bash
-cut -d ',' -f 1 people.csv
+$ cut -d ',' -f 1 people.csv
 Bill
 Sally
 Joe
@@ -50,7 +50,7 @@ Alexandra
 
 ##A cool thing we can do is redirect these changes to a new file##
 
-cut -d ',' -f 1 people.csv > newPeople.csv 
+$ cut -d ',' -f 1 people.csv > newPeople.csv 
 ~~~
 
 ##### Break it down
@@ -58,7 +58,7 @@ Here we took the original csv file, which had random peoples first name, last na
 
 #### Example command
 ~~~bash
-cut -c '1,2,3' people.csv
+$ cut -c '1,2,3' people.csv
 Bil
 Sal
 Joe
