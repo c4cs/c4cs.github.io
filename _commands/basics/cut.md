@@ -49,7 +49,6 @@ Joe
 Alexandra
 
 ##A cool thing we can do is redirect these changes to a new file##
-
 $ cut -d ',' -f 1 people.csv > newPeople.csv 
 ~~~
 
