@@ -19,6 +19,6 @@ homeworkTopics:
 advancedTopics:
   - printf++
   - Extending gdb with pretty printers
-lectureSummary:
+lectureSummary: Debuggers are great tools, and visual debuggers can be a huge time (and sanity) saver. Remember though, these visual debuggers do nothing more than provide an nice interface over their command line equivalents. Check out this [browser based frontend](https://github.com/cs01/gdbgui) to GDB.
 leccapFri:
 ---
