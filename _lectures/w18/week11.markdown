@@ -2,12 +2,93 @@
 permalink: /lectures/w18/week11.html
 ---
 
+
+# Before we begin, let's update our VM...
+
+## Ensure all local packages are up to date
+
+- `sudo apt-get update`
+
+## Upgrade/Install some packages
+
+- `sudo apt-get upgrade -y gdb`
+- `sudo apt-get install -y python3-pip`
+- `pip3 install --upgrade pip`
+
+
+---
+
+
+# Tips and Tricks Update
+
+- Edit your `~/.ssh/config` to contain the following
+  (works on MacOS, Linux, VM, and WSL)
+
+```
+### CAEN
+Host caen login.engin.umich.edu
+  HostName login.engin.umich.edu
+  User mmdarden  # Use your own uniqname
+  ControlMaster auto
+  ControlPath ~/.ssh/_%r@%h:%p
+  ControlPersist 43200
+
+Host mmd  # Use your own initials or fave shortcut
+  HostName oncampus-course.engin.umich.edu
+  User mmdarden  # Use your own uniqname
+```
+
+- When connecting to CAEN (with `ssh caen`)
+  - First login requires password and DUO
+  - Subsequent logins connect instantly (for 12 hours, or until...)
+  - When the multiplexing expires or is broken (rules unknown)
+  - Works for everything that uses ssh (commands, sessions, 3rd party software, etc.)
+  - 2 useful commands
+    - `ssh -O check caen`
+    - `ssh -O stop caen`
+  - Also, look for the file `~/.ssh/_mmdarden@login.eecs.umich.edu:22`
+
+
+---
+
+
+# TTU++
+
+- Connect your local dev environment to CAEN
+  - Use `rsync` and a "Post-build script"
+- EECS 281 example: [https://gitlab.eecs.umich.edu/eecs281/makefile]
+  - Look at `$(REMOTE_BASEDIR)`
+  - Look at `$(REMOTE_PATH)`
+  - Look at target `sync2caen`
+- Xcode example:
+  - Edit Scheme...
+  - Add a "Build Post-action"
+    - Name: "Sync to CAEN"
+    - Shell: `/bin/bash`
+    - Provide build settings from: `<current scheme>`
+    - Add the following script
+
+```bash
+# Auto upload from Xcode to CAEN
+make -C "${SRCROOT}" sync2caen > "${SRCROOT}/rsync.log"
+open "${SRCROOT}/rsync.log"
+```
+
+![Edit Scheme: Build Post-action](img/postaction.jpg)
+
+- Check on CAEN in `~/$(REMOTE_PATH)`
+- Sync happens after every successful build!
+
+
+---
+
+
 class: center, middle
 
 # Debuggers
 
 .copyright[
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>>
 ** [Pat Pannuto](http://patpannuto.com) / Marcus Darden **
 ]
 
@@ -240,6 +321,16 @@ class ObjectPrinter:
 
 gdb.pretty_printers.append(lookup_type)
 ```
+
+
+---
+
+
+# The New Hotness... gdbgui
+
+- `pip3 install gdbgui --upgrade`
+- Rerun the previous debug session
+- Start a new debug session
 
 
 ---
