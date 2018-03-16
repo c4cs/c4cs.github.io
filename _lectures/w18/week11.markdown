@@ -3,7 +3,7 @@ permalink: /lectures/w18/week11.html
 ---
 
 
-# Before we begin, let's update our VM...
+# Before we begin, update your VM...
 
 ## Ensure all local packages are up to date
 
@@ -50,8 +50,8 @@ Host mmd  # Use your own initials or fave shortcut
   - When the multiplexing expires or is broken (rules unknown)
   - Works for everything that uses ssh (commands, sessions, 3rd party software, etc.)
   - 2 useful commands
-    - `ssh -O check caen`
-    - `ssh -O stop caen`
+      - `ssh -O check caen`
+      - `ssh -O stop caen`
   - Also, look for the file `~/.ssh/_mmdarden@login.eecs.umich.edu:22`
 
 
@@ -87,7 +87,7 @@ open "${SRCROOT}/rsync.log"
 ---
 
 
-![Edit Scheme: Build Post-action](img/postbuild.jpg)
+![Edit Scheme: Build Post-action](img/postbuild.png)
 
 
 ---
