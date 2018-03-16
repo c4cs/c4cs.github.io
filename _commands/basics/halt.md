@@ -18,7 +18,24 @@ $ sudo halt
 #### `halt -p`
 
 
-Invoking `halt` with option `-p` would instruct the `halt` command to instead behave as `poweroff`.
+Invoking `halt` with option `-p` would instruct the `halt` command to instead behave as `poweroff`. `poweroff` is a terminal command that would allow a system administrator to shutdown the system.
+
+~~~ bash
+$ poweroff --help
+poweroff [OPTIONS...]
+
+Power off the system.
+
+     --help      Show this help
+     --halt      Halt the machine
+  -p --poweroff  Switch off the machine
+     --reboot    Reboot the machine
+  -f --force     Force immediate halt/power-off/reboot
+  -w --wtmp-only Don't halt/power-off/reboot, just write wtmp record
+  -d --no-wtmp   Don't write wtmp record
+     --no-wall   Don't send wall message before halt/power-off/reboot
+ 
+~~~
 
 
 
@@ -32,6 +49,21 @@ It would output slightly more verbose messages when rebooting, which can be usef
 
 
 It would print a short help text and exit.
+
+~~~ bash
+halt [OPTIONS...]
+
+Halt the system.
+
+     --help      Show this help
+     --halt      Halt the machine
+  -p --poweroff  Switch off the machine
+     --reboot    Reboot the machine
+  -f --force     Force immediate halt/power-off/reboot
+  -w --wtmp-only Don't halt/power-off/reboot, just write wtmp record
+  -d --no-wtmp   Don't write wtmp record
+     --no-wall   Don't send wall message before halt/power-off/reboot
+~~~
 
 
 ### Exit Status
