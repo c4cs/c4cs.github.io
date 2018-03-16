@@ -38,6 +38,12 @@ Host mmd  # Use your own initials or fave shortcut
   User mmdarden  # Use your own uniqname
 ```
 
+
+---
+
+
+# Tips and Tricks Update
+
 - When connecting to CAEN (with `ssh caen`)
   - First login requires password and DUO
   - Subsequent logins connect instantly (for 12 hours, or until...)
@@ -74,10 +80,14 @@ make -C "${SRCROOT}" sync2caen > "${SRCROOT}/rsync.log"
 open "${SRCROOT}/rsync.log"
 ```
 
-![Edit Scheme: Build Post-action](img/postaction.jpg)
-
 - Check on CAEN in `~/$(REMOTE_PATH)`
 - Sync happens after every successful build!
+
+
+---
+
+
+![Edit Scheme: Build Post-action](img/postbuild.jpg)
 
 
 ---
