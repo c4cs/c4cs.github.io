@@ -7,6 +7,7 @@ permalink: /lectures/w18/week11.html
 
 ## Ensure all local packages are up to date
 
+- **FIRST SET A CHECKPOINT FOR YOUR VM**
 - `sudo apt-get update`
 
 ## Upgrade/Install some packages
