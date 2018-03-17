@@ -18,18 +18,23 @@ $ poweroff [options]
    reboot system call itself and directly reboots the system.
  * Otherwise, this simply invokes the shutdown tool with the appropriate
    arguments without passing REBOOTCOMMAND argument.
+ * Runlevel 0 in Linux is halt and shuts down the system.
+ * Runlevel 6 in Linux is reboot and reboots the system.
+ * Runlevels are modes of operation in operating systems. In Linux, there are 6
+   modes.
+ * More information can be found here: https://wiki.debian.org/RunLevel
 
 ### Useful Options
 
-#### `poweroff --f`
-#### `poweroff --force`
+#### `poweroff -f`
 
 ~~~bash
 $ poweroff -f
 ~~~
 
- * Does not invoke shutdown, and instead performs the actual command you would expect from the name.
-
+* When called in runlevel 0 or 6, the system is immediately powered off via
+  `reboot(RB_POWEROFF)` system call.
+* Otherwise, `poweroff` behaves as an alias for `shutdown now`
 
 
 #### `poweroff -p`
