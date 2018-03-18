@@ -10,7 +10,7 @@ The general format is
 
 <!-- minimal example -->
 ~~~ bash
-$ jobs [options] jobID
+$ jobs [options] [jobID]
 ~~~
 
 <!--more-->
@@ -27,7 +27,7 @@ $ jobs
 [2]+  Running                 xeyes &
 ~~~
 
-This will display the status of every job in the current shell.
+This will display the status of every job in the current shell. Status is displayed by job number, status, and job. Jobs running in the background have an `&` after them. `+` refers to the job that was sent to the background least recently and `-` refers to the second least recent job sent to the background.
 
 ### Useful Options / Examples
 
@@ -73,7 +73,7 @@ $ jobs -n
 
 ##### Break it down
 
- * Display the jobs in the current shell that have changed status since last notified. For example, if you start a new job or a job finishes since you last called jobs, jobs -n will display that job.
+ * Display the jobs in the current shell that have changed status since last notified. For example, if you start a new job or a job finishes since you last called jobs, `jobs -n` will display that job.
 
 #### jobs -r
 ~~~ bash
