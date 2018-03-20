@@ -8,14 +8,22 @@
 Course Progress Evaluator
 </title>
 <style>
-body {
-	font-family: sans-serif;
-	color: black;
-}
-input[type="text"] {
-   color: black;
-}
+  body {
+    font-family: sans-serif;
+    color: black;
+  }
+  input[type="text"] {
+     color: black;
+  }
+  input {
+    height: 20px;
+    padding: 0px 4px;
+    width: 155px;
+  }
 
+  input:invalid {
+    border: 2px solid red;
+  }
 </style>
 </head>
 <body>
@@ -41,142 +49,136 @@ input[type="text"] {
 	      <option id="week" value="15">Week 15</option>
 		</select>
     <p>Fill in the table below to see your progress.</p>
-    <p>Week Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attendance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Homework  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Advanced Homework</p>
-		<p id="week0">Please Select a Week</p>
-    <p id="week0Alt" style="visibility: hidden;">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Enter 0 to 3
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Enter 0 to 4
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Enter 1 if completed
-    </p>
-    
-    <style type="text/css">
-      input {
-   		  height: 20px;
-    	  padding: 0px 4px;
-    	  width: 155px;
-  	  }
-  
-      input:invalid {
-        border: 2px solid red;
-      }
-    </style>
-    
-	<p id="week1" style="visibility: hidden;">Week 1 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att1" onchange="calculate()" value="" placeholder="No Attendance Week 1" disabled step=3 min=0 max=3>
-      <input type="number" id="hw1" onchange="calculate()" value="" placeholder="Homework Week 1" step=2 min=0 max=4>
-      <input type="number" id="adv1" onchange="calculate()" value="" placeholder="No Advanced Week 1" disabled step=5 min=0 max=10>
-      <input type="number" id="ec1" onchange="calculate()" value="" placeholder="Extra Credit Week 1">
-    </p>
-    <p id="week2" style="visibility: hidden;">Week 2 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att2" onchange="calculate()" value="" placeholder="Attendance Week 2" step=3 min=0 max=3>
-      <input type="number" id="hw2" onchange="calculate()" value="" placeholder="Homework Week 2" step=2 min=0 max=4>
-      <input type="number" id="adv2" onchange="calculate()" value="" placeholder="Advanced Week 2" step=5 min=0 max=10>
-      <input type="number" id="ec2" onchange="calculate()" value="" placeholder="Extra Credit Week 2">
-    </p>
-    <p id="week3" style="visibility: hidden;">Week 3 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att3" onchange="calculate()" value="" placeholder="Attendance Week 3" step=3 min=0 max=3>
-      <input type="number" id="hw3" onchange="calculate()" value="" placeholder="Homework Week 3" step=2 min=0 max=4>
-      <input type="number" id="adv3" onchange="calculate()" value="" placeholder="Advanced Week 3" step=5 min=0 max=10>
-      <input type="number" id="ec3" onchange="calculate()" value="" placeholder="Extra Credit Week 3">
-    </p>
-    <p id="week4" style="visibility: hidden;">Week 4 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att4" onchange="calculate()" value="" placeholder="Attendance Week 4" step=3 min=0 max=3>
-      <input type="number" id="hw4" onchange="calculate()" value="" placeholder="Homework Week 4" step=2 min=0 max=4>
-      <input type="number" id="adv4" onchange="calculate()" value="" placeholder="Advanced Week 4" step=5 min=0 max=10>
-      <input type="number" id="ec4" onchange="calculate()" value="" placeholder="Extra Credit Week 4">
-    </p>
-    <p id="week5" style="visibility: hidden;">Week 5 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att5" onchange="calculate()" value="" placeholder="Attendance Week 5" step=3 min=0 max=3>
-      <input type="number" id="hw5" onchange="calculate()" value="" placeholder="Homework Week 5" step=2 min=0 max=4>
-      <input type="number" id="adv5" onchange="calculate()" value="" placeholder="Advanced Week 5" step=5 min=0 max=10>
-      <input type="number" id="ec5" onchange="calculate()" value="" placeholder="Extra Credit Week 5">
-    </p>
-    <p id="week6" style="visibility: hidden;">Week 6 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att6" onchange="calculate()" value="" placeholder="Attendance Week 6" step=3 min=0 max=3>
-      <input type="number" id="hw6" onchange="calculate()" value="" placeholder="Homework Week 6" step=2 min=0 max=4>
-      <input type="number" id="adv6" onchange="calculate()" value="" placeholder="Advanced Week 6" step=5 min=0 max=10>
-      <input type="number" id="ec6" onchange="calculate()" value="" placeholder="Extra Credit Week 6">
-    </p>
-    <p id="week7" style="visibility: hidden;">Week 7 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att7" onchange="calculate()" value="" placeholder="Attendance Week 7" step=3 min=0 max=3>
-      <input type="number" id="hw7" onchange="calculate()" value="" placeholder="Homework Week 7" step=2 min=0 max=4>
-      <input type="number" id="adv7" onchange="calculate()" value="" placeholder="Advanced Week 7" step=5 min=0 max=10>
-      <input type="number" id="ec7" onchange="calculate()" value="" placeholder="Extra Credit Week 7">
-    </p>
-    <p id="week8" style="visibility: hidden;">Week 8 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att8" onchange="calculate()" value="" placeholder="Opt. Attendance Week 8" disabled step=3 min=0 max=3>
-      <input type="number" id="hw8" onchange="calculate()" value="" placeholder="No Homework Week 8" disabled step=2 min=0 max=4>
-      <input type="number" id="adv8" onchange="calculate()" value="" placeholder="No Advanced Week 8" disabled step=5 min=0 max=10>
-      <input type="number" id="ec8" onchange="calculate()" value="" placeholder="Extra Credit Week 8">
-    </p>
-    <p id="week9" style="visibility: hidden;">Week 9 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att9" onchange="calculate()" value="" placeholder="No Attendance Week 9" disabled step=3 min=0 max=3>
-      <input type="number" id="hw9" onchange="calculate()" value="" placeholder="No Homework Week 9" disabled step=2 min=0 max=4>
-      <input type="number" id="adv9" onchange="calculate()" value="" placeholder="No Advanced Week 9" disabled step=5 min=0 max=10>
-      <input type="number" id="ec9" onchange="calculate()" value="" placeholder="Extra Credit Week 9">
-    </p>
-    <p id="week10" style="visibility: hidden;">Week 10 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att10" onchange="calculate()" value="" placeholder="Attendance Week 10" step=3 min=0 max=3>
-      <input type="number" id="hw10" onchange="calculate()" value="" placeholder="Homework Week 10" step=2 min=0 max=4>
-      <input type="number" id="adv10" onchange="calculate()" value="" placeholder="Advanced Week 10" step=5 min=0 max=10>
-      <input type="number" id="ec10" onchange="calculate()" value="" placeholder="Extra Credit Week 10">
-    </p>
-    <p id="week11" style="visibility: hidden;">Week 11 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att11" onchange="calculate()" value="" placeholder="Attendance Week 11" step=3 min=0 max=3>
-      <input type="number" id="hw11" onchange="calculate()" value="" placeholder="Homework Week 11" step=2 min=0 max=4>
-      <input type="number" id="adv11" onchange="calculate()" value="" placeholder="Advanced Week 11" step=5 min=0 max=10>
-      <input type="number" id="ec11" onchange="calculate()" value="" placeholder="Extra Credit Week 11">
-    </p>
-    <p id="week12" style="visibility: hidden;">Week 12 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att12" onchange="calculate()" value="" placeholder="Attendance Week 12" step=3 min=0 max=3>
-      <input type="number" id="hw12" onchange="calculate()" value="" placeholder="Homework Week 12" step=2 min=0 max=4>
-      <input type="number" id="adv12" onchange="calculate()" value="" placeholder="Advanced Week 12" step=5 min=0 max=10>
-      <input type="number" id="ec12" onchange="calculate()" value="" placeholder="Extra Credit Week 12">
-    </p>
-    <p id="week13" style="visibility: hidden;">Week 13 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att13" onchange="calculate()" value="" placeholder="Attendance Week 13" step=3 min=0 max=3>
-      <input type="number" id="hw13" onchange="calculate()" value="" placeholder="Homework Week 13" step=2 min=0 max=4>
-      <input type="number" id="adv13" onchange="calculate()" value="" placeholder="Advanced Week 13" step=5 min=0 max=10>
-      <input type="number" id="ec13" onchange="calculate()" value="" placeholder="Extra Credit Week 13">
-    </p>
-    <p id="week14" style="visibility: hidden;">Week 14 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att14" onchange="calculate()" value="" placeholder="Attendance Week 14" step=3 min=0 max=3>
-      <input type="number" id="hw14" onchange="calculate()" value="" placeholder="Homework Week 14" step=2 min=0 max=4>
-      <input type="number" id="adv14" onchange="calculate()" value="" placeholder="Advanced Week 14" step=5 min=0 max=10>
-      <input type="number" id="ec14" onchange="calculate()" value="" placeholder="Extra Credit Week 14">
-    </p>
-    <p id="week15" style="visibility: hidden;">Week 15 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att15" onchange="calculate()" value="" placeholder="Attendance Week 15" step=3 min=0 max=3>
-      <input type="number" id="hw15" onchange="calculate()" value="" placeholder="No Homework Week 15" disabled step=2 min=0 max=4>
-      <input type="number" id="adv15" onchange="calculate()" value="" placeholder="No Advanced Week 15" disabled>
-      <input type="number" id="ec15" onchange="calculate()" value="" placeholder="Extra Credit Week 15" step=5 min=0 max=10>
-    </p>
-    <p id="totals">Totals     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="number" id="attTot" value="" placeholder="Attendance Total" disabled>
-      <input type="number" id="hwTot"  value="" placeholder="Homework Total" disabled>
-      <input type="number" id="advTot" value="" placeholder="Advanced Total" disabled>
-      <input type="number" id="ecTot"  value="" placeholder="Extra Credit Total" disabled>
-    </p>
+      
+      <table style="width:80%">
+        <tr>
+          <th>Week Number</th>
+          <th>Attendance</th>
+          <th>Homework</th>
+          <th>Advanced Homework</th>
+          <th>Extra Credit</th>
+        </tr>
+        <tr>
+          <td id="week0">Please Select a Week</td>
+          <td id="week0Alt" style="visibility: hidden;" align="center">Enter 0 to 3</td>
+          <td id="week0Alt2" style="visibility: hidden;" align="center">Enter 0 to 4</td>
+          <td id="week0Alt3" style="visibility: hidden;" align="center">Enter 1 if completed</td>
+          <td></td>
+        </tr>
+        <tr id="week1" style="visibility: hidden;">
+          <td>Week 1</td> 
+          <td><input type="number" id="att1" onchange="calculate()" value="" placeholder="No Attendance Week 1" disabled step=3 min=0 max=3></td>
+          <td><input type="number" id="hw1" onchange="calculate()" value="" placeholder="Homework Week 1" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv1" onchange="calculate()" value="" placeholder="No Advanced Week 1" disabled step=1 min=0 max=1></td>
+          <td><input type="number" id="ec1" onchange="calculate()" value="" placeholder="Extra Credit Week 1"></td>
+        </tr>
+        <tr id="week2" style="visibility: hidden;">
+          <td>Week 2</td> 
+          <td><input type="number" id="att2" onchange="calculate()" value="" placeholder="Attendance Week 2" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw2" onchange="calculate()" value="" placeholder="Homework Week 2" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv2" onchange="calculate()" value="" placeholder="Advanced Week 2" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec2" onchange="calculate()" value="" placeholder="Extra Credit Week 2"></td>
+        </tr>
+        <tr id="week3" style="visibility: hidden;">
+          <td>Week 3</td>
+          <td><input type="number" id="att3" onchange="calculate()" value="" placeholder="Attendance Week 3" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw3" onchange="calculate()" value="" placeholder="Homework Week 3" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv3" onchange="calculate()" value="" placeholder="Advanced Week 3" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec3" onchange="calculate()" value="" placeholder="Extra Credit Week 3"></td>
+        </tr>
+        <tr id="week4" style="visibility: hidden;">
+          <td>Week 4</td>
+          <td><input type="number" id="att4" onchange="calculate()" value="" placeholder="Attendance Week 4" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw4" onchange="calculate()" value="" placeholder="Homework Week 4" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv4" onchange="calculate()" value="" placeholder="Advanced Week 4" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec4" onchange="calculate()" value="" placeholder="Extra Credit Week 4"></td>
+        </tr>
+        <tr id="week5" style="visibility: hidden;">
+          <td>Week 5</td> 
+      	  <td><input type="number" id="att5" onchange="calculate()" value="" placeholder="Attendance Week 5" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw5" onchange="calculate()" value="" placeholder="Homework Week 5" step=2 min=0 max=4></td>
+     	  <td><input type="number" id="adv5" onchange="calculate()" value="" placeholder="Advanced Week 5" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec5" onchange="calculate()" value="" placeholder="Extra Credit Week 5"></td>
+        </tr>
+        <tr id="week6" style="visibility: hidden;">
+          <td>Week 6</td> 
+      	  <td><input type="number" id="att6" onchange="calculate()" value="" placeholder="Attendance Week 6" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw6" onchange="calculate()" value="" placeholder="Homework Week 6" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv6" onchange="calculate()" value="" placeholder="Advanced Week 6" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec6" onchange="calculate()" value="" placeholder="Extra Credit Week 6"></td>
+        </tr>
+        <tr id="week7" style="visibility: hidden;">
+          <td>Week 7</td> 
+      	  <td><input type="number" id="att7" onchange="calculate()" value="" placeholder="Attendance Week 7" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw7" onchange="calculate()" value="" placeholder="Homework Week 7" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv7" onchange="calculate()" value="" placeholder="Advanced Week 7" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec7" onchange="calculate()" value="" placeholder="Extra Credit Week 7"></td>
+        </tr>
+        <tr id="week8" style="visibility: hidden;">
+          <td>Week 8</td>
+      	  <td><input type="number" id="att8" onchange="calculate()" value="" placeholder="Opt. Attendance Week 8" disabled step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw8" onchange="calculate()" value="" placeholder="No Homework Week 8" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv8" onchange="calculate()" value="" placeholder="No Advanced Week 8" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec8" onchange="calculate()" value="" placeholder="Extra Credit Week 8"></td>
+        </tr>
+        <tr id="week9" style="visibility: hidden;">
+          <td>Week 9</td>
+      	  <td><input type="number" id="att9" onchange="calculate()" value="" placeholder="No Attendance Week 9" disabled step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw9" onchange="calculate()" value="" placeholder="No Homework Week 9" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv9" onchange="calculate()" value="" placeholder="No Advanced Week 9" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec9" onchange="calculate()" value="" placeholder="Extra Credit Week 9"></td>
+        </tr>
+        <tr id="week10" style="visibility: hidden;">
+          <td>Week 10</td>
+      	  <td><input type="number" id="att10" onchange="calculate()" value="" placeholder="Attendance Week 10" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw10" onchange="calculate()" value="" placeholder="Homework Week 10" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv10" onchange="calculate()" value="" placeholder="Advanced Week 10" step=1 min=0 max=1></td>
+     	  <td><input type="number" id="ec10" onchange="calculate()" value="" placeholder="Extra Credit Week 10"></td>
+        </tr>
+        <tr id="week11" style="visibility: hidden;">
+          <td>Week 11</td>
+      	  <td><input type="number" id="att11" onchange="calculate()" value="" placeholder="Attendance Week 11" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw11" onchange="calculate()" value="" placeholder="Homework Week 11" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv11" onchange="calculate()" value="" placeholder="Advanced Week 11" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec11" onchange="calculate()" value="" placeholder="Extra Credit Week 11"></td>
+        </tr>
+        <tr id="week12" style="visibility: hidden;">
+          <td>Week 12</td>
+      	  <td><input type="number" id="att12" onchange="calculate()" value="" placeholder="Attendance Week 12" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw12" onchange="calculate()" value="" placeholder="Homework Week 12" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv12" onchange="calculate()" value="" placeholder="Advanced Week 12" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec12" onchange="calculate()" value="" placeholder="Extra Credit Week 12"></td>
+        </tr>
+        <tr id="week13" style="visibility: hidden;">
+          <td>Week 13</td> 
+      	  <td><input type="number" id="att13" onchange="calculate()" value="" placeholder="Attendance Week 13" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw13" onchange="calculate()" value="" placeholder="Homework Week 13" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv13" onchange="calculate()" value="" placeholder="Advanced Week 13" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec13" onchange="calculate()" value="" placeholder="Extra Credit Week 13"></td>
+        </tr>
+        <tr id="week14" style="visibility: hidden;">
+          <td>Week 14</td>
+      	  <td><input type="number" id="att14" onchange="calculate()" value="" placeholder="Attendance Week 14" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw14" onchange="calculate()" value="" placeholder="Homework Week 14" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv14" onchange="calculate()" value="" placeholder="Advanced Week 14" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec14" onchange="calculate()" value="" placeholder="Extra Credit Week 14"></td>
+        </tr>
+        <tr id="week15" style="visibility: hidden;">
+          <td>Week 15</td>
+      	  <td><input type="number" id="att15" onchange="calculate()" value="" placeholder="Attendance Week 15" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw15" onchange="calculate()" value="" placeholder="No Homework Week 15" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv15" onchange="calculate()" value="" placeholder="No Advanced Week 15" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec15" onchange="calculate()" value="" placeholder="Extra Credit Week 15"></td>
+        </tr>
+        <tr id="totals">
+          <td>Totals</td>
+      	  <td><input type="number" id="attTot" value="" placeholder="Attendance Total" disabled></td>
+      	  <td><input type="number" id="hwTot"  value="" placeholder="Homework Total" disabled></td>
+      	  <td><input type="number" id="advTot" value="" placeholder="Advanced Total" disabled></td>
+      	  <td><input type="number" id="ecTot"  value="" placeholder="Extra Credit Total" disabled></td>
+        </tr>
+      </table>
+      
     <p> Right now you have 
       <input type="number" id="numPoints" value="" placeholder="Total" disabled>
       points, which is a(n) 
@@ -200,6 +202,8 @@ input[type="text"] {
       
       document.getElementById("week0").style.visibility="hidden";
       document.getElementById("week0Alt").style.visibility="visible";
+      document.getElementById("week0Alt2").style.visibility="visible";
+      document.getElementById("week0Alt3").style.visibility="visible";
       
       if(week >= 1){
       	document.getElementById("week1").style.visibility="visible";
