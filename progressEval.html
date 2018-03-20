@@ -23,7 +23,7 @@ input[type="text"] {
 		<form role="form" id="grades" name="grades">	
 		<p> What week is it? </p>
 		<select class="" id="weekselect" onchange="calculate()">
-	      <option id="week" value="0">Week 0</option>
+	      <option id="week" value="0" disabled selected>Please Choose a Week</option>
 		  <option id="week" value="1">Week 1</option>
 		  <option id="week" value="2">Week 2</option>
 		  <option id="week" value="3">Week 3</option>
@@ -55,9 +55,9 @@ input[type="text"] {
     </p>
 	<p id="week1" style="visibility: hidden;">Week 1 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att1" onchange="calculate()" value="" placeholder="No Attendance Week 1" readonly="readonly">
+      <input type="number" id="att1" onchange="calculate()" value="" placeholder="No Attendance Week 1" disabled>
       <input type="number" id="hw1" onchange="calculate()" value="" placeholder="Homework Week 1">
-      <input type="number" id="adv1" onchange="calculate()" value="" placeholder="No Advanced Week 1" readonly="readonly">
+      <input type="number" id="adv1" onchange="calculate()" value="" placeholder="No Advanced Week 1" disabled>
       <input type="number" id="ec1" onchange="calculate()" value="" placeholder="Extra Credit Week 1">
     </p>
     <p id="week2" style="visibility: hidden;">Week 2 
@@ -104,16 +104,16 @@ input[type="text"] {
     </p>
     <p id="week8" style="visibility: hidden;">Week 8 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att8" onchange="calculate()" value="" placeholder="Opt. Attendance Week 8" readonly="readonly">
-      <input type="number" id="hw8" onchange="calculate()" value="" placeholder="No Homework Week 8" readonly="readonly">
-      <input type="number" id="adv8" onchange="calculate()" value="" placeholder="No Advanced Week 8" readonly="readonly">
+      <input type="number" id="att8" onchange="calculate()" value="" placeholder="Opt. Attendance Week 8" disabled>
+      <input type="number" id="hw8" onchange="calculate()" value="" placeholder="No Homework Week 8" disabled>
+      <input type="number" id="adv8" onchange="calculate()" value="" placeholder="No Advanced Week 8" disabled>
       <input type="number" id="ec8" onchange="calculate()" value="" placeholder="Extra Credit Week 8">
     </p>
     <p id="week9" style="visibility: hidden;">Week 9 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <input type="number" id="att9" onchange="calculate()" value="" placeholder="No Attendance Week 9" readonly="readonly">
-      <input type="number" id="hw9" onchange="calculate()" value="" placeholder="No Homework Week 9" readonly="readonly">
-      <input type="number" id="adv9" onchange="calculate()" value="" placeholder="No Advanced Week 9" readonly="readonly">
+      <input type="number" id="att9" onchange="calculate()" value="" placeholder="No Attendance Week 9" disabled>
+      <input type="number" id="hw9" onchange="calculate()" value="" placeholder="No Homework Week 9" disabled>
+      <input type="number" id="adv9" onchange="calculate()" value="" placeholder="No Advanced Week 9" disabled>
       <input type="number" id="ec9" onchange="calculate()" value="" placeholder="Extra Credit Week 9">
     </p>
     <p id="week10" style="visibility: hidden;">Week 10 
@@ -154,25 +154,25 @@ input[type="text"] {
     <p id="week15" style="visibility: hidden;">Week 15 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
       <input type="number" id="att15" onchange="calculate()" value="" placeholder="Attendance Week 15">
-      <input type="number" id="hw15" onchange="calculate()" value="" placeholder="No Homework Week 15" readonly="readonly">
-      <input type="number" id="adv15" onchange="calculate()" value="" placeholder="No Advanced Week 15" readonly="readonly">
+      <input type="number" id="hw15" onchange="calculate()" value="" placeholder="No Homework Week 15" disabled>
+      <input type="number" id="adv15" onchange="calculate()" value="" placeholder="No Advanced Week 15" disabled>
       <input type="number" id="ec15" onchange="calculate()" value="" placeholder="Extra Credit Week 15">
     </p>
     <p id="totals">Totals     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="number" id="attTot" value="" placeholder="Attendance Total" readonly="readonly">
-      <input type="number" id="hwTot"  value="" placeholder="Homework Total" readonly="readonly">
-      <input type="number" id="advTot" value="" placeholder="Advanced Total" readonly="readonly">
-      <input type="number" id="ecTot"  value="" placeholder="Extra Credit Total" readonly="readonly">
+      <input type="number" id="attTot" value="" placeholder="Attendance Total" disabled>
+      <input type="number" id="hwTot"  value="" placeholder="Homework Total" disabled>
+      <input type="number" id="advTot" value="" placeholder="Advanced Total" disabled>
+      <input type="number" id="ecTot"  value="" placeholder="Extra Credit Total" disabled>
     </p>
     <p> Right now you have 
-      <input type="number" id="numPoints" value="" placeholder="Total" readonly="readonly">
+      <input type="number" id="numPoints" value="" placeholder="Total" disabled>
       points, which is a(n) 
-      <input type="text" id="curGrade"  value="" placeholder="A" readonly="readonly">
+      <input type="text" id="curGrade"  value="" placeholder="A" disabled>
     </p>
     <p> If your point-to-week ratio stays constant, you will earn 
-      <input type="number" id="predPoints" value="" placeholder="Total" readonly="readonly">
+      <input type="number" id="predPoints" value="" placeholder="Total" disabled>
       points, which is a(n)
-      <input type="text" id="predGrade"  value="" placeholder="A" readonly="readonly">
+      <input type="text" id="predGrade"  value="" placeholder="A" disabled>
     </p>
 	</form>
 	
