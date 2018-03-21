@@ -8,13 +8,13 @@ units
 To use interactively, type units into the command prompt:
 
 ~~~ bash
-$units
+$ units
 ~~~
 
 To use non-interactively:
 
 ~~~ bash
-$units [options] ['from-unit' 'to-unit']
+$ units [options] ['from-unit' 'to-unit']
 ~~~
 
 <!--more-->
@@ -28,8 +28,8 @@ Typing `units` into the terminal brings up an interactive prompt. The interactiv
 
 ~~~ bash
 $ units
-$ You have: 10 meters
-$ You want: feet
+You have: 10 meters
+You want: feet
   * 32.808399
   / 0.03048
 ~~~
@@ -51,7 +51,7 @@ The `--digits` flag specifies the output to a certain number of digits specified
 Example:
 
 ~~~ bash
-$units --digits 3 '10 meters' 'feet'
+$ units --digits 3 '10 meters' 'feet'
    * 32.8
    / 0.305
 ~~~
@@ -64,19 +64,19 @@ The `--verbose` flag shows slightly more verbose output.
 Example:
 
 ~~~ bash
-$units --verbose '10 meters' 'feet'
+$ units --verbose '10 meters' 'feet'
    10 meters = 32.808399 feet
    10 meters = (1 / 0.03048) feet
 ~~~
 
 
 ### Converting Temperatures
-There is a special syntax for temperatures. Specifically, fahrenheit can be indicated by `tempF` and Celcius can be indicated by `tempC`. To assign a value to either of these units, use a number enclosed in parentheses after the unit. `tempF(32)` means 32 degrees Fahrenheit.
+There is a special syntax for temperatures. Specifically, Fahrenheit can be indicated by `tempF` and Celcius can be indicated by `tempC`. To assign a value to either of these units, use a number enclosed in parentheses after the unit. `tempF(32)` means 32 degrees Fahrenheit.
 
 Example:
 
 ~~~ bash
-$units 'tempF(32)' 'tempC'
+$ units 'tempF(32)' 'tempC'
    0
 ~~~
 
