@@ -1,34 +1,24 @@
 ---
 ---
 
-Snake
+snake
 -------
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-Play the classic arcade game `snake` in Terminal.
-
+<!-- minimal example -->
 ~~~ bash
-$ emacs
-~~~
-
-While in emacs, hold `Esc` + `x`, then type `snake`.
-Please note, `M-x` is the default emacs prompt.
-
-~~~ bash
-M-x snake
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
-### Scores
+### Useful Options / Examples
 
-To view scores, change to your emacs game directory.
+#### Example command
 
-~~~ bash
-$ cd ~/.emacs.d/games
-$ ls
-snake-scores
-~~~
+##### Break it down
 
-### Additional Games
+#### Example command
 
-You can also play `tetris` and `pong` by repeating the steps above.
+##### Break it down

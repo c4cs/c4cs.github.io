@@ -3,20 +3,10 @@
 
 seq
 -------
+`seq` is used to produce a sequence of numbers
+<!-- one line explanation would go here -->
 
-`seq`prints a sequence of numbers to standard ouput.
-
-~~~ bash
-$ seq [options]... [*FIRST* [*STEP*]] *LAST*... 
-~~~
-
-<!--more-->
-
-where `seq` prints numbers from *FIRST* to *LAST* by an increment *STEP*.
-Default: *FIRST* & *STEP* are both 1. Each number is printed on its own line. Seq can be used on all real numbers.
-
-EXAMPLE
-
+<!-- minimal example -->
 ~~~ bash
 $ seq 3
 1
@@ -24,62 +14,79 @@ $ seq 3
 3
 ~~~
 
+<!--more-->
+
 ### Useful Options / Examples
 
-#### `-f, --format=`*FORMAT*
-
-prints all numbers using *FORMAT*, where the default is `%g`. *FORMAT* must contain one of the following float output formats: `%g`, `%e`, `%f`, where `%g` is the default. 
-NOTE: `%g` is included in the example below to show where to include a float output format in the command.
-
-EXAMPLE:
+#### `seq -s [SEPERATOR] `
 
 ~~~ bash
-$ seq -f "tyler%02g" 10
+$ seq -s " " 3
+1 2 3
+$ seq -s " | " 3
+1 | 2 | 3
 ~~~
 
-will produce:
+ * `-s` is the seperator between the numbers. For the default the seperator is equal to '\n', the end of line character. Takes in a string value.
 
-tyler01  
-tyler02  
-tyler03  
-tyler04  
-tyler05  
-tyler06  
-tyler07  
-tyler08  
-tyler09  
-tyler10  
+#### `seq -f [FORMAT] `
+ 
+~~~ bash
+$ seq -f "01/%02g/2016" 3
+01/01/2016
+01/02/2016
+01/02/2016
+~~~
 
-#### `-s, --seperator=`*STRING*
+* `-f` Sets a format for the sequence. In this case, a date like format was chosen.
 
-separates numbers with *STRING*, where default is a newline. Output terminates with newline.
-
-EXAMPLE:
+#### `seq [FIRST] [LAST]`
 
 ~~~ bash
-$ seq -s' ' 0 2 10
-~~~ 
+$ seq 5 10
+5
+6
+7
+8
+9
+10
+~~~
 
-will produce:
+ * Putting in two number arguments prints a list of numbers starting from the 
+first number to the second number
 
-0 2 4 6 8 10
-
-#### `-w, --equal-width=`
-
-prints all numbers with same width by padding with leading zeros. 
-
-EXAMPLE:
+#### `seq [FIRST] [INCREMENT] [LAST]`
 
 ~~~ bash
-$ seq -w 50 50 250
-~~~ 
+$ seq 2 2 10
+2
+4
+6
+8
+10
+~~~
 
-will produce:
+ * The `FIRST` argument is where the sequence will start. 
+ * The `INCREMENT` argument determines how the sequence increments by.
+ * The `LAST` argument is where the sequence will end.
 
-050  
-100  
-150  
-200  
-250  
+#### Bash Script
 
----
+##### Input
+
+~~~ bash
+> for i in $(seq 3)
+> do
+>   echo "i is now $i"
+> done
+~~~
+
+##### Output
+
+~~~ bash
+i is now 1
+i is now 2
+i is now 3
+~~~
+
+ * In a for loop `seq` can be used to increment the incrementer value.

@@ -2,76 +2,81 @@
 ---
 
 units
---
+---
+`units` converts quantities from one unit to another unit. It can be used interactively or non-interactively.
 
-`units` gives conversion rates from one scale to another. 
+To use interactively, type units into the command prompt:
 
 ~~~ bash
-$ units [-f unitsfile] [-q] [-v] [from-unit to-unit]...
+$ units
+~~~
+
+To use non-interactively:
+
+~~~ bash
+$ units [options] ['from-unit' 'to-unit']
 ~~~
 
 <!--more-->
 
-The command above will list the value you will need to multiply (*) or divide (/) your original number by to convert to your desired units listed.
+## Useful Options / Examples
 
-The units are defined in an external data file. You can use the extensive data file that comes with this program, or you can provide your own data file to suit your needs. You can use the program interactively with prompts, or you can use it from the command line.
+To view available units, look in /usr/share/units/definitions.units
 
-~~~ bash
-$ units
-~~~
-
-with no command line arguments, input will be read from standard input.
-
-Generally, use:
-
-~~~ bash
-$ units [from-unit] [to-unit]...
-~~~
-
-### Useful Examples
-
-Below are some useful examples for units.
+### Using `units` Interactively
+Typing `units` into the terminal brings up an interactive prompt. The interactive prompt will ask for the unit that you have. Then, it will ask for the unit that you want. In the output, the line with the `*` gives the result. The line with the `/` gives the inverse of the conversion factor. In the example below, 10 meters is 32.808399 feet, and 1 foot is 0.03048 decameters.
 
 ~~~ bash
 $ units
-586 units, 56 prefixes
-You have: inches
-You want: centimeters
-	* 2.54
-	/ 0.39370079
+You have: 10 meters
+You want: feet
+  * 32.808399
+  / 0.03048
 ~~~
+
+### Using `units` Non-Interactively
+Make conversions using one line.
 
 ~~~ bash
-$ units yds m
-	* 0.9144
-	/ 1.0936133
+$ units '10 meters' 'feet'
+   * 32.808399
+   / 0.03048
 ~~~
 
-### Useful Options
+### Useful flags:
+`units --digits <integer>`
 
-Below are some important options for units.
+The `--digits` flag specifies the output to a certain number of digits specified by the options. 
+
+Example:
 
 ~~~ bash
-$ units --help
+$ units --digits 3 '10 meters' 'feet'
+   * 32.8
+   / 0.305
 ~~~
 
-will display a help file and exit.
 
-~~~bash
-$ units --versions
-~~~
+`units --verbose`
 
-will display version information and exit.
+The `--verbose` flag shows slightly more verbose output.
+
+Example:
 
 ~~~ bash
-$ units -f filename
-$ units --file filename
+$ units --verbose '10 meters' 'feet'
+   10 meters = 32.808399 feet
+   10 meters = (1 / 0.03048) feet
 ~~~
 
-Use filename as the units data file rather than the default units data file `units.dat`.
 
-~~~bash
-$ units --check-verbose
+### Converting Temperatures
+There is a special syntax for temperatures. Specifically, Fahrenheit can be indicated by `tempF` and Celcius can be indicated by `tempC`. To assign a value to either of these units, use a number enclosed in parentheses after the unit. `tempF(32)` means 32 degrees Fahrenheit.
+
+Example:
+
+~~~ bash
+$ units 'tempF(32)' 'tempC'
+   0
 ~~~
 
-Like the `-check` option, this option prints a list of units that cannot be reduced.  But to help find unit  definitions that cause endless loops, it lists the units as they are checked.  If `units` hangs, then the last unit to be printed has a bad definition.

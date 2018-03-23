@@ -2,35 +2,22 @@
 ---
 locate
 -------
+TODO: Add documentation for this command by submitting a pull request.
+<!-- one line explanation would go here -->
 
-`locate` finds the locations of directories and files on Linux as well as other Unix-like OS.
-
+<!-- minimal example -->
 ~~~ bash
-$ locate hello.cpp
+*short* example of command usage and output
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### `locate filename`
+#### Example command
 
-This would list the absolute paths for all files with "filename" in the name.
+##### Break it down
 
-~~~ bash
-$ locate hello.cpp
-/home/user/Desktop/Folder/hello.cpp
-~~~
+#### Example command
 
-Note: The `locate` command does not work for macOS unless you create a locate database. You can create one by running the following command:
-
-~~~ bash
-$ sudo launchtl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-~~~
-
-Another alternative is to use the `find` command using the following syntax:
-
-~~~ bash
-$ find . -name "hello.cpp"
-/home/user/Desktop/Folder/hello.cpp
-~~~
+##### Break it down

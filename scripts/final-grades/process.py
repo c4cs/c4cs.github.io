@@ -61,6 +61,7 @@ for uniq, data in raw.items():
         'homework': {},
         'advanced': {},
         'attendance': {},
+        'extra': {},
     }
 
     for k, v in data.items():
@@ -79,6 +80,8 @@ for uniq, data in raw.items():
             # Advanced Exercise 02 (262450)
             k = int(k.split()[2])
             raw_grades[uniq]['advanced'][k] = float(v)
+        elif 'Extra Credit' in k:
+            raw_grades[uniq]['extra'] = float(v)
 
 final_grades = {}
 for uniq, grades in raw_grades.items():
@@ -92,28 +95,19 @@ for uniq, grades in raw_grades.items():
     # Any points over 30 points are worth half their value.
     final_grade += ceil_plus_half(sum(grades['attendance'].values()), 30)
 
+    final_grade += grades['extra']
+
     # Advanced
     advanced_raw = [
         sum([grades['advanced'][i] for i in [2,3]]),      # Introduction and Basics
         sum([grades['advanced'][i] for i in [4,5,6]]),    # Being Efficient
-        sum([grades['advanced'][i] for i in [7,10,11]]),  # Developing
-        sum([grades['advanced'][i] for i in [12,13,14]]), # Standing on the Shoulders of Giants
+        sum([grades['advanced'][i] for i in [7,8,9]]),    # Developing
+        sum([grades['advanced'][i] for i in [10,11,13]]), # Standing on the Shoulders of Giants
     ]
 
-    all_sections = True
+    # Advanced grading script takes care of the weighted adv-hw points
     for score in advanced_raw:
-        if score <= 0:
-            all_sections = False
-            break
-
-    # The first from each section is worth 10 points, others worth half
-    for score in advanced_raw:
-        final_grade += ceil_plus_half(score, 10)
-
-    # Except for if a student completes exercises from all 4 categories
-    if all_sections:
-        # then last section is only worth half
-        final_grade -= 5
+        final_grade += float(score)
 
     final_grades[uniq] = final_grade
 

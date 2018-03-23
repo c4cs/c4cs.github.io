@@ -1,9 +1,13 @@
 ---
+sectionHeader:
 week: 13
 dates: 12/01/2017
 lecturer: mmdarden
-homeworkRelease: 2017-12-01 15:00:00
-solutionRelease: 2017-12-08 22:00:00
+lectureRelease: 2017-12-01 11:00:00
+slidesName: f17/week13
+homeworkRelease: 2017-12-01 11:00:00
+advancedRelease: 2017-12-01 11:00:00
+solutionRelease: 2017-12-14 00:00:00
 title: "A Sampling of Other Things"
 # lectureTopics:
 #   - TBD
@@ -12,6 +16,5 @@ title: "A Sampling of Other Things"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapWed:
-leccapFri:
+leccapFri: 2oTYEJ
 ---

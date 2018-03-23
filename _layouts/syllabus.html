@@ -50,25 +50,34 @@
       {{ page.lectureSummary | markdownify }}
     {% endif %}
     {% if page.slidesName %}
+      {% assign now = 'now' | date: '%s' | times: 1 %}
+      {% assign lectureRelease = page.lectureRelease | date: '%s' | times: 1 %}
+      {% if now > lectureRelease %}
       <p>
-      <a href="lectures/{{ page.slidesName }}">Slides</a>
-      <a href="lectures/{{ page.slidesName }}.pdf">[pdf]</a>
+        <a href="/lectures/{{ page.slidesName }}">Slides</a>
+        <a href="/lectures/{{ page.slidesName }}.pdf">[pdf]</a>
       </p>
-    {% endif %}
-    {% if page.leccapWed %}
-      <p>Morning Lecture</p>
-      <ul>
-        <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapWed }}" target="_blank">Lecture Video</a></li>
-      </ul>
+      {% endif %}
     {% endif %}
     {% if page.leccapFri %}
-      <p>Afternoon Lecture</p>
-      <ul>
-        <li><a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a></li>
-      </ul>
+      <p>
+      <a class="leccap" href="http://leccap.engin.umich.edu/leccap/viewer/r/{{ page.leccapFri }}" target="_blank">Lecture Video</a>
+      </p>
+    {% endif %}
+    {% if page.asciicasts %}
+      <p><b>Asciicasts:</b>
+      {% for asciicast in page.asciicasts %}
+        {% if forloop.last %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a>
+        {% else %}
+          <a href="https://asciinema.org/a/{{ asciicast }}">Asciicast {{ forloop.index }}</a> &#x25cf;
+        {% endif %}
+      {% endfor %}
+      </p>
     {% endif %}
     {% if page.commands %}
       <hr />
+      <p><b>B1G TEN Commands</b><p>
       {% for command in page.commands %}
         {% if forloop.last %}
           <a href="commands/{{ command }}">{{ command }}</a>
@@ -94,12 +103,12 @@
       {% if now > homeworkRelease %}
         <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.pdf">Homework&nbsp;{{ page.week }} [pdf]</a></p>
         <p><a href="/static/{{ page.categories }}/hw/c4cs-wk{{ page.week }}-homework.tex">Homework&nbsp;{{ page.week }} [tex]</a>
-      {% endif %}
-      {% if page.advancedRelease %}
-        {% assign advancedRelease = page.advancedRelease | date: '%s' | times: 1 %}
-        {% if now > advancedRelease %}
-          <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
-          <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+        {% if page.advancedRelease %}
+          {% assign advancedRelease = page.advancedRelease | date: '%s' | times: 1 %}
+          {% if now > advancedRelease %}
+            <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.pdf">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [pdf]</a></p>
+            <p><a href="/static/{{ page.categories }}/advanced/c4cs-wk{{ page.week }}-advanced.tex">Advanced&nbsp;Exercise&nbsp;{{ page.week }} [tex]</a></p>
+          {% endif %}
         {% endif %}
       {% endif %}
       {% if page.solutionRelease %}

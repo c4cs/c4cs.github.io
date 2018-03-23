@@ -6,3 +6,5 @@ _site
 *.DS_store
 *.aux
 *.out
+.bundle
+vendor

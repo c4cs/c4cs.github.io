@@ -3,54 +3,66 @@
 
 id
 --
+`id` is a command that prints out the effective and real user and group ids.
+<!-- one line explanation would go here -->
 
-`id`: `id` is used to get information about a user’s UID (user ID), the groups a user belongs to, groups associated with the user, and security context of the current user. The default id command shows the user and groups names and numeric ID’s. Use id with options to find more useful information.
+<!-- minimal example -->
+
+The syntax for the command is:
 
 ~~~ bash
-$ id -G username
-203 403 94 32 93
+id [option(s)]
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
-
-to find a specific user's UID, add `-u {username}`. Moreover,`id -G USERNAME` will find all the groups a user belongs to. Force `id` to display the name of the UID or GID instead of ugly numbers by passing the `-n` options
+#### `id`
 
 ~~~ bash
-$id -ng username
-staff eecsstudents club1 club2
+id [option(s)]
+id [option(s)] [USERNAME]
 ~~~
 
-#### Example command
-To find all the groups associated with a user called exampleuser, enter:
+ * The `id` command prints out information for the current user. However, it is possible to specify a different user by appending their name to the end of the command.
 
-~~~ bash
-$ id exampleuser
-~~~
+Simply entering `id` prints out all the information about the current user.
 
-sample output:
-
-~~~ bash
-uid = 0(exampleuser) gid=0(eecs) groups=1(computing), 1(hello),2(this), 3(is), 4(an), 5(example)
-~~~
-
-
-### Break it down
-When `id` is printed without options, it prints a whole lot of hard-to-read stuff. Of this hard-to-read stuff is the UID, a unique number assigned to each user on the machine. Moreover, `id` without options will also print the GID, or the group ID. A GID is a name that associates a user with other users sharing something in common. A user can be a member of more than one group and therefor have more than one GID. So, using `id` without options prints the UID, the GID, and a list of the groups the user is a member of along with their GIDs. ex:
-
-~~~ bash
+~~~bash
 $ id
-uid = 1000(mayden) uid=1000(mayden) gid=2000(mayden) groups=500(group1), 4(adm), 723(staff), 33(admin)
+uid=1000(biswash) gid=1000(biswash) groups=1000(biswash),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare),999(vboxsf)
 ~~~
 
-therefor, user mayden has UID number = 1000 and gid number = 2000. mayden is a member of the following groups: 
-<ul>
-<li> group1 with GID 500 </li>
-<li> adm with GID 4 </li>
-<li> staff with GID 723 </li>
-<li> admin with GID 33 </li>
-</ul>
+#### `id -u`
+The `-u` flag prints out the current user ID
+
+~~~bash
+$ id -u
+1000
+~~~
+
+#### `id -g` && `id -G`
+The `-g` flag prints out the current group id, whereas the `-G` flag prints out the id of all groups.
+
+~~~bash
+$ id -g
+1000
+$ id -G
+1000 4 24 27 30 46 113 128 999
+~~~
+
+#### `id -n`
+The `-n` flag is used in conjuction with the `-u` and the `-g` flags to find the name of the user or group rather than their id.
+
+~~~bash
+$ id -un
+biswash
+$ id -gn
+biswash
+$ id -Gn
+biswash adm cdrom sudo dip plugdev lpadmin sambashare vboxsf
+~~~
+
+ * The main reason to use the id command is to find to which group an user belongs to. This is helpful when switching between users with different permissions and settings.
 

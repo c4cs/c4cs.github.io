@@ -1,0 +1,522 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 6\\Practical Regexes and Synthesis of Rich Commands}}
+\author{\textbf{\color{red}{Due: Wednesday, October 25th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/9999}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section{Playing with words}
+
+\begin{minipage}{0.6\textwidth}
+By default, Ubuntu ships with a few dictionaries. We can find them in the
+\texttt{/usr/share/dict} directory. If we head into that directory, we can see
+(\texttt{wc~-l~*}) that these are not small lists. American English comes in
+just shy of 100,000 words.
+
+\medskip
+\noindent
+An interesting file is \texttt{cracklib-small}. This is a word list of around
+50,000 common passwords. We can use the \texttt{grep} utility to search
+through this file quickly to see if our password is in the file. For example
+if my password is ``password'', then \texttt{grep~password~cracklib-small} tells
+me that I've picked a bad one, but \texttt{grep~sup3rs3cure~cracklib-small}
+tells me that may be a better choice.
+
+\medskip \noindent \textit{So, why is it called \texttt{grep}?}
+\href{https://en.wikipedia.org/wiki/Grep}{Wikipedia tells us} that
+\texttt{grep}'s name, ``comes from the \texttt{ed} command g/re/p ({\bf
+g}lobally search a {\bf re}gular expression and {\bf p}rint)''. Let's give
+that a go eh?  Run \texttt{ed~cracklib-small} and try the command
+\texttt{g/password/p}. Remember that you can quit by typing \texttt{q}.
+
+
+\medskip
+\noindent
+Thus far we've only used simple regular expressions, namely things that match
+the whole string we're searching for. Regular expressions can be far more
+powerful, however.
+
+\medskip
+\noindent
+Try the following commands:
+\begin{lstlisting}
+> grep password cracklib-small
+> grep pass cracklib-small
+> grep ^pass cracklib-small   # That's a caret, shift+6
+> grep pass$ cracklib-small
+> grep ^pass$ cracklib-small
+> grep pass^ cracklib-small
+> grep '$pass' cracklib-small # Why do we need quotes here?
+> grep p.ss cracklib-small
+> grep ^..th$ cracklib-small
+> # Play with some others of your own design
+\end{lstlisting}
+
+
+\end{minipage}
+\begin{minipage}{0.05\textwidth}
+  ~~~~
+\end{minipage}
+\begin{minipage}{0.35\textwidth}
+\framebox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\footnotesize
+  \textbf{Aside:}\\
+  Programs that want to check your spelling will use the file
+  \texttt{/usr/share/dict/words}. Notice, however, that when we type
+  \texttt{ls} in this directory, the \texttt{words} file shows up in teal,
+  indicating that it's a symlink. Recall that a symbolic link is a way to make
+  something that looks like a real file, but is actually just a pointer to
+  another file.
+
+  \medskip
+  We can follow this pointer, however, to see what the actual file is. Type
+  \texttt{ls~-l~words} to see what it actually points to, in this case
+  \texttt{/etc/dictionaries-common/words}. It turns out that this too is a
+  symlink however! If we then type
+  \texttt{ls~-l~/etc/dictionaries-common/words} we see that it points back to
+  \texttt{/usr/share/dict/american-english}, which is finally a real file.
+
+  \medskip
+  These little circles come up sometimes for compatibility reasons. Some
+  programs expect to find the word list at \texttt{/usr/share/dict/words}
+  while other programs  expect it at \texttt{/etc/dictionaries-common/words}.
+  Using symlinks we can make all of these point to the same file. We can also
+  easily change the language used for spellchecking by all programs simply by
+  changing what the last symlink points to.
+
+  \medskip
+  To shortcut this whole operation, we can use the \texttt{readlink} utility.
+  Try the command \texttt{readlink~words}. Now try \texttt{readlink~-f~words}.
+  Does what each of these commands are doing make sense?
+
+  \medskip
+  Simple primitives build powerful features.
+}}
+\end{minipage}
+
+\newpage
+
+\noindent
+\textbf{What does a carat (\^{}) mean in a regular expression?}
+\textbf{What does a dollar sign (\$) mean in a regular expression?}
+\begin{quote}
+  \color{violet}
+  They match the beginning and end of a string respsectively. You can think of
+  them as matching invisible characters before and after the string. There is
+  only one start or end to a string, so while ``\texttt{\^{}A}'' will match
+  any line starting with ``{\tt A}'', the expression ``\texttt{\^{}\^{}A}''
+  does not make sense (match two start-of-line markers?) and will never match
+  anything.
+
+  The \^{} and \$ characters are generally referred to as \emph{anchors}.
+  For those interested,
+  \href{http://www.regular-expressions.info/anchors.html}{this page} goes into
+  some explanation on how these are handled in implementation.
+\end{quote}
+
+
+\noindent
+\textbf{What does a period (.) mean in a regular expression?}
+\begin{quote}
+  \color{violet}
+  A period matches any character.
+
+  Periods do require there to be a character to match (i.e. the string cannot
+  be empty).
+\end{quote}
+
+\noindent
+Sometimes it's more interesting to know how many matches there are, rather
+than the exact matches themselves. \texttt{grep} provides the \texttt{-c}
+(count) flag for this case. For example
+\texttt{grep~-c~password~cracklib-small} tells us there are 3~lines that have
+``password'' in them, but there are (\texttt{grep~-c~pass~cracklib-small})
+60~lines with ``pass''.
+
+\medskip
+\noindent
+\textbf{There are 810 lines in cracklib-small that are exactly 3 characters
+long. Give a command you could run to learn that number:}
+\begin{quote}\tt
+  \color{violet}
+  grep -c \^{}...\$ cracklib-small
+\end{quote}
+
+
+\noindent
+A ``count'' flag is a very common flag and very useful flag shared by many
+utilities, not just grep.
+
+\bigskip
+\bigskip
+\noindent
+Groups are another powerful feature. Try
+\begin{lstlisting}
+> grep ^p[ao]ss cracklib-small
+> grep ^p[aeo]ss cracklib-small
+> grep ^p[a-z]ss cracklib-small
+\end{lstlisting}
+
+\medskip
+\noindent
+\textbf{There are 766 lines in cracklib-small that are exactly 3
+\emph{letters} long. Give a command you could run to learn that number:}
+\begin{quote}\tt
+  \color{violet}
+  grep -c \^{}[a-Z][a-Z][a-Z]\$ cracklib-small
+\end{quote}
+
+
+\medskip
+\noindent
+Command-line tools really start to shine when you string them together.
+Try running the following command:
+\begin{lstlisting}
+> for vowel in a e i o u; do echo -e "$(grep -c ^$vowel cracklib-small) \t $vowel"; done | sort -rn
+\end{lstlisting}
+Try playing around with this command a bit. Remove the flags to \texttt{sort},
+remove \texttt{sort} altogether, replace the body of the for loop (everything
+between \texttt{do} and the \texttt{;}) with just \texttt{echo \$vowel}.
+
+\smallskip
+\noindent
+\textbf{In plain English, what is this command doing?}
+\begin{quote}
+  \color{violet}
+  It finds all of the entries in cracklib-small that start with a vowel and
+  sorts them by which vowel is most common.
+
+  Try adding ``\texttt{| awk \textquotesingle\{print \$2\}\textquotesingle | nl}''
+  to the end of this command, which will really make them look like a ranking!
+\end{quote}
+
+
+\vfill
+\hrule
+\smallskip
+\noindent
+{\footnotesize
+  If you would like more practice with regular expressions, check out
+  \href{http://regexone.com/}{this online tutor}. One tricky thing, there
+  are many different ``dialects'' of regular expressions. Standard
+  \texttt{grep} is very fast but trades off speed for limited features. The
+  tutor teaches what \texttt{grep} calls ``Extended Regular Expressions''. For
+  example, Lesson~6 teaches quantifiers, \texttt{grep .z\{2\}} will not work,
+  but \texttt{grep -E .z\{2\}} will.
+}
+
+\newpage
+\noindent
+We have one more tool we need to learn about before with can get to the grand
+finale, and that's \texttt{uniq}. First, run this command:
+\begin{lstlisting}[keepspaces=true]
+> for i in $(seq 20); do echo $(($RANDOM % 5)) >> /tmp/numbers; done
+             |                |  |
+             |                |  \- this is a built-in bash "variable"
+             |                |     try just "echo $RANDOM", what happens?
+             |                |
+             |                \- $(( ... )) lets us do math in bash, in this
+             |                   case we're doing a mod as the range of
+             |                   $RANDOM is quite large (0 - 32767)
+             |
+             \- seq is a program to print a sequence of numbers. Try just
+                typing "seq 10", "seq 10 20", and "seq 10 2 20"
+
+                You can also use the built-in bash range idiom:
+                > for i in {1..10}; do echo $i; done
+                to accomplish the same task, but I find that harder to remember the syntax
+\end{lstlisting}
+%
+Check out the contents of the file \texttt{/tmp/numbers}. Do you understand
+what that command did?
+\medskip
+\noindent
+Now try running \texttt{uniq /tmp/numbers}. What does the \texttt{uniq}
+command do? Not sure? Try looking at the output side-by-side:\footnote{
+  The \texttt{<( ...\ )} redirect lets you run a command and use its output for
+  something that expects a file, similar to how \texttt{\$( ...\ )} lets you
+  run a command and use its output as text. It lets you skip creating a
+  temporary file. Otherwise you could run\\\texttt{
+  > uniq /tmp/numbers > /tmp/uniq-output\\
+  > diff -y /tmp/numbers /tmp/uniq-output\\
+  }
+  and the result would be the same.
+}\\
+\texttt{> diff -y /tmp/numbers <(uniq /tmp/numbers)}
+
+\medskip
+\noindent
+The man page for \texttt{uniq} is short and simple. It is a good man page. Try
+giving it a read and playing with some of the other options for \texttt{uniq}.
+
+
+\newpage
+\medskip
+\noindent
+\textbf{\large Now, for the hard part: Solving EECS\,281 problems in 100 characters or less.}\\
+We're going to combine everything we've learned so far to answer some powerful
+queries. For each question, you need to come up with a string of commands
+stuck together with pipes that will return the answer to the question. The
+correct answer is also given for each question so that you can check your
+work.
+
+\medskip
+\noindent
+\emph{\small Hint: While we often use the \texttt{cat} utility to just print
+  the contents of a single file, it's real purpose is for con\textbf{cat}enating
+  multiple files. How might concatenating files be useful in conjunction with
+  these other utilities?
+}
+
+\medskip
+\noindent
+\emph{\small Hint: The way to approach this problem (and many problems) is to
+  build it up from small pieces. String together two commands until they give
+  you want you want, then add a third, etc.
+}
+
+\medskip
+\noindent
+{
+  \color{violet}\bf
+  There are many ways to do each of these. Here are a handful of approaches
+  taken from submssions.
+}
+
+
+\bigskip
+\hrule
+\smallskip
+\noindent
+\textbf{How many words are in only the \texttt{british-english} word list or
+the \texttt{american-english} word list but are not in both?}
+\hfill \textbf{[Answer: 3481 words not in common]}\\
+\emph{\small If for some reason there is no \texttt{british-english} file, run
+\texttt{sudo apt-get install wbritish}}
+
+\begin{quote}
+  \color{violet}
+  \begin{lstlisting}
+  cat british-english american-english | sort | uniq -u | wc -l
+
+  cat british-english american-english | sort | uniq -u | grep -c .
+
+  grep -c ^. <( uniq -u <( sort <( cat american-english british-english ) ) )
+
+  comm -3 <(sort american-english) <(sort british-english) | grep -c ^.
+
+  diff british-english american-english | grep -c '[<>]'
+  \end{lstlisting}
+\end{quote}
+
+\hrule
+\smallskip
+\noindent
+\textbf{How many entries in the easily crackable password list
+  (\texttt{cracklib-small}) are English words (are in
+\texttt{american-english})?}
+\hfill \textbf{[Answer: 40599 words in common]}
+
+\begin{quote}
+  \color{violet}
+  \begin{lstlisting}
+  cat cracklib-small american-english | sort | uniq -d | grep -c .
+
+  grep -c ^. <( uniq -d <( sort <( cat american-english cracklib-small ) ) )
+
+  comm -12 <(sort american-english) <(sort cracklib-small) | grep -c ^.
+  \end{lstlisting}
+\end{quote}
+
+\vfill
+\section*{\ul{Optional} Related Readings}
+Quick and light, I particularly recommend the first one. It's a good anecdote
+for software and system design.
+
+\medskip
+\noindent
+\href{http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/}{More
+shell, less egg} -- This is a fun blog story of when even
+\href{https://en.wikipedia.org/wiki/Donald_Knuth}{Donald Knuth} sometimes gets
+things wrong.
+% n.b. this reading actually gives away the HW a little, but if people read
+% this I think they'll get the benefit either way
+
+\medskip
+\noindent
+\href{https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html}{``Why GNU grep is so fast''} --
+This is a nice example of the importance of efficient algorithm design and how
+an implementation can benefit from a deep understanding of the underlying
+system.
+
+
+
+
+\newpage
+
+\section{Pulling Some Pieces Together}
+
+\medskip
+\noindent
+Head back to the git repository you created for week 2's homework.
+
+\medskip
+\noindent
+Week 2's homework had you blindly run the command
+\begin{lstlisting}
+> grep ';' p2.h | grep -v ' \*' >> p2.cpp
+\end{lstlisting}
+%
+Now try running
+\begin{lstlisting}
+> grep ';' p2.h | grep -v ' \*'
+> grep ';' p2.h | grep ' \*'
+> grep ';' p2.h | grep -v ' \*' | grep filter
+> grep ';' p2.h | grep -v ' \*' | grep -v filter
+\end{lstlisting}
+%
+\textbf{In plain English, dissect the command \texttt{grep -v \textquotesingle~\textbackslash*\textquotesingle} (notice the space)}
+\begin{quote}
+  \color{violet}
+  This searches for any line \ul{without} "space star" in it.
+
+  ~
+
+  The \texttt{\textbackslash*} is an \emph{escape sequence}, like how you have
+  to write \texttt{\textbackslash\textbackslash} to get a backslash or
+  \texttt{\textbackslash\textquotedbl} to get a quote character in string.
+
+  In this case, it's escaping asterisk, the regular expression match operator,
+  and tells grep to look for an actual \texttt{*} character. Without the
+  \texttt{\textbackslash}, the expression
+  \texttt{grep~\textquotesingle~*\textquotesingle} would search for ``any number
+  of spacae characters''.
+
+  ~
+
+  Notice that this is looking for a pattern with a space and a star. If we had
+  only looked for stars, we would have lost one function:
+
+  \texttt{list\_t filter(list\_t list, bool (*fn)(int));}
+
+  because of the pointer. Now, it's perfectly reasonable for code to have
+  something like:
+
+  \texttt{list\_t example(list\_t *list);}
+
+  which would also have matched the given regex. However that wasn't an issue
+  here, so that was good enough. The point here is that for little one-offs
+  like this, you should embrace ``good enough''.
+\end{quote}
+
+
+\noindent
+(Run \texttt{make} if you haven't already)
+
+\medskip
+\noindent
+Suppose you wanted to change the \texttt{insert\_list} function, so you wanted
+to find all of the places it's called. One approach would be:
+\begin{lstlisting}
+> grep insert_list *
+\end{lstlisting}
+which searches all files for the string ``insert\_list''. Compare that search,
+however, to
+\begin{lstlisting}
+> git grep insert_list
+\end{lstlisting}
+Do you see how the two searches differ?
+
+\medskip
+\noindent
+\textbf{Does `git grep' search untracked files? How do you know?}
+\begin{quote}
+  \color{violet}
+  It does not search untracked files. We know this because the built output is
+  untracked (ignored files are untracked), and when we run \texttt{git~grep}
+  it does not include the compiled files.
+\end{quote}
+
+
+\noindent
+\textbf{Does `git grep' search new files that have been staged but not
+committed? What test could you quickly run to find out?}
+\begin{quote}
+  \color{violet}
+  It does.
+
+  ~
+
+  Since we're looking at ``\texttt{git~grep~insert\_list}'', let's test this
+  by creating a simple test file:
+
+  \texttt{echo "This file has insert\_list in it" > test\_file}
+
+  Run \texttt{git~grep~insert\_list}, it doesn't match (not surprising, it's
+  still untracked). Then stage the new file:
+
+  \texttt{git add test\_file}
+
+  And then run \texttt{git~grep~insert\_list} again. Now it matches, which
+  indicates that \texttt{git~grep} does search staged changes.
+\end{quote}
+
+\end{document}

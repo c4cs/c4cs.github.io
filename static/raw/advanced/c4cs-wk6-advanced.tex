@@ -1,0 +1,252 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{lipsum}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+
+%%% TITLE INFO INSERTED HERE AUTOMATICALLY
+
+
+\section{Automated Background Testing}
+
+As projects grow, the number and complexity of test cases grows as well. While
+it's generally a good idea to run all of your test cases, it can be annoying
+to sit around and wait for a long test case that tests a part of your program
+that (you think) you didn't touch.
+
+\medskip
+\noindent
+Scripting to the rescue! The goal is to write a script that runs tests in the
+background. This script will make sure everything builds correctly, run all of
+your tests, and, as a bonus, run an external correctness checker that can help
+find mistakes.
+
+\medskip
+\noindent
+Eventually, we'll invoke it like this: (calling the script with the repository to test as an argument)
+\begin{lstlisting}
+$ ./run-tests /Users/mterwilliger/repos/eecs280-p1
+\end{lstlisting}
+
+\noindent
+But first, read over everything your script should do:
+
+\begin{enumerate}
+    \item Create a directory in \texttt{/tmp} that is unique for this project if one does not already exist.
+    \begin{itemize}
+      \item \small \em Hint: The project's current directory is already unique
+    \end{itemize}
+  \item Assuming the directory you created above is at \texttt{\$PROJ\_TMP\_DIR}, run
+    \begin{itemize}
+      \item \texttt{git clone -{}-local \$1\ \$PROJ\_TMP\_DIR/\$(git describe -{}-always)}
+    \end{itemize}
+\item Call a \ul{second script} (\texttt{run-tests-bg} or something like that) that runs in the background to execute the
+    remaining tasks. This second script should do all of its work in the clone
+    you just made.
+    \begin{itemize}
+      \item \small \em Hint: You will likely need to pass arguments to this secondary script
+    \end{itemize}
+  \item Call \texttt{make} to build the project. You should save all of the
+    regular output to a file named \texttt{build.log} and any errors to a file
+    named \texttt{build.error}
+    \begin{itemize}
+      \item If the build fails, your script should stop and notify that the
+        build failed. See the notify section below.
+    \end{itemize}
+  \item Run every test case for this project
+    \begin{itemize}
+      \item Your script should assume that any executable file with ``test''
+        in the name is a test case. It should \textbf{not} hard-code a list of
+        tests to run
+      \item Your script should save the regular output and the error output of
+        each test case to unique files.
+      \item Your script should assume that test cases return 0 when they
+        pass and non-zero otherwise.
+    \end{itemize}
+        \pagebreak
+\item Generate a nice report when everything is done and alert the user
+    using \texttt{notify-send}
+        \begin{itemize}
+            \item Try running \texttt{notify-send "I am a title" "And I am a body"}
+            \item Your notification should include in the notification what you
+                think is useful. At a minimum it should include how many test
+                cases passed.
+        \end{itemize}
+\end{enumerate}
+
+\medskip
+\noindent
+Notice that this script is \textbf{generic}. It should work in any repository.
+
+\bigskip
+\hrule
+\bigskip
+
+\medskip
+\noindent
+To get started, use the EECS\,280~W15 repository you created for Homework~2.
+
+\medskip
+\noindent
+Create a directory to hold the scripts you're working on
+\begin{itemize}\tt
+  \item mkdir \textasciitilde/scripts
+\end{itemize}
+This is going to be a rather complicated script, so it's a good
+idea to put it under version control as well.
+\begin{itemize}\tt
+  \item cd \textasciitilde/scripts
+  \item git init
+\end{itemize}
+Inside this directory, create a file named \texttt{run-tests} with the
+following contents.  Also be sure to make this script executable.
+\begin{lstlisting}
+#!/usr/bin/env bash
+
+echo "Hello, I am your script running."
+
+echo "Number of arguments I received: $#"
+echo "Argument[0] (the program being run): $0"
+echo "Argument[1]: $1" # This is empty if no arguments were passed
+echo "Argument[2]: $2" # This is empty if only one argument was passed
+
+# Notice what directory this script is executed from. This is important
+# when you try to call your helper script
+echo "$(pwd)"
+
+sleep 10s && echo "It is annoying to wait for long commands to finish"
+
+sleep 10s & echo "We can put them in the background so we don't have to wait"
+
+notify-send "Test Message" "Blocking part of the script finished"
+
+echo "Notice that the second sleep is still running, we can tell by: $(pidof sleep)"
+\end{lstlisting}
+%
+Don't forget to add and commit the starter code
+\begin{itemize}\tt
+  \item git add run-tests
+  \item git commit
+\end{itemize}
+%
+Now, let's try it out with the repository you created in Homework~4:
+\begin{itemize}\tt
+  \item \textasciitilde/scripts/run-tests \textasciitilde/eecs280-w15~~~\#\,Or wherever you put this
+\end{itemize}
+
+\medskip
+\noindent
+
+\newpage
+
+\subsection*{Some final tips}
+
+\begin{itemize}
+    \item \hl{Build up your solution in parts!} Get step 1 working then commit it.
+    Then onto step 2.
+  \item Steps 1 and 5 are probably the most challenging.
+  \item You, of course, do not need to actually implement project~2 from
+    EECS\,280.  I recommend something like this:%
+\lstset{basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}
+$ git log --oneline -n1 -p
+dfaeb04 Force filter_test to always succeed
+diff --git a/filter_test.cpp b/filter_test.cpp
+index eebeb87..fa1bc1e 100644
+--- a/filter_test.cpp
++++ b/filter_test.cpp
+@@ -20,6 +20,7 @@ bool isPrime(int x)
+ 
+ int main()
+ {
++    return 0;
+     int numbers[] = { 3, 20, 46, 43, 9, 17, 103, 102 };
+     const int numSize = sizeof(numbers) / sizeof(int);
+     int primes[] = { 3, 43, 17, 103 };
+\end{lstlisting}
+\end{itemize}
+
+\subsection*{Submission checkoff}
+\begin{itemize}
+  \item[$\square$] Explain what the clone command from step~2 does.
+  \item[$\square$] Show off your script working
+    \begin{itemize}
+      \item[$\square$] With all passing test cases
+      \item[$\square$] With some failing test cases
+      \item[$\square$] Show how to find and examine the output from a failing
+        test case
+    \end{itemize}
+  \item[$\square$] Show that your script is generic by running it with different
+    git repositories that contain tests
+    \begin{itemize}
+      \item If you aren't in a programming EECS class, grab
+        \href{http://www.andrewdeorio.com/teaching/eecs280/}{any other 280
+        project}.
+    \end{itemize}
+\end{itemize}
+
+
+\medskip
+
+\subsection*{[Optional Section] Automating Automated Background Testing}
+Surprise! The way you wrote your script makes it very easy to install it as a git
+\texttt{post-commit} hook. However, one more change will need to be made to the
+script. The \texttt{post-commit} hook doesn't pass in the repository path as the
+argument to the script. Instead, you will need to check in your script if the
+repository path is given to the script. Based on that information you know
+whether the script is run by git or by a user (since a user would pass in the
+repository path). If it's run by git, you'll need to know what directory the
+script is run from. Some info from the
+\href{https://git-scm.com/docs/githooks}{git docs} contains this information:
+
+\begin{quote}
+    Before Git invokes a hook, it changes its working directory to either
+    \texttt{\$GIT\_DIR} in a bare repository or \textbf{the root of the working tree in a
+    non-bare repository.}
+\end{quote}
+
+\noindent
+Emphasis mine.
+
+\begin{itemize}
+    \item Hint: \texttt{pwd} might come in handy here
+\end{itemize}
+
+\medskip
+
+\noindent
+Once those changes have been made, try:
+
+\begin{itemize}\tt
+    \item cd \textasciitilde/eecs280-w15/p2/.git/hooks~~~\#\,Or wherever you put this
+    \item ln -s \textasciitilde/scripts/run-tests ./post-commit
+\end{itemize}
+
+\noindent
+The command \texttt{ln -s} creates a symbolic link, or symlink. Recall
+symlinks are just like pointers. This design lets us install the same commit
+hook into multiple repositories just by pointing to it. If we ever update or
+make improvements to the hook, all of the repositories that use it will
+automatically get upgraded.
+
+\medskip
+
+\noindent
+All right, we are finally set up. Make a new commit and test out the new hook!
+
+\end{document}

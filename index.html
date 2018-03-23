@@ -7,7 +7,7 @@ layout: default
   computer effectively for EECS students. While the target audience is CS/CE/DS
   students, any student wishing to learn how to use their computer much more
   effectively is encouraged to join. Topics covered include shells, environment,
-  scripting, Makefiles, compilers, debugging tools, and version control. The
+  scripting, build systems, compilers, debugging tools, and version control. The
   end of the course will be open to student input for interesting topics to
   cover.</p>
 </div>
@@ -18,7 +18,7 @@ layout: default
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
   {% for update in site.updates %}
-    {% if update.categories contains 'f17' %}
+    {% if update.categories contains 'w18' %}
       {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
       {% assign update_date = update.date | date: '%s' | times: 1 %}
       {% if update_date > onemonthago %}
@@ -27,12 +27,12 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  <p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates</a></p>
+  <!--<p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates</a></p>-->
 
   <div id="old-updates" style="display: none">
 
     {% for update in site.updates %}
-      {% if update.categories contains 'f17' %}
+      {% if update.categories contains 'w18' %}
         {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
         {% assign update_date = update.date | date: '%s' | times: 1 %}
         {% if update_date <= onemonthago %}
@@ -75,22 +75,28 @@ For sensitive issues, please e-mail Marcus directly.
   <table class="table staff-table">
     <tr>
       <td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
-      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"/></td>
-      <td><img src="/static/img/samkhan-square.jpg"  alt="Samiur Khan"   /></td>
+      <td><img src="/static/img/samkhan-square.jpg"  alt="Samiur Khan" /></td>
       <td><img src="/static/img/cyanliu-square.jpg" alt="Christina Liu"/></td>
+      <td><img src="/static/img/amrith-square.jpg"  alt="Amrit Hariharan"/></td>
+      <td><img src="/static/img/sltries-square.jpg"  alt="Stevie Triesenberg"/></td>
+      <td><img src="/static/img/tarunsk-square.jpg"  alt="Tarun Khubchandani"/></td>
 
     </tr>
     <tr>
       <td>Marcus Darden</td>
-      <td>Cameron Gagnon</td>
       <td>Samiur Khan</td>
       <td>Christina Liu</td>
+      <td>Amrit Hariharan</td>
+      <td>Stevie Triesenberg</td>
+      <td>Tarun Khubchandani</td>
     </tr>
     <tr>
       <td><a href="mailto:mmdarden@umich.edu">mmdarden@umich.edu</a></td>
-      <td><a href="mailto:cgagnon@umich.edu">cgagnon@umich.edu</a></td>
       <td><a href="mailto:samkhan@umich.edu">samkhan@umich.edu</a></td>
       <td><a href="mailto:cyanliu@umich.edu">cyanliu@umich.edu</a></td>
+      <td><a href="mailto:amrith@umich.edu">amrith@umich.edu</a></td>
+      <td><a href="mailto:sltries@umich.edu">sltries@umich.edu</a></td>
+      <td><a href="mailto:tarunsk@umich.edu">tarunsk@umich.edu</a></td>
     </tr>
   </table>
 </div>
@@ -98,10 +104,10 @@ For sensitive issues, please e-mail Marcus directly.
 {% assign anchor_text="Course Resources" %}
 {% assign anchor_name="resources" %}
 {% include anchor.html %}
-<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/fall2017/eecs398002fa2017" target="_blank">Piazza</a></h4>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/winter2018/eecs398001" target="_blank">Piazza</a></h4>
 <h4>Assignment Submission &amp; Grades &ndash; <a
-        href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a></h4>
-<ul><li>Gradescope entry code: <code>9D554P</code></li></ul>
+        href="https://gradescope.com/courses/13649" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: <code>92R5Z7</code></li></ul>
 <!--
 <p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
 so that all students may benefit from the question and answer. To reach the course staff, please e-mail
@@ -109,12 +115,12 @@ so that all students may benefit from the question and answer. To reach the cour
 -->
 <p>To borrow a CSE laptop for the semester, contact Don Winsor at <a href="mailto:don@umich.edu">don@umich.edu</a>.</p>
 
-{% assign anchor_text="Course Meeting Times and Locations" %}
+{% assign anchor_text="Course Meeting Time and Location" %}
 {% assign anchor_name="times" %}
 {% include anchor.html %}
 <dl class="dl-horizontal">
-  <dt>Section 002 (28326)</dt>
-  <dd>1013 DOW, Friday 11:00AM &mdash; 12:30PM</dd>
+  <dt>Section 001 (26357)</dt>
+  <dd>220 CHRYS (Auditorium), Friday 10:00AM &mdash; 11:30AM</dd>
 </dl>
 
 <div id='calendar-loading'>Loading calendar...</div>
@@ -138,7 +144,7 @@ so that all students may benefit from the question and answer. To reach the cour
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'f17' %}
+      {% if week.categories contains 'w18' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
@@ -235,7 +241,7 @@ without actually penalizing your grade.</p>
 
 <h4>Grading Issues / Regrade Requests</h4>
 
-Regrades are handled on <a href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a>.
+Regrades are handled on <a href="https://gradescope.com/courses/13649" target="_blank">Gradescope</a>.
 We will close regrade requests roughly one week after assignments are returned.
 
 {% assign anchor_text="Attendance and Participation (30% / 30 points)" %}
@@ -279,16 +285,16 @@ contact us and we can work something out.
 
 <p>Each week (except the first and last) will have at least one advanced
 exercise option. The intention is to give a guided exploration of topics that
-people find most interesting.  These advanced exercises will also be a little
+people find most interesting. These advanced exercises will also be a little
 more time consuming (2-3 hours), have a little less guidance, and require you to
 research and discover a little on your own.  Over the course of the semester,
 you are expected to do three of the advanced exercises.</p>
 
-<p>Advanced exercises may <strong>only</strong> be submitted at office hours.
-Advanced exercises come with a deadline roughly two weeks after they are
-released, however it is <strong>your</strong> responsibility to ensure you
-select an office hours session to attend before the deadline.
-There are no office hours at 9:30PM on Saturday night.</p>
+<p>Advanced exercises may <strong>only</strong> be submitted at office hours,
+which can be viewed from the course calendar at the top of the page. Advanced
+exercises come with a deadline roughly two weeks after they are released,
+however it is <strong>your</strong> responsibility to ensure you select an
+office hours session to attend before the deadline.</p>
 
 <p><small>We will aim to announce any changes to the regular office hours
   schedule at least one week in advance (via Piazza and the updated course
@@ -302,15 +308,35 @@ There are no office hours at 9:30PM on Saturday night.</p>
 you did the whole thing or you did not.</p>
 
 <p>The class is divided into four sections, <em>Introduction and Basics</em>,
-<em>Developing</em>, <em>Being Efficient</em>, and <em>Standing on the
+<em>Being Efficient</em>, <em>Developing</em>, and <em>Standing on the
   Shoulders of Giants</em>. To encourage you to get started early and spread the
 advanced exercises load across the semester, the first advanced exercise you
 submit from each section is worth 10 points. Another advanced exercise in the
 same section is worth 5 points. If you do one advanced exercise from each
 section, the final section's first advanced exercise is worth half: 5 points. If
 a student completes all 11 advanced exercise, they will earn
-(10&nbsp;+&nbsp;5)&nbsp;+&nbsp;(10&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;+&nbsp;(10&nbsp;+&nbsp;5&nbsp;+&nbsp;5&nbsp;)&nbsp;+&nbsp;(5&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;=&nbsp;70&nbsp;points.
+(10&nbsp;+&nbsp;5) + (10&nbsp;+&nbsp;5&nbsp;+&nbsp;5) + (10&nbsp;+&nbsp;5&nbsp;+&nbsp;5&nbsp;) + (5&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;=&nbsp;70&nbsp;points.
 
+<p>
+Completing advanced exercises 2 or more days prior to the due date will result
+in 2 extra credit points being awarded for the assignment. Completing advanced
+exercises 1 day prior to the due date will result in 1 extra credit point being
+awarded for the assignment.
+</p>
+
+<p>As the semester progresses, if you'd like to see how you're doing you can enter 
+your scores into this <a href="progressEval.html">table</a>.</p>
+
+{% assign anchor_text="Engineering Honor Code" %}
+{% assign anchor_name="honor-code" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+
+<p>
+  To review the current Engineering Honor Code, refer to the Honor Council
+  page on the <a href="http://ossa.engin.umich.edu/honor-council/" target="_blank">
+    Office of Student Support and Accountability website</a>.
+</p>
 
 <!--
 <h2><a class="anchor" name="links"></a>Useful Links / Resources</h2>
@@ -337,4 +363,5 @@ a student completes all 11 advanced exercise, they will earn
   <li><a href="/archive/w16/">Winter 2016</a></li>
   <li><a href="/archive/f16/">Fall 2016</a></li>
   <li><a href="/archive/w17/">Winter 2017</a></li>
+  <li><a href="/archive/f17/">Fall 2017</a></li>
 </ul>

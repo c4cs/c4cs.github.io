@@ -3,80 +3,73 @@
 ffmpeg
 ----
 
-`ffmpeg` is a command line tool that is used for converting and editing audio and video files.
+`ffmpeg` is a multimedia framework used to record, convert, and stream audio and video.
 
+<!-- minimal example -->
 ~~~ bash
-$ ffmpeg -i sample.avi sample.mp4
+# Convert between filetypes
+$ ffmpeg -i input.mp4 output.avi
 ~~~
 
 <!--more-->
 
-Its reference page can be found [here](https://ffmpeg.org/ffmpeg.html). Install by typing the following command:
+### Useful Options / Examples
 
-~~~ bash
-$ sudo apt install ffmpeg
-~~~
+``` bash
+$ ffmpeg -i input.mp4 output.avi
+```
 
-### File Conversion
-One of the simplest commands one can run using ffmpeg involves file type conversion. This is useful for scenarios in which you have, for example, a .mp4 and want to change it to a .avi. This can be done in the following way:
+A simple command to convert from one encoding format to another.
 
-~~~ bash
-$ ffmpeg -i sample.avi sample.mp4
-~~~
+``` bash
+$ ffmpeg -i input.mp3 output.wav
+```
 
-**Break it down**
+The same as above, but with audio instead of video.
 
-The first argument, `-i` tells ffmpeg that the next file is the input to the tool. The argument after the input is implicitly interpreted as the output of the program. ffmpeg can tell what type of file you want to convert to just by looking at the extension of the filename that you give it for output. This command does not delete your original file.
+``` bash
+$ ffmpeg -i input.avi -r 24 output.avi
+```
 
-The conversion command works for other file types too, just as long as they are compatible (audio to audio, image to image, etc.).
+the `-r` flag specifies the desired output framerate in fps. This example is converting whatever framerate `input.avi` is to a 24fps .avi output.
 
-### Converting File Quality
-ffmpeg allows you to set how high of a quality you want your conversion to be. There are different settings depending on which file type you are writing to. For converting to .avi, use the `-q` argument followed by a value between 1 and 50. The lower the number, the higher the quality.
+``` bash
+$ ffmpeg -i input.mp4 -vf fps=1/60 screenshot%d.png
+```
 
-~~~ bash
-$ ffmpeg -i sample.mp4 -q 12 sample.avi
-~~~
+This gets stills of a .mp4 every second and call them `screenshot[NUM].png`. It stores them in the current directory.
 
-If instead you wish to convert to a .mp4, you must use the `-crf` argument.
+``` bash
+$ ffmpeg -f image2 -pattern_type glob -framerate 12 -i 'still-*.jpeg' -s WxH output.avi
+```
 
-~~~ bash
-$ ffmpeg -i sample.avi -crf 2 sample.mp4
-~~~
+Alternatively, you can turn a bunch of images that you have into a video. Here `image2` is a required format, a 12 fps video `output.avi` is being created from all images that follow the file naming pattern `still-*.jpeg`.
 
-### Converting a Video to Many Images
-It may be useful to take a video and cut it into a series of images. In order to do this, use the following command:
+``` bash
+$ ffmpeg -i input.mp4 -ss 00:00:25 -codec copy -t 40 output.mp4
+```
 
-~~~ bash
-$ ffmpeg -i sample.avi -r 1 -s [WxH] -f image2 sample-%d.jpeg
-~~~
+This cuts the video file into a clip. The `-ss` tells it the starting time, here 25 seconds, and the `-t` tells it how much of the clip you want, so here 40 seconds.
 
-**Break it down**
+This can also work to split the whole file into multiple smaller files as shown below.
 
--  `-i` in this command specifies the input file of sample.avi.
--  `-r` specifies the framerate for the conversion, in this case we set it to one frame per second. `-s` is used to specify the desired width and height, denoted as [WxH]. So, for example, if you wanted a 1920x1080 image or video, you'd use the argument `-s 1920x1080`.
--  `-f` tells ffmpeg that you want to **f**orce the file conversion to the specified format encoding, in this case we chose image2 which is used for .jpeg and .png among others.
--  `%d` is called a sequence pattern. This allows you to convert the video into many image files with the same prefix, in this case `sample-`. In our case, if you have a 60 second video, you would end up with 60 images labeled sample-1.jpeg through sample-60.jpeg. You can 0-pad these sequences by using `%d0N` where N - 1 is the number of 0's you want before the number. So if using `%d03` you would see sample-001 instead.
+``` bash
+$ ffmpeg -i input.mp4 -t 00:00:41 -c copy part1.mp4 -ss 00:00:59 -codec copy part2.mp4
+```
 
-### Filters
-The most powerful use of ffmpeg is its `-filter` flag. Let's look at a few examples.
+In this case `-t 00:00:41` shows a part that is created from the start of the video to the 41st second of video. `-ss 00:00:59` shows the starting time stamp for the video. It means that the 2nd part will start from the 59th second and will continue up to the end of the original file.
 
-**Volume**
+You can also join various video/audio files together.
 
-~~~ bash
-$ ffmpeg -i sample.avi -filter:a "volume=2" sample.avi
-~~~
+``` bash
+$ ffmpeg -f concat -i file-list.txt -c copy output.mp4
+```
 
-The `-filter:a` option specifically targets the audio channel of the video file. In this case, we are adjusting the volume by a multiplier of 2. Values smaller than 1 will reduce the volume of the file.
+where `file-list.txt` is a list of files **with the same codec** that are to be joined together, eg.
 
-**Channel Remapping**
-
-~~~ bash
-$ ffmpeg -i sample.mp3 -filter:a "channelmap=0-0|0-1" sample.mp3
-~~~
-
-Again we are using the `-filter:a` flag to target the audio channel of the file. channelmap allows us to map the input of an audio file to a different channel in the output file. A 0 specifies the left channel and a 1 is the right. The format is this: `channelmap=input-input|output-output`. So, you can flip the audio channels by a mapping like this `channelmap=0-1|1-0`. This will take the input left and map it to the ouput right, and vice versa for the input right.
-
-In the above case, we are taking the left input channel and mapping it to the output's left and right channel, which could be useful in "converting" a mono audio file to a stereo one.
-
-
-
+```
+file '/Users/USER_NAME/Documents/movie_parts/part1.mp4'
+file '/Users/USER_NAME/Documents/movie_parts/part2.mp4'
+file '/Users/USER_NAME/Documents/movie_parts/part3.mp4'
+file '/Users/USER_NAME/Documents/movie_parts/part4.mp4'
+```

@@ -2,63 +2,120 @@
 ---
 
 tac
---
+---
+`tac` is used to concatenate files in reverse, line by line.
+<!-- one line explanation would go here -->
 
-`tac` concatenates each file or command line input to standard output in reverse (hence tac = cat in reverse).
-
+<!-- minimal example -->
 ~~~ bash
-$ tac filename
+$ tac numberedlines.txt
+Line number five
+Line number four
+Line number three
+Line number two
+Line number one
 ~~~
 
 <!--more-->
 
-If a filename is provided, `tac` prints the contents of the file line-by-line, starting with the last line first.
+### Useful Options / Examples
 
-If no filename is provided, or the filename is inputted as `-`, `tac` reads input from the command line and prints it in reverse.
-
-### Additional Options/Examples
+#### `-s`, `--separator`
 
 ~~~ bash
-$ tac [OPTION] [FILE]
+$ cat numberedlines.txt
+
+START1
+Line number one
+Line number two
+END2
+
+START3
+Line number three
+Line number four
+END4
+
+START5
+Line number five
+Line number six
+END6
+
+START7
+Line number seven
+Line number eight
+END8
+
+START8
+Line number nine
+Line number ten
+END9
+
+$ tac -s "START" numberedlines.txt
+8
+Line number nine
+Line number ten
+END9
+
+7
+Line number seven
+Line number eight
+END8
+
+START5
+Line number five
+Line number six
+END6
+
+START3
+Line number three
+Line number four
+END4
+
+START1
+Line number one
+Line number two
+END2
+
+START
+START$
 ~~~
 
-By default, line separators are newlines and are placed after each line of output.  Use `-b` to place line separators before each line of output instead.
+##### Break it down
 
-`--before`, `-b`
+The `-s`, `--separator` flag uses the string to demarcate a "line". So it detects the last instance and prints everything following it until the end of the line. Then it detects the second to last instance and prints lines after it until the next instance of the string including the line separating string, and so on. Output has weird behavior at the edges of the file, use `-b`, `--before`.
 
-~~~bash
-$ tac -b filename
+#### `-b`, `--before`
+
+Using same file as before
+
+~~~ bash
+$ tac -b -s "START" numberedlines.txt 
+START8
+Line number nine
+Line number ten
+END9
+
+START7
+Line number seven
+Line number eight
+END8
+
+START5
+Line number five
+Line number six
+END6
+
+START3
+Line number three
+Line number four
+END4
+
+START1
+Line number one
+Line number two
+END2
 ~~~
 
-To change the line separator to a provided string, use the command `-s` followed by the string. This feature is more commonly used when parsing command line input.
+##### Break it down
 
-`--seperator=STRING`, `-s [string]`
-
-For example: 
-
-~~~bash
-$ echo -n sam1I1am | tac -s "1"
-~~~
-
-The output would be: amI1sam1
-
-The input can be broken up into 3 individual parts: 'sam' 'I' and 'am'.  `tac` begins by looking at 'am', and since 'am' is not followed by a line separator(a "1") in the command line input, 'am' is printed first without a trailing separator.  Second, I is printed.  However, because I is followed by a "1" in the command lie input, a "1" is printed after I.  Lastly, the 'sam' is printed, and since 'sam' is followed by a line separator, a "1" is placed after 'sam'.
-
-~~~bash
-$ echo -n sam1I1am | tac -b -s "1"
-~~~
-
-The output for this would be:  1am1Isam     
-
-This is because in the above example, the line separator is placed after the string, whereas using the `-b` option puts the line separator before the string. 
-
-`--regex`, `-r`
-
-This flag tells `tac` to interpret the line separator as a regular expression.  This is commonly used with the `--seperator` flag.
-
-### Applications
-
-Error logs or any documents written in chronological order have the most recent information at the bottom of the file. `tac` can provide easy access to that information without having to scroll through the entire file.
-
-
-  
+The `-b`, `--before` flag attaches the line separating string before each line of output instead of after.

@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- F'17}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 11\\IDEs}}
+\author{\textbf{\color{red}{Due: Wednesday, November 29th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit screenshots with 1-3 descriptive paragraphs of what is shown, and how it
+was a learning experience for you. Alternately, visit a TA during office hours
+and have a show and tell about what you did and learned.
+
+
+\section{Which IDE? Which Platform?}
+
+The proprietary nature of the two most common IDEs (Xcode and Visual Studio), and their mutually exclusive availability will make this assignment be a
+``Choose Your Own Adventure.'' Combine that with the fact that neither is
+available on open source operating systems, and the work you will do for this
+assignment quite subjective. The goal however is straightforward, sample a new
+IDE, or extend your abilities with your current IDE.
+
+\subsection*{The Assignment}
+In lecture, we discussed the many tools and services that modern IDEs provide.
+This list included far more than the ``Big Five,'' which are text editor,
+compiler, debugger, file manager, and build system. Your task is to show how
+you can use more of your IDE. To do this, you will need to demonstrate the use
+of 2 or more of the other tools or functionalities that your IDE provides.
+
+\subsection{I'm a Mac}
+Some examples of new uses:
+\begin{enumerate}
+\item Use ``Source Control'' to put your project and source code into a local
+      and an online repository (gitlab.eecs.umich.edu).
+\item Start a new type of project that is more than just command line program
+      (preference pane, game, automator action, an iOS/watchOS/tvOS application
+      or game). This product can be simple, make sure that it launches and
+      runs, and displays your name, uniqname, and ``C4CS''.
+\item Add more target(s) to an existing Xcode project, that can be used to very
+      thoroughly test aspects of the main target.
+\item Toy with something in Objective-C or Swift.
+\end{enumerate}
+
+\subsection{I'm a PC}
+Some examples of new uses:
+\begin{enumerate}
+\item Install ``Git Client Tools'' and use VS to put your project and source
+      code into a local and an online repository (gitlab.eecs.umich.edu).
+\item Start a new type of project that is more than just command line program
+      (web, Silverlight or Office tool, a Windows application or game). This
+      product can be simple, make sure that it launches and runs, and displays
+      your name, uniqname, and ``C4CS''.
+\item Add more projects(s) to an existing Visual Studio Solution, that can be
+      used to very thoroughly test aspects of the main target.
+\item Try something in a new language.
+\end{enumerate}
+
+\subsection{I am a Full Time Linux User}
+Some examples of new uses:
+\begin{enumerate}
+\item Install an IDE (NetBeans, Eclipse, etc). You'll need to ``BYOC,'' bring
+      your own compiler.
+\item Use your local IDE to put your project and source code into a local and
+      an online repository (gitlab.eecs.umich.edu).
+\item Start a new type of project that is more than just command line program
+      (desktop app, control panel or utility, etc). This product can be simple,
+      make sure that it launches and runs, and displays your name, uniqname,
+      and ``C4CS''.
+\item Add more projects(s) to an existing IDE Solution, that can be used to
+      very thoroughly test aspects of the main target.
+\item Try something in a new language.
+\end{enumerate}
+
+\subsection{That Still Doesn't Cover My Situation}
+Get creative! Try something, learn something, and make sure that you can demonstrate this to a TA:
+\begin{enumerate}
+\item Install an IDE into your virtual machine's OS.
+\item Install some other IDE into your host OS.
+\item Keep trying...
+\end{enumerate}
+
+\subsection*{Be Honest}
+This is going to be a very difficult assignment to grade since everyone has
+different hardware, experiences, and workflows. It would be very easy to say
+that you've never used an IDE, so just installing one is new to you. Push
+yourself to learn a new and useful skill, that will help you moving forward as
+a Computer Scientist.
+
+\end{document}

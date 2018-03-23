@@ -1,0 +1,244 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- W'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Advanced Homework 2\\}}
+\author{\textbf{\color{red}{Due: Wednesday, January 24th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions. \textbf{\color{red}{Make sure
+to check the office hour schedule as the real due date is at the last office
+hours before the date listed above.}} This applies to assignments that need to be gone over with a TA only.
+\textbf{Extra credit is given for early turn-ins of advanced exercises. These details can be found on the website under the advanced homework grading policy.}
+
+
+\section{Git Golf}
+
+Sometimes, when using git, people make mistakes. Git can be remarkably
+forgiving, if you've ever told git to remember something, then you can usually
+find a way to undo your mistake and get it back.
+
+\begin{quote}
+\begin{lstlisting}
+# Grab a copy of the files for this question
+> wget http://c4cs.github.io/static/w18/advanced/golf.tar.gz
+\end{lstlisting}
+\end{quote}
+
+\subsection*{\#1: Undeleting Files}
+
+In this repository, someone cleaning up ran
+\texttt{git~rm~*.png}, which deleted every image, and committed the result.
+Now the website is broken because an image that should have stayed was
+deleted. While you could use \texttt{git~revert} to undo the commit, it also
+changed the website source, so you really don't want to undo everything.
+
+\noindent
+\textbf{Demonstrate how to recover the missing picture \ul{without} reverting
+the commit that deleted it.}
+
+
+\subsection*{\#2: Undeleting Commits}
+
+Sometimes it is possible to lose a commit. This can happen because you deleted
+a branch, a rebase went poorly, or a reset went awry. Regardless of how it
+happened, there are ways of finding commits that nothing is currently pointing
+to. This repository has such a commit.
+
+\noindent
+\textbf{Demonstrate how to recover a commit that nothing is currently pointing to.}
+% n.b. for the pedantic, the r****g is actually pointing to this commit, so
+% it'll never be gc'd, but that's outside the scope of this question
+
+
+\subsection*{\#3: Undeleting Changes}
+
+When working with git, \texttt{git~add~my\_file} stages a file, but it isn't
+actually committed until you run \texttt{git~commit}. Sometimes you change
+your mind after a \texttt{git~add} and run \texttt{git~reset~my\_file} to
+unstage a file. The changes to that file are still there, however. To really
+undo changes, you use \texttt{git~reset~-{}-hard}.
+
+\medskip
+\noindent
+Once you've been using these commands for a little while, it can be a little
+too easy to accidentally type the wrong thing. In this repository, someone
+accidentally typed \texttt{git~reset~-{}-hard} when they meant to just type
+\texttt{git~reset}. Fortunately, because they had already run \texttt{git~add}
+to stage their changes, the deleted changes can be recovered.
+
+\noindent
+\textbf{Demonstrate how to recover changes that had been staged for commit,
+but were then deleted.}
+
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Explain how you solved each problem
+\end{itemize}
+
+
+\section{Automating Professionalism}
+
+One feature of most version control systems is \emph{hooks}. A hook is an
+automated script or tool that runs at various points in time. For example,
+later in this course we will show how you can automatically run test cases
+every time anyone commits code.
+
+\medskip
+\noindent
+A slightly easier one to wire up, however, is a hook that will automatically
+check the spelling of your commit messages for you, letting you know if you
+made any mistakes. While spelling rarely counts for a class projects, it
+adds a nice bit of professionalism to any future work you'll share with
+others.
+
+\medskip
+\noindent
+Like the regular homework, I recommend creating a temporary git repository to
+play with while you test things and try to get things working.
+
+\medskip
+\noindent
+Git stores all of its information and configuration in a folder named
+\texttt{.git} in the root of each project. Navigate to \texttt{.git/hooks} and
+rename \texttt{commit-msg.sample} to \texttt{commit-msg}. This activates the
+commit message hook, which runs after you write and save your commit message.
+Now go back to your repository, make a change, and commit it. Hmm, doesn't
+look like anything changed. Make another change, but this time make this your
+commit message (\textbf{exactly this, capitalization matters}):
+\begin{quote}
+  \begin{verbatim}
+  This is a test.
+
+  Signed-off-by: Me!
+  Signed-off-by: Me!\end{verbatim}
+\end{quote}
+After trying to commit, type \texttt{git status}. What happened? Go back and
+look at the commit hook. Do you understand what it does? Try running
+\texttt{git commit -{}-no-verify} with the same commit message. Go edit the
+commit hook and delete the line \texttt{exit 1}. Try making a new commit with
+the same commit message, what happens now? What is \texttt{\$1} in this
+script?  (not sure? try adding lines like \texttt{echo~\$1} or
+\texttt{echo~\$(file~\$1)} or \texttt{echo~\$(cat~\$1)} to the hook and making
+commits, what happens?)
+
+\medskip
+\noindent
+\texttt{aspell} is a simple command-line utility that checks spelling. Install
+it and play with it a little.
+
+\medskip
+\noindent
+\textbf{Write a commit hook that checks the spelling of a commit message.}
+Your hook should not prevent the commit from going through (that'd be
+annoying..), but it should print out any spelling errors. Your hook should
+also print a message that suggests running the command
+\texttt{git~commit~-{}-amend}\footnote{%
+  Amending a commit lets you change your most recent commit. This is fine when
+  you are working locally, but can be a dangerous command if you are sharing
+  your repository with anyone else. Use with caution.
+} if any errors are present.
+
+\medskip
+
+\subsection*{Some tips}
+\begin{itemize}
+  \item This is a little intimidating to get started. \emph{Try some things.}
+    Make a bunch of garbage commits, modify the hook a little, see what
+    happens.
+  \item A shell script is exactly like working in a terminal. The only magic
+    is that you've typed all the commands in advance instead of one at a time.
+    So try some things in your terminal! Mess around until you get some
+    commands that do what you want, then copy them to your script.
+  \item Shell scripting is hard and ugly though. Maybe write a Python script
+    to help you out and call it? Then again, calling commands from Python is
+    kinda hard, so maybe not. \emph{Whatever you are more comfortable with.}
+  \item There is \textbf{zero} need to be efficient. This hook is called
+    rarely and operates on hundreds of bytes of text. Read the file 6 times.
+    Write 7 temporary files. \emph{Who cares.} The goal is not to be pretty,
+    the goal is to work.
+  \item Speaking of temporary files, the \texttt{/tmp} directory can be a
+    great place to throw those. There's even a command called \texttt{mktemp}
+    that will give you a new, unique filename. (You can also do this without
+    making any temporary files, it's just a little harder)
+\end{itemize}
+
+\subsection*{Submission checkoff:}
+\begin{itemize}
+  \item[$\square$] Show off your spellchecking hook in action, explain how it
+    works
+\end{itemize}
+
+\subsubsection*{\emph{Optional} Extra Credit (1 pt)}
+\begin{itemize}
+  \item[$\square$] Demonstrate that your hook ignores errors in indented
+    lines, explain how it works
+\end{itemize}
+
+
+\paragraph{Further exploration and some gotchas:}
+\begin{itemize}
+  \item Take a look at some of the other hooks, are any of them useful?
+  \item For a list of all available hooks, type \texttt{man githooks}.
+  \item Hooks have to be marked as executable to run (\texttt{chmod +x}). The
+    sample hooks already had the executable bit set, which is why renaming the
+    existing sample worked above.
+  \item Hooks can call other scripts. Because invocation of hooks is
+    controlled by the name of the script, if you want multiple scripts to run
+    for a single hook, you'll need to have one script named correctly that
+    calls your other hooks.
+\end{itemize}
+
+\end{document}

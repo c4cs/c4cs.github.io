@@ -3,25 +3,31 @@
 
 scp
 -------
+`scp`, or _Secure Copy_, is used to securely transfer files based on the _Secure Shell protocol_ (`ssh`). Unlike `cp`, `scp` can transfer files from or to a remote host.
 
-`scp` is used to make a _secure copy_ of files or directories to and from a remote host. Similar to "cp" except either the source or destination should be a remote host. `scp` uses _secure shell protocol_ (`ssh`) to tranfer the file to or from the server.
-
+##### Syntax / Example
 ~~~ bash
 $ scp source user@host:destination
 $ scp user@host:source destination
 ~~~
 
+##### Basic Example (Local -> remote)
+~~~ bash
+$ scp ~/Desktop/file uniqname@login-course-2fa.engin.umich.edu:~/Documents/
+~~~
+
 <!--more-->
 
 ### Useful Options / Examples
-
+    
 #### `scp -r`
 ~~~ bash
-$ scp -r source destination
+$ scp -r ~/Documents/eecs280p2/ uniqname@login-course-2fa.engin.umich.edu:~/Documents/eecs280p2/
 ~~~
 
-#### Break it down
-* The `-r` option asks `scp` to _recursively_ copy an entire directory, copying the directory itself along with all of its contents.
+The `-r` option asks `scp` to _recursively_ copy an entire directory, copying the directory itself along with all of its contents.
+
+### Optional Preliminary Steps
 
 #### `ssh` alias
 ~~~ bash
@@ -29,12 +35,16 @@ $ scp source alias:destination
 $ scp alias:source destination
 ~~~
 
-#### Break it down
-* If you get sick of typing out user@host, you can create an `ssh` alias by adding a few lines to `~/.ssh/config`. Change "alias" below to something short and easy to type:
+##### The following replaces the first example:
+~~~ bash
+$ scp ~/Desktop/file caen:~/Documents/
+~~~
+
+If you're going to be typing a remote host multiple times, one of the first things you should do is create an alias (e.g. `caen`). This is achieved simply by adding a few lines to `~/.ssh/config`, as shown in the example below.
 
 ~~~ sh
-Host alias
-	Hostname user@host
-	User you
+Host caen
+	Hostname uniqname@login-course-2fa.engin.umich.edu
+	User uniqname
 ~~~
 

@@ -4,14 +4,21 @@
 nl
 -------
 
-`nl` is a command that _numbers_ the lines of files and prints the result to the standard output.
+`nl` is used to number the lines in a file.
+
 
 ~~~ bash
-$ echo "This is an:" > beginning.txt
-$ echo "example" > end.txt
-$ nl beginning.txt end.txt
-   1	This is an:
-   2	example
+$ nl filename 
+~~~
+
+~~~ bash
+$ echo "hello
+> world
+> hi" > hello.txt
+$ nl hello.txt
+   1  hello
+   2  world
+   3  hi
 ~~~
 
 <!--more-->
@@ -19,120 +26,77 @@ $ nl beginning.txt end.txt
 ### Useful Options / Examples
 
 #### Example command
-`nl` does not modify the original file on its own. However, `nl`'s output can be redirected into a file for future reference.
+
+### nl -s
+Through the `-s` option, any string can be added to act as a separator between line numbers and the line text.
 
 ~~~ bash
-$ echo "This is an:" > beginning.txt
-$ echo "example" > end.txt
-$ nl beginning.txt end.txt
-   1    This is an:
-   2    example
-$ cat beginning.txt end.txt #Note the files were not modified
-This is an:
-example
-$ nl beginning.txt end.txt > complete.txt #Numbered output gets fed into complete.txt
-$ cat complete.txt #Sends stored numbered output in complete.txt to standard output
-   1    This is an:
-   2    example
+$ nl -s"--> " hello.txt
+   1--> hello
+   2--> world
+   3--> hi
 ~~~
 
 #### Example command
 
-The `cat` command offers the `-n`, `--number` flag which also numbers the lines of a file. However, the `nl` command by default ignores empty lines.
+### nl -i
+The `-i` flag can be used to override the default increment of line numbers.
 
-~~~bash
-$ echo "#include <stdio.h>
-int main() {
-	printf("There are some empty spaces below this line");
-	
-
-	printf("This will be line 4 when using nl or line 6 when using cat -n");
-	return 0;
-}" > example.c
-$ cat -n example.c
-     1	#include <stdio.h>
-     2	int main() {
-     3	        printf("There are some empty spaces below this line");
-     4
-     5
-     6          printf("This will be line 4 when using nl or line 6 when using cat -n");
-     7	        return 0;
-     8	}
-$ nl example.c
-     1  #include <stdio.h>
-     2  int main() {
-     3  printf("There are some empty spaces below this line");
-     
-
-     4  printf("This will be line 4 when using nl or line 6 when using cat -n");
-     5          return 0;
-     6  }
+~~~ bash
+$ nl -i4 hello.txt 
+   1  hello
+   5  world
+   9  hi
 ~~~
 
-#### Useful Options
+#### Example command
 
-`nl -b` uses a particular STYLE for numbering body lines from the following:
+### nl -b 
+The `-b` option has several flags to style numbering:
 
-`a` --- number all lines
+* `t` only numbers lines that are non-empty
 
-`t` --- number only nonempty lines
+* `a` numbers all the lines
 
-`n` --- number no lines
+* `n`  numbers no lines
 
-`pBRE` --- number only lines that contain a match for the basic regular expression `BRE`
+* `pBRE` only numbers lines that match the basic regular expression, BRE
 
-Example 1: `nl -ba` numbers all lines in a file (including empty lines)
+~~~ bash
+$ echo "hello
+> world
+>
+> hello
+> again" > hello.txt
 
-~~~bash
-$ echo "#include <stdio.h>
-int main() {
-        printf("There are some empty spaces below this line");
-
-
-        printf("This will be line 4 when using nl or line 6 when using cat -n");
-        return 0;
-}" > example.c
-$ nl -a  example.c
-     1  #include <stdio.h>
-     2  int main() {
-     3          printf("There are some empty spaces below this line");
-     4
-     5
-     6          printf("This will be line 4 when using nl or line 6 when using cat -n");
-     7          return 0;
-     8  }
+$ nl -ba hello.txt
+   1  hello
+   2  world
+   3
+   4  hello
+   5  again
 ~~~
 
-Example 2: `nl -bpA` matches the lines beginning with ‘A’ and numbers only those lines
+In the example above, all lines (including empty lines) are numbered.
 
-~~~bash
-$ cat sort.txt
-UK
-Australia
-Newzealand
-Brazil
-America
-$ nl -bpA sort.txt
-       UK
-     1	Australia
-       Newzealand
-       Brazil
-     2	America
+~~~ bash
+$ nl -t hello.txt
+   1  hello
+   2  world
+   
+   3  hello
+   4  again
+~~~ 
+
+In the example above, only non-empty lines are numbered.
+
+~~~ bash
+$nl -bph hello.txt
+   1  hello
+      world
+      
+   2  hello
+      again
 ~~~
 
-`nl -i` alters the increment of each line (by default is 1)
-
-~~~bash
-$ cat sort.txt
-UK
-Australia
-Newzealand
-Brazil
-America
-$ nl -i5 sort.txt
-     1  UK
-     6  Australia
-    11  Newzealand
-    16  Brazil 
-    21  America
-~~~
+In the example above, only lines starting with "h" are numbered.

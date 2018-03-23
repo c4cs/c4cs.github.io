@@ -2,62 +2,75 @@
 ---
 
 du
---
+---
+`du`, or _disk usage_, reports the sizes of directories, including of all of their contents and the sizes of individual files, and the sizes of each directory in the directory tree.
 
-The du (disk usage) command shows you the sizes of directory trees including all of their contents and sizes of individual files.
-This makes it usefull for taking down particular directories that are hogging disk space. 
-
+<!-- minimal example -->
 ~~~ bash
-$ mkdir test
-$ yes > test/bigfile.txt
-$ du -h
-51M    ./test
-51M    .
+$ du [options] [directories and/or files]
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
+#### `du`
+~~~ bash
+$ du
+236 ./hw1
+375 ./hw2
+1794 .
+~~~
+
+##### Break it down
+
+  * This is the simplest usage of `du`. It prints out the size of your current working directory and the size of all the directories inside of your current directory in KB. This example assumes you're in your `home/eecs398` directory, which contains the subdirectories `hw1/` and `hw2/`, both of which only contain files.
+
+#### `du [directory or file]`
+~~~ bash
+$ du home/eecs398/hw1
+236 ./_hw1
+~~~
+
+##### Break it down
+
+  * This prints out the size of your `home/eecs398/hw1` directory. If this directory contained any subdirectories, it would print out the size of those subdirectories as well.
+
 #### `du -h`
 ~~~ bash
 $ du -h
-92K	.
+236K ./hw1
+375K ./hw2
+1.7M .
 ~~~
 
 ##### Break it down
 
-* The -h option asks for 'human readable' output. This can be very usefull for people who are not as experienced programmers. The       effect is that it more clearly states what these numbers such as '92' mean in the output (KB).
+  * This prints out directory sizes in human-readable form, so instead of printing out only KB for each directory, it prints out the number of B, MB, KB, or GB depending on the size of each directory.
+
+#### `du -sh`
+~~~ bash
+$ du -sh
+1.7M .
+~~~
+
+##### Break it down
+
+  * This tells du to _only_ print out the size of your current working directory (instead of printing out the size of all of your current working directories _and_ the sizes of all of its subdirectories).
 
 #### `du -a`
-
 ~~~ bash
 $ du -a
-4	./sudo.md
-4	./cd.md
-4	./sort.md
-4	./which.md
-4	./echo.md
-4	./ls.md
-4	./whoami.md
-8	./man.md
-4	./pwd.md
-4	./true.md
-4	./cp.md
-4	./kill.md
-4	./head.md
-4	./chown_chgrp.md
-4	./cat.md
-4	./mkdir.md
-4	./chmod.md
-4	./mv.md
-4	./tar.md
-4	./id.md
-4	./wc.md
-92	.
+106K ./hw1/hw1.tex
+130K ./hw1/hw1.pdf
+236K ./hw1
+75K  ./hw2/hw2.tex
+300K ./hw2/hw2.pdf
+375K ./hw2
+400K ./README.pdf
+1.7M .
 ~~~
 
 ##### Break it down
 
-* The -a option asks for not just all of the disk usage for each directory at every level in the directory tree, but also to show
-  the space consumption for each individual file anywhere within the tree.
+  * This tells du to also print out the sizes of every individual file in your current working directory and all of its subdirectories.

@@ -4,116 +4,136 @@
 grep
 -------
 
-`grep` is used to search files for the occurrence os string of characters matching a string (egrep can support called regular expressions often abbreviated as regex).
+`grep` is a program for searching text files for lines that match regular exprssions. It can be used for all sorts of pattern-matching and text-based query analysis.
 
 ~~~ bash
-$ grep string file
-matches because it has string in it
+$ grep -i crab animals.txt
+Crab
+Crab-Eating Macaque
+Hermit Crab
+Horseshoe Crab
+King Crab
 ~~~
 
 <!--more-->
 
+This reference page uses the [animals.txt](../static/commands/src/animals.txt) file for all of its examples. This list was taken from [Millie Bond's A-Z Index of Animals](https://a-z-animals.com/animals/).
+
+Below are a sample of possible patterns you can match using `grep`:
+
+~~~ bash
+$ grep Wolf animals.txt             // list all animals containig "Wolf"
+Arctic Wolf
+Irish WolfHound
+Red Wolf
+Wolf
+Wolf Spider
+$ grep ^Wolf animals.txt            // list all animals beginning with "Wolf"
+Wolf
+Wolf Spider
+$ grep Wolf$ animals.txt            // list all animals ending with "Wolf"
+Arctic Wolf
+Red Wolf
+Wolf
+~~~
+
+By default, `grep` will print all the matching lines to standard output (the console) in the same order they appear in the source with the matching parts colored. This behavior can be modified by using one or more of the the command line options `grep` offers.
+
 ### Useful Options / Examples
 
-#### Example command
+#### -c, -&#45;count
 
-#### `grep -i -o string file`
-~~~ bash
-$ grep -i HelLo helloworld.cpp
-	cout << "hello world\n" << endl;
-~~~
-~~~ bash
-$ grep HelLo helloworld.cpp
-$ 
-~~~
-~~~ bash
-$ grep -i -o HELLO helloworld.cpp
-hello
-~~~
-~~~ bash 
-$`grep -o hello helloworld.cpp
-hello
-~~~
-
-##### Break it down
-
-* The `-i` flag allows searches for case insensitive matches inside the the given file. As can be seen between the first and second examples above the only difference was the flag. From the first example we see a line with a substring that matches a case insensitive search. However, on the second example we dont see any output because it is a case sensitive search.
-* The `-o` flag allows us to print just the matching substring from a file. For example, comparing the first and third example, we the first contains the entire line from a file while the third example only prints the word hello.
-* Both flags can be used separately or together. As can be seen in examples three and four, these flags can be used to get the exact output, for example a case insensitive search (example three) or 
-a case sensitive search for a word (example four).
-
-#### Example command
-
-#### `grep -v string file`
-~~~ bash
-$ grep -v hello helloworld.cpp
-#include <stdio>
-#include <iostream>
-
-int main() {
-}
-~~~
-
-##### Break it down
-
-* The `-v` flag inverts the sense of matching. Instead of printing matching lines, grep will print all lines in the file that dont match the string.
-* `-v` can be useful for removing lots of cout statements where you may have been using debug statements that you want to remove all at once.
-* This flag can also be combined with flags from above. For example, you could use `-i` and search HELLO and would see the same result
-
-#### Example command
-
-#### `command flag | grep string`
+##### Using the `-c` or `--count` option overrides the default output behavior of `grep`. Instead of printing all of the matches to the console, it will print the number of lines that match. This is a useful option if, for example, you only want to know if there are any matches (count &gt; 0) but aren't as concerned with what those matches actually are.
 
 ~~~ bash
-$ ls -l | grep cpp
--rw-rw-r--  1 albert albert   89 Mar 15 17:47 helloworld.cpp
+$ grep -c ^B animals.txt            // count the number of animals beginning with "B"
+66
+$ grep -c [Ll]l animals.txt         // count the number of animals containing "ll" or "Ll"
+46
+$ grep -c end$ animals.txt          // count the number of animals ending with "end"
+0
 ~~~
 
-##### Break it down
+#### -v, -&#45;invert-match
 
-* Here is a simply example of grep being used as a filter for another command.
-* The part before the pipe is `ls -l`. This is a command to list the files in long listing format. This includes (1) permissions (2) reference count (3) owner (4) last modified (5) file name. For more info on ls click [here](/commands/ls.html).
-* follwing the pipe, we have grep and our string. In this command we pipe the output of our previous command into grep and filter it with a specific string. This can be useful when searching for a specific file or maybe a process running on a server.
-
-#### Example command
-
-#### `grep -E string file`
+##### Regular expressions can be tricky to use, especially when you want to find text that doesn't match a particular regex. This is made easier by the `-v` or `--invert-match` option, which finds lines in the target input that do not match the given regular expression.
 
 ~~~ bash
-$ ps aux | grep -E ^a
-ahyerman  1510  0.0  0.0 259076  3280 ?        SN   09:32   0:00 sshd: ahyerman@pts/4
-ahyerman  1511  0.0  0.0 129028  3448 pts/4    SNs  09:32   0:00 -bash
-ahyerman  1740  0.0  0.0 149792  1716 pts/4    RN+  09:35   0:00 ps aux
-ahyerman  1741  0.0  0.0 112644   976 pts/4    SN+  09:35   0:00 grep --color=auto ^a
-~~~
-
-##### Break it down
-
-* The above command if again used as a filter.
-* This time we are using a command to see the current processes currently running on our machine. This output is then piped to grep.
-* The grep command has a `-E` flag. The `-E` stands for extended grep and works like egrep. This allows us to use a regular expression rather than just a string for searching. The regex used in the above command has the `^` symbol. This means find any line that starts with what follows. In this example, all processes run by ahyerman were shown.
-* The `-E` flag can be useful when what your are searching for isnt always well formed or exactly the same every time it appears.
-
-#### Example command
-
-#### `grep -r string`
-
-~~~ bash
-$ grep -r "~~~ bash"
-scripting/yes.md:~~~ bash
-template.md:~~~ bash
-basics/grep.md:~~~ bash
-basics/grep.md:~~~ bash
+$ grep -v ^[AEIOU] animals.txt    // list all animals that don't start with a vowel
+Baboon
+Bactrian Camel
+Badger
 ...
-basics/whoami.md:~~~ bash
-basics/ls.md:~~~ bash
-...
+Zebu
+Zonkey
+Zorse
+$ grep -c -v s animals.txt        // count all animals that don't contain an "s"
+427
 ~~~
 
-##### Break it down
+#### -i, -&#45;ignore-case
 
-* The above command preforms a recursive search on all files in a the current directory and its sub-directories. The `-r` specifies to recursively search directories.
-* Above, we searched for any lines that have the bash format for an md file. We used grep to recursively search all files in our current directory and any sub directory.
-* This is useful because as projects grow, as do their files. One might want to find all lines using a certain variable across many files and directories. The `-r` flag is a great way to perform the search.
+##### Regular expressions, by their nature, are case sensitive. Sometimes, it can be annoying to construct a regex that inherently ignores case differences between letters; this can be especially true when working with extended ASCII or Unicode characters. The `-i` or `--ignore-case` option handles this automatically.
 
+~~~ bash
+$ grep -i m[aeiou]n animals.txt        // list all animals that contain "m" or "M", then a vowel, then "n" or "N"
+Birman
+Caiman
+...
+Mongoose
+Mongrel
+Monitor Lizard
+...
+Tiger Salamander
+Vervet Monkey
+Woolly Monkey
+~~~
 
+#### Other Useful Options
+
+##### `-n`, `--line-number` will list the line number of the matching line before the contents
+`-l`, `--files-with-matches` will list the input files that contain a matching line, not the matching lines themselves
+
+### Input/Output
+
+##### `grep` can be used with one file or with multiple files by listing more than one in the input position for the command. You can even use regular expressions to match multiple files!
+
+~~~ bash
+$ grep "umich" file1.txt file2.txt       // search two files explicitly
+// output here
+$ grep "umich" *.txt                     // search all .txt files in the current directory
+// output here
+$ grep "umich" .                         // search all files in the current directory
+~~~
+
+Input can also be piped into `grep` from another program or redirected using &lt;. Likewise, the output of `grep` can be piped into another program (including another `grep`) or redirected using &gt;
+
+### Regular Expression Basics
+
+##### Here are some useful symbols and techniques for regular expressions. This is just a very basic overview; regular expressions are extremely powerful if you know how to wield them.
+* `^` matches the beginning of a line
+    * `^A` will match all lines beginning with a capital "A"
+* `$` matches the end of a line
+    * `e$` will match all lines ending with a lower-case "e"
+* `.` matches any single character (including whitespace)
+    * `b.b` will match all lines that contain two lower-case "b"s separated by a single character (i.e. "bob" or "b&b")
+	* `^...$` will match all lines that are exactly three characters long
+* `*` will match the preceding character zero or more times
+    * `a*b` will match all lines that contain any number of lower-case "a"s (including 0) followed by a lower-case "b"
+    * `blue.*green` will match all lines that contain "blue" followed at some point later (maybe immediately) by "green"
+* `+` will match the preceding character one or more times
+    * `a+b` will match all lines that contain at least one (but possibly more) lower-case "a" immediately followed by a lower-case "b"
+    * `blue.+green` will match all lines that contain "blue" followed later by "green" with at least one character in between
+* `\w` will match any letter, digit, or the underscore
+* `\d` will match any digit
+* `\s` will match any whitespace (space, tab, newline, etc.)
+* To match any of a group of characters, place them in `[]`
+    * `[aeiou]$` will match all lines that end in a vowel
+* To match any of a range of characters, place them in `[]` separated by a `-`
+    * `^[1-9][0-9]$` will match all lines that are numbers between 10 and 99 inclusive
+    * `^[A-Z][a-z]+$` will match all lines that start with a capital followed by at leaste on lower-case letter, and only contains letters
+
+##### Here are some good resources if you want to learn more about regular expressions or get practice:
+* [Regular-Expressions.info](http://www.regular-expressions.info/)
+* [W3Schools (for JavaScript specifically, but has a good general syntax reference)](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+* [RegEx Golf](https://alf.nu/RegexGolf)

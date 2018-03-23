@@ -4,54 +4,98 @@
 jobs
 --
 
-`jobs` is used to _list_ all active or suspended jobs. `jobs` will commonly be used with the [`fg`](/commands/fg) and [`bg`](/commands/bg) commands.
+`jobs` is used to list the jobs running in the background of the current shell session.
 
+The general format is
+
+<!-- minimal example -->
 ~~~ bash
-$ jobs
-list of jobs in form
-[jobID]		status		jobs
+$ jobs [options] [jobID]
 ~~~
 
 <!--more-->
 
+A simple example is:
+
+~~~ bash
+$ gnome-calculator &
+[1] 14616
+$ xeyes &
+[2] 14624
+$ jobs
+[1]-  Running                 gnome-calculator &
+[2]+  Running                 xeyes &
+~~~
+
+This will display the status of every job in the current shell. Status is displayed by job number, status, and job. Jobs running in the background have an `&` after them. `+` refers to the job that was sent to the background least recently and `-` refers to the second least recent job sent to the background.
+
 ### Useful Options / Examples
 
-#### `jobs -l`
+#### jobs 1
+~~~ bash
+$ jobs 1
+[1]-  Running                 gnome-calculator &
+~~~
+
+##### Break it down
+
+ * Display the status of the job with jobID 1.
+
+#### jobs -p
+~~~ bash
+$ jobs -p
+14616
+14624
+~~~
+
+##### Break it down
+
+ * Display only the process ids of every job in the current shell.
+
+#### jobs -l
 ~~~ bash
 $ jobs -l
-[1]		14891	Running		firefox &
-[2]+	14900	Stopped		sleep 10s
-[3]-	14912	Running		sleep 20s &
+[1]- 14616 Running                 gnome-calculator &
+[2]+ 14624 Running                 xeyes &
 ~~~
 
-##### Description
+##### Break it down
+
+ * Display the process ids as well as the normal information for every job in the current shell.
+
+#### jobs -n
 ~~~ bash
-$ jobs -l
-[1]		14891	Running		firefox &
-[2]+	14900	Stopped		sleep 10s
-[3]-	14912	Running		sleep 20s &
- |        |        |            |
- \- jobID |        |            |
-          \- PID   |            |
-                   \- status    |
-                                \-job
+$ sleep 100 &
+[3] 14707
+$ jobs -n
+[3]+  Running                 sleep 100 &
 ~~~
 
-### `jobs -r`
+##### Break it down
+
+ * Display the jobs in the current shell that have changed status since last notified. For example, if you start a new job or a job finishes since you last called jobs, `jobs -n` will display that job.
+
+#### jobs -r
 ~~~ bash
-$ jobs -l
-[1]		Running		firefox &
-[3]-	Running		sleep 20s &
+$ jobs -r
+[1]   Running                 gnome-calculator &
+[2]-  Running                 xeyes &
+[3]+  Running                 sleep 100 &
 ~~~
 
-##### Description
- * the `-r` flag tells `jobs` to limit the list to running jobs
+##### Break it down
 
-#### `jobs -s`
+ * Display only the running jobs in the current shell.
+
+#### jobs -s
 ~~~ bash
-$ jobs -s
-[2]+	14900	Stopped		sleep 10s
+$ xeyes
+^Z
+[1]+  Stopped                 xeyes
+$ jobs -p
+[1]+  Stopped                 xeyes
 ~~~
 
-##### Description
- * the `-s` flag tells `jobs` to limit the list to stopped jobs
+##### Break it down
+
+ * Display only the stopped jobs in the current shell. You can stop a job by doing ctrl + z in the terminal.

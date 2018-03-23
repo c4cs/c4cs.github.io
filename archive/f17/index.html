@@ -1,0 +1,354 @@
+---
+layout: default
+---
+
+<div class="text-center">
+  <hr />
+  <h1 style="color: red; font-size: 300%">!!! This is the F17 version of the course !!!</h1>
+  <h1 style="color: red; font-size: 200%"><a href="/">Click here to go to the current course homepage</a></h1>
+  <hr />
+</div>
+
+<div class="jumbotron">
+  <p>This 1-credit seminar is designed to teach the essentials of using a
+  computer effectively for EECS students. While the target audience is CS/CE/DS
+  students, any student wishing to learn how to use their computer much more
+  effectively is encouraged to join. Topics covered include shells, environment,
+  scripting, Makefiles, compilers, debugging tools, and version control. The
+  end of the course will be open to student input for interesting topics to
+  cover.</p>
+</div>
+
+<div class="alert alert-info">
+  <h3 style="margin-top: 0px; font-weight: bold;">Updates</h3>
+
+  {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
+  {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
+  {% for update in site.updates %}
+    {% if update.categories contains 'f17' %}
+      {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+      {% assign update_date = update.date | date: '%s' | times: 1 %}
+      {% if update_date > onemonthago %}
+        {{ update.output }}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <!--<p><a onclick='$("#old-updates").show(); $(this).hide()'>[+] Show older updates</a></p>-->
+
+  <div id="old-updates" style="display: none">
+
+    {% for update in site.updates %}
+      {% if update.categories contains 'f17' %}
+        {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
+        {% assign update_date = update.date | date: '%s' | times: 1 %}
+        {% if update_date <= onemonthago %}
+          {{ update.output }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+  </div><!-- old-updates -->
+</div>
+
+<hr />
+
+{% assign anchor_text="Course Pre-Requisites" %}
+{% assign anchor_name="prereqs" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
+<p>The only enforced pre-requisite for this course is ENGN&nbsp;101/151 or
+EECS&nbsp;182/183, however it is strongly advised that students have either
+taken or are concurrently enrolled in EECS&nbsp;280.</p>
+<p>It is expected that students are currently enrolled in at least one course
+involving non-trivial software projects (e.g. EECS&nbsp;280 or 281). If you are
+not enrolled in a programming course this term, you must have previously taken a
+programming course where you still have access to the projects you have
+completed.</p>
+
+{% assign anchor_text="Syllabus &amp; Essential Info" %}
+{% assign anchor_name="syllabus" %}
+{% include anchor.html %}
+
+{% assign anchor_text="Course Staff" %}
+{% assign anchor_name="staff" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+<p>
+For general issues, e-mail the course staff at <a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a>.
+For sensitive issues, please e-mail Marcus directly.
+</p>
+<div class="table-responsive">
+  <table class="table staff-table">
+    <tr>
+      <td><img alt="@marcus-darden" class="avatar" src="https://avatars1.githubusercontent.com/u/1323862?v=3&amp;s=120"></td>
+      <td><img src="/static/img/cgagnon-square.jpg"  alt="Cameron Gagnon"/></td>
+      <td><img src="/static/img/samkhan-square.jpg"  alt="Samiur Khan"   /></td>
+      <td><img src="/static/img/cyanliu-square.jpg" alt="Christina Liu"/></td>
+
+    </tr>
+    <tr>
+      <td>Marcus Darden</td>
+      <td>Cameron Gagnon</td>
+      <td>Samiur Khan</td>
+      <td>Christina Liu</td>
+    </tr>
+    <tr>
+      <td><a href="mailto:mmdarden@umich.edu">mmdarden@umich.edu</a></td>
+      <td><a href="mailto:cgagnon@umich.edu">cgagnon@umich.edu</a></td>
+      <td><a href="mailto:samkhan@umich.edu">samkhan@umich.edu</a></td>
+      <td><a href="mailto:cyanliu@umich.edu">cyanliu@umich.edu</a></td>
+    </tr>
+  </table>
+</div>
+
+{% assign anchor_text="Course Resources" %}
+{% assign anchor_name="resources" %}
+{% include anchor.html %}
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/fall2017/eecs398002fa2017" target="_blank">Piazza</a></h4>
+<h4>Assignment Submission &amp; Grades &ndash; <a
+        href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: <code>9D554P</code></li></ul>
+<!--
+<p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
+so that all students may benefit from the question and answer. To reach the course staff, please e-mail
+<a href="mailto:c4cs-staff@umich.edu">c4cs-staff@umich.edu</a>.
+-->
+<p>To borrow a CSE laptop for the semester, contact Don Winsor at <a href="mailto:don@umich.edu">don@umich.edu</a>.</p>
+
+{% assign anchor_text="Course Meeting Time and Location" %}
+{% assign anchor_name="times" %}
+{% include anchor.html %}
+<dl class="dl-horizontal">
+  <dt>Section 002 (28326)</dt>
+  <dd>1013 DOW, Friday 11:00AM &mdash; 12:30PM</dd>
+</dl>
+
+<div id='calendar-loading'>Loading calendar...</div>
+<div id='calendar'></div>
+<a href="https://calendar.google.com/calendar/embed?src=4a0vvtkg11f6g0qs2er37gkkf8%40group.calendar.google.com&ctz=America/New_York" class="pull-right" target="_blank">Google Calendar link</a>
+
+{% assign anchor_text="Schedule" %}
+{% assign anchor_name="schedule" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+<div class="alert alert-warning">
+  <span class="glyphicon glyphicon-warning-sign"></span>
+  The syllabus is subject to change in response to
+  feedback and class needs throughout the term.
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <th style="min-width: 190px;" colspan="2"></th>
+      <th style="min-width: 300px;">Topic</th>
+      <th style="min-width: 400px;">Lecture Materials</th>
+    </tr>
+    {% for week in site.syllabus %}
+      {% if week.categories contains 'f17' %}
+        {{ week.output }}
+      {% endif %}
+    {% endfor %}
+  </table>
+</div><!-- table-responsive -->
+
+<!--
+<p>Some suggestions for special topics lectures:</p>
+<ul>
+	<li>cron jobs</li>
+	<li>Python, Perl, &lt;insert pet scripting language here&gt;, ...</li>
+	<li>Personal Security / Integrity - disk encryption, pgp, etc</li>
+	<li>Packaging (how to get your program into apt-get repositories)</li>
+	<li>Internet basics (routing, AS's, DNS, UDP, TCP, etc etc)</li>
+	<li>Internet tools, (nc, dig, nslookup, whois, etc)</li>
+	<li>LaTeX</li>
+	<li>Postscript</li>
+</ul>
+-->
+
+{% assign anchor_text="Attendance, Grading, and Homework" %}
+{% assign anchor_name="grading" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
+<p>
+This course is graded on a straight scale, it will not be curved. There are a
+total of 100 possible points in this course.  You are expected to earn 40 points
+from Homework, 30 points from Attendance and Participation, and 30 points from
+Advanced Exercises, however each section has modest opportunity for extra credit
+that can cover missing points elsewhere.
+</p>
+<p><small><em>Range notation [90,93) means 90 is included and 93 is not</em></small></p>
+
+{% assign anchor_text="Final Grades" %}
+{% assign anchor_name="syllabus-grades" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+<div class="table-responsive">
+<table class="table grade-table">
+	<tr>
+		<th></th>
+		<th>A+<br /><small>&gt;100</small></th>
+		<th>A<br /><small>[93,100]</small></th>
+		<th>A-<br /><small>[90,93)</small></th>
+		<th>B+<br /><small>[86.7,90)</small></th>
+		<th>B<br /><small>[83.3,86.7)</small></th>
+		<th>B-<br /><small>[80,83.3)</small></th>
+		<th>C+<br /><small>[76.7,80)</small></th>
+		<th>C<br /><small>[73.3,76.7)</small></th>
+		<th>C-<br /><small>[70,73.3)</small></th>
+		<th>D+<br /><small>[66.7,70)</small></th>
+		<th>D<br /><small>[63.3,66.7)</small></th>
+		<th>D-<br /><small>[60,63.3)</small></th>
+		<th>F<br /><small>[0,60)</small></th>
+	</tr>
+</table>
+</div>
+
+
+{% assign anchor_text="Homework (40% / 40 points)" %}
+{% assign anchor_name="syllabus-homework" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+
+<p>There are 12 homework assignments in the course. Each homework assignment is
+worth 4 points. Any points over 40 points are worth half their value, that is
+if a student completes all 12 assignments with a perfect score, their total
+points earned from homework will be
+40&nbsp;+&nbsp;(0.5&times;8)&nbsp;=&nbsp;44.</p>
+
+<p>Late assignments will not be accepted. Notice that one can miss/skip up to
+two assignments and still receive the full 40 homework points.</p>
+
+<h4>Homework Effort and Grading</h4>
+
+<p>This is a 1&nbsp;credit course and the homeworks are designed to be
+commensurate with that. Each assignment should take 60&ndash;90 minutes on
+average. The goal of the homeworks is to reinforce concepts introduced in
+lecture and to give hands-on experience.</p>
+
+<p>We will give each homework a &ldquo;raw&rdquo; grade in Gradescope, which
+will then convert to a final score using the following conversion:</p>
+
+<dl class="dl-horizontal">
+	<dt>[0,0.25] &rarr; 0 points</dt><dd>No / very little effort</dd>
+	<dt>(0.25,2] &rarr; 2 points<dd>Some effort, but not quite there</dd>
+	<dt>(2,4] &rarr; 4 points<dd>Solid effort, completed successfully</dd>
+</dl>
+
+<p>The idea here is that homework does not have to 100% perfect to receive full
+credit. In addition, course staff can be a little &ldquo;nit-picky&rdquo;,
+taking off tenths of points to draw your attention to corrections and suggestions
+without actually penalizing your grade.</p>
+
+<h4>Grading Issues / Regrade Requests</h4>
+
+Regrades are handled on <a href="https://gradescope.com/courses/9999" target="_blank">Gradescope</a>.
+We will close regrade requests roughly one week after assignments are returned.
+
+{% assign anchor_text="Attendance and Participation (30% / 30 points)" %}
+{% assign anchor_name="syllabus-attendance" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+
+<p>Attendance is required for this course.
+<strong>Bring your laptop to every lecture.</strong>
+Lectures will include some quick quizzes used both to verify comprehension and
+attendance.
+Generally, correct answers will be worth full credit and incorrect answers half
+credit (you were there, but didn&rsquo;t get it right).
+Generally, we will ask at least three questions during class. Not all questions
+may count for attendance credit.
+We reserve the right to experiment with this mechanism a bit throughout the
+semester and vary when and how we ask questions or validate attendance.
+</p>
+
+<p>Each week can earn up to 3 attendance and participation points. Any points
+over 30 points are worth half their value, that is if a student attends and
+participates for all 12 weeks, their total points earned from attendance and
+participation will be
+30&nbsp;+&nbsp;(0.5&times;6)&nbsp;=&nbsp;33.</p>
+
+<p>Notice that you can miss up to two weeks without any penalty. This is by
+design to accommodate unexpected illness, emergencies, travel for interviews, or
+any other situations.
+Please do not ask for excused absences for one-off issues that are already
+covered by this policy.
+If extenuating circumstances cause you to miss more than two weeks, please
+contact us and we can work something out.
+</p>
+
+<p>We will not count attendance for the first week of class.</p>
+
+{% assign anchor_text="Advanced Exercises (30% / 30 points)" %}
+{% assign anchor_name="syllabus-advanced" %}
+{% assign anchor_html_entity="h3" %}
+{% include anchor.html %}
+
+<p>Each week (except the first and last) will have at least one advanced
+exercise option. The intention is to give a guided exploration of topics that
+people find most interesting. These advanced exercises will also be a little
+more time consuming (2-3 hours), have a little less guidance, and require you to
+research and discover a little on your own.  Over the course of the semester,
+you are expected to do three of the advanced exercises.</p>
+
+<p>Advanced exercises may <strong>only</strong> be submitted at office hours,
+which can be viewed from the course calendar at the top of the page. Advanced
+exercises come with a deadline roughly two weeks after they are released,
+however it is <strong>your</strong> responsibility to ensure you select an
+office hours session to attend before the deadline.</p>
+
+<p><small>We will aim to announce any changes to the regular office hours
+  schedule at least one week in advance (via Piazza and the updated course
+  calendar), however sometimes life happens, in which case we may adjust
+  deadlines if necessary.</small></p>
+
+
+<h4>Advanced Exercises Grading</h4>
+
+<p>The advanced exercises are graded on a simple all or nothing system, either
+you did the whole thing or you did not.</p>
+
+<p>The class is divided into four sections, <em>Introduction and Basics</em>,
+<em>Being Efficient</em>, <em>Developing</em>, and <em>Standing on the
+  Shoulders of Giants</em>. To encourage you to get started early and spread the
+advanced exercises load across the semester, the first advanced exercise you
+submit from each section is worth 10 points. Another advanced exercise in the
+same section is worth 5 points. If you do one advanced exercise from each
+section, the final section's first advanced exercise is worth half: 5 points. If
+a student completes all 11 advanced exercise, they will earn
+(10&nbsp;+&nbsp;5) + (10&nbsp;+&nbsp;5&nbsp;+&nbsp;5) + (10&nbsp;+&nbsp;5&nbsp;+&nbsp;5&nbsp;) + (5&nbsp;+&nbsp;5&nbsp;+&nbsp;5)&nbsp;=&nbsp;70&nbsp;points.
+
+<p>
+Completing advanced exercises 2 or more days prior to the due date will result
+in 2 extra credit points being awarded for the assignment. Completing advanced
+exercises 1 day prior to the due date will result in 1 extra credit point being
+awarded for the assignment.
+</p>
+
+
+<!--
+<h2><a class="anchor" name="links"></a>Useful Links / Resources</h2>
+<ul>
+	<li><a href="http://stackoverflow.com">Stack Overflow</a>: Got a
+	problem? Try searching here instead of Google. Odds favor this site will
+	be the first result anyway, and it's answers are much more complete,
+	readable, and useful</li>
+	<li><a href="http://c-faq.com/index.html">comp.lang.c FAQ</a>: Next time
+	you're bored, don't Facebook or reddit; instead skim a
+	section. It's really interesting material, presented in short, easy
+	snippets</li>
+</ul>
+-->
+
+<hr />
+
+{% assign anchor_text="Course Archives" %}
+{% assign anchor_name="archives" %}
+{% assign anchor_html_entity="h2" %}
+{% include anchor.html %}
+
+<ul>
+  <li><a href="/archive/w16/">Winter 2016</a></li>
+  <li><a href="/archive/f16/">Fall 2016</a></li>
+  <li><a href="/archive/w17/">Winter 2017</a></li>
+</ul>

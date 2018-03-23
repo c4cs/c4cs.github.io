@@ -1,49 +1,48 @@
 ---
 ---
 
-Cmatrix
+cmatrix
 -------
+ `cmatrix` is a program that simulate the cool scrolling lines from the movie 'The Matrix'.
 
-The command `cmatrix` draws a Neo style matrix on your terminal and makes you feel a little more geekier.
+To start `cmatrix`, simply type the following:
 
+<!-- minimal example -->
 ~~~ bash
-$ sudo apt-get install cmatrix
+$ sudo apt install cmatrix
+$ cmatrix 
 ~~~
 
-After install cmatrix, just type in the command in command line window. Like
-
-~~~ bash
-$ cmatrix -option 
-~~~
 <!--more-->
 
-#### OPTIONS
+### Useful Options
+~~~ bash
+ Usage: cmatrix -[abBfhlsVx] [-u delay] [-C color]
+ -a: Asynchronous scroll
+ -b: Bold characters on
+ -B: All bold characters (overrides -b)
+ -f: Force the linux $TERM type to be on
+ -l: Linux mode (uses matrix console font)
+ -o: Use old-style scrolling
+ -h: Print usage and exit
+ -n: No bold characters (overrides -b and -B, default)
+ -s: "Screensaver" mode, exits on first keystroke
+ -x: X window mode, use if your xterm is using mtx.pcf
+ -V: Print version information and exit
+ -u delay (0 - 10, default 4): Screen update delay
+ -C [color]: Use this color for matrix (default green)
+ valid [color] options: green, red, blue, white, yellow, cyan, magenta and black.
+~~~
 
-`-a`: Asynchronour scroll
 
-`-b`: Bold characters on
 
-`-B`: All bold characters(overrides -b)
 
-`-f`: Force the Linux $TERM type to be on
+#### Example command
+~~~ bash
+cmatrix -a     "the scroll will be Asynchronous
+cmatrix -u 10  "set delay to 10 (slowest)
+cmatrix -C red "set color to red
+~~~
+![cmatrix](http://www.asty.org/cmatrix/data/screen1.gif)
 
-`-l`: Linux mode (sets "matrix.fnt" font in console)
-
-`-o`: Use old-style scrolling
-
-`-h`: Print usage and exit
-
-`-n`: No bold characters (overrides -b and -B)
-
-`-s`: "Screensaver" mode, exits on first keystroke
-
-`-u delay`: Screen update delay 0 - 9, default 4
-
-`-C color`: Use this color for matrix (default green). Valid colors are green, red, blue, white, yellow, cyan, magenta, and black. 
-
-#### And BOOM! 
-
-Magic happens. Hold `Ctrl` + `z` to exit.
-
-#### BUGS
-This program is very CPU intensive. Don't be surprised if it eats up over 40% ofCPU at times.
+Visit [here](http://www.asty.org/cmatrix/) for more

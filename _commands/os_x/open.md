@@ -4,11 +4,10 @@
 open
 -------
 
-`open` is used to open files, directories or URLs from the terminal. 
+`open` is used to open files, directories or URLs from the terminal.
 
 ~~~ bash
-#Opens google.com in your default browser
-open http://www.google.com
+$ open http://www.google.com
 ~~~
 
 <!--more-->
@@ -56,13 +55,12 @@ Outputs the contents of the `ls` command and displays it in TextEdit, after savi
 * As we know ls displays all the files and directories in the current directory. Rather than redirecting the output to our own temporary file and then opening that, we can do everything in one go by just piping it to `open -f`.
 
 ~~~bash
-python main.py > /tmp/python_example.txt 
+python main.py > /tmp/python_example.txt
 open /tmp/python_example.txt
 ~~~
 
-becomes 
+becomes
 
 ~~~bash
 python main.py | open -f
 ~~~
-

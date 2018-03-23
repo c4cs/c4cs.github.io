@@ -2,108 +2,96 @@
 ---
 
 alias
--------
+--
 
-`alias` is a command to create shortcut to commands and applications in the terminal.
+`alias` instructs the shell to replace one string with another when executing commands.
 
-~~~bash
-$ alias l="ls"
-$ l
-Documents  Downloads  Music     Public     Videos
-Desktop    Pictures   Templates
+~~~ bash
+$ alias rm='rm -i'
+$ rm sample.txt
+rm: remove regular empty file 'sample.txt'? Y
+$ 
 ~~~
 
 <!--more-->
+ 
+ The advantages of using alias include:
 
-### Useful Options / Examples
+1. Time Saving: can shorten the length of commands so we do not need to type out all the characters
+2. No longer need to remember long command names
+3. Can run multiple commands (using command chaining) with a single alias
+4. Correct common misspellings of commands (`alias pdw='pwd'`)
+5. Can help standardize the names of commands across multiple operating systems (`alias dir='ls'`)
 
-#### Usage
+### Description
+Aliases are used to customize the shell session interface.  Using alias, frequently-used commands can be invoked
+using a different, preferred term; and complex or commonly used options can be used as the defaults for a given command.
 
-Things to note: when using alias, make sure that there is no space around the equal sign.
+Aliases only persist for the **current** session, however, they can be loaded at login time by modifying the shell's
+**.rc** file.  To add them permanently, we have to edit our shell profile files (**~/.bashrc**) and enter the alias into the file.
 
-~~~bash
-$ alias s = "status"
-bash: alias: s: not found
-bash: alias: =: not found
-bash: alias: status: not found
+### Syntax
+~~~ bash
+alias [name=['command']]
 ~~~
 
-Another thing to note is that aliases would overwrite existing commands. For example:
+*name* is the name of the new alias.
 
-~~~bash
-$ alias ls="git status"
-$ ls
-On branch master
-Your branch is up-to-date with 'origin/master'.
+*command* is the command(s) which it initiates.
+
+The alias name and replacement text can contain any valid shell input expect for *=*.
+
+The commands, including any options, arguments and redirection operators, are all enclosed within a pair of
+single or double quotes.
+
+### Options/Examples
+
+#### `alias`/`alias -p`/`compgen -a`
+
+
+Invoking `alias` with no arguments will display all currently aliased commands.
+
+~~~ bash
+cjlebioda@cjlebioda-VirtualBox:~$ alias
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
 ~~~
 
-Also, aliases are temporary to the current shell. To make the aliases permanent, please refer to the section below "Making aliases permanent".
+So the command `ls` is actually an alias such that using `ls` will always display color output.
 
-#### Example
 
-The above examples do not make much sense, since they simplify a two character command. The following examples show how alias can save you a lot of time.
+#### Removing Aliases
 
-~~~bash
-$ alias s="git status"
-$ s
-On branch master
-Your branch is up-to-date with 'origin/master'.
+
+`unalias` removes aliases created during the current session **and** permanent aliases that are listed in system 
+configuration files.  The option *-a* tells `unalias` to remove all aliases for the current user for the current 
+shell.
+
+Another way to remove an alias is by using the `alias` command to create a new alias with the same name to 
+overwrite the existing alias with that name.
+
+~~~ bash
+cjlebioda@cjlebioda-VirtualBox:~$ unalias ll
+cjlebioda@cjlebioda-VirtualBox:~$ ll
+-bash:ll: command not found
 ~~~
 
-This shows that you can alias commands with multiple words.
+#### Example Command
 
-#### Example
+This alias will make our process table searchable with an argument we will pass in:
 
-~~~bash
-$ alias gdesk="cd ~/Desktop"
-$ gdesk
-$ pwd
-/home/user/Desktop
+~~~ bash
+$ alias psg='ps aux | grep -i -e'
+$ psg bash
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+cjlebio+  2093  0.0  0.0  29764   356 pts/4    Ss   21:54   0:00 bash
+cjlebio+  2151  0.0  0.1  29780  3404 pts/17   Ss+  21:57   0:00 bash
+cjlebio+ 18476  0.0  0.2  29704  5220 pts/18   Ss   22:18   0:00 bash
+$ 
 ~~~
-
-One thing to be careful about is if you alias the cd command without using the ~, your alias might not always work. For example:
-
-~~~bash
-$ alias gdesk="cd Desktop"
-$ gdesk
-bash: cd: Desktop: No such file or directory
-~~~
-
-### Making aliases permanent
-
-If you just run the alias command from the shell, it would last for the duration of the shell (until the shell is closed). To make the aliases permanent, we can just tell the shell to run these commands when the shell starts.
-
-#### Beginner
-
-For people who are relatively new to this, we can do this easily.
-
-~~~bash
-$ cat >> ~/.bashrc
-alias gits="git status"
-(press control-D here)
-$ cat ~/.bashrc
-alias gits="git status"
-$ source ~/.bashrc
-~~~
-
-The last line just tells the shell to source the file in the current session. The bashrc file is automatically sourced whenever the shell starts. Now, whenever you open a new shell, your aliases are ready for you.
-
-#### More complicated
-
-For people who know how to work with .rc files (.bashrc), the best way to create permanent aliases is to create a .aliases file and then source it in your .rc file. For example, you should have this in your bashrc:
-
-~~~bash
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
-~~~
-
-This would source your .aliases file if it exists. And in your .aliases file you should just write all your aliases. Like this:
-
-~~~bash
-1 alias gits="git status"
-2 alias l="ls"
-3 alias gdesk="cd ~/Desktop"
-~~~
-
-This is a better way because your aliases is now in a separate file and you can view all of them together, without any other code.

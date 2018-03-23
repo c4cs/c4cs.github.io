@@ -1,54 +1,49 @@
 ---
 ---
 
-Asciiquarium
+asciiquarium
 -------
+`asciiquarium` is a script that doubles as a cool screensaver for the terminal.
 
-The command `asciiquarium` fills your terminal with a lively aquarium in all ascii text
+To start `asciiquarium`, simply type the following:
 
-
-<!--more-->
-
-You first need to install a perl package called Term-Animation
-
-~~~ bash
-$ sudo apt-get install libcurses-perl
-$ cd /tmp
-$ wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
-$ tar -zxvf Term-Animation-2.4.tar.gz
-$ cd Term-Animation-2.4/
-$ perl Makefile.PL && make && make test
-$ sudo make install
-~~~
-
-Next you need to download and install asciiquarium
-
-~~~ bash
-$ cd /tmp
-$ wget http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz
-$ tar -zxvf asciiquarium.tar.gz
-$ cd asciiquarium_1.1/
-$ sudo cp asciiquarium /usr/local/bin
-$ sudo chmod 0755 /usr/local/bin/asciiquarium
-~~~
-
-To view the your virtual fish bowl:
-
-~~~ bash
+<!-- minimal example -->
+~~~bash
 $ asciiquarium
 ~~~
 
-#### COMMANDS
+<!--more-->
 
-While running:
+### Examples of `asciiquarium`
 
-Press ‘q’ to quit
+Using ascii art, `asciiquarium` gives the terminal the feel of being out at sea
+with fish swimming around and the occasional fisherman.
 
-Press ‘r’ to redraw
+![asciiquarium](http://www.robobunny.com/projects/asciiquarium/screenshot.png)
 
-Press ‘p’ to pause
+`asciiquarium`  is not built-in to your terminal and in order to use it, you have to install it to your machine. 
 
+If you are using a linux machine, do the following steps:
 
+~~~bash
+$ wget http://www.robobunny.com/projects/asciiquarium/asciiquarium.tar.gz
+$ tar -zxvf asciiquarium.tar.gz
+$ cd asciiquarium_1.1/
+$ chmod +x asciiquarium
+$ sudo cp asciiquarium /usr/local/bin/asciiquarium
+$ sudo cpan Term::Animation
+$ asciiquarium
+~~~
 
+For Mac users, there's a nice [packaged
+version](https://habilis.net/macasciiquarium/MacAsciiquarium_1.1.0.dmg) that will run out of the box,
+courtesy of Chuck Houpt:
 
+~~~bash
+https://habilis.net/macasciiquarium/
+~~~
 
+#### Useful Commands
+- `r` - redo the art
+- `q` - quit the program
+- `p` - pause the program

@@ -2,38 +2,80 @@
 ---
 
 bg
---
+---
 
-`bg` is used to continue a stopped job by running it in the background. By default, `bg` will simply resume the most recently suspended job. `bg` will commonly be used with the [`fg`](/commands/fg) and [`jobs`](/commands/jobs) commands.
+`bg` resumes a stopped job in the background, so the terminal remains usable.
 
 ~~~ bash
-$ bg
-$ bg [%jobID]
+$ gedit file.txt
+^Z
+$ bg 'gedit file.txt'
+$ jobs
+[1]+ Running    gedit file.txt
+$
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### `bg [%jobID]`
+#### `bg` can be passed job numbers as well as job names
 ~~~ bash
 $ jobs
-[1]- Running    bash download-file.sh
-[2]+ Stopped    cp /usr/LargeDir /usr/SomewhereElse
-$ bg %2
-$ echo "Run more jobs while cp /usr/LargeDir /usr/SomewhereElse runs in background"
+$ sleep 100
+^Z
+$ gedit file.txt
+^Z
+$ jobs
+[1]+ Stopped    sleep 100
+[2]+ Stopped    gedit file.txt
+$ bg 2
+$ jobs
+[1]+ Stopped    sleep 100
+[2]+ Running    gedit file.txt
+$ bg 'sleep 100'
+$ jobs
+[1]+ Running    sleep 100
+[2]+ Running    gedit file.txt
+$
 ~~~
 
-##### Break it down
-
- * The `%2` brings job number 2 to the background. Alternatively `%cp` would bring the same job to the background.
- * Bringing multiple jobs is possible by using the syntax:
-
+#### Background multiple jobs at once by passing multiple arguments
 ~~~ bash
-$ bg [%jobID1] [%jobID2] [%jobID3] ... [%jobIDN]
+$ jobs
+$ sleep 15
+^Z
+$ sleep 20
+^Z
+$ sleep 25
+^Z
+$ sleep 30
+^Z 
+$ sleep 35
+^Z
+$ jobs
+[1]  Stopped    sleep 15
+[2]  Stopped    sleep 20
+[3]  Stopped    sleep 25
+[4]- Stopped    sleep 30
+[5]+ Stopped    sleep 35
+$ bg 1 2
+$ jobs
+[1]  Running    sleep 15
+[2]  Running    sleep 20
+[3]  Stopped    sleep 25
+[4]- Stopped    sleep 30
+[5]+ Stopped    sleep 35
+$ bg 3 'sleep 30' 5
+$ jobs
+[1]  Running    sleep 15
+[2]  Running    sleep 20
+[3]  Running    sleep 25
+[4]- Running    sleep 30
+[5]+ Running    sleep 35
+$
 ~~~
 
-
-
-
+### Related Commands
+[fg](../commands/fg), [jobs](../commands/jobs), [kill](../commands/kill)
 

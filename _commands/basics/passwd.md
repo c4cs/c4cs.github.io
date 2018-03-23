@@ -3,160 +3,113 @@
 
 passwd
 -------
+`passwd` is used to change the password of a user account
+<!-- one line explanation would go here -->
 
-`passwd` is a command that is used to change the password of system users.
+<!-- minimal example -->
+
+~~~ bash
+$ passwd [OPTION] [USER]
+~~~
+
+<!--more-->
+
+### Useful Options / Examples
+A user can run `passwd` to change their own password and a superuser can use `passwd` to change another user's password.
+
+#### `passwd`
 
 ~~~ bash
 $ passwd
-Changing password for user [current user]
+Changing password for [USER].
 (current) UNIX password:
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 ~~~
 
-<!--more-->
+##### Break it down
+ * `passwd` with no options or user specified will change the password of the user running the command.
 
-### Useful Options / Examples
-
-#### Usage
-Unless logged in as `root`, this command will need to be used with `sudo` to get permission to modify other user's passwords.
+#### `sudo passwd [OTHER_USER]`
 
 ~~~ bash
-$ passwd [OPTION] [USER]
-~~~
-
-#### Example command
-
-`sudo passwd` allows the current user to change other user's passwords if the current user has superuser permissions.  It requests the current user's password, then allows the current user to set the other user's new password.  This allows the current user to change the other user's current password without knowledge of the other user's password, which can come in handy if one ever forgets his or her own account password but has access to a user with superuser permissions.
-
-~~~ bash
-$ sudo passwd other_user
+$ sudo passwd other
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 ~~~
 
-#### Example command
-`-d`, `--delete`
+##### Break it down
+ * If you have superuser privileges, you can modify the password of other users.
+ * Prefix the command with `sudo` to run it as a superuser.
+ * This will allow you to change the password for another user and not be prompted for their password.
 
-This option makes a user's password empty.
+#### `sudo passwd -S [OTHER_USER]`
 
 ~~~ bash
-$ sudo passwd -d other_user
+$ sudo passwd -S other
+other P 10/17/2017 0 99999 7 -1
+~~~
+
+##### Break it down
+* The `-S` option displays password information for a given user.
+* The 7 fields correspond to the following values:
+    1. User's login name
+    2. Password usability ('L' if locked, 'NP' if there is no password, 'P' if there is a usable password)
+    3. Date of last password change
+    4. Minimum password age (days)
+    5. Maximum password age (days)
+    6. Warning period before a required password change
+    7. Number of days to change a password after the maximum password age is reached
+
+#### `sudo passwd -l [OTHER_USER]`
+
+~~~ bash
+$ sudo passwd -l other
 passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user NP 01/01/1970 0 99999 7 -1
+$ sudo passwd -S other
+other L 10/17/2017 0 99999 7 -1
 ~~~
 
-#### Example command
-`-e`, `--expire`
+##### Break it down
+* The `-l` option allows a superuser to lock another user's account by disabling their password.
+* To have their password unlocked, a user will need to contact a superuser to unlock it.
+* User's who have had their password locked can still login using other authentication methods (SSH).
 
-Expires a user's password, forcing it to be re-set the next time the user logs in.  No change appears to occur to account status information.
+#### `sudo passwd -u [OTHER_USER]`
 
 ~~~ bash
-$ sudo passwd -e other_user
+$ sudo passwd -u other
 passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 -1
+$ sudo passwd -S other
+other P 10/17/2017 0 99999 7 -1
 ~~~
 
-#### Example command
-`-S`, `--status`
+##### Break it down
+* The `-u` option allows a superuser to unlock another user's account by enabling their previous password.
 
-This option displays account status information in 7 fields:
-<br>
-1. User login name
-<br>
-2. *L* if locked password (seems to be if the user was created and no password was set), *P* if password exists, *NP* if no password
-<br>
-3. Date of last password change
-<br>
-4. Minimum password age (days)
-<br>
-5. Maximum password age (days)
-<br>
-6. Password warning period (days)
-<br>
-7. Password inactivity period(days)
+#### `sudo passwd -d [OTHER_USER]`
 
 ~~~ bash
-$ passwd -S
-current_user P 01/01/1970 0 99999 7 -1
-~~~
-
-~~~ bash
-$ sudo passwd -S other_user
-other_user L 01/01/1970 0 99999 7 -1
-~~~
-
-#### Example command
-`-a`, `--all`
-
-This option displays account status information for all users.  The example shown below has removed out many default system users.
-Note: this option won't work without -S
-
-~~~ bash
-$ sudo passwd -Sa
-root P 01/01/1970 0 99999 7 -1
-daemon L 01/01/1970 0 99999 7 -1
-bin L 01/01/1970 0 99999 7 -1
-sys L 01/01/1970 0 99999 7 -1
-current_user P 01/01/1970 0 99999 7 -1
-~~~
-
-#### Example command
-`-n num_days`, `--mindays num_days`
-
-Sets the minimum number of days between password changes.  0 means the password can be changed at any time.
-
-~~~ bash
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 -1
-$ sudo passwd -n 30 other_user
+$ sudo passwd -d other
 passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user P 01/01/1970 30 99999 7 -1
+$ sudo passwd -S other
+other NP 10/17/2017 0 99999 7 -1
 ~~~
 
-#### Example command
-`-x num_days`, `--maxdays num_days`
+##### Break it down
+* The `-d` option allows a superuser to delete another user's password.
+* This will disable logins for a users account, without disabling their account completely.
 
-Sets the minimum number of days a password is valid.  After num_days the password must be changed.
+#### `sudo passwd -e [OTHER_USER]`
 
 ~~~ bash
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 -1
-$ sudo passwd -x 55 other_user
+$ sudo passwd -e other
 passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 55 7 -1
+$ sudo passwd -S other
+other P 01/01/1970 0 99999 7 -1
 ~~~
 
-#### Example command
-`-w num_days`, `--warndays num_days`
-
-Sets the number of days before password expiration that a warning will begin showing.  In other words, starting *num_days* before the password expires, warnings will begin to be shown.
-
-~~~ bash
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 -1
-$ sudo passwd -w 2 other_user
-passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 2 -1
-~~~
-
-#### Example command
-`-i num_days`, `--inactive num_days`
-
-Sets the number of days an account's password can be expired until the account will be disabled.  The user may no longer sign on to the account after *num_days* days.
-
-~~~ bash
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 -1
-$ sudo passwd -i 4 other_user
-passwd: password expiry information changed.
-$ sudo passwd -S other_user
-other_user P 01/01/1970 0 99999 7 4
-~~~
+##### Break it down
+* The `-e` option allows a superuser to expires another user's account which will require that user to change their password.

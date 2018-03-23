@@ -3,74 +3,92 @@
 
 chmod
 -------
+<!--TODO: Add documentation for this command by submitting a pull request.-->
+<!-- one line explanation would go here -->
+`chmod` (change mode) is the command to change permissions to system objects (files and directories).
 
-Changes the permissions of a file or directory.
-Stands for **ch**ange file **mod**e bits
-
+<!-- minimal example -->
 ~~~ bash
-$ ls -go --time-style=+
-total 40
--rw-r--r-- 1 37465  index.html
-$ chmod 666 index.html
-$ ls -go --time-style=+
-total 40
--rw-rw-rw- 1 74981  index.html
+$ chmod u+x filename
 ~~~
+
 
 <!--more-->
 
-### Details
-The first argument to `chmod` determines the bitset of permissions you want to change the file given in the second argument.
+### Useful Options / Examples
 
-The binary representation of the first argument should correspond to the modes (ie. read write exectue - rwx - permissions) you want to set the given file to. For example, if you want to set the mode to read-able, write-able and not executable, this is represented in binary as 110, which corresponds to 6 in octal. In this example, 6 should be given as one of the digits in the first argument.
+#### `chmod`
 
-The first argument should be a 3 digit octal number. The first digit will change the file's owners permissions, second digit will change the files group permissions, the thrid digit will change other (anybody else) permissions.
-
-Note: `chmod` only changes the mode bits. To change the owner of this file or group that owns this file, use [chown/chgrp](/commands/chown_chgrp.html)
-
-
-### Examples
-~~~ bash
-$ ls -go --time-style=+
-total 40
--rw-r--r-- 1 37465  index.html
-$ chmod 755 index.html
-$ ls -go --time-style=+
-total 40
--rwxr-xr-x 1 37465  index.html      # note the permissions have change to (rwx)(rx)(rx)
+~~~bash
+$ chmod [references][operator][modes] file ...
 ~~~
 
+References include:
 
+1. `u` for user
+2. `g` for group
+3. `o` for other
+ 
+Operators include:
 
-### Shortcuts can be used
-~~~ bash
-$ ls -go --time-style=+
-total 40
--rw-rw-rw- 1 37465  index.html
-$ chmod -r index.html               # -r will set all read mode bits to 0
-$ ls -go --time-style=+
-total 40
---w------- 1 37465  index.html      # note all read mode bits are now 0
-$ chmod +x index.html               # +x will make this file execute-able for all classes
-$ ls -go --time-style=+
-total 40
---wx--x--x 1 37465  index.html
+1. `+` adds specified modes to specified classes
+2. `-` removes specified nodes to specified classes
+3. `=` will set specified classes to exact specified modes
+
+Modes include:
+
+1. `r` (read)
+2. `w` (write)
+3. `x` (execute)
+
+----
+
+#### `chmod [reference(s)][operator][mode(s)] file`
+
+~~~bash
+$ chmod u+x file 
+$ chmod g-w, uo=rw file 
 ~~~
 
+##### Break it down
 
-~~~ bash
-$ ls -go --time-style=+
-total 40
--rw-rw-rw- 1 37465  index.html
-$ chmod g-rw index.html             # removes rw mode bits from group (g)
-$ ls -go --time-style=+
-total 40
--rw----rw- 1 37465  index.html
-$ chmod o-w index.html              # not o here stands for others (not owner)
-$ chmod u-w index.html              # u refers to owner
-$ ls -go --time-style=+
-total 40
--r-----r-- 1 37465  index.html
+* The first command will add write permission for file to user
+* The second command will remove write permission for group, and set user and other to have read and write permissions only
+
+----
+
+#### `chmod --reference=[file1] [file2]`
+
+~~~bash
+$ chmod --reference=file1 file2 
 ~~~
 
+##### Break it down
 
+* Sets file2's permissions to be the same as file1
+
+----
+
+#### `chmod -R [reference(s)][operator][mode(s)] directory`
+
+~~~bash
+$ chmod -R u+x directory-name/
+~~~
+
+##### Break it down
+
+* Adds execute permission to users for all files under directory 
+
+----
+
+#### `chmod [reference(s)][operator][mode(s)] *`
+
+~~~bash
+$ chmod u+x *
+~~~
+
+##### Break it down
+
+* Adds execute permision to users for all subdirectories under directory
+
+----

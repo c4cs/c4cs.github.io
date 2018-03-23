@@ -2,83 +2,60 @@
 ---
 
 wc
--------
+--
 
-Print the number of bytes, words, and lines in files
+`wc` prints newline, word, and byte counts for each `FILE`.
 
 ~~~ bash
-$ cat a.txt 
-I love EECS 398.
-What a great class. 
-Good.
-
-$ wc [filename] 
-$ wc a.txt
-3 9 44 a.txt
+$ wc tecmint.txt
+12  16 112 tecmint.txt
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-~~~ bash
-$ cat a.txt
-What
-a great
-world we live
-in where Google has all the answers we need
+#### `wc -l`
 
-$ cat b.txt
-wc is a great command.
-I love it.
+To count number of newlines in a file use the option `-l`, which prints the number of lines from a given file.
+
+~~~ bash
+$ wc -l tecmint.txt
+12 tecmint.txt
 ~~~
 
+#### `wc -w`
 
-#### `wc -c a.txt`
+Using `-w` argument with `wc` command prints the number of words in a file.
+
 ~~~ bash
-$ wc -c a.txt
-71 a.txt
+$ wc -w tecmint.txt
+16 tecmint.txt
 ~~~
 
-##### Break it down
- * When the `-c`(equivalent to `--bytes`) flag is set, wc will output the number of bytes in the given file.
+#### `wc -c`
 
+Using `-c` with `wc` command will print the total number of bytes in a file.
 
-#### `wc -m a.txt`
 ~~~ bash
-$ wc -m a.txt
-71 a.txt
+$ wc -c tecmint.txt
+112 tecmint.txt
 ~~~
 
-##### Break it down
- * When the `-m`(equivalent to `--chars`) flag is set, wc will output the number of characters in the given file. 
+#### `wc -m`
 
-#### `wc -l a.txt`
+Using `-m` with `wc` command will print the total number of characters in a file.
+
 ~~~ bash
-$ wc -l a.txt
-4 a.txt
+$ wc -m tecmint.txt
+112 tecmint.txt
 ~~~
 
-##### Break it down
- * When the `-l`(equivalent to `--lines`) flag is set, wc will output the number of lines in the given file.
+#### `wc -L`
 
-#### `wc -L a.txt`
+The ‘wc‘ command allow an argument ‘-L‘, it can be used to print out the length of longest (number of characters) line in a file.
+
 ~~~ bash
-$ wc -L a.txt
-43 a.txt
+$ wc -L tecmint.txt
+16 tecmint.txt
 ~~~
-
-##### Break it down
- * When the `-L`(equivalent to `--max-line-length`) flag is set, wc will output the length of the longest line in the given file.
-
-#### `wc -w a.txt b.txt`
-~~~ bash
-$ wc -w a.txt b.txt
-15 a.txt
- 8 b.txt
-23 total
-~~~
-
-##### Break it down
- * When the `-w`(equivalent to `--words`) flag is set, wc will output the number of words in the given file.
- * Note that it is possible to give more than one file as input and wc will give you the results for each file individually as well as a cumulative output.

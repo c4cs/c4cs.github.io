@@ -2,140 +2,72 @@
 ---
 
 uniq
---
+------
 
-`uniq` is used to _filter consecutive repeated lines from a file or input._ The first line of each consecutive group of repeated lines is retained. Repeated lines that are not consecutive are treated as unique instances and will not be filtered.
+`uniq`, often used with  `sort`, allows a user to report, or filter, repeated lines that are adjacent in a file. 
 
+<!-- minimal example -->
 ~~~ bash
-$ cat numbers.txt
-1
-2
-2
-3
-2
-4
-4
-$ uniq numbers.txt
-1
-2
-3
-2
-4
+$ sort in.txt | uniq 
+line1
+line2
+line3
 ~~~
 
 <!--more-->
 
-_Notice that the 2 that follows the 3 is not filtered, even though it is repeated. This is because the second 2 is not part of a consecutive group of repeated lines._
-
 ### Useful Options / Examples
 
-#### `uniq -u`
+Some common and useful flags include `-d` or `-u` for listing lines that are duplicated or that are unique, respectfully. As well as `-c` for counting the number of times a line was duplicated.
 
-##### Break it down
-
- * This is the default action if no flag is specified
- * The `-u` option tells `uniq` to filter out only those lines that are unique, with non-consecutive repeated lines being treated as unique instances
- * Refer to the example above. No flag is specified, so the deafult `-u` option is used
- * The `-u` option is most commonly used with [sort](/commands/sort) to first sort a file and then remove consecutive duplicated lines (see example below)
+#### Example command
 
 ~~~ bash
-$ cat numbers.txt
-2
-2
-0
-2
-1
-1
-3
-4
-4
-$ cat numbers.txt | sort | uniq
-0
-1
-2
-3
-4
+$ sort in.txt | uniq -c 
+  2 line1
+  3 line2
+  1 line3
 ~~~
 
-#### `uniq -d`
+The `-c` flag counts the number of times an adjacent line was duplicated. It displays the count followed by the line. 
+
+
+#### Example command
 
 ~~~ bash
-$ cat numbers.txt
-2
-2
-0
-2
-1
-1
-3
-4
-4
-$ uniq -d numbers.txt
-2
-1
-4
+$ sort in.txt | uniq -d
+line1
+line2
 ~~~
 
-##### Break it down
+The `-d` flag lists only the lines in the file that had a duplicate line adjacent to it. Considering the counts from the above `-c` example, we can see that only lines with counts greater than 1 were listed. 
 
- * The `-d` option tells `uniq` to only print the first duplicate of each group of duplicate lines
- * Lines that are unique are omitted
 
-#### `uniq -D`
+#### Example command
 
 ~~~ bash
-$ cat numbers.txt
-2
-2
-0
-2
-1
-1
-3
-4
-4
-$ uniq -D numbers.txt
-2
-2
-1
-1
-4
-4
+$ sort in.txt | uniq -u
+line3
 ~~~
 
-##### Break it down
+The `-u` flag lists only lines in the file that did not have a duplicate line adjacent to it. It is the inverse of the `-d` flag. 
 
- * The `-D` option tells `uniq` to print all duplicate lines, instead of just the first duplicate of each group of duplicate lines
-
-#### `uniq -c`
+#### Example command
 
 ~~~ bash
-$ cat numbers.txt
-2
-2
-0
-2
-1
-1
-3
-4
-4
-$ uniq -c numbers.txt
-2 2
-1 0
-1 2
-2 1
-1 3
-2 4
+$ sort in.txt | uniq -i
+line1
+line2
+line3
 ~~~
 
-##### Break it down
+The `-i` flag tells uniq to be case insensitive when comparing adjacent lines. With the `-i` flag given, 'line1' and 'LINE1' will be conisered duplictes if adjacent in the file and which ever string appeared first in the file is the one that will be displayed.
 
- * The `-c` option tells `uniq` to print all unique lines, retaining the first line of consecutive repeated lines, and also generate a count of the number of consecutive repeated lines. For unique lines, the count will be 1.
- * The first column is the count, and the second column is the filtered output
+#### Example command
 
+~~~ bash
+$ sort in.txt | uniq -c -f 1
+6 line1
+~~~
 
-
-
-
-
+The `-f num` flag tells `uniq` to ignore the first `num` 'fields' in each line. A 'field' is a string in the line seperated by whitespace. In this example, since each line had only one field and we gave `num` a value of 1, the command would compare only the empty space in each line, which of course would be duplicates.

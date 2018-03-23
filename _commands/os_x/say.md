@@ -7,7 +7,7 @@ Say
 The `say` command will speak whatever you type
 
 ~~~ bash
-say "hello c4cs"
+$ say "hello c4cs"
 ~~~
 
 <!--more-->
@@ -41,5 +41,3 @@ say --interactive=blue -v 'Alex' "What a nice day"
 
 say -o words "Creating a file called words.aiff"
 ~~~
-
-
