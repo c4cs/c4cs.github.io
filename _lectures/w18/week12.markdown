@@ -50,7 +50,7 @@ $ mkdir <projectdir>  # If creating from scratch
 $ cd <projectdir>
 $ python3 -m venv env
 ```
-2. Add a `setup.py`
+2. Add a `setup.py` to your project
 ```python
 from setuptools import setup
 
