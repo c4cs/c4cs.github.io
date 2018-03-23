@@ -30,6 +30,7 @@ class: center, middle
 ## One-time Actions
 
 1. Upgrade the python toolchain
+
 ```console
 $ sudo apt-get update
 $ sudo apt-get install python3 python3-pip python3-venv python3-wheel python3-setuptools
@@ -45,6 +46,7 @@ $ sudo apt-get install python3 python3-pip python3-venv python3-wheel python3-se
 ## Per-project Actions
 
 1. Create a python virtual environment for your project
+
 ```console
 $ mkdir <projectdir>  # If creating from scratch
 $ cd <projectdir>
@@ -85,6 +87,7 @@ setup(
 ## Per-project Actions
 
 3. Create a python package
+
 ```console
 $ mkdir <packagename>
 $ touch <packagename>/__init__.py
@@ -94,6 +97,7 @@ $ touch <packagename>/__init__.py
     - Remember to add a shebang at the top of executable files
     - `#!/usr/bin/env python3`
 5. Install it locally
+
 ```console
 $ pip3 install .  # Add -e or --editable to enable local editing
 ```
@@ -108,6 +112,7 @@ $ pip3 install .  # Add -e or --editable to enable local editing
 
 1. Register an account at https://test.pypi.org
 2. Create a ~/.pypirc file
+
 ```
 [distutils]
 index-servers =
@@ -121,6 +126,7 @@ username: mmdarden
 repository: https://test.pypi.org/legacy/
 username: mmdarden
 password: <your-very-very-insecure-password-here>
+
 ```
     - I haven't figured out how to work the password more securely
     - An issue was raised and closed, but doesn't seem to have fixed this
