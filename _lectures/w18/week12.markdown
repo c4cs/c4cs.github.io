@@ -125,6 +125,12 @@ password: <your-very-very-insecure-password-here>
     - I haven't figured out how to work the password more securely
     - An issue was raised and closed, but doesn't seem to have fixed this
 
+
+---
+
+
+# Adding a package to PyPI (The Python Package Index)
+
 ## Per-project Actions
 
 1. Add some more info to `setup.py`
