@@ -51,6 +51,7 @@ $ cd <projectdir>
 $ python3 -m venv env
 ```
 2. Add a `setup.py` to your project
+
 ```python
 from setuptools import setup
 
@@ -65,11 +66,13 @@ setup(
     },
 )
 ```
+
 3. Create a python package
 ```console
 $ mkdir <packagename>
 $ touch <packagename>/__init__.py
 ```
+
 4. Edit or move your source code into the `<packagename>` folder
     - Remember to add a shebang at the top of executable files
     - `#!/usr/bin/env python3`
