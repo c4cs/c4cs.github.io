@@ -60,6 +60,7 @@ $ python3 -m venv env
 ## Per-project Actions
 
 2. Add a `setup.py` to your project
+
 ```python
 from setuptools import setup
 
