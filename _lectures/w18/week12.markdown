@@ -50,8 +50,16 @@ $ mkdir <projectdir>  # If creating from scratch
 $ cd <projectdir>
 $ python3 -m venv env
 ```
-2. Add a `setup.py` to your project
 
+
+---
+
+
+# Creating an installable python package
+
+## Per-project Actions
+
+2. Add a `setup.py` to your project
 ```python
 from setuptools import setup
 
@@ -67,6 +75,14 @@ setup(
 )
 ```
 
+
+---
+
+
+# Creating an installable python package
+
+## Per-project Actions
+
 3. Create a python package
 ```console
 $ mkdir <packagename>
@@ -80,6 +96,7 @@ $ touch <packagename>/__init__.py
 ```console
 $ pip3 install .  # Add -e or --editable to enable local editing
 ```
+
 
 ---
 
