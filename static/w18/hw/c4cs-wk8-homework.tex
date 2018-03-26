@@ -1,0 +1,232 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage[ampersand]{easylist}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- W'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Office Hours ++ (Unit Testing and Python)\\}}
+\author{\textbf{\color{red}{Due: Saturday, February 24th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/13649}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+\section*{Adding Features to Your Python RPN Calculator}
+
+Building off of what was covered in lecture, work on using the test-driven development methodology and implement \textbf{three (3)} of the features from the list below. Note that this list is not comprehensive, so if there is a different feature that you would like to build that is non-trivial (e.g. implementing a function that would just change the sign on a number would be trivial), you may choose to build that instead.
+
+In order to receive credit, you will need to prove the test cases for your additional functions initially fail, and then later pass when the function is fully implemented.
+
+\subsection*{Feature List:}
+Choose \textbf{three (3)} of the following features to build. You may elect to build any number of custom features and each will count as a separate feature - you are not restricted to just one custom feature.
+
+\begin{itemize}
+  \item[$\square$] \textbf{Implement additional calculator keys}
+  
+  For this feature, implement the following subfeatures:
+	\begin{itemize}
+	\item[$\square$] Calculate percentages using the \texttt{\%}. You may find \href{https://blogs.msdn.microsoft.com/oldnewthing/20080110-00/?p=23853}{this article} helpful.
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Calculate exponent using \texttt{\^}.
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Perform integer division using \texttt{\/\/}.
+	\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Implement bitwise operators (and, or and not)}
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Implement a basic math library}
+  
+  For this feature, implement the following subfeatures:
+  \begin{itemize}
+	\item[$\square$] Allow for usage of constants (\texttt{pi}, \texttt{e}, ...)
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Binary functions
+	\end{itemize}
+	\begin{itemize}
+	\item[$\square$] Unary functions (\texttt{sin}, \texttt{cos}, etc.)
+	\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Degrees and Radians Mode}
+  
+	This would follow from the above feature. Add a command/method which can set whether trigonometric operations use degrees or radians. For example, by entering the keyword \texttt{rad}, if the operation \texttt{3.1415 sin} is entered, the output would be \texttt{0}. Equivalently, if the mode is set using \texttt{deg}, if the operation \texttt{360 cos} is entered, the output would be \texttt{1}.\newline
+\end{itemize}
+
+\newpage
+
+\begin{itemize}
+  \item[$\square$] \textbf{Use the Results of a Previous Calculation}
+  
+	Add the ability to use the results of your previous calculation in the next calculation. For example, if we have the first input as \texttt{2 3 +} followed by the next command \texttt{:ans 7 +}, the output should be \texttt{12}. In order to implement this, you will need to define a language - in the example we used the colon(:) to denote this special variable \newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Summation}
+  
+Implement a command that find the sum of all of the elements on the stack and adds this result to the top of the stack.\newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Different Base Number Systems}
+  
+Add a command or method which will allow the user to use your calculator for calculations in different base number systems. For example, using an option \texttt{hex} and then entering the input \texttt{A A +} should result in the output \texttt{14}.\newline 
+\end{itemize}
+
+
+\begin{itemize}
+  \item[$\square$] \textbf{Factorial Operator}
+  
+Implement the factorial operator. For example, the input \texttt{4 !} should return the output \texttt{24}. \newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Error Handling for Division by Zero}
+  
+Implement an error handling method that perevents division by 0 errors and saves the user's existing state. For example, if the stack initually contained \{\texttt{1}\} and a user enters \texttt{4 0 /}, output a helpful error message and preserve the initial stack before these values were entered (i.e. \{\texttt{1}\}). \newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Session History}
+  
+Implement a command such that when it is called, it outputs the standard format of the previous operation. For example, if the previous input was \texttt{3 2 +}, calling this command will print \texttt{3 + 2 = 5}.\newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Convert Between Decimal and Fraction}
+  
+Implement a command to convert the item on the stack from decimal to fraction and vice-versa. For example, calling this command when the item at the top of the stack is \texttt{0.75}, the output should return \texttt{3/4}.\newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Repeat Operator}
+  
+Implement a repeat operator that will repeatedly carry out a provided binary operation on all items provided in the input line. For example, the input \texttt{4 2 6 * !} (where ! is the repeat operator) would result in the output \texttt{48}, regardless of whatever was previously on the stack.\newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Rotate}
+  
+Implement a command that will rotate the order of all items currently on the stack. For example, if the stack currently contains \{\texttt{2 4 6}\}, after calling this operator the stack should be \{\texttt{6 4 2}\}.\newline
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Copy}
+  
+Implement a command that will add a copy of the current top element to the stack. For example, if the stack currently contains \{\texttt{2 4 6}\}, after calling this operator the stack should be \{\texttt{2 2 4 6}\}.\newline
+\end{itemize}
+
+\newpage
+
+\begin{itemize}
+  \item[$\square$] \textbf{Allow a Persistent Stack}
+  
+Make the stack for your RPN calculator persistent. For example, the input \texttt{1 2 3 +} should not produce any errors. From this, the prompt should also be customized to display information about the stack. Using the previous example, the prompt could now be customized to be \texttt{rpn calculator [1, 5]}, or something similar.
+
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Add a Memory System}
+  
+Add a basic memory system to your calculator. This would be equivalent to the \texttt{M+}, \texttt{M-}, \texttt{MR} and \texttt{MC} on a regular calculator. This could be extended to add a near infinite amount of memory registers by defining another special character (as in the "Use the Results of a Previous Calculation). For example, these registers could be called using the \texttt{\&} key: \texttt{\&myval+}, \texttt{\&c4cs-}, etc.
+
+\end{itemize}
+
+\begin{itemize}
+	\item[$\square$] \textbf{Read data in from an external file}
+	
+Add the ability to read in data from an external file for your calculator. This external file could be formatted in a style of your choice (csv, tsv, etc.).
+\end{itemize}
+
+\begin{itemize}
+  \item[$\square$] \textbf{Custom Feature!}
+  
+If there is a meaningful command not listed above and currently not already implemented by the calculator, you may choose to implement this instead. For example, you could choose to use other Python libraries (such as numbers, cmath, decimal, fractions, statistics, random, NumPy, SciPy, etc) to add new features. \newline
+\end{itemize}
+
+\newpage
+\section*{Feature 1:}
+\subsection*{Test Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Failing Test:}
+\vspace*{5cm}
+\subsection*{Implementation Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Passing Test:}
+\vspace*{5cm}
+
+\newpage
+\section*{Feature 2:}
+\subsection*{Test Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Failing Test:}
+\vspace*{5cm}
+\subsection*{Implementation Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Passing Test:}
+\vspace*{5cm}
+
+\newpage
+\section*{Feature 3:}
+\subsection*{Test Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Failing Test:}
+\vspace*{5cm}
+\subsection*{Implementation Code:}
+\vspace*{5cm}
+\subsection*{Screenshot of Passing Test:}
+\vspace*{5cm}
+
+
+\end{document}

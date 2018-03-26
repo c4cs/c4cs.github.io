@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Course Progress Evaluator
+</title>
+<style>
+  body {
+    font-family: sans-serif;
+    color: black;
+  }
+  input[type="text"] {
+     color: black;
+  }
+  input {
+    height: 20px;
+    padding: 0px 4px;
+    width: 155px;
+  }
+
+  input:invalid {
+    border: 2px solid red;
+  }
+</style>
+</head>
+<body>
+		<h2>Course Progress Evaluator</h2>	
+		<form role="form" id="grades" name="grades">	
+		<p> What week is it? </p>
+		<select class="" id="weekselect" onchange="calculate()">
+	      <option id="week" value="0" disabled selected>Please Choose a Week</option>
+		  <option id="week" value="1">Week 1</option>
+		  <option id="week" value="2">Week 2</option>
+		  <option id="week" value="3">Week 3</option>
+		  <option id="week" value="4">Week 4</option>
+		  <option id="week" value="5">Week 5</option>
+		  <option id="week" value="6">Week 6</option>
+	      <option id="week" value="7">Week 7</option>
+	      <option id="week" value="8">Week 8</option>
+	      <option id="week" value="9">Week 9</option>
+	      <option id="week" value="10">Week 10</option>
+	      <option id="week" value="11">Week 11</option>
+	      <option id="week" value="12">Week 12</option>
+	      <option id="week" value="13">Week 13</option>
+	      <option id="week" value="14">Week 14</option>
+	      <option id="week" value="15">Week 15</option>
+		</select>
+    <p>Fill in the table below to see your progress.</p>
+      
+      <table style="width:80%">
+        <tr>
+          <th>Week Number</th>
+          <th>Attendance</th>
+          <th>Homework</th>
+          <th>Advanced Homework</th>
+          <th>Extra Credit</th>
+        </tr>
+        <tr>
+          <td id="week0">Please Select a Week</td>
+          <td id="week0Alt" style="visibility: hidden;" align="center">Enter 0 to 3</td>
+          <td id="week0Alt2" style="visibility: hidden;" align="center">Enter 0 to 4</td>
+          <td id="week0Alt3" style="visibility: hidden;" align="center">Enter 1 if completed</td>
+          <td></td>
+        </tr>
+        <tr id="week1" style="visibility: hidden;">
+          <td>Week 1</td> 
+          <td><input type="number" id="att1" onchange="calculate()" value="" placeholder="No Attendance Week 1" disabled step=3 min=0 max=3></td>
+          <td><input type="number" id="hw1" onchange="calculate()" value="" placeholder="Homework Week 1" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv1" onchange="calculate()" value="" placeholder="No Advanced Week 1" disabled step=1 min=0 max=1></td>
+          <td><input type="number" id="ec1" onchange="calculate()" value="" placeholder="Extra Credit Week 1"></td>
+        </tr>
+        <tr id="week2" style="visibility: hidden;">
+          <td>Week 2</td> 
+          <td><input type="number" id="att2" onchange="calculate()" value="" placeholder="Attendance Week 2" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw2" onchange="calculate()" value="" placeholder="Homework Week 2" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv2" onchange="calculate()" value="" placeholder="Advanced Week 2" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec2" onchange="calculate()" value="" placeholder="Extra Credit Week 2"></td>
+        </tr>
+        <tr id="week3" style="visibility: hidden;">
+          <td>Week 3</td>
+          <td><input type="number" id="att3" onchange="calculate()" value="" placeholder="Attendance Week 3" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw3" onchange="calculate()" value="" placeholder="Homework Week 3" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv3" onchange="calculate()" value="" placeholder="Advanced Week 3" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec3" onchange="calculate()" value="" placeholder="Extra Credit Week 3"></td>
+        </tr>
+        <tr id="week4" style="visibility: hidden;">
+          <td>Week 4</td>
+          <td><input type="number" id="att4" onchange="calculate()" value="" placeholder="Attendance Week 4" step=3 min=0 max=3></td>
+          <td><input type="number" id="hw4" onchange="calculate()" value="" placeholder="Homework Week 4" step=2 min=0 max=4></td>
+          <td><input type="number" id="adv4" onchange="calculate()" value="" placeholder="Advanced Week 4" step=1 min=0 max=1></td>
+          <td><input type="number" id="ec4" onchange="calculate()" value="" placeholder="Extra Credit Week 4"></td>
+        </tr>
+        <tr id="week5" style="visibility: hidden;">
+          <td>Week 5</td> 
+      	  <td><input type="number" id="att5" onchange="calculate()" value="" placeholder="Attendance Week 5" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw5" onchange="calculate()" value="" placeholder="Homework Week 5" step=2 min=0 max=4></td>
+     	  <td><input type="number" id="adv5" onchange="calculate()" value="" placeholder="Advanced Week 5" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec5" onchange="calculate()" value="" placeholder="Extra Credit Week 5"></td>
+        </tr>
+        <tr id="week6" style="visibility: hidden;">
+          <td>Week 6</td> 
+      	  <td><input type="number" id="att6" onchange="calculate()" value="" placeholder="Attendance Week 6" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw6" onchange="calculate()" value="" placeholder="Homework Week 6" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv6" onchange="calculate()" value="" placeholder="Advanced Week 6" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec6" onchange="calculate()" value="" placeholder="Extra Credit Week 6"></td>
+        </tr>
+        <tr id="week7" style="visibility: hidden;">
+          <td>Week 7</td> 
+      	  <td><input type="number" id="att7" onchange="calculate()" value="" placeholder="Attendance Week 7" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw7" onchange="calculate()" value="" placeholder="Homework Week 7" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv7" onchange="calculate()" value="" placeholder="Advanced Week 7" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec7" onchange="calculate()" value="" placeholder="Extra Credit Week 7"></td>
+        </tr>
+        <tr id="week8" style="visibility: hidden;">
+          <td>Week 8</td>
+      	  <td><input type="number" id="att8" onchange="calculate()" value="" placeholder="Opt. Attendance Week 8" disabled step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw8" onchange="calculate()" value="" placeholder="No Homework Week 8" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv8" onchange="calculate()" value="" placeholder="No Advanced Week 8" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec8" onchange="calculate()" value="" placeholder="Extra Credit Week 8"></td>
+        </tr>
+        <tr id="week9" style="visibility: hidden;">
+          <td>Week 9</td>
+      	  <td><input type="number" id="att9" onchange="calculate()" value="" placeholder="No Attendance Week 9" disabled step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw9" onchange="calculate()" value="" placeholder="No Homework Week 9" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv9" onchange="calculate()" value="" placeholder="No Advanced Week 9" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec9" onchange="calculate()" value="" placeholder="Extra Credit Week 9"></td>
+        </tr>
+        <tr id="week10" style="visibility: hidden;">
+          <td>Week 10</td>
+      	  <td><input type="number" id="att10" onchange="calculate()" value="" placeholder="Attendance Week 10" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw10" onchange="calculate()" value="" placeholder="Homework Week 10" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv10" onchange="calculate()" value="" placeholder="Advanced Week 10" step=1 min=0 max=1></td>
+     	  <td><input type="number" id="ec10" onchange="calculate()" value="" placeholder="Extra Credit Week 10"></td>
+        </tr>
+        <tr id="week11" style="visibility: hidden;">
+          <td>Week 11</td>
+      	  <td><input type="number" id="att11" onchange="calculate()" value="" placeholder="Attendance Week 11" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw11" onchange="calculate()" value="" placeholder="Homework Week 11" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv11" onchange="calculate()" value="" placeholder="Advanced Week 11" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec11" onchange="calculate()" value="" placeholder="Extra Credit Week 11"></td>
+        </tr>
+        <tr id="week12" style="visibility: hidden;">
+          <td>Week 12</td>
+      	  <td><input type="number" id="att12" onchange="calculate()" value="" placeholder="Attendance Week 12" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw12" onchange="calculate()" value="" placeholder="Homework Week 12" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv12" onchange="calculate()" value="" placeholder="Advanced Week 12" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec12" onchange="calculate()" value="" placeholder="Extra Credit Week 12"></td>
+        </tr>
+        <tr id="week13" style="visibility: hidden;">
+          <td>Week 13</td> 
+      	  <td><input type="number" id="att13" onchange="calculate()" value="" placeholder="Attendance Week 13" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw13" onchange="calculate()" value="" placeholder="Homework Week 13" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv13" onchange="calculate()" value="" placeholder="Advanced Week 13" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec13" onchange="calculate()" value="" placeholder="Extra Credit Week 13"></td>
+        </tr>
+        <tr id="week14" style="visibility: hidden;">
+          <td>Week 14</td>
+      	  <td><input type="number" id="att14" onchange="calculate()" value="" placeholder="Attendance Week 14" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw14" onchange="calculate()" value="" placeholder="Homework Week 14" step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv14" onchange="calculate()" value="" placeholder="Advanced Week 14" step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec14" onchange="calculate()" value="" placeholder="Extra Credit Week 14"></td>
+        </tr>
+        <tr id="week15" style="visibility: hidden;">
+          <td>Week 15</td>
+      	  <td><input type="number" id="att15" onchange="calculate()" value="" placeholder="Attendance Week 15" step=3 min=0 max=3></td>
+      	  <td><input type="number" id="hw15" onchange="calculate()" value="" placeholder="No Homework Week 15" disabled step=2 min=0 max=4></td>
+      	  <td><input type="number" id="adv15" onchange="calculate()" value="" placeholder="No Advanced Week 15" disabled step=1 min=0 max=1></td>
+      	  <td><input type="number" id="ec15" onchange="calculate()" value="" placeholder="Extra Credit Week 15"></td>
+        </tr>
+        <tr id="totals">
+          <td>Totals</td>
+      	  <td><input type="number" id="attTot" value="" placeholder="Attendance Total" disabled></td>
+      	  <td><input type="number" id="hwTot"  value="" placeholder="Homework Total" disabled></td>
+      	  <td><input type="number" id="advTot" value="" placeholder="Advanced Total" disabled></td>
+      	  <td><input type="number" id="ecTot"  value="" placeholder="Extra Credit Total" disabled></td>
+        </tr>
+      </table>
+      
+    <p> Right now you have 
+      <input type="number" id="numPoints" value="" placeholder="Total" disabled>
+      points, which is a(n) 
+      <input type="text" id="curGrade"  value="" placeholder="A" disabled>
+    </p>
+    <p> If your point-to-week ratio stays constant, you will earn 
+      <input type="number" id="predPoints" value="" placeholder="Total" disabled>
+      points, which is a(n)
+      <input type="text" id="predGrade"  value="" placeholder="A" disabled>
+    </p>
+	</form>
+	
+	<script type="text/javascript">
+	function calculate(grades){
+	  var week = document.getElementById("weekselect").value || 0;
+      
+      var attTotal = 0;
+      var hwTotal = 0;
+      var advTotal = 0;
+      var ecTotal = 0;
+      
+      document.getElementById("week0").style.visibility="hidden";
+      document.getElementById("week0Alt").style.visibility="visible";
+      document.getElementById("week0Alt2").style.visibility="visible";
+      document.getElementById("week0Alt3").style.visibility="visible";
+      
+      if(week >= 1){
+      	document.getElementById("week1").style.visibility="visible";
+        //no attendance
+        hwTotal += parseFloat(document.getElementById("hw1").value || 0);
+        //no advHomework
+        ecTotal += parseFloat(document.getElementById("ec1").value || 0);
+      }
+      else document.getElementById("week1").style.visibility="hidden";
+      if(week >= 2){
+      	document.getElementById("week2").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec2").value || 0);
+        attTotal += parseFloat(document.getElementById("att2").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw2").value || 0);
+        var temp = parseFloat(document.getElementById("adv2").value || 0);
+        if(temp != 0)
+        	advTotal += 10;
+      }
+      else document.getElementById("week2").style.visibility="hidden";
+      if(week >= 3){
+      	document.getElementById("week3").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec3").value || 0);
+        attTotal += parseFloat(document.getElementById("att3").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw3").value || 0);
+        var temp = parseFloat(document.getElementById("adv3").value || 0);
+        if(temp != 0 && advTotal == 0)
+        	advTotal += 10;
+        else if(temp != 0)
+          advTotal += 5;
+      }
+      else document.getElementById("week3").style.visibility="hidden";
+      if(week >= 4){
+      	document.getElementById("week4").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec4").value || 0);
+        attTotal += parseFloat(document.getElementById("att4").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw4").value || 0);
+        var temp = parseFloat(document.getElementById("adv4").value || 0);
+        if(temp != 0)
+        	advTotal += 10;
+      }
+      else document.getElementById("week4").style.visibility="hidden";
+      if(week >= 5){
+      	document.getElementById("week5").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec5").value || 0);
+        attTotal += parseFloat(document.getElementById("att5").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw5").value || 0);
+        var temp4 = parseFloat(document.getElementById("adv4").value || 0);
+        var temp5 = parseFloat(document.getElementById("adv5").value || 0);
+        if(temp4 == 0 && temp5 != 0)
+        	advTotal += 10;
+        else if(temp4 != 0 && temp5 != 0)
+          advTotal += 5;
+      }
+      else document.getElementById("week5").style.visibility="hidden";
+      if(week >= 6){
+      	document.getElementById("week6").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec6").value || 0);
+        attTotal += parseFloat(document.getElementById("att6").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw6").value || 0);
+        var temp4 = parseFloat(document.getElementById("adv4").value || 0);
+        var temp5 = parseFloat(document.getElementById("adv5").value || 0);
+        var temp6 = parseFloat(document.getElementById("adv6").value || 0);
+        if(temp4 == 0 && temp5 == 0 && temp6 != 0)
+        	advTotal += 10;
+        else if((temp4 != 0 || temp5 != 0) && temp6 != 0 )
+          advTotal += 5;
+      }
+      else document.getElementById("week6").style.visibility="hidden";
+      if(week >= 7){
+      	document.getElementById("week7").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec7").value || 0);
+        attTotal += parseFloat(document.getElementById("att7").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw7").value || 0);
+        var temp = parseFloat(document.getElementById("adv7").value || 0);
+        if(temp != 0)
+        	advTotal += 10;
+      }
+      else document.getElementById("week7").style.visibility="hidden";
+      if(week >= 8){
+      	document.getElementById("week8").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec8").value || 0);
+        attTotal += parseFloat(document.getElementById("att8").value || 0);
+        //no homework week 8
+        //no advanced week 8
+      }
+      else document.getElementById("week8").style.visibility="hidden";
+      if(week >= 9){
+      	document.getElementById("week9").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec9").value || 0);
+        //no attendance week 9
+        //no homework week 9
+        //no advanced homework week 9
+      }
+      else document.getElementById("week9").style.visibility="hidden";
+      if(week >= 10){
+      	document.getElementById("week10").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec10").value || 0);
+        attTotal += parseFloat(document.getElementById("att10").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw10").value || 0);
+        var temp7 = parseFloat(document.getElementById("adv7").value || 0);
+        var temp10 = parseFloat(document.getElementById("adv10").value || 0);
+        if(temp7 == 0 && temp10 != 0)
+        	advTotal += 10;
+        else if(temp7 != 0 && temp10 != 0 )
+          advTotal += 5;
+      }
+      else document.getElementById("week10").style.visibility="hidden";
+      if(week >= 11){
+      	document.getElementById("week11").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec11").value || 0);
+        attTotal += parseFloat(document.getElementById("att11").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw11").value || 0);
+        var temp7 = parseFloat(document.getElementById("adv7").value || 0);
+        var temp10 = parseFloat(document.getElementById("adv10").value || 0);
+        var temp11 = parseFloat(document.getElementById("adv11").value || 0);
+        if(temp7 == 0 && temp10 == 0 && temp11 != 0)
+        	advTotal += 10;
+        else if((temp7 != 0 || temp10 != 0) && temp11 != 0 )
+          advTotal += 5;
+      }
+      else document.getElementById("week11").style.visibility="hidden";
+      if(week >= 12){
+      	document.getElementById("week12").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec12").value || 0);
+        attTotal += parseFloat(document.getElementById("att12").value || 0);
+        hwTotal += parseFloat(document.getElementById("hw12").value || 0);
+        var temp = parseFloat(document.getElementById("adv12").value || 0);
+        if(temp != 0 && advTotal < 30)
+        	advTotal += 10;
+        else if(temp != 0 && advTotal >= 30)
+          advTotal += 5;
+      }
+      else document.getElementById("week12").style.visibility="hidden";
+      if(week >= 13){
+      	document.getElementById("week13").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec13").value || 0);
+        var att = parseFloat(document.getElementById("att13").value || 0);
+        if(attTotal >= 30)
+          attTotal += att/2;
+        else{
+          while(att > 0 && attTotal < 30){
+            attTotal++;
+            att--;
+          }
+          attTotal += att;
+        }
+        var hw = parseFloat(document.getElementById("hw13").value || 0);
+        if(hwTotal >= 40)
+          hwTotal += hw/2;
+        else{
+        	while(hw > 0 && hwTotal < 40){
+            hwTotal++;
+            hw--;
+          }
+          hwTotal += hw/2;
+        }
+        var temp12 = parseFloat(document.getElementById("adv12").value || 0);
+        var temp13 = parseFloat(document.getElementById("adv13").value || 0);
+        if(temp12 == 0 && temp13 != 0 && advTotal < 30)
+        	advTotal += 10;
+        else if(temp12 == 0 && temp13 != 0 && advTotal >= 30)
+          advTotal += 5;
+        else if(temp12 != 0 && temp13 != 0)
+          advTotal += 5;
+      }
+      else document.getElementById("week13").style.visibility="hidden";
+      if(week >= 14){
+      	document.getElementById("week14").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec14").value || 0);
+        var att = parseFloat(document.getElementById("att14").value || 0);
+        if(attTotal >= 30)
+          attTotal += att/2;
+        else{
+          while(att > 0 && attTotal < 30){
+            attTotal++;
+            att--;
+          }
+          attTotal += att;
+        }
+        var hw = parseFloat(document.getElementById("hw14").value || 0);
+        if(hwTotal >= 40)
+          hwTotal += hw/2;
+        else{
+          while(hw > 0 && hwTotal < 40){
+            hwTotal++;
+            hw--;
+          }
+          hwTotal += hw/2;
+        }
+        var temp12 = parseFloat(document.getElementById("adv12").value || 0);
+        var temp13 = parseFloat(document.getElementById("adv13").value || 0);
+        var temp14 = parseFloat(document.getElementById("adv14").value || 0);
+        if(temp12 == 0 && temp13 == 0 && temp14 != 0 && advTotal < 30)
+        	advTotal += 10;
+        else if(temp12 == 0 && temp13 == 0 && temp14 != 0 && advTotal >= 30)
+          advTotal += 5;
+        else if((temp12 != 0 || temp13 != 0) && temp14 != 0 )
+          advTotal += 5;
+      }
+      else document.getElementById("week14").style.visibility="hidden";
+      if(week >= 15){
+      	document.getElementById("week15").style.visibility="visible";
+        ecTotal += parseFloat(document.getElementById("ec15").value || 0);
+        var att = parseFloat(document.getElementById("att15").value || 0);
+        if(attTotal >= 30)
+          attTotal += att/2;
+        else{
+          while(att > 0 && attTotal < 30){
+            attTotal++;
+            att--;
+          }
+          attTotal += att;
+        }
+        //no homework week 15
+        //no advanced homework week 15
+      }
+      else document.getElementById("week15").style.visibility="hidden";
+   
+      document.getElementById("attTot").value=attTotal;
+      document.getElementById("hwTot").value=hwTotal;
+      document.getElementById("advTot").value=advTotal;
+      document.getElementById("ecTot").value=ecTotal;
+      
+      var points = (attTotal+hwTotal+advTotal+ecTotal);
+      document.getElementById("numPoints").value=points;
+      if(points > 100) document.getElementById("curGrade").value="A+";
+      else if(points >= 93) document.getElementById("curGrade").value="A";
+      else if(points >= 90) document.getElementById("curGrade").value="A-";
+      else if(points >= 86.7) document.getElementById("curGrade").value="B+";
+      else if(points >= 83.3) document.getElementById("curGrade").value="B";
+      else if(points >= 80) document.getElementById("curGrade").value="B-";
+      else if(points >= 76.7) document.getElementById("curGrade").value="C+";
+      else if(points >= 73.3) document.getElementById("curGrade").value="C";
+      else if(points >= 70) document.getElementById("curGrade").value="C-";
+      else if(points >= 66.7) document.getElementById("curGrade").value="D+";
+      else if(points >= 63.3) document.getElementById("curGrade").value="D";
+      else if(points >= 60) document.getElementById("curGrade").value="D-";
+      else document.getElementById("curGrade").value="F";
+      
+      var predictedPoints = 0;
+      if(week > 7) predictedPoints = (points/(week-2))*12
+      else if(week > 0) predictedPoints = (points/week)*12;
+      document.getElementById("predPoints").value=predictedPoints;
+      
+      if(predictedPoints > 100) document.getElementById("predGrade").value="A+";
+      else if(predictedPoints >= 93) document.getElementById("predGrade").value="A";
+      else if(predictedPoints >= 90) document.getElementById("predGrade").value="A-";
+      else if(predictedPoints >= 86.7) document.getElementById("predGrade").value="B+";
+      else if(predictedPoints >= 83.3) document.getElementById("predGrade").value="B";
+      else if(predictedPoints >= 80) document.getElementById("predGrade").value="B-";
+      else if(predictedPoints >= 76.7) document.getElementById("predGrade").value="C+";
+      else if(predictedPoints >= 73.3) document.getElementById("predGrade").value="C";
+      else if(predictedPoints >= 70) document.getElementById("predGrade").value="C-";
+      else if(predictedPoints >= 66.7) document.getElementById("predGrade").value="D+";
+      else if(predictedPoints >= 63.3) document.getElementById("predGrade").value="D";
+      else if(predictedPoints >= 60) document.getElementById("predGrade").value="D-";
+      else document.getElementById("predGrade").value="F";
+      
+      /* TODO:
+          - calculate best possible grade
+      */
+	}
+	</script>
+</body>

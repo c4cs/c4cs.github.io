@@ -6,7 +6,7 @@ lectureRelease: 2018-02-02 00:00:00
 slidesName:
 homeworkRelease: 2018-02-02 00:00:00
 advancedRelease: 2018-02-02 00:00:00
-#solutionRelease: 2018-02-15 00:00:00
+solutionRelease: 2018-02-15 00:00:00
 title: "Git II"
 lectureTopics:
   - Understanding branches

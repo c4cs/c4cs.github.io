@@ -17,15 +17,15 @@ $ date +%Y%m%d
 
 This command returns the standard current time. With different options and parameters, it can also return other system time with different formats.
 
-### Useful Options / Examples
+### Date Formats
 
-The syntax for using options is:
+The syntax for using formatting options is:
 
 ~~~ bash
-date [options]
+$ date +[format]
 ~~~
 
-The useful options include:
+The useful formatting options include:
 
 ~~~ bash
 %a  show abbreviated weekday name (eg. Mon)
@@ -34,7 +34,7 @@ The useful options include:
 %s  show the current seconds from 1970-01-01 00:00:00 UTC
 ~~~
 
-Here are some examples of using options:
+Here are some examples of using formatting options:
 
 ~~~ bash
 $ date +%a%b
@@ -46,41 +46,40 @@ $ date +%s
 1517939576
 ~~~
 
-The syntax for using flags is:
+### Example Flags
 
+The syntax for using flags is:
 ~~~ bash
-date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+$ date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
 ~~~
 
-Here is a simple example of using flag:
-
-"date -u" shows the current system time in UTC.
+`-u` shows the current system time in UTC. Note that the flags `--utc` and `--universal` have the same effects as `-u`. 
 ~~~ bash
-date --universal
+$ date -u
 Wed Feb 14 07:16:15 UTC 2018
 ~~~
 
-"date -s" sets the current system time to the string specified. 
+`-s` sets the current system time to the string specified. 
 ~~~ bash
-date -s "02/23/2018 02:23:00"
+$ date -s "02/23/2018 02:23:00"
 Fri Feb 23 02:23:00 EST 2018
 ~~~
 
-"date -r FILE" returns the last modified time of FILE.
+`-r FILE` returns the last modified time of FILE.
 ~~~ bash
-date -r 398
+$ date -r 398
 Fri Feb 16 01:49:10 EST 2018
 ~~~
 
-"date -f FILE" returns the time as the file specified.
-Contents in thie file TIMEFILE:
+`-f FILE` returns the times within FILE. If the file `TIMEFILE` contained the following:
 ~~~ bash
 now
 02/11/2018 02:23:00
 01/01/2000 00:00:00
 ~~~
+`date -f TIMEFILE` would create the following output:
 ~~~ bash
-date -f TIMEFILE
+$ date -f TIMEFILE
 b 23 14:49:51 EST 2018
 b 11 02:23:00 EST 2018
 n 1 00:00:00 EST 2000
@@ -88,7 +87,7 @@ n 1 00:00:00 EST 2000
 
 For more help, run
 ~~~ bash
-man date
+$ man date
 ~~~
 to view the manual of this command.
 
