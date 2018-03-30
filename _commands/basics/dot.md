@@ -8,8 +8,8 @@ The period (dot) is short hand for the bash built in "source". It will read and 
 
 <!-- minimal example -->
 ~~~ bash
--bash-4.2$ echo "echo "hello world"" > hello
--bash-4.2$ . hello
+$ echo "echo "hello world"" > hello
+$ . hello
 hello world
 ~~~
 
@@ -18,7 +18,7 @@ hello world
 ### Useful Options / Examples
 
 ~~~ bash
--bash-4.2$ help .
+$ help .
 .: . filename [arguments]
     Execute commands from a file in the current shell.
 
