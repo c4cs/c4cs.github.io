@@ -151,7 +151,7 @@ password: <your-very-very-insecure-password-here>
 3. `pip3 install -i https://test.pypi.org/pypi c4cs-w18-python`
 4. Start python, `import c4cs`
 
-More at [https://python-packaging.readthedocs.io/en/latest/minimal.html][]
+More at [https://python-packaging.readthedocs.io/en/latest/minimal.html]
 
 
 ---
@@ -159,7 +159,7 @@ More at [https://python-packaging.readthedocs.io/en/latest/minimal.html][]
 
 # Creating a Simple Python Package for PyPI
 
-## It's your turn (attendance)!!
+## It's your turn!!
 
 * Make a PyPI package (on TestPyPI) of your RPN Calculator
 * Name the package `w18_rpn_<uniqname>`
