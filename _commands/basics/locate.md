@@ -2,12 +2,13 @@
 ---
 locate
 -------
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+`locate` is used to find the locations of files and directories
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ locate [options] name(s)
+$ locate file1 dir1
+$ locate "*.png"
 ~~~
 
 <!--more-->
