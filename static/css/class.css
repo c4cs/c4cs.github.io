@@ -12,6 +12,12 @@
 	margin-top: 20px;
 }
 
+.alert-info a {
+	color: #245269;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 .syllabus-section-header {
   background-color: #ffa;
   text-align: center;

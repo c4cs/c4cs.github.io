@@ -3,22 +3,31 @@
 
 dot (.)
 -------
-TODO: Add documentation for this command by submitting a pull request.
+The period (dot) is short hand for the bash built in "source". It will read and execute commands from a file in the current environment and return the exit status of the last command executed.
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+$ echo "echo "hello world"" > hello
+$ . hello
+hello world
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+~~~ bash
+$ help .
+.: . filename [arguments]
+    Execute commands from a file in the current shell.
 
-##### Break it down
+    Read and execute commands from FILENAME in the current shell.  The
+    entries in $PATH are used to find the directory containing FILENAME.
+    If any ARGUMENTS are supplied, they become the positional parameters
+    when FILENAME is executed.
 
-#### Example command
-
-##### Break it down
+    Exit Status:
+    Returns the status of the last command executed in FILENAME; fails if
+    FILENAME cannot be read.
+~~~
