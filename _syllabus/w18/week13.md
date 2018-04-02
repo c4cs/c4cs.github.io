@@ -19,5 +19,5 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapFri: rkNh91
 ---
