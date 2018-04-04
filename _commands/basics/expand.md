@@ -3,6 +3,8 @@
 
 expand
 ---
+This is a test. Hello world!
+
 TODO: Add documentation for this command by submitting a pull request.
 <!-- one line explanation would go here -->
 
