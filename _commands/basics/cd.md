@@ -1,5 +1,5 @@
 ---
----
+---Weclome to cd.md file! Enjoy:)
 
 cd
 --
@@ -86,3 +86,7 @@ Alborz-Brals-MacBook-Pro:basics abral$ cd /
 Alborz-Brals-MacBook-Pro:/ abral$ pwd
 /
 ~~~
+
+## when you entering file names, you can use TAB key and cd to make sure you go to the right directory
+## Ex: cd ~/developers/eecs280 .  you can switch to type  cd ~/dev[TAB]elopers/eecs280
+## to make sure you go to the right file, instead of some file whose name is "development".
