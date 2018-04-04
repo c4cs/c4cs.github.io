@@ -45,8 +45,6 @@ Options include:
 $ bzip2 file1 file2 file3
 ~~~
 
-##### Break it down
-
 Compress multiple files (file1 file2 and file3, in this case) in the "zip" format at the same time. Each file is replaced by a compressed version of itself, with the extension .bz2 appended to its name. Thus, in the case of the above example, the three input files would be replaced by files named file1.bz2, file2.bz2 and file3.bz2. This can be easily confirmed with the ls (i.e., list) command, and the sizes of the new files can be viewed by using ls together with its -s (i.e., size) option. The original files can be retained by using the -k (i.e., keep) option.
 
 ----
