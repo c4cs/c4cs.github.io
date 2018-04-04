@@ -3,8 +3,7 @@
 
 sort
 --
-"Sort" is a standard command that sorts and outputs the input it was given.  
-Blank space is the default field separator, see below how to change.
+`sort` is a standard command that sorts and outputs the input it was given.  
 
 <!-- minimal example -->
 ~~~ bash
@@ -17,7 +16,7 @@ $ sort names
 
 ### Useful Options / Examples
 
-The `-t` flag, followed by `$'\t'` will let you use tab separated values
+By default, a blank space is the default field separator. This can be changed with the `-t` flag, and following it with a `$'\t'` will let you use tab separated values
 
 ~~~ bash 
 $ sort -k2,2 -t $'\t' phonebook 
@@ -28,7 +27,7 @@ $ sort -k2,2 -t $'\t' phonebook
   Smith, Brett	 555-4321
 ~~~
 
-The `-n` flag lets you sort numerical input.
+The `-n` flag sorts numerical input.
 
 ~~~ bash
 $ sort -n numbers
@@ -39,9 +38,10 @@ $ sort -n numbers
   17
 ~~~
 
-The `-k` flag lets you choose the column by which your input gets sorted.
+The `-k` flag specifies the column by which your input gets sorted. `n` specifies `sort` will sort numbers, and `-k 2` 
+specifies that the second column will be used for sorting.
 
-~~~bash
+~~~ bash
 $ sort -k 2n ages
   Derrick 25
   Fabio   23
@@ -49,24 +49,17 @@ $ sort -k 2n ages
   Brian   19
 ~~~
 
-In the previous command, `n` specifies sort will sort numbers, and `-k 2` 
-specifies that the second column will be used for sorting.
-
-
 The `-k x,y` option lets you sort on a column that might be composed of more 
-than one field. 
+than one field. In this example, the list is sorted by pay, and ties are broken by name.
 
-~~~bash
+~~~ bash
 $ sort -k2,2 -k1,1 n pay
   Aaron   1000
   Brian   1000
   Fabio   2000
   Derrick 3000
 ~~~
-In the above case, the list is sorted by pay, and ties are broken by name.
 
-The `-r` option lets you reverse the results of the sort.
+The `-r` option reverses the results of the sort.
 
-For more useful flags, type 
-`$ man sort`
-
+For more useful flags, type `$ man sort`
