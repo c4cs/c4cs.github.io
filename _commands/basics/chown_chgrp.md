@@ -3,22 +3,38 @@
 
 chown/chgrp
 -----------
-TODO: Add documentation for this command by submitting a pull request.
-<!-- one line explanation would go here -->
+`chown` (or `chgrp`) is used to change the *owner* or *group* of a given file (or both!)
 
-<!-- minimal example -->
+#### Change *Owner*
 ~~~ bash
-*short* example of command usage and output
+$ ls -l magicfile
+-rw-rw-r-- 1 bestowner bestgroup 3130 Feb 10 12:02 magicfile
+
+$ chown mehowner magicfile
+
+$ ls -l magicfile
+-rw-rw-r-- 1 mehowner bestgroup 3130 Feb 10 12:03 alias.md
 ~~~
 
-<!--more-->
+#### Change *Group*
+~~~ bash
+$ ls -l magicfile
+-rw-rw-r-- 1 bestowner bestgroup 3130 Feb 10 12:04 magicfile
 
-### Useful Options / Examples
+$ chown :plebgroup magicfile
 
-#### Example command
+$ ls -l magicfile
+-rw-rw-r-- 1 bestowner plebgroup 3130 Feb 10 12:05 alias.md
+~~~
 
-##### Break it down
+#### Change Owner **and** Group
+~~~ bash
+$ ls -l magicfile
+-rw-rw-r-- 1 bestowner bestgroup 3130 Feb 10 12:02 magicfile
 
-#### Example command
+$ chown mehowner:plebgroup magicfile
 
-##### Break it down
+$ ls -l magicfile
+-rw-rw-r-- 1 mehowner plebgroup 3130 Feb 10 12:03 alias.md
+~~~
+
