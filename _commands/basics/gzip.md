@@ -2,22 +2,34 @@
 ---
 gzip
 -------
-TODO: Add documentation for this command by submitting a pull request.
+gzip is a tool to compress and decompress files. It operates using  Lempel-Ziv coding (LZ77).
 <!-- one line explanation would go here -->
 
 <!-- minimal example -->
 ~~~ bash
-*short* example of command usage and output
+gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ... ]
 ~~~
 
 <!--more-->
 
 ### Useful Options / Examples
 
-#### Example command
+#### gzip filename
 
-##### Break it down
+##### Compresses filename and deletes original file
 
-#### Example command
+#### gzip -k filename
 
-##### Break it down
+##### Compresses filename and does NOT delete original file
+
+#### gzip -d filename
+
+##### Uncompresses filename
+
+#### gzip -l filename
+
+##### Lists details concerning the compressed file filename
+
+#### gzip -4 filename
+
+##### This flag allows us to regulate the speed of compression. Any number between 1 and 9 may be chosen, 1 being the fastest compression and 9 being the slowest.
