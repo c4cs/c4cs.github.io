@@ -6,7 +6,7 @@ lectureRelease: 2018-03-16 00:00:00
 slidesName: w18/week11
 homeworkRelease: 2018-03-16 00:00:00
 advancedRelease: 2018-03-16 00:00:00
-#solutionRelease: 2018-03-29 00:00:00
+solutionRelease: 2018-03-29 00:00:00
 title: "Debuggers"
 lectureTopics:
   - How debugging fits into programming
