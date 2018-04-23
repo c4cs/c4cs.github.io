@@ -99,10 +99,10 @@ for uniq, grades in raw_grades.items():
 
     # Advanced
     advanced_raw = [
-        sum([grades['advanced'][i] for i in [2,3]]),      # Introduction and Basics
-        sum([grades['advanced'][i] for i in [4,5,6]]),    # Being Efficient
-        sum([grades['advanced'][i] for i in [7,8,9]]),    # Developing
-        sum([grades['advanced'][i] for i in [10,11,13]]), # Standing on the Shoulders of Giants
+        sum([grades['advanced'][i] for i in [2,3]]),            # Introduction and Basics
+        sum([grades['advanced'][i] for i in [4,5,6]]),          # Being Efficient
+        sum([grades['advanced'][i] for i in [7,8,9,10,11]]),    # Developing
+        sum([grades['advanced'][i] for i in [12,13,14,15]]),    # Standing on the Shoulders of Giants
     ]
 
     # Advanced grading script takes care of the weighted adv-hw points
