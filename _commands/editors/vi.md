@@ -1208,7 +1208,7 @@ External Links
 * [Bram Moolenaar's "Seven habits of effective text editing"](http://moolenaar.net/habits.html)
 * [/r/vim on Reddit](https://reddit.com/r/vim)
 * [/r/neovim on Reddit](https://reddit.com/r/neovim)
-* [vim Wiki](vim.wikia.com)
+* [vim Wiki](http://vim.wikia.com)
 * [_Learn Vimscript the Hard Way_ by Steve Losh](http://learnvimscriptthehardway.stevelosh.com/)
 * [Steve Losh's Blog](http://stevelosh.com/blog/)
 * [Steve Losh's twitch.tv](https://www.twitch.tv/stevelosh/)
