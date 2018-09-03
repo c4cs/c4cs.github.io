@@ -27,62 +27,59 @@ leccapFri:
 lectures = [
     {
     'sectionHeader': 'Introduction and Basics',
-    'date': '01/05/2018',
+    'date': '09/07/2018',
     'title': 'Introduction, Virtual Machines, & Command Line Primer',
     'adv': 'false'
     }, {
-    'date': '01/12/2018',
+    'date': '09/14/2018',
     'title': 'Basic Git'
     }, {
-    'date': '01/19/2018',
+    'date': '09/21/2018',
     'title': 'Shells, Environment, Scripting, and Bash'
     }, {
     'sectionHeader': 'Being Efficient',
-    'date': '01/26/2018',
+    'date': '09/28/2018',
     'title': 'Editors'
     }, {
-    'date': '02/02/2018',
+    'date': '10/05/2018',
     'title': 'Git II'
     }, {
-    'date': '02/09/2018',
+    'date': '10/12/2018',
     'title': 'Unix II'
     }, {
     'sectionHeader': 'Developing',
-    'date': '02/16/2018',
+    'date': '10/19/2018',
     'title': 'Build Systems'
     }, {
-    'date': '02/23/2018',
+    'date': '10/26/2018',
     'title': 'Unit Testing and Python'
     }, {
-    'date': '03/02/2018',
-    'title': 'No lecture, Spring break'
-    }, {
-    'date': '03/09/2018',
+    'date': '11/02/2018',
     'title': 'Debuggers'
     }, {
     'sectionHeader': 'Standing on the Shoulders of Giants',
-    'date': '03/16/2018',
+    'date': '11/09/2018',
     'title': 'Package Managers & Development Environment'
     }, {
-    'date': '03/23/2018',
+    'date': '11/16/2018',
     'title': 'IDEs'
     }, {
-    'date': '03/30/2018',
+    'date': '11/23/2018',
     'title': 'No lecture, Thanksgiving break',
-    'adv': 'false',
+    'adv': 'false'
     }, {
-    'date': '04/06/2018',
+    'date': '11/30/2018',
     'title': 'A Sampling of Other Things'
     }, {
-    'date': '04/13/2018',
+    'date': '12/07/2018',
     'title': 'TBA - Staff'
     }
 ]
 
 if __name__ == '__main__':
     for idx, lecture in enumerate(lectures):
-        syllabusInfo = 'w18/week{0:02d}.md'.format(idx + 1)
-        lecSlide = 'w18/week{0:01d}'.format(idx + 1)
+        syllabusInfo = 'f18/week{0:02d}.md'.format(idx + 1)
+        lecSlide = 'f18/week{0:01d}'.format(idx + 1)
         with open(syllabusInfo, 'w') as f:
             secHeader = lecture.get('sectionHeader', '')
             lecDate = arrow.get(lecture['date'], 'MM/DD/YYYY')

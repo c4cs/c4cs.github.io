@@ -18,7 +18,7 @@ layout: default
   {% comment %} Do math on unix timstamps to process in liquid {% endcomment %}
   {% assign onemonthago = 'now' | date: '%s' | minus: 2592000 %}
   {% for update in site.updates %}
-    {% if update.categories contains 'f18' %}
+    {% if update.categories contains 'w18' %}
       {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
       {% assign update_date = update.date | date: '%s' | times: 1 %}
       {% if update_date > onemonthago %}
@@ -32,7 +32,7 @@ layout: default
   <div id="old-updates" style="display: none">
 
     {% for update in site.updates %}
-      {% if update.categories contains 'f18' %}
+      {% if update.categories contains 'w18' %}
         {% comment %} No int filter, use benign math to coerce from string {% endcomment %}
         {% assign update_date = update.date | date: '%s' | times: 1 %}
         {% if update_date <= onemonthago %}
@@ -104,10 +104,10 @@ For sensitive issues, please e-mail Marcus directly.
 {% assign anchor_text="Course Resources" %}
 {% assign anchor_name="resources" %}
 {% include anchor.html %}
-<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/fall2018/eecs398c4csf18" target="_blank">Piazza</a></h4>
+<h4>Course Q&amp;A / Forum &ndash; <a href="https://piazza.com/umich/winter2018/eecs398001" target="_blank">Piazza</a></h4>
 <h4>Assignment Submission &amp; Grades &ndash; <a
-        href="https://www.gradescope.com/courses/24368" target="_blank">Gradescope</a></h4>
-<ul><li>Gradescope entry code: <code>MBBY38</code></li></ul>
+        href="https://gradescope.com/courses/13649" target="_blank">Gradescope</a></h4>
+<ul><li>Gradescope entry code: <code>92R5Z7</code></li></ul>
 <!--
 <p>For most questions, please use <a href="https://piazza.com/class/ij1jghks3dr59n" target="_blank">piazza</a>
 so that all students may benefit from the question and answer. To reach the course staff, please e-mail
@@ -119,10 +119,8 @@ so that all students may benefit from the question and answer. To reach the cour
 {% assign anchor_name="times" %}
 {% include anchor.html %}
 <dl class="dl-horizontal">
-  <dt>Section 002 (26357)</dt>
-  <dd>1670 BEYSTER, Friday 2:00PM &mdash; 3:30PM</dd>
-  <dt>Section 003 (33882)</dt>
-  <dd>1013 DOW, Friday 10:30AM &mdash; 12:00PM</dd>
+  <dt>Section 001 (26357)</dt>
+  <dd>220 CHRYS (Auditorium), Friday 10:00AM &mdash; 11:30AM</dd>
 </dl>
 
 <div id='calendar-loading'>Loading calendar...</div>
@@ -146,7 +144,7 @@ so that all students may benefit from the question and answer. To reach the cour
       <th style="min-width: 400px;">Lecture Materials</th>
     </tr>
     {% for week in site.syllabus %}
-      {% if week.categories contains 'f18' %}
+      {% if week.categories contains 'w18' %}
         {{ week.output }}
       {% endif %}
     {% endfor %}
@@ -178,10 +176,10 @@ from Homework, 30 points from Attendance and Participation, and 30 points from
 Advanced Exercises, however each section has modest opportunity for extra credit
 that can cover missing points elsewhere.
 </p>
-
-<p>As the semester progresses, if you'd like to see how you're doing you can enter
+	
+<p>As the semester progresses, if you'd like to see how you're doing you can enter 
 your scores into this <a href="progressEval.html">table</a>.</p>
-
+	
 <p><small><em>Range notation [90,93) means 90 is included and 93 is not</em></small></p>
 
 {% assign anchor_text="Final Grades" %}
@@ -247,7 +245,7 @@ without actually penalizing your grade.</p>
 
 <h4>Grading Issues / Regrade Requests</h4>
 
-Regrades are handled on <a href="https://www.gradescope.com/courses/24368" target="_blank">Gradescope</a>.
+Regrades are handled on <a href="https://gradescope.com/courses/13649" target="_blank">Gradescope</a>.
 We will close regrade requests roughly one week after assignments are returned.
 
 {% assign anchor_text="Attendance and Participation (30% / 30 points)" %}
@@ -367,5 +365,4 @@ awarded for the assignment.
   <li><a href="/archive/f16/">Fall 2016</a></li>
   <li><a href="/archive/w17/">Winter 2017</a></li>
   <li><a href="/archive/f17/">Fall 2017</a></li>
-  <li><a href="/archive/w18/">Winter 2018</a></li>
 </ul>

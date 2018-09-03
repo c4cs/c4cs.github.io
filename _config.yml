@@ -27,6 +27,18 @@ collections:
 
 defaults:
   - scope:
+      path: "_syllabus/f18"
+    values:
+      category: f18
+  - scope:
+      path: "_lectures/f18"
+    values:
+      category: f18
+  - scope:
+      path: "_updates/f18"
+    values:
+      category: f18
+  - scope:
       path: "_syllabus/w18"
     values:
       category: w18
