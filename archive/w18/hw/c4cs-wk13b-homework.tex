@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- W'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Office Hours ++ 3\\Using and Customizing Vim}}
+\author{\textbf{\color{red}{Due: Monday, April 2nd, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit a link to your \texttt{.vimrc} to this link:
+\url{https://goo.gl/forms/bAgdq0v5mKB6uAEN2}. This could be from inside the dotfiles repository you created in Homework
+12, or from some other online storage site of your choice. Ensure that you make it publicly viewable to
+anyone who has a link.
+
+Please add comments in your file to indicate where the feature you built is, and what section it is from, so
+that we are able to find it easily. 
+
+\section{Building a \texttt{.vimrc}}
+A \texttt{.vimrc} is a configuration file for Vim that carries settings that are loaded by the editor on startup. These
+configurations can range from theme personalisations and key mappings, to custom functions and integrations. As we have
+seen throughout this course, since it is essentially just a text file, the \texttt{vimrc} can be edited in order to
+customize Vim. Spending time to build up a \texttt{vimrc} that suits your preferences and work styles best can save you
+a lot of time in the future, and as you continue to use Vim it only continues to grow. By the end of it all, a good
+\texttt{vimrc} should make it so that using your editor is second nature to you and requires no deeper thought, which
+will allow you to spend more time and energy on actually writing high-quality code.
+
+Your \texttt{vimrc} is located in your \texttt{\$HOME} directory by default, but you have the flexibility
+to move it to a different directory and create a symbolic link in your \texttt{\$HOME} to your \texttt{vimrc} in this
+other directory (as you would have done if you completed Homework 12).
+
+\subsection*{The Assignment}
+While having a good \texttt{vimrc} is extremely helpful, it is often difficult to start building one at the start. For
+this assignment, your task is to begin putting together a \texttt{vimrc} that suits your needs best. To receive credit,
+you will need to pick and implement \textbf{at least ONE customization FROM EACH of the following sections}. In the end,
+this means that you will have added \textbf{at least THREE customizations} to your \texttt{vimrc}.
+
+\pagebreak
+
+\subsection{Package Managing}
+Choose \textbf{at least one} of the following customizations to implement. Make sure to add comments in your
+\texttt{vimrc} to indicate the feature you chose to write and which section it come from.
+
+The customizations in this section involve making use of external plugins or packages in Vim, and the best way to do, as
+you would remember from last week's lecture, by using a package manager. There are a lot of good package managers
+available for Vim, such as Vundle and Pathogen, so choose one that looks best to you and get it set up. 
+
+For all of the following
+customizations, use your package manager to install the plugin and then configure the plugins usage options in your
+vimrc.
+
+\begin{itemize}
+  \item[$\square$] Add a snippets package and assign custom key bindings for selecting snippets
+  \item[$\square$] Add a code completion engine (eg. YouCompleteMe) and assign custom key bindings to use for code
+      completion
+  \item[$\square$] Add the ability to navigate directories and open files through Vim
+  \item[$\square$] Add some other package that you think will be useful and configure it to work the way that you think
+      it should! If you choose this option, in your comments include why you chose to use this package.
+\end{itemize}
+
+\subsection{Appearance}
+Choose \textbf{at least one} of the following customizations to implement. Make sure to add comments in your
+\texttt{vimrc} to indicate the feature you chose to write and which section it come from.
+\begin{itemize}
+  \item[$\square$] Add a custom theme which changes the color schemes or layout of the editor
+  \item[$\square$] Display warnings or source control markings next to line numbers
+  \item[$\square$] Customize the bottom ribbon of Vim to show additional information, such as the number of words, the
+      language being written in, and a summary of any linter warnings.
+  \item[$\square$] Change the appearance in some other meaningful way! If you choose this option, explain in your
+      comments what your change does and why you chose to do this.
+\end{itemize}
+
+\subsection{Vimscripting and Other Functionalities}
+Choose \textbf{at least one} of the following customizations to implement. Make sure to add comments in your
+\texttt{vimrc} to indicate the feature you chose to write and which section it come from.
+\begin{itemize}
+    \item[$\square$] Write a Vimscript that removes unused \texttt{import} or \texttt{#include} from a file
+  \item[$\square$] Display warnings or source control markings next to line numbers
+  \item[$\square$] Use abbreviations as shortcuts for common strings you type repeatedly in your code. Some suggestions
+      include:
+
+      \begin{lstlisting}
+        #include <iostream>
+        using namespace std;
+        return 0;
+        cout <<
+        endl;
+        RME's (if you're in 280)
+      \end{lstlisting}
+  
+  \item[$\square$] Create 2 mappings. One that splits the current editor and open up your \texttt{.vimrc} file for editing, and then another that saves your changes and closes the split
+  \item[$\square$] Add some other useful function to Vim. As before, if you choose this option, include a description of
+      what you chose to build and why you chose to do so in your comments.
+\end{itemize}
+
+
+
+
+
+\end{document}
