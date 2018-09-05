@@ -1,20 +1,31 @@
 ---
-sectionHeader: 'Introduction and Basics'
+sectionHeader: 'Segment 1: Introduction and Basics'
 week: 1
 dates: 09/07/2018
 lecturer: mmdarden
 slidesName: f18/week1
-homeworkRelease: 2018-09-07 11:00:00
-lectureRelease: 2018-09-07 11:00:00
+homeworkRelease: 2018-09-01 8:00:00
+lectureRelease: 2018-09-01 8:00:00
 advancedThisWeek: false
 solutionRelease: 2018-09-20 00:00:00
 title: "Introduction, Virtual Machines, & Command Line Primer"
-# lectureTopics:
-#   - TBD
-# homeworkTopics:
-#   - TBD
-# advancedTopics:
-#   - TBD
+lectureTopics:
+  - Lines of text as a universal interface
+  - Examples of unix commands and command synthesis
+homeworkTopics:
+  - Set up a virtual machine
+  - Some light reading
+advancedTopics:
+  - None this week
+commands:
+  - cd
+  - ls
+  - mkdir
+  - mv
+  - pwd
+  - rm
+  - touch
+lectureSummary: Syllabus week! Don't expect anything too deep here. Just an easy introduction to the C4CS curriculum.
 lectureSummary:
 leccapFri:
 ---
