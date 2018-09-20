@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+%\lstset{
+%  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+%}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 3\\Shells, Environment, and Scripting}}
+\author{\textbf{\color{red}{Due: Wednesday, October 3rd, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/24368}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section{Understanding your \texttt{PATH}}
+
+In a terminal, type \texttt{PATH=} (just hit enter after the equal sign, no
+space characters anywhere). Try to use the terminal like normal (try running
+\texttt{ls}). What happened?
+
+\textbf{Give an example of a command that used to work but now doesn't:}
+\vspace{1.5cm}
+
+\textbf{Can you still run this command with an empty \texttt{PATH}? How?}
+\vspace{1.5cm}
+
+\textbf{Give an example of a command that works the same even with an empty
+\texttt{PATH}. Why does this command still work?}
+\vspace{1.5cm}
+
+
+\section{Playing with the shell a bit: Special Variables}
+
+Bash has quite a few special variables that can be very useful when writing
+scripts or while working at the terminal.
+
+\textbf{What does the variable \texttt{\$?} do? Give an example where this
+value is useful}
+\vspace{2cm}
+
+\textbf{What does the variable \texttt{\$1} do? Give an example where this
+value is useful}
+\vspace{2cm}
+
+
+\newpage
+\section{Basic Scripting}
+
+Recall from lecture that scripting is really just programming, only in a very
+high-level language. Interestingly, \texttt{sh} is probably one of the oldest
+languages in regular use today.
+
+\texttt{make} is a good tool for build systems, but we can actually use some
+basic scripting to accomplish a lot of the same things.
+First, write a simple C program that prints ``Hello World!''.
+Write a shell script named \texttt{build.sh} that performs the following
+actions:
+\begin{enumerate}
+  \item Compile your program
+  \item Runs your program
+  \item Verifies that your program outputs exactly the string ``Hello World!''
+    \begin{itemize}
+      \item There are good utilities that check the \texttt{\ul{diff}}erence of two
+        files. They could be helpful.
+    \end{itemize}
+  \item Prints the string ``All tests passed.'' If the output is correct, or
+    prints ``Test failed. Expected output $>>$Hello World$<<$, got
+    output $>>$\{the program output\}$<<$''.
+\end{enumerate}
+
+\textbf{Copy the output of \texttt{cat build.sh} here:}
+
+
+\vfill
+
+\section{Controlling your environment}
+
+In lecture, we added a directory to our \texttt{PATH} so that we could just
+type \texttt{hello} and the Hello World program would run. It would be
+annoying to update the \texttt{PATH} variable every time we open a new
+terminal. Fortuntately, we can do better.
+
+\textbf{Describe how you would set up your system to modify your \texttt{PATH}
+  automatically every time you open a new terminal (what file would you change
+  and what would you put in it?)}
+\vspace{3cm}
+
+\textbf{Roughly how long did you spend on this assignment? \rule{5cm}{0.1mm}}
+\end{document}
