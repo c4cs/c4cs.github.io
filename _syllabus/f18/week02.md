@@ -32,6 +32,6 @@ commands:
   - tree
   - cp
 lectureSummary: Later in the term we will analyze how you have been using git and how you may improve. It is important that you have at least one non-trivial project (e.g. a class project) that you have used git to maintain.
-leccapWed:
-leccapFri:
+leccapFri: 1JDWc1
+leccapWed: EmRPaq
 ---
