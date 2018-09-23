@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 1\\Welcome, Setup, and Some Light Reading}}
+\author{\textbf{\color{red}{Due: Wednesday, September 19th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/24368}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section{Set Up an Ubuntu Virtual Machine}
+
+One of the goals of this class is to understand systems work so that you can
+customize and improve them for yourself.
+On CAEN, course environments are already set up and everything ``just works''.
+On a brand new Ubuntu install, however, we will have to find, install, set up
+and manage many tools ourselves.
+
+
+Recall from lecture that a virtual machine (VM) is a fake computer running as
+a program. We'll use a VM in this course as a playground to test things out
+and work without risking anything on your day-to-day machine. To kick things
+off, we start by getting a basic environment set up this week.
+
+\medskip
+\noindent
+\emph{One final thought:} Homework in this class will often be a little
+underspecified. You are expected to Google, to try things, and to fail from
+time to time. Making mistakes is highly encouraged, it's how you learn. We
+have many office hours if you find yourself getting stuck, but we will always
+start with the questions, ``What have you tried so far?'' and ``Why do you
+think that didn't work?''
+
+\medskip
+
+\begin{enumerate}
+  \item Get a copy of the \textbf{Desktop} version of \textbf{Ubuntu 18.04}
+    (this is a big download, consider doing it on campus).
+  \item Download and install \href{https://www.virtualbox.org}{VirtualBox}.
+  \item Open VirtualBox and create a new virtual machine. Most of the defaults
+    are fine. The default hard drive size of 8\,GB is a little small, I
+    recommend going bigger (50\,GB or so). By default, disk images are
+    \emph{sparse}, which means it won't take 50\,GB of real disk space to
+    create a fake disk, rather the fake disk will grow on demand as it's used,
+    so there's not a lot of harm in choosing a big number.
+  \item Install Ubuntu on your new virtual machine. I recommend ``Downloading
+    updates while installing''.
+  \item Once Ubuntu is running, install the Guest Additions (try VirtualBox's
+    Devices menu $\rightarrow$ Insert Guest Additions CD Image; you'll need to
+    reboot once this finishes).
+    \\
+    \textbf{Q: What are Guest Additions? What do they do? What changed after
+    you installed them and rebooted your VM?}
+    \begin{quote}
+        \color{violet}
+        Normally, a virtual machine doesn't know that it isn't running on real
+        hardware. If it did know, however, it can do some things more
+        efficiently (like batch hardware requests), as well as some convenience
+        things. With guest additions installed, some changes you can immediately
+        notice are that you can resize the window and the virtual machine
+        "screen size" will change with it.  You can easily move the mouse in and
+        out of the virtual machine instead of "capturing" it. You can also turn
+        on some features such as a shared clipboard (so copy/paste works in and
+        out of the VM) or shared folders (folders that are "on" both "hard
+        drives").
+    \end{quote}
+  \item Play around with your new machine! Try writing and running a Hello
+    World program. What about other tools you've used before? Can you get an
+    old course project running? How is it different than a CAEN environment?
+\end{enumerate}
+
+
+\newpage
+\section{Readings}
+
+Each of these are short blog posts, 5-10~minute reads. I selected these to
+give you a little exposure to some varying perspectives. The authors, Joel in
+particular, have several other very interesting posts that I highly encourage
+exploring. After each reading, write a response for the given question.
+
+\medskip
+
+\noindent
+\textbf{Biculturalism} by Joel Spolsky\\
+\url{http://www.joelonsoftware.com/articles/Biculturalism.html}\\
+
+\medskip
+
+\textbf{Q: Has your computing experience thus far aligned more with ``Windows
+culture'' or ``unix culture''? What makes you feel that way?}
+
+\vspace{7cm}
+
+\noindent
+\emph{These two articles use the word ``research'' a lot, but the points made
+apply well to any work in computer science.}\\
+~\\
+\textbf{Helping my students overcome command-line bullshittery} by Phillip Guo\\
+\url{http://www.pgbovine.net/command-line-bullshittery.htm}\\
+and the counter-point\\
+\textbf{On the value of command-line ``bullshittery''} by Eytan Adar\\
+\url{https://medium.com/@eytanadar/on-the-value-of-command-line-bullshittery-94dc19ec8c61}\\
+
+\medskip
+
+\textbf{Q: What did you take away from these articles?}
+
+
+\end{document}
