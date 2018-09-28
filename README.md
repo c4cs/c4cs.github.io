@@ -27,6 +27,15 @@ $ bundle install
 $ bundle exec jekyll serve # serves site at http://127.0.0.1:4000
 ```
 
+If you don't have an Ubuntu computer but know how to use Docker, you can build and run the site like this:
+
+```bash
+$ ./docker-build
+$ ./docker-run # serves site at http://127.0.0.1:4000
+```
+
+This will mount your current directory to the running image, so any changes you make will be reflected by jekyll just like they would if you build and ran the site locally.
+
 For more information on setting up, see [GitHub's guide][gh docs] or [Jekyll's documentation][jekyll docs].
 
 After making a change and verifying that it works, please submit a [pull request][].
