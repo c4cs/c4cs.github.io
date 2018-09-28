@@ -4,9 +4,9 @@ week: 4
 dates: 09/28/2018
 lecturer: mmdarden
 slidesName: f18/week4
-homeworkRelease: 2018-09-28 00:00:00
-lectureRelease: 2018-09-28 00:00:00
-advancedRelease: 2018-09-28 00:00:00
+homeworkRelease: 2018-09-26 00:00:00
+lectureRelease: 2018-09-26 00:00:00
+advancedRelease: 2018-09-26 00:00:00
 # solutionRelease: 2018-10-11 00:00:00
 title: "Editors"
 itle: "Editors"
