@@ -1,6 +1,6 @@
 FROM ubuntu:18.10
 
-RUN apt-get update && apt-get install -y ruby ruby-dev build-essential patch zlib1g-dev liblzma-dev nodejs
+RUN apt-get update && apt-get install -y git ruby ruby-dev build-essential patch zlib1g-dev liblzma-dev nodejs
 RUN gem install jekyll bundler
 
 COPY Gemfile* /tmp/

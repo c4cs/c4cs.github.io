@@ -166,3 +166,6 @@ markdown_ext: "mkdown,mkdn,mkd,md"
 
 # Needed for Travis
 exclude: [vendor]
+
+# Needed for Docker builds
+github: [metadata]
