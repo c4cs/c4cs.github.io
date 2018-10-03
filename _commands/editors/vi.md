@@ -28,14 +28,43 @@ On some Linux distributions, the `vi` executable provided is actually vim.
 Despite this, some programmers still prefer `vi` over vim for its simplicity
 and ease of access.
 
-# Why vim?
+---
+
+Table of Contents
+================================================================================
+- [Why vim?](#why-vim)
+- [Introduction to Modal Editing](#introduction-to-modal-editing)
+  - [Insert Mode](#insert-mode)
+  - [Normal Mode](#normal-mode)
+  - [Visual Mode](#visual-mode)
+- [The `.vimrc`](#the-vimrc)
+  - [Version Control and the `.vimrc`](#version-control-and-the-vimrc)
+  - [An Aside: `.vimrc` Bloat](#an-aside-vimrc-bloat)
+- [vim Plugins](#vim-plugins)
+  - [Plugin Managers](#plugin-managers)
+- [Editorial Notes](#editorial-notes)
+  - [vim vs. neovim](#vim-vs-neovim)
+  - [Using vim vs. Using an IDE](#using-vim-vs-using-an-ide)
+- [Things to Learn](#things-to-learn)
+- [Plugin Recommendations](#plugin-recommendations)
+  - [Essentials](#essentials)
+  - [File Navigation](#file-navigation)
+  - ["IDE-Like"](#ide-like)
+  - [Snippets](#snippets)
+  - [Miscellany](#miscellany)
+- [External Links](#external-links)
+
+---
+
+Why vim?
+================================================================================
 
 Because vim is [Difficult, But Awesome.](http://tvtropes.org/pmwiki/pmwiki.php/Main/DifficultButAwesome)
 
 [vim is infamous among programmers for its steep learning curve.](https://www.reddit.com/r/ProgrammerHumor/comments/33a6p7/)
 Because vim was designed to be used in a command-line interface, it's entirely
 controlled with keyboard shortcuts. Most of the "standard" keyboard shortcuts
-that we're familiar with (e.g. `CTRL-a` for "select all", `CTRL-c` for "copy")
+that we're familiar with (e.g. `CTRL-a` for "select all," `CTRL-c` for "copy")
 either won't work in vim, or they won't do what you'd expect without some
 prior setup.
 
@@ -48,19 +77,22 @@ code [very, _very_ quickly.](https://youtu.be/o6omymj1JZI)
 
 **...record macros to make writing test cases less repetitive...**
 
-![test-cases](../static/commands/img/test_cases.gif)
+<!-- Use `.img-responsive` class from bootstrap.css for adaptive resizing.   -->
+<!-- Link: https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp -->
+
+<img class="img-responsive" src="../static/commands/img/test_cases.gif" alt="test cases">
 
 [Link](http://vim.wikia.com/wiki/Macros)
 
 **...select text and toggle between uppercase and lowercase...**
 
-![toggle-case](../static/commands/img/toggle_text.gif)
+<img class="img-responsive" src="../static/commands/img/toggle_text.gif" alt="toggle-case">
 
 [Link](http://vim.wikia.com/wiki/Switching_case_of_characters)
 
 **...and edit text in blocks, not just line-by-line or character-by-character.**
 
-![visual-block-copypaste](../static/commands/img/visual_block.gif)
+<img class="img-responsive" src="../static/commands/img/visual_block.gif" alt="visual-block-copypaste">
 
 [Link](http://vim.wikia.com/wiki/VimTip386)
 
@@ -95,7 +127,8 @@ in a Linux terminal, or visit [this link.](http://www.openvim.com/)
 
 ---
 
-# Introduction to Modal Editing
+Introduction to Modal Editing
+================================================================================
 `vimtutor` covers the basics of using vim better than we can here, but it
 doesn't spend much time explaining one of vim's less intuitive features: modal
 editing.
@@ -105,10 +138,11 @@ Unlike a word processor like Google Docs, or an IDE like Xcode, vim's behavior
 **mode**. The modes you'll use most frequently in vim are **normal** mode,
 **insert** mode, and **visual** mode,
 
-## Insert Mode
+Insert Mode
+--------------------------------------------------------------------------------
 We'll start with insert mode because it's the easiest to understand.
 
-![insert-mode](../static/commands/img/insert_mode.gif)
+<img class="img-responsive" src="../static/commands/img/insert_mode.gif" alt="insert-mode">
 
 Insert mode is the mode that lets you insert text into a file. Using insert mode
 is similar to editing text files in nano. You can move your cursor using the
@@ -158,19 +192,19 @@ and it's a special command in and of itself. It replaces every character that
 you have highlighted with the next character you type and immediately returns
 you to normal mode.)
 
-## Normal Mode
+Normal Mode
+--------------------------------------------------------------------------------
 
-Normal mode, as its name suggests, is the mode you'll spend the most time using.
+Normal mode, as its name suggests, is the mode that you'll normally be using.
 You start in normal mode when you launch vim, and you return to normal mode
 when you exit another.
 
-This is counterintuitive for many people because they're used to text editors
-and word processors that almost always "stay in insert mode" (e.g. nano,
-gedit, Microsoft Word, LibreOffice Writer, etc.) Many novice vim users spend
-_all_ of their time in insert mode, only entering normal mode to save their work
-and to close vim.
+This is counterintuitive for many people because they're used to editors
+that always "stay in insert mode" (e.g. nano, gedit, Microsoft Word, LibreOffice
+Writer, etc.) Many novice vim users spend _all_ of their time in insert mode,
+only entering normal mode to save their work and to close vim.
 
-Editing exclusively in normal mode defeats the entire purpose of using vim! By
+Editing exclusively in insert mode defeats the entire purpose of using vim! By
 itself, insert mode is nothing but a less capable clone of nano. Insert mode
 exists just because, were it omitted, vim wouldn't be a text editor. The bulk of
 vim's most useful features lie in normal mode and in visual mode.
@@ -236,7 +270,7 @@ provide a non-exhaustive list of them below:
   in the current line.
 
 #### Demonstrative Screencast
-![normal-nav](../static/commands/img/normal_nav.gif)
+<img class="img-responsive" src="../static/commands/img/normal_nav.gif" alt="normal-nav">
 
 ### Doing Weird Stuff
 
@@ -253,7 +287,8 @@ provide a non-exhaustive list of them below:
 - `zt`:     Move the screen so that the current line is at the top.
 - `zb`:     Move the screen so that the current line is at the bottom.
 
-## Visual Mode
+Visual Mode
+--------------------------------------------------------------------------------
 
 Modern text editors, web browsers, PDF viewers, etc. allow you to select ranges
 of text by clicking and dragging with the mouse. In vim, you would do the same
@@ -301,7 +336,7 @@ and generally should -- use the "special" normal mode navigation keys (`w`, `$`,
 etc.) to select the text range you want. Moving the cursor backwards
 (`b`, `k`, etc.) will also work.
 
-![visual-normal](../static/commands/img/visual_normal.gif)
+<img class="img-responsive" src="../static/commands/img/visual_normal.gif" alt="visual-normal">
 
 #### `-- VISUAL LINE --`
 
@@ -309,7 +344,7 @@ Used for selecting entire lines of text at a time. The mode you'll probably use
 most frequently, at least when programming. To use, move the cursor to the first
 line you want to select, then press `V`.
 
-![visual-line](../static/commands/img/visual_line.gif)
+<img class="img-responsive" src="../static/commands/img/visual_line.gif" alt="visual-line">
 
 #### `-- VISUAL BLOCK --`
 
@@ -329,11 +364,12 @@ least to indent with tabs and use spaces for alignment.
 To use, move the cursor to a corner of the text you want to select, then press
 `CTRL-v`.
 
-![visual-block](../static/commands/img/visual_block.gif)
+<img class="img-responsive" src="../static/commands/img/visual_block.gif" alt="visual-block">
 
 ---
 
-# The `.vimrc`
+The `.vimrc`
+================================================================================
 
 Unlike more basic text editors like gedit, vim's interface and functionality
 are both _extremely_ configurable. vim has its own scripting language
@@ -360,14 +396,14 @@ you drive every day. Putting in that added effort is a non-negligible amount of
 work, but once it's done, the car runs _exactly_ how you'd like.
 
 (Unlike a car, however, once you customize vim enough, your vim
-installation will be [completely unusable by anybody except
-yourself](https://xkcd.com/1806/).)
+installation will be [completely unusable by anybody except yourself.](https://xkcd.com/1806/))
 
 The settings in Tim Pope's [sensible.vim](https://github.com/tpope/vim-sensible)
 are a good starting point for a personal `.vimrc`. You can find many online
 quick-start guides offering tips for vim beginners, as well.
 
-## Version Control and the `.vimrc`
+Version Control and the `.vimrc`
+--------------------------------------------------------------------------------
 
 Because the `.vimrc` is literally just a text file, it makes your vim
 installation very portable. Oftentimes, vim users will manage their `.vimrc`
@@ -409,7 +445,8 @@ of your Linux installations. You still have to reinstall everything from
 scratch, but reinstalling vim and restoring your settings will take minutes at
 most.
 
-## An Aside: `.vimrc` Bloat
+An Aside: `.vimrc` Bloat
+--------------------------------------------------------------------------------
 
 Placing your entire vim configuration in the file named `.vimrc` is a lot like
 writing an entire EECS project in `main()`: it's perfectly doable with simple
@@ -427,7 +464,8 @@ you separate your `.vimrc` into smaller `.vim` files that you `source` in your
 
 ---
 
-# vim Plugins
+vim Plugins
+================================================================================
 
 Many of the niceties that you're used to having in a more modern text editor
 aren't baked into vim by default. In theory, you could implement these
@@ -439,7 +477,8 @@ that have already done much of the heavy lifting. Of these, [Tim Pope](https://g
 and [Martin Grenfell (a.k.a. scrooloose)](https://github.com/scrooloose)
 are some of the most prolific.
 
-## Plugin Managers
+Plugin Managers
+--------------------------------------------------------------------------------
 
 Because vimscript is an interpreted language, having access to a vimscript
 executable is the same as having the original vimscript source code. This allows
@@ -451,11 +490,10 @@ Although vim does have built-in support for plugins, that support is fairly
 rudimentary. You'll want to use a plugin manager to install and update plugins,
 especially as the complexity of your vim installation grows.
 
-Two of the most popular plugin managers are:
+Some of the most popular plugin managers are:
 
 ### pathogen.vim
-Tim Pope's pathogen.vim is notable in that it [effectively created the standard
-layout](http://stevelosh.com/blog/2011/09/writing-vim-plugins/be-pathogen-compatible)
+Tim Pope's pathogen.vim is notable in that it [effectively created the standard layout](http://learnvimscriptthehardway.stevelosh.com/chapters/43.html)
 of a vim plugin. It is actually considered bad programming practice among
 vim developers to write a plugin that _doesn't_ use a pathogen-compatible
 directory structure.
@@ -495,9 +533,61 @@ that you no longer list in your `.vimrc`, you run `:PluginClean`.
 
 More detailed instructions can be found [on Vundle's GitHub page.](https://github.com/VundleVim/Vundle.vim)
 
+### vim-plug
+vim-plug is nearly identical to Vundle in real world use, including its
+command syntax. `:PlugInstall` installs plugins, `:PlugUpgrade` updates them,
+and `:PlugClean` uninstalls plugins that you no longer list in your `.vimrc`.
+
+Ironically, despite claiming to be a minimalist plugin manager, vim-plug
+actually has more features than Vundle. **For this reason, we recommend using
+vim-plug** over Vundle. Some of vim-plug's added features are listed below.
+
+Full documentation and installation instructions can be found [on vim-plug's GitHub page.](https://github.com/junegunn/vim-plug)
+
+#### Post-Update Hooks
+Post-update hooks are terminal commands that vim-plug will run automatically
+after a plugin has been installed or updated. This is useful when working with
+plugins that require additional installation steps beyond cloning from GitHub.
+[fuzzyfind,](https://github.com/junegunn/fzf) for instance, has to be
+`./install`ed after being cloned.
+
+    " (Example taken from vim-plug README, with added comments.)
+    " PlugInstall and PlugUpdate will clone fzf into ~/.fzf
+    " and run its install script.
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+#### Multithreaded Plugin Installation
+Rather than installing or updating each of your plugins one-after-the-other,
+vim-plug can install/update several plugins simultaneously.
+[vim-plug's developer demonstrates this here.](https://raw.githubusercontent.com/junegunn/i/master/vim-plug/40-in-4.gif)
+
+Note that you aren't limited by the number of logical cores on your computer.
+Even if your laptop has a quad-core CPU, not only can you still execute the
+command `:PlugUpdate 9001` without errors, it will also be noticeably faster
+than executing `:PlugUpdate 4`. Take EECS 482 if you'd like to understand why.
+
+#### Lazy-Loading
+Ordinarily, vim will load all your plugins on startup. If you have a large
+`.vimrc` with many plugins, this might make vim's startup process frustratingly
+slow. Instead of loading plugins on startup, you can **lazy-load** a plugin
+only when you actually need to use it, after which it will remain loaded until
+you close vim.
+
+    " (Example adapted from vim-plug README.)
+    " Lazy-load NERDTree only when the user executes `:NERDTreeToggle`.
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    " Lazy-load vim-easytags only when editing a C++ file.
+    Plug 'xolox/vim-easytags', { 'for': 'cpp' }
+
 ---
 
-# An Aside: vim vs. neovim
+Editorial Notes
+================================================================================
+
+Some editorial comments that don't quite fit into any other section.
+
+vim vs. neovim
+--------------------------------------------------------------------------------
 
 vim is an _old_ piece of software, and it's largely maintained by one person,
 [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar). It contains a
@@ -541,9 +631,8 @@ Whether to use vim or neovim is mostly a matter of personal choice. Use
 whichever is most comfortable for you!
 
 
----
-
-# Using vim vs. Using an IDE
+Using vim vs. Using an IDE
+--------------------------------------------------------------------------------
 
 A "vanilla" installation of vim is like a supercharged version of a standard
 text editor, but it doesn't have many of the niceties that would make it useful
@@ -570,130 +659,268 @@ terminal. Command line debuggers like GDB and LLDB are very capable, but for
 small tasks like setting breakpoints and inspecting variable values, you're
 better off with an IDE.
 
-But, **if you're willing to put in the time, you can make vim work like an
-IDE.** You can accomplish this with the use of plugins.
+But, **if you're willing to put in the time, you can make vim work like an IDE.**
+You can accomplish this with the use of plugins.
 
 Installing and configuring these plugins is a bit of a pain, unfortunately. You
 can find a good list of plugins that provide IDE-like functionality
-[here.](http://vim.wikia.com/wiki/Use_Vim_like_an_IDE)
+[here,](http://vim.wikia.com/wiki/Use_Vim_like_an_IDE) and in this page's list
+of plugin recommendations.
 
 
 ---
 
-# Things to Learn
+Things to Learn
+================================================================================
 
 Some neat features that vim offers without needing to install plugins. (There's
 some overlap between the information given here and some of the sections
 above, but these should go into more detail.)
 
-* [Mapping Keys in Vim](http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1))
-  * Changing keymappings is one of the simplest and most important parts of
-  configuring your vim installation.
-  * Might we recommend `inoremap jk <ESC>` and `vnoremap jk <ESC>`? That lets you
+- [Mapping Keys in Vim](http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1))
+  - Changing keymappings is one of the simplest and most important parts of
+    configuring your vim installation.
+  - Might we recommend `inoremap jk <ESC>` and `vnoremap jk <ESC>`? That lets you
     exit insert mode and visual mode by hitting `j` and then `k` in quick
     succession. It's faster than hitting `<ESC>`, you don't have to move your
     left hand, and it lets you finish a text insertion or text selection with
     your fingers already on the home row.
-* [HJKL, WB, E: Real Vim Users Don't Use Arrow Keys](http://vim.wikia.com/wiki/Moving_around)
-  * `hjkl`, the basic navigation keys, are accessible without moving your hands
+- [HJKL, WB, E: Real Vim Users Don't Use Arrow Keys](http://vim.wikia.com/wiki/Moving_around)
+  - `hjkl`, the basic navigation keys, are accessible without moving your hands
   from the home row. `w`, `b`, and `e` make it much less annoying to navigate
   within a line.
-* [`count`: Repeat the Next Command `n` Times](http://vimdoc.sourceforge.net/htmldoc/intro.html#count)
-  * Relatively self-explanatory. If `j` in normal mode moves you down by one
+- [`count`: Repeat the Next Command `n` Times](http://vimdoc.sourceforge.net/htmldoc/intro.html#count)
+  - Relatively self-explanatory. If `j` in normal mode moves you down by one
   line, `10j` moves you down ten lines. Pressing `i` in normal mode, then
   typing `harbaugh` and hitting `<ESC>` inserts the text `harbaugh` into your
   file. Pressing `10i` in normal mode and doing the same inserts _ten_
   `harbaugh`s into your file. And so on.
-  * If only there was a way to see how far away a given line was from your
+  - If only there was a way to see how far away a given line was from your
   current position? That would make jumping between blocks of code much
   faster...
-* [Rapid File Navigation with Relative Line Numbering](https://jeffkreeftmeijer.com/vim-number/)
-  * Jump around your text files like a jackrabbit that's been fed coffee
+- [Rapid File Navigation with Relative Line Numbering](https://jeffkreeftmeijer.com/vim-number/)
+  - Jump around your text files like a jackrabbit that's been fed coffee
   grounds. _Nothing_ but coffee grounds, _till the end of its days._
-* [Text Searching](http://vim.wikia.com/wiki/Searching)
-  * Find something in the current file.
-* [Search Patterns (a.k.a. Regular Expressions)](http://vim.wikia.com/wiki/VimTip188)
-  * What if you don't want to search for the specific string `"12345 Arbor
+- [Text Searching](http://vim.wikia.com/wiki/Searching)
+  - Find something in the current file.
+- [Search Patterns (a.k.a. Regular Expressions)](http://vim.wikia.com/wiki/VimTip188)
+  - What if you don't want to search for the specific string `"12345 Arbor
   St."`, but instead want to search for all address-like strings in the
   current file?
-* [Search and Replace](http://vim.wikia.com/wiki/Search_and_replace)
-  * Like find and replace, but much more powerful.
-  * Supports standard search and replace (i.e. find this exact string, replace
+- [Search and Replace](http://vim.wikia.com/wiki/Search_and_replace)
+  - Like find and replace, but much more powerful.
+  - Supports standard search and replace (i.e. find this exact string, replace
   it with this exact string), but also regular expressions ("regex"), ranges
   (i.e. replace between this line and this line) as well as command-line-esque
   "flags" for special behavior.
-* [Mr. Worldwide: The `g`lobal Command](http://vim.wikia.com/wiki/Power_of_g)
-  * Let's say you have a Linux log file that's tens of thousands of lines long,
+- [Mr. Worldwide: The `g`lobal Command](http://vim.wikia.com/wiki/Power_of_g)
+  - Let's say you have a Linux log file that's tens of thousands of lines long,
   and you want to delete every line that doesn't contain the string
   `"NetworkManager"`. You can do this with a single vim command.
-* [Recording Macros and Macro Playback](http://vim.wikia.com/wiki/Macros)
-  * Record a series of keystrokes that you can play back by hitting `@` followed
+- [Recording Macros and Macro Playback](http://vim.wikia.com/wiki/Macros)
+  - Record a series of keystrokes that you can play back by hitting `@` followed
   by a letter. For when you need to repeat a short, repetitive, complicated
   task that would be hard to automate programmatically.
-  * These macros pair nicely with the special navigation keys given above (`w`,
-  `e`, `b`, etc.), since they're more "intelligent". Recording basic
-  navigational movements (`hjkl`) is akin to hardcoding a program to only
-  read in a specific number of lines.
-* [Visual Selection](http://vim.wikia.com/wiki/VimTip386)
-  * Highlight text without using the mouse. Highlight character-by-character or
+  - These macros pair nicely with the special navigation keys given above (`w`,
+  `e`, `b`, etc.), since they're more "intelligent." Recording basic
+  navigational movements (`hjkl`) is akin to writing a program with hardcoded
+  magic numbers.
+- [Visual Selection](http://vim.wikia.com/wiki/VimTip386)
+  - Highlight text without using the mouse. Highlight character-by-character or
   line-by-line. Highlight rectangular boxes of text.
-  * Pairs very nicely with vim's special navigation keys, especially when you
+  - Pairs very nicely with vim's special navigation keys, especially when you
   couple them with `count`.
-* [Toggle Case](http://vim.wikia.com/wiki/Switching_case_of_characters)
-  * That thing you've probably wanted to be able to do in text editors for a
+- [Toggle Case](http://vim.wikia.com/wiki/Switching_case_of_characters)
+  - That thing you've probably wanted to be able to do in text editors for a
   while.
-* [Copy-Pasting: Yanking and Registers](http://vim.wikia.com/wiki/Copy,_cut_and_paste)
-  * Copy-pasting to/from the system clipboard, if that functionality is enabled
+- [Copy-Pasting: Yanking and Registers](http://vim.wikia.com/wiki/Copy,_cut_and_paste)
+  - Copy-pasting to/from the system clipboard, if that functionality is enabled
   on your machine.
-  * Having multiple places into which you can copy-paste. Handy, in some
+  - Having multiple places into which you can copy-paste. Handy, in some
   situations.
-* [Paste Mode: When the `+` Register Doesn't Work](https://stackoverflow.com/questions/2514445/)
-  * There are some places where you don't have access to the system clipboard
-  (e.g. Windows Subsystem for Linux, while SSHing into CAEN). This gives you
-  the ability to paste in those situations, though you can't copy.
-* [Split Buffers](http://vimcasts.org/episodes/working-with-windows/)
-  * View multiple files side-by-side, or open multiple views of the same file at
+  - Note that enabling clipboard support requires some additional setup.
+    - For standard vim, try `sudo apt remove vim && sudo apt install vim-gtk`.
+    - For both standard vim and neovim, try `sudo apt install xclip`.
+- [Paste Mode: When the `+` Register Doesn't Work](https://stackoverflow.com/questions/2514445/)
+  - There are some places where you don't have access to the system clipboard
+  (e.g. Windows Subsystem for Linux, while SSHing into CAEN).
+  - This gives you the ability to paste in those situations, though you can't copy.
+- [Buffers](http://vim.wikia.com/wiki/Vim_buffer_FAQ)
+  - Any "thing" into which a vim user can enter text is a buffer.
+  - More of a minor technicality than a major concept, but helpful when trying
+    to understand helpdocs or autocommands.
+- [Split Buffers](http://vimcasts.org/episodes/working-with-windows/)
+  - View multiple files side-by-side, or open multiple views of the same file at
   different positions.
-  * If you use neovim, you can open a terminal side-by-side with a text file
+  - If you use neovim, you can open a terminal side-by-side with a text file
   and copy-paste from one into the other.
-* [Folding](http://vim.wikia.com/wiki/Folding)
-  * Collapse a selected text range, hiding it from view. Open it again if you're
+- [Folding](http://vim.wikia.com/wiki/Folding)
+  - Collapse a selected text range, hiding it from view. Open it again if you're
   interested in what's there, hide it again if it's getting in the way.
-* [The `vimdiff` Command](http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/)
-  * Open two files side-by-side in a vertical split. Automatically fold sections
+- [The `vimdiff` Command](http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/)
+  - Open two files side-by-side in a vertical split. Automatically fold sections
   of the files that are identical. Highlight the lines that are different.
-  * `vimdiff` is actually just an alias for `vim -d`. If you use neovim, you can
+  - `vimdiff` is actually just an alias for `vim -d`. If you use neovim, you can
   launch a `vimdiff` inside neovim using `nvim -d`.
-* [Tabs in Vim](http://vim.wikia.com/wiki/Using_tab_pages)
-  * For when you start working on those large coding projects.
+- [Tabs in Vim](http://vim.wikia.com/wiki/Using_tab_pages)
+  - For when you start working on those large coding projects.
+- [Syntax Highlighting and Highlight Groups](https://jordanelver.co.uk/blog/2015/05/27/working-with-vim-colorschemes/)
+  - With the appropriate configuration, vim will apply syntax highlighting to
+    the files that you open. It'll underline hyperlinks and color them light
+    blue, color code comments in a faded teal, and so on.
+  - This behavior is fully configurable through **highlight groups.**
+  - By tweaking highlight groups, you can change the font color that vim uses when
+    rendering literal strings, comments, and reserved words.
+- [CursorLine and CursorColumn](http://vim.wikia.com/wiki/Highlight_current_line)
+  - Make your cursor more visible. Underline the current line; highlight the
+    current column. Makes it a bit easier to keep text space-aligned.
+  - The appearance of the cursorline and cursorcolumn can be customized using
+    their highlight groups (`:help hl-CursorLine`, `:help hl-CursorColumn`).
+- [The Leader Key](http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_3)#Map_leader)
+  - You will rarely bind mappings that use only one key, mainly because these
+    bindings are highly likely to override vim's default keymappings.
+  - vim users typically trigger their keymappings with key _sequences._
+    However, these sequences may feel weirdly arbitrary, or be hard to remember.
+  - To work around this, vim users will bind a `<Leader>` key that they will use
+    as a "prefix" in many of their keymappings.
+  - As an example, `vnoremap <Leader>s :sort<cr>` (where we `let mapleader=","`
+    in our `.vimrc`) makes it possible to alphabetize lines of text by
+    highlighting them in visual line mode, then hitting the comma key and `s` in
+    quick succession.
+  - If we decide that we want to use a different leader key in the future, we
+    just `let mapleader=` something else.
+  - **We recommend that you `let mapleader="\Space"`.**  Using the comma key as a
+    leader is fairly common, but that shadows the "search backwards in line"
+    function that the comma key normally provides.  Unlike the comma key,
+    [the spacebar](https://superuser.com/questions/693528/) is easily accessible
+    and otherwise useless.
+- [Swapfiles](http://vimdoc.sourceforge.net/htmldoc/recover.html)
+  - Similar to how Microsoft Word will store unsaved changes in backup files (in
+    case you lose power before saving, etc.), vim will store unsaved changes in
+    swapfiles.
+  - You'll likely discover this when you first close a terminal window with an
+    active vim instance. When you try to reopen the file you were editing, vim
+    will notice the swapfile and throw up its version of Word's "Document
+    Recovery" dialog.
+  - If you find this annoying, then consider [relocating your swapfiles](https://github.com/tpope/vim-obsession/issues/18#issuecomment-69852130)
+- [Autocommands](http://learnvimscriptthehardway.stevelosh.com/chapters/12.html)
+  - Automatically run commands when certain events (e.g. loading files with
+    a certain extension, moving the cursor into a different buffer) occur.
+- [Automatically Reload Files That Were Modified Outside of Vim](https://unix.stackexchange.com/a/383044)
+  - vim instances launched in a terminal usually don't support this by default,
+    though they _really_ should.
+- [Folding](http://vim.wikia.com/wiki/Folding)
+  - Collapse portions of a file that you don't want to look at. Expand them when
+    you do.
+- [listchars: Professional Whitespace Pedantry](http://vimcasts.org/episodes/show-invisibles/)
+  - Make vim show you whitespace characters: newlines, tabs,
+    non-breaking-spaces, trailing whitespace. Avoid accidentally indenting with
+    tabs when a file is indented with spaces, and vice versa.
+- [Spellcheck](http://vimcasts.org/episodes/spell-checking/)
+  - Spellcheck your code comments, markdown files, git commits. Never again will
+    your code comments speak of "matrixes" and "varibles." _Never. Again._
 
 ---
 
-# Plugin Recommendations
+Plugin Recommendations
+================================================================================
 
-Some of these require a great deal of hair-pulling and frustration to properly
-set up. These plugins are loosely sorted by usefulness and ease of installation,
-with more useful/easier to install plugins near the top.
+This is a "grab bag" of plugins that we've found useful in the past. Don't go
+through and blindly install every plugin on this list; start by installing the
+ones that interest you, then gradually build your `.vimrc` from there.
 
-**vim-surround**
-([GitHub Link](https://github.com/tpope/vim-surround))
+---
 
-Convenient keymappings for working with text that lies "between" things, whether
-they be curly braces, parenthesis, quotation marks, HTML tags, and more.
+Essentials
+--------------------------------------------------------------------------------
 
-**vim-unimpaired**
-([GitHub Link](https://github.com/tpope/vim-unimpaired))
+These come _strongly_ recommended. While their usefulness isn't immediately
+obvious, these are some of the most _useful_ vim plugins available. They provide
+functionality whose absence you will _mourn_ if you're ever forced to use
+a non-vim text editor or a "vanilla" vim installation.
 
-Convenient keymappings wrapping around some of vim's less intuitive commands.
+#### [vim-surround](https://github.com/tpope/vim-surround)
 
-**nerdtree**
-([GitHub Link](https://github.com/scrooloose/nerdtree))
+Keymappings that make it easy to work with a piece of text's "surroundings."
+Makes it possible to quickly (i.e. literally four keystrokes) replace the double
+quotes surrounding a paragraph with single quotes, replace an erroneous set of
+curly braces with parentheses, and quickly edit or insert HTML tags.
+
+#### [vim-rsi](https://github.com/tpope/vim-rsi)
+
+Enable readline-style keybindings in insert mode and on the vim command line.
+
+These are the "`META-b` to go back a word," "`META-f to go forward a word"
+bindings we mentioned in the earlier section on normal mode navigation.
+Interestingly, these actually don't work by default when typing vim commands,
+which can be a source of aggravation if you realize that you mistyped the second
+argument of a five-argument command. Instead of mashing the left arrow key, or
+using the mouse like a pleb, use readline keybindings!
+
+Note that the "rsi" in "vim-rsi" stands for "readline-style insertion" and not
+"repetitive stress injury," although this plugin definitely helps to prevent the
+latter.
+
+#### [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
+
+Keymappings wrapping around some of vim's less intuitive commands
+(e.g. "next buffer," "next location in the location list," etc.)
+
+#### [tabular](https://github.com/godlygeek/tabular)
+
+Visually select a large block of text, hit a few keystrokes, and instantly
+space-align everything in that highlighted block. [Check this screencast for more details.](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/)
+
+#### [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister)
+
+Deleting a chunk of text into the unnamed register (`""`), visually selecting
+another chunk of text, and then pasting the previously deleted text "on top" of
+it will clobber the unnamed register. (vim acts as if the "replaced" text was
+deleted, and shunts it into `""`.)
+
+ReplaceWithRegister makes it possible to paste "on top of" existing text
+without clobbering the `""` register.
+
+---
+
+File Navigation
+--------------------------------------------------------------------------------
+
+Filesystem navigation and navigation within an open file.
+
+#### [nerdtree](https://github.com/scrooloose/nerdtree)
 
 A file explorer for vim that opens in a "sidebar" (actually a narrow vertical
 split.)
 
-**localvimrc**
-([GitHub Link](https://github.com/embear/vim-localvimrc))
+
+#### [BufExplorer](https://github.com/jlanzarotta/bufexplorer)
+
+Quickly switch between any of the buffers (e.g. files, etc.) that vim has open.
+Handy for quickly reopening files without having to launch NERDtree or navigate
+through a complicated folder structure with `:edit`.
+
+
+#### [vim-easymotion](https://github.com/easymotion/vim-easymotion)
+
+Highlight every occurrence of a particular character on your screen and overlay
+a letter on top of it. Choose the character you "want," press it on your
+keyboard, and watch your cursor instantly jump to that location.
+
+[Easier to understand with a screencast.](https://camo.githubusercontent.com/d5f800b9602faaeccc2738c302776a8a11797a0e/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333739373036322f323033393335392f61386539333864362d383939662d313165332d383738392d3630303235656138333635362e676966)
+
+
+#### [fuzzyfind](https://github.com/junegunn/fzf)
+
+Search through your file system, git commits, buffers, etc. by drunkenly
+slapping your keyboard. This is an exaggeration, _but only slightly._
+
+---
+
+"IDE-Like"
+--------------------------------------------------------------------------------
+
+#### [localvimrc](https://github.com/embear/vim-localvimrc)
 
 Load special `.lvimrc` files in when in certain directories. Useful when hopping
 between two codebases adhering to different style guides (e.g. one indents with
@@ -701,15 +928,28 @@ tabs, the other spaces). Pairs nicely with neomake and syntastic, since it lets
 you set your syntax checker's compiler settings per-project by putting `.lvimrc`
 files in those projects' directories.
 
-**fugitive**
-([GitHub Link](https://github.com/tpope/vim-fugitive))
+#### [fugitive](https://github.com/tpope/vim-fugitive)
 
 git integration within vim. On top of letting you `git status`, `git commit`,
 `git pull`, etc., also allows you to [browse the entire git history of a
 particular file.](http://vimcasts.org/episodes/fugitive-vim-exploring-the-history-of-a-git-repository/)
 
-**syntastic**
-([GitHub Link](https://github.com/vim-syntastic/syntastic))
+
+### Syntax Checkers and Linters
+
+[Linting](https://stackoverflow.com/questions/8503559/what-is-linting) is a form
+of static code analysis that checks for "red flags" in code (i.e. the sorts of
+things that `-Wall -Werror -Wconversion -pedantic` will warn you about.) This
+term is often used interchangeably with "syntax checking" or "compilation
+checking."
+
+Linter plugins _massively_ accelerate the ["edit, compile, run"](https://chortle.ccsu.edu/java5/Notes/chap06/ch06_10.html)
+cycle that programmers often use when fixing syntax errors.  If you still
+follow the process of: editing code in a text editor, running g++ from
+a separate terminal window, reading the compilation errors from the terminal,
+and then opening those files in your editor, now is the time to stop.
+
+#### [syntastic](https://github.com/vim-syntastic/syntastic)
 
 The most popular syntax checker for vim. Runs your code through an external
 syntax checker (usually `g++`, for us EECS students) and tells you when you're
@@ -724,8 +964,7 @@ the appropriate `-isystem` and `-I` flags. See the GitHub README's section on
 Note that this is done in a `.vimrc` file. With localvimrc, it can be done in a
 `.lvimrc` file as well.
 
-**neomake**
-([GitHub Link](https://github.com/neomake/neomake))
+#### [neomake](https://github.com/neomake/neomake)
 
 Another syntax checker for vim whose main selling point is asynchronous
 execution (i.e. syntax checking won't momentarily freeze vim, since it happens
@@ -738,8 +977,18 @@ directories unless provided with the appropriate command line flags. Again, you
 can configure this in your `.vimrc`, or in `.lvimrc` files if you have
 localvimrc installed.
 
-**vim-easytags**
-([GitHub Link](https://github.com/xolox/vim-easytags))
+#### [ALE](https://github.com/w0rp/ale)
+
+Asynchronous Linter Engine. Functionally identical to neomake/syntastic, except
+that it runs its syntax checks _completely_ asynchronously without the user
+having to invoke its checks manually.
+
+Also offers semantic autocompletion through [Language Server Protocol,](#the-language-server-protocol)
+as well as the ability to "fix" detected linter errors programmatically.
+
+### Project Navigation
+
+#### [vim-easytags](https://github.com/xolox/vim-easytags)
 
 Automatically generate [ctags](https://en.wikipedia.org/wiki/Ctags) from
 inside vim. Move your cursor over a custom type and hit `CTRL-]` to jump to the
@@ -754,66 +1003,213 @@ Also, don't recursively generate ctags from within `/usr/include` because you
 want to be able to `CTRL-]` custom types from open-source libraries. You'll get a
 tags file that's literally gigabytes in size.
 
-**tagbar**
-([GitHub Link](https://github.com/majutsushi/tagbar))
+#### [tagbar](https://github.com/majutsushi/tagbar)
 
 Lets you open a sidebar listing function definitions in the current file. Useful
 when working with very large `.cpp` files. Because it relies on ctags, pairs
 well with vim-easytags, which makes ctag generation a background process.
 
-**vim-snippets**
-([GitHub Link](https://github.com/honza/vim-snippets))
+
+### Autocompletion
+
+#### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+
+Autocompletion for vim. A bit bulky; written before vim had native async
+support and without the benefit of neovim's remote plugins, so installing it
+requires compiling a large executable. More "tried and true" than the others,
+but also large and cumbersome.
+
+#### [deoplete](https://github.com/Shougo/deoplete.nvim)
+
+Asynchronous autocompletion for neovim (natively) and vim (with some auxiliary
+plugins). Supports autocompletion from a variety of sources, ranging from common
+programming languages like Python and C++ to browser windows to active tmux
+panes.
+
+Actively maintained and well-supported.
+
+#### [nvim-completion-manager](https://github.com/roxma/nvim-completion-manager)
+
+Autocompletion for neovim using neovim's async API. Serves the same purpose as
+deoplete, but is generally easier to install and configure. Comes with
+"out-of-the-box" support for common autocompletion sources (e.g. the current
+buffer, ctags, other tmux panes, local filepaths, etc.) More heavily
+parallelized than deoplete, and potentially faster. Has better documentation.
+
+As of the time of writing (April 2018), nvim-completion-manager is no longer
+maintained, but is still more than stable enough for daily use.
+
+
+### The Language Server Protocol
+
+The [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
+(abbreviated as **LSP**) is a generic interface that provides "language-specific
+smarts" for any text editor that supports it. These "smarts" include, among
+other things:
+
+- Semantic autocompletion (of variable names accessible in the current scope,
+  member functions of custom types, `#define` macros, object types from
+  `#include`d libraries, etc.)
+- "Go-to definition" (whereby a programmer can "mouse-over" a variable, hit
+  a hotkey, and jump to where that variable was first declared)
+- "Tooltip" Documentation (whereby a programmer can "mouse-over" a function call
+  and see relevant snippets from that item's documentation)
+- Symbol Renaming (whereby a programmer can, for instance, intelligently
+  "bulk-rename" all occurrences of a local variable `int foo` _without_
+  clobbering a `double foo` declared in a different variable scope)
+
+A number of text editors support LSP (i.e. have working "language clients"),
+including Eclipse, VSCode, Sublime Text, Atom, emacs, and (neo)vim.
+
+The core idea behind the LSP is the fact that _any language server will work
+with any language client._ [Rather than,](https://langserver.org/) say, writing
+five different implementations of semantic Python autocompletion for five
+different text editors (and then having to write five different implementations
+of Rust autocompletion for those same five editors, and so on), one can simply
+write five language clients for those five editors, and then write a [single
+Python language server](https://github.com/palantir/python-language-server) that
+will work with all of them.
+
+The use of LSP requires the installation of a **language client** for your text
+editor, and **language servers** for the programming languages you wish to use.
+
+#### [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim/)
+
+Currently the best language client available for (neo)vim. Despite its name,
+this plugin does work with "ordinary" vim. That said, its semantic
+autocompletion works best when used alongside an autocompletion plugin, such as
+deoplete or nvim-completion-manager.
+
+#### [Language Servers](https://langserver.org/#implementations-server)
+
+The following is a list of the language servers that we recommend, along with
+(possibly outdated) notes about how to install them and get them working.
+
+For **Python,** we recommend [python-language-server.](https://github.com/palantir/python-language-server)
+Unlike many plugins on this page, python-language-server (abbreviated as `pyls`)
+has a nearly painless installation process (`pip install --user --upgrade jedi
+python-language-server`) and is most likely to work "out of the box." Because of
+this, and because many upper-level EECS courses use Python, we recommend
+installing `pyls` as a sanity check to verify that your LSP installation
+actually works.
+
+For **C/C++** we recommend either [clangd](https://clang.llvm.org/extra/clangd.html)
+or [cquery](https://github.com/cquery-project/cquery). While both are almost
+functionally identical, they have different strengths, most of which involve
+their installation processes.
+
+*Note,* however, that both cquery and clangd use [LLVM's clang](https://en.wikipedia.org/wiki/Clang)
+as a backend. Consequently, both require working clang installations, and both
+require [up-to-date `compile_commands.json` files](https://github.com/cquery-project/cquery/wiki/compile_commands.json)
+for the current project.
+
+**clangd** is more likely to work "out of the box," but its installation process
+is a bit frustrating. As of the time of writing, clangd is not in Ubuntu's
+standard package repositories, and functional binaries are only available with
+clang versions 6 and newer. The author typically installs `clangd` onto Ubuntu
+machines with the following:
+
+```
+$ # Grab LLVM repository's public key
+$ # NOTE: this may "hang"; if it does, interrupt it with CTRL-C and try running it again.
+$ wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+$
+$ # Add the LLVM PPA, to enable `sudo apt install` of more recent clang packages
+$ sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+$ sudo apt-get update
+$ $INSTALLCMD clang*6.0 clang-tools-6.0
+$
+$ # Use clang-6.0 for everything
+$ # NOTE: if you're actually using clang for schoolwork, DON'T run this blindly,
+$ #       since it may break your preexisting clang installation.
+$ sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0 100
+$ sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+$ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-6.0 100
+```
+
+**cquery** was designed to allow rapid semantic autocompletion from the entire
+codebase of Google Chromium. It does this by caching _everything_ into memory.
+This works well with small codebases (e.g. EECS projects) and computers with
+large (`>= 16GiB`) amounts of memory.
+
+Installation involves either [downloading and extracting prebuilt binaries](https://github.com/cquery-project/cquery/releases)
+or [building cquery itself from source.](https://github.com/cquery-project/cquery/wiki/Getting-started)
+
+###  Debuggers
+
+#### [vim-vebugger](https://github.com/idanarye/vim-vebugger)
+
+A "no-frills" vim front-end for several commonly used debuggers. Allows
+users to set breakpoints, open a debugger console in a split, inspect variable
+values, and so on. Supports GDB and LLDB (for C/C++) and PDB (for Python), among
+others.
+
+#### [lldb.nvim](https://github.com/dbgx/lldb.nvim)
+
+Provides an "IDE-like" debugging interface for C/C++ inside neovim, allowing the
+user to set breakpoints, inspect variable values, and traverse the stack, among
+other things. It acts as a front-end for [LLDB](http://lldb.llvm.org/), which is
+clang's equivalent of gcc's GDB, and allows the user to explicitly invoke LLDB
+"commands" through vim's command-line.
+
+While extremely useful, this plugin is a massive pain to install and configure.
+While clangd requires clang-6.0 or above, lldb.nvim requires clang-3.8 _or
+lower_ due to [issues with LLDB's Python API.](https://github.com/dbgx/lldb.nvim/issues/51#issuecomment-294894345)
+For this reason, lldb.nvim is no longer actively maintained, and it experiences
+occasional crashes when used to debug large projects.
+
+It is possible to install and use lldb.nvim alongside clangd. To achieve this,
+one must `sudo apt install clang lldb` (which, on Ubuntu 16.04, installs
+clang-3.8 and lldb-3.8). Further, one must also [fix the symlinks](https://stackoverflow.com/a/31005690)
+that LLDB attempts to install. (Note that the respondent in the link installed
+clang-3.6, so you will have to tweak his code to work properly with clang-3.8.)
+
+---
+
+Snippets
+--------------------------------------------------------------------------------
+
+#### [vim-snippets](https://github.com/honza/vim-snippets)
 
 Create "templates" that you can drop into text files. Useful for writing
 documents in LaTeX, inserting comment blocks of predetermined length, and so on.
 The backend for plugins like UltiSnips.
 
-**UltiSnips**
-([GitHub Link](https://github.com/SirVer/ultisnips))
+#### [UltiSnips](https://github.com/SirVer/ultisnips)
 
 Provides a convenient interface for creating, editing, and inserting snippets.
 
-**vimtex**
-([GitHub Link](https://github.com/lervag/vimtex))
+Miscellany
+--------------------------------------------------------------------------------
+
+#### [vimtex](https://github.com/lervag/vimtex)
 
 A bunch of things that are handy for editing TeX files. Among other things, lets
 you do the thing where you view a "live" compiled PDF of your current TeX file next
 to your editor in SumatraPDF or similar.
 
-### Uncooperative (But Very Useful) Plugins
+#### [vim-airline](https://github.com/vim-airline/vim-airline)
 
-Some assembly required.
+Add useful information to vim's statusline, including:
 
-**lldb.nvim**
-([GitHub Link](https://github.com/dbgx/lldb.nvim))
+- The current git branch (if any)
+- The current filetype
+- The currently active spellfile
+- A wordcount (in markdown files, TeX files, etc.)
 
-Mentioned above. neovim only. Gives you an IDE-like debugging interface from
-inside neovim where you can step through code, set breakpoints on lines, etc.
-Uses `clang` and some additional Python code as a backend.
+Also makes the statusline look pretty.
 
-Installing `clang` on Ubuntu so that lldb.nvim can use it is a bit
-squirrely. See [this question](https://stackoverflow.com/a/31005690) on
-StackOverflow for more information.
+---
 
-#### Autocompletion
 
-**YouCompleteMe**
-([GitHub Link](https://github.com/Valloric/YouCompleteMe))
+External Links
+================================================================================
 
-Autocompletion for vim. A bit bulky; written before vim had native async
-support and without the benefit of neovim's remote plugins, so installing it
-requires compiling an executable. More "tried and true" than the others,
-however.
-
-**deoplete**
-([GitHub Link](https://github.com/Shougo/deoplete.nvim))
-
-Autocompletion for neovim that uses neovim's async API. Less bulky than
-`YouCompleteMe`, but getting its `C++` semantic completion to work is
-_exceptionally_ squirrely.
-
-**nvim-completion-manager**
-([GitHub Link](https://github.com/roxma/nvim-completion-manager))
-
-Autocompletion for neovim using neovim's async API. Allegedly better-written
-than deoplete.
+* [Bram Moolenaar's "Seven habits of effective text editing"](http://moolenaar.net/habits.html)
+* [/r/vim on Reddit](https://reddit.com/r/vim)
+* [/r/neovim on Reddit](https://reddit.com/r/neovim)
+* [vim Wiki](http://vim.wikia.com)
+* [_Learn Vimscript the Hard Way_ by Steve Losh](http://learnvimscriptthehardway.stevelosh.com/)
+* [Steve Losh's Blog](http://stevelosh.com/blog/)
+* [Steve Losh's twitch.tv](https://www.twitch.tv/stevelosh/)
+* [_Practical Vim_ by Drew Neil](https://www.goodreads.com/book/show/13607232-practical-vim)
