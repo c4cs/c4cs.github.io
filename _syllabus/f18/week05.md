@@ -24,6 +24,7 @@ commands:
   - pipe_oper
   - uniq
   - which
-lectureSummary:
-leccapFri:
+lectureSummary: NOTE: Due to the last-minute room shift, there is no recording for the morning lecture that took place in 1571 GGBL.
+leccapFri: MnIz7k
+leccapWed:
 ---
