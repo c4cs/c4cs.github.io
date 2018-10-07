@@ -16,5 +16,6 @@ title: "Build Systems"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

@@ -16,5 +16,6 @@ title: "No lecture, Thanksgiving break"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

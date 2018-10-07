@@ -16,5 +16,6 @@ title: "IDEs"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

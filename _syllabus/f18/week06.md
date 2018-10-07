@@ -16,5 +16,6 @@ title: "Git II"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

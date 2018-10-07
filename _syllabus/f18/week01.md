@@ -27,6 +27,6 @@ commands:
   - touch
 lectureSummary: Syllabus week! Don't expect anything too deep here. Just an easy introduction to the C4CS curriculum.
 lectureSummary:
-leccapFri: edmTI4
-leccapWed: 9xEB1W
+leccapDOW: edmTI4
+leccapBBB: 9xEB1W
 ---

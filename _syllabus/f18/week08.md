@@ -16,5 +16,6 @@ title: "Unit Testing and Python"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

@@ -16,5 +16,6 @@ title: "Package Managers & Development Environment"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---

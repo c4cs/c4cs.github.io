@@ -16,5 +16,6 @@ title: "TBA - Staff"
 # advancedTopics:
 #   - TBD
 lectureSummary:
-leccapFri:
+leccapDOW:
+leccapBBB:
 ---
