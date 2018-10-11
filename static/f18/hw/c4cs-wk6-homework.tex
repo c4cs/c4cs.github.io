@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 6\\Git II}}
+\author{\textbf{\color{red}{Due: Wednesday, October 24th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+For this assignment, submit parts 1 and 2 to GitLab and part 3 to Gradescope.
+
+
+\section*{Optional Reading}
+
+\emph{Git is a purely functional data structure}, by Philip Nilsson, from Jayway.
+
+\url{http://www.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/}
+
+I highly encourage reading this when you have some time to read the article
+carefully and think deeply about the material.
+This article presents an excellent way of thinking about git and how it
+operates.
+
+
+
+\section{Evaluating git usage}
+
+Earlier this semester, we asked you to use git with at least one project. Now
+you will set up that project to be shared with the course staff. Visit
+\url{https://gitlab.eecs.umich.edu} and create a new project named
+\textbf{exactly} \texttt{c4cs-f18-wk6}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Interal or Public).
+
+Add this new repository as a remote (\texttt{git remote add \dots}) to your
+existing project.
+
+Push the project to this new remote.
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{tarunsk, amrith, 
+cyanliu, sltries} and \texttt{mmdarden}. (Choose ``Members'' from the drop-down 
+list from the settings gear in the top samkhanright to manage this permission).
+
+We will run a test script (you can see the grading script
+\href{https://github.com/c4cs/autograders/tree/master/git-II}{here}), checking 
+our access to everyone's repository on Thursday.
+
+Some key factors we are looking for:
+\begin{enumerate}
+    \item Commit length. Not too long for the title of the commit message, and
+        not too short. Also including more description in the body of the commit
+        message is looked for.
+
+    \item Number of commits. Only having one or two commits in a repository
+        doesn't mean you really used git effectively. In Homework 2 we asked you
+        to begin using git for some sort of a project. This project should have
+        at least five commits in it for it to be considered for full credit.
+\end{enumerate}
+
+Again, for more insight, check out
+\href{https://github.com/c4cs/autograders/tree/master/git-II}{the script used to 
+grade this homework assignment.}
+
+\newpage
+\section{Handling merge conflicts}
+
+\subsection{Content Conflict}
+
+Clone \url{https://gitlab.eecs.umich.edu/c4cs/c4cs-git-conflict1.git}
+
+This repository has a \texttt{master} branch and a \texttt{merge\_me} branch
+that have diverged. Merge the \texttt{merge\_me} branch into \texttt{master},
+resolving the conflict.
+
+When you are done, running \texttt{bash test.sh} should print ``Success'' and
+running \texttt{python main.py} should print something reasonable (if
+factually inaccurate now, hooray!).
+
+Create a new repository in your GitLab named \textbf{exactly}
+\texttt{c4cs-f18-conflict1}.
+Be sure to create this project as
+\textbf{\ul{Private}} (not Internal or Public).
+
+Push your changes to your new repository. (\emph{\small Note: This will be a
+  different ``remote''})
+
+In GitLab, grant \textbf{\ul{Reporter}} permission to \texttt{tarunsk, amrith, 
+cyanliu, sltries} and \texttt{mmdarden}.
+(Choose ``Members'' from the drop-down list from the settings gear in the top
+right to manage this permission).
+
+We will run a test script, checking our access to everyone's repository on
+Thursday night.
+
+\subsection{File Path Conflict}
+
+Repeat the same steps for
+\url{https://gitlab.eecs.umich.edu/c4cs/c4cs-git-conflict2.git}
+
+Be sure to read over the commit history so that you are sure that the result
+of your merge has the right data!
+
+\newpage
+\section{Markdown}
+
+Markdown is a widely used lightweight markup language designed to be easily
+converted into many common formats (eg. HTML or pdf). GitHub uses its own 
+specification called GitHub Flavoured Markdown (GFM) for everything from README 
+docs to pull request comments, so it's important to know some basic Markdown for 
+if you make changes in a public repository.
+
+\textbf{In the spaces given below, write the Github Flavoured Markdown that would 
+produce the following:} \\
+
+\begin{enumerate}
+	\item \textbf{A level 1 header with the text "HW 6 Markdown"} \\ \\ \\ \\ \\
+	\item \textbf{An inline link to} \url{https://c4cs.github.io} \textbf{with the text "C4CS site"} \\ \\ \\ \\ \\
+	\item \textbf{An unordered list with 2 items, one in} \textit{italics} \textbf{and one bold} \\ \\ \\ \\ \\
+	\item \textbf{A code block with c++ syntax highlighting and this code snippet:} \texttt{int rand() \{ return 3; \} } \\ \\ \\ \\ \\
+	\item \textbf{A 2x2 table with the following specifications:}
+	\begin{itemize}
+		\item The first row should be a header row
+		\item The left column should be left aligned
+		\item The right column should be right aligned
+	\end{itemize}
+\end{enumerate}
+
+\end{document}

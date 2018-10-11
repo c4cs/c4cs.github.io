@@ -7,7 +7,7 @@ slidesName: f18/week3
 homeworkRelease: 2018-09-21 00:00:00
 lectureRelease: 2018-09-21 00:00:00
 advancedRelease: 2018-09-21 00:00:00
-# solutionRelease: 2018-10-04 00:00:00
+solutionRelease: 2018-10-04 00:00:00
 title: "Shells, Environment, Scripting, and Bash"
 lectureTopics:
   - How do programs start

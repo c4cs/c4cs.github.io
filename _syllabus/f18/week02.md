@@ -7,7 +7,7 @@ slidesName: f18/week2
 homeworkRelease: 2018-09-14 00:00:00
 lectureRelease: 2018-09-14 00:00:00
 advancedRelease: 2018-09-14 00:30:00
-# solutionRelease: 2018-09-27 00:00:00
+solutionRelease: 2018-09-27 00:00:00
 title: "Basic Git"
 lectureTopics:
   - What's version control?
