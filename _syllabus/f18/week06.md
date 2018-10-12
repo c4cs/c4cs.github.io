@@ -27,6 +27,9 @@ advancedTopics:
 commands:
   - git
 lectureSummary: |
+    Use [this page](/git2assignments.html) to find out the command 
+    you'll be writing documentation for if you do the advanced hw.
+
     Some [tips and tricks](/commands/git) to make working with git more
     enjoyable.
 
