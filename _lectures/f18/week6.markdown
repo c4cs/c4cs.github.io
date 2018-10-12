@@ -32,8 +32,6 @@ We will also post some supplemental material on the [course homepage](https://c4
 ```
    
    
-   
-   
 1 <- 2 <- 3  master
    
    
@@ -53,8 +51,6 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: A New Branch
 
 ```
-   
-   
    
    
 1 <- 2 <- 3  master
@@ -84,8 +80,6 @@ We will also post some supplemental material on the [course homepage](https://c4
 ```
    
    
-   
-   
 1 <- 2 <- 3 <- M1  master
  \            /
   <- 3 <- 4 <-  no_two
@@ -109,11 +103,9 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: Fast Forward
 
 ```
-   
-   
-                 <- 5 <-  fast_five
-                /       \
-1 <- 2 <- 3 <- M1 <- --- <- M2  master
+                 <- 5  master, fast_five
+                /
+1 <- 2 <- 3 <- M1
  \            /
   <- 3 <- 4 <-  no_two
 ```
@@ -136,13 +128,11 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: More Branches
 
 ```
-                                <- 7  add_seven
-                               /
-      fast_five  <- 5 <-      <- 6  add_six
-                /       \    /
-1 <- 2 <- 3 <- M1 <- --- <- M2  master
- \            /
-  <- 3 <- 4 <-  no_two
+                       <- 6  add_six
+                      /
+1 <- 2 <- 3 <- M1 <- 5  master, fast_five
+ \            /       \
+  <- 3 <- 4 <-  no_two <- 7  add_seven
 ```
 
 ## Activity
@@ -166,21 +156,21 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: Merge en Trois
 
 ```
-                                <- 7 <-  add_seven
-                               /       \
-      fast_five  <- 5 <-      <- 6 <- --\ add_six
-                /       \    /           \
-1 <- 2 <- 3 <- M1 <- --- <- M2 <- ------- <- M3  master
- \            /
-  <- 3 <- 4 <-  no_two
+                        <- 6 <-  add_six
+                       /       \
+1 <- 2 <- 3 <- M1 <-- 5 <- ---- <- M2  master
+ \            /        \       /
+  <- 3 <- 4 <-  no_two  <- 7 <-  add_seven
 ```
 
 ## Activity
 
-1. `git checkout master`
+1. `git branch -d fast_five`
 
-2. `git merge add_six add_seven`
-  - Can merge *n* branches at once
+2. `git checkout master`
+
+3. `git merge add_six add_seven`
+  - Can merge *n* branches at once (octopus!)
   - Creates a 'merge commit', why?
 
 
