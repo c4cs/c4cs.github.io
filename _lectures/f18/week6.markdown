@@ -30,13 +30,13 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: In the Beginning...
 
 ```
-
-
-
-
+   
+   
+   
+   
 1 <- 2 <- 3  master
-
-
+   
+   
 ```
 
 ## Activity
@@ -53,10 +53,10 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: A New Branch
 
 ```
-
-
-
-
+   
+   
+   
+   
 1 <- 2 <- 3  master
  \
   <- 3 <- 4  no_two
@@ -82,10 +82,10 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: The First Merge
 
 ```
-
-
-
-
+   
+   
+   
+   
 1 <- 2 <- 3 <- M1  master
  \            /
   <- 3 <- 4 <-  no_two
@@ -109,8 +109,8 @@ We will also post some supplemental material on the [course homepage](https://c4
 # Repo Sandbox: Fast Forward
 
 ```
-
-
+   
+   
                  <- 5 <-  fast_five
                 /       \
 1 <- 2 <- 3 <- M1 <- --- <- M2  master
