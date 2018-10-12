@@ -178,8 +178,8 @@ $ cat ~/.gitconfig
 	st = status
 	ll = log --stat --abbrev-commit
 	gr = log --graph --full-history --all --color
-~~~
 	graph = log --graph --full-history --all --color --pretty=tformat:"%C(red)%h%C(reset)%x09%C(green)%d%C(reset)%C(bold)%s%C(reset)%C(yellow)(%an)%C(reset)"
+~~~
 
 ### `git add`
 
