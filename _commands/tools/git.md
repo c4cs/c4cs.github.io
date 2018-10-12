@@ -152,6 +152,36 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 
+### `.gitconfig`
+
+This file is the global configuration file for your machine. When you first ran
+git, it asked you to run `git config --global user.name "Example Name"`. What
+that command was really doing was writing to this file. Some other things that
+can be useful:
+
+~~~ bash
+$ cat ~/.gitconfig
+[user]
+	name = Pat Pannuto
+	email = pat.pannuto@gmail.com
+
+# This will automatically fix simple typos, e.g. `git psuh` will run `git push`
+[help]
+	autocorrect = 1
+
+# Alias lets you create new git subcommands.
+# The first example lets you type `git st` instead of `git status`.
+# The second example augments `git log` to include a summary of changed files
+# and to show only the commit titles.
+# The last exaples are the `git graph` command we showed in lecture.
+# Try them out!
+[alias]
+	st = status
+	ll = log --stat --abbrev-commit
+	graph1 = log --graph --full-history --all --color
+--pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+	graph2 = log --graph --full-history --all --color --pretty=tformat:"%C(red)%h%C(reset)%x09%C(green)%d%C(reset)%C(bold)%s%C(reset)%C(yellow)(%an)%C(reset)"
+~~~
 
 ### `git add`
 
