@@ -158,7 +158,7 @@ We will also post some supplemental material on the [course homepage](https://c4
 ```
                         <- 6 <-  add_six
                        /       \
-1 <- 2 <- 3 <- M1 <-- 5 <- ---- <- M2  master
+1 <- 2 <- 3 <- M1 <-- 5         <- M2  master
  \            /        \       /
   <- 3 <- 4 <-  no_two  <- 7 <-  add_seven
 ```
