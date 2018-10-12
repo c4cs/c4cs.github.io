@@ -154,10 +154,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ### `.gitconfig`
 
-This file is the global configuration file for your machine. When you first ran
-git, it asked you to run `git config --global user.name "Example Name"`. What
-that command was really doing was writing to this file. Some other things that
-can be useful:
+This file is the global configuration file for all of your projects on this
+machine. When you first ran git, it asked you to run `git config --global
+user.name "Example Name"`. What that command was really doing was writing to
+this file. Some other things that can be useful:
 
 ~~~ bash
 $ cat ~/.gitconfig
@@ -171,15 +171,15 @@ $ cat ~/.gitconfig
 
 # Alias lets you create new git subcommands.
 # The first example lets you type `git st` instead of `git status`.
-# The second example augments `git log` to include a summary of changed files
-# and to show only the commit titles.
-# The last exaples are the `git graph` command we showed in lecture.
+# The rest of the examples augment `git log` to include various summaries of
+# changed files, including the last example `git graph` we showed in lecture.
 # Try them out!
 [alias]
 	st = status
 	ll = log --stat --abbrev-commit
-	graph1 = log --graph --full-history --all --color
+	gr = log --graph --full-history --all --color
 ~~~
+	graph = log --graph --full-history --all --color --pretty=tformat:"%C(red)%h%C(reset)%x09%C(green)%d%C(reset)%C(bold)%s%C(reset)%C(yellow)(%an)%C(reset)"
 
 ### `git add`
 
