@@ -6,28 +6,30 @@ rmdir
 
 __rmdir__: Removes empty directories
 
-## Usage
+### Usage
 ~~~ bash
 rmdir [OPTION] DIRECTORY
 ~~~
 
-This removes the directory DIRECTORY if it is empty. OPTION can be specified to modify command execution. If DIRECTORY is not empty, no directories will be deleted and an error message similar to the following will show up:
+This removes the directory `DIRECTORY` if it is empty. `OPTION` can be specified to modify command execution. If `DIRECTORY` is not empty, no directories will be deleted and an error message similar to the following will show up:
 
 > rmdir: Failed to remove 'DIRECTORY': Directory not empty
 
-### Example Usage
+#### Example Usage
 ~~~ bash
 rmdir directory_to_delete
 ~~~
 Removes `directory_to_delete`  if it is empty
 
-### Example Usage with option
+#### Example Usage with option
 ~~~ bash
 rmdir -p parent/child
 ~~~
 Removes both `parent` and `parent/child` if each is empty
 
-## Available Options
+<!--more-->
+
+### Available Options
 `--ignore-fail-on-non-empty`
 
 Ignore failures that occur because a directory is non-empty
