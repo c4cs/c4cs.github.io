@@ -1,7 +1,7 @@
 ---
 ---
 
-help
+help me
 ----
 `help` is a program that takes a linux program as an input and prints a helpful message about the input program's behavior, its optional/required flags, and how to successfully use the program.
 
