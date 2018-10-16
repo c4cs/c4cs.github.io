@@ -4,8 +4,8 @@
 dc
 -------
 
-Short for "desk calculator", dc is an arbitrary-precision arithmetic package.
-It supports arbitrary, unlimited-precision arithmetic and reverse-polish (postfix) notation.
+Short for "Desk Calculator", dc is an arbitrary-precision arithmetic package.
+It supports arbitrary, unlimited-precision arithmetic and uses reverse-polish (postfix) notation.
 
 ~~~ bash
 $ dc    # Starts the calculator
@@ -21,7 +21,7 @@ $ 1     # output
 <!--more-->
 
 ### Usage
-This is the output from the help options
+This is the output from the help options.
 
 ~~~ bash
 Usage: dc [OPTION] [file ...]
@@ -74,7 +74,7 @@ $ dc --file=<script-file>
 
 ### Useful commands
 
-#### `k`
+#### Set precision `k`
 
 Sets the decimal precision. Most arithmetic operations are affected by the "precision value". The default precision value is zero, which means that all arithmetic except for addition and subtraction produces integer results.
 
@@ -85,7 +85,7 @@ $ 3 k
 
 If you use only k with nothing preceding it it will use the top value on the stack.
 
-#### `c`
+#### Clear stack `c`
 
 Clears the contents of the stack
 
@@ -205,3 +205,6 @@ Pops one value and computes the square root of the value and pushes it on to the
 $ ^
 $ 2 ^
 ~~~
+
+## Similar commands
+This command is similar to `bc`
