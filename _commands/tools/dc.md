@@ -4,7 +4,7 @@
 dc
 -------
 
-Short for "Desk Calculator", dc is an arbitrary-precision arithmetic package.
+Short for "Desk Calculator", `dc` is an arbitrary-precision arithmetic package.
 It supports arbitrary, unlimited-precision arithmetic and uses reverse-polish (postfix) notation.
 
 ~~~ bash
