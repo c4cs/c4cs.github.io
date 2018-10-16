@@ -8,17 +8,31 @@ Short for "desk calculator", dc is an arbitrary-precision arithmetic package.
 It supports arbitrary, unlimited-precision arithmetic and reverse-polish (postfix) notation.
 
 ~~~ bash
-$ dc    // Starts the calculator
-$ 2     // put 2 on the stack
-$ 2 * p // multiply by 2 and print
-$ 4     // output
-$ 1 - p // subtract 1 and print
-$ 3     // output
-$ 2 / p // divide by 2 and print
-$ 1     // output
+$ dc    # Starts the calculator
+$ 2     # put 2 on the stack
+$ 2 * p # multiply by 2 and print
+$ 4     # output
+$ 1 - p # subtract 1 and print
+$ 3     # output
+$ 2 / p # divide by 2 and print
+$ 1     # output
 ~~~
 
 <!--more-->
+
+### Usage
+This is the output from the help options
+
+~~~ bash
+Usage: dc [OPTION] [file ...]
+  -e, --expression=EXPR    evaluate expression
+  -f, --file=FILE          evaluate contents of file
+  -h, --help               display this help and exit
+  -V, --version            output version information and exit
+
+Email bug reports to:  bug-dc@gnu.org .
+~~~
+
 
 ### Options
 
@@ -77,6 +91,14 @@ Clears the contents of the stack
 
 ~~~ bash
 $ c
+~~~
+
+#### Comment `#`
+
+Will interpret rest of the line as a comment.
+
+~~~ bash
+$ 2 + #This will be ignored
 ~~~
 
 
