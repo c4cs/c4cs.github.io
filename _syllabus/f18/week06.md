@@ -35,6 +35,6 @@ lectureSummary: |
 
     Git II OH++ will be held on Tuesday, October 16th 2018 in 1013 DOW 
     from 9am-10:30am
-leccapDOW:
-leccapBBB:
+leccapDOW: A7xAHM
+leccapBBB: xu6vkm
 ---
