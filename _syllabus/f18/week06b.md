@@ -9,5 +9,5 @@ lectureTopics:
   - Why should I contribute?
   - Contributing to an open source project tutorial
 lectureSummary: Attendance is completely optional! If you come, we'll be helping you through Advanced Homework 6 and covering some additional Git related awesomeness.
-leccapFri: Inpk5l
+leccapDOW: Inpk5l
 ---
