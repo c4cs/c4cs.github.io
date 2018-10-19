@@ -85,9 +85,11 @@
       <p><b>B1G TEN Commands</b><p>
       {% for command in page.commands %}
         {% if forloop.last %}
-          <a href="commands/{{ command }}">{{ command }}</a>
+          <!-- <a href="commands/{{ command }}">{{ command }}</a> -->
+          {{ command }}
         {% else %}
-          <a href="commands/{{ command }}">{{ command }}</a> &#x25cf;
+          <!-- <a href="commands/{{ command }}">{{ command }}</a> &#x25cf; -->
+          {{ command }} &#x25cf;
         {% endif %}
       {% endfor %}
     {% endif %}
