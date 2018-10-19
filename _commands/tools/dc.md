@@ -1,7 +1,7 @@
 ---
 ---
 
-dc
+# dc
 -------
 
 Short for "Desk Calculator", `dc` is an arbitrary-precision arithmetic package.
@@ -34,7 +34,7 @@ Email bug reports to:  bug-dc@gnu.org .
 ~~~
 
 
-### Options
+## Options
 
 #### `-V, --version`
 
@@ -72,7 +72,7 @@ $ dc -f <script-file>
 $ dc --file=<script-file>
 ~~~
 
-### Useful commands
+## Useful commands
 
 #### Set precision `k`
 
@@ -102,7 +102,7 @@ $ 2 + #This will be ignored
 ~~~
 
 
-### Printing commands
+## Printing commands
 
 #### `p`
 
@@ -128,7 +128,7 @@ Prints the entire stack without changing it. This is useful for figuring out wha
 $ f
 ~~~
 
-### Arithmetic operations
+## Arithmetic operations
 
 ### Addition `+`
 
