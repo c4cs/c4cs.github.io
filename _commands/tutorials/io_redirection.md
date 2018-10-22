@@ -3,7 +3,7 @@
 I/O Redirection
 ---------------
 
-The I/O redirection operators `>`, `>>`, `<`, and `|`  allow us to read and write input and output from files.
+The I/O redirection operators `>`, `>>`, `<`, and `|`  allow us to read and write input and output from files, and pass output from one program to another.
 
 ~~~ bash
 $ echo "I love bash!" > message.txt
@@ -57,7 +57,7 @@ $ cowsay -w < message.txt
 Feeds the output of the command on the left into the input of the command on the right. 
 
 
-### Advanced Usage: Standard Streams
+### Standard Streams 
 At their core, the I/O redirection operators are interacting with the standard input and output streams, `stdin`, `stdout`, and `stderr`.
 
 ### `stdin`
