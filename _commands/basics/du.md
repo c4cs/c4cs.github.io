@@ -57,7 +57,7 @@ displays files in 'human' readable form.
 
 ~~~ bash
 $ du -h
-1K     filename.txt
-2.4M   song.mp3
-753M   movie.mp4
+1K      filename.txt
+2.4M    song.mp3
+753M    movie.mp4
 ~~~
