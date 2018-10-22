@@ -25,7 +25,7 @@ C4CS is cool
 
 ## Regular Expressions
 The real power of grep comes from its ability to use regular expressions as a pattern. For the folowing examples consider a dictionary called dict.txt.
-###Bracket Expressions
+### Bracket Expressions
 A bracket expression is a list of characters enclosed by [ and ]. A bracket expression will  match any single character in the list.
 ```bash
 $grep c[aou]t dict.txt
@@ -34,14 +34,14 @@ cot
 cut
 ```
 bracket expressions can also be used with a hypen to match a range. [a-e] is equivlent to [abcde]. And [0-9] is equivlent to [0123456789].
-###Negating a Bracket Expression
+### Negating a Bracket Expression
 A carat (^) at the begining of a bracketed expression will match characters not in the list.
 ```bash
 $grep c[^u]t dict.txt
 cat
 cot
 ```
-###Anchoring
+### Anchoring
 The ^ symbol is used to match at the begining of the string. The $ symbol is used to match at the end of the string.
 ```bash
 $grep t dict.txt
@@ -50,7 +50,7 @@ $grep ^t dict.txt
 # returns all words begining with 't'
 $grep t$ dict.txt
 # returns all words ending in 't'
-###Wildcard
+### Wildcard
 The . symbol is used as a wildcard. It can match any single character.
 ```bash
 $grep .oat dict.txt
@@ -59,7 +59,7 @@ coat
 goat
 moat
 ```
-###Repetition
+### Repetition
 The ?  symbol means the preceding item may be matched zero or one times. ab?c matches both "ac" and "abc".
 The * symbol means the preceding item may be matched zero or more times. ab*c mathces "ac", "abc", "abbc", and so on.
 The + symbol means the preceding item may be matched one or more times. ab+c matches "abc", "abbc", "abbbc", and so on.
@@ -68,22 +68,22 @@ The + symbol means the preceding item may be matched one or more times. ab+c mat
 {,n} means the preceding item is matched at most n times. a{,3} matches "","a","aa","aaa".
 {n,m} means the preceding item is matched at least n times and at most m times. a{1,3} matches "a","aa","aaa".
 
-##grep Options
+## grep Options
 
-###-i, --ignore-case
+### -i, --ignore-case
 Uses case insesitive matching for the PATTERN.
-###-v, --invert-match
+### -v, --invert-match
 Prints lines that do not match the PATTERN.
-###-c, --count
+### -c, --count
 Does not print matching lines, instead prints the number of matching lines.
 Can be used in combination with -v as -cv to print the number of non-matching lines.
-###-q, --quiet, --silent
+### -q, --quiet, --silent
 Do not print anything. Exit 0 if any match is found, even if there is an error.
-###-H, --with-filename
+### -H, --with-filename
 Print the filename for eaach match. This option is default when provided with more than one file.
-###-h, --no-filename
+### -h, --no-filename
 Suppress output of file names. This is default when provided with only one file to search
-###-n, --line-number
+### -n, --line-number
 Prefix each line of output with the 1-based line number within its file.
-###-R, -r, --recursive
+### -R, -r, --recursive
 Read all files under a directory
