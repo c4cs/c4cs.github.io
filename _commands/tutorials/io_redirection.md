@@ -3,7 +3,7 @@
 I/O Redirection
 ---------------
 
-We often want to redirect input and output to and from files. The I/O redirection operators `<`, `>`, and `>>` allow us to do this.
+The I/O redirection operators `<`, `>`, and `>>` allow us to read and write input and output from files.
 
 ~~~ bash
 $ echo "I love bash!" > message.txt
@@ -14,4 +14,7 @@ $ cosway -w < message.txt
 
 <!--more-->
 
-### Good stuff coming  
+### Basic Usage
+
+#### `<` operator
+
