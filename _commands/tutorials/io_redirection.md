@@ -3,13 +3,14 @@
 I/O Redirection
 ---------------
 
-The I/O redirection operators `<`, `>`, and `>>` allow us to read and write input and output from files.
+The I/O redirection operators `>`, `>>`, `<`, and `|`  allow us to read and write input and output from files.
 
 ~~~ bash
 $ echo "I love bash!" > message.txt
 $ cowsay -w < message.txt
 $ echo "I love bash so much!" >> message.txt
 $ cosway -w < message.txt
+$ cat message | grep "bash"
 ~~~
 
 <!--more-->
@@ -37,12 +38,11 @@ More text in a file
 ~~~
 
 #### `<` operator
-Feeds the contents of the file on the right into the standard input stream of the program on the left. Will not modify any of the contents of the file, and will throw an error if it doesnt already exits.
+Feeds the contents of the file on the right into the input of the program on the left. Will not modify any of the contents of the file, and will throw an error if it doesnt already exist.
 
 ~~~ bash 
 $ echo "I love bash" > message.txt
 $ cowsay -w < message.txt
-
  _____________
 < I love bash >
  -------------
@@ -53,9 +53,13 @@ $ cowsay -w < message.txt
                 ||     ||
 ~~~
 
+#### `|` operator 
+Feeds the output of the command on the left into the input of the command on the right. 
+
+
 ### Advanced Usage: Standard Streams
+At their core, the I/O redirection operators are interacting with the standard input and output streams, `stdin`, `stdout`, and `stderr`.
 
-
-
+### `stdin`
 
 
