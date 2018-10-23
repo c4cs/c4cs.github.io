@@ -33,22 +33,28 @@ wc -L : prints only the length of the longest line in a file.
 ### Examples
 
 **Number of Lines**
+
 ~~~ bash
 $ wc -l filename.txt
 12 filename.txt
 ~~~
+
 ---
 **Number of Words**
+
 ~~~ bash
 $ wc -w filename.txt
 16 filename.txt
 ~~~
+
 ---
 **Length of Longest Line**
+
 ~~~ bash
 $ wc -L filename.txt
 16 filename.txt
 ~~~
+
 ---
 
 ### For More Help
