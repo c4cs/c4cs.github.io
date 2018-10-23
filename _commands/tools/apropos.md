@@ -32,7 +32,7 @@ who (1)             - show who is logged on
 
 
 ### `apropos --and`
-`apropos --and` allows you to find queries that contain all of the keywords listed, not just one.
+`apropos --and` or `apropos <keyword> -a` allows you to find queries that contain all of the keywords listed, not just one.
 
 ~~~ bash
 $ apropos --and move files
@@ -46,4 +46,14 @@ mv (1)               - move (rename) files
 py3clean (1)         - removes .pyc and .pyo files
 pyclean (1)          - removes .pyc and .pyo files
 rm (1)               - remove files or directories
+~~~
+
+### `apropos --long`
+
+`apropos --long` or `apropos <keyword> -l` allows for you to see the results of your queries without them being truncated due to length.
+
+~~~bash
+$ apropos fanotify_mark -l
+fanotify_mark (2)    - add, remove, or modify an fanotify mark on a filesystem object
+
 ~~~
