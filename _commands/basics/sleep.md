@@ -28,10 +28,12 @@ There are several useful suffixes for sleep. These need to come directly after t
 ~~~
 
 Additionally, the following command options can be specified:
+
 ~~~bash
 sleep --help #display and exit
 sleep --version #output version info and exit
 ~~~
+
 Furthermore, when multiple times are specified after sleep, sleep will delay for the sum of the provided times. Times may be provided in any combination of seconds, minutes, hours, or days. They can also be provided as floating point numbers.
 
 #### Example command
