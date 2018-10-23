@@ -32,7 +32,7 @@ who (1)             - show who is logged on
 
 
 ### `apropos --and`
-This command allows you to find queries that contain all of the keywords listed, not just one.
+`apropos --and` allows you to find queries that contain all of the keywords listed, not just one.
 
 ~~~ bash
 $ apropos --and move files
