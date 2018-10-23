@@ -18,7 +18,7 @@ kilobytes   filename1.txt
 ### Useful Options / Examples
 
 ### `du`
-displays space use of all folders in cwd including itself.
+Displays space use of all folders in cwd including itself.
 
 ~~~ bash
 $ du
@@ -28,7 +28,7 @@ $ du
 ~~~
 
 ### `du -a`
-displays all files in cwd and files in folders of cwd with amount of space used in kilobytes.
+Displays all files in cwd and files in folders of cwd with amount of space used in kilobytes.
 
 ~~~ bash
 $ du -a
@@ -53,7 +53,7 @@ $ du -c
 ~~~
 
 ### `du -h`
-displays files in 'human' readable form.
+Displays files in 'human' readable form.
 
 ~~~ bash
 $ du -h
