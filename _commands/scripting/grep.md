@@ -10,7 +10,7 @@ $grep [OPTIONS] PATTERN [FILE...]
 ```
 
 <!--more-->
-##Examples
+## Examples
 Imagine a file called test.txt:
 ```
 Linux is fun
