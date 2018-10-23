@@ -8,7 +8,6 @@ apropos
 ~~~ bash
 $ apropos mkdir
 $ apropos move -e
-
 ~~~
 
 <!--more-->
@@ -32,6 +31,7 @@ who (1)             - show who is logged on
 
 
 ### `apropos --and`
+
 `apropos --and` or `apropos <keyword> -a` allows you to find queries that contain all of the keywords listed, not just one.
 
 ~~~ bash
@@ -55,5 +55,4 @@ rm (1)               - remove files or directories
 ~~~bash
 $ apropos fanotify_mark -l
 fanotify_mark (2)    - add, remove, or modify an fanotify mark on a filesystem object
-
 ~~~
