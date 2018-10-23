@@ -43,5 +43,6 @@ sleeps for 1 second, since seconds are the default when no additional option is 
 ~~~ bash
 sleep 1m 30s
 ~~~
+
 ##### Break it down
 sleeps for 1 minute and 30 seconds
