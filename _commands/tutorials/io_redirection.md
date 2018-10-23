@@ -61,7 +61,7 @@ $ echo "Pipes are fun!" | grep -c "Pipe"
 1  
 ~~~
 
-### Useful Examples
+### Advanced Examples 
 
 #### Stream Selection
 By default, the `>`, `>>`, and `|` operators all operate on the standard output stream `stdout`, and leave the standard error stream `stderr` untouched. If we want to redirect just the error messages from a program, we can do so by selecting stream 2:
@@ -84,4 +84,28 @@ fatal: Not a git repository (or any of the parent directories): .git
 $ git commit 2>&1 1>/dev/null | grep -c "fatal"
 1
 ~~~
+
+If we want the output of both streams to be redirected into a single file, we can do that with `&>`
+
+~~~ bash
+$ echo '#include <iostream>
+> int main() {
+> std::cout << "This is stdout text\n";
+> std::cerr << "This is stderr text\n";
+> }' > prog.cpp # a simple program that prints to both streams
+$ g++ prog.cpp -o prog
+$ ./prog 2>/dev/null 1> output.txt
+$ cat output.txt
+This is stdout text
+$ ./prog 1>/dev/null 2> output.txt
+$ cat output.txt
+This is stderr text
+$ ./prog &> output.txt
+$ cat output.txt
+This is stdout text
+This is stderr text
+~~~
+
+#### Pipe Chaining
+
 
