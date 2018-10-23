@@ -113,38 +113,27 @@ The `|` operator allows us to solve complex problems in a simple and expressive 
 $ git log
 ~~~
 
-First, we need to isolate the line of each commit that contains the email address. `grep` is great at this:
+First, we need to isolate all the emails in this file. `grep` makes this pretty straightword. Every email
+contains an @ sign and is bracketed by the < and > characters. This gives us the regular expression `<.*@.*>` (note that we're assuming no one types an email in this format into a commit message, which is true of the repository for this website). Combine this with the `-o` flag to print the matching strings only:
 
 ~~~ bash
-$ git log | grep "^Author"
+$ git log | grep -o "<.*@.*>"
 ~~~ 
-
-Next, we need to remove the portion of the line before each email address. We can separate the line into two pieces using `cut`, specifying the delimeter as the < character and telling `cut` to output the second field:
-
-~~~ bash
-$ git log | grep "^Author" | cut -d "<" -f 2
-~~~
-
-Now we nearly have each email address isolated. We just need to remove the trailing > character from each line. `tr` can do this with the -d flag:
-
-~~~ bash
-$ git log | grep "^Author" | cut -d "<" -f 2 | tr -d ">"
-~~~
 
 With each email now isolated, we need to group all identical emails together. `sort` does this easily:
 
 ~~~ bash
-$ git log | grep "^Author" | cut -d "<" -f 2 | tr -d ">" | sort
+$ git log | grep -o "<.*@.*>" | sort
 ~~~
 
 We're almost there. `uniq` will allow us to remove all the duplicate emails:
 
 ~~~ bash
-$ git log | grep "^Author" | cut -d "<" -f 2 | tr -d ">" | sort | uniq
+$ git log | grep -o "<.*@.*>" | sort | uniq
 ~~~
 
-Now we have a list of every unique contributor to the project. All that's left to do is count them up with `wc`:
+Now we have a list of every unique contributor to the project. All that's left to do is count them up with `wc` (the `-l` flag counts the number of lines only):
 
 ~~~ bash
-$ git log | grep "^Author" | cut -d "<" -f 2 | tr -d ">" | sort | uniq | wc -l
+$ git log | grep -o "<.*@.*>" | sort | uniq | wc -l
 ~~~
