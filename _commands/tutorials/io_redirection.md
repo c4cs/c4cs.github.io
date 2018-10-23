@@ -56,6 +56,10 @@ $ cowsay -w < message.txt
 #### `|` operator 
 Feeds the output of the command on the left into the input of the command on the right. 
 
+~~~ bash
+$ echo "Pipes are fun!" | grep -c "Pipe"
+1  
+~~~
 
 ### Standard Streams 
 At their core, the I/O redirection operators are interacting with the standard input and output streams, `stdin`, `stdout`, and `stderr`.
