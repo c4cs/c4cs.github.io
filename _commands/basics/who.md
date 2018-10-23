@@ -17,7 +17,7 @@ run-level 5	2018-10-21 11:46
 
 <!--more-->
 
-### Useful Options / Examples
+### Useful Options 
 
 #### `who`
 With no arguments, who prints the name, shell location, time of login, and any comments for the current user. For users logged into a GUI shell, the commend field often contains the DISPLAY variable they are assigned to.
