@@ -64,7 +64,7 @@ $ echo "Pipes are fun!" | grep -c "Pipe"
 ### Advanced Examples 
 
 #### Stream Selection
-By default, the `>`, `>>`, and `|` operators all operate on the standard output stream `stdout`, and leave the standard error stream `stderr` untouched. If we want to redirect just the error messages from a program, we can do so by selecting stream 2:
+By default, the `>` and `>>` operators all operate on the standard output stream `stdout`, and leave the standard error stream `stderr` untouched. If we want to redirect just the error messages from a program, we can do so by selecting stream 2:
 
 ~~~ bash
 $ git commit 
@@ -76,7 +76,8 @@ $ cat git_errors.txt
 fatal: Not a git repository (or any of the parent directories): .git
 ~~~
 
-We can't directly change the input source of the `|` operator in this fashion, it always reads from `stdout`. If we want to pipe `stderr` only, we can first point `stderr` at `stdout` and then point `stdout` at nothing:
+#### Changing the Input of `|`: Crossing the Streams
+We can't directly change the input source of the `|` operator as we did for `>` and `>>`, it always reads from the default source of `stdout`. If we want to redirect `stderr` only, we can first point `stderr` at `stdout` and then point `stdout` at nothing:
 
 ~~~ bash
 $ git commit 
@@ -85,6 +86,7 @@ $ git commit 2>&1 1>/dev/null | grep -c "fatal"
 1
 ~~~
 
+#### Combining the Streams
 If we want the output of both streams to be redirected into a single file, we can do that with `&>`
 
 ~~~ bash
