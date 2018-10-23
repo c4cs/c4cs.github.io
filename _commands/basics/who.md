@@ -55,5 +55,9 @@ $ who -r
 
 The run-level of a Linux OS corresponds to a certain set of services that are expected to be running. Runlevel 5 corresponds to an operating system that is runninng in full multiuser mode with networking and a GUI (usually X windows) enabled.
 
+#### `who -u`
+Prints a list of all currently logged in users. Useful for collecting usage data for a machine with many users. When on
 
- 
+~~~ bash
+
+~~~
