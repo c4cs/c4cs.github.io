@@ -20,7 +20,7 @@ run-level 5	2018-10-21 11:46
 ### Useful Options / Examples
 
 #### `who`
-With no arguments, who prints the name, shell location, time of login, and any comments for the current user.
+With no arguments, who prints the name, shell location, time of login, and any comments for the current user. For users logged into a GUI shell, the commend field often contains the DISPLAY variable they are assigned to.
 
 ~~~ bash
 $ who
@@ -56,8 +56,9 @@ $ who -r
 The run-level of a Linux OS corresponds to a certain set of services that are expected to be running. Runlevel 5 corresponds to an operating system that is runninng in full multiuser mode with networking and a GUI (usually X windows) enabled.
 
 #### `who -u`
-Prints a list of all currently logged in users. Useful for collecting usage data for a machine with many users. When on
+Prints a list of all currently logged in users. Useful for collecting usage data for a machine with many users. When only one user is logged in, produces equivalent output to plain `who`
 
 ~~~ bash
-
+$ who -u
+noahtutt	tty7		2018-10-21 11:46 	(:0)
 ~~~
