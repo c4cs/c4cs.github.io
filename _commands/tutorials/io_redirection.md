@@ -61,9 +61,27 @@ $ echo "Pipes are fun!" | grep -c "Pipe"
 1  
 ~~~
 
-### Standard Streams 
-At their core, the I/O redirection operators are interacting with the standard input and output streams, `stdin`, `stdout`, and `stderr`.
+### Useful Examples
 
-### `stdin`
+#### Stream Selection
+By default, the `>`, `>>`, and `|` operators all operate on the standard output stream `stdout`, and leave the standard error stream `stderr` untouched. If we want to redirect just the error messages from a program, we can do so by selecting stream 2:
 
+~~~ bash
+$ git commit 
+fatal: Not a git repository (or any of the parent directories): .git
+$ git commit > git_errors.txt
+$ cat git_errors.txt # will generate no output
+$ git commit 2> git_errors.txt
+$ cat git_errors.txt
+fatal: Not a git repository (or any of the parent directories): .git
+~~~
+
+We can't directly change the input source of the `|` operator in this fashion, it always reads from `stdout`. If we want to pipe `stderr` only, we can first point `stderr` at `stdout` and then point `stdout` at nothing:
+
+~~~ bash
+$ git commit 
+fatal: Not a git repository (or any of the parent directories): .git
+$ git commit 2>&1 1>/dev/null | grep -c "fatal"
+1
+~~~
 
