@@ -148,5 +148,3 @@ Now we have a list of every unique contributor to the project. All that's left t
 ~~~ bash
 $ git log | grep "^Author" | cut -d "<" -f 2 | tr -d ">" | sort | uniq | wc -l
 ~~~
-
-#### Redirecting To and From Loops 
