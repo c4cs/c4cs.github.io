@@ -19,15 +19,19 @@ sleep 1.45 #delays for 1.45 seconds
 
 ### Useful Options / Examples
 There are several useful suffixes for sleep. These need to come directly after the specified floating point number provided.
-* s #sleep for specified number of seconds, this is the default
-* m #sleep for specified number of minutes
-* h #sleep for specified number of hours
-* d #sleep for specified number of days
+
+~~~bash
+[Number]s #sleep for specified number of seconds, this is the default
+[Number]m #sleeps for specified number of minutes
+[Number]h #sleep for specified number of hours
+[Number]d #sleep for specified number of days
+~~~
 
 Additionally, the following command options can be specified:
-* --help #display and exit
-* --version #output version info and exit
-
+~~~bash
+sleep --help #display and exit
+sleep --version #output version info and exit
+~~~
 Furthermore, when multiple times are specified after sleep, sleep will delay for the sum of the provided times. Times may be provided in any combination of seconds, minutes, hours, or days. They can also be provided as floating point numbers.
 
 #### Example command
