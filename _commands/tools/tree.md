@@ -21,7 +21,7 @@ tree
 
 <!--more-->
 
-### Useful Options / Examples
+### Useful Options and Examples
 
 #### `tree -L`
 `tree`, by default, will recursively list all directories and files as far as it can go. For large directories, it may be best to limit how deep it lists.  
@@ -73,8 +73,6 @@ tree -L 2 -s -h --du
 #### `tree -a`
 
 Additionally lists hidden files, akin to `ls -a`.
-
-### Extras
 
 #### `tree -f`
 
