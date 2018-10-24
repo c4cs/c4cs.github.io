@@ -21,27 +21,13 @@ Displays information about how to use the `man` command as well as the options t
 
 ~~~ bash
 $ man man
-man(1)                                                                  man(1)
-
+man(1)                                                                  
 NAME
 man - format and display the on-line manual pages
-
 SYNOPSIS
 man  [-acdfFhkKtwW]  [--path]  [-m system] [-p string] [-C config_file]
 [-M pathlist] [-P pager] [-B browser] [-H htmlpager] [-S  section_list]
 [section] name ...
-
-DESCRIPTION
-man formats and displays the on-line manual pages.  If you specify sec-
-tion, man only looks in that section of the manual.  name  is  normally
-the  name of the manual page, which is typically the name of a command,
-function, or file.  However, if name contains  a  slash  (/)  then  man
-interprets  it  as a file specification, so that you can do man ./foo.5
-or even man /cd/foo/bar.1.gz.
-
-See below for a description of where man  looks  for  the  manual  page
-files.
-...
 ~~~
 
 
