@@ -33,7 +33,7 @@ Run the command `apt-cache search "^fortunes"` to see what databses you can have
 
 ### Useful Options / Examples
 
-#### fortune [file] [directory] [all]
+### `fortune [file] [directory] [all]`
 
 The user may specify alternate sayings. You can specify a specific file, a directory which contains one or more files, or the special word all which says to use all the standard databases. The probability of selecting from one of them will be based on their relative sizes in fortunes not raw file size.
 
@@ -44,7 +44,7 @@ $ fortune science riddles
 Logic is a systematic method of coming to the wrong conclusion with confidence.
 ~~~
 
-#### fortune -a, fortune -o
+### `fortune -a`, `fortune -o`
  
 The -a flag lets you choose from all lists of maxims, both offensive and not.
 
@@ -54,7 +54,7 @@ Use at your own risk!
 
 No potentially offensive examples here!
 
-#### fortune -c
+### `fortune -c`
 
 The -c flag shows the cookie file from which the fortune came.
 
@@ -66,7 +66,7 @@ tried taking candy from a baby.
                 -- Robin Hood
 ~~~
 
-#### fortune -f
+### `fortune -f`
 
 The -f flag prints out the list of files which would be searched, but doesn't print a fortune.
 
@@ -121,12 +121,14 @@ $ fortune -f
      3.60% zippy
 ~~~
 
-#### fortune -m [pattern], fortune -im [pattern]
+### `fortune -m [pattern]`, `fortune -im [pattern]`
 The flag -m followed by a pattern prints out all fortunes which match the basic regular expression pattern.  The syntax of these expressions depends on how your system defines re_comp(3) or regcomp(3), but it should nevertheless be similar to the syntax used in grep(1).
 
 The  fortunes  are  output  to standard output, while the names of the file from which each fortune comes are printed to standard error. Either or both can be redirected; if standard output is redirected to a file, the result is a valid  fortunes database file. If standard error is also redirected to this file, the result is still valid, but there will be ``bogus'' fortunes, i.e. the filenames themselves, in parentheses. This can be useful if you wish to remove the gathered matches from their original files, since each filename-record will precede the records from the file it names.
 
 The flag -i when added onto the -m flag tells the -m flag to ignore case for the pattern
+
+Be careful, `fortune -mi [pattern]` does not work and needs to be `fortune -im [pattern]`!
 
 ~~~ bash
 $ fortune -m Macbeth
@@ -200,9 +202,9 @@ As you can see without the -i the Macbeth and MacBeth patterns return two differ
 
 ### Extras
 
-#### With Cowsay
+### With `cowsay`
 
-A popular method of recieving your fortunes is from a cow by using cowsay.
+A popular method of recieving your fortunes is from a cow by using `cowsay`.
 
 ~~~ bash
 $ fortune | cowsay
@@ -220,9 +222,9 @@ $ fortune | cowsay
                 ||     ||
 ~~~
 
-#### With Every Time New Terminal Window
+### With Every New Terminal Window
 
-To get a fortune with every new terminal window add a fortune command (fortune, fortune -o, etc) to your bash rc file:
+To get a fortune with every new terminal window add a `fortune` command (`fortune`, `fortune -o`, etc) to your bash rc file:
 
-go to ~/.bashrc and add the fortune command or even the cowsay fortune combination as a line in the file. 
+go to ~/.bashrc and add the `fortune` command or even the `cowsay | fortune` combination as a line in the file. 
 
