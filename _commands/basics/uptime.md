@@ -13,6 +13,7 @@ $ uptime
 
 <!--more-->
 
+
 ### Useful Options / Examples
 
 #### Description of Output
@@ -28,7 +29,7 @@ $ uptime
 
 
 ### `uptime -p`
-Prints the uptime in a nicer, **p**rettier format.
+Displays the uptime in a nicer, **p**rettier format.
 
 `uptime --pretty` can also be used.
 
