@@ -15,7 +15,7 @@ $ uptime
 
 ### Useful Options / Examples
 
-#### **Description of Output**
+#### Description of Output
 `uptime` displays the following information in one line when it is ran:
 
 * The current time
@@ -27,8 +27,10 @@ $ uptime
 	* The past 15 minutes
 
 
-#### **`uptime -p`**
-Prints the uptime in a nicer, **p**rettier format
+### `uptime -p`
+Prints the uptime in a nicer, **p**rettier format.
+
+`uptime --pretty` can also be used.
 
 ~~~ bash
 $ uptime -p
@@ -36,24 +38,30 @@ up 10 hours, 25 minutes
 ~~~
 
 
-#### **`uptime -s`**
-Displays the uptime **s**ince, in yyyy-mm-dd HH:MM:SS format
+### `uptime -s`
+Displays the uptime **s**ince, in yyyy-mm-dd HH:MM:SS format.
+
+`uptime --since` can also be used.
 
 ~~~ bash
 $ uptime -s
 2018-10-24 11:47:53 
 ~~~
 
-#### **`uptime -V`**
-Displays your **V**ersion of uptime
+### `uptime -V`
+Displays your **V**ersion of uptime.
+
+`uptime --version` can also be used.
  
 ~~~ bash
 $ uptime -V
 uptime from procps-ng 3.3.12 
 ~~~
 
-#### **`uptime -h`**
-Displays a short summary of this page
+### `uptime -h`
+Displays a short **h**elp page, similar to this page. 
+
+`uptime --help` can also be used.
 
 ~~~ bash
 $ uptime -h
