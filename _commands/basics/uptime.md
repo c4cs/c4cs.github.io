@@ -15,7 +15,16 @@ $ uptime
 
 ### Useful Options / Examples
 
-#### Example command
+#### Description of Output
+`uptime` displays the following information in one line when it is ran:
+
+* The current time
+* How long the system has been up
+* The number of users on the system
+* The system load average in
+	* The past 1 minute
+	* The past 5 minutes, and
+	* The past 15 minutes
 
 ##### Break it down
 
