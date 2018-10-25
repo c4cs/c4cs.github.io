@@ -4,7 +4,7 @@
 uptime
 -------
 
-`uptime` tells you how long your system has been up and running.
+`uptime` prints out how long your system has been up and running.
 
 ~~~ bash
 $ uptime
@@ -15,7 +15,7 @@ $ uptime
 
 ### Useful Options / Examples
 
-#### Description of Output
+#### **Description of Output**
 `uptime` displays the following information in one line when it is ran:
 
 * The current time
@@ -26,11 +26,44 @@ $ uptime
 	* The past 5 minutes, and
 	* The past 15 minutes
 
-#### `uptime -p`
+
+#### **`uptime -p`**
 Prints the uptime in a nicer, **p**rettier format
+
 ~~~ bash
 $ uptime -p
 up 10 hours, 25 minutes
 ~~~
 
 
+#### **`uptime -s`**
+Displays the uptime **s**ince, in yyyy-mm-dd HH:MM:SS format
+
+~~~ bash
+$ uptime -s
+2018-10-24 11:47:53 
+~~~
+
+#### **`uptime -V`**
+Displays your **V**ersion of uptime
+ 
+~~~ bash
+$ uptime -V
+uptime from procps-ng 3.3.12 
+~~~
+
+#### **`uptime -h`**
+Displays a short summary of this page
+
+~~~ bash
+$ uptime -h
+
+Usage:
+ uptime [options]
+
+Options:
+ -p, --pretty   show uptime in pretty format
+ -h, --help     display this help and exit
+ -s, --since    system up since
+ -V, --version  output version information and exit
+~~~
