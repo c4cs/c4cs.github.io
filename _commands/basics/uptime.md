@@ -19,16 +19,18 @@ $ uptime
 `uptime` displays the following information in one line when it is ran:
 
 * The current time
-* How long the system has been up
+* How long the system has been up (the 'up time')
 * The number of users on the system
 * The system load average in
 	* The past 1 minute
 	* The past 5 minutes, and
 	* The past 15 minutes
 
-##### Break it down
+#### `uptime -p`
+Prints the uptime in a nicer, **p**rettier format
+~~~ bash
+$ uptime -p
+up 10 hours, 25 minutes
+~~~
 
-#### Example command
-
-##### Break it down
 
