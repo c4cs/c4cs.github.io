@@ -25,6 +25,6 @@ lectureSummary:
 commands:
   - make
   - tup
-leccapDOW:
-leccapBBB:
+leccapDOW: WSthjG
+leccapBBB: lZtp6y
 ---
