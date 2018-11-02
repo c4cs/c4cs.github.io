@@ -33,17 +33,7 @@ Host caen login.engin.umich.edu
   ControlMaster auto
   ControlPath ~/.ssh/_%r@%h:%p
   ControlPersist 43200
-
-Host mmd  # Use your own initials or fave shortcut
-  HostName oncampus-course.engin.umich.edu
-  User mmdarden  # Use your own uniqname
 ```
-
-
----
-
-
-# Tips and Tricks Update
 
 - When connecting to CAEN (with `ssh caen`)
   - First login requires password and DUO
@@ -235,26 +225,26 @@ gdb: unrecognized option '--imaginary-option'
   up with frames that hold parameters, locals, and register information for
   each invocation. Consider math.c:
 
-.column-66[
-```C
-#include <stdio.h>
+.column-60[
+```C++
+#include <iostream>
+using namespace std;
 int subtract (int a, int b) { return a - b; }
-int divide (int a, int* b) { return a / *b; }
+int divide (int a, int *b) { return a / *b; }
 int do_math (int x, int y, int z) {
     int temp = subtract(x, y);
     temp = divide(z, &temp);
     return temp;
 }
 int main () {
-    int temp;
-    temp = do_math(10, 10, 20);
-    printf("Result: %d\n", temp);
+    int temp = do_math(10, 10, 20);
+    cout << "Result: " << temp << endl;
     return 0;
 }
 ```
 ]
 
-.column-33[
+.column-40[
 Function call stack (growing to the right)
 
 main
@@ -274,7 +264,7 @@ main -> do_math -> divide
 
 # gdb Commands
 
-## `list`, `break`, `continue`, `step`, `next`, `set`
+## `list`, `break`, `continue`, `step`, `next`, `finish`, `set`
 
 - Look at your source with `list` or `list <function>`
 
@@ -284,7 +274,7 @@ main -> do_math -> divide
 
 --
 
-- Take things at your own pace with `step` (into) and `next`
+- Take things at your own pace with `step` (into), `next`, and `finish` (out)
 
 --
 
@@ -301,6 +291,12 @@ main -> do_math -> divide
 - List all current breakpoints with `info breakpoints`
 - Remove with `delete <number>` or `disable <number>` until later
 - Skip over working code with breakpoints on either side and `continue`
+
+## Conditional breakpoints
+
+- Unbelievably efficient for debugging
+- Can create with `break myfile:11 if x == 5`
+- Can extend with `condition <breakpoint number> x == 5`
 
 
 ---
@@ -323,12 +319,11 @@ class ObjectPrinter:
         '''Change this to reflect real properties from the object'''
         return self.val
 
-    def lookup_type(val):
-        if val == 'Object':
-            return ObjectPrinter(val)
-
     def display_hint(self):
         return 'Object'
+
+def lookup_type(val):
+    return ObjectPrinter(val) if val.type == 'Object' else None
 
 gdb.pretty_printers.append(lookup_type)
 ```
@@ -350,3 +345,19 @@ gdb.pretty_printers.append(lookup_type)
 # Open Problems with Debugging
 
 ## Look at `inf.c`
+
+```C
+#include <stdio.h>
+
+int recurse(int add_me) {
+    if (add_me == 1) {
+        return add_me;
+    }
+    return recurse(add_me + add_me);
+}
+
+int main() {
+    printf("%d\n", recurse(2));
+}
+```
+
