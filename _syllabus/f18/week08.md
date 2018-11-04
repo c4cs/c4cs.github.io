@@ -19,6 +19,6 @@ lectureTopics:
 # advancedTopics:
 #   - TBD
 lectureSummary: When you are attempting the Homework and Advanced Exercise, please make sure to use a different repository for the Advanced Exercise from the one you use in your Homework. Submitting code from your Advanced Exercise for the regular homework may cause you to lose points when we autograde the homework. You can simply fork your Homework repository and work on the fork for the Advanced Exercise. Link to complete [RPN calculator](https://gitlab.eecs.umich.edu/c4cs/rpn).
-leccapDOW:
-leccapBBB:
+leccapDOW: r4dj33
+leccapBBB: p9WhxS
 ---
