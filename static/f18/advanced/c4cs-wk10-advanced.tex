@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[T1]{fontenc}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{soul}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+
+\fancyfoot[L]{\color{gray} C4CS -- F'18}
+\fancyfoot[R]{\color{gray} Revision 1.1}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Advanced Homework 10\\}}
+\author{\textbf{\color{red}{Due: Wednesday, November 21st, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+To receive credit for this assignment you will need to stop by someone's
+office hours, demo your running code, and answer some questions. \textbf{\color{red}{Make sure
+to check the office hour schedule as the real due date is at the last office
+hours before the date listed above.}} This applies to assignments that need to be gone over with a TA only.
+\textbf{Extra credit is given for early turn-ins of advanced exercises. These details can be found on the website under the advanced homework grading policy.}
+
+\medskip
+
+\section*{Docker}
+
+Docker is an \href{https://github.com/docker}{open source} tool designed to make it easy to build and run applications using containers. 
+Containers allow developers to package an application with all of its dependencies and ship it as one image. As a result, developers can
+be assured that their program will run exactly how they expect it to on any machine that has Docker installed.
+
+In some ways Docker is quite similar to virtual machines like the one you've been using throughout the course as both give you a contained environment
+mostly isolated from the rest of your system. Some of the key differences, however, are that Docker containers are both faster and more lightweight than
+virtual machines. You can read more info on Docker and how its containers compare to VM's \href{https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined}{here}.
+
+To get started, install docker from \href{https://docs.docker.com/install/}{here}.
+To verify that your installation completed successfully, run \lstinline{docker run hello-world} in your terminal, you should see the following:
+
+\begin{lstlisting}
+$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+d1725b59e92d: Pull complete
+Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...
+\end{lstlisting}
+
+
+\subsection*{The Assignment}
+
+\textbf{Set up a Docker environment with GDB installed and push it to the Docker Hub.}
+
+For many of your C++ projects (i.e. EECS 281 projects), you might want to use the latest 
+version of GDB which isn't available on MacOS or Windows. One way to get around this is to
+build a docker container to run GDB in. This allows you to compile, run, and debug the program locally, eliminating
+the need to sync to CAEN every time you want to test something out.
+
+For this assignment, set up a linux based Docker container with GDB and push it to the \href{https://hub.docker.com/}{Docker Hub} (you will need an account for this).
+You can use any distro you want (\href{https://hub.docker.com/_/alpine/}{Alpine} is a nice 5 MB linux distro used a lot with docker) 
+but it'll be simplest to build from an \href{https://hub.docker.com/_/ubuntu/}{Ubuntu} image.
+
+Some links you might find useful are \href{https://docker-curriculum.com/}{this Docker tutorial} and \href{https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images}{this Dockerfile tutorial}
+
+\subsection*{Submission checkoff}
+\begin{itemize}
+  \item[$\square$] Show off your Dockerfile
+  \item[$\square$] Use GDB on a project without copying the project fiels over to the container
+  \item[$\square$] Show that you've got your image on the Docker Hub
+\end{itemize}
+
+
+\section*{\texttt{Expect} Respect}
+
+This sections touches on a handy scripting language called \texttt{expect} that
+can be used to automate interactions with remote servers. What we'll be doing is
+partially automating the login procedure for Michigan servers. We say partially
+because of the two-factor step during the login procedure.
+
+First you'll need to install \texttt{expect} for your system (Ubuntu and MacOS
+both have packages available for download).
+
+Some guiding steps this script should accomplish are:
+
+\begin{enumerate}
+    \item
+        Prompt the user for their uniqname password and store
+        it in a variable. This output should \textbf{not} be displayed on the screen when
+        the user types in their password!
+    \item
+        Initiate a connection to CAEN and \texttt{send} the password previously
+        provided by the user.
+    \item
+        Select one of the Duo options to fire off the push/call/text
+        automatically.
+\end{enumerate}
+
+Although the creating of this script doesn't save too much time during the login
+process for CAEN, this tool can be useful for a lot of other
+tasks where you are using key-based access to servers and aren't prompted for
+passwords or Duo options.
+
+As always, there are multiple ways to accomplish some of the tasks above. A
+potential solution requires no more than about 20 lines of \texttt{expect}
+scripting.
+
+\subsection*{Submission checkoff}
+\begin{itemize}
+  \item[$\square$] Explain why it's a bad idea to hardcode the password for the
+      user into the expect script
+  \item[$\square$] You'll almost certainly have \texttt{\textbackslash r} in your script. Explain
+      what this means/does
+  \item[$\square$] Show off your script working
+    \begin{itemize}
+        \item[$\square$] Prompting the user for their password (and not
+            displaying it on the screen)
+      \item[$\square$] Automatically selecting one of the Duo options
+      \item[$\square$] Successfully logging the user into CAEN
+    \end{itemize}
+\end{itemize}
+
+\end{document}
