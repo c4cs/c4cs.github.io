@@ -14,10 +14,12 @@ lectureTopics:
   - Inspecting package contents
   - Uploading packages
   - The magic of Free Open Source Software
-# homeworkTopics:
-#   - TBD
-# advancedTopics:
-#   - TBD
+homeworkTopics:
+   - Setting up a dotfiles repository
+   - Setting up connections for remote work
+advancedTopics:
+   - Using Docker to debug
+   - Using expect to manage remote login
 lectureSummary:
 leccapDOW:
 leccapBBB:
