@@ -6,8 +6,8 @@ lecturer: mmdarden
 slidesName: f18/week10
 homeworkRelease: 2018-11-09 11:00:00
 lectureRelease: 2018-11-09 11:00:00
-advancedThisWeek: true
-solutionRelease: 2018-11-22 00:00:00
+advancedRelease: 2018-11-09 11:00:00
+# solutionRelease: 2018-11-22 00:00:00
 title: "Package Managers & Development Environment"
 lectureTopics:
   - Installing packages
