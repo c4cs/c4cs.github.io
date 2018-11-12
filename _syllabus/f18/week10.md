@@ -21,6 +21,6 @@ advancedTopics:
    - Using Docker to debug
    - Using expect to manage remote login
 lectureSummary:
-leccapDOW:
-leccapBBB:
+leccapDOW: tRtZVT
+leccapBBB: SMDqsi
 ---
