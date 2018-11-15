@@ -7,7 +7,7 @@ slidesName: f18/week8
 homeworkRelease: 2018-10-26 00:00:00
 lectureRelease: 2018-10-26 00:00:00
 advancedRelease: 2018-10-26 00:00:00
-# solutionRelease: 2018-11-08 00:00:00
+solutionRelease: 2018-11-08 00:00:00
 title: "Unit Testing and Python"
 lectureTopics:
   - What's unit testing?
