@@ -7,7 +7,7 @@ slidesName: f18/week7
 homeworkRelease: 2018-10-19 00:00:00
 lectureRelease: 2018-10-19 00:00:00
 advancedRelease: 2018-10-19 00:00:00
-# solutionRelease: 2018-11-01 00:00:00
+solutionRelease: 2018-11-01 00:00:00
 title: "Build Systems"
 lectureTopics:
   - Conceptual model for a build system

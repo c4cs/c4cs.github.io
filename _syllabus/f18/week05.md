@@ -7,7 +7,7 @@ slidesName: f18/week5
 homeworkRelease: 2018-10-04 00:00:00
 lectureRelease: 2018-10-04 00:00:00
 advancedRelease: 2018-10-04 00:00:00
-# solutionRelease: 2018-10-18 00:00:00
+solutionRelease: 2018-10-18 00:00:00
 title: "Unix II"
 lectureTopics:
   - Lines of text as a universal interface

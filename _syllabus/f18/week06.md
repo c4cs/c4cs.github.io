@@ -8,7 +8,7 @@ homeworkRelease: 2018-10-12 11:00:00
 advancedRelease: 2018-10-12 11:00:00
 lectureRelease: 2018-10-12 11:00:00
 advancedThisWeek: true
-# solutionRelease: 2018-10-25 00:00:00
+solutionRelease: 2018-10-25 00:00:00
 title: "Git II"
 lectureTopics:
   - Understanding branches
