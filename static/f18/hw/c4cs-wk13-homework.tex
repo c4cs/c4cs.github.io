@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[top=.75in, bottom=.75in, left=.75in,right=.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{upquote}
+\usepackage{xcolor}
+
+% http://www.monperrus.net/martin/copy-pastable-ascii-characters-with-pdftex-pdflatex
+\lstset{
+upquote=true,
+columns=fullflexible,
+keepspaces=true,
+literate={*}{{\char42}}1
+         {-}{{\char45}}1
+         {^}{{\char94}}1
+}
+\lstset{
+  moredelim=**[is][\color{blue}\bf\small\ttfamily]{@}{@},
+}
+
+% http://tex.stackexchange.com/questions/40863/parskip-inserts-extra-space-after-floats-and-listings
+\lstset{aboveskip=6pt plus 2pt minus 2pt, belowskip=-4pt plus 2pt minus 2pt}
+
+
+
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{section}{Question}{Questions}
+\Crefname{section}{Question}{Questions}
+
+\begin{document}
+
+
+\fancyhead[C]{\hl{Select the right page in Gradescope or we will not grade the question!}}
+\fancyhead[L]{}
+\fancyhead[R]{}
+
+\fancyfoot[L]{\color{gray} C4CS -- F'18}
+\fancyfoot[R]{\color{gray} Revision 1.0}
+\fancyfoot[C]{\color{gray} \thepage~/~\pageref*{LastPage}}
+\pagestyle{fancyplain}
+
+\title{\textbf{Homework 13\\Profiling, Linting, and Static Analysis}}
+\author{\textbf{\color{red}{Due: Wednesday, December 12th, 11:59PM (Hard Deadline)}}}
+\date{}
+\maketitle
+
+
+\section*{Submission Instructions}
+Submit this assignment on \href{https://gradescope.com/courses/24368}{Gradescope}.
+You may find the free online tool \href{https://www.pdfescape.com}{PDFescape}
+helpful to edit and fill out this PDF.
+You may also print, handwrite, and scan this assignment.
+
+
+\section*{Optional Reading}
+
+\emph{Developer Survey 2018}, from Stack Overflow.
+
+\url{https://insights.stackoverflow.com/survey/2018/}
+
+Some students have asked for some insights into CS in industry. Every year,
+Stack Overflow does a large survey of developers. Their writeup caveats the
+survey a bit, but it's worth calling out again that this is a self-selecting
+group of the 50,000 people who are active or attentive enough to Stack
+Overflow to see the survey and who are willing to spend the time to fill it
+out. The response demographics are not necessarily representative of the
+industry as a whole, nor should you feel obligated to fall into the bins that
+the survey identifies. That said, I think it presents some interesting data.
+They've been doing this for a few years now and looking over the history is
+interesting as well.
+
+
+\newpage
+
+
+\section{Exploring Profiling\protect\footnote{%
+  The \texttt{perf} profiling tools only work on Linux. You'll need a Linux
+  environment (like your VM) for this assignment. If you primarily develop on
+  a mac, XCode ships with a tool called \texttt{Instruments} that can be used
+  to profile that may be worth exploring on your own.
+}}
+
+Clone a copy of
+\url{https://gitlab.eecs.umich.edu/ppannuto/c4cs-f16-profiling}.
+
+Look through \texttt{main.c} to understand what this program is doing (not
+much, a ``nop'' is ``no-operation'', that is, sit idle for a cycle). The call
+graph of this program is about:
+{\small
+\begin{verbatim}
+\-- main
+    \-- parent
+            \-- child1
+            \-- child2,child2,child2,...
+    \-- no_children
+\end{verbatim}
+}
+
+When run, this program will execute \texttt{16*LONG\_TIME} nop instructions.
+By analyzing the code, what percentage of nop's should be attributed to each
+function? Finish filling in the first column of this table:
+
+\bigskip
+\renewcommand{\arraystretch}{1.25} % space out the table rows
+\textbf{
+  \begin{tabular}{r r || r r r}
+                  & \texttt{nop} Analysis & Profile 1 & Profile 2 & Profile 3 \\\hline
+    main:         & 0\%                  & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% \\
+    parent:       & 6.25\%               & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% \\
+    child1:       & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% \\
+    child2:       & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% \\
+    no\_children: & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% & \rule{1cm}{0.15mm}\% \\
+  \end{tabular}
+}
+
+\bigskip
+Now compile and profile the code 3 times, recording the percentage of time
+attributed by \texttt{perf} to each function.
+
+\textbf{Fill in the remaining three columns of the table with the results from
+  these profiling runs.}
+
+\textbf{Does the trend of time attributed to each function align with your
+  expectations from the \texttt{nop} analysis?}
+\begin{quote}
+  \textbf{(Yes or No) \rule{2cm}{0.15mm}}
+\end{quote}
+
+\textbf{Give one reasonable explanation for why you think the measured
+  percentages from profiling don't perfectly match the \texttt{nop} analysis:}
+\vfill
+
+
+\subsection{Call-Graph Profiling}
+Try running \texttt{perf record -g ./main \&\& perf report -g}
+
+The \texttt{-g} flag enables \texttt{call-graph} profiling. This causes to
+profiler to pay attention to which functions called which. This can be a
+slightly more intuitive profiling view, as the leftmost column is now the
+percentage of time that this function and all its children ran. I find this
+view makes finding the path of functions called to get to the time-consuming
+function easier. In C programs, \texttt{main} will always sort to the top as
+100\% of your code runs inside of \texttt{main}. As a thought exercise, what
+code executes outside of \texttt{main} in C++?
+
+In this example from my machine, we can see that the \texttt{parent} function
+takes 65\% of the time, with 8\% of that coming from code \texttt{parent}
+itself, and $42+15$\% coming from child functions:
+
+{\footnotesize
+\begin{verbatim}
++   99.99%     0.00%  main     main               [.] main
++   99.99%     0.00%  main     libc-2.23.so       [.] __libc_start_main
++   99.99%     0.00%  main     [unknown]          [.] 0x07be258d4c544155
++   64.51%     7.90%  main     main               [.] parent
++   42.00%    41.77%  main     main               [.] child2
++   34.86%    34.49%  main     main               [.] no_children
++   15.13%    15.02%  main     main               [.] child1
+\end{verbatim}
+}
+
+\emph{\small
+(There is no question you have to answer in section 1.1)
+}
+
+\newpage
+\section{Trying out Static Analysis}
+
+Recall from the debugging homework earlier this semester, we had some buggy
+code that was trying to compute prime numbers.
+
+\begin{verbatim}
+git clone https://github.com/c4cs/debugging-basics
+git checkout gdb-debug-1       # The first bug
+git checkout valgrind-debug    # The last bug
+\end{verbatim}
+
+Try running our static analysis tools on these two branches.
+
+\textbf{%
+  Does \texttt{cppcheck} find the first or last bug?
+  Does \texttt{scan-build} find either bug?
+}
+
+\vspace{4em}
+
+
+\subsection{On your own code!}
+
+Run the static analysis tools on current or past code you've written. Recall
+that by default, \texttt{cppcheck} does not enable all checks (check out the
+lecture slide if you've forgotten).
+
+\textbf{Copy one warning or error reported here:}\footnote{%
+  In the unlikely case that no code you've ever written produces any warnings,
+  write a small program that generates a message and use that here.
+}
+\vspace{4cm}
+
+\textbf{Does this warning or error impact the correctness of your program? Why
+  or why not?}
+\vspace{3em}
+
+\end{document}
