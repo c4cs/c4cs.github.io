@@ -18,6 +18,6 @@ homeworkTopics:
 advancedTopics:
     - Test coverage using gcov
 lectureSummary: If you're interested in being an IA, we'd love to talk to you! Fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdV-YlbFQEArSN8xwxCvmZR1xkkHhD6a6wYiNFpjAKWdbWsPw/viewform?usp=sf_link) and we'll try to setup a time to discuss your application.
-leccapDOW:
-leccapBBB:
+leccapDOW:IIhfLo
+leccapBBB:a4Ke09
 ---
