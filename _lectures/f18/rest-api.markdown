@@ -1,5 +1,5 @@
 ---
-permalink: /lectures/w18/rest-api.html
+permalink: /lectures/f18/rest-api.html
 ---
 
 class: center, middle
