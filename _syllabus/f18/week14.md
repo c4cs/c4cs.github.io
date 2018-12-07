@@ -12,6 +12,7 @@ title: "Staff Lectures"
 lectureTopics:
   - Introducing REST APIs
   - Python + Twitter
+  - Basic ML with Julia and Azure
 # homeworkTopics:
 #   - TBD
 # advancedTopics:
