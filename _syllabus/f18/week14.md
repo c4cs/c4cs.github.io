@@ -8,7 +8,7 @@ lecturer: staff
 #lectureRelease: 2018-12-07 11:00:00
 #advancedThisWeek: true
 #solutionRelease: 2018-12-20 00:00:00
-title: "TBA - Staff"
+title: "Staff Lectures"
 lectureTopics:
   - Introducing REST APIs
   - Python + Twitter
@@ -16,9 +16,10 @@ lectureTopics:
 #   - TBD
 # advancedTopics:
 #   - TBD
-lectureSummary: 1. Tarun's [Slides](/lectures/f18/rest-api.html)[[pdf](/lectures/f18/rest-api.pdf)] and [Starter Code](https://github.com/tarunsk/eecs398-flask-sample)
-
-                2. Stevie's [Slides](/lectures/f18/python-twitter.html)[[pdf](/lectures/f18/python-twitter.pdf)]
+lectureSummary: |
+  1. Tarun's [Slides](/lectures/f18/rest-api.html)[[pdf](/lectures/f18/rest-api.pdf)] and [Starter Code](https://github.com/tarunsk/eecs398-flask-sample)
+  2. Stevie's [Slides](/lectures/f18/python-twitter.html)[[pdf](/lectures/f18/python-twitter.pdf)]
+  3. Amrit's [Slides](/lectures/f18/intro-julia.html)[[pdf](/lectures/f18/intro-julia.pdf)]
 leccapDOW:
 leccapBBB:
 ---
