@@ -4,7 +4,7 @@
   {% if page.dir contains "/archive/" %}
     {% comment %} Don't redirect archive pages, they are permanent URIs {% endcomment %}
   {% else %}
-  <meta http-equiv="refresh" content="0; URL='http://csprag.herokuapp.com/'" />
+  <meta http-equiv="refresh" content="0; URL='/archive'" />
   {% endif %}
 
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
