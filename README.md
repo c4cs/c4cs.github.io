@@ -8,6 +8,8 @@ new course staff in an internal-to-Michigan gitlab instance.
 You are, of course, still welcome to use any of these course materials however they may be useful to you
 ([![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/) Pat Pannuto).
 
+---
+
 # Computing for Computer Scientists
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -17,8 +19,6 @@ This repository holds the sources for the course homepage for Computing for Comp
 a course for early-career EECS students at the University of Michigan.
 
 For more information, visit the course homepage: [https://c4cs.github.io](https://c4cs.github.io)
-
----
 
 
 ## Contributing
