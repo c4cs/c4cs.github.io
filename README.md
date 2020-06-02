@@ -1,11 +1,25 @@
+# Archive Status
+
+**Note:** This course has been renamed and renumbered as
+[EECS 201: Computer Science Pragmatics](https://bulletin.engin.umich.edu/courses/eecs/#subnav-1).
+The core of the course remains similar, however, active course development now takes place by the
+new course staff in an internal-to-Michigan gitlab instance.
+
+You are, of course, still welcome to use any of these course materials however they may be useful to you
+([![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/) Pat Pannuto).
+
 # Computing for Computer Scientists
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Build Status](https://travis-ci.org/c4cs/c4cs.github.io.svg?branch=master)](https://travis-ci.org/c4cs/c4cs.github.io)
 
 This repository holds the sources for the course homepage for Computing for Computer Scientists,
 a course for early-career EECS students at the University of Michigan.
 
 For more information, visit the course homepage: [https://c4cs.github.io](https://c4cs.github.io)
+
+---
+
 
 ## Contributing
 
